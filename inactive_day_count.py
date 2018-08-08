@@ -7,13 +7,25 @@ import sys
 import csv
 import pandas as pd
 from datetime import datetime, timedelta, date
+import argparse
 
 csv.field_size_limit(sys.maxsize)
 
-regression_table = sys.argv[1]
-burst_issues = sys.argv[2]
-burst_commits = sys.argv[3]
-output_file = sys.argv[4]
+parser = argparse.ArgumentParser()
+parser.add_argument('--regression_table', help='The final congruence table used for linear regression', 
+                default='Sample_Data/regression_table.csv')
+parser.add_argument('--burst_issues', help='The directory containing burst-wise filtered issue threads. (Issues in the burst that are potentially valid for testing', 
+                default='Sample_Data/burst_issues/')
+parser.add_argument('--burst_commits', help='Pickle containing the project bursts', 
+                default='Sample_Data/burst_commits/')
+parser.add_argument('--output_file', help='Modified congruence table with inactive days', 
+                default='Sample_Data/regression_table_with_inactive_days.csv')
+args, unknown = parser.parse_known_args()
+
+regression_table = args.regression_table
+burst_issues = args.burst_issues
+burst_commits = args.burst_commits
+output_file = args.output_file
 
 def FormatBurstTime(burst):
 	burst = burst.replace('/', '-')
@@ -61,23 +73,27 @@ for index, row in data.iterrows():
 	burst_start_obj = FormatBurstTime(burst_start)
 	burst_end_obj = FormatBurstTime(burst_end)
 	project = row['project']
-	
-	print "Processing = ", project
-	issue_file_name = project.replace('~', '_') + "_burst_" + str(burst_id) + "_issues.csv"
-	commits_file_name = project.replace('~', '_') + "_burst_" + str(burst_id) + "_commits.csv"
-	issues = pd.read_csv(os.path.join(burst_issues, issue_file_name))
-	commits = pd.read_csv(os.path.join(burst_commits, commits_file_name))
-	issue_times = list(issues['time'])
-	commit_times = list(commits['time'])
-	if len(issue_times) == 0 or len(commit_times) == 0:
-		print ("Empty data aborting!!")
-		continue
-	formatted_issue_times = list(set(ConvertToTime(issue_times)))
-	formatted_commit_times = list(set(ConvertToTime(commit_times)))
-	missing_days = FindNumOfMissingDays(burst_start_obj, burst_end_obj, formatted_issue_times, formatted_commit_times)
-	to_write = list(row)
-	to_write.append(missing_days)
-	writer.writerow(to_write)
+	issue_file_name = project.replace('_', '~', 1) + "_burst_" + str(burst_id) + "_issues.csv"
+	commits_file_name = project.replace('_', '~', 1) + "_burst_" + str(burst_id) + "_commits.csv"
+	issue_file = os.path.join(burst_issues, issue_file_name)
+	commit_file = os.path.join(burst_commits, commits_file_name)
+
+	if os.path.isfile(issue_file) == True and os.path.isfile(commit_file) == True:
+		print "Processing = ", project
+		issues = pd.read_csv(issue_file)
+		issues = issues[issues['time'] != 'time']
+		commits = pd.read_csv(commit_file)
+		issue_times = list(issues['time'])
+		commit_times = list(commits['time'])
+		if len(issue_times) == 0 or len(commit_times) == 0:
+			print ("Empty data aborting!!")
+			continue
+		formatted_issue_times = list(set(ConvertToTime(issue_times)))
+		formatted_commit_times = list(set(ConvertToTime(commit_times)))
+		missing_days = FindNumOfMissingDays(burst_start_obj, burst_end_obj, formatted_issue_times, formatted_commit_times)
+		to_write = list(row)
+		to_write.append(missing_days)
+		writer.writerow(to_write)
 
 
 
