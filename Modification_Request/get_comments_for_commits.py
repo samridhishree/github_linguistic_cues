@@ -18,18 +18,37 @@ from nltk.stem import PorterStemmer
 import re
 import string
 import codecs
+import argparse
 
 csv.field_size_limit(sys.maxsize)
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--bursty_issues_dir', help='Folder containing burst wise issues', 
+                default='Sample_Data/burst_issues/')
+parser.add_argument('--raw_commit_dir', help='Directory containing raw commit files per project', 
+                default='Sample_Data/raw_commits/')
+parser.add_argument('--ins_del_count_dir', help='Directory containing insertion/deletion counts per commit per project', 
+                default='Sample_Data/ModRequest/insertion_deletion_counts/')
+parser.add_argument('--trained_model', help='Path for trained FastText Model', 
+                default='/usr2/scratch/sschoudh/FastText/trained_model/wiki.en.bin')
+parser.add_argument('--output_dir', help='Directory containing modifcation request filtered files per project', 
+                default='Sample_Data/ModRequest/mod_req_files/')
+args, unknown = parser.parse_known_args()
+
 CHAR_THRESHOLD = 25
-bursty_issues_dir = sys.argv[1]
-raw_commit_dir = sys.argv[2]
-ins_del_count_dir = sys.argv[3]
-trained_model = sys.argv[4]     #FastText Model
-output_dir = sys.argv[5]
+bursty_issues_dir = args.bursty_issues_dir
+raw_commit_dir = args.raw_commits
+ins_del_count_dir = args.ins_del_count_dir
+trained_model = args.trained_model     #FastText Model
+output_dir = args.output_dir
 MAX_LEN = 400
+
+try:
+    os.makedirs(output_dir)
+except:
+    pass
 
 def CleanIssueComment(text):
     i=text.find('~~')    
