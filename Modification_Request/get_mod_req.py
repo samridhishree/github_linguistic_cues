@@ -7,10 +7,20 @@ import os
 import sys
 import csv
 import pandas as pd
+import argparse
 
-regression_table = sys.argv[1]
-mod_req_dir = sys.argv[2]
-output_file = sys.argv[3]
+parser = argparse.ArgumentParser()
+parser.add_argument('--regression_table', help='The regression table that acts as input to linear regression model', 
+                default='Sample_Data/regression_table.csv')
+parser.add_argument('--mod_req_dir', help='Directory containing modifcation request filtered files per project', 
+                default='Sample_Data/ModRequest/mod_req_files/')
+parser.add_argument('--output_file', help='Table with a column attached for presence/absence of modification requests', 
+                default='Sample_Data/regression_table_with_mod_request.csv')
+args, unknown = parser.parse_known_args()
+
+regression_table = args.regression_table
+mod_req_dir = args.mod_req_dir
+output_file = args.output_file
 
 data = pd.read_csv(regression_table)
 print data.shape
