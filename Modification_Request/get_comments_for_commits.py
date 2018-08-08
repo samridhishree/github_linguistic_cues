@@ -27,7 +27,7 @@ CHAR_THRESHOLD = 25
 bursty_issues_dir = sys.argv[1]
 raw_commit_dir = sys.argv[2]
 ins_del_count_dir = sys.argv[3]
-trained_model = sys.argv[4]
+trained_model = sys.argv[4]     #FastText Model
 output_dir = sys.argv[5]
 MAX_LEN = 400
 

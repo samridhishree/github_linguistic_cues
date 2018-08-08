@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, date
 
 csv.field_size_limit(sys.maxsize)
 
-input_file = sys.argv[1]
+regression_table = sys.argv[1]
 burst_issues = sys.argv[2]
 burst_commits = sys.argv[3]
 output_file = sys.argv[4]
@@ -26,9 +26,6 @@ def ConvertToTime(times):
 	for t in times:
 		ft = t.split('+')[0]
 		if len(ft) == 0 or ft == '[]':
-			# print "t = ", t
-			# print "len(t) = ", len(t)
-			# print "len(ft) = ", len(ft)
 			print "Empty time aborting!!"
 			continue
 		t_obj = datetime.strptime(ft, '%Y-%m-%d %H:%M:%S')
@@ -39,10 +36,6 @@ def ConvertToTime(times):
 
 def FindNumOfMissingDays(start, end, issue_times, commit_times):
 	delta = timedelta(days=1)
-	# print "start = ", start
-	# print "end = ", end
-	# print "issue times = ", issue_times
-	# print "commmit times = ", commit_times
 	d = start
 	missing_days = 0
 	while d <= end:
@@ -51,8 +44,8 @@ def FindNumOfMissingDays(start, end, issue_times, commit_times):
 		d += delta
 	return missing_days
 
-data = pd.read_csv(input_file)
-f = open(input_file, 'rU')
+data = pd.read_csv(regression_table)
+f = open(regression_table, 'rU')
 reader = csv.reader(f)
 title = next(reader, None)
 w = open(output_file, 'wb')
@@ -68,8 +61,7 @@ for index, row in data.iterrows():
 	burst_start_obj = FormatBurstTime(burst_start)
 	burst_end_obj = FormatBurstTime(burst_end)
 	project = row['project']
-	# if project != 'cherrypy~cherrypy':
-	# 	continue
+	
 	print "Processing = ", project
 	issue_file_name = project.replace('~', '_') + "_burst_" + str(burst_id) + "_issues.csv"
 	commits_file_name = project.replace('~', '_') + "_burst_" + str(burst_id) + "_commits.csv"

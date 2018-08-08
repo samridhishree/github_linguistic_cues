@@ -8,11 +8,11 @@ import sys
 import csv
 import pandas as pd
 
-congruence_table = sys.argv[1]
+regression_table = sys.argv[1]
 mod_req_dir = sys.argv[2]
 output_file = sys.argv[3]
 
-data = pd.read_csv(congruence_table)
+data = pd.read_csv(regression_table)
 print data.shape
 title = list(data.columns)
 title.append('mod_request')
