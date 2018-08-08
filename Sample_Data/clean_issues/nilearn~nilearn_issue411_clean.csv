@@ -1,0 +1,12 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,411,nilearn,nilearn,eickenberg,2015-02-05 21:42:23,"Addresses https://github.com/nilearn/nilearn/issues/410
+",start issue,[FIX] symmetric cbar not auto and vmax specified raised error,address
+issue_closed,411,nilearn,nilearn,lesteve,2015-02-06 09:20:20,,closed issue,[FIX] symmetric cbar not auto and vmax specified raised error,
+pull_request_title,411,nilearn,nilearn,eickenberg,2015-02-05 21:42:23,"Addresses https://github.com/nilearn/nilearn/issues/410
+",ecb7085fa899be068d93b77862df6959274823e5,[FIX] symmetric cbar not auto and vmax specified raised error,address
+issue_comment,411,nilearn,nilearn,lesteve,2015-02-06 08:17:22,"Hmmm I am not going to claim I understand why, but it looks like this was fixed in master by merging #412. Was that expected @eickenberg ? It does look like there was some code in common between the two PRs.
+",,,hmmm I go claim I understand look like fix master merg 412 wa expect eickenberg It look like code common two pr
+issue_comment,411,nilearn,nilearn,lesteve,2015-02-06 09:20:20,"This was actually fixed in #412, closing.
+",,,thi actual fix 412 close
+pull_request_commit,411,nilearn,nilearn,eickenberg,2015-02-05 21:41:01,FIX symmetric cbar not auto and vmax specified raised error,ecb7085fa899be068d93b77862df6959274823e5,,fix symmetr cbar auto vmax specifi rais error

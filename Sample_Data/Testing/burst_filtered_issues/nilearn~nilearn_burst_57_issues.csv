@@ -1,0 +1,250 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,608,nilearn,nilearn,lesteve,2015-06-18 13:19:25,,closed issue,Add fetcher for power 2011 atlas.,,N,2015-06-12 00:23:05
+4,pull_request_merged,608,nilearn,nilearn,lesteve,2015-06-18 13:19:25,Add fetcher for power 2011 atlas.,e7f271839261046ce8d80136ec3c9acab8fe112d,Pull request merge from AlexandreAbraham/nilearn:power to nilearn/nilearn:master,add fetcher power 2011 atla,N,2015-06-12 20:51:15
+5,issue_comment,608,nilearn,nilearn,bthirion,2015-06-12 20:51:15,"Travis failure: download time out.
+
+Otherwise, an example using it would be great.
+",,,travi failur download time otherwis exampl use would great,Y,2015-06-12 21:26:48
+6,issue_comment,608,nilearn,nilearn,AlexandreAbraham,2015-06-12 21:26:48,"I will commit again to relaunch travis.
+
+> Otherwise, an example using it would be great.
+
+I'm still thinking about that. Any idea is welcome.
+",,,I commit relaunch travi Im still think ani idea welcom,Y,2015-06-12 21:45:40
+7,issue_comment,608,nilearn,nilearn,GaelVaroquaux,2015-06-12 21:45:40,"One remark on these fetchers: I would like us to start having a name convention for atlases: something like fetch_atlas_foobar. It would help with discovery via tab completion.
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Jun 12, 2015, 14:26, at 14:26, Alexandre Abraham notifications@github.com wrote:
+
+> I will commit again to relaunch travis.
+> 
+> > Otherwise, an example using it would be great.
+> 
+> I'm still thinking about that. Any idea is welcome.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/608#issuecomment-111622490
+",,,one remark fetcher I would like us start name convent atlas someth like fetchatlasfoobar It would help discoveri via tab complet sent phone pleas forgiv breviti mi spell On jun 12 2015 1426 1426 alexandr abraham notificationsgithubcom wrote,N,2015-06-13 20:56:38
+12,issue_comment,608,nilearn,nilearn,lesteve,2015-06-18 13:19:22,"Merging, thanks.
+",,,merg thank,N,2015-06-12 20:48:22
+13,pull_request_commit_comment,608,nilearn,nilearn,bthirion,2015-06-12 20:48:22,"composed
+",a40a71630c16cc618d36cfa17bf4a56c932daed2,"(None, '', u'nilearn/datasets.py')",compos,N,2015-06-12 20:48:46
+14,pull_request_commit_comment,608,nilearn,nilearn,bthirion,2015-06-12 20:48:46,"Used to force
+",a40a71630c16cc618d36cfa17bf4a56c932daed2,"(None, '', u'nilearn/datasets.py')",use forc,N,2015-06-13 20:56:22
+15,pull_request_commit_comment,608,nilearn,nilearn,AlexandreAbraham,2015-06-13 20:56:22,"Fixed.
+
+On Fri, Jun 12, 2015 at 10:48 PM, bthirion notifications@github.com wrote:
+
+> In nilearn/datasets.py
+> https://github.com/nilearn/nilearn/pull/608#discussion_r32353637:
+> 
+> > @@ -1066,6 +1066,38 @@ def fetch_smith_2009(data_dir=None, url=None, resume=True, verbose=1):
+> >      return Bunch(**params)
+> > 
+> > +def fetch_power_2011(verbose=1):
+> > -    """"""Download and load the Power et al. brain atlas compose of 264 ROIs.
+> 
+> composed
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/608/files#r32353637.
+",a40a71630c16cc618d36cfa17bf4a56c932daed2,"(None, '', u'nilearn/datasets.py')",fix On fri jun 12 2015 1048 PM bthirion notificationsgithubcom wrote,N,2015-06-13 20:56:28
+19,pull_request_commit_comment,608,nilearn,nilearn,AlexandreAbraham,2015-06-18 11:11:05,"Fixed.
+
+On Thu, Jun 18, 2015 at 12:56 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/datasets.py
+> https://github.com/nilearn/nilearn/pull/608#discussion_r32718520:
+> 
+> > @@ -1066,6 +1066,38 @@ def fetch_smith_2009(data_dir=None, url=None, resume=True, verbose=1):
+> >      return Bunch(**params)
+> > 
+> > +def fetch_atlas_power_2011(verbose=1):
+> > -    """"""Download and load the Power et al. brain atlas composed of 264 ROIs.
+> >   +
+> > -    Parameters
+> 
+> The docstring is wrong: no data_dir or url parameter.
+> 
+> Also the 'verbose' parameter is not used.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/608/files#r32718520.
+",a40a71630c16cc618d36cfa17bf4a56c932daed2,"(None, '', u'nilearn/datasets.py')",fix On thu jun 18 2015 1256 PM loïc estèv notificationsgithubcom wrote,N,2015-06-12 00:22:25
+20,pull_request_commit,608,nilearn,nilearn,AlexandreAbraham,2015-06-12 00:22:25,Add fetcher for power 2011 atlas.,bf4eba3241ecaa4fbd60e6208cc4cacba19535b0,,add fetcher power 2011 atla,N,2015-06-12 08:41:24
+21,pull_request_commit,608,nilearn,nilearn,AlexandreAbraham,2015-06-12 08:41:24,"Add test, fix CSV",18e2cd02ce71cc752789f64954e900bd6d70abdb,,add test fix csv,N,2015-06-12 08:53:36
+22,pull_request_commit,608,nilearn,nilearn,AlexandreAbraham,2015-06-12 08:53:36,Integrate the dataset in nilearn,c7002afc37146fdf1785d02fcb0b98d92668a660,,integr dataset nilearn,N,2015-06-12 21:27:06
+23,pull_request_commit,608,nilearn,nilearn,AlexandreAbraham,2015-06-12 21:27:06,Fix doc,f545c5b7993b6698d98413df96872c9d59890127,,fix doc,N,2015-06-12 21:31:01
+24,pull_request_commit,608,nilearn,nilearn,AlexandreAbraham,2015-06-12 21:31:01,"Merge branch 'power' of https://github.com/AlexandreAbraham/tutorial into power
+
+Conflicts:
+	nilearn/datasets.py",d0a6cc60f5a5e9b290eae859b5038041caf46d1f,,merg branch power power conflict nilearndatasetspi,N,2015-06-13 20:52:59
+12,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-03 11:29:06,"> I would like this PR not to be merged before the middle of next week
+
+I can take care of #481 this week end if you need.
+",,,I take care 481 week end need,N,2015-06-12 07:54:07
+13,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-12 07:54:07,"@GaelVaroquaux is that OK for merging now?
+",,,gaelvaroquaux OK merg,N,2015-06-12 20:45:44
+19,issue_comment,597,nilearn,nilearn,lesteve,2015-06-18 14:11:40,"Good stuff merging.
+",,,good stuff merg,N,2015-06-09 13:29:11
+20,pull_request_commit_comment,597,nilearn,nilearn,banilo,2015-06-09 13:29:11,"alternatively ""to explore first.""
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')",altern explor first,N,2015-06-09 13:34:57
+21,pull_request_commit_comment,597,nilearn,nilearn,banilo,2015-06-09 13:34:57,"if you split into a list of individuals paths why do you use extend() instead of append()?
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')",split list individu path use extend instead append,N,2015-06-09 13:40:03
+22,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-09 13:40:03,"Fixed.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')",fix,N,2015-06-09 13:40:43
+23,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-09 13:40:43,"I want `paths` to be a list of paths. If I use `append`, I will end up with a list of list of paths.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')",I want list path If I use I end list list path,N,2015-06-09 13:47:32
+24,pull_request_commit_comment,597,nilearn,nilearn,banilo,2015-06-09 13:47:32,"OH, ok. I though d, here, already contains only single paths. But I was probably wrong.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')",OH ok I though alreadi contain singl path but I probabl wrong,N,2015-06-17 09:19:45
+25,pull_request_commit_comment,597,nilearn,nilearn,lesteve,2015-06-17 09:19:45,"pre_dirs is not a great name if you ask me. No great suggestion though !
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')",predir great name ask No great suggest though,N,2015-06-17 10:49:13
+26,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-17 10:49:13,"Yeah, I feel the same about it :-/
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')",yeah I feel,N,2015-06-17 11:09:07
+40,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 21:18:20,Update docstring,d877f7d152e99445516a8691db4b05e91b0e900d,,updat docstr,N,2015-06-09 13:41:54
+1,issue_title,430,nilearn,nilearn,AlexandreAbraham,2015-02-15 17:59:01,"Addresses #353.
+
+What is left to do:
+- [x] Improve code coverage if possible
+- [x] Decide what to do if seed is outside of fov (ATM, it will select the closest voxel, meaning one valid voxel on the edge). Suggested behavior: if the seed is too far from the edge, raise an error.
+- [x] Edit: add mask handling. If some voxels are in a ball but outside of the mask, they shouldn't be considered.
+- [x] Decide what to do in case of duplicate in the seeds (this can be an unwanted behavior if two seeds are close and the resolution of the data is low)
+- [x] Open issue about documentation
+- [x] Add example
+",start issue,[MRG] Nifti spheres masker,address 353 what left x improv code coverag possibl x decid seed outsid fov atm select closest voxel mean one valid voxel edg suggest behavior seed far edg rais error x edit add mask handl If voxel ball outsid mask shouldnt consid x decid case duplic seed unwant behavior two seed close resolut data low x open issu document x add exampl,N,2015-06-08 12:50:02
+3,pull_request_title,430,nilearn,nilearn,AlexandreAbraham,2015-02-15 17:59:01,"Addresses #353.
+
+What is left to do:
+- [x] Improve code coverage if possible
+- [x] Decide what to do if seed is outside of fov (ATM, it will select the closest voxel, meaning one valid voxel on the edge). Suggested behavior: if the seed is too far from the edge, raise an error.
+- [x] Edit: add mask handling. If some voxels are in a ball but outside of the mask, they shouldn't be considered.
+- [x] Decide what to do in case of duplicate in the seeds (this can be an unwanted behavior if two seeds are close and the resolution of the data is low)
+- [x] Open issue about documentation
+- [x] Add example
+",3114db43146906d7c09df5c98b8a1b212ff9866d,[MRG] Nifti spheres masker,address 353 what left x improv code coverag possibl x decid seed outsid fov atm select closest voxel mean one valid voxel edg suggest behavior seed far edg rais error x edit add mask handl If voxel ball outsid mask shouldnt consid x decid case duplic seed unwant behavior two seed close resolut data low x open issu document x add exampl,N,2015-06-08 12:50:02
+38,issue_comment,430,nilearn,nilearn,AlexandreAbraham,2015-05-29 12:22:47,"@lesteve Could you do a pass on this one?
+",,,lestev could pass one,N,2015-06-08 16:02:30
+39,issue_comment,430,nilearn,nilearn,bcipolli,2015-06-08 16:02:30,"Good work @AlexandreAbraham ! :+1: 
+",,,good work alexandreabraham 1,N,2015-06-08 16:03:21
+155,pull_request_commit_comment,430,nilearn,nilearn,AlexandreAbraham,2015-06-04 08:02:56,"Fixed.
+",3114db43146906d7c09df5c98b8a1b212ff9866d,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')",fix,N,2015-06-08 09:41:33
+156,pull_request_commit_comment,430,nilearn,nilearn,lesteve,2015-06-08 09:41:33,"You could have the switching logic in _utils/fixes. That wouldn't impair readability and make it easier to remove when the minimum scikit-learn version is bumped up enough.
+",3114db43146906d7c09df5c98b8a1b212ff9866d,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')",you could switch logic utilsfix that wouldnt impair readabl make easier remov minimum scikitlearn version bump enough,N,2015-06-08 09:41:52
+157,pull_request_commit_comment,430,nilearn,nilearn,lesteve,2015-06-08 09:41:52,"Still a valid comment.
+",3114db43146906d7c09df5c98b8a1b212ff9866d,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')",still valid comment,N,2015-06-08 11:48:58
+158,pull_request_commit_comment,430,nilearn,nilearn,AlexandreAbraham,2015-06-08 11:48:58,"Sorry I missed this one. Improved.
+",3114db43146906d7c09df5c98b8a1b212ff9866d,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')",sorri I miss one improv,N,2015-06-08 11:56:18
+211,pull_request_commit,430,nilearn,nilearn,AlexandreAbraham,2015-06-04 07:51:07,Better error handling,1671ea3164bbee2121971602c79d4c64251f4358,,better error handl,N,2015-06-08 09:51:32
+212,pull_request_commit,430,nilearn,nilearn,AlexandreAbraham,2015-06-08 09:51:32,Enhance comment,baaadae478c2cbac5320511d1d73062e7969639f,,enhanc comment,N,2015-06-08 12:03:15
+213,pull_request_commit,430,nilearn,nilearn,AlexandreAbraham,2015-06-08 12:03:15,Merge branch 'nifti_spheres_masker' of https://github.com/AlexandreAbraham/tutorial into nifti_spheres_masker,08aee7ff3c70ebbd37247b05ea3b468444fc8d7c,,merg branch niftispheresmask niftispheresmask,N,2015-06-08 12:27:53
+214,pull_request_commit,430,nilearn,nilearn,AlexandreAbraham,2015-06-08 12:27:53,Address comments,3114db43146906d7c09df5c98b8a1b212ff9866d,,address comment,N,2015-06-08 12:10:52
+2,issue_closed,607,nilearn,nilearn,lesteve,2015-06-23 13:33:32,,closed issue,Enhances error messages for image manipulation,,N,2015-06-11 23:37:09
+4,pull_request_merged,607,nilearn,nilearn,lesteve,2015-06-23 13:33:32,Enhances error messages for image manipulation,ace12f645f724df4600265dae353f0b640b821fb,Pull request merge from AlexandreAbraham/nilearn:error_messages to nilearn/nilearn:master,enhanc error messag imag manipul,N,2015-06-11 23:51:21
+5,issue_comment,607,nilearn,nilearn,GaelVaroquaux,2015-06-11 23:51:21,"> I solved that by creating a custom type error but I don't know if it's
+> the best way to do it.
+
+It's a good one. Congratulations!
+",,,it good one congratul,N,2015-06-12 11:19:52
+6,issue_comment,607,nilearn,nilearn,lesteve,2015-06-12 11:19:52,"There is nilearn/_utils/exceptions.py, this seems like a good home for DimensionError.
+",,,there nilearnutilsexceptionspi seem like good home dimensionerror,N,2015-06-12 21:08:28
+7,issue_comment,607,nilearn,nilearn,bthirion,2015-06-12 21:08:28,"LGTM otherwise
+",,,lgtm otherwis,N,2015-06-13 20:57:13
+8,issue_comment,607,nilearn,nilearn,AlexandreAbraham,2015-06-13 20:57:13,"Good point. I moved it.
+
+On Fri, Jun 12, 2015 at 1:19 PM, Loïc Estève notifications@github.com
+wrote:
+
+> There is nilearn/_utils/exceptions.py, this seems like a good home for
+> DimensionError.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/607#issuecomment-111456750.
+",,,good point I move On fri jun 12 2015 119 PM loïc estèv notificationsgithubcom wrote,N,2015-06-17 09:36:48
+9,issue_comment,607,nilearn,nilearn,lesteve,2015-06-17 09:36:48,"I have to admit I find the recursive depth a bit complicated. I'd be a lot less wary if there was a few tests checking the exception messages e.g. the list of list of lists of images thing.
+",,,I admit I find recurs depth bit complic Id lot less wari test check except messag eg list list list imag thing,Y,2015-06-17 10:45:03
+10,issue_comment,607,nilearn,nilearn,AlexandreAbraham,2015-06-17 10:45:03,"@lesteve: the other way to do that is to prepare an error at first call and pass successively pass it in each call. By doing this, we have an overhead on each call but we don't need to catch / reraise the error in the recursive calls. Do you think it's a better alternative?
+",,,lestev way prepar error first call pass success pass call By overhead call dont need catch rerais error recurs call Do think better altern,N,2015-06-17 11:21:48
+11,issue_comment,607,nilearn,nilearn,lesteve,2015-06-17 11:21:48,"> Do you think it's a better alternative?
+
+Feels simpler to leave it as it is. My point about tests was to at the very least to test the exception message in the snippet that was at the origin of this issue and maybe an error message with the list of list thing.
+",,,feel simpler leav My point test least test except messag snippet origin issu mayb error messag list list thing,Y,2015-06-17 11:23:06
+14,issue_comment,607,nilearn,nilearn,lesteve,2015-06-23 13:33:31,"Looks good, merging, thanks!
+",,,look good merg thank,N,2015-06-12 21:06:02
+15,pull_request_commit_comment,607,nilearn,nilearn,bthirion,2015-06-12 21:06:02,"'increment' instead of 'incr' ?
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/exceptions.py')",increment instead incr,N,2015-06-12 21:06:58
+16,pull_request_commit_comment,607,nilearn,nilearn,bthirion,2015-06-12 21:06:58,"Could you add a comment here ? It looks a bit like black magic.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(12, '', u'nilearn/_utils/niimg_conversions.py')",could add comment It look bit like black magic,N,2015-06-16 09:34:25
+17,pull_request_commit_comment,607,nilearn,nilearn,lesteve,2015-06-16 09:34:25,"Do you really need the setter, by default properties are read-only (yours is write=noop)? Also you could use:
+
+``` python
+@property
+def message(self):
+...
+```
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/exceptions.py')",Do realli need setter default properti readonli writenoop also could use,N,2015-06-16 09:35:45
+18,pull_request_commit_comment,607,nilearn,nilearn,lesteve,2015-06-16 09:35:45,"Really needed?
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/__init__.py')",realli need,N,2015-06-16 11:01:24
+19,pull_request_commit_comment,607,nilearn,nilearn,AlexandreAbraham,2015-06-16 11:01:24,"You're right. I just do that out of habit.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/exceptions.py')",your right I habit,N,2015-06-16 11:07:31
+20,pull_request_commit_comment,607,nilearn,nilearn,AlexandreAbraham,2015-06-16 11:07:31,"I can remove it if you want, it's just for practical reasons.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/__init__.py')",I remov want practic reason,N,2015-06-16 11:09:30
+21,pull_request_commit_comment,607,nilearn,nilearn,lesteve,2015-06-16 11:09:30,"It would make more sense to always import DimensionError from nilearn.exceptions rather than from nilearn._utils. You'll need to change the imports in the tests accordingly.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/__init__.py')",It would make sens alway import dimensionerror nilearnexcept rather nilearnutil youll need chang import test accordingli,Y,2015-06-16 11:14:05
+22,pull_request_commit_comment,607,nilearn,nilearn,AlexandreAbraham,2015-06-16 11:14:05,"Fixed.
+
+On Tue, Jun 16, 2015 at 1:09 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/_utils/__init__.py
+> https://github.com/nilearn/nilearn/pull/607#discussion_r32510889:
+> 
+> > @@ -9,3 +9,5 @@
+> >  from .cache_mixin import CacheMixin
+> > 
+> >  from .logger import _compose_err_msg
+> > +
+> > +from .exceptions import DimensionError
+> 
+> It would make more sense to always import DimensionError from
+> nilearn.exceptions rather than from nilearn._utils. You'll need to change
+> the imports in the tests accordingly.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/607/files#r32510889.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/_utils/__init__.py')",fix On tue jun 16 2015 109 PM loïc estèv notificationsgithubcom wrote,N,2015-06-17 09:23:44
+23,pull_request_commit_comment,607,nilearn,nilearn,lesteve,2015-06-17 09:23:44,"You are still importing DimensionError from nilearn._utils rather than nilearn._utils.exceptions
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/input_data/tests/test_nifti_labels_masker.py')",you still import dimensionerror nilearnutil rather nilearnutilsexcept,N,2015-06-17 09:24:03
+24,pull_request_commit_comment,607,nilearn,nilearn,lesteve,2015-06-17 09:24:03,"Same here.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/input_data/tests/test_nifti_maps_masker.py')",same,N,2015-06-17 09:24:29
+25,pull_request_commit_comment,607,nilearn,nilearn,lesteve,2015-06-17 09:24:29,"same here
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",,N,2015-06-17 12:26:51
+29,pull_request_commit_comment,607,nilearn,nilearn,AlexandreAbraham,2015-06-23 13:22:55,"You can also give a list of list and give valid images in the first list but in the second... There is a limit in the cases we can handle. The best option I can see right now is to add ""Details: imgs[0][1][12] is 3D instead of 4D"" or something like that. But as you said, I think that this PR should go and the message can be detailed afterward.
+",98c62674f4c95a12b5be7a785f6cc4c56d2d1885,"(59, '', u'nilearn/tests/test_niimg_conversions.py')",you also give list list give valid imag first list second there limit case handl the best option I see right add detail imgs0112 3D instead 4D someth like but said I think PR go messag detail afterward,N,2015-06-11 15:38:45
+30,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-11 15:38:45,Create custom error,a6fa5848930c40a59652231a47b7f6d4a9edefc5,,creat custom error,N,2015-06-11 23:31:47
+31,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-11 23:31:47,Add custom error message,002da44481e91a132206635963d490f73539d8ba,,add custom error messag,N,2015-06-12 07:46:04
+32,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-12 07:46:04,Fix tests,c3038719bdbc4269929f84a015afd9c174e3ef2d,,fix test,N,2015-06-12 08:21:55
+33,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-12 08:21:55,Fix failing tests,894d81724ae4fc07643556eba41284c0b099482b,,fix fail test,N,2015-06-12 11:50:59
+34,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-12 11:50:59,Move exception in exceptions file,1847e54f37c2ad5f79b4a5383483ea55a1b96498,,move except except file,N,2015-06-12 11:58:00
+35,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-12 11:58:00,Add docstring,72b9fdbd239849377742349bb3cc5bd933a4ff3d,,add docstr,N,2015-06-13 21:29:38
+36,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-13 21:29:38,Make the clode clearer,9767dac6019a424fe8a1ae0deff8bff8e5432e58,,make clode clearer,N,2015-06-16 11:06:19
+37,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-16 11:06:19,Refactor code,5b908ce8695a7b7e34c25ab05fc878915c6e7205,,refactor code,N,2015-06-16 11:13:19
+38,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-16 11:13:19,Remove import of exception in _utils init,52da44cd6603510f6b2f60f8da1e11e630a96709,,remov import except util init,N,2015-06-17 12:24:48
+39,pull_request_commit,607,nilearn,nilearn,AlexandreAbraham,2015-06-17 12:24:48,Add tests,f8a3902905a56076564c22be40253bfd57762755,,add test,N,2015-06-17 14:40:25
+1,issue_title,604,nilearn,nilearn,AlexandreAbraham,2015-06-10 08:17:22,"Fix #601
+Dimensionality was not checked for the first image, yielding a crash with a non-friendly error message.
+",start issue,Check dimensionality of first img in `concat_niimgs`,fix 601 dimension check first imag yield crash nonfriendli error messag,N,2015-06-10 08:26:48
+2,issue_closed,604,nilearn,nilearn,AlexandreAbraham,2015-06-10 08:26:48,,closed issue,Check dimensionality of first img in `concat_niimgs`,,N,2015-06-10 08:17:22
+3,pull_request_title,604,nilearn,nilearn,AlexandreAbraham,2015-06-10 08:17:22,"Fix #601
+Dimensionality was not checked for the first image, yielding a crash with a non-friendly error message.
+",416bbfcc81d9f3e7895544ee01e5e47651336509,Check dimensionality of first img in `concat_niimgs`,fix 601 dimension check first imag yield crash nonfriendli error messag,N,2015-06-10 08:26:48
+4,pull_request_merged,604,nilearn,nilearn,AlexandreAbraham,2015-06-10 08:26:48,Check dimensionality of first img in `concat_niimgs`,aecde23fde658f43b1f9b4852a9527de7b8d12c1,Pull request merge from AlexandreAbraham/nilearn:error_concat_niimg to nilearn/nilearn:master,check dimension first img,N,2015-06-10 08:19:44
+5,issue_comment,604,nilearn,nilearn,AlexandreAbraham,2015-06-10 08:19:44,"Since this is a simple fix, I'm going to merge it directly after Travis check.
+",,,sinc simpl fix Im go merg directli travi check,Y,2015-06-10 08:13:17

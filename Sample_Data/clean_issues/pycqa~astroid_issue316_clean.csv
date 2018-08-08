@@ -1,0 +1,77 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,316,pycqa,astroid,dbaum,2016-02-10 17:57:56,"I know this isn't common because sys.path usually contains paths to the standard libraries, etc.  But we are using a meta importer for standard libraries so it is possible that sys.path is [].  This leads to exceptions in a couple places because of statements like:
+
+_path = (path is None and sys.path or path)
+
+The intention is that if path is None we use sys.path, otherwise we use path.  But if sys.path is [] and path is None, then _path will be None.  Then:
+
+for __path in __path:
+
+will throw an exception since you cannot iterate None.
+
+This appears to occur in both astroid/modutils.py and logilab/common/modutils.py.  This can be fixed by changing the _path assignment to:
+
+_path = sys.path if path is None else path
+
+However, I'm not sure if handling sys.path==[] is even a reasonable requirement.  If you think it is reasonable, then I'll fix astroid and start a pull request.  How should I update logilab/common?  I didn't see a project for it in PyCQA and I'm not quite sure where it comes from.
+
+On the other hand, nobody really cares about sys.path == [], then I can change the way we launch pylint so that sys.path is always non-empty (perhaps just appending a non-existent path).
+",start issue,pylint throws exception if sys.path is empty,I know isnt common syspath usual contain path standard librari etc but use meta import standard librari possibl syspath thi lead except coupl place statement like path path none syspath path the intent path none use syspath otherwis use path but syspath path none path none then path path throw except sinc cannot iter none thi appear occur astroidmodutilspi logilabcommonmodutilspi thi fix chang path assign path syspath path none els path howev Im sure handl syspath even reason requir If think reason ill fix astroid start pull request how I updat logilabcommon I didnt see project pycqa Im quit sure come On hand nobodi realli care syspath I chang way launch pylint syspath alway nonempti perhap append nonexist path
+issue_closed,316,pycqa,astroid,PCManticore,2016-02-11 10:08:21,,closed issue,pylint throws exception if sys.path is empty,
+issue_comment,316,pycqa,astroid,ceridwen,2016-02-10 18:06:01,"logilab.common was removed as a dependency for astroid, or should have been, as of the last release.  Where are you still seeing it? 
+
+On February 10, 2016 12:57:57 PM EST, dbaum notifications@github.com wrote:
+
+> I know this isn't common because sys.path usually contains paths to the
+> standard libraries, etc.  But we are using a meta importer for standard
+> libraries so it is possible that sys.path is [].  This leads to
+> exceptions in a couple places because of statements like:
+> 
+> _path = (path is None and sys.path or path)
+> 
+> The intention is that if path is None we use sys.path, otherwise we use
+> path.  But if sys.path is [] and path is None, then _path will be None.
+> Then:
+> 
+> for __path in __path:
+> 
+> will throw an exception since you cannot iterate None.
+> 
+> This appears to occur in both astroid/modutils.py and
+> logilab/common/modutils.py.  This can be fixed by changing the _path
+> assignment to:
+> 
+> _path = sys.path if path is None else path
+> 
+> However, I'm not sure if handling sys.path==[] is even a reasonable
+> requirement.  If you think it is reasonable, then I'll fix astroid and
+> start a pull request.  How should I update logilab/common?  I didn't
+> see a project for it in PyCQA and I'm not quite sure where it comes
+> from.
+> 
+> On the other hand, nobody really cares about sys.path == [], then I can
+> change the way we launch pylint so that sys.path is always non-empty
+> (perhaps just appending a non-existent path).
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/PyCQA/astroid/issues/316
+
+## 
+
+Sent from my Android device with K-9 Mail. Please excuse my brevity.
+",,,logilabcommon remov depend astroid last releas where still see On februari 10 2016 125757 PM est dbaum notificationsgithubcom wrote sent android devic K9 mail pleas excus breviti
+issue_comment,316,pycqa,astroid,PCManticore,2016-02-10 18:07:19,"Hmm, interesting. A potential fix would be to let pylint and astroid to use a specific list of paths that can be used instead of sys.path. Alternatively, you could use --init-hook for pylint in order to append something to the path before running the actual analysis. If you need custom support in modutils.py though, I'm not against it, just send a PR (I'll have more time soon for reviewing, so don't worry about my late non-responsiveness)
+",,,hmm interest A potenti fix would let pylint astroid use specif list path use instead syspath altern could use inithook pylint order append someth path run actual analysi If need custom support modutilspi though Im send PR ill time soon review dont worri late nonrespons
+issue_comment,316,pycqa,astroid,dbaum,2016-02-10 18:15:54,"We're a bit behind on pylint, which is why I was still seeing logilab.  Usually my debugging consists of hacking on our internal version until I isolate the problem, then looking at current pylint/astroid code to see if the problem is still present in code.  When possible I also try to reproduce with a clean and recent pylint.  However, in this case there really isn't a good way for me to fake out what the rest of our infrastructure is doing, so I could only demonstrate the problem with our old release.  Anyway, it sounds like logilab isn't a problem.
+
+We already do a lot of sys.path manipulation prior to invoking pylint, so it's easy for me to append something without any additional hooks.  I'm fine with calling this a non-problem and closing the bug.  I just figured it was worth documenting this in an issue just in case someone else runs into the same problem.  But if you feel astroid should handle sys.path==[] gracefully, then I can create a pull request (though testing might be a lot of trouble).
+",,,were bit behind pylint I still see logilab usual debug consist hack intern version I isol problem look current pylintastroid code see problem still present code when possibl I also tri reproduc clean recent pylint howev case realli isnt good way fake rest infrastructur I could demonstr problem old releas anyway sound like logilab isnt problem We alreadi lot syspath manipul prior invok pylint easi append someth without addit hook Im fine call nonproblem close bug I figur worth document issu case someon els run problem but feel astroid handl syspath grace I creat pull request though test might lot troubl
+issue_comment,316,pycqa,astroid,PCManticore,2016-02-10 23:57:54,"If --init-hook fixes your problem, then I think we could close this issue. The behavior can be documented if you're up to that.
+",,,If inithook fix problem I think could close issu the behavior document your
+issue_comment,316,pycqa,astroid,dbaum,2016-02-11 02:54:04,"Yep, go ahead and close the issue.  What did you have in mind for documentation.  The issue itself might be fine - if someone searches for sys.path they'll find it.  Or we can add some comments in code, though I'm not quite sure where would be best.
+",,,yep go ahead close issu what mind document the issu might fine someon search syspath theyll find Or add comment code though Im quit sure would best
+issue_comment,316,pycqa,astroid,PCManticore,2016-02-11 10:08:21,"Let's leave it like this then, if someone else encounters the same problem, it can just find this issue.
+",,,let leav like someon els encount problem find issu

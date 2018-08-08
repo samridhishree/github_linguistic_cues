@@ -1,0 +1,35 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,112,idan,oauthlib,ondrowan,2013-02-14 14:05:15,"- it now calls verify_request with require_callback=True
+- added docstring about oob callback
+- added test demonstrating use case
+
+Should fix #107.
+
+Also, I noticed tests for (invalid) callback request are sending also secrets. Is there any point to do so?
+",start issue,Fixed verify_request_token_request in OAuth1 server,call verifyrequest requirecallbacktru ad docstr oob callback ad test demonstr use case should fix 107 also I notic test invalid callback request send also secret Is point
+issue_closed,112,idan,oauthlib,ib-lundgren,2013-02-14 22:44:51,,closed issue,Fixed verify_request_token_request in OAuth1 server,
+pull_request_title,112,idan,oauthlib,ondrowan,2013-02-14 14:05:15,"- it now calls verify_request with require_callback=True
+- added docstring about oob callback
+- added test demonstrating use case
+
+Should fix #107.
+
+Also, I noticed tests for (invalid) callback request are sending also secrets. Is there any point to do so?
+",0215a772a8d725244a2cf09b49b237eb3fc418da,Fixed verify_request_token_request in OAuth1 server,call verifyrequest requirecallbacktru ad docstr oob callback ad test demonstr use case should fix 107 also I notic test invalid callback request send also secret Is point
+pull_request_merged,112,idan,oauthlib,ib-lundgren,2013-02-14 22:44:51,Fixed verify_request_token_request in OAuth1 server,bf360147ec7bb68e9fd9ae56e3bb30a15fa83105,Pull request merge from ondrowan/oauthlib:oauth1_server_callback_fix to idan/oauthlib:master,fix verifyrequesttokenrequest oauth1 server
+issue_comment,112,idan,oauthlib,ib-lundgren,2013-02-14 21:15:58,"Looks good, just a nit pick comment. Also, feel free to add yourself to the AUTHORS while you are at it.
+
+If you are interested in digging deeper I'd be happy to help out getting you started. For example with #95.
+",,,look good nit pick comment also feel free add author If interest dig deeper Id happi help get start for exampl 95
+issue_comment,112,idan,oauthlib,ondrowan,2013-02-14 22:37:39,"Fixed 'n squashed.
+
+I'll try to look at that issue later.
+",,,fix n squash ill tri look issu later
+pull_request_commit_comment,112,idan,oauthlib,ib-lundgren,2013-02-14 21:11:31,"Please move this up ~30 lines or so to the other ValueError throwing checks.
+",0215a772a8d725244a2cf09b49b237eb3fc418da,"(None, '', u'oauthlib/oauth1/rfc5849/__init__.py')",pleas move 30 line valueerror throw check
+pull_request_commit,112,idan,oauthlib,ondrowan,2013-02-14 13:42:11,"Fixed verify_request_token_request in OAuth1 server.
+* it now calls verify_request with require_callback=True
+* added docstring about oob callback
+* added test demonstrating use case",a81ca125536354a1007394c7525ec267392d9361,,fix verifyrequesttokenrequest oauth1 server call verifyrequest requirecallbacktru ad docstr oob callback ad test demonstr use case
+pull_request_commit,112,idan,oauthlib,ondrowan,2013-02-14 22:36:07,Added my little self to AUTHORS,0215a772a8d725244a2cf09b49b237eb3fc418da,,ad littl self author

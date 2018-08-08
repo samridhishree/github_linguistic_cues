@@ -1,0 +1,59 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,416,pycqa,astroid,cpennington,2017-03-13 19:59:11,"On https://github.com/edx/edx-platform/tree/master/common/lib/xmodule/xmodule, this resulted in the following performance improvement (with no change in the errors detected):
+
+This gets most of the performance benefits of #413, but should be much more of an unambiguous win.
+
+Before:
+
+```
+Command exited with non-zero status 30
+619.70user 322.11system 15:44.25elapsed 99%CPU (0avgtext+0avgdata 587068maxresident)k
+0inputs+464outputs (0major+201145minor)pagefaults 0swaps
+```
+
+After:
+
+```
+Command exited with non-zero status 30
+294.99user 10.76system 5:05.97elapsed 99%CPU (0avgtext+0avgdata 583536maxresident)k
+0inputs+440outputs (0major+167856minor)pagefaults 0swaps
+```",start issue,Use set-difference rather than nested loops,On result follow perform improv chang error detect thi get perform benefit 413 much unambigu win befor after
+issue_closed,416,pycqa,astroid,ceridwen,2017-03-13 20:13:16,,closed issue,Use set-difference rather than nested loops,
+pull_request_title,416,pycqa,astroid,cpennington,2017-03-13 19:59:11,"On https://github.com/edx/edx-platform/tree/master/common/lib/xmodule/xmodule, this resulted in the following performance improvement (with no change in the errors detected):
+
+This gets most of the performance benefits of #413, but should be much more of an unambiguous win.
+
+Before:
+
+```
+Command exited with non-zero status 30
+619.70user 322.11system 15:44.25elapsed 99%CPU (0avgtext+0avgdata 587068maxresident)k
+0inputs+464outputs (0major+201145minor)pagefaults 0swaps
+```
+
+After:
+
+```
+Command exited with non-zero status 30
+294.99user 10.76system 5:05.97elapsed 99%CPU (0avgtext+0avgdata 583536maxresident)k
+0inputs+440outputs (0major+167856minor)pagefaults 0swaps
+```",1c1babdb6e1fd91d92d0c13aaf96d4ae41707867,Use set-difference rather than nested loops,On result follow perform improv chang error detect thi get perform benefit 413 much unambigu win befor after
+pull_request_merged,416,pycqa,astroid,ceridwen,2017-03-13 20:13:16,Use set-difference rather than nested loops,5f1220455b6ee85ea4a28f3a4175431949cf847d,Pull request merge from cpennington/astroid:use-set-difference to PyCQA/astroid:master,use setdiffer rather nest loop
+pull_request_commit,416,pycqa,astroid,cpennington,2017-03-13 19:57:50,"Use set-difference rather than nested loops
+
+On https://github.com/edx/edx-platform/tree/master/common/lib/xmodule/xmodule,
+this resulted in the following performance improvement (with no change in the
+errors detected):
+
+Before:
+
+Command exited with non-zero status 30
+619.70user 322.11system 15:44.25elapsed 99%CPU (0avgtext+0avgdata 587068maxresident)k
+0inputs+464outputs (0major+201145minor)pagefaults 0swaps
+
+After:
+
+Command exited with non-zero status 30
+294.99user 10.76system 5:05.97elapsed 99%CPU (0avgtext+0avgdata 583536maxresident)k
+0inputs+440outputs (0major+167856minor)pagefaults 0swaps",1c1babdb6e1fd91d92d0c13aaf96d4ae41707867,,use setdiffer rather nest loop On result follow perform improv chang error detect befor command exit nonzero statu 30 61970user 32211system 154425elaps 99cpu 0avgtext0avgdata 587068maxresidentk 0inputs464output 0major201145minorpagefault 0swap after command exit nonzero statu 30 29499user 1076system 50597elaps 99cpu 0avgtext0avgdata 583536maxresidentk 0inputs440output 0major167856minorpagefault 0swap

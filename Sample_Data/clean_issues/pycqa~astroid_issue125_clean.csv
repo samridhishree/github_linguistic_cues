@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,125,pycqa,astroid,pylint-bot,2015-06-20 15:06:08,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/125
+",start issue,Understand functools.partial,origin report claudiu popa bitbucket pcmanticor github pcmanticor bitbucket

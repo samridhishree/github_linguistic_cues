@@ -1,0 +1,55 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,316,pycqa,astroid,dbaum,2016-02-10 17:57:56,"I know this isn't common because sys.path usually contains paths to the standard libraries, etc.  But we are using a meta importer for standard libraries so it is possible that sys.path is [].  This leads to exceptions in a couple places because of statements like:
+
+_path = (path is None and sys.path or path)
+
+The intention is that if path is None we use sys.path, otherwise we use path.  But if sys.path is [] and path is None, then _path will be None.  Then:
+
+for __path in __path:
+
+will throw an exception since you cannot iterate None.
+
+This appears to occur in both astroid/modutils.py and logilab/common/modutils.py.  This can be fixed by changing the _path assignment to:
+
+_path = sys.path if path is None else path
+
+However, I'm not sure if handling sys.path==[] is even a reasonable requirement.  If you think it is reasonable, then I'll fix astroid and start a pull request.  How should I update logilab/common?  I didn't see a project for it in PyCQA and I'm not quite sure where it comes from.
+
+On the other hand, nobody really cares about sys.path == [], then I can change the way we launch pylint so that sys.path is always non-empty (perhaps just appending a non-existent path).
+",start issue,pylint throws exception if sys.path is empty,I know isnt common syspath usual contain path standard librari etc but use meta import standard librari possibl syspath thi lead except coupl place statement like path path none syspath path the intent path none use syspath otherwis use path but syspath path none path none then path path throw except sinc cannot iter none thi appear occur astroidmodutilspi logilabcommonmodutilspi thi fix chang path assign path syspath path none els path howev Im sure handl syspath even reason requir If think reason ill fix astroid start pull request how I updat logilabcommon I didnt see project pycqa Im quit sure come On hand nobodi realli care syspath I chang way launch pylint syspath alway nonempti perhap append nonexist path,N,2016-02-11 10:08:21
+6,issue_comment,316,pycqa,astroid,PCManticore,2016-02-10 23:57:54,"If --init-hook fixes your problem, then I think we could close this issue. The behavior can be documented if you're up to that.
+",,,If inithook fix problem I think could close issu the behavior document your,N,2016-02-11 02:54:04
+7,issue_comment,316,pycqa,astroid,dbaum,2016-02-11 02:54:04,"Yep, go ahead and close the issue.  What did you have in mind for documentation.  The issue itself might be fine - if someone searches for sys.path they'll find it.  Or we can add some comments in code, though I'm not quite sure where would be best.
+",,,yep go ahead close issu what mind document the issu might fine someon search syspath theyll find Or add comment code though Im quit sure would best,N,2016-02-11 10:08:21
+6,issue_comment,318,pycqa,astroid,PCManticore,2016-02-13 18:33:32,"Done! 
+",,,done,N,2016-02-11 14:17:07
+7,pull_request_commit,318,pycqa,astroid,PCManticore,2016-02-11 14:17:07,"Revert ""Try to fix the testdata issue""
+
+This reverts commit 682b87f5b9832bb55d35d1c3a589ba8695495481.",6f1fcd8763ba1ad4c96318676348ba6512165644,,revert tri fix testdata issu thi revert commit 682b87f5b9832bb55d35d1c3a589ba8695495481,N,2016-02-11 14:18:00
+8,pull_request_commit,318,pycqa,astroid,PCManticore,2016-02-11 14:18:00,"Revert ""Try graft instead of recursive-include""
+
+This reverts commit 18fa724c04c2393b134d57d4fe4cebe38472bad8.",5259a4db2822a1926b66e7b15f059a874bee324d,,revert tri graft instead recursiveinclud thi revert commit 18fa724c04c2393b134d57d4fe4cebe38472bad8,N,2016-02-11 14:25:36
+9,pull_request_commit,318,pycqa,astroid,PCManticore,2016-02-11 14:25:36,"Revert ""Try to solve the packaging issues again""
+
+This reverts commit d37b81de4f1e64abc2f222c487785d816ab469ea.",8aae5f078b5c837ba6829e8042453c12dfe2421f,,revert tri solv packag issu thi revert commit d37b81de4f1e64abc2f222c487785d816ab469ea,N,2016-02-11 14:35:43
+10,pull_request_commit,318,pycqa,astroid,PCManticore,2016-02-11 14:35:43,"Revert ""setup.py install now installs testdata/, but pip doesn't""
+
+This reverts commit c510c17f63c2df01b8c9d5e2fd97ac963f737c7f.",5c6b19de694621b1c58852b9614615ae2401a671,,revert setuppi instal instal testdata pip doesnt thi revert commit c510c17f63c2df01b8c9d5e2fd97ac963f737c7f,N,2016-02-11 14:42:33
+11,pull_request_commit,318,pycqa,astroid,PCManticore,2016-02-11 14:42:33,"Revert ""Modify tox.ini to properly exclude files not part of astroid""
+
+This reverts commit 4596201f9146e64c18cfcb0f841618328e953910.",41a24c207483ca77053f2adc7ecb4a950cf913a6,,revert modifi toxini properli exclud file part astroid thi revert commit 4596201f9146e64c18cfcb0f841618328e953910,N,2016-02-11 14:44:39
+4,pull_request_merged,314,pycqa,astroid,PCManticore,2016-02-13 23:25:35,Changed the way how parameters are being built,1d86b6bf87e3551b6f731664b97f356d0c15fbac,Pull request merge from PyCQA/astroid:arguments-215 to PyCQA/astroid:2.0,chang way paramet built,N,2016-02-11 17:22:30
+5,issue_comment,314,pycqa,astroid,ceridwen,2016-02-11 17:22:30,"I would use ""Parameter"" as the name for the new node rather than ""Param.""  I don't like shortening names into non-words unless it's necessary, and I don't think it is here.  For instance, inspect/funcsigs calls their parameter object ""Parameter.""
+
+For the implementation of Empty, I was planning to have `__bool__` return False, like None is treated as False.  This will save a lot of refactoring work changing boolean checks to type checks and preserve backwards compatibility for the plugins.  Empty should be a singleton object: there's no reason to consume additional memory or time by creating a new object every time we need an Empty node, since all of them are identical anyways.  I'd call the underlying type `_Empty` or  `_EmptyType` or `EmptyType` (by analogy with NoneType) and then instantiate the object once in node_classes.py.
+",,,I would use paramet name new node rather param I dont like shorten name nonword unless necessari I dont think for instanc inspectfuncsig call paramet object paramet for implement empti I plan return fals like none treat fals thi save lot refactor work chang boolean check type check preserv backward compat plugin empti singleton object there reason consum addit memori time creat new object everi time need empti node sinc ident anyway Id call underli type analog nonetyp instanti object nodeclassespi,N,2016-02-11 17:26:17
+6,issue_comment,314,pycqa,astroid,PCManticore,2016-02-11 17:26:17,"Thanks, these make sense! I'll update the PR.
+",,,thank make sens ill updat PR,N,2016-02-11 19:45:56
+9,issue_comment,314,pycqa,astroid,ceridwen,2016-02-13 18:15:42,"I added a few final comments, otherwise looks good to me.
+",,,I ad final comment otherwis look good,N,2016-02-11 17:28:58
+10,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 17:28:58,"Since we're now going to have two objects named Parameter (the astroid node and the inspect/funcsigs.Parameter), I'd rewrite this to say something like, ""Generates an iterator of Parameter nodes from an iterator of inspect/funcsigs.Parameter objects.""
+",6d2529632bae545ff7564501cac14316d5ea9204,"(None, '', u'astroid/raw_building.py')",sinc go two object name paramet astroid node inspectfuncsigsparamet Id rewrit say someth like gener iter paramet node iter inspectfuncsigsparamet object,N,2016-02-11 17:29:30
+11,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 17:29:30,"This docstring should also be expanded similarly.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(None, '', u'astroid/raw_building.py')",thi docstr also expand similarli,N,2016-02-11 19:26:52
+12,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 19:26:52,"This will hopefully be irrelevant soon, but I don't understand this comment, so you should probably expand it.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(None, '', u'astroid/raw_building.py')",thi hope irrelev soon I dont understand comment probabl expand,N,2016-02-11 19:57:43

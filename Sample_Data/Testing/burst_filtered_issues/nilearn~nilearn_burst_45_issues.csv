@@ -1,0 +1,284 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,223,nilearn,nilearn,dohmatob,2014-07-01 16:05:47,"Traceback (most recent call last):
+  File ""/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/nose/case.py"", line 197, in runTest
+    self.test(_self.arg)
+  File ""/home/travis/build/nilearn/nilearn/nilearn/plotting/test/test_slicers.py"", line 27, in test_demo_ortho_slicer
+    pl.clf()
+  File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 443, in clf
+    gcf().clf()
+  File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 369, in gcf
+    return figure()
+  File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 343, in figure
+    *_kwargs)
+  File ""/usr/lib/pymodules/python2.7/matplotlib/backends/backend_tkagg.py"", line 80, in new_figure_manager
+    window = Tk.Tk()
+  File ""/usr/lib/python2.7/lib-tk/Tkinter.py"", line 1688, in **init**
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+TclError: no display name and no $DISPLAY environment variable
+",start issue,Weird issue about no $DISPLAY (test_img_plot.py). Or maybe it's a private bug ?,traceback recent call last file hometravisvirtualenvpython27withsystemsitepackageslocallibpython27sitepackagesnosecasepi line 197 runtest selftestselfarg file hometravisbuildnilearnnilearnnilearnplottingtesttestslicerspi line 27 testdemoorthoslic plclf file usrlibpymodulespython27matplotlibpyplotpi line 443 clf gcfclf file usrlibpymodulespython27matplotlibpyplotpi line 369 gcf return figur file usrlibpymodulespython27matplotlibpyplotpi line 343 figur kwarg file usrlibpymodulespython27matplotlibbackendsbackendtkaggpi line 80 newfiguremanag window tktk file usrlibpython27libtktkinterpi line 1688 init selftk tkintercreatescreennam basenam classnam interact wantobject usetk sync use tclerror display name display environ variabl,N,2014-09-15 12:54:57
+6,issue_comment,223,nilearn,nilearn,dohmatob,2014-07-01 16:12:09,"Yeah I'd already seen the ""no back-end / switch backend use(""svg"") /
+use('Agg') ""  fix(es). Cool. Yeah, I can review it at home. See you.
+
+On Tue, Jul 1, 2014 at 6:07 PM, Gael Varoquaux notifications@github.com
+wrote:
+
+> > This error was reported by travis on PR #219
+> 
+> That means that we need to merge our PR. Do you want to have a go
+> reviewing it? I can work on it on the train tomorrow.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/223#issuecomment-47675817.
+
+## 
+
+DED
+",,,yeah Id alreadi seen backend switch backend usesvg useagg fix cool yeah I review home see On tue jul 1 2014 607 PM gael varoquaux notificationsgithubcom wrote ded,N,2014-09-15 12:54:57
+1,issue_title,236,nilearn,nilearn,lesteve,2014-09-11 14:33:43,"Fixes #234 
+",start issue,Tweak find_xyz_cut_coords to take an niimg as argument and return world (rather than voxel) coordinates,fix 234,N,2014-09-15 09:10:58
+2,issue_closed,236,nilearn,nilearn,lesteve,2014-09-15 09:10:58,,closed issue,Tweak find_xyz_cut_coords to take an niimg as argument and return world (rather than voxel) coordinates,,N,2014-09-11 14:33:43
+3,pull_request_title,236,nilearn,nilearn,lesteve,2014-09-11 14:33:43,"Fixes #234 
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,Tweak find_xyz_cut_coords to take an niimg as argument and return world (rather than voxel) coordinates,fix 234,N,2014-09-15 09:10:58
+4,pull_request_merged,236,nilearn,nilearn,lesteve,2014-09-15 09:10:58,Tweak find_xyz_cut_coords to take an niimg as argument and return world (rather than voxel) coordinates,932b7da8d1b46571a87aac43a69a651c68a5e07b,Pull request merge from lesteve/nilearn:find-xyz-cuts-api to nilearn/nilearn:master,tweak findxyzcutcoord take niimg argument return world rather voxel coordin,N,2014-09-11 14:54:04
+5,issue_comment,236,nilearn,nilearn,GaelVaroquaux,2014-09-11 14:54:04,"Could you:
+- Add the function in plotting/**init**.py: let's make it public, it's useful
+- Add it in doc/modules/references.rst
+",,,could add function plottinginitpi let make public use add docmodulesreferencesrst,N,2014-09-12 06:26:58
+6,issue_comment,236,nilearn,nilearn,bthirion,2014-09-12 06:26:58,"LGTM
+",,,lgtm,N,2014-09-15 09:10:47
+7,issue_comment,236,nilearn,nilearn,GaelVaroquaux,2014-09-15 09:10:47,"LGTM. Feel free to merge.
+",,,lgtm feel free merg,N,2014-09-11 14:40:56
+8,pull_request_commit_comment,236,nilearn,nilearn,lesteve,2014-09-11 14:40:56,"Open to better documentation wording
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/find_cuts.py')",open better document word,N,2014-09-11 14:42:20
+9,pull_request_commit_comment,236,nilearn,nilearn,lesteve,2014-09-11 14:42:20,"Have to use such a high tolerance to get the test to pass. Here is the error with rtol=4e-2
+
+Not equal to tolerance rtol=0.04, atol=0
+
+(mismatch 100.0%)
+x: array([ 49.5, 9.5, 39.5])
+y: array([50, 10, 40])
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/test/test_find_cuts.py')",have use high toler get test pass here error rtol4e2 not equal toler rtol004 atol0 mismatch 1000 x array 495 95 395 array50 10 40,Y,2014-09-11 14:42:45
+10,pull_request_commit_comment,236,nilearn,nilearn,lesteve,2014-09-11 14:42:45,"Same remark about tolerance as above
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/test/test_find_cuts.py')",same remark toler,N,2014-09-11 14:47:34
+11,pull_request_commit_comment,236,nilearn,nilearn,GaelVaroquaux,2014-09-11 14:47:34,"This should be an inline comment in the code, not something on github: on github it will be lost.
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/test/test_find_cuts.py')",thi inlin comment code someth github github lost,N,2014-09-11 15:14:25
+12,pull_request_commit_comment,236,nilearn,nilearn,lesteve,2014-09-11 15:14:25,"yep
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/test/test_find_cuts.py')",yep,N,2014-09-12 06:28:20
+13,pull_request_commit_comment,236,nilearn,nilearn,bthirion,2014-09-12 06:28:20,"Maybe: The statistical map to be displayed 
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/find_cuts.py')",mayb the statist map display,N,2014-09-12 06:59:03
+14,pull_request_commit_comment,236,nilearn,nilearn,GaelVaroquaux,2014-09-12 06:59:03,"Indeed. Or even better ""brain map"" as the function is generic and not only for statistical maps. 
+
+<div>-------- Original message --------</div><div>From: bthirion notifications@github.com </div><div>Date:12/09/2014  08:28  (GMT+01:00) </div><div>To: nilearn/nilearn nilearn@noreply.github.com </div><div>Cc: Gael Varoquaux gael.varoquaux@normalesup.org </div><div>Subject: Re: [nilearn] Tweak find_xyz_cut_coords to take an niimg as argument
+  and return world (rather than voxel) coordinates (#236) </div><div>
+</div>In nilearn/plotting/find_cuts.py:
+
+> ```
+>  """""" Find the center of the largest activation connected component.
+> 
+>      Parameters
+>      -----------
+> ```
+> -        data : 3D ndarray
+> -            The activation map, as a 3D numpy array.
+> -        img : 3D Nifti1Image
+> -            The activation map data.
+>   Maybe: The statistical map to be displayed
+
+—
+Reply to this email directly or view it on GitHub.
+",3548e80a04cfedcd1e4ecb9668a440f2e0c2f438,"(None, '', u'nilearn/plotting/find_cuts.py')",inde Or even better brain map function gener statist maps  div return world rather voxel coordin 236 divdiv — repli email directli view github,N,2014-09-11 14:25:41
+15,pull_request_commit,236,nilearn,nilearn,lesteve,2014-09-11 14:25:41,"Change nilearn.plotting.find_cuts.find_xyz_cut_coords to take a niimg as argument and return world, rather than voxel, coordinates
+Add a test for non-trivial affine",635965aae30569d2fe760cc2662210c2962aaac5,,chang nilearnplottingfindcutsfindxyzcutcoord take niimg argument return world rather voxel coordin add test nontrivi affin,N,2014-09-11 14:27:30
+16,pull_request_commit,236,nilearn,nilearn,lesteve,2014-09-11 14:27:30,Minor whitespace tweak while I was touching the file,bf47192722eaac61bf96b72c7473805e6ce4c0db,,minor whitespac tweak I touch file,N,2014-09-11 15:47:28
+17,pull_request_commit,236,nilearn,nilearn,lesteve,2014-09-11 15:47:28,Make find_xyz_cut_coords accessible from nilearn.plotting and add it to the reference doc,b000cc3910bb04a0c7bcd3280350fd9cbef20bb0,,make findxyzcutcoord access nilearnplot add refer doc,N,2014-09-12 11:01:02
+2,issue_closed,240,nilearn,nilearn,lesteve,2014-10-02 12:11:27,,closed issue,Better pca,,N,2014-09-15 12:54:58
+3,pull_request_title,240,nilearn,nilearn,GaelVaroquaux,2014-09-15 12:54:58,"This is a pending branch that fixes a lot of things but hasn't been merged.
+
+@AlexandreAbraham and @lesteve : do you think that you have time to have a look and see what needs to be merged.
+",2220ef1d50464e9f144af8c37b65695819f4ba47,Better pca,thi pend branch fix lot thing hasnt merg alexandreabraham lestev think time look see need merg,N,2014-09-15 13:02:50
+4,issue_comment,240,nilearn,nilearn,AlexandreAbraham,2014-09-15 13:02:50,"LGTM. If you merge it, ping me so I fix the little bug I've spotted. Or I can make a PR on your branch but that would be a waste of time I think.
+",,,lgtm If merg ping I fix littl bug ive spot Or I make PR branch would wast time I think,N,2014-09-15 13:53:52
+5,issue_comment,240,nilearn,nilearn,lesteve,2014-09-15 13:53:52,"It seems like the the tests are broken because confounds is None by default in MultiPCA.fit so you have problem where you try to iterate in https://github.com/GaelVaroquaux/nilearn/blob/better_pca/nilearn/decomposition/multi_pca.py#L276.
+
+That was already noted in
+https://github.com/GaelVaroquaux/nilearn/commit/8448c7a3e3851395d91eff10c493c1a36d581119
+
+I guess you could do something like:
+
+``` python
+if confounds is None:
+    confounds = [None] * len(niimgs)
+```
+
+The merge conflict is very easy to resolve, in case that's what you were asking for.
+
+For completeness, here is the traceback of one of the failing tests:
+
+```
+~/code/nilearn $ nosetests nilearn/decomposition/tests/test_canica.py --ipdb
+nilearn.decomposition.tests.test_canica.test_canica_square_img ... /home/lesteve/code/nilearn/nilearn/input_data/multi_nifti_masker.py:194: UserWarning: [MultiNiftiMasker.fit] Generation of a mask has been requested (niimgs != None) while a mask has been provided at masker creation. Given mask will be used.
+  ' will be used.' % self.__class__.__name__)
+
+- TRACEBACK --------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/home/lesteve/anaconda/lib/python2.7/unittest/case.py"", line 329, in run
+    testMethod()
+  File ""/home/lesteve/anaconda/lib/python2.7/site-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/lesteve/code/nilearn/nilearn/decomposition/tests/test_canica.py"", line 49, in test_canica_square_img
+    canica.fit(data)
+  File ""/home/lesteve/code/nilearn/nilearn/decomposition/canica.py"", line 147, in fit
+    MultiPCA.fit(self, niimgs, y=y, confounds=confounds)
+  File ""/home/lesteve/code/nilearn/nilearn/decomposition/multi_pca.py"", line 276, in fit
+    for niimg, confound in zip(niimgs, confounds))
+TypeError: zip argument #2 must support iteration
+--------------------------------------------------------------------------------
+> /home/lesteve/code/nilearn/nilearn/decomposition/multi_pca.py(276)fit()
+    275             )
+--> 276             for niimg, confound in zip(niimgs, confounds))
+    277         subject_pcas, subject_svd_vals = zip(*subject_pcas)
+
+ipdb> l
+    271                 memory=self.memory,
+    272                 ref_memory_level=self.memory_level,
+    273                 confounds=confounds,
+    274                 verbose=self.verbose
+    275             )
+--> 276             for niimg, confound in zip(niimgs, confounds))
+    277         subject_pcas, subject_svd_vals = zip(*subject_pcas)
+    278 
+    279         if len(niimgs) > 1:
+    280             if not self.do_cca:
+    281                 for subject_pca, subject_svd_val in \
+
+ipdb> confounds
+ipdb> q
+```
+",,,It seem like test broken confound none default multipcafit problem tri iter that alreadi note I guess could someth like the merg conflict easi resolv case that ask for complet traceback one fail test,Y,2014-09-16 13:19:14
+1,issue_title,224,nilearn,nilearn,AlexandreAbraham,2014-07-03 16:29:28,"Fix issue #160.
+
+A second environment variable, GLOBAL_NILEARN_DATA (name to be discussed) adds a path to dataset search. This should be used by administrators to provide a shared data folder (maybe NILEARN_SHARED would be a better name?).
+",start issue,Allow another data path,fix issu 160 A second environ variabl globalnilearndata name discuss add path dataset search thi use administr provid share data folder mayb nilearnshar would better name,N,2014-09-14 14:57:39
+3,pull_request_title,224,nilearn,nilearn,AlexandreAbraham,2014-07-03 16:29:28,"Fix issue #160.
+
+A second environment variable, GLOBAL_NILEARN_DATA (name to be discussed) adds a path to dataset search. This should be used by administrators to provide a shared data folder (maybe NILEARN_SHARED would be a better name?).
+",bcc757637643927e5afed0988a959f9b73f3a80c,Allow another data path,fix issu 160 A second environ variabl globalnilearndata name discuss add path dataset search thi use administr provid share data folder mayb nilearnshar would better name,N,2014-09-14 14:57:39
+7,issue_comment,224,nilearn,nilearn,bthirion,2014-07-21 22:01:58,"LGTM. Maybe we could be even more explicit for end users.
+""If the NILEARN_SHARED variable is set, this is where the data is going to land. Otherwiase, set the NILEARN_DATA to any path where you would like to install the data. If None is set, then...""
+",,,lgtm mayb could even explicit end user If nilearnshar variabl set data go land otherwias set nilearndata path would like instal data If none set,N,2014-09-12 12:45:20
+8,issue_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:45:20,"It'd be great if there was a way to have a test for this feature, including a few edge cases. Maybe the 'mock' argument of _fetch_files can be used in order to have quick tests that don't have to download any data.
+",,,itd great way test featur includ edg case mayb mock argument fetchfil use order quick test dont download data,Y,2014-09-14 04:14:06
+9,issue_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-14 04:14:06,"@lesteve: it is possible to test it I think. I'll give it a shot.
+
+@bthirion: I can be more explicit in the documentation but I think that an enumeration is better that putting that explicitly using text.
+",,,lestev possibl test I think ill give shot bthirion I explicit document I think enumer better put explicitli use text,Y,2014-09-14 10:45:34
+10,issue_comment,224,nilearn,nilearn,bthirion,2014-09-14 10:45:34,"The documentation seems OK as is. We might update it in the future depending on the issues reported by users.
++1 for merging
+",,,the document seem OK We might updat futur depend issu report user 1 merg,N,2014-09-14 12:28:25
+11,issue_comment,224,nilearn,nilearn,GaelVaroquaux,2014-09-14 12:28:25,"@AlexandreAbraham : can you please resolve the merge conflict and then merge (this counts as a :+1:).
+
+Cheers
+",,,alexandreabraham pleas resolv merg conflict merg count 1 cheer,N,2014-09-14 14:57:13
+12,issue_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-14 14:57:13,"I merge this because I need it for another PR. I'll open an issue regarding the missing tests.
+",,,I merg I need anoth PR ill open issu regard miss test,Y,2014-09-14 14:58:07
+13,issue_comment,224,nilearn,nilearn,GaelVaroquaux,2014-09-14 14:58:07,"Thanks!
+",,,thank,N,2014-09-12 12:23:35
+14,pull_request_commit_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:23:35,"""3 simple ways"" on l.18 should be replaced by ""4 simple ways"". You may need to expand the diff to see what I mean. Not sure whether there is a better way to comment on lines that are not part of the patch with github.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(3, '', u'doc/developers/dataset_download.rst')",3 simpl way l18 replac 4 simpl way you may need expand diff see I mean not sure whether better way comment line part patch github,N,2014-09-12 12:26:26
+15,pull_request_commit_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:26:26,"There is a missing space at the end of each string
+
+```
+('asdf'
+ 'ASDF')
+==
+'asdfASDF'
+```
+
+Also aligning vertically the beginning of each strings would look nicer.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(132, '', u'nilearn/datasets.py')",there miss space end string also align vertic begin string would look nicer,N,2014-09-12 12:28:55
+16,pull_request_commit_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:28:55,"Maybe this is where the create_dir argument should be used
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(112, '', u'nilearn/datasets.py')",mayb createdir argument use,N,2014-09-12 12:29:25
+17,pull_request_commit_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:29:25,"It doesn't look like create_dir is used anymore. Maybe it should be used on l. 471.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(None, '', u'nilearn/datasets.py')",It doesnt look like createdir use anymor mayb use l 471,N,2014-09-12 12:34:05
+18,pull_request_commit_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:34:05,"Slightly nitpicking, but why not use NILEARN_SHARED_DATA for explicitness?
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(None, '', u'doc/building_blocks/manipulating_mr_images.rst')",slightli nitpick use nilearnshareddata explicit,N,2014-09-12 12:42:45
+19,pull_request_commit_comment,224,nilearn,nilearn,lesteve,2014-09-12 12:42:45,"Just wondering, was this intentional? It seems like this colon-separated list of paths feature was slightly orthogonal to adding the NILEARN_SHARED environment variable.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(47, '', u'nilearn/datasets.py')",just wonder intent It seem like colonsepar list path featur slightli orthogon ad nilearnshar environ variabl,N,2014-09-12 16:23:11
+20,pull_request_commit_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-12 16:23:11,"This would be better in fact. Any thought on this naming @GaelVaroquaux ?
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(None, '', u'doc/building_blocks/manipulating_mr_images.rst')",thi would better fact ani thought name gaelvaroquaux,N,2014-09-12 16:27:06
+21,pull_request_commit_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-12 16:27:06,"I fixed it but in any case this page is just a draft and it's a bit outdated. We should decide if we maintain it or if we delete it.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(3, '', u'doc/developers/dataset_download.rst')",I fix case page draft bit outdat We decid maintain delet,N,2014-09-12 16:28:34
+22,pull_request_commit_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-12 16:28:34,"We never use False for this option so I just removed it.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(None, '', u'nilearn/datasets.py')",We never use fals option I remov,N,2014-09-12 16:37:50
+23,pull_request_commit_comment,224,nilearn,nilearn,GaelVaroquaux,2014-09-12 16:37:50,"We definitely need that functionality. That question is how to solve our problem best.
+
+@lesteve : the problem that we are trying to solve is the usecase we a sysadmin install the data, or part of the data. Therefore there needs to be several layers of directories: one for the sysadmin, which won't be writeable by the end user, and one for the end user.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(3, '', u'doc/developers/dataset_download.rst')",We definit need function that question solv problem best lestev problem tri solv usecas sysadmin instal data part data therefor need sever layer directori one sysadmin wont writeabl end user one end user,N,2014-09-12 16:38:03
+24,pull_request_commit_comment,224,nilearn,nilearn,GaelVaroquaux,2014-09-12 16:38:03,"I agree with @lesteve 
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(None, '', u'doc/building_blocks/manipulating_mr_images.rst')",I agre lestev,N,2014-09-12 16:40:08
+25,pull_request_commit_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-12 16:40:08,"I was not talking about the functionality but about the documentation page ""how to write a dataset downloader"".
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(3, '', u'doc/developers/dataset_download.rst')",I talk function document page write dataset download,N,2014-09-12 16:41:56
+26,pull_request_commit_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-12 16:41:56,"Fixed.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(None, '', u'doc/building_blocks/manipulating_mr_images.rst')",fix,N,2014-09-12 16:46:30
+27,pull_request_commit_comment,224,nilearn,nilearn,AlexandreAbraham,2014-09-12 16:46:30,"At some point we were wondering what method we should use so I implemented both. After that, I added the specific `NILEARN_SHARED_DATA` variable. In the end, we just have a list of path with decreasing priority, so I left the colon split in place. I can remove it though.
+",bcc757637643927e5afed0988a959f9b73f3a80c,"(47, '', u'nilearn/datasets.py')",At point wonder method use I implement after I ad specif variabl In end list path decreas prioriti I left colon split place I remov though,N,2014-09-12 16:46:55
+33,pull_request_commit,224,nilearn,nilearn,AlexandreAbraham,2014-07-21 12:07:51,Fix documentation,8619b7dcd997d3cd516c32a82bf8f65d158304b4,,fix document,N,2014-09-14 14:41:46
+2,issue_closed,241,nilearn,nilearn,lesteve,2014-10-01 12:14:51,,closed issue,Use simple smoothing in find_cut_slices rather than a gaussian filter,,N,2014-09-15 15:12:08
+4,pull_request_merged,241,nilearn,nilearn,lesteve,2014-10-01 12:14:51,Use simple smoothing in find_cut_slices rather than a gaussian filter,99b0a53b6de5a4facaca24142820c509cea5d493,Pull request merge from lesteve/nilearn:simple-smoothing-in-find-cuts to nilearn/nilearn:master,use simpl smooth findcutslic rather gaussian filter,N,2014-09-16 09:19:14
+10,issue_comment,241,nilearn,nilearn,lesteve,2014-10-01 12:00:54,"For completeness a quick and dirty comparison of the performance gain:
+
+``` python
+import nibabel as nib
+from nilearn.image import image
+from nilearn import datasets
+
+localizer = datasets.fetch_localizer_contrasts([""left vs right button press""],
+                                               n_subjects=4,
+                                               get_anats=True)
+
+img = nib.load(localizer.cmaps[3])
+print 'shape: ', img.get_data().shape
+
+for fwhm in [3, 6, 9, 12, 'fast']:
+    print 'fwhm: ', fwhm
+    %timeit image._smooth_array(img.get_data(), img.get_affine(), fwhm=fwhm, copy=True)
+```
+
+and the result on my computer:
+
+```
+shape:  (53, 63, 46)
+fwhm:  3
+100 loops, best of 3: 5.59 ms per loop
+fwhm:  6
+100 loops, best of 3: 6.32 ms per loop
+fwhm:  9
+100 loops, best of 3: 7.92 ms per loop
+fwhm:  12
+100 loops, best of 3: 9.51 ms per loop
+fwhm: fast
+100 loops, best of 3: 2.78 ms per loop
+```
+",,,for complet quick dirti comparison perform gain result comput,N,2014-09-15 15:12:57
+11,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-15 15:12:57,"Just wondering, is this comment about discrete values still relevant?
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",just wonder comment discret valu still relev,N,2014-09-15 15:16:00
+12,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-15 15:16:00,"Open to better wording for the function name and the doc below.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",open better word function name doc,N,2014-09-16 09:12:35
+13,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-16 09:12:35,"For the function name: fast_smooth_img, and the function should be in nilearn.image.image, next to 'smooth_img'.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",for function name fastsmoothimg function nilearnimageimag next smoothimg,N,2014-09-16 09:13:11
+14,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-16 09:13:11,"You probably want to say that it is less computationally expensive than smooth_img, which uses scipy.ndimage.gaussian_filter
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",you probabl want say less comput expens smoothimg use scipyndimagegaussianfilt,N,2014-09-16 09:15:03
+15,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-16 09:15:03,"To be PEP8 you need two empty lines between function definitions.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",To pep8 need two empti line function definit,N,2014-09-16 09:15:40
+16,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-16 09:15:40,"I indeed think that the comment on discrete values is not relevant.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",I inde think comment discret valu relev,N,2014-09-16 09:44:01
+17,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-16 09:44:01,"By the way it looks like the smoothing is done only when the dtype is a signed integer. Is that on purpose?
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",By way look like smooth done dtype sign integ Is purpos,N,2014-09-16 10:32:22
+37,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-10-01 07:35:06,"> BTW, would it make sense to add the neighbor weight as a parameter and
+> possibly make it default to 0.2?
+
+I think that it's a case of YAGNI. If we feel the need for it at some
+point, we'll add it later.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(4, '', u'nilearn/image/image.py')",I think case yagni If feel need point well add later,N,2014-09-15 12:52:39
+38,pull_request_commit,241,nilearn,nilearn,lesteve,2014-09-15 12:52:39,Add simple smoothing and use it in find_cut_slices rather than a gaussian filter,01d943a50fd13f53cd003b9488c530dc34e16409,,add simpl smooth use findcutslic rather gaussian filter,N,2014-09-16 07:23:01

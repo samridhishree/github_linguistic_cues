@@ -1,0 +1,209 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,1295,nilearn,nilearn,alexsavio,2016-12-06 14:48:43,,closed issue,[MRG+1] Add Allen RSN templates fetcher v0.2,,N,2016-09-27 15:41:41
+9,issue_comment,1295,nilearn,nilearn,alexsavio,2016-12-06 14:48:43,For the sake of a clean history I am doing a different PR.,,,for sake clean histori I differ PR,N,2016-10-06 20:57:54
+10,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 20:57:54,"Can you add in `nilearn/datasets/__init__.py` ?
+",,,can add,N,2016-10-06 21:06:27
+11,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:06:27,"Can you add in `doc/whats_new.rst` about this new fetcher ?
+",,,can add new fetcher,N,2016-10-06 21:09:41
+12,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:09:41,"Can you please also refer your fetcher in doc/modules/reference.rst ?
+",,,can pleas also refer fetcher docmodulesreferencerst,N,2016-10-06 21:19:23
+13,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:19:23,"Some minor comments from my side.
+",,,some minor comment side,N,2016-09-28 09:35:14
+14,pull_request_commit_comment,1295,nilearn,nilearn,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",thi 3 1 given 3 file download,N,2016-10-06 20:56:47
+15,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 20:56:47,"Any reason why it is not started with `fetch_atlas_` ? All other functionalities has the same namings almost.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')",ani reason start all function name almost,N,2016-10-06 21:17:55
+21,pull_request_commit,1295,nilearn,nilearn,Titan-C,2016-09-07 09:56:44,"[MAINT] Update to Sphinx-Gallery 0.1.4
+
+This update allows to download all examples of the gallery at once, plus
+improved support of the RST to markdown conversion for the Jupyter
+notebooks",40bb7b3378857c23392b6be3633358d73d1f29f2,,maint updat sphinxgalleri 014 thi updat allow download exampl galleri plu improv support rst markdown convers jupyt notebook,N,2016-09-15 16:47:07
+22,pull_request_commit,1295,nilearn,nilearn,salma1601,2016-09-15 16:47:07,make function public,d633d198b2a0884f0a66cd49ec819938fbc571b5,,make function public,N,2016-09-27 15:40:38
+23,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-27 15:40:38,add Allen RSN templates fetcher,97fc311d48b94a871bcdb267e53dbdf963ae66db,,add allen rsn templat fetcher,N,2016-09-28 09:43:57
+24,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-28 09:43:57,Fix typo in descriptions/allen_rsn_2011.rst,aaa3b670eaae047974b256eb9e791c1704d6c093,,fix typo descriptionsallenrsn2011rst,N,2016-09-28 09:45:13
+25,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-28 09:45:13,improve docstring of fetch_allen_rsn_tmap_75_2011,01a804ee213ef4b6fc318d90022a20c82d727a7b,,improv docstr fetchallenrsntmap752011,N,2016-09-28 09:45:49
+26,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-28 09:45:49,fix error in test_fetch_allen_rsn_tmap_75_2011,699d0bdd1fce87ef1ea2b209cc12f4bc594a7b77,,fix error testfetchallenrsntmap752011,N,2016-09-30 09:02:01
+27,pull_request_commit,1295,nilearn,nilearn,GaelVaroquaux,2016-09-30 09:02:01,"Merge pull request #1265 from Titan-C/sphinxgallery
+
+[MAINT] Update to Sphinx-Gallery 0.1.4",7143e3ab62661e464d20929d61d686d1148143b3,,merg pull request 1265 titancsphinxgalleri maint updat sphinxgalleri 014,N,2016-09-30 12:55:14
+28,pull_request_commit,1295,nilearn,nilearn,AlexandreAbraham,2016-09-30 12:55:14,Try to fix import of cross_val_score,c8ecc1f5ccd95bb6c01c36eb1b6023599f447378,,tri fix import crossvalscor,N,2016-10-02 08:02:34
+29,pull_request_commit,1295,nilearn,nilearn,GaelVaroquaux,2016-10-02 08:02:34,DOC: finish referring only to scikit-learn 0.17,b5705f1ba5778d8270e0adececfe4938456ce731,,doc finish refer scikitlearn 017,N,2016-10-01 18:16:56
+30,pull_request_commit,1295,nilearn,nilearn,KamalakerDadi,2016-10-01 18:16:56,Fixing data dtype retrieval from images directly with img.get_data().dtype,ffdeb6c5b8082197845d366fb44e085c1b6ae2e6,,fix data dtype retriev imag directli imggetdatadtyp,N,2016-10-03 06:39:50
+31,pull_request_commit,1295,nilearn,nilearn,GaelVaroquaux,2016-10-03 06:39:50,"Merge pull request #1299 from KamalakerDadi/fix_get_data_dtype
+
+Fixing data dtype retrieval from images directly with img.get_data().dtype",d80f84921584ad7c58db57ce38349816ee124705,,merg pull request 1299 kamalakerdadifixgetdatadtyp fix data dtype retriev imag directli imggetdatadtyp,N,2016-10-04 08:30:52
+32,pull_request_commit,1295,nilearn,nilearn,KamalakerDadi,2016-10-04 08:30:52,"Fix comment PR #1299, removed calling double get_data for dtype",14b6774a6f0f5ede231080898ca75ee596b3e8e4,,fix comment PR 1299 remov call doubl getdata dtype,N,2016-10-04 10:35:02
+33,pull_request_commit,1295,nilearn,nilearn,aabadie,2016-10-04 10:35:02,"Merge pull request #1277 from salma1601/expose_connectome_normalizers
+
+make connectivity normalization functions public",230279e885aae8f9ae28c99c291ed3b0b4e93588,,merg pull request 1277 salma1601exposeconnectomenorm make connect normal function public,N,2016-10-04 21:03:03
+34,pull_request_commit,1295,nilearn,nilearn,KamalakerDadi,2016-10-04 21:03:03,Attempts to fix AppVeyor failure,9ae8d1d396d4003f674ba4614f70133e0374532f,,attempt fix appveyor failur,N,2016-10-06 19:02:29
+48,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-10-21 10:35:19,Update whats_new.rst,abaf9609c0b005aacbb26c6f9013ffd227373ab0,,updat whatsnewrst,N,2016-09-27 15:40:38
+49,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-27 15:40:38,add Allen RSN templates fetcher,9c941ab97d012b02b11cd93381c3fdaa5f6758ac,,add allen rsn templat fetcher,N,2016-09-28 09:43:57
+50,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-28 09:43:57,Fix typo in descriptions/allen_rsn_2011.rst,2e6e942fbb5b4cf8c98a9247339a2cd901b59e8c,,fix typo descriptionsallenrsn2011rst,N,2016-09-28 09:45:13
+51,pull_request_commit,1295,nilearn,nilearn,alexsavio,2016-09-28 09:45:13,improve docstring of fetch_allen_rsn_tmap_75_2011,663bd05e409a9791987946c585fbbba9ab0fe863,,improv docstr fetchallenrsntmap752011,N,2016-09-28 09:45:49
+2,issue_closed,1282,nilearn,nilearn,KamalakerDadi,2017-06-23 00:46:17,,closed issue,There is no vec_to_sym function,,N,2016-09-19 13:09:02
+3,issue_comment,1282,nilearn,nilearn,GaelVaroquaux,2016-09-19 13:09:02,"> We would need this for visualisation.
+
+Are you sure that you don't mean the converse: vec_to_sym? It seems to me
+that this is what we would need for visualization.
+",,,are sure dont mean convers vectosym It seem would need visual,N,2016-09-19 13:08:36
+4,issue_comment,1282,nilearn,nilearn,KamalakerDadi,2016-09-19 13:08:36,"I saw there is. May be I am missing something ?
+",,,I saw may I miss someth,N,2016-09-19 13:09:02
+5,issue_comment,1282,nilearn,nilearn,AlexandreAbraham,2016-09-19 13:09:02,"Sorry, vec_to_sym ;)
+",,,sorri vectosym,N,2016-09-19 13:09:36
+6,issue_comment,1282,nilearn,nilearn,KamalakerDadi,2016-09-19 13:09:36,"Ok. Yes PR #1236 in progress
+",,,Ok ye PR 1236 progress,N,2016-09-19 13:21:49
+1,issue_title,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:07:45,"For BH tutorial.
+",start issue,Fix bug in fetching files for ABIDE.,for BH tutori,N,2016-09-18 16:34:51
+2,issue_closed,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 16:34:51,,closed issue,Fix bug in fetching files for ABIDE.,,N,2016-09-18 14:07:45
+3,pull_request_title,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:07:45,"For BH tutorial.
+",6f215871f109ac06cc065767f722564078b74c3d,Fix bug in fetching files for ABIDE.,for BH tutori,N,2016-09-18 16:34:51
+4,pull_request_merged,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 16:34:51,Fix bug in fetching files for ABIDE.,63b2806cc9a765a6ea95b9c7fe06ad9463f5763f,Pull request merge from AlexandreAbraham/nilearn:fix_abide to nilearn/nilearn:master,fix bug fetch file abid,N,2016-09-18 14:11:57
+5,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:11:57,"How did that slip by? What's the test case to reproduce (I'm not asking you for a unit test, just something that I can type in a terminal).
+
+Will fixing in master be enough for the tutorial, or will you need a release?
+",,,how slip what test case reproduc Im ask unit test someth I type termin will fix master enough tutori need releas,Y,2016-09-18 14:38:39
+6,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:38:39,"OK, I can reproduce the bug and the fix.
+
+I am a bit bothered that circleCI doesn't run due to docs.scipy.org timing out. It seems that before a release, or before merging this PR, we'd like to check that all the examples run well.
+",,,OK I reproduc bug fix I bit bother circleci doesnt run due docsscipyorg time It seem releas merg PR wed like check exampl run well,N,2016-09-18 14:46:38
+7,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:46:38,"> ```
+> we'd like to check that all the examples run well
+> ```
+> 
+> I agree.
+
+I've been restarting CircleCI in the hope that it completes. But it might
+be a lost cause given that I cannot get access to it at all on my
+browser.
+",,,ive restart circleci hope complet but might lost caus given I cannot get access browser,N,2016-09-18 14:53:04
+8,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:53:04,"> Can't we just run the examples on drago?
+
+It's not as nice, because it's not a clean, controled environment. But we
+might have to do that.
+",,,it nice clean control environ but might,N,2016-09-18 14:57:15
+9,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:57:15,"> > Can't we just run the examples on drago?
+> 
+> It's not as nice, because it's not a clean, controled environment. But we
+> might have to do that.
+
+OK, I'm running it on drago.
+",,,OK Im run drago,N,2016-09-18 16:34:29
+10,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 16:34:29,"> OK, I'm running it on drago.
+
+I am merging: it completed on drago without problems.
+
+Don't release, I'll try doing it after some manual QAing.
+",,,I merg complet drago without problem dont releas ill tri manual qa,N,2016-09-18 14:26:50
+11,issue_comment,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:26:50,"> How did that slip by?
+
+I have absolutely no idea given that we did use this code for OHBM tutorial... I would like to fix this ASAP and not look at the root of the problem.
+
+> What's the test case to reproduce (I'm not asking you for a unit test, just something that I can type in a terminal).
+
+This should do:
+
+``` python
+from nilearn.datasets import fetch_abide_pcp
+a = fetch_abide_pcp(derivatives=['rois_cc200'], SITE_ID=[b'NYU'], n_subjects=1)
+```
+
+> Will fixing in master be enough for the tutorial, or will you need a release?
+
+I will do a release.
+",,,I absolut idea given use code ohbm tutori I would like fix asap look root problem thi I releas,N,2016-09-18 14:39:54
+12,issue_comment,1278,nilearn,nilearn,KamalakerDadi,2016-09-18 14:39:54,"It would be great if you could also address the documentation conflict with n_subjects ? As we have discussed it should be > 94.
+",,,It would great could also address document conflict nsubject As discuss,N,2016-09-18 14:44:53
+13,issue_comment,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:44:53,"> we'd like to check that all the examples run well
+
+I agree.
+
+> It would be great if you could also address the documentation conflict with n_subjects ?
+
+Doc is fixed, thanks for reminding me!
+",,,I agre doc fix thank remind,N,2016-09-18 14:51:59
+14,issue_comment,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:51:59,"> I've been restarting CircleCI in the hope that it completes. But it might be a lost cause given that I cannot get access to it at all on my browser.
+
+Can't we just run the examples on drago?
+",,,cant run exampl drago,N,2016-09-18 14:06:45
+15,pull_request_commit,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:06:45,Fix bug in fetching files for ABIDE.,8377da2a3109e8b649cc5c241849abeaabbf79f6,,fix bug fetch file abid,N,2016-09-18 14:43:47
+1,issue_title,1287,nilearn,nilearn,TheChymera,2016-09-24 21:47:07,"I am getting the following fatal error when running the test suite:
+
+```
+======================================================================
+ERROR: Failure: TypeError (constructor returned NULL)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/usr/lib64/python2.7/site-packages/nose/loader.py"", line 418, in loadTestsFromName
+    addr.filename, addr.module)
+  File ""/usr/lib64/python2.7/site-packages/nose/importer.py"", line 47, in importFromPath
+    return self.importFromDir(dir_path, fqname)
+  File ""/usr/lib64/python2.7/site-packages/nose/importer.py"", line 94, in importFromDir
+    mod = load_module(part_fqname, fh, filename, desc)
+  File ""/var/tmp/portage/sci-biology/nilearn-0.2.6/work/nilearn-0.2.6/nilearn/plotting/__init__.py"", line 39, in <module>
+    from .img_plotting import plot_img, plot_anat, plot_epi, \
+  File ""/var/tmp/portage/sci-biology/nilearn-0.2.6/work/nilearn-0.2.6/nilearn/plotting/img_plotting.py"", line 29, in <module>
+    import matplotlib.pyplot as plt
+  File ""/usr/lib64/python2.7/site-packages/matplotlib/pyplot.py"", line 114, in <module>
+    _backend_mod, new_figure_manager, draw_if_interactive, _show = pylab_setup()
+  File ""/usr/lib64/python2.7/site-packages/matplotlib/backends/__init__.py"", line 32, in pylab_setup
+    globals(),locals(),[backend_name],0)
+  File ""/usr/lib64/python2.7/site-packages/matplotlib/backends/backend_gtk3agg.py"", line 11, in <module>
+    from . import backend_gtk3
+  File ""/usr/lib64/python2.7/site-packages/matplotlib/backends/backend_gtk3.py"", line 58, in <module>
+    cursors.MOVE          : Gdk.Cursor.new(Gdk.CursorType.FLEUR),
+TypeError: constructor returned NULL
+```
+
+I assume this is because nilearn does not explicitly set the matplotlib backend as `agg`. Can you confirm that this is indeed what is causing the error? Since nilearn does not depend on gtk (and I believe rightfully so) I think the test phase should not fail if there happens to be no gtk support in matplotlib. 
+",start issue,Test nilearn without depending on GUI,I get follow fatal error run test suit I assum nilearn explicitli set matplotlib backend can confirm inde caus error sinc nilearn depend gtk I believ right I think test phase fail happen gtk support matplotlib,N,2016-10-02 10:41:20
+2,issue_closed,1287,nilearn,nilearn,TheChymera,2016-10-02 10:41:20,,closed issue,Test nilearn without depending on GUI,,N,2016-09-26 10:59:44
+3,issue_comment,1287,nilearn,nilearn,jlec,2016-09-26 10:59:44,"@TheChymera try to use the `virtualx.eclass`
+",,,thechymera tri use,N,2016-09-24 22:03:07
+4,issue_comment,1287,nilearn,nilearn,AlexandreAbraham,2016-09-24 22:03:07,"Hey Christian,
+
+If you look at the file `nilearn/plotting/__init__.py`, you'll see that we have some code to use the `agg` backend if no sidplay is available. I guess that somehow this code is not working properly on your machine. Could you:
+- tell us how you launch the test suite so that we can reproduce
+- try to copy/paste the code in the beginning of init and then check that the backend has been switched to `agg` (using `matplotlib.get_backend()`)
+- check that you don't have a maplotlib.rc file in your current dir on anything at python loading (maybe an `ipython_config.py`) that pre-set a different matplotlb backend (because in that case, nilearn cannot reset it).
+
+As a reminder, the code to be run:
+
+``` python
+def _set_mpl_backend():
+    try:
+        # We are doing local imports here to avoid poluting our namespace
+        import matplotlib
+        import os
+        import sys
+        # Set the backend to a non-interactive one for unices without X
+        if (os.name == 'posix' and 'DISPLAY' not in os.environ
+            and not (sys.platform == 'darwin'
+                     and matplotlib.get_backend() == 'MacOSX'
+                     )):
+            matplotlib.use('Agg')
+            print('Switching backend to agg')
+    except ImportError:
+        from .._utils.testing import skip_if_running_nose
+        # No need to fail when running tests
+        skip_if_running_nose('matplotlib not installed')
+        raise
+    else:
+        from ..version import (_import_module_with_version_check,
+                               OPTIONAL_MATPLOTLIB_MIN_VERSION)
+        # When matplotlib was successfully imported we need to check
+        # that the version is greater that the minimum required one
+        _import_module_with_version_check('matplotlib',
+                                          OPTIONAL_MATPLOTLIB_MIN_VERSION)
+
+_set_mpl_backend()
+print('The backend is', matplotlib.get_backend())
+
+```
+",,,hey christian If look file youll see code use backend sidplay avail I guess somehow code work properli machin could tell us launch test suit reproduc tri copypast code begin init check backend switch use check dont maplotlibrc file current dir anyth python load mayb preset differ matplotlb backend case nilearn cannot reset As remind code run,Y,2016-09-24 22:59:59
+5,issue_comment,1287,nilearn,nilearn,TheChymera,2016-09-24 22:59:59,"I am launching the tests via `nosetests -v`. Still, it might be an issue with my testing environement. @SoapGentoo @jlec the error above appears when I emerge [this ebuild](https://github.com/TheChymera/neurogentoo/blob/c6907fb9f1426461ca314ac3880f3ca358a52721/sci-biology/nilearn/nilearn-0.2.6.ebuild). However, when I cd to the workdir and run `nosetests -v` I do not get this particular error. 
+
+This is a problem because I can't reproduce the error outside portage. Can you maybe help out?
+",,,I launch test via still might issu test environ soapgentoo jlec error appear I emerg ebuild howev I cd workdir run I get particular error thi problem I cant reproduc error outsid portag can mayb help,Y,2016-09-25 07:44:28
+6,issue_comment,1287,nilearn,nilearn,AlexandreAbraham,2016-09-25 07:44:28,"Can you print debug line when running your ebuild so that we can diagnose it? In a first time, could you try to unset DISPLAY before running the tests ?
+",,,can print debug line run ebuild diagnos In first time could tri unset display run test,Y,2016-09-25 11:48:46

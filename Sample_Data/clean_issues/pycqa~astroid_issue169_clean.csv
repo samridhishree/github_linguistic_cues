@@ -1,0 +1,77 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,169,pycqa,astroid,pylint-bot,2015-08-15 18:58:52,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+As an example, take _newstyle_impl in scoped_nodes.py.  It caches its result in self._newstyle and checks that first before returning a value.  If you then create a class 'B' that inherits from another class 'A', call anything that accesses B.newstyle, and change what class 'A' inherits from a new-style class to an old-style class or vice-versa, B.newstyle will return an incorrect value.  The two obvious solutions here are not to cache property values or to make ASTs immutable.
+
+The deeper issue is that there's no real separation between properties that are properties of individual nodes, for instance a class's name, and properties that are properties of entire ASTs, like a class being new-style or old-style.  I don't know what to do about this in general.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/169
+",start issue,Caching property values is unsafe with mutable ASTs,origin report bitbucket ceridwenv github ceridwen As exampl take newstyleimpl scopednodespi It cach result selfnewstyl check first return valu If creat class B inherit anoth class A call anyth access bnewstyl chang class A inherit newstyl class oldstyl class viceversa bnewstyl return incorrect valu the two obviou solut cach properti valu make ast immut the deeper issu there real separ properti properti individu node instanc classs name properti properti entir ast like class newstyl oldstyl I dont know gener bitbucket
+issue_comment,169,pycqa,astroid,pylint-bot,2015-08-15 18:11:56,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+What do you mean when you're referring to inheriting a class B from a class A? newstyle should be immutable already, while _newstyle should be an implementation detail, so that changing it from outside should be prohibited.
+
+Regarding the distinction, it could be explained through the fact that astroid's ASTs aren't pure, they provide more capabilities and they tend to represent the respective Python object. Unfortunately there's nothing we can do right now,
+not without breaking backward compatibility and not without major changes. What could be done is to separate the ASTs into multiple layers: the AST layer, where the classes represents only the nodes, the inference layer, which adds inference support to the nodes and other possible layers (control flow graph etc.) That's definitely interesting to have, but probably not very soon.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor what mean your refer inherit class B class A newstyl immut alreadi newstyl implement detail chang outsid prohibit regard distinct could explain fact astroid ast arent pure provid capabl tend repres respect python object unfortun there noth right without break backward compat without major chang what could done separ ast multipl layer ast layer class repres node infer layer add infer support node possibl layer control flow graph etc that definit interest probabl soon
+issue_comment,169,pycqa,astroid,pylint-bot,2015-08-16 20:32:34,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+Let me be more explicit.  I'm going to represent ASTs with the code that they're compiled from because it's easier to read that way.
+
+``` python
+class A(object): pass
+
+class B: pass
+
+class C(A): pass
+```
+
+I could parse this code into an astroid AST and then access `node.newstyle` for the node representing C.  If I then mutate the resulting AST to:
+
+``` python
+class A(object): pass
+
+class B: pass
+
+class C(B): pass
+```
+
+The cached value of `node.newstyle` for C won't get updated.  I started thinking about this because of wondering what might happen if I used any of astroid's inference functions in Macropy, which by definition is doing AST rewriting, particularly around scope analysis for hygienic macros.
+
+I agree separating the ASTs into levels would require some major changes, I don't think it's a short-term project, I do think it might be worth thinking about in terms of changes we're making now.
+",,,origin comment bitbucket ceridwenv github ceridwen let explicit Im go repres ast code theyr compil easier read way I could pars code astroid ast access node repres C If I mutat result ast the cach valu C wont get updat I start think wonder might happen I use astroid infer function macropi definit ast rewrit particularli around scope analysi hygien macro I agre separ ast level would requir major chang I dont think shortterm project I think might worth think term chang make
+issue_comment,169,pycqa,astroid,pylint-bot,2015-08-17 06:55:34,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Yeah, now I understand the exact problem, which happens after the original AST is mutated. It's something that I didn't come across during transforms, but it's definitely possible to happen. A temporary solution would be to not cache the value, but we need a profiling before that, to see what performance regression incurs.
+
+I definitely want to have the separation of the AST levels, probably not for astroid 1.4, which should be due in one-two months at best. I'm imagining something like this:
+- normal ASTs should be located in astroid.ast or astroid.tree or something like that.
+- after converting from Python's ASTs to astroid, augment the resulting tree with inference capabilities, so if that anyone wants to use only the trees which are compatible with Python 2 or 3 and doesn't actually needs inference, he/she can use astroid.tree.
+- I'm not sure on the order of this one: after the trees were augmented, apply the transforms.
+- I'm not sure on this one either, probably because I don't know if this should come after or before the transforms: apply control flow graphs support, after having this implemented.
+- probably the last component will be abstract interpretation over the resulting objects, which at this step, aren't pure ASTs and we can stop calling them like this.
+
+If you have any other idea or improvement, I'm happy to hear it. ;-)
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor yeah I understand exact problem happen origin ast mutat it someth I didnt come across transform definit possibl happen A temporari solut would cach valu need profil see perform regress incur I definit want separ ast level probabl astroid 14 due onetwo month best Im imagin someth like normal ast locat astroidast astroidtre someth like convert python ast astroid augment result tree infer capabl anyon want use tree compat python 2 3 doesnt actual need infer hesh use astroidtre Im sure order one tree augment appli transform Im sure one either probabl I dont know come transform appli control flow graph support implement probabl last compon abstract interpret result object step arent pure ast stop call like If idea improv Im happi hear
+issue_comment,169,pycqa,astroid,pylint-bot,2015-09-05 14:45:26,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+Do you have any profiling data on pylint/astroid to tell us what's slow?  I admit that if I had to guess, properties wouldn't dominate the run time, rather the allocations for the various context objects and the many small function calls (on CPython, that might be better on PyPy).  I admit I call pylint with PyPy on Python 2.7 because pylint is slow, but I don't know how much of the slowness is pylint-specific, and on the whole astroid's code strikes me as being written in a not-particularly-performance-sensitive manner.  If performance is an issue, we should maybe talk about performance optimization in a more global sense.
+",,,origin comment bitbucket ceridwenv github ceridwen Do profil data pylintastroid tell us what slow I admit I guess properti wouldnt domin run time rather alloc variou context object mani small function call cpython might better pypi I admit I call pylint pypi python 27 pylint slow I dont know much slow pylintspecif whole astroid code strike written notparticularlyperformancesensit manner If perform issu mayb talk perform optim global sens
+issue_comment,169,pycqa,astroid,pylint-bot,2015-09-05 15:09:05,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Basically, the entire inference is slow, since some things are reinferred over and over again, depending from where the inference starts. There is a caching somewhere, but it doesn't work all the time and it's context-specific. Indeed, the performance isn't a big goal for astroid, I'm more interested in having correctness and good Python understanding. If this wasn't the case, astroid could have been written into another faster language, since we're basically writing a form of a Python interpreter here.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor basic entir infer slow sinc thing reinfer depend infer start there cach somewher doesnt work time contextspecif inde perform isnt big goal astroid Im interest correct good python understand If wasnt case astroid could written anoth faster languag sinc basic write form python interpret

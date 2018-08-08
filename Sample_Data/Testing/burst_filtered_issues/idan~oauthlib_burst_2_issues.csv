@@ -1,0 +1,6 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,5,idan,oauthlib,dgouldin,2012-03-24 17:15:15,,closed issue,Updated HMAC test,,N,2012-03-15 10:41:19
+5,issue_comment,5,idan,oauthlib,dgouldin,2012-03-24 16:48:24,"I'm -1 on moving string constants into test functions if they're used by multiple tests. While DRY doesn't really apply to testing as much, self. is clear enough here that duplication of the string feels unnecessary.
+
+I'll accept the control_signature part if you'd like to split that out.
+",,,Im 1 move string constant test function theyr use multipl test while dri doesnt realli appli test much self clear enough duplic string feel unnecessari ill accept controlsignatur part youd like split,Y,2012-03-15 10:36:40

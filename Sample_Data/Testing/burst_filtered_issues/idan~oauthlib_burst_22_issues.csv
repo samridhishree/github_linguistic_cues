@@ -1,0 +1,13 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,214,idan,oauthlib,ib-lundgren,2013-09-25 11:55:48,,closed issue,Fix bug in client_authentication_required call,,N,2013-09-20 23:25:37
+19,pull_request_commit_comment,214,idan,oauthlib,ib-lundgren,2013-09-21 15:38:26,"I mean you can have
+
+```
+mock = MagicMock()
+mock.some_attr.some_func.return_value = False
+```
+
+without having to first create mock.some_attr or mock.some_attr.some_func
+",c0dc977de73573ca0c286b05da34b8e525467254,"(None, '', u'tests/oauth2/rfc6749/grant_types/test_resource_owner_password.py')",I mean without first creat mocksomeattr mocksomeattrsomefunc,N,2013-09-20 23:05:31
+20,pull_request_commit,214,idan,oauthlib,masci@evonove.it,2013-09-20 23:05:31,fixed call to client_authentication_required,c38dab51aec039ac3a89778233c190776b5d7e8c,,fix call clientauthenticationrequir,N,2013-09-20 23:06:02
+21,pull_request_commit,214,idan,oauthlib,masci@evonove.it,2013-09-20 23:06:02,added test involving client_authentication_required method,012fbbebcdafa28340ecaf5addb5c1b9da30057b,,ad test involv clientauthenticationrequir method,N,2013-09-20 23:13:20

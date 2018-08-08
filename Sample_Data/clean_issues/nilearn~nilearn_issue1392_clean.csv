@@ -1,0 +1,57 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1392,nilearn,nilearn,KamalakerDadi,2017-02-28 12:02:43,"Currently master has data fetching failures. See for instance below link
+https://circleci.com/gh/nilearn/nilearn/2280?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link
+
+Hopefully, this fix will address the failure of data fetching in master which will therefore fix documentation errors in CircleCI. We have to wait and see if everything goes green.",start issue,FIX: Data downloading failures from _uncompress_file,current master data fetch failur see instanc link hope fix address failur data fetch master therefor fix document error circleci We wait see everyth goe green
+issue_closed,1392,nilearn,nilearn,GaelVaroquaux,2017-03-01 15:21:20,,closed issue,FIX: Data downloading failures from _uncompress_file,
+pull_request_title,1392,nilearn,nilearn,KamalakerDadi,2017-02-28 12:02:43,"Currently master has data fetching failures. See for instance below link
+https://circleci.com/gh/nilearn/nilearn/2280?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link
+
+Hopefully, this fix will address the failure of data fetching in master which will therefore fix documentation errors in CircleCI. We have to wait and see if everything goes green.",ab224fe7eb3f460e1c94d5eec65149ee1f6cb067,FIX: Data downloading failures from _uncompress_file,current master data fetch failur see instanc link hope fix address failur data fetch master therefor fix document error circleci We wait see everyth goe green
+pull_request_merged,1392,nilearn,nilearn,GaelVaroquaux,2017-03-01 15:21:20,FIX: Data downloading failures from _uncompress_file,dffd5ec58041aea19f5b89d8a600f95768431c28,Pull request merge from KamalakerDadi/nilearn:fix_nilearn_downloader to nilearn/nilearn:master,fix data download failur uncompressfil
+issue_comment,1392,nilearn,nilearn,GaelVaroquaux,2017-02-28 13:50:22,"There is a CircleCI failure which is related to a warning under sphinx : load_surf_mesh is not in the reference documentation. Could you fix that, to try to have CircleCI green.",,,there circleci failur relat warn sphinx loadsurfmesh refer document could fix tri circleci green
+issue_comment,1392,nilearn,nilearn,GaelVaroquaux,2017-03-01 12:19:26,"Thanks a lot for your feedback, @AlexandreAbraham . Is the current version satisfactory?",,,thank lot feedback alexandreabraham Is current version satisfactori
+issue_comment,1392,nilearn,nilearn,GaelVaroquaux,2017-03-01 15:21:30,"Gone!
+
+Thanks @AlexandreAbraham ",,,gone thank alexandreabraham
+issue_comment,1392,nilearn,nilearn,AlexandreAbraham,2017-02-28 15:45:21,"It is wrong because you fix a missing file by not deleting it whereas deleting is an explicit functionality of this method. One option is to roll back the changes that introduced the bug or, given that file deletion is now in the zip case, you could just exit the function at the end of this code block. But it is not possible to let gargabe files all around the users hard drive.",,,It wrong fix miss file delet wherea delet explicit function method one option roll back chang introduc bug given file delet zip case could exit function end code block but possibl let gargab file around user hard drive
+issue_comment,1392,nilearn,nilearn,AlexandreAbraham,2017-02-28 15:57:40,"With your patch, zip archives are no more deleted. This is not acceptable.",,,with patch zip archiv delet thi accept
+issue_comment,1392,nilearn,nilearn,AlexandreAbraham,2017-03-01 15:17:43,Go!,,,Go
+issue_comment,1392,nilearn,nilearn,codecov[bot],2017-02-28 15:05:19,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1392?src=pr&el=h1) Report
+> Merging [#1392](https://codecov.io/gh/nilearn/nilearn/pull/1392?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/6cde93de622d2a5794998da7f9b15b258dc918f6?src=pr&el=desc) will **decrease** coverage by `-0.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1392      +/-   ##
+==========================================
+- Coverage   94.39%   94.39%   -0.01%     
+==========================================
+  Files         118      118              
+  Lines       13388    13387       -1     
+==========================================
+- Hits        12637    12636       -1     
+  Misses        751      751
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1392?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/datasets/utils.py](https://codecov.io/gh/nilearn/nilearn/compare/6cde93de622d2a5794998da7f9b15b258dc918f6...891df41bd09e3fa911d198ac9fd195a8e34d1aca?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy91dGlscy5weQ==) | `80.05% <100%> (-0.06%)` | :x: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1392?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1392?src=pr&el=footer). Last update [6cde93d...ab224fe](https://codecov.io/gh/nilearn/nilearn/compare/6cde93de622d2a5794998da7f9b15b258dc918f6...ab224fe7eb3f460e1c94d5eec65149ee1f6cb067?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearndatasetsutilspi x continu review full report codecov
+pull_request_commit_comment,1392,nilearn,nilearn,AlexandreAbraham,2017-03-01 08:29:34,Remove this.,ab224fe7eb3f460e1c94d5eec65149ee1f6cb067,"(None, '', u'nilearn/datasets/utils.py')",remov
+pull_request_commit_comment,1392,nilearn,nilearn,AlexandreAbraham,2017-03-01 08:29:41,Put this back.,ab224fe7eb3f460e1c94d5eec65149ee1f6cb067,"(None, '', u'nilearn/datasets/utils.py')",put back
+pull_request_commit_comment,1392,nilearn,nilearn,AlexandreAbraham,2017-03-01 08:31:36,"+ change condition in line 351
+`if os.path.is_file(file_) and tarfile.is_tarfile(file_):`",ab224fe7eb3f460e1c94d5eec65149ee1f6cb067,"(None, '', u'nilearn/datasets/utils.py')",chang condit line 351
+pull_request_commit,1392,nilearn,nilearn,KamalakerDadi,2017-02-28 11:52:42,FIX: Data downloading failures from _uncompress_file,3d8ebdebb4df3cd9d1967c1fa5b2f6f0747a125d,,fix data download failur uncompressfil
+pull_request_commit,1392,nilearn,nilearn,KamalakerDadi,2017-02-28 14:59:50,Fix circleci documentation for unknown reference,e4a25d409d4543419ca7edab38b53db7d1cbe55c,,fix circleci document unknown refer
+pull_request_commit,1392,nilearn,nilearn,KamalakerDadi,2017-02-28 16:21:13,Fixing @AlexandreAbraham reviews,891df41bd09e3fa911d198ac9fd195a8e34d1aca,,fix alexandreabraham review
+pull_request_commit,1392,nilearn,nilearn,KamalakerDadi,2017-03-01 08:55:19,Addressed changes,ab224fe7eb3f460e1c94d5eec65149ee1f6cb067,,address chang

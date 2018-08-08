@@ -1,0 +1,57 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1519,nilearn,nilearn,salma1601,2017-09-29 20:20:35,"Hi
+
+I got many times trapped in signals extracted from unregistered atlas and functional volumes. Is there a reason why the default resampling strategy in the `NiftiLabelsMasker` is not `None` ?
+
+Thanks",start issue,resamling strategy in nifti masker,Hi I got mani time trap signal extract unregist atla function volum Is reason default resampl strategi thank
+issue_comment,1519,nilearn,nilearn,bthirion,2017-10-26 21:05:34,"Concretely, what is your suggestion ?
+",,,concret suggest
+issue_comment,1519,nilearn,nilearn,bthirion,2017-10-27 21:20:24,"I don't know how to find a cgood compromise on that. In most cases, for human data, you have FOV and sampling differences but agree on the referential --MNI space-- hece resampling is the right default.
+I am afraid of breaking this type of scenarii to accomodate the case that the two images may not have been properly registered. Should a warning be issued for the user ?",,,I dont know find cgood compromis In case human data fov sampl differ agre referenti mni space hece resampl right default I afraid break type scenarii accomod case two imag may properli regist should warn issu user
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-24 13:50:44,"It's for basic use. For mice data there is not yet a standard space (analog to MNI) to which people put their data. Many times I didn't pay attention to the space to which functional volumes were registered
+and use an atlas/functional data from different spaces. But the masker resamples by default so I discovered very late in the analysis my registration problem.
+``` Python
+from nilearn.input_data import NiftiLabelsMasker
+gm_masker = NiftiLabelsMasker(labels_img=atlas_filename,
+                              mask_img=non_noise_mask_img,
+                              detrend=True,
+                              smoothing_fwhm=.6,
+                              memory='nilearn_cache')
+```
+Having the masker's default behavior to not resample seems less dangerous to me, no ?
+",,,it basic use for mice data yet standard space analog mni peopl put data mani time I didnt pay attent space function volum regist use atlasfunct data differ space but masker resampl default I discov late analysi registr problem have masker default behavior resampl seem less danger
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-25 14:59:08,">Why not put resampling_strategy=None manually by yourself
+
+Yes but I wanted to understand the reason why the default strategy is to resample
+
+>we may also see same situation as yours i.e. trapped in signals extracted from unregistered atlas and functional volumes
+
+Yes you are right, this is possible but unlikely, usually unregistered images have different affines/shapes",,,ye I want understand reason default strategi resampl ye right possibl unlik usual unregist imag differ affinesshap
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-26 15:09:29,">This is what the nifti standard was designed to avoid.
+
+You mean the fact that the functional volumes and the atlas are not in the same space ?",,,you mean fact function volum atla space
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-26 15:24:30,"Yes so the logic is that if the affines are different, resampling solves the problem ? It does not solve it if the functional volumes and the atlas are not in the same space, I mean for instance functional volumes are not normalized to MNI while atlas is in MNI, no?",,,ye logic affin differ resampl solv problem It solv function volum atla space I mean instanc function volum normal mni atla mni
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-26 15:32:46,"Well I would think that if there is such a problem, I get an error. I understand that in plotting we resample images because the user may want to see the brains ""however"" they are. But I don't understand that the resampling is done almost ""silently"" in a preprocessing dedicated to extract time series. The most expected default behaviour for me would be not to resample, unless the user specifies he wants to do so, in which case I assume he knows what he is doing. What do you think ? ",,,well I would think problem I get error I understand plot resampl imag user may want see brain howev but I dont understand resampl done almost silent preprocess dedic extract time seri the expect default behaviour would resampl unless user specifi want case I assum know what think
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-26 16:07:05,"> most use cases your assumption will not happen
+
+Yes in the very standard and basic use case, say atlas in MNI and all volumes normalized to MNI, my assumptions will not happen and it is convenient to have the resampling done if needed. But many other use cases exist. For mice there isn't a unique popular standard space. Also for human imagine you want to extract time series in the subjects-spaces with atlas that have been transformed in these spaces, then any little mix in the files etc will just not be noticed.
+
+Also, many people do (or not) their resampling at the end of their spatial normalization pipeline and would not expect a timeseries extraction step to impact the resampling so they can miss such an error.
+",,,ye standard basic use case say atla mni volum normal mni assumpt happen conveni resampl done need but mani use case exist for mice isnt uniqu popular standard space also human imagin want extract time seri subjectsspac atla transform space littl mix file etc notic also mani peopl resampl end spatial normal pipelin would expect timeseri extract step impact resampl miss error
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-27 10:36:04,just to put the default value of `resampling_target` to None in the Nifti Masker,,,put default valu none nifti masker
+issue_comment,1519,nilearn,nilearn,salma1601,2017-10-28 11:05:09,"> In most cases, for human data, you have FOV and sampling differences but agree on the referential --MNI space-- hece resampling is the right default
+
+Well, even in this case setting the default to None doesn't look bad for me. The user will bump into this the very first time, and then set explicitly `resampling_target='data'`. Why want the code to run with a user unaware of this necessary step ?",,,well even case set default none doesnt look bad the user bump first time set explicitli whi want code run user unawar necessari step
+issue_comment,1519,nilearn,nilearn,KamalakerDadi,2017-10-05 12:53:57,"Your issue is not clear for me. Can you show by any small script you have ?
+Infact, the resampling strategy in ```NiftiLabelsMasker``` is not None.",,,your issu clear can show small script infact resampl strategi none
+issue_comment,1519,nilearn,nilearn,KamalakerDadi,2017-10-25 12:25:53,">Having the masker's default behavior to not resample seems less dangerous to me, no ?
+
+Why not put ```resampling_strategy=None``` manually by yourself ?
+
+I am asking because it we change to not resample by default. Then, we may also see same situation as yours i.e. trapped in signals extracted from unregistered atlas and functional volumes. Am I wrong ?",,,whi put manual I ask chang resampl default then may also see situat ie trap signal extract unregist atla function volum Am I wrong
+issue_comment,1519,nilearn,nilearn,KamalakerDadi,2017-10-26 15:45:23,">But I don't understand that the resampling is done almost ""silently"" in a preprocessing dedicated to extract time series. The most expected default behaviour for me would be not to resample, unless the user specifies he wants to do so, in which case I assume he knows what he is doing.
+
+Resampling is done only when provided images have no same FOV. I think in a way it is right because most use cases your assumption will not happen.
+
+",,,resampl done provid imag fov I think way right use case assumpt happen

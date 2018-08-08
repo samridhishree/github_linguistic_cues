@@ -1,0 +1,264 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,245,nilearn,nilearn,lesteve,2014-12-04 15:21:44,,closed issue,[MRG] Glass brain visualisation,,N,2014-09-26 09:57:48
+4,pull_request_merged,245,nilearn,nilearn,lesteve,2014-12-04 15:21:44,[MRG] Glass brain visualisation,9c6fab537cdebd818f0c1f6b559ba2b162520723,Pull request merge from lesteve/nilearn:glass-brain to nilearn/nilearn:master,mrg glass brain visualis,N,2014-09-26 11:05:14
+50,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-04 16:37:45,"Fucking Ay!
+
+Can you rebuild the online docs, please;
+",,,fuck Ay can rebuild onlin doc pleas,N,2014-09-27 06:48:09
+51,issue_comment,245,nilearn,nilearn,lesteve,2014-09-27 06:48:09,"The outline comes from an SVG with a little bit of work to extract the coordinates of the nodes from the SVG and draw the Bézier curves in matplotlib.
+
+The SVG was created by Gaël by vectorising and simplifying a bitmap picture.
+",,,the outlin come svg littl bit work extract coordin node svg draw bézier curv matplotlib the svg creat gaël vectoris simplifi bitmap pictur,N,2014-09-29 20:52:46
+52,issue_comment,245,nilearn,nilearn,lesteve,2014-09-29 20:52:46,"I was wondering about where these data points outside the brain were coming from and I was told it may well be the eyes. Those regions can be seen in the [plotting examples](https://nilearn.github.io/auto_examples/plot_demo_plotting.html) too for example this one:
+![picture](https://nilearn.github.io/_images/plot_demo_plotting_7.png).
+
+If there is a way to remove these regions automatically, it's probably worth doing. Something interesting to note, is that the values are pretty high (in this case very negative) and setting a high threshold won't make them go away.
+
+Definitely a good idea to get some feedback from neuroscientists at one point in the future.
+",,,I wonder data point outsid brain come I told may well eye those region seen plot exampl exampl one pictur If way remov region automat probabl worth someth interest note valu pretti high case neg set high threshold wont make go away definit good idea get feedback neuroscientist one point futur,N,2014-09-29 20:59:33
+57,issue_comment,245,nilearn,nilearn,lesteve,2014-10-10 09:05:40,"> What's your feeling on the code? I personnaly like a lot what I am seeing. I have the impression that this is a good design for what we need.
+
+I would agree using only functions glass_brain.py is simpler. Having the glass brain plotting as part of the Axes makes sense but you need to jump through a few more levels (the `**kwargs` I added to a few methods [recently](https://github.com/lesteve/nilearn/commit/9909e211752197a844a18dd26043eb6792b8a5e0)). Other than that, there are still coord (axes level) and cut_coords (display level) in a few places in slicers.py which is a bit awkward given that it doesn't really apply to the glass brain use case.
+
+> Next step is to add smoke tests, so that the test coverage is as high as possible (we aim for 90% or more).
+
+Yep I started doing that but I bumped into errors I don't really understand yet.
+",,,I would agre use function glassbrainpi simpler have glass brain plot part axe make sens need jump level I ad method recent other still coord axe level cutcoord display level place slicerspi bit awkward given doesnt realli appli glass brain use case yep I start I bump error I dont realli understand yet,N,2014-09-29 21:19:38
+58,pull_request_commit_comment,245,nilearn,nilearn,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/plot_glass_brain.py')",what valu come it bit disturb user dont understand,N,2014-09-29 21:24:01
+59,pull_request_commit_comment,245,nilearn,nilearn,bthirion,2014-09-29 21:24:01,"This seems of a much wider interest than glass brain plotting. This should go to some utils subdir, and possibly to another library in the future.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/svg_to_json_converter.py')",thi seem much wider interest glass brain plot thi go util subdir possibl anoth librari futur,N,2014-09-29 21:28:07
+60,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-09-29 21:28:07,"> This seems of a much wider interest than glass brain plotting. This should go
+> to some utils subdir, and possibly to another library in the future.
+
+Agreed for the utils, but I don't want to invest time in something like a
+library that is of no use to us. People are welcome to take the code and
+make it a library.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/svg_to_json_converter.py')",agre util I dont want invest time someth like librari use us peopl welcom take code make librari,N,2014-09-30 06:48:31
+61,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-09-30 06:48:31,"I tweaked these values by hand to have a nicer color range. To be honest, the only use of this plot is to align the brain schematics with the anatomy and eventually hand-tweak the SVG to make them fit a bit better. I don't think it will stay as an example plot.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/plot_glass_brain.py')",I tweak valu hand nicer color rang To honest use plot align brain schemat anatomi eventu handtweak svg make fit bit better I dont think stay exampl plot,N,2014-09-30 16:43:09
+62,pull_request_commit_comment,245,nilearn,nilearn,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/plot_align_svg.py')",sorri I dont understand statu codebas Is suppos remov,N,2014-09-30 16:44:34
+63,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-09-30 16:44:34,"> Sorry, I don't understand the status of this in the codebase. Is it
+> supposed to be removed ?
+
+Probably moved into a 'utils' directory (not a module: this would not be
+code that we would deploy on the user's computer).
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/plot_align_svg.py')",probabl move util directori modul would code would deploy user comput,N,2014-09-30 16:54:37
+64,pull_request_commit_comment,245,nilearn,nilearn,bthirion,2014-09-30 16:54:37,"pending TODO
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/img_plotting.py')",pend todo,N,2014-09-30 16:56:35
+65,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-09-30 16:56:35,"Yeah, this script main purpose is to check the good alignment of the anat and the svg. It could be useful to keep it in case we need to tweak the svg further at one point in the future. It does makes sense to move it out of the way.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_scripts/plot_align_svg.py')",yeah script main purpos check good align anat svg It could use keep case need tweak svg one point futur It make sens move way,N,2014-09-30 17:04:45
+124,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-09 15:27:59,Tiny markdown improvement,6c66244863327a4c50aff182025b4735bf822255,,tini markdown improv,N,2014-09-26 07:41:24
+125,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 07:41:24,First stab at implementing high-level function in img_plotting for glass brain visualisation,ef0687cd0391afc50405144313826273f0267057,,first stab implement highlevel function imgplot glass brain visualis,N,2014-09-26 07:55:06
+126,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 07:55:06,Remove stale comment,2fbcdfe9cee33bcd179bd080a40f74fe5aaf1d80,,remov stale comment,N,2014-09-26 09:57:14
+127,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 09:57:14,Add demo for glass brain visualisation,724a4c45ebcbd9ba08cb107b4479f3b723251aa0,,add demo glass brain visualis,N,2014-09-26 11:34:15
+128,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 11:34:15,"Rename align_svg.py to get the Travis tests to run
+
+nose is trying to import align_svg.py which is trying to do plots and fail with an error like ""Failure: TclError (no display name and no $DISPLAY environment variable)""",16d0f8010a493a1e56bfca78991e889080582860,,renam alignsvgpi get travi test run nose tri import alignsvgpi tri plot fail error like failur tclerror display name display environ variabl,N,2014-09-26 12:07:11
+129,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 12:07:11,Additional hack to get the Travis tests to run,90b73222f93740fcea14e489121fc20f5bf1e194,,addit hack get travi test run,N,2014-09-26 12:26:06
+130,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 12:26:06,"Move glass_brain_scripts inside plotting
+
+Hoping that the backend magic in plotting/__init__.py will help for the Travis tests",e578705a787bac8ee2f69a2a0fca14d244a7e1b5,,move glassbrainscript insid plot hope backend magic plottinginitpi help travi test,N,2014-09-26 12:27:46
+131,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 12:27:46,glass_brain_scripts has been moved inside plotting. Also use generic location for json rather than the one on my machine,185404bd8512b32040419e3f9f14a7b0217bfece,,glassbrainscript move insid plot also use gener locat json rather one machin,N,2014-09-26 12:34:59
+132,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-26 12:34:59,MAINT: remove unneeded svg_bak folder,f493f2702b9ddd4b5abe4b6699425c50e3a69932,,maint remov unneed svgbak folder,N,2014-09-29 13:35:12
+133,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-29 13:35:12,Brain schematics inverts its colors with a black background,e5df5b6255873d5414b0fff337738a2a18126633,,brain schemat invert color black background,N,2014-09-29 14:30:17
+134,pull_request_commit,245,nilearn,nilearn,lesteve,2014-09-29 14:30:17,"Add svg bounds into the json document and update brain_plotter accordingly.
+
+Regenerated the json documents.",0dbdfc8e8a9966290069af1a23c91dce3ed9a604,,add svg bound json document updat brainplott accordingli regener json document,N,2014-09-29 14:36:08
+2,issue_closed,248,nilearn,nilearn,GaelVaroquaux,2014-10-06 15:34:30,,closed issue,[WIP] New feature: python-version of fslswapdim,,N,2014-10-01 10:58:38
+6,issue_comment,248,nilearn,nilearn,banilo,2014-10-06 15:22:06,"How about now?
+",,,how,N,2014-10-01 11:41:44
+7,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-01 11:41:44,"Could you please call the input argument 'niimg'.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",could pleas call input argument niimg,N,2014-10-01 11:42:47
+8,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-01 11:42:47,"Let's not define our software by what other softwares do. I would here mention that it swaps the hemispheres.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",let defin softwar softwar I would mention swap hemispher,N,2014-10-01 11:43:35
+9,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-01 11:43:35,"I think that these remarks should be made in the 'Notes' section of the docstring. The guideline is to keep the initial description very short.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",I think remark made note section docstr the guidelin keep initi descript short,N,2014-10-01 11:45:16
+10,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-01 11:45:16,"Any time that I see such warnings in the doc, I have the feeling that we are misdesigning something. Maybe we should use the nilearn.image.reorder_img to relax a bit the assumptions.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",ani time I see warn doc I feel misdesign someth mayb use nilearnimagereorderimg relax bit assumpt,N,2014-10-01 11:46:07
+11,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-01 11:46:07,"Here you should use utils.check_niimg. That way you would also accept strings as input (and the docstring should be updated to reflect that).
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",here use utilscheckniimg that way would also accept string input docstr updat reflect,N,2014-10-01 11:47:11
+12,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-01 11:47:11,"In variable names, we tend to use underscores between words. This would be 'out_nii'. I would prefer 'out_img', as we have the convention that everything that is a niimg should be named with a trailing '_img'.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",In variabl name tend use underscor word thi would outnii I would prefer outimg convent everyth niimg name trail img,N,2014-10-01 16:53:54
+13,pull_request_commit_comment,248,nilearn,nilearn,dengemann,2014-10-01 16:53:54,"@banilo you have too many dashes here ;-) remove one.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",banilo mani dash remov one,N,2014-10-01 16:53:59
+18,pull_request_commit_comment,248,nilearn,nilearn,AlexandreAbraham,2014-10-06 14:33:03,"You are testing check_niimg here, not your function.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/tests/test_image.py')",you test checkniimg function,Y,2014-10-01 09:52:42
+1,issue_title,243,nilearn,nilearn,lesteve,2014-09-23 13:34:32,"In one of my old branch, I bumped into a bug that was actually fixed in master [here](https://github.com/nilearn/nilearn/commit/3781b2beea3b031aa5fd16704c20de49887483cc).
+
+On my way of fixing it again, I added a test to `check_niimg` and tweaked an error message. I thought I would do a pull request to justify wasting my time.
+",start issue,Add test for check_niimg with ensure_3d=True and a non 3d image as argument,In one old branch I bump bug actual fix master On way fix I ad test tweak error messag I thought I would pull request justifi wast time,N,2014-09-25 07:29:34
+2,issue_closed,243,nilearn,nilearn,lesteve,2014-09-25 07:29:34,,closed issue,Add test for check_niimg with ensure_3d=True and a non 3d image as argument,,N,2014-09-23 13:34:32
+3,pull_request_title,243,nilearn,nilearn,lesteve,2014-09-23 13:34:32,"In one of my old branch, I bumped into a bug that was actually fixed in master [here](https://github.com/nilearn/nilearn/commit/3781b2beea3b031aa5fd16704c20de49887483cc).
+
+On my way of fixing it again, I added a test to `check_niimg` and tweaked an error message. I thought I would do a pull request to justify wasting my time.
+",a9eb20e886beeb58bab4b2c586e4a7de0e240c07,Add test for check_niimg with ensure_3d=True and a non 3d image as argument,In one old branch I bump bug actual fix master On way fix I ad test tweak error messag I thought I would pull request justifi wast time,N,2014-09-25 07:29:34
+4,pull_request_merged,243,nilearn,nilearn,lesteve,2014-09-25 07:29:34,Add test for check_niimg with ensure_3d=True and a non 3d image as argument,98e4f55fc52e7ba0e6395aab62d1a4a837ba7419,Pull request merge from lesteve/nilearn:add-test-for-check-niimg-with-non-3d-image to nilearn/nilearn:master,add test checkniimg ensure3dtru non 3d imag argument,N,2014-09-23 13:37:10
+5,pull_request_commit_comment,243,nilearn,nilearn,lesteve,2014-09-23 13:37:10,"Just wondering whether this test was supposed to use `data_img` rather than `data` and be pretty much identical to the test I just added. Here `data` is a numpy array, and you get an error like ""a 3D image is expected but an iterable was given"", which is good enough to make the test pass. 
+",a9eb20e886beeb58bab4b2c586e4a7de0e240c07,"(11, '', u'nilearn/tests/test_niimg_conversions.py')",just wonder whether test suppos use rather pretti much ident test I ad here numpi array get error like 3D imag expect iter given good enough make test pass,Y,2014-09-25 06:25:04
+6,pull_request_commit_comment,243,nilearn,nilearn,bthirion,2014-09-25 06:25:04,"I'm fine with both tests.
+",a9eb20e886beeb58bab4b2c586e4a7de0e240c07,"(11, '', u'nilearn/tests/test_niimg_conversions.py')",Im fine test,Y,2014-09-23 11:49:36
+7,pull_request_commit,243,nilearn,nilearn,lesteve,2014-09-23 11:49:36,"Add test for check_niimg with ensure_3d=True and non-3d image as argument
+
+Fix missing space and typo in error message",36c4cf3c1ae4cceef1f2630e87a9b7c6ecbf513b,,add test checkniimg ensure3dtru non3d imag argument fix miss space typo error messag,N,2014-09-23 11:56:14
+8,pull_request_commit,243,nilearn,nilearn,lesteve,2014-09-23 11:56:14,PEP8 tweak while I was touching the file,abf8ce177e6b11166cd5889cf88adf3338fb22bb,,pep8 tweak I touch file,N,2014-09-23 13:45:32
+1,issue_title,241,nilearn,nilearn,lesteve,2014-09-15 15:12:08,"Fixes #233.
+",start issue,Use simple smoothing in find_cut_slices rather than a gaussian filter,fix 233,N,2014-10-01 12:14:51
+3,pull_request_title,241,nilearn,nilearn,lesteve,2014-09-15 15:12:08,"Fixes #233.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,Use simple smoothing in find_cut_slices rather than a gaussian filter,fix 233,N,2014-10-01 12:14:51
+5,issue_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-16 09:19:14,"You are lacking a test. No code goes in nilearn without tests. You could for instance test that an image full of ones stays full of ones. That will fail, because the normalization isn't right. So maybe we need a keyword argument 'preserve_scale', True by default, that will make sure that np.ones stays np.ones (aside from the sides).
+",,,you lack test No code goe nilearn without test you could instanc test imag full one stay full one that fail normal isnt right So mayb need keyword argument preservescal true default make sure npone stay npone asid side,Y,2014-09-30 06:56:12
+6,issue_comment,241,nilearn,nilearn,lesteve,2014-09-30 06:56:12,"@GaelVaroquaux any objections to merging this?
+",,,gaelvaroquaux object merg,N,2014-09-30 09:03:58
+7,issue_comment,241,nilearn,nilearn,lesteve,2014-09-30 09:03:58,"Sure, no real hurry.
+",,,sure real hurri,N,2014-10-01 09:38:54
+8,issue_comment,241,nilearn,nilearn,lesteve,2014-10-01 09:38:54,"Yep I think I answered all your comments.
+",,,yep I think I answer comment,N,2014-10-01 10:48:26
+9,issue_comment,241,nilearn,nilearn,lesteve,2014-10-01 10:48:26,"Good catch, I have added it now.
+",,,good catch I ad,N,2014-10-01 12:00:54
+18,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-16 10:32:22,"No. It's wrong
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",No it wrong,N,2014-09-25 06:31:46
+19,pull_request_commit_comment,241,nilearn,nilearn,bthirion,2014-09-25 06:31:46,"In the documentation, say explicitly what smoothing is performed: it is only spatial smoothing, the filter is [.2 1 .2] in each direction.
+Bzw, using [.2 .6 .2] might preserve the value on constant images ?
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",In document say explicitli smooth perform spatial smooth filter 2 1 2 direct bzw use 2 6 2 might preserv valu constant imag,N,2014-09-26 13:49:51
+20,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-26 13:49:51,"I added some documentation for the smoothing, let me know whether the wording can be improved.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",I ad document smooth let know whether word improv,N,2014-09-26 13:51:45
+21,pull_request_commit_comment,241,nilearn,nilearn,bthirion,2014-09-26 13:51:45,"Shouldn't this be usable on 4D arrays ? if no, this should be clear in the function name.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",shouldnt usabl 4D array clear function name,N,2014-09-26 14:07:38
+22,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-26 14:07:38,"As long as you want to only smooth the 3 first dimensions it should work on a ndarray. I'll tweak the doc to make it similar to _smooth_array.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",As long want smooth 3 first dimens work ndarray ill tweak doc make similar smootharray,N,2014-09-26 14:09:41
+23,pull_request_commit_comment,241,nilearn,nilearn,bthirion,2014-09-26 14:09:41,"OK, this is what I meant.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",OK I meant,N,2014-09-26 14:38:53
+24,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-26 14:38:53,"> As long as you want to only smooth the 3 first dimensions it should work on a
+> ndarray. I'll tweak the doc to make it similar to _smooth_array.
+
+We had discussed integrating this into _smooth_array, with a special
+argument 'fast' to the kernel size. This would factor code out.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",We discuss integr smootharray special argument fast kernel size thi would factor code,N,2014-09-26 14:45:25
+25,pull_request_commit_comment,241,nilearn,nilearn,bthirion,2014-09-26 14:45:25,"[.2, 1, .2]
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",2 1 2,N,2014-09-26 15:57:58
+26,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-26 15:57:58,"I spotted this one while tweaking the doc and fixed [it](https://github.com/lesteve/nilearn/commit/33d4615a5f9d0a318fe04c6d61baa8af8773422c)
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",I spot one tweak doc fix,N,2014-09-26 16:05:29
+27,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-26 16:05:29,"For completeness, this is what I have done, I think.
+
+Also about the naming of the functions, I am fine adding 3d explicitely to `_smooth_array` or `_fast_smoth_array` if you think it is better. Maybe something like `_smooth_array_three_first_dims`? Better suggestions welcome! 
+
+In this case should the 'public' function smooth_img be renamed too?
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",for complet I done I think also name function I fine ad 3d explicit think better mayb someth like better suggest welcom In case public function smoothimg renam,N,2014-09-27 15:50:51
+28,pull_request_commit_comment,241,nilearn,nilearn,bthirion,2014-09-27 15:50:51,"On 26/09/2014 18:05, Loïc Estève wrote:
+
+> In nilearn/image/image.py:
+> 
+> > @@ -82,6 +82,50 @@ def high_variance_confounds(niimgs, n_confounds=5, percentile=2.,
+> >                                             detrend=detrend)
+> > 
+> > +def _fast_smooth_array(arr):
+> > -    """"""Simple smoothing which is less computationally expensive than
+> > -    applying a gaussian filter.
+> >   +
+> > -    The filter is [.2, 1, 2] in each direction with a normalisation to
+> > -    preserve the scale.
+> >   +
+> > -    Parameters
+> > -    ----------
+> > -    arr: 3D ndarray
+> >   +
+> 
+> For completeness, this is what I have done, I think.
+> 
+> Also about the naming of the functions, I am fine adding 3d 
+> explicitely to |_smooth_array| or |_fast_smoth_array| if you think it 
+> is better. Maybe something like |_smooth_array_three_first_dims|? 
+> Better suggestions welcome!
+> 
+> In this case should the 'public' function smooth_img be renamed too?
+> 
+> —
+> Reply to this email directly or view it on GitHub 
+> https://github.com/nilearn/nilearn/pull/241/files#r18097493.
+> 
+> The docstrings have to indicate that this acts on the first three axes 
+> of the image (which is a basic convention in many NiLearn functions), 
+> and does not act along potential additional axes. This means that I'm 
+> fine with the current state of the code. I don't think that renaming is 
+> necessary.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",On 26092014 1805 loïc estèv wrote,N,2014-09-30 13:37:25
+29,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-30 13:37:25,"It would be more efficient (and less readable :) ) if you did something like
+
+<pre>
+smoothed_arr =  arr / (scale * neighbor_weight)
+smoothed_arr += arr[1:]
+...
+smoothed_arr *= neighbor_weight
+</pre>
+
+
+Indeed, as each '+=' line, you are doing a costly multiplication.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/image.py')",It would effici less readabl someth like presmoothedarr arr scale neighborweight smoothedarr arr1 smoothedarr neighborweight pre inde line costli multipl,N,2014-09-30 14:09:38
+30,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-30 14:09:38,"We have a policy against testing with previously computed values when they are not obviously correct. I would:
+
+Test that the center of the array is one (to check the scaling)
+
+Test on an array that only has one non zero that the support is correct.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/tests/test_image.py')",We polici test previous comput valu obvious correct I would test center array one check scale test array one non zero support correct,Y,2014-09-30 14:26:00
+31,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-30 14:26:00,"I think that here I would use directly _fast_smooth_array, that operates on arrays. That was you don't need to construct a temporary NiftiImage for no good reason.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",I think I would use directli fastsmootharray oper array that dont need construct temporari niftiimag good reason,N,2014-09-30 14:41:37
+32,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-09-30 14:41:37,"But then don't you need to test all the edge cases (pun not intended), i.e. depending on how many neighbors the 1 has (in the second test)?
+
+What if I made the 'expected' array a bit less magical, for example by defining 
+
+``` python
+value_with_3_neighbors = (1 + 3 * neighbor_weight) / (1 + nb_neighbors * neighbor_weight)
+```
+
+and replacing 0.72727273 by value_with_3_neighbors. I would do something similar with the value for 4, 5 and 6 neighbors.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/tests/test_image.py')",but dont need test edg case pun intend ie depend mani neighbor 1 second test what I made expect array bit less magic exampl defin replac 072727273 valuewith3neighbor I would someth similar valu 4 5 6 neighbor,Y,2014-09-30 14:47:29
+33,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-09-30 14:47:29,"> What if I made the 'expected' array a bit less magical, for example by defining
+> 
+> value_with_3_neighbors = (1 + 3 \* neighbor_weight) / (1 + nb_neighbors \* neighbor_weight)
+> 
+> and replacing 0.72727273 by value_with_3_neighbors. I would do something
+> similar with the value for 4, 5 and 6 neighbors.
+
+Than I would be happy :).
+
+The problem with precomputed values is that when things break a few years
+down the line, it's harder to diagnose the break down, because you don't
+know how the reference has been generated.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/image/tests/test_image.py')",than I would happi the problem precomput valu thing break year line harder diagnos break dont know refer gener,N,2014-10-01 07:14:18
+34,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-10-01 07:14:18,"I assumed the leading underscore in the function more or less implied that it wasn't supposed to be used across modules. Also, smooth_img always removes non-finite values (via _smooth_array).
+
+Maybe if we really don't want to create a temporary NiftiImage we can use _smooth_array with fwhm='fast'?
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",I assum lead underscor function less impli wasnt suppos use across modul also smoothimg alway remov nonfinit valu via smootharray mayb realli dont want creat temporari niftiimag use smootharray fwhmfast,N,2014-10-01 07:22:43
+35,pull_request_commit_comment,241,nilearn,nilearn,lesteve,2014-10-01 07:22:43,"BTW, would it make sense to add the neighbor weight as a parameter and possibly make it default to 0.2?
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(4, '', u'nilearn/image/image.py')",btw would make sens add neighbor weight paramet possibl make default 02,N,2014-10-01 07:34:31
+36,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-10-01 07:34:31,"> I assumed the leading underscore in the function more or less implied that it
+> wasn't supposed to be used across modules.
+
+No, it only implies that end-users shouldn't be using it.
+
+> Also, smooth_img always removes non-finite values (via _smooth_array).
+
+Hum, that's a good point. Maybe we want to be using _smooth_array than.
+
+> Maybe if we really don't want to create a temporary NiftiImage we can use
+> _smooth_array with fwhm='fast'?
+
+Agreed.
+",2c2335e113af4d5fdf194f388edeaf67e9d8557f,"(None, '', u'nilearn/plotting/find_cuts.py')",No impli endus shouldnt use hum that good point mayb want use smootharray agre,N,2014-10-01 07:35:06
+39,pull_request_commit,241,nilearn,nilearn,lesteve,2014-09-16 07:23:01,Fix typo,9df1a3b04452e7fc45d6d46c4c626cc52fab8a74,,fix typo,N,2014-09-26 13:14:12
+40,pull_request_commit,241,nilearn,nilearn,lesteve,2014-09-26 13:14:12,"Add fast smoothing when fwhm='fast' in image.smooth_img
+
+* Fast smoothing has been moved from plotting.find_cuts to image.image
+* Test have been added for fast smoothing
+* Fix buglet where data was only smoothed in find_cuts for integer arrays",e64e5f0ff1279d7a27cf62967188fe657ea3594f,,add fast smooth fwhmfast imagesmoothimg fast smooth move plottingfindcut imageimag test ad fast smooth fix buglet data smooth findcut integ array,N,2014-09-26 13:48:05
+41,pull_request_commit,241,nilearn,nilearn,lesteve,2014-09-26 13:48:05,Tweak documentation and rename data -> arr for consistency,a27ac991f4c086f4233ca470d65d8a00f5a10bdd,,tweak document renam data,N,2014-09-26 14:19:15
+42,pull_request_commit,241,nilearn,nilearn,lesteve,2014-09-26 14:19:15,DOC: make _fast_smooth_array documentation more consistent with _smooth_array,33d4615a5f9d0a318fe04c6d61baa8af8773422c,,doc make fastsmootharray document consist smootharray,N,2014-10-01 07:54:43
+43,pull_request_commit,241,nilearn,nilearn,lesteve,2014-10-01 07:54:43,Reduce the number of multiplications in _fast_smooth_array,f2e9b3f969b0cf6bcd3b39a4a41a816c11ca11e2,,reduc number multipl fastsmootharray,N,2014-10-01 09:22:25
+44,pull_request_commit,241,nilearn,nilearn,lesteve,2014-10-01 09:22:25,Make provenance of the expected result a tad less magical,cdb637fddd4d7e88c9c2fd8cc2db2d3151adb8ae,,make proven expect result tad less magic,N,2014-10-01 09:30:21
+45,pull_request_commit,241,nilearn,nilearn,lesteve,2014-10-01 09:30:21,Use _smooth_array rather than smooth_img to avoid creating a temporary Nifti1Image,415e74869335f19eb996c3697c6bf7b7c9fd05e2,,use smootharray rather smoothimg avoid creat temporari nifti1imag,N,2014-10-01 10:47:29
+46,pull_request_commit,241,nilearn,nilearn,lesteve,2014-10-01 10:47:29,Add documentation for fwhm='fast' case in smooth_img,faf450bb3e33bec8cde1a7cdfec5f96396b92934,,add document fwhmfast case smoothimg,N,2014-10-01 11:01:46
+47,pull_request_commit,241,nilearn,nilearn,lesteve,2014-10-01 11:01:46,DOC: add all possible arguments for fwhm and some rephrasing + minor tweak,2c2335e113af4d5fdf194f388edeaf67e9d8557f,,doc add possibl argument fwhm rephras minor tweak,N,2014-10-01 10:50:14
+48,pull_request_commit_comment,241,nilearn,nilearn,GaelVaroquaux,2014-10-01 10:50:14,"In the type description, it should say: 'scalar, numpy.ndarray or ""fast""'.
+",faf450bb3e33bec8cde1a7cdfec5f96396b92934,"(None, None, None)",In type descript say scalar numpyndarray fast,N,2014-10-01 10:50:22

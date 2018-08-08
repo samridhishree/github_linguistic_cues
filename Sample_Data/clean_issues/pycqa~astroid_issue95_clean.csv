@@ -1,0 +1,20 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,95,pycqa,astroid,pylint-bot,2015-04-16 12:05:32,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+This is just an idea. When trying to infer the parameters of a function, if there is no context available, we could try to  look in the function docstring for additional inference input.
+The most used documentation formats already provides type hints:
+- http://sphinx-doc.org/domains.html#info-field-lists
+- http://epydoc.sourceforge.net/manual-fields.html
+- https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
+
+Currently, the inference doesn't work very good in a function if there is no call context attached to the context object, so many errors are omitted for those functions.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/95
+",start issue,Type inference based on documentation hints?,origin report claudiu popa bitbucket pcmanticor github pcmanticor thi idea when tri infer paramet function context avail could tri look function docstr addit infer input the use document format alreadi provid type hint current infer doesnt work good function call context attach context object mani error omit function bitbucket
+issue_closed,95,pycqa,astroid,PCManticore,2016-01-24 22:46:47,,closed issue,Type inference based on documentation hints?,
+issue_comment,95,pycqa,astroid,PCManticore,2016-01-24 22:46:47,"This will make no sense after we'll have PEP 484 support, so closing.
+",,,thi make sens well pep 484 support close

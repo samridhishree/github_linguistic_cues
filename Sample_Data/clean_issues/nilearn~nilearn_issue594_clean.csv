@@ -1,0 +1,18 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,594,nilearn,nilearn,mwaskom,2015-05-25 19:29:03,"Just browsing this tutorial: http://nilearn.github.io/connectivity/functional_connectomes.html#brain-parcellations
+
+In section 3.1.1.1, the prose says ""For instance to retrieve the Yeo 2011 cortical parcelation into 17 regions, with a thick cortical model:""
+
+but the code is
+
+``` python
+from nilearn import datasets
+atlas_filename, labels = datasets.fetch_harvard_oxford('cort-maxprob-thr25-2mm')
+```
+",start issue,Functional connectome tutorial prose does not match code,just brows tutori In section 3111 prose say for instanc retriev yeo 2011 cortic parcel 17 region thick cortic model code
+issue_closed,594,nilearn,nilearn,GaelVaroquaux,2015-05-25 19:35:02,,closed issue,Functional connectome tutorial prose does not match code,
+issue_comment,594,nilearn,nilearn,GaelVaroquaux,2015-05-25 19:31:03,":). Good catch. We need to fix that. Please keep on sending anything else that you find.
+",,,good catch We need fix pleas keep send anyth els find
+issue_comment,594,nilearn,nilearn,GaelVaroquaux,2015-05-25 19:35:09,"Fixed
+",,,fix

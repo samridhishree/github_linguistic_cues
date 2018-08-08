@@ -1,0 +1,72 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,1351,nilearn,nilearn,GaelVaroquaux,2017-03-02 14:40:28,,closed issue,[MRG+1-1] Check masker utils,,N,2016-12-21 16:57:01
+5,issue_comment,1351,nilearn,nilearn,codecov[bot],2017-02-22 12:17:10,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1351?src=pr&el=h1) Report
+> Merging [#1351](https://codecov.io/gh/nilearn/nilearn/pull/1351?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/dffd5ec58041aea19f5b89d8a600f95768431c28?src=pr&el=desc) will **increase** coverage by `0.1%`.
+> The diff coverage is `98.48%`.
+
+
+```diff
+@@            Coverage Diff            @@
+##           master    #1351     +/-   ##
+=========================================
++ Coverage   94.39%   94.49%   +0.1%     
+=========================================
+  Files         118      118             
+  Lines       13388    13417     +29     
+=========================================
++ Hits        12637    12679     +42     
++ Misses        751      738     -13
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1351?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decoding/space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zcGFjZV9uZXQucHk=) | `94.69% <100%> (+1.57%)` | :white_check_mark: |
+| [nilearn/_utils/param_validation.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvcGFyYW1fdmFsaWRhdGlvbi5weQ==) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/decoding/tests/test_space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy90ZXN0cy90ZXN0X3NwYWNlX25ldC5weQ==) | `99.1% <100%> (+0.42%)` | :white_check_mark: |
+| [nilearn/tests/test_param_validation.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X3BhcmFtX3ZhbGlkYXRpb24ucHk=) | `97.56% <95.83%> (-2.44%)` | :x: |
+| [nilearn/input_data/nifti_masker.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL25pZnRpX21hc2tlci5weQ==) | `96% <0%> (+2.66%)` | :white_check_mark: |
+| [nilearn/input_data/base_masker.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL2Jhc2VfbWFza2VyLnB5) | `84.05% <0%> (+5.79%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1351?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1351?src=pr&el=footer). Last update [dffd5ec...d3be668](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearndecodingspacenetpi whitecheckmark nilearnutilsparamvalidationpi whitecheckmark nilearndecodingteststestspacenetpi whitecheckmark nilearnteststestparamvalidationpi x nilearninputdataniftimaskerpi whitecheckmark nilearninputdatabasemaskerpi whitecheckmark continu review full report codecov,N,2016-12-21 17:36:54
+6,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2016-12-21 17:36:54,"You need to use get_header from nilearn._utils.compat here, to avoid problems with multiple versions of nibabel.",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",you need use gethead nilearnutilscompat avoid problem multipl version nibabel,N,2016-12-21 17:45:29
+7,pull_request_commit_comment,1351,nilearn,nilearn,ahoyosid,2016-12-21 17:45:29,Ok,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",Ok,N,2016-12-21 18:14:19
+8,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(46, '', u'nilearn/_utils/param_validation.py')",miss empti line,N,2016-12-21 18:27:10
+9,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",miss empti line also,N,2016-12-21 21:45:36
+10,pull_request_commit_comment,1351,nilearn,nilearn,bthirion,2016-12-21 21:45:36,"I find this threshold a bit strange. This has 50% chance to occur in real life... ?
+I would test if mask_volme < 1.1 * MNI152_BRAIN_VOLUME
+and Mask_volume >.5 * MNI152_BRAIN_VOLUME
+Maybe I'm missing something.",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",I find threshold bit strang thi 50 chanc occur real life I would test maskvolm 11 mni152brainvolum maskvolum mayb Im miss someth,Y,2016-12-21 21:55:13
+11,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2016-12-21 21:55:13,"That's a good point. I suggest changing this line to ""1.1 * MNI152_BRAIN_VOLUME""",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",that good point I suggest chang line 11 mni152brainvolum,N,2016-12-21 22:16:16
+32,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2017-02-27 22:30:33,+1. It risks being confusing for users.,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",1 It risk confus user,N,2016-12-21 15:15:52
+33,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:15:52,adding checkers into the param validation file,339352e1ab5b70e4f48295a59a88845e18851788,,ad checker param valid file,N,2016-12-21 15:29:49
+34,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:29:49,cleaning spacenet file,8de7a324abe39866ce92f9837b67110b4726078f,,clean spacenet file,N,2016-12-21 15:35:24
+35,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:35:24,adding validation file,5e267f77ad4f8af97342dc1f1cc0345b7d34e7b9,,ad valid file,N,2016-12-21 16:49:01
+36,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 16:49:01,cleaning decoder tests,11076d28c05c154d999edf98339add1ee5fdd2c7,,clean decod test,N,2016-12-21 17:42:07
+37,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 17:42:07,using get_header,4965b197f43ab05ff4a74a2940caf05bcd601de8,,use gethead,N,2016-12-21 19:46:27
+38,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 19:46:27,adding empty lines,c23207efa97c899f608a13f6f2eef1b31a30d304,,ad empti line,N,2016-12-21 22:10:07
+39,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 22:10:07,checking when the brain mask is greater than 1.1 times MNI brain volume,c6d834966a76904fa282e79fa337905695998131,,check brain mask greater 11 time mni brain volum,N,2016-12-21 22:22:17
+64,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-01 21:23:05,"Merge branch 'master' of github.com:ahoyosid/nilearn into check_masker_utils
+
+Merging master",f55f5ec31f5621d3068e6b071a128e04523dc355,,merg branch master githubcomahoyosidnilearn checkmaskerutil merg master,N,2016-12-21 15:15:52
+66,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-01 23:19:37,solving merging conflicts,8b6ca59e341c1561e639bbc14f1cd5ff71827bc1,,solv merg conflict,N,2016-12-21 15:35:24
+67,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:35:24,adding validation file,b40ea95f0dc2f3ac65dc5eb6c92c2095f53b226a,,ad valid file,N,2016-12-21 16:49:01
+68,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 16:49:01,cleaning decoder tests,2f747178c913d37992cea151bbe9eb71dc13bc79,,clean decod test,N,2016-12-21 17:42:07
+69,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 17:42:07,using get_header,2bbf1bf6a4a32a68af58077d9bc6bf433327f56f,,use gethead,N,2016-12-21 19:46:27
+70,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 19:46:27,adding empty lines,458b9f0f5ea857353259f2e83b787b4de3ff52df,,ad empti line,N,2016-12-21 22:10:07
+71,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 22:10:07,checking when the brain mask is greater than 1.1 times MNI brain volume,d51d3dcddf640561701b3789672eb1e78d761ab0,,check brain mask greater 11 time mni brain volum,N,2016-12-21 22:22:17
+93,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-01 23:33:35,"Merge branch 'check_masker_utils' of github.com:ahoyosid/nilearn into check_masker_utils
+
+merging conflicts",ebfcfc0d8b4fc48a016c86aedaed3ed9a3933950,,merg branch checkmaskerutil githubcomahoyosidnilearn checkmaskerutil merg conflict,N,2016-12-21 15:15:52
+95,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-01 23:58:24,minor,9bf2552e6ac21fc171cc7145261466c00eef0148,,minor,N,2016-12-21 15:35:24
+96,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:35:24,adding validation file,d51b584e5af6fd2ea2449e3557294ee3ddf0d661,,ad valid file,N,2016-12-21 16:49:01
+97,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 16:49:01,cleaning decoder tests,3782998a376eed5ef1fe246a6f16af659f0ec38f,,clean decod test,N,2016-12-21 17:42:07
+98,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 17:42:07,using get_header,393bad25e48a920ad14a38d952d933c932d9bc20,,use gethead,N,2016-12-21 19:46:27
+99,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 19:46:27,adding empty lines,569fccdd5d43a38a7acb6c3669cc0c4d96544e51,,ad empti line,N,2016-12-21 22:10:07
+100,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 22:10:07,checking when the brain mask is greater than 1.1 times MNI brain volume,dbd2d1b7db8093a85d058ffca12b95fe1d0c79e5,,check brain mask greater 11 time mni brain volum,N,2016-12-21 22:22:17
+123,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-02 00:06:38,minor,6570d2882b2c9469e1c532bd755e61a50a0349f5,,minor,N,2016-12-21 15:35:24

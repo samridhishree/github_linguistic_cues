@@ -1,0 +1,53 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,969,nilearn,nilearn,kingjr,2016-01-30 17:01:23,"Hi all,
+
+Sorry if this is not the best place to ask this.
+
+I am looking for an interactive MRI viewer in Python to semi-automatically locate intracranial electrodes based on a priori knowledge (respective locations, on cortical surface etc), and manual inputs.
+
+Such viewer is standard in MRI packages:  3 views (x, y, z axes), similarly to `plotting.plot_anat()` but with some interaction: if you click on one voxel, the 3 views update their slice. 
+
+I started a [gist](https://gist.github.com/kingjr/bb9e732fe8df6a8cd571), but it doesn't include all the nilearn viewing options (e.g. the xyz scales are in voxel units, not in mm)
+
+I have tried to directly use nilearn plotting functions, but they seem to be strictly static, and I've encountered difficulties in finding a way to update an overlay, because I got lost in the display and slicer classes.
+
+So in short, is the update of a MRI plot possible ? e.g.
+
+```
+display = plotting.plot_anat(fname, display_mode='x', cut_coords=[0], axes=ax)
+plt.show()
+display.update(cut_coords[10])
+plt.show()
+```
+
+or even something like
+
+```
+brain_slice, extent = get_slice(anat, mode='x', cut_coords[0])
+plt.imshow(brain, extent=extent)
+```
+
+Else, would it be conceivable? I'm happy to make a PR, but I'll need directions..
+
+Thanks a lot for your help!
+",start issue,Q: interactive plotting?,Hi sorri best place ask I look interact mri viewer python semiautomat locat intracrani electrod base priori knowledg respect locat cortic surfac etc manual input such viewer standard mri packag 3 view x z axe similarli interact click one voxel 3 view updat slice I start gist doesnt includ nilearn view option eg xyz scale voxel unit mm I tri directli use nilearn plot function seem strictli static ive encount difficulti find way updat overlay I got lost display slicer class So short updat mri plot possibl eg even someth like els would conceiv Im happi make PR ill need direct thank lot help
+issue_closed,969,nilearn,nilearn,kingjr,2016-01-30 17:15:29,,closed issue,Q: interactive plotting?,
+issue_comment,969,nilearn,nilearn,eickenberg,2016-01-30 17:19:24,"maybe https://github.com/AlexandreAbraham/pynax/
+can be of use?
+
+On Saturday, January 30, 2016, Jean-Rémi KING notifications@github.com
+wrote:
+
+> Ok, thanks for the quick reply
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/969#issuecomment-177251281.
+",,,mayb use On saturday januari 30 2016 jeanrémi king notificationsgithubcom wrote
+issue_comment,969,nilearn,nilearn,kingjr,2016-01-30 17:15:29,"Ok, thanks for the quick reply
+",,,Ok thank quick repli
+issue_comment,969,nilearn,nilearn,kingjr,2016-01-30 17:36:37,"> maybe https://github.com/AlexandreAbraham/pynax/ can be of use?
+
+Looks like it, thanks!
+",,,look like thank

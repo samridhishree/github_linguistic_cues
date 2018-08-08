@@ -1,0 +1,26 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,193,nilearn,nilearn,eickenberg,2014-05-15 19:56:08,"Title says it all. Any arguments against this?
+",start issue,Added shape to NiftiMasker,titl say ani argument
+issue_closed,193,nilearn,nilearn,GaelVaroquaux,2014-05-19 13:06:40,,closed issue,Added shape to NiftiMasker,
+pull_request_title,193,nilearn,nilearn,eickenberg,2014-05-15 19:56:08,"Title says it all. Any arguments against this?
+",938d032351d7fc3155d748a30b13ac728740dead,Added shape to NiftiMasker,titl say ani argument
+issue_comment,193,nilearn,nilearn,GaelVaroquaux,2014-05-15 19:58:03,"Yes: storing redundant information. You can have this information by doing .mask_img_.shape why duplicate it and risk having desynchronisation between the two information?
+",,,ye store redund inform you inform maskimgshap duplic risk desynchronis two inform
+issue_comment,193,nilearn,nilearn,GaelVaroquaux,2014-05-15 20:03:09,"> It seems like a natural thing to want to do
+
+I'd rather keep things simple.
+
+> (exactly like len(cv) for cross_validation iterators in sklearn)
+
+Well, these are iterators, thus we make them have an interface of
+sequence: the behave as sequences. A niftimasker doesn't behave as a
+mask, it embedded a mask.
+",,,Id rather keep thing simpl well iter thu make interfac sequenc behav sequenc A niftimask doesnt behav mask embed mask
+issue_comment,193,nilearn,nilearn,GaelVaroquaux,2014-05-19 13:06:40,"Closing this guy: we won't merge it. Sorry
+",,,close guy wont merg sorri
+issue_comment,193,nilearn,nilearn,eickenberg,2014-05-15 20:01:18,"I was going to try to make it point to the shape of  `nifti_masker.mask_img_` but didn't want to complicate things.
+
+It seems like a natural thing to want to do (exactly like len(cv) for cross_validation iterators in sklearn)
+",,,I go tri make point shape didnt want complic thing It seem like natur thing want exactli like lencv crossvalid iter sklearn
+pull_request_commit,193,nilearn,nilearn,eickenberg,2014-05-15 19:50:04,Added shape to NiftiMasker,938d032351d7fc3155d748a30b13ac728740dead,,ad shape niftimask

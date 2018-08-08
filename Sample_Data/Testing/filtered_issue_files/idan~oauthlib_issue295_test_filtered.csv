@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,295,idan,oauthlib,ib-lundgren,2014-11-13 12:36:53,"0.7.1 was pushed with unintended local changes which is very bad. Mistakes happen and this one could easily have been prevented.
+
+A script should be created that at minimum ensures the current directory has no changes in it and the last commit message matches oauthlib.**version**.
+",start issue,Create a release script to prevent human release errors,071 push unintend local chang bad mistak happen one could easili prevent A script creat minimum ensur current directori chang last commit messag match oauthlibvers,N
+issue_closed,295,idan,oauthlib,thedrow,2015-08-16 12:15:31,nan,closed issue,Create a release script to prevent human release errors,nan,N
+issue_comment,295,idan,oauthlib,ib-lundgren,2014-11-13 12:44:34,"Also. It should check if Travis succeeded already for the release commit.
+",nan,nan,also It check travi succeed alreadi releas commit,Y

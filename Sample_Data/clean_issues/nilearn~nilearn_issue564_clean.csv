@@ -1,0 +1,26 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,564,nilearn,nilearn,KamalakerDadi,2015-04-29 13:52:01,"Fix #460 
+",start issue,Add squeeze option + test.,fix 460
+issue_closed,564,nilearn,nilearn,AlexandreAbraham,2015-04-29 14:21:28,,closed issue,Add squeeze option + test.,
+pull_request_title,564,nilearn,nilearn,KamalakerDadi,2015-04-29 13:52:01,"Fix #460 
+",d93ac8d8a638135c5161a13ab844159814a9f433,Add squeeze option + test.,fix 460
+issue_comment,564,nilearn,nilearn,GaelVaroquaux,2015-04-29 13:57:42,"Hadn't we decided that our plotting should support 4D and that we should forget about the squeeze idea. 
+",,,hadnt decid plot support 4D forget squeez idea
+issue_comment,564,nilearn,nilearn,eickenberg,2015-04-29 14:41:54,"Oops, guess I'm late to the game, never mind.
+",,,oop guess Im late game never mind
+issue_comment,564,nilearn,nilearn,AlexandreAbraham,2015-04-29 14:21:28,"Closing since we fixed that by making plotting function accept 4d image.
+",,,close sinc fix make plot function accept 4d imag
+pull_request_commit_comment,564,nilearn,nilearn,AlexandreAbraham,2015-04-29 13:54:06,"Trailing spaces are not PEP8. You should add automatic check of PEP8 in your editor.
+",d93ac8d8a638135c5161a13ab844159814a9f433,"(26, '', u'nilearn/input_data/base_masker.py')",trail space pep8 you add automat check pep8 editor
+pull_request_commit_comment,564,nilearn,nilearn,AlexandreAbraham,2015-04-29 13:54:39,"Not PEP8.
+",d93ac8d8a638135c5161a13ab844159814a9f433,"(29, '', u'nilearn/input_data/base_masker.py')",not pep8
+pull_request_commit_comment,564,nilearn,nilearn,kshmelkov,2015-04-29 13:54:51,"May be put it outside ""if"" clause as it repeats in both branches?
+",d93ac8d8a638135c5161a13ab844159814a9f433,"(18, '', u'nilearn/input_data/base_masker.py')",may put outsid claus repeat branch
+pull_request_commit_comment,564,nilearn,nilearn,AlexandreAbraham,2015-04-29 13:55:13,"Why is this line in the condition? Since it is always done, it should be above.
+",d93ac8d8a638135c5161a13ab844159814a9f433,"(19, '', u'nilearn/input_data/base_masker.py')",whi line condit sinc alway done
+pull_request_commit_comment,564,nilearn,nilearn,lesteve,2015-04-29 14:04:39,"unnecessary backslash at the end of the line?
+",d93ac8d8a638135c5161a13ab844159814a9f433,"(28, '', u'nilearn/input_data/tests/test_nifti_masker.py')",unnecessari backslash end line
+pull_request_commit_comment,564,nilearn,nilearn,eickenberg,2015-04-29 14:39:28,"This could be made into a docstring
+",d93ac8d8a638135c5161a13ab844159814a9f433,"(15, '', u'nilearn/input_data/base_masker.py')",thi could made docstr
+pull_request_commit,564,nilearn,nilearn,KamalakerDadi,2015-04-29 13:50:06,Add squeeze option + test.,d93ac8d8a638135c5161a13ab844159814a9f433,,add squeez option test

@@ -1,0 +1,36 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,236,idan,oauthlib,jturmel,2014-03-17 20:56:11,"- Add a method to generate crypto tokens for use as Bearer tokens
+- Add a method to verify an incoming crypto token and unpack the header and
+  claims
+- Uses the JWT library
+
+This is not JWT token support, merely a way to generate Bearer tokens that
+won't have to be stored in a database but can self-validate and store
+additional information that you see fit.
+",start issue,Add crypto token capability,add method gener crypto token use bearer token add method verifi incom crypto token unpack header claim use jwt librari thi jwt token support mere way gener bearer token wont store databas selfvalid store addit inform see fit
+issue_closed,236,idan,oauthlib,jturmel,2014-03-18 03:08:03,,closed issue,Add crypto token capability,
+pull_request_title,236,idan,oauthlib,jturmel,2014-03-17 20:56:11,"- Add a method to generate crypto tokens for use as Bearer tokens
+- Add a method to verify an incoming crypto token and unpack the header and
+  claims
+- Uses the JWT library
+
+This is not JWT token support, merely a way to generate Bearer tokens that
+won't have to be stored in a database but can self-validate and store
+additional information that you see fit.
+",d18ec996903662c636a76aa5cf71d4b4386cb66e,Add crypto token capability,add method gener crypto token use bearer token add method verifi incom crypto token unpack header claim use jwt librari thi jwt token support mere way gener bearer token wont store databas selfvalid store addit inform see fit
+issue_comment,236,idan,oauthlib,jturmel,2014-03-18 03:08:03,"Sorry about all the chatter on this one... for some reason I forgot to test for Python 3+, I think I have the fixes ready but since I've muddied up this PR going to close this one and open one with a new single commit so that your repo history is cleaner if you end up merging it.
+",,,sorri chatter one reason I forgot test python 3 I think I fix readi sinc ive muddi PR go close one open one new singl commit repo histori cleaner end merg
+pull_request_commit,236,idan,oauthlib,jturmel,2014-03-17 20:53:27,"Add crypto token capability
+
+* Add a method to generate crypto tokens for use as Bearer tokens
+* Add a method to verify an incoming crypto token and unpack the header and
+  claims
+* Uses the JWT library
+
+This is not JWT token support, merely a way to generate Bearer tokens that
+won't have to be stored in a database but can self-validate and store
+additional information that you see fit.",f4d89697bd4d021ac9255e2c7ee6d4befa10c829,,add crypto token capabl add method gener crypto token use bearer token add method verifi incom crypto token unpack header claim use jwt librari thi jwt token support mere way gener bearer token wont store databas selfvalid store addit inform see fit
+pull_request_commit,236,idan,oauthlib,jturmel,2014-03-17 20:59:59,Fixing requirements in setup.py,1894e0d2151480ed00e83125e04d33b3542c13bc,,fix requir setuppi
+pull_request_commit,236,idan,oauthlib,jturmel,2014-03-17 21:05:30,Add python-jwt to .travis.yml,ce28b69bd650e75373eff80e25d00ea527258e94,,add pythonjwt travisyml
+pull_request_commit,236,idan,oauthlib,jturmel,2014-03-17 21:32:15,Switch to PyJWT which is Python 3 compliant,d18ec996903662c636a76aa5cf71d4b4386cb66e,,switch pyjwt python 3 compliant

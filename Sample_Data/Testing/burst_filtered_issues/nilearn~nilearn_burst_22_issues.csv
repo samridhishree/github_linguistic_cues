@@ -1,0 +1,87 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,126,nilearn,nilearn,AlexandreAbraham,2013-11-07 09:35:20,,closed issue,doc string updates and change of default parameter,,N,2013-11-05 13:51:58
+4,pull_request_merged,126,nilearn,nilearn,AlexandreAbraham,2013-11-07 09:35:20,doc string updates and change of default parameter,cb8f6c72e73b25f758ce0389e66b91310ff1c6a6,Pull request merge from rphlypo/nilearn:develop to nilearn/nilearn:master,doc string updat chang default paramet,N,2013-11-05 16:06:43
+10,issue_comment,126,nilearn,nilearn,GaelVaroquaux,2013-11-07 09:36:13,"> Merged #126.
+
+Awesome!
+",,,awesom,N,2013-11-05 13:57:19
+16,issue_comment,126,nilearn,nilearn,AlexandreAbraham,2013-11-07 09:36:18,"I know it's because of a conflict but it's a bit weird since nobody touched the file ! I've done the merge manually.
+",,,I know conflict bit weird sinc nobodi touch file ive done merg manual,N,2013-11-05 16:52:51
+17,issue_comment,126,nilearn,nilearn,rphlypo,2013-11-05 16:52:51,"test files have been updated accordingly, locally passes the tests for `nilearn/tests/test_signal`
+",,,test file updat accordingli local pass test,Y,2013-11-04 07:53:37
+18,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-04 07:53:37,fixed grammatical error + renaming of parameter in docstring,76a2890bf5225c5cb3557e84378c45a1587ebecf,,fix grammat error renam paramet docstr,N,2013-11-04 07:53:37
+19,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-04 07:53:37,fixed grammatical error + renaming of parameter in docstring,71837c6206eb0eb5fbf56194c471b12cbbe634f7,,fix grammat error renam paramet docstr,N,2013-11-04 14:16:37
+20,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-04 14:16:37,Merge remote-tracking branch 'origin/develop' into develop,503adb9e9a6aa47a193cd92ff9496217d4cd734f,,merg remotetrack branch origindevelop develop,N,2013-11-04 14:23:48
+21,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-04 14:23:48,changed .gitignore to not track nilearn.egg-info/,357407eba0205c66c39e96941151c6e03499fb26,,chang gitignor track nilearnegginfo,N,2013-11-05 13:43:16
+22,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-05 13:43:16,docstring updatesfor high_variance_confounds,9f21f86d73b1e81c38abe2cfe80317021772895c,,docstr updatesfor highvarianceconfound,N,2013-11-05 13:46:47
+23,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-05 13:46:47,default values as per the ComCor paper (2 percent of voxels retained),d795d65a3ff67fbf8e7741c8796a531a123f8847,,default valu per comcor paper 2 percent voxel retain,N,2013-11-05 14:43:46
+24,pull_request_commit,126,nilearn,nilearn,ronald.phlypo@inria.fr,2013-11-05 14:43:46,default to 5 high variance confounds as per the CompCorr paper,a4e38918ecdcbb55ccd22a9483d8d4f178514f64,,default 5 high varianc confound per compcorr paper,N,2013-11-05 16:48:41
+2,issue_closed,125,nilearn,nilearn,GaelVaroquaux,2013-11-20 05:46:57,,closed issue,Refactor dataset fetching,,N,2013-11-05 13:27:32
+30,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:17:52,"Although this is not part of you PR, there is a horrible camelCase notation, urlOpener, that needs to be changed to url_opener.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')",although part PR horribl camelcas notat urlopen need chang urlopen,N,2013-11-03 21:31:32
+31,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-03 21:31:32,Change fetch_adhd to handle the new format,46b0dd6f9a88732f851c53322bfb81832ffd2034,,chang fetchadhd handl new format,N,2013-11-04 10:31:49
+32,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 10:31:49,Replace Haxby simple fetching by new functions,14c41b189ad6c717934e245be0f68ff89feb77ca,,replac haxbi simpl fetch new function,N,2013-11-04 10:39:19
+33,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 10:39:19,BUG: data_dir was not taken into account,ae5e8c7cd0184908a60e170cfc1dd903d573c085,,bug datadir taken account,N,2013-11-04 10:42:00
+34,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 10:42:00,Remove ADHD dataset fetching test as it basically test nothing.,04ddfbbb1777d9d86a5886091713e994c2f54cc1,,remov adhd dataset fetch test basic test noth,N,2013-11-04 10:59:05
+35,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 10:59:05,Migrate Miyawaki fetching toward new API,7685689b9761674852dd7c29749df4cc3a20daa6,,migrat miyawaki fetch toward new api,N,2013-11-04 11:10:07
+36,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 11:10:07,Factorize loading code of ADHD,3ba45e23d504992047c932df3bd08bf13f57529c,,factor load code adhd,N,2013-11-04 14:30:43
+37,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 14:30:43,Move craddock atlas fetching to new system,783cbe024e7d7f7f7e3d752456b2d6edc6bb0e7d,,move craddock atla fetch new system,N,2013-11-04 16:12:35
+38,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 16:12:35,Move fetch_nyu_rest to new API,ca824debc3bfe09a33231b146a494a32efd1ae12,,move fetchnyurest new api,N,2013-11-04 23:47:55
+39,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-04 23:47:55,Add regressor information for ADHD,7d8a7b2c62e10820ed38523eee90a9e5aaba0122,,add regressor inform adhd,N,2013-11-05 09:05:59
+40,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-05 09:05:59,Move Haxby dataset fetching function and remove obsolete code,2c9b9899526349701f34d7cbdfdc1b9fbd4ef2d0,,move haxbi dataset fetch function remov obsolet code,N,2013-11-05 10:11:31
+41,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-05 10:11:31,Add labels for Harvard Oxford atlas,4b2b8c4c1bf0afc691df038778812a19fdc9b97d,,add label harvard oxford atla,N,2013-11-05 12:36:23
+42,pull_request_commit,125,nilearn,nilearn,AlexandreAbraham,2013-11-05 12:36:23,Add phenotypic information for adhd,7ba93622e6e4e0cf5c1d8655327e3177b937adca,,add phenotyp inform adhd,N,2013-11-05 13:15:22
+1,issue_title,121,nilearn,nilearn,eickenberg,2013-10-31 12:08:35,"Attacking issue https://github.com/nilearn/nilearn/issues/119
+
+Wrote cropping function into nilearn.image, which crops as close as possible along the axes of the volume array, and gives back a niimg with adjusted affine, data copied by default, but this can be switched off.
+
+Does this look OK?
+
+To do: doc
+",start issue,MRG: Cropping function,attack issu wrote crop function nilearnimag crop close possibl along axe volum array give back niimg adjust affin data copi default switch doe look OK To doc,N,2013-11-01 17:28:23
+3,pull_request_title,121,nilearn,nilearn,eickenberg,2013-10-31 12:08:35,"Attacking issue https://github.com/nilearn/nilearn/issues/119
+
+Wrote cropping function into nilearn.image, which crops as close as possible along the axes of the volume array, and gives back a niimg with adjusted affine, data copied by default, but this can be switched off.
+
+Does this look OK?
+
+To do: doc
+",51be537085ee0f73a4213f7bd6f2d4ddbe788ebd,MRG: Cropping function,attack issu wrote crop function nilearnimag crop close possibl along axe volum array give back niimg adjust affin data copi default switch doe look OK To doc,N,2013-11-01 17:28:23
+6,issue_comment,121,nilearn,nilearn,GaelVaroquaux,2013-10-31 14:01:03,"> Incorporating this transparently into a resampling/masking pipeline where
+> possible - part of this PR or not?
+
+I'd say so.
+",,,Id say,N,2013-11-01 14:37:19
+7,issue_comment,121,nilearn,nilearn,GaelVaroquaux,2013-11-01 14:37:19,"Apart from the cosmetic remarks, this is good to go! Could you please do the minor changes, and I'll merge.
+
+Thanks a lot, excellent work.
+",,,apart cosmet remark good go could pleas minor chang ill merg thank lot excel work,N,2013-11-01 17:28:08
+11,issue_comment,121,nilearn,nilearn,eickenberg,2013-10-31 16:58:43,"OK, implemented cropping in filter_and_mask if and only if resampling is necessary.
+
+Tested both code paths
+",,,OK implement crop filterandmask resampl necessari test code path,Y,2013-11-01 16:44:37
+14,issue_comment,121,nilearn,nilearn,AlexandreAbraham,2013-10-31 13:35:00,"+1
+",,,1,N,2013-11-01 14:21:10
+15,pull_request_commit_comment,121,nilearn,nilearn,GaelVaroquaux,2013-11-01 14:21:10,"As a style remark, I would avoid the future tense, and simply use 'Crop niimg'...
+",51be537085ee0f73a4213f7bd6f2d4ddbe788ebd,"(60, '', u'nilearn/image/image.py')",As style remark I would avoid futur tens simpli use crop niimg,N,2013-11-01 14:23:34
+16,pull_request_commit_comment,121,nilearn,nilearn,GaelVaroquaux,2013-11-01 14:23:34,"Please remove empty line.
+",51be537085ee0f73a4213f7bd6f2d4ddbe788ebd,"(None, '', u'nilearn/image/tests/test_image.py')",pleas remov empti line,N,2013-11-01 14:24:51
+17,pull_request_commit_comment,121,nilearn,nilearn,GaelVaroquaux,2013-11-01 14:24:51,"As a minor style remark, I would prefer that here, and below in the 'diag', you use a tuple rather than a list: (5, 6, 7). Tuples are actually cheaper to instantiate than lists. Not that it really makes a difference.
+",51be537085ee0f73a4213f7bd6f2d4ddbe788ebd,"(None, '', u'nilearn/image/tests/test_image.py')",As minor style remark I would prefer diag use tupl rather list 5 6 7 tupl actual cheaper instanti list not realli make differ,N,2013-11-01 14:27:39
+24,pull_request_commit,121,nilearn,nilearn,eickenberg,2013-10-31 16:49:36,Added cropping before masking in the case where masking necessitates resampling. Also resampling in filter_and_mask is now done explicitely on the parameters of the mask and not the ones specified in 'parameters',b45a266ff06481f415f5b9ff1d257d89a3e2dc9f,,ad crop mask case mask necessit resampl also resampl filterandmask done explicit paramet mask one specifi paramet,N,2013-11-01 16:39:56
+2,issue_closed,123,nilearn,nilearn,GaelVaroquaux,2014-01-31 10:04:39,,closed issue,[Enhancement] Haxby stimuli,,N,2013-11-05 10:54:43
+3,issue_comment,123,nilearn,nilearn,agramfort,2013-11-05 10:54:43,"is it big?
+",,,big,N,2013-11-05 11:39:53
+4,issue_comment,123,nilearn,nilearn,agramfort,2013-11-05 11:39:53,"it's small. Sounds good to me;
+",,,small sound good,N,2013-11-05 11:53:25
+5,issue_comment,123,nilearn,nilearn,GaelVaroquaux,2013-11-05 11:53:25,"> it's small. Sounds good to me;
+
+We should. A keyword argument is good. This sounds like a candidate for
+testing encoding models. @eickenberg might be interested.
+",,,We A keyword argument good thi sound like candid test encod model eickenberg might interest,Y,2013-11-05 12:53:12
+7,issue_comment,123,nilearn,nilearn,GaelVaroquaux,2014-01-31 10:04:39,"This has been done. Closing.
+",,,thi done close,N,2013-11-05 15:28:12
+8,issue_comment,123,nilearn,nilearn,eickenberg,2013-11-05 15:28:12,"Yeah as far as I know this dataset is good for ""decoding"". But knowing what the stimuli look like can never harm
+",,,yeah far I know dataset good decod but know stimuli look like never harm,N,2013-11-05 11:38:41
+9,issue_comment,123,nilearn,nilearn,AlexandreAbraham,2013-11-05 11:38:41,"10 Mo. We can fetch them on demand with a kwarg (fetch_stimuli=True ?).
+",,,10 Mo We fetch demand kwarg fetchstimulitru,N,2013-11-05 12:51:06

@@ -1,0 +1,4 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,753,nilearn,nilearn,AlexandreAbraham,2015-08-05 21:40:58,"The only possibility to smooth in nilearn is `smooth_img` and it operates regardless of the mask, which may be a problem if a mask is used to extract a particular part of the brain. This logic is already present in Searchlight where 2 masks are used. 
+",start issue,Smoothing does not take the mask into account,the possibl smooth nilearn oper regardless mask may problem mask use extract particular part brain thi logic alreadi present searchlight 2 mask use

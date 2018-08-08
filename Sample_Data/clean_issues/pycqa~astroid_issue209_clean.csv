@@ -1,0 +1,10 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,209,pycqa,astroid,pylint-bot,2015-10-10 10:00:14,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/209
+",start issue,[easy] arguments.CallSite needs a nice repr,origin report claudiu popa bitbucket pcmanticor github pcmanticor bitbucket
+issue_closed,209,pycqa,astroid,PCManticore,2016-02-19 17:08:32,,closed issue,[easy] arguments.CallSite needs a nice repr,

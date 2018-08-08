@@ -1,0 +1,109 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,158,idan,oauthlib,lepture,2013-05-24 13:22:22,"This is a reply for #73
+",start issue,add more python version in travis and tox. #73,thi repli 73,N,2013-05-28 15:00:14
+2,issue_closed,158,idan,oauthlib,ib-lundgren,2013-05-28 15:00:14,,closed issue,add more python version in travis and tox. #73,,N,2013-05-24 13:22:22
+3,pull_request_title,158,idan,oauthlib,lepture,2013-05-24 13:22:22,"This is a reply for #73
+",122d1a6c4b6e34f3cec447ec8b2577a3f627cdfd,add more python version in travis and tox. #73,thi repli 73,N,2013-05-28 15:00:14
+4,pull_request_merged,158,idan,oauthlib,ib-lundgren,2013-05-28 15:00:14,add more python version in travis and tox. #73,7a27461a03e8ed36c1bdc45a30b08394f21b0e43,Pull request merge from lepture/oauthlib:travis to idan/oauthlib:master,add python version travi tox 73,N,2013-05-24 13:44:24
+5,issue_comment,158,idan,oauthlib,lepture,2013-05-24 13:44:24,"One more thing, add coveralls.
+",,,one thing add coveral,Y,2013-05-24 13:45:10
+6,issue_comment,158,idan,oauthlib,lepture,2013-05-24 13:45:10,"@ib-lundgren You need to create an account on https://coveralls.io/ and it will calculate the coverage for you.
+",,,iblundgren you need creat account calcul coverag,N,2013-05-24 15:56:56
+7,issue_comment,158,idan,oauthlib,ib-lundgren,2013-05-24 15:56:56,"Thanks for the PR =) Never heard of coveralls.io before, will have a look. 
+
+Sadly I know very little about travis setup, is there no way to define the install requirements without resorting to a shelling out to pip? Pretty sure we had a way before we moved to tox but memory fails me.
+",,,thank PR never heard coverallsio look sadli I know littl travi setup way defin instal requir without resort shell pip pretti sure way move tox memori fail,Y,2013-05-24 23:54:10
+8,issue_comment,158,idan,oauthlib,lepture,2013-05-24 23:54:10,"@ib-lundgren We can use the requirements.txt. But there is a problem with unittest2, that's why I created a `.travis_install.py`.
+",,,iblundgren We use requirementstxt but problem unittest2 that I creat,N,2013-05-25 00:18:53
+9,issue_comment,158,idan,oauthlib,lepture,2013-05-25 00:18:53,"@ib-lundgren A preview on coveralls: https://coveralls.io/r/lepture/terminal
+",,,iblundgren A preview coveral,Y,2013-05-25 13:09:33
+10,issue_comment,158,idan,oauthlib,lepture,2013-05-25 13:09:33,"Did you find an elegant way for travis ci?
+",,,did find eleg way travi ci,Y,2013-05-28 14:59:57
+11,issue_comment,158,idan,oauthlib,ib-lundgren,2013-05-28 14:59:57,"@lepture Sorry not had time to look into it. Let's merge this and see if it works. Can try and clean up that later.
+",,,leptur sorri time look let merg see work can tri clean later,N,2013-05-28 15:09:45
+12,issue_comment,158,idan,oauthlib,ib-lundgren,2013-05-28 15:09:45,"Can see coverage at https://coveralls.io/r/idan/oauthlib now. It seems like we need to work on the exclusion of other libraries unless I'm reading https://coveralls.io/builds/53818 wrong.
+",,,can see coverag It seem like need work exclus librari unless Im read wrong,N,2013-05-24 16:06:55
+13,pull_request_commit_comment,158,idan,oauthlib,ib-lundgren,2013-05-24 16:06:55,"Any reason to not run with coverage in the script: section? Presumably coveralls can just take the coverage report in the after_success?
+",122d1a6c4b6e34f3cec447ec8b2577a3f627cdfd,"(21, '', u'.travis.yml')",ani reason run coverag script section presum coveral take coverag report aftersuccess,Y,2013-05-24 23:52:48
+14,pull_request_commit_comment,158,idan,oauthlib,lepture,2013-05-24 23:52:48,"We don't want to break the test, if something is wrong with coveralls. That's why it happens after success.
+",122d1a6c4b6e34f3cec447ec8b2577a3f627cdfd,"(21, '', u'.travis.yml')",We dont want break test someth wrong coveral that happen success,Y,2013-05-24 13:19:29
+15,pull_request_commit,158,idan,oauthlib,lepture,2013-05-24 13:19:29,add more python version in travis and tox. #73,6c0c76c98e740b62b9dd55cf14a263a35b9f1909,,add python version travi tox 73,N,2013-05-24 13:27:46
+16,pull_request_commit,158,idan,oauthlib,lepture,2013-05-24 13:27:46,"remove unittest2, since it brokes on py3",86f31769adf3d4d5b896cf4dd561ab3737533d6c,,remov unittest2 sinc broke py3,N,2013-05-24 13:36:09
+17,pull_request_commit,158,idan,oauthlib,lepture,2013-05-24 13:36:09,only install unittest2 on python 2.6 and 2.7,792ec98b20fb176e348bd059d42b9b663859aac6,,instal unittest2 python 26 27,N,2013-05-24 13:43:43
+1,issue_title,75,idan,oauthlib,ib-lundgren,2012-11-16 19:19:13,"OAuth 2 Core (http://tools.ietf.org/html/rfc6749) and Bearer Token Usage (http://tools.ietf.org/html/rfc6750) have been released and we should follow.
+
+This is a glorious and adventorous task, that includes the somewhat time consuming task of going over whats in oauth2/draft25 and making sure it matches what is instructed in the RFCs =)
+
+The code should match well but the links will need some updating. When that is done simply rename the directory and ensure all imports are ok.
+",start issue,From OAuth2 draft to RFC,oauth 2 core bearer token usag releas follow thi gloriou adventor task includ somewhat time consum task go what oauth2draft25 make sure match instruct rfc the code match well link need updat when done simpli renam directori ensur import ok,N,2013-05-30 11:13:31
+8,issue_comment,75,idan,oauthlib,ib-lundgren,2013-02-05 21:39:32,"OAuth 2 provider support is shaping up nicely. A preview available in the newly added docs
+
+https://oauthlib.readthedocs.org/en/latest/server2.html
+",,,oauth 2 provid support shape nice A preview avail newli ad doc,N,2013-05-30 11:17:38
+1,issue_title,153,idan,oauthlib,ib-lundgren,2013-05-21 14:42:04,"Django & Flask decorator tests are currently missing.
+
+Will need to find a setup that only pulls these dependencies for development and not interfere with users that does not use the decorators. For example, address djangos need to have settings defined.
+",start issue,Test for OAuth 2 decorators,django flask decor test current miss will need find setup pull depend develop interfer user use decor for exampl address django need set defin,N,2013-05-28 15:01:17
+2,issue_closed,153,idan,oauthlib,ib-lundgren,2013-05-28 15:01:17,,closed issue,Test for OAuth 2 decorators,,N,2013-05-24 13:11:15
+3,issue_comment,153,idan,oauthlib,lepture,2013-05-24 13:11:15,"@ib-lundgren I do think that it is not a good idea to put django and flask decorators in oauthlib. Oauthlib should focus on the core oauth part.
+
+It's a time to move to the rfc instead of draft 25.
+",,,iblundgren I think good idea put django flask decor oauthlib oauthlib focu core oauth part it time move rfc instead draft 25,N,2013-05-24 15:54:17
+4,issue_comment,153,idan,oauthlib,ib-lundgren,2013-05-24 15:54:17,"@lepture I've begun to think the same lately which is why I am thinking about moving it out and into a new django-oauthlib project and instead of just a simple decorator let the project grow into a full fledged django extension. I've just not had time to set this up yet.
+
+Regarding moving to RFC it certainly is time and I've only put it off because moving files around is boring and that OAuth 2 is split over so many more RFCs than just the core. For the sake of keeping with consistency we might want to split the draft25 folder into several RFC folders, Bearer, Core, MAC etc but not sure if that will just confuse things. 
+
+@lepture Guess we could just start with draft25 -> rfc6749, is this something you would be interested in doing?
+",,,leptur ive begun think late I think move new djangooauthlib project instead simpl decor let project grow full fledg django extens ive time set yet regard move rfc certainli time ive put move file around bore oauth 2 split mani rfc core for sake keep consist might want split draft25 folder sever rfc folder bearer core mac etc sure confus thing leptur guess could start draft25,N,2013-05-25 00:00:18
+5,issue_comment,153,idan,oauthlib,lepture,2013-05-25 00:00:18,"@ib-lundgren I'd like to help, since I am working on https://github.com/lepture/flask-oauthlib
+
+And I am designing the provider API right now.
+
+I have not read all the RFCs, guess I need some time. Is there any big difference between draft25 and rfc6749?
+",,,iblundgren Id like help sinc I work and I design provid api right I read rfc guess I need time Is big differ draft25 rfc6749,N,2013-05-25 11:58:10
+6,issue_comment,153,idan,oauthlib,ib-lundgren,2013-05-25 11:58:10,"@lepture Ah excellent. Will check out flask-oauthlib next week. Planning to do OAuth 2 and 1? or just 2? 
+
+AFAIK the spec has only changed in wording, not logic, between 25 and RFC so should not be much differences.
+",,,leptur Ah excel will check flaskoauthlib next week plan oauth 2 1 2 afaik spec chang word logic 25 rfc much differ,N,2013-05-25 12:41:41
+7,issue_comment,153,idan,oauthlib,lepture,2013-05-25 12:41:41,"@ib-lundgren The client part is the same as Flask-OAuth, and it works well now. I have no idea how to test the client part.
+
+Currently, I'd like to do the OAuth2 provider, when it finished and the API is pretty, I can take OAuth1 into account, if it can keep the same API.
+",,,iblundgren the client part flaskoauth work well I idea test client part current Id like oauth2 provid finish api pretti I take oauth1 account keep api,Y,2013-05-25 13:16:34
+8,issue_comment,153,idan,oauthlib,ib-lundgren,2013-05-25 13:16:34,"@lepture I was mainly thinking about the provider part. Let me know if I can be of any help =)
+
+Regarding OAuth 1 I was planning on remaking the API to be very similar to the one of OAuth 2 (will track this in #95). You can always have a look at [flask-oauthprovider](https://github.com/ib-lundgren/flask-oauthprovider) and see if it is of any help (current, soon to be deprecated, api).
+",,,leptur I mainli think provid part let know I help regard oauth 1 I plan remak api similar one oauth 2 track 95 you alway look flaskoauthprovid see help current soon deprec api,N,2013-05-28 15:01:15
+1,issue_title,73,idan,oauthlib,ib-lundgren,2012-11-16 19:09:51,"Investigate whether it would be useful to add PyPy and Jython support and what would be necessary for it to happen. As far as the OAuthLib code goes neither should be an issue but that might not be the case for the dependencies. 
+
+The biggest concern is likely to be PyCrypto. 
+
+I vaguely remember seeing threads about issues with that combination but not sure about the current status. 
+
+Jython could be tricky, there might be wrappers or suitable alternatives but needs some research.
+",start issue,Investigate possibly PyPy and Jython support,investig whether would use add pypi jython support would necessari happen As far oauthlib code goe neither issu might case depend the biggest concern like pycrypto I vagu rememb see thread issu combin sure current statu jython could tricki might wrapper suitabl altern need research,N,2013-05-29 14:11:30
+2,issue_closed,73,idan,oauthlib,ib-lundgren,2013-05-29 14:11:30,,closed issue,Investigate possibly PyPy and Jython support,,N,2013-05-24 07:21:04
+3,issue_comment,73,idan,oauthlib,dahlia,2013-05-24 07:21:04,"PyCrypto currently works on PyPy, and oauthlib also currently works on PyPy.  (Tested on PyPy 2.0.2, Mac 10.8.3.)
+
+``` console
+$ tox -e pypy
+GLOB sdist-make: /.../oauthlib/setup.py
+pypy inst-nodeps: /.../oauthlib/.tox/dist/oauthlib-0.4.1.zip
+pypy runtests: commands[0]
+.....................................................................................................................................................
+----------------------------------------------------------------------
+Ran 149 tests in 0.846s
+
+OK
+___________________________________ summary ____________________________________
+  pypy: commands succeeded
+  congratulations :)
+```
+
+I think we could add `pypy` to `tox.ini` and `.travis.yml` files.  (`.travis.yml` seems not to contain even 2.6, 3.2 and 3.3.)
+",,,pycrypto current work pypi oauthlib also current work pypi test pypi 202 mac 1083 I think could add file seem contain even 26 32 33,Y,2013-05-24 09:36:45
+4,issue_comment,73,idan,oauthlib,lepture,2013-05-24 09:36:45,"I don't think `Jython` worth the work.
+",,,I dont think worth work,N,2013-05-24 12:45:55
+1,issue_title,79,idan,oauthlib,ib-lundgren,2012-11-16 19:33:35,"While most users are likely better of using requests (http://docs.python-requests.org/en/latest/index.html) to make OAuth requests some might not have that option.  A few examples of how to use the Client class would be useful. 
+
+Some users might try to use OAuthLib with urllib2 not knowing there are better alternatives out there, a little note in the docs would help them out.
+",start issue,Client usage docs,while user like better use request make oauth request might option A exampl use client class would use some user might tri use oauthlib urllib2 know better altern littl note doc would help,N,2013-05-30 11:29:39

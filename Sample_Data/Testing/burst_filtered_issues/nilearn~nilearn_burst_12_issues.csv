@@ -1,0 +1,7 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+35,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')",I agre,N,2013-05-21 16:45:46

@@ -1,0 +1,16 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,714,nilearn,nilearn,AlexandreAbraham,2015-07-21 14:05:39,"5' PR about PEP8 violations I ran into.
+",start issue,Pep8,5 PR pep8 violat I ran
+issue_closed,714,nilearn,nilearn,GaelVaroquaux,2015-07-21 14:39:51,,closed issue,Pep8,
+pull_request_title,714,nilearn,nilearn,AlexandreAbraham,2015-07-21 14:05:39,"5' PR about PEP8 violations I ran into.
+",de38fe03a535b79b4250794833fe4049730e7ce7,Pep8,5 PR pep8 violat I ran
+pull_request_merged,714,nilearn,nilearn,GaelVaroquaux,2015-07-21 14:39:51,Pep8,97f419f2707542948947d9dd22aedde08e1fed3a,Pull request merge from AlexandreAbraham/nilearn:pep8 to nilearn/nilearn:master,pep8
+issue_comment,714,nilearn,nilearn,GaelVaroquaux,2015-07-21 14:33:34,"I foresee merge conflicts...
+
+But I think that I'll still merge.
+",,,I forese merg conflict but I think ill still merg
+issue_comment,714,nilearn,nilearn,AlexandreAbraham,2015-07-21 14:39:33,"That may happen but I specifically chose files on which nobody's working.
+",,,that may happen I specif chose file nobodi work
+pull_request_commit,714,nilearn,nilearn,AlexandreAbraham,2015-07-21 14:02:24,PEP8 fix,1a378e39afd4eb72365e1b8b4cd6bec0ca2efdf0,,pep8 fix
+pull_request_commit,714,nilearn,nilearn,AlexandreAbraham,2015-07-21 14:04:57,PEP8 in displays,de38fe03a535b79b4250794833fe4049730e7ce7,,pep8 display

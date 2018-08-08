@@ -1,0 +1,23 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,743,nilearn,nilearn,lesteve,2015-07-31 12:57:36,"### [Codacy](https://www.codacy.com/app/lesteve/nilearn/commit?cid=13573588) detected an issue:
+#### Message: `Bad except clauses order (TypeError is an ancestor class of DimensionError)`
+#### Occurred on:
+- **Commit**:  a6fa5848930c40a59652231a47b7f6d4a9edefc5
+- **File**:    [nilearn/_utils/niimg_conversions.py](https://github.com/nilearn/nilearn/blob/a6fa5848930c40a59652231a47b7f6d4a9edefc5/nilearn/_utils/niimg_conversions.py)
+- **LineNum**: [140](https://github.com/nilearn/nilearn/blob/a6fa5848930c40a59652231a47b7f6d4a9edefc5/nilearn/_utils/niimg_conversions.py#L140)
+- **Code**:    `except DimensionError as exc:`
+#### Currently on:
+- **Commit**:  5b5d8d206c03c3c65ee22896d2850bbb886b333a
+- **File**:    [nilearn/_utils/niimg_conversions.py](https://github.com/nilearn/nilearn/blob/5b5d8d206c03c3c65ee22896d2850bbb886b333a/nilearn/_utils/niimg_conversions.py)
+- **LineNum**: [149](https://github.com/nilearn/nilearn/blob/5b5d8d206c03c3c65ee22896d2850bbb886b333a/nilearn/_utils/niimg_conversions.py#L149)
+
+It looks like this is a real issue since it was caught by landscape.io too.
+",start issue,Bad except clauses order (TypeError is an ancestor class of DimensionError),codaci detect issu messag occur commit a6fa5848930c40a59652231a47b7f6d4a9edefc5 file nilearnutilsniimgconversionspi linenum 140 code current commit 5b5d8d206c03c3c65ee22896d2850bbb886b333a file nilearnutilsniimgconversionspi linenum 149 It look like real issu sinc caught landscapeio,N,2015-08-04 09:02:21
+8,issue_comment,743,nilearn,nilearn,lesteve,2015-07-31 15:41:09,"I see that you have pushed a fix in master, thanks! There is something I don't understand though shouldn't it have been caught by the tests?
+
+I seem to remember that we checked the error message to make sure it mentioned 4d rather than 3d or something like that.
+",,,I see push fix master thank there someth I dont understand though shouldnt caught test I seem rememb check error messag make sure mention 4d rather 3d someth like,Y,2015-08-04 08:26:15
+9,issue_comment,743,nilearn,nilearn,AlexandreAbraham,2015-08-04 08:26:15,"> I seem to remember that we checked the error message to make sure it mentioned 4d rather than 3d or something like that.
+
+We check that the number of dimensions asked is the right one ""Data must be 4D but you provided"" but we don't check the number of dimensions given by the user.
+",,,We check number dimens ask right one data must 4D provid dont check number dimens given user,N,2015-08-04 08:32:31

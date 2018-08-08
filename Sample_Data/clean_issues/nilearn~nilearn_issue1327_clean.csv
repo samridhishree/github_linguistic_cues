@@ -1,0 +1,19 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1327,nilearn,nilearn,AlexandreAbraham,2016-11-14 10:56:03,"It seems that we cannot host files anymore on NITRC. This is critical as most of the datasets are hosted there. Plus, NITRC does not return a 404 error, meaning that nilearn thinks it downloads the correct files but explodes afterward.
+
+Plan of action:
+- First, update nilearn to add basic checks after download: either specify the size explicetely, or a hash, or simply check that binary files do not start with <html>
+- Then, upload the files on another hosting service and update all the links
+- Finally, implement something to force nilearn downloading the data again if a new version is available (here, the new version will be the one hosted elsewhere). This is something already asked for neurovault fetcher so it is not orthogonal to nilearn's roadmap.",start issue,All NITRC files are gone,It seem cannot host file anymor nitrc thi critic dataset host plu nitrc return 404 error mean nilearn think download correct file explod afterward plan action first updat nilearn add basic check download either specifi size explicet hash simpli check binari file start html then upload file anoth host servic updat link final implement someth forc nilearn download data new version avail new version one host elsewher thi someth alreadi ask neurovault fetcher orthogon nilearn roadmap
+issue_closed,1327,nilearn,nilearn,AlexandreAbraham,2016-12-22 06:33:31,,closed issue,All NITRC files are gone,
+issue_comment,1327,nilearn,nilearn,AlexandreAbraham,2016-11-14 12:51:56,"Fiou, I'm relieved :P.
+
+Small check passed for me. For people having problem: you can clear the nilearn_data directory (sorry for the inconvenience).
+",,,fiou Im reliev P small check pass for peopl problem clear nilearndata directori sorri inconveni
+issue_comment,1327,nilearn,nilearn,GaelVaroquaux,2016-11-14 12:39:15,"I think that I've fixed the problem. It was a configuration switch to flip in the NITRC set up (disable the external downloads).
+
+Everything should be working now. Could people check (I did a small check myself).
+",,,I think ive fix problem It configur switch flip nitrc set disabl extern download everyth work could peopl check I small check
+issue_comment,1327,nilearn,nilearn,salma1601,2016-11-14 18:33:42,"`fetch_oasis_vbm` works OK for me now. Thanks
+",,,work OK thank

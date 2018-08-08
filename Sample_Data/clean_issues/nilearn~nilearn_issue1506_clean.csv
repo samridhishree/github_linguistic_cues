@@ -1,0 +1,45 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1506,nilearn,nilearn,GaelVaroquaux,2017-09-07 19:29:25,"The images from the following paper:
+http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002180
+are available on
+https://neurovault.org/collections/503/
+and on
+http://neurovault.org/collections/504/
+and the emotion and pain ratings are available as meta data.
+
+We could build an example that decodes emotion or pain using the neurovault dowloader. It would be super cool because it would add a decoding example with a different dataset (everybody is bored of Haxby, and the Jimura doesn't work well.",start issue,New dataset and example for decoding data,the imag follow paper avail emot pain rate avail meta data We could build exampl decod emot pain use neurovault dowload It would super cool would add decod exampl differ dataset everybodi bore haxbi jimura doesnt work well
+issue_comment,1506,nilearn,nilearn,bthirion,2017-11-20 22:36:04,"Great proposition !
+",,,great proposit
+issue_comment,1506,nilearn,nilearn,nicofarr,2017-11-16 15:48:43,"I'm happy to try out this one. 
+I'll try do some first tests on the smallest one (collection 504) although it's only 28 subjects with three pain ratings, and see whether it's worth doing a full nilearn example from there. ",,,Im happi tri one ill tri first test smallest one collect 504 although 28 subject three pain rate see whether worth full nilearn exampl
+issue_comment,1506,nilearn,nilearn,nicofarr,2017-11-18 04:57:02,"First straightforward decoding example for 503 is [here](http://nbviewer.jupyter.org/gist/nicofarr/d73c8f611c0a77d4e989b11ae4a4033a) :  
+
+And [here](http://nbviewer.jupyter.org/gist/nicofarr/1b0bccf636aa2a1c82ed7f07b528ea64) for 504. 
+
+In both cases, a very straightforward decoding approach seems to yield acceptable results. 
+
+I'll focus on collection 503 as it's the one that yields the largest number of images. 
+A few things : 
+
+- In the notebook above, I've randomly taken 700 images out of the 5000+ images availables, without controlling for anything. I didn't control for subjects. 
+
+- It seems there are more examples for Rating 1 than the other ratings. 
+
+- I also didn't take into account the train/test split that is present in the metadata, but rather I used 5-fold CV. 
+
+- On 700 images, when training to classify Rating 1 vs Rating 5, we obtain a CV-accuracy of about 81% over folds. I've tried with 500 images and obtained a similar result. 
+
+
+
+Suggestions regarding where to go from here : 
+- Implement an example with the full regression over the rating values (using Lasso as in the paper ? ) 
+- Implement an example with Searchlight 
+- Implement an example with SpaceNetClassifier / SpaceNetRegressor 
+- Generate a smaller list of images that correspond a subset of subjects and feed it to the Neurovault fetcher, so that the example doesn't download the 5000+ images
+
+Any thoughts ? 
+
+
+",,,first straightforward decod exampl 503 and 504 In case straightforward decod approach seem yield accept result ill focu collect 503 one yield largest number imag A thing In notebook ive randomli taken 700 imag 5000 imag avail without control anyth I didnt control subject It seem exampl rate 1 rate I also didnt take account traintest split present metadata rather I use 5fold CV On 700 imag train classifi rate 1 vs rate 5 obtain cvaccuraci 81 fold ive tri 500 imag obtain similar result suggest regard go implement exampl full regress rate valu use lasso paper implement exampl searchlight implement exampl spacenetclassifi spacenetregressor gener smaller list imag correspond subset subject feed neurovault fetcher exampl doesnt download 5000 imag ani thought
+issue_comment,1506,nilearn,nilearn,ljchang,2017-09-07 19:43:38,Great idea!  I'm happy to help contribute.  Here is a [start](https://github.com/Summer-MIND/mind_2017/blob/master/Tutorials/Decoding/Chang_Decoding.ipynb) using a different toolbox.  ,,,great idea Im happi help contribut here start use differ toolbox

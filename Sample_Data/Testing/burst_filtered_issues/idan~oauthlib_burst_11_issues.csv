@@ -1,0 +1,71 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,53,idan,oauthlib,ayanamist,2012-08-27 00:26:25,"I first post the issue against requests, but @kennethreitz said it's the problem of the oauthlib, so i post again here
+
+Since i pass the dict object with str and int object, an exception will be raised.
+
+> Exception on /post [POST]
+> Traceback (most recent call last):
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/Flask-0.9-py2.7.zip/flask/app.py"", line 1687, in wsgi_app
+>     response = self.full_dispatch_request()
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/Flask-0.9-py2.7.zip/flask/app.py"", line 1360, in full_dispatch_request
+>     rv = self.handle_user_exception(e)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/Flask-0.9-py2.7.zip/flask/app.py"", line 1358, in full_dispatch_request
+>     rv = self.dispatch_request()
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/Flask-0.9-py2.7.zip/flask/app.py"", line 1344, in dispatch_request
+>     return self.view_functions[rule.endpoint](**req.view_args)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/application/utils/decorators.py"", line 10, in decorated_view
+>     return func(_args, *_kwargs)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/application/views/status.py"", line 19, in status_post
+>     result = flask.g.api.reTweet(id=retweet_id, include_entities=1)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/twython-2.3.3.zip/twython/twython.py"", line 138, in <lambda>
+>     return lambda *_kwargs: self._constructFunc(key, *_kwargs)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/twython-2.3.3.zip/twython/twython.py"", line 155, in _constructFunc
+>     content = self._request(url, method=fn['method'], params=kwargs)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/twython-2.3.3.zip/twython/twython.py"", line 175, in _request
+>     response = func(url, data=params, files=files)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/sessions.py"", line 295, in post
+>     return self.request('post', url, data=data, **kwargs)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/sessions.py"", line 252, in request
+>     r.send(prefetch=prefetch)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/models.py"", line 532, in send
+>     r = self.auth(self)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/auth.py"", line 103, in __call__
+>     unicode(r.full_url), unicode(r.method), r.data, r.headers)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/packages/oauthlib/oauth1/rfc5849/**init**.py"", line 211, in sign
+>     request.oauth_params.append((u'oauth_signature', self.get_oauth_signature(request)))
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/packages/oauthlib/oauth1/rfc5849/**init**.py"", line 71, in get_oauth_signature
+>     normalized_params = signature.normalize_parameters(collected_params)
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/packages/oauthlib/oauth1/rfc5849/signature.py"", line 373, in normalize_parameters
+>     key_values = [(utils.escape(k), utils.escape(v)) for k, v in params]
+>   File ""/base/data/home/apps/s~dabr-gae/1.361315839962791826/lib/requests-0.13.9.zip/requests/packages/oauthlib/oauth1/rfc5849/utils.py"", line 52, in escape
+>     raise ValueError('Only unicode objects are escapable.')
+> ValueError: Only unicode objects are escapable.
+
+The related code is here: https://code.google.com/p/gabr/source/browse/application/views/status.py?r=c67d65b90bdf78d07d4fe92cc1e8f9827cb5eaf8#22
+
+So i must unicode the parameters first: https://code.google.com/p/gabr/source/browse/application/views/status.py?r=7eb65d488db14fb1ced0c848c0334f894191ab7b#20
+
+It's caused by https://github.com/idan/oauthlib/blob/1edaaf2f5e92744e4fd06c908e507a47279b3db9/oauthlib/oauth1/rfc5849/utils.py#L52 which will check the type of the parameters.
+
+But i think it's not necessary, because what common.quote do is that it encode the unicode string to utf8, call urllib.quote and decode it. I think even this unicode intermediate object is unnecessary, because the only calling is from https://github.com/idan/oauthlib/blob/989606369bd8716c97aad7c94543344f4072e7d5/oauthlib/oauth1/rfc5849/signature.py#L373 which convert the object to unicode string again in the next statement.
+
+And i think common.quote is unncessary, because the only calling is from oauth1/rfc5849/utils.py , the rest in this package is directly calling urllib.quote.
+
+So i think, we should just encoding it if it's a unicode object or do nothing else.
+",start issue,We should try to convert the variable first but not to raise an unnecessary exception.,I first post issu request kennethreitz said problem oauthlib post sinc pass dict object str int object except rais the relat code So must unicod paramet first it caus check type paramet but think necessari commonquot encod unicod string utf8 call urllibquot decod I think even unicod intermedi object unnecessari call convert object unicod string next statement and think commonquot unncessari call oauth1rfc5849utilspi rest packag directli call urllibquot So think encod unicod object noth els,N,2013-02-03 17:03:25
+16,issue_comment,53,idan,oauthlib,ib-lundgren,2012-09-06 20:01:01,"Will try and find time to look into this in more detail this weekend but after a first glance I'm wondering if it would not be a better idea to tackle the unicode conversion/checking in client.sign, ie the entry point, and keep the oauthlib internals all unicode.
+",,,will tri find time look detail weekend first glanc Im wonder would better idea tackl unicod conversioncheck clientsign ie entri point keep oauthlib intern unicod,N,2013-02-03 17:03:24
+1,issue_title,61,idan,oauthlib,mvantellingen,2012-10-03 13:39:15,"This makes the unittests pass
+",start issue,Oauth2 draft25 server,thi make unittest pass,N,2013-02-03 16:57:21
+6,issue_comment,61,idan,oauthlib,ib-lundgren,2012-10-03 14:38:20,"Sure I'll push it tonight when I get back with some notes about my general
+idea for what I've been meaning to do but never found time to.
+
+On Wed, Oct 3, 2012 at 4:34 PM, Michael notifications@github.com wrote:
+
+> Good to hear. It would be great if you could push your code, we can clean
+> it up afterwards. I currently have a few days to work on getting a good
+> oauth2 provider.
+> 
+> —
+> Reply to this email directly or view it on GitHubhttps://github.com/idan/oauthlib/pull/61#issuecomment-9108273.
+",,,sure ill push tonight I get back note gener idea ive mean never found time On wed oct 3 2012 434 PM michael notificationsgithubcom wrote,N,2013-02-03 16:57:21

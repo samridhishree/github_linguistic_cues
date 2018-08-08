@@ -1,0 +1,244 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,157,nilearn,nilearn,VirgileFritsch,2014-02-21 17:02:19,,closed issue,ENH: Add Massively Univariate Linear Model with permuted OLS.,,N,2014-01-30 15:44:03
+3,pull_request_title,157,nilearn,nilearn,VirgileFritsch,2014-01-30 15:44:03,"This PR provides massively univariate linear models estimation using OLS regression and permutation testing. The code is designed to complete a very large number of permutations (> 100000) on a large problem (thousands of targets variables, namely the brain voxels) within a few minutes. It uses parallel computing and an especially-designed data structure to store the numerous permutations scores.
+
+An example is still needed and more tests may be welcomed.
+",c8f334f8635478ca43876d740527aaea570c1eb4,ENH: Add Massively Univariate Linear Model with permuted OLS.,thi PR provid massiv univari linear model estim use ol regress permut test the code design complet larg number permut An exampl still need test may welcom,N,2014-01-30 16:33:59
+4,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:33:59,"Tests are failing. You need to add the subpackage 'nilearn/group_analysis' in the setup.py
+",,,test fail you need add subpackag nilearngroupanalysi setuppi,Y,2014-01-30 16:35:17
+5,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:35:17,"I wonder why you decided to name this subpackage 'group_analysis'? There is nothing specific to the group hear, I think. I first level analysis could be performed with such a code.
+
+I wonder if I wouldn't call it 'mass_univariate'.
+",,,I wonder decid name subpackag groupanalysi there noth specif group hear I think I first level analysi could perform code I wonder I wouldnt call massunivari,N,2014-01-30 16:39:42
+6,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 16:39:42,"Ok for the tests.
+
+First level analysis requires contrasts handling (I mean for the event-related design cases), which is something the actual code is not doing. The kind of test that is performed is relatively simple: one variable is tested at a time, potentially on a large number of image descriptors.
+",,,Ok test first level analysi requir contrast handl I mean eventrel design case someth actual code the kind test perform rel simpl one variabl test time potenti larg number imag descriptor,Y,2014-01-30 16:45:39
+7,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:45:39,"I still think that group_analysis is too narrow. We want fairly large categories, to avoid having a multiplication of subpackages in the long run.
+",,,I still think groupanalysi narrow We want fairli larg categori avoid multipl subpackag long run,N,2014-01-30 17:03:01
+8,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:03:01,"How about an example on Haxby, doing a face vs house regressor with the session label as a confound variable?
+",,,how exampl haxbi face vs hous regressor session label confound variabl,N,2014-01-30 18:01:00
+9,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 18:01:00,"I think that I would like the acronym 'MULM' to disappear from the codebase.
+
+I think that the MULMSparseArray could be called something like 'GrowableSparseArray', and in the other instances of 'MULM' used in the code base, something like 'permuted' would probably be sufficient to name.
+",,,I think I would like acronym mulm disappear codebas I think mulmsparsearray could call someth like growablesparsearray instanc mulm use code base someth like permut would probabl suffici name,N,2014-01-31 14:51:31
+10,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 14:51:31,"I just pushed the Haxby example.
+",,,I push haxbi exampl,N,2014-02-01 15:03:10
+29,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",,,OK,N,2014-01-30 16:22:02
+30,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:22:02,"Are you sure that you want to put an underscore in front, which means that it is private in Python conventions? I believe that it should be an underscore at the end, which means that it is estimated from the data (in scikit-learn conventions).
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",are sure want put underscor front mean privat python convent I believ underscor end mean estim data scikitlearn convent,N,2014-01-30 16:24:54
+31,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:24:54,"You shouldn't be raising exceptions. You should be calling np.ascontiguousarray to convert. If you really want the user to be aware that his code will be slower, you can raise a warning (warning.warn).
+
+Also, you should document in the docstring that variables should be given C contiguous.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",you shouldnt rais except you call npascontiguousarray convert If realli want user awar code slower rais warn warningwarn also document docstr variabl given C contigu,N,2014-01-30 16:26:28
+32,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:26:28,"I am almost certain that this 'repeat' is not necessary, and that you can use broadcasting to avoid it in the next line (using something like 'a2 = a2[:, np.newaxis]')
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",I almost certain repeat necessari use broadcast avoid next line use someth like a2 a2 npnewaxi,N,2014-01-30 16:26:49
+33,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:26:49,"It's a function name, therefore it shouldn't have capitals.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",it function name therefor shouldnt capit,N,2014-01-30 16:27:38
+34,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:27:38,"Don't make it a keyword argument, that way you don't have to check that is it not none: it becomes mandatory.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",dont make keyword argument way dont check none becom mandatori,N,2014-01-30 16:27:47
+35,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",same thing,N,2014-01-30 16:33:22
+36,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 16:33:22,"Done. Three lines suppressed. Good catch.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done three line suppress good catch,N,2014-01-30 16:33:32
+37,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-01-30 16:34:56
+38,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 16:34:56,"Actually, you asked to convert all the argument to keyworlds arguments for readability, and I agreed since I think it is better this way. So do you confirm your comment?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",actual ask convert argument keyworld argument readabl I agre sinc I think better way So confirm comment,N,2014-01-30 16:36:43
+39,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:36:43,"I think that here you should be using sklearn.utils.gen_even_slices.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares.py')",I think use sklearnutilsgenevenslic,N,2014-01-30 16:39:26
+40,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:39:26,"> Actually, you asked to convert all the argument to keyworlds arguments for
+> readability, and I agreed since I think it is better this way.
+
+Hum, usually we try to have as many keyword arguments as possible, which
+means that we try to put default everywhere we can, but for arguments
+where it is impossible to put a default we don't use a keyword argument.
+
+Maybe we were talking about function calls, rather than function
+definitions?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",hum usual tri mani keyword argument possibl mean tri put default everywher argument imposs put default dont use keyword argument mayb talk function call rather function definit,N,2014-01-30 16:48:38
+41,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:48:38,"If I understand your test properly, you are testing against previously computed versions of the model.
+
+I would rather avoid some tests, and rather test properties of the model that we know are right by construction.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/tests/tests_permuted_least_squares.py')",If I understand test properli test previous comput version model I would rather avoid test rather test properti model know right construct,Y,2014-01-30 16:55:50
+42,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares.py')",done,N,2014-01-30 16:59:44
+43,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-01-30 17:00:11
+44,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:00:11,"This should be called 'random_state', and you should use 'sklearn.utils.check_random_state' on it.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",thi call randomst use sklearnutilscheckrandomst,N,2014-01-30 17:07:12
+45,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:07:12,"typo: 'neuroimaging'
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",typo neuroimag,N,2014-01-30 17:08:56
+46,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",correct,N,2014-01-30 17:10:32
+47,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-01-30 17:11:17
+48,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 17:11:17,"Ok, both look good to me anyway, so I turned the arguments to non-keyword ones.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",Ok look good anyway I turn argument nonkeyword one,N,2014-01-30 17:12:48
+49,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:12:48,"What is the purpose of the copy argument? The matrix is copied anyhow.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",what purpos copi argument the matrix copi anyhow,N,2014-01-30 17:14:46
+50,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:14:46,"Joblib doesn't requires parallelized functions to be in a different files, it requires them not to be in the **main** module.
+
+Thus you can merge the content of this file with the other, and I think that you should.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",joblib doesnt requir parallel function differ file requir main modul thu merg content file I think,N,2014-01-30 17:16:43
+51,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-01-30 17:21:43
+52,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 17:21:43,"Ok. It is weird because that is what I did at first and I got ""cannot pickle function errors"". Maybe it was because I did not create a module at that time.
+Files merged --> I will wait as long as I can to commit then, otherwise the diff will be broken.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",Ok It weird I first I got cannot pickl function error mayb I creat modul time file merg,N,2014-01-30 17:25:02
+53,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-30 17:25:02,"Well, now (I mean, since the merge) it happens that the tests fail with a strange joblib related message:
+
+Exception in thread Thread-1 (most likely raised during interpreter shutdown):
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/threading.py"", line 552, in __bootstrap_inner
+  File ""/usr/lib/python2.7/threading.py"", line 505, in run
+  File ""/usr/lib/python2.7/multiprocessing/pool.py"", line 298, in _handle_workers
+<type 'exceptions.TypeError'>: 'NoneType' object is not callable
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",well I mean sinc merg happen test fail strang joblib relat messag except thread thread1 like rais interpret shutdown traceback recent call last file usrlibpython27threadingpi line 552 bootstrapinn file usrlibpython27threadingpi line 505 run file usrlibpython27multiprocessingpoolpi line 298 handlework type exceptionstypeerror,Y,2014-01-30 17:43:43
+54,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",could commit chang I see go,N,2014-01-30 17:58:31
+55,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:58:31,"This data structure is difficult to understand, because you are describe what it does in terms of your application, but not in terms of the data structure.
+
+Let me try to understand what it does:
+- First it's growable, like a Cpp vector.
+- Second it is sparse.
+- Last it thresholds the data it gets in.
+
+I don't think that anything more is required to understand this object. Am I wrong? If so we can try to rephrase the variable names and the docstring in these terms.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",thi data structur difficult understand describ term applic term data structur let tri understand first growabl like cpp vector second spars last threshold data get I dont think anyth requir understand object Am I wrong If tri rephras variabl name docstr term,N,2014-01-30 17:59:33
+56,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:59:33,"Actually, now that I understand the code better, I realize that we probably do not want an underscore at all, as this is not an estimator, and there is no notion of statistics in it.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",actual I understand code better I realiz probabl want underscor estim notion statist,N,2014-01-30 18:02:36
+57,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-01-30 18:02:36,"This function should be called 'permuted_ols' no capitals: it is a function, and not a class.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares.py')",thi function call permutedol capit function class,N,2014-01-31 09:37:41
+58,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",delet inde noth chang,N,2014-01-31 09:38:18
+59,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares.py')",done,N,2014-01-31 09:47:56
+60,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",ye I made alreadi,N,2014-01-31 09:54:01
+61,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-01-31 09:55:30
+62,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-01-31 10:21:58
+63,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",done,N,2014-02-01 19:02:42
+64,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-01 19:02:42,"I think that I'd like this to be written in the following way:
+
+<pre>
+tmp = normalize_matrix_on_axis(tmp)
+if n_null_eig > 0:
+    tmp = np.hstack((tmp, np.zeros((tmp.shape[0], n_null_eig))))
+return tmp
+</pre>
+
+This avoids a bit of duplication of code. In addition, reusing the same variable name also avoids memory duplication.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I think Id like written follow way pretmp normalizematrixonaxistmp nnulleig tmp nphstacktmp npzerostmpshape0 nnulleig return tmp pre thi avoid bit duplic code In addit reus variabl name also avoid memori duplic,N,2014-02-01 19:08:00
+65,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-01 19:08:00,"You should choose a cut a bit lower, in the FFA, as where you are cutting, we are not expecting to see anything.
+
+Beside, the figures doesn't look quite right: it displays a few voxels on the border of the brain.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",you choos cut bit lower ffa cut expect see anyth besid figur doesnt look quit right display voxel border brain,N,2014-02-02 21:54:17
+66,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",store structur,N,2014-02-02 21:56:37
+67,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 21:56:37,"It is unclear to me whether the structure needs to refer to permutations explicitly. I think that the ides is that the structure is fed by some iterations of a given estimator, that might be a permuted estimator.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",It unclear whether structur need refer permut explicitli I think ide structur fed iter given estim might permut estim,N,2014-02-02 22:00:39
+68,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",call,N,2014-02-02 22:01:42
+69,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",instead,N,2014-02-02 22:02:21
+70,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 22:02:21,"associated with
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",associ,N,2014-02-02 22:04:15
+71,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",instead,N,2014-02-02 22:06:47
+72,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",pleas give relev refer literatur,N,2014-02-03 14:28:57
+73,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",done,N,2014-02-03 15:46:06
+74,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",Ok,N,2014-02-03 15:48:34
+75,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-03 15:48:34,"Ok. But I do not really like this new name.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",Ok but I realli like new name,N,2014-02-03 16:26:15
+76,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",Ok,N,2014-02-03 16:27:46
+77,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",Ok,N,2014-02-03 20:40:25
+78,pull_request_commit_comment,157,nilearn,nilearn,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/tests_permuted_least_squares.py')",call testpermutedleastsquarespi testspermutedleastsquarespi,N,2014-02-03 20:41:03
+190,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-20 13:36:00,"It is weird: I changed this and your comment still do not appear as outdated.
+Worse: the old version is still displayed above.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(35, '', u'nilearn/_utils/fixes/sklearn_f_regression.py')",It weird I chang comment still appear outdat wors old version still display,N,2014-01-30 15:35:43
+191,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-01-30 15:35:43,"NF: Add Massively Univariate Linear Model with permuted OLS.
+
+An example is still needed and more tests may be welcomed.",9450a0ccb32603c643d36c13a860c6715238dd0c,,NF add massiv univari linear model permut ol An exampl still need test may welcom,N,2014-01-31 09:51:33
+192,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-01-31 09:51:33,cosmetic changes in permuted_ols + rename module.,4df1c135cb5ba6c800be5334dc8c64ca215c4c54,,cosmet chang permutedol renam modul,N,2014-01-31 14:49:59
+233,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",57447a51c963cf82622d991bbf4c97bc4c276219,"(125, 245, u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",magic test valu,Y,2014-02-01 19:19:50
+234,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",9450a0ccb32603c643d36c13a860c6715238dd0c,"(33, 33, u'nilearn/group_analysis/permuted_least_squares_aux.py')",just sure I would check mndim 2 instead axi valu,N,2014-02-01 19:22:41
+235,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",9450a0ccb32603c643d36c13a860c6715238dd0c,"(56, 56, u'nilearn/group_analysis/permuted_least_squares_aux.py')",If Im mistaken case cannot happen In line 54 tmpshape1 limit neig,N,2014-02-03 15:30:09
+236,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-03 15:30:09,"I did something about this (check the dimension in a first step, check the axis in a second step).
+",9450a0ccb32603c643d36c13a860c6715238dd0c,"(33, 33, u'nilearn/group_analysis/permuted_least_squares_aux.py')",I someth check dimens first step check axi second step,N,2014-02-03 15:44:39
+1,issue_title,158,nilearn,nilearn,rphlypo,2014-01-30 16:48:16,"This is a new pull request based upon PR#154.
+",start issue,high variance confounds (clean history),thi new pull request base upon pr154,N,2014-01-31 12:31:32
+2,issue_closed,158,nilearn,nilearn,GaelVaroquaux,2014-01-31 12:31:32,,closed issue,high variance confounds (clean history),,N,2014-01-30 16:48:16
+3,pull_request_title,158,nilearn,nilearn,rphlypo,2014-01-30 16:48:16,"This is a new pull request based upon PR#154.
+",f489ff5e6f5ec3e27bb3abc231340fbec35e1872,high variance confounds (clean history),thi new pull request base upon pr154,N,2014-01-31 12:31:32
+4,pull_request_merged,158,nilearn,nilearn,GaelVaroquaux,2014-01-31 12:31:32,high variance confounds (clean history),4173d14ee6d28848b9c8559a57c04ba3218a37b6,Pull request merge from rphlypo/nilearn:hv_confounds to nilearn/nilearn:master,high varianc confound clean histori,N,2014-01-30 16:48:49
+5,issue_comment,158,nilearn,nilearn,rphlypo,2014-01-30 16:48:49,"As per the request of @GaelVaroquaux in PR#154, a bench on the haxby_simple dataset will follow.
+",,,As per request gaelvaroquaux pr154 bench haxbysimpl dataset follow,N,2014-01-30 17:02:34
+6,issue_comment,158,nilearn,nilearn,GaelVaroquaux,2014-01-30 17:02:34,"I'll wait for your bench, and then merge. Thanks a lot
+",,,ill wait bench merg thank lot,N,2014-01-30 22:55:01
+7,issue_comment,158,nilearn,nilearn,GaelVaroquaux,2014-01-30 22:55:01,"Actually, we cannot merge, you have a test failing on travis:
+https://travis-ci.org/nilearn/nilearn/jobs/17919215
+It's probably minor.
+",,,actual cannot merg test fail travi it probabl minor,Y,2014-01-31 10:33:02
+8,issue_comment,158,nilearn,nilearn,rphlypo,2014-01-31 10:33:02,"Test is now passing. Indeterminacies in the eigenvalue decomposition were not taken into account in the test. Modified `nilearn.tests.test_signal.py` accordingly.
+",,,test pass indeterminaci eigenvalu decomposit taken account test modifi accordingli,Y,2014-01-31 12:31:30
+9,issue_comment,158,nilearn,nilearn,GaelVaroquaux,2014-01-31 12:31:30,"Thanks! Merging.
+",,,thank merg,N,2014-01-31 12:33:08
+10,issue_comment,158,nilearn,nilearn,GaelVaroquaux,2014-01-31 12:33:08,"I merged, however I'd still really like to have a timing comparison on a real dataset (for instance haxby_simple).
+",,,I merg howev Id still realli like time comparison real dataset instanc haxbysimpl,N,2014-01-31 12:46:16
+11,issue_comment,158,nilearn,nilearn,rphlypo,2014-01-31 12:46:16,"will come ...
+",,,come,N,2014-01-30 16:49:58
+12,pull_request_commit_comment,158,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:49:58,"You still have spaces after your opening parenthesis, as far as I can tell :$
+",f489ff5e6f5ec3e27bb3abc231340fbec35e1872,"(None, '', u'nilearn/signal.py')",you still space open parenthesi far I tell,N,2014-01-30 16:57:03
+13,pull_request_commit_comment,158,nilearn,nilearn,GaelVaroquaux,2014-01-30 16:57:03,"I don't understand the role of this part of the docstring.
+",f489ff5e6f5ec3e27bb3abc231340fbec35e1872,"(None, '', u'nilearn/signal.py')",I dont understand role part docstr,N,2014-01-30 17:00:17
+14,pull_request_commit_comment,158,nilearn,nilearn,rphlypo,2014-01-30 17:00:17,"Done! Suppressed the docstring corresponding to absent feature.
+",f489ff5e6f5ec3e27bb3abc231340fbec35e1872,"(None, '', u'nilearn/signal.py')",done suppress docstr correspond absent featur,N,2014-01-29 16:25:49
+15,pull_request_commit,158,nilearn,nilearn,ronald.phlypo@inria.fr,2014-01-29 16:25:49,changed SVD to EVD for high_variance_confounds (+ tagging optional arguments),2deca7a7829375caee63116f2037ee50fe2dff59,,chang svd evd highvarianceconfound tag option argument,N,2014-01-30 16:25:27
+16,pull_request_commit,158,nilearn,nilearn,ronald.phlypo@inria.fr,2014-01-30 16:25:27,PEP8 compliance,be077be47e489a3d62d9409559c4d7558e7c439a,,pep8 complianc,N,2014-01-30 16:49:45
+17,pull_request_commit,158,nilearn,nilearn,ronald.phlypo@inria.fr,2014-01-30 16:49:45,autoPEP8,1d34404f2c7a53272b4b95c03c9938859a1d234f,,autopep8,N,2014-01-30 16:59:01
+18,pull_request_commit,158,nilearn,nilearn,ronald.phlypo@inria.fr,2014-01-30 16:59:01,deleted docstring on absent feature,53616df511b83a97b8cc992297ec661de1e4047c,,delet docstr absent featur,N,2014-01-31 10:30:06
+19,pull_request_commit,158,nilearn,nilearn,ronald.phlypo@inria.fr,2014-01-31 10:30:06,made the nosestest for high variance confounds + detrending more robust,214142c4befad229042747c28e577ba3ea52d140,,made nosestest high varianc confound detrend robust,N,2014-01-31 10:30:35
+20,pull_request_commit,158,nilearn,nilearn,ronald.phlypo@inria.fr,2014-01-31 10:30:35,made the nosestest for high variance confounds + detrending more robust,f489ff5e6f5ec3e27bb3abc231340fbec35e1872,,made nosestest high varianc confound detrend robust,N,2014-01-30 17:00:43
+2,issue_closed,161,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:37:50,,closed issue,New masking strategy: Background mask,,N,2014-02-03 18:04:59
+5,issue_comment,161,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:37:47,"Merging this guy before it code-rots.
+
+Careful, people, the default masking strategy is changing!!!!!!!!
+",,,merg guy coderot care peopl default mask strategi chang,N,2014-02-03 23:39:36
+7,pull_request_commit_comment,161,nilearn,nilearn,GaelVaroquaux,2014-02-04 08:05:56,"> but the 4 figures are a bit messy. I'd rather have subplots.
+
+It's too be able to use them separately in the documentation. When
+running interactively, I agree that it is not great. But for the generate
+webpage it is better.
+",f6b27800d343ee1c07339e5e2363525cd4f02b6f,"(121, '', u'plot_mask_computation.py')",it abl use separ document when run interact I agre great but gener webpag better,N,2014-02-03 12:25:19
+8,pull_request_commit,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 12:25:19,Cosmit: move code around,2669cc970e3d596aa0322fe0ec05f7bb992b5e74,,cosmit move code around,N,2014-02-03 12:57:07
+9,pull_request_commit,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 12:57:07,MISC: refactor to remove code duplication,f3e8b74d034564554b70876b577549b15e41f66b,,misc refactor remov code duplic,N,2014-02-03 13:59:01
+10,pull_request_commit,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 13:59:01,ENH: masking strategy for homogeneous background,f6d93f0ce58a87b23a9cab324a8ff6bada48199e,,enh mask strategi homogen background,N,2014-02-03 15:21:30
+11,pull_request_commit,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 15:21:30,ENH: better error message,e78e3ec7eb07954969629cc77594e6cd189c1224,,enh better error messag,N,2014-02-03 17:23:10
+12,pull_request_commit,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 17:23:10,ENH: integrate background mask heuristic,55642298b28c0f5420ecb503be13a1c91698589e,,enh integr background mask heurist,N,2014-02-03 17:44:06
+1,issue_title,123,nilearn,nilearn,AlexandreAbraham,2013-11-05 09:17:41,"Stimuli of Haxby dataset are now available. Should we fetch them ? integrate them in an example ?
+",start issue,[Enhancement] Haxby stimuli,stimuli haxbi dataset avail should fetch integr exampl,N,2014-01-31 10:04:39
+6,issue_comment,123,nilearn,nilearn,GaelVaroquaux,2013-11-05 12:53:12,"> No, this is purely informative. The orginal sequence of presentation of
+> the pictures is unknown. We know which category of picture is presented
+> but not the exact picture.
+
+OK. Not as good, but still useful for pretty slides in presentations.
+",,,OK not good still use pretti slide present,N,2014-01-31 10:04:39

@@ -1,0 +1,40 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1290,nilearn,nilearn,alexsavio,2016-09-26 14:41:32,"Hi,
+I am working on resting-state network templates using the ICA output from MIALAB's GIFT and the Allen RSN templates.
+I have implemented a class that:
+- reads the GIFT RSN template input format (a nifti and a txt file with labels and indices),
+- gives a few helpers to work with these files, and
+- measures goodness-of-fit (as in Zhou et al., Brain, 2010) and correlation against a given set of subject IC spatial maps.
+
+My questions:
+1) is there any plan to do subject reconstruction of the spatial maps from group CanICA or DictLearning? If yes, any interest in doing it? I could start this, but would definitely need help with the maths, or any reference to the method that you prefer.
+2) Is there any interest in this RSN templates development to be included in nilearn?
+
+If yes, any comment on how to proceed, I would love to contribute.
+
+This is a WIP of what I mention:
+https://github.com/Neurita/pypes/blob/rsn/pypes/postproc/rsn.py
+I would move outside the more complex functions in the class, and also optimise them.
+",start issue,RSN templates,Hi I work restingst network templat use ica output mialab gift allen rsn templat I implement class read gift rsn templat input format nifti txt file label indic give helper work file measur goodnessoffit zhou et al brain 2010 correl given set subject IC spatial map My question 1 plan subject reconstruct spatial map group canica dictlearn If ye interest I could start would definit need help math refer method prefer 2 Is interest rsn templat develop includ nilearn If ye comment proceed I would love contribut thi wip I mention I would move outsid complex function class also optimis
+issue_closed,1290,nilearn,nilearn,GaelVaroquaux,2017-03-03 15:09:27,,closed issue,RSN templates,
+issue_comment,1290,nilearn,nilearn,GaelVaroquaux,2016-09-26 14:48:09,"2 things that come to my mind:
+- We should implement a fetcher to these templates
+- This is related to https://github.com/nilearn/nilearn/pull/1284
+  Ideally, we should have one function useable for both purposes.
+",,,2 thing come mind We implement fetcher templat thi relat ideal one function useabl purpos
+issue_comment,1290,nilearn,nilearn,GaelVaroquaux,2016-09-26 15:09:41,"> I was thinking on a simple helper class to manage these RSN templates and
+> labels and separate measure functions for each functionality,
+
+I'd rather start with functions (think about the great talk on the
+""functional core"" at Euroscipy).
+",,,Id rather start function think great talk function core euroscipi
+issue_comment,1290,nilearn,nilearn,GaelVaroquaux,2017-03-03 15:09:27,Yes indeed: closing as fixed by #1295 / #1335,,,ye inde close fix 1295 1335
+issue_comment,1290,nilearn,nilearn,alexsavio,2016-09-26 15:06:40,"Sounds good to me, to begin with. The unthresholded Allen RSN templates are here:
+http://mialab.mrn.org/data/index.html
+The labels file should be included in the code, since it is not available online. I built one using a Figure in their paper as a reference. I will start with the fetcher later this week (I have a deadline on Wednesday and I am procrastineering).
+
+I was thinking on a simple helper class to manage these RSN templates and labels and separate measure functions for each functionality, such the Jaccard coefficient mentioned in #1284, etc..., if these goes into nilearn.
+",,,sound good begin the unthreshold allen rsn templat the label file includ code sinc avail onlin I built one use figur paper refer I start fetcher later week I deadlin wednesday I procrastin I think simpl helper class manag rsn templat label separ measur function function jaccard coeffici mention 1284 etc goe nilearn
+issue_comment,1290,nilearn,nilearn,alexsavio,2016-09-26 17:28:13,"Okay, a bunch of functions will also do the job :)
+",,,okay bunch function also job

@@ -1,0 +1,17 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,304,idan,oauthlib,artooro,2015-01-13 02:08:28,"See my question on stackoverflow.
+
+My query to @oauth.token_handler contains the ! in the query string which resulted in a decoding error.
+
+I modified oauthlib/common.py line 110 from:
+urlencoded = set(always_safe) | set('=&;%+~,*@!)
+
+to:
+urlencoded = set(always_safe) | set('=&;%+~,*@!')
+
+And that resolved the problem. I don't know if this is what I should have done, but it works. Can this fix be merged or should it be resolved some other way?
+",start issue,Not able to use ! is token request query,see question stackoverflow My queri oauthtokenhandl contain queri string result decod error I modifi oauthlibcommonpi line 110 urlencod setalwayssaf set urlencod setalwayssaf set and resolv problem I dont know I done work can fix merg resolv way
+issue_closed,304,idan,oauthlib,thedrow,2015-07-25 07:35:35,,closed issue,Not able to use ! is token request query,
+issue_comment,304,idan,oauthlib,thedrow,2015-07-25 07:35:35,"This was fixed in #305.
+",,,thi fix 305

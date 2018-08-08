@@ -1,0 +1,30 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,197,idan,oauthlib,ib-lundgren,2013-07-26 18:10:00,,closed issue,Update authorization.py - use the _create_request method and change requ...,,N,2013-07-19 00:00:46
+4,pull_request_merged,197,idan,oauthlib,ib-lundgren,2013-07-26 18:10:00,Update authorization.py - use the _create_request method and change requ...,7569da4fbc30f301997e6a902f0cf4c1f2eaa054,Pull request merge from kdazzle/oauthlib:patch-1 to idan/oauthlib:master,updat authorizationpi use createrequest method chang requ,N,2013-07-19 00:03:21
+5,issue_comment,197,idan,oauthlib,kdazzle,2013-07-19 00:03:21,"Oops. I got too excited to make the same changes in AuthorizationEndpoint.get_realms_and_credentials()
+",,,oop I got excit make chang authorizationendpointgetrealmsandcredenti,N,2013-07-19 19:18:21
+6,issue_comment,197,idan,oauthlib,ib-lundgren,2013-07-19 19:18:21,"@kdazzle Thanks for the PR!
+
+I initially avoided the use of _create_request because earlier that implementation would cause this to fail because it also checked the request signature (which there is none during this step). It seems like this works well now tho and agree that an update might be in order.
+
+Could you please also update the documentation with the error message thrown if oauth_token is not set on request.
+
+Oh and feel free to push more changes to this PR.
+",,,kdazzl thank PR I initi avoid use createrequest earlier implement would caus fail also check request signatur none step It seem like work well tho agre updat might order could pleas also updat document error messag thrown oauthtoken set request Oh feel free push chang PR,N,2013-07-19 22:19:45
+12,issue_comment,197,idan,oauthlib,kdazzle,2013-07-26 18:56:27,"Heh, sorry about that. I swear I was going to try to do some tests later...
+",,,heh sorri I swear I go tri test later,Y,2013-07-19 19:16:31
+13,pull_request_commit_comment,197,idan,oauthlib,ib-lundgren,2013-07-19 19:16:31,"Not sure what caused me to write this check in this manner. If you fancy move the token check up before self.request_valdiator.verify_request_token and make it raise
+
+```
+ raise errors.InvalidRequestError(
+                 description=('oauth_token parameter must be present '
+                                    'in the URL query.'))
+```
+
+or similar that would be awesome.
+",29406ee09b7d1f9d4c4967492dbce9cb22bcc1cf,"(None, '', u'oauthlib/oauth1/rfc5849/endpoints/authorization.py')",not sure caus write check manner If fanci move token check selfrequestvaldiatorverifyrequesttoken make rais similar would awesom,N,2013-07-19 22:12:44
+16,pull_request_commit_comment,197,idan,oauthlib,ib-lundgren,2013-07-22 20:53:36,"Nicely spotted. I just realized that this change was made incorrectly and the `access_token=request.resource_owner_key` should have been set in `resource.py` instead of `access_token.py`. Fancy making that change too?
+",29406ee09b7d1f9d4c4967492dbce9cb22bcc1cf,"(14, '', u'oauthlib/oauth1/rfc5849/endpoints/access_token.py')",nice spot I realiz chang made incorrectli set instead fanci make chang,N,2013-07-19 00:00:13
+17,pull_request_commit,197,idan,oauthlib,kdazzle,2013-07-19 00:00:13,"Update authorization.py - use the _create_request method and change request.oauth_token attribute to resource_owner_key
+
+The Request() constructor doesn't give the request.oauth_token attribute that the create_authorization_response relies on. The _create_request() method doesn't either, but it gives something equivalent.",967b6c425a7b9572753bf451e1e4b5fe535c2566,,updat authorizationpi use createrequest method chang requestoauthtoken attribut resourceownerkey the request constructor doesnt give requestoauthtoken attribut createauthorizationrespons reli the createrequest method doesnt either give someth equival,N,2013-07-19 21:51:21

@@ -1,0 +1,958 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+3,issue_comment,357,nilearn,nilearn,ogrisel,2015-03-06 13:11:23,"\o/
+",,,,N,2015-01-20 06:30:34
+4,issue_comment,357,nilearn,nilearn,GaelVaroquaux,2015-01-20 06:30:34,"Hey,
+
+I hadn't realized that we didn't work under Python 2.6.
+
+I agree that, as we are start to want more users, we should worry about
+compatibility with, first 2.6, and then 3.3 and 3.4.
+
+Here is the way that I suggest tackling this issue (thanks Ben for
+stepping up): first (for Python 2.6), port the ideas in scikit-learn's
+.travis.yml to have the tests running under 2.6, then get it running;
+submit a PR. Once the PR is in, do the same for Python 3.0.
+",,,hey I hadnt realiz didnt work python 26 I agre start want user worri compat first 26 33 34 here way I suggest tackl issu thank ben step first python 26 port idea scikitlearn travisyml test run 26 get run submit PR onc PR python 30,Y,2015-01-20 06:37:58
+5,issue_comment,357,nilearn,nilearn,bcipolli,2015-01-20 06:37:58,":+1: Sounds great, and am very close to having exactly that done :)
+
+@GaelVaroquaux One question: `scikit-learn`'s `.travis.yml` file doesn't deal with `NEURODEBIAN`.  Can you let me know how you'd like to include testing `NEURODEBIAN`?  Perhaps just on Python 2.7?  Not too familiar with it, so no idea what might make sense.
+",,,1 sound great close exactli done gaelvaroquaux one question file doesnt deal can let know youd like includ test perhap python 27 not familiar idea might make sens,Y,2015-01-20 08:23:15
+6,issue_comment,357,nilearn,nilearn,lesteve,2015-01-20 08:23:15,"I reckon testing with NEURODEBIAN=1 only for Python 2.7 would be fine. 
+
+I am not sure you can use NEURODEBIAN=1 to work with python2.6. According to [this](http://docs.travis-ci.com/user/ci-environment/#CI-environment-OS), Travis boxes Linux distribution is based on Ubuntu 12.04 and Python 2.6 has been dropped from 12.04 according to this [link](https://wiki.ubuntu.com/Python). Just saying I am not sure how Travis python version interacts with apt-get install python-numpy for example.
+
+Maybe you have done that already but there is a way to set-up Travis so that it builds every time you are pushing into one of your branch, which is quite useful. Pandas developers page mentions this Travis [page](http://docs.travis-ci.com/user/getting-started/).
+",,,I reckon test neurodebian1 python 27 would fine I sure use neurodebian1 work python26 accord travi box linux distribut base ubuntu 1204 python 26 drop 1204 accord link just say I sure travi python version interact aptget instal pythonnumpi exampl mayb done alreadi way setup travi build everi time push one branch quit use panda develop page mention travi page,Y,2015-01-20 08:35:43
+7,issue_comment,357,nilearn,nilearn,lesteve,2015-01-20 08:35:43,"Before I forget while you are touching .travis.yml, it'd be great to have the neurodebian specific stuff only executed when NEURODEBIAN=1. Right now getting the Neurodebian GPG key fails from time to time (sudo apt-key adv --recv-keys --keyserver pgp.mit.edu 2649A5A9) and we are doing it whether we are using the Neurodebian repo or not.
+",,,befor I forget touch travisyml itd great neurodebian specif stuff execut neurodebian1 right get neurodebian gpg key fail time time sudo aptkey adv recvkey keyserv pgpmitedu 2649a5a9 whether use neurodebian repo,N,2015-01-20 08:38:55
+1,issue_title,351,nilearn,nilearn,bcipolli,2015-01-15 18:13:46,"Addresses #350, and does a bit of code & comment cleanup.
+Tweaked the function to report download information:
+- Pass along `initial_size` - the size of anything that was downloaded previously.
+- Use `initial_size` to help compute the `download_rate`, and then the `time_remaining`.
+- Remove comments (and code) suggesting that any of the parameters are optional.
+
+**Testing:**
+- Tested download from scratch.   Gave a reasonable time remaining.
+- Tested resuming download at various stages of download.  Gave a reasonable time remaining.
+",start issue,Tweak download rate reporting to account for resuming.,address 350 bit code comment cleanup tweak function report download inform pass along size anyth download previous use help comput remov comment code suggest paramet option test test download scratch gave reason time remain test resum download variou stage download gave reason time remain,N,2015-01-18 13:50:27
+2,issue_closed,351,nilearn,nilearn,lesteve,2015-01-18 13:50:27,,closed issue,Tweak download rate reporting to account for resuming.,,N,2015-01-15 18:13:46
+3,pull_request_title,351,nilearn,nilearn,bcipolli,2015-01-15 18:13:46,"Addresses #350, and does a bit of code & comment cleanup.
+Tweaked the function to report download information:
+- Pass along `initial_size` - the size of anything that was downloaded previously.
+- Use `initial_size` to help compute the `download_rate`, and then the `time_remaining`.
+- Remove comments (and code) suggesting that any of the parameters are optional.
+
+**Testing:**
+- Tested download from scratch.   Gave a reasonable time remaining.
+- Tested resuming download at various stages of download.  Gave a reasonable time remaining.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,Tweak download rate reporting to account for resuming.,address 350 bit code comment cleanup tweak function report download inform pass along size anyth download previous use help comput remov comment code suggest paramet option test test download scratch gave reason time remain test resum download variou stage download gave reason time remain,N,2015-01-18 13:50:27
+4,pull_request_merged,351,nilearn,nilearn,lesteve,2015-01-18 13:50:27,Tweak download rate reporting to account for resuming.,d7b2eed877687e82d903d48f29a60d84e4e25fd3,Pull request merge from bcipolli/nilearn:download_resume_reporting to nilearn/nilearn:master,tweak download rate report account resum,N,2015-01-18 15:19:03
+5,issue_comment,351,nilearn,nilearn,GaelVaroquaux,2015-01-18 15:19:03,"Thanks @bcipolli !
+",,,thank bcipolli,N,2015-01-18 13:24:15
+6,issue_comment,351,nilearn,nilearn,lesteve,2015-01-18 13:24:15,"> I suggest to move on.
+
+Sounds good to me. It makes more sense if we merged this branch, I'd say. Shouldn't be too hard to do (not tested):
+
+```
+git reset @~2 --hard
+git push origin download_resume_reporting -f
+```
+",,,sound good It make sens merg branch Id say shouldnt hard test,Y,2015-01-18 13:48:02
+7,issue_comment,351,nilearn,nilearn,bcipolli,2015-01-18 13:48:02,"@lesteve not tested... but perfect :)  ready to go!
+",,,lestev test perfect readi go,Y,2015-01-18 13:50:19
+8,issue_comment,351,nilearn,nilearn,lesteve,2015-01-18 13:50:19,"Good stuff, merging then.
+",,,good stuff merg,N,2015-01-15 21:24:24
+9,issue_comment,351,nilearn,nilearn,bcipolli,2015-01-15 21:24:24,"@AlexandreAbraham I added the code to use `uptime` when available, let me know what you think when you have a min!
+",,,alexandreabraham I ad code use avail let know think min,N,2015-01-15 18:14:58
+10,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 18:14:58,"Blew away the old algorithm (well, it's essentially the same, but easier to PEP8)
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(29, '', u'nilearn/datasets.py')",blew away old algorithm well essenti easier pep8,N,2015-01-15 18:24:46
+11,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-15 18:24:46,"This code is used when the size of the file is not sent in the http request header. It must stay.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",thi code use size file sent http request header It must stay,N,2015-01-15 18:28:55
+12,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-15 18:28:55,"If you feel like it, I was planning at some point to change that by the uptime of the machine. otherwise, the estimated time is false if your computer goes to sleep.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",If feel like I plan point chang uptim machin otherwis estim time fals comput goe sleep,N,2015-01-15 18:40:13
+13,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 18:40:13,"Ah, ok--I thought it was there for the 'optional argument'.  Will put back with a comment.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",Ah oki thought option argument will put back comment,N,2015-01-15 18:47:06
+14,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 18:47:06,"Do you know a simple way to do that?  I did a quick search and didn't see anything simple to get around that issue.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",Do know simpl way I quick search didnt see anyth simpl get around issu,N,2015-01-15 19:02:18
+15,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-15 19:02:18,"There is an uptime module in python.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",there uptim modul python,N,2015-01-15 21:58:17
+16,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-15 21:58:17,"Do you think that we should put a message like `- stalled` when the bitrate is very low? This is the behavior of `wget`.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",Do think put messag like bitrat low thi behavior,N,2015-01-15 22:01:23
+17,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-15 22:01:23,"This is a tricky question... If uptime calculation is not supported on a system, will it fail at import or at function call? Apart from that, this PR is ready to go.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",thi tricki question If uptim calcul support system fail import function call apart PR readi go,N,2015-01-15 22:17:21
+18,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 22:17:21,"I think this better wait for a different system, where:
+- callbacks are not based on getting packets, but rather on a timer (otherwise, if you get hung on a packet, you get no update)
+- we keep track of only the most recent packets; otherwise, if you download 300MB at a fast speed, it'll be a long time before we report being ""stalled"" (since the current scheme is cumulative over the entire download)
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",I think better wait differ system callback base get packet rather timer otherwis get hung packet get updat keep track recent packet otherwis download 300mb fast speed itll long time report stall sinc current scheme cumul entir download,N,2015-01-15 22:18:39
+19,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 22:18:39,"Good point--this `try..catch` is good for when the module is not installed, but potentially NOT good for if `uptime` is installed but not supported.  I can call `uptime.uptime()` and catch whatever error (will check the docs) there too.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",good pointthi good modul instal potenti not good instal support I call catch whatev error check doc,N,2015-01-15 22:19:56
+20,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 22:19:56,"Indeed, according to the docs, there _IS_ no error thrown--`uptime.uptime()` simply returns `None`.   Will account for that...
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",inde accord doc IS error thrown simpli return will account,N,2015-01-15 22:23:29
+21,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-15 22:23:29,"That's true but I don't think that we want to spend more time on this matter. Your PR fix several annoying bugs and that's good but I think that there are more urgent things to fix ;).
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",that true I dont think want spend time matter your PR fix sever annoy bug that good I think urgent thing fix,N,2015-01-15 23:37:52
+22,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 23:37:52,":+1: I meant to be suggesting that we move on too :)
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",1 I meant suggest move,N,2015-01-15 23:38:01
+23,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-15 23:38:01,"Just pushed an update for this.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",just push updat,N,2015-01-16 14:20:33
+24,pull_request_commit_comment,351,nilearn,nilearn,lesteve,2015-01-16 14:20:33,"I am just wondering if we should bother about uptime. My point is that yes it makes the total download time more accurate but:
+- it does so only in a very restricted edge case: you have to interrupt the download of a dataset and shut down your computer for a while
+- it's not like the dataset download time is a critical piece of information and I must say I have probably never paid attention to it ...
+- uptime is quite an obscure 3rd party package and it is very unlikely to be installed on anyone's machine. 
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",I wonder bother uptim My point ye make total download time accur restrict edg case interrupt download dataset shut comput like dataset download time critic piec inform I must say I probabl never paid attent uptim quit obscur 3rd parti packag unlik instal anyon machin,N,2015-01-16 14:22:05
+25,pull_request_commit_comment,351,nilearn,nilearn,GaelVaroquaux,2015-01-16 14:22:05,"> I am just wondering if we should bother about uptime. 
+
+I was thinking the same. It seems that the cost / benefit ratio isn't
+really very good. It terms of long term maintenance, my gut feeling is to
+favor the simpler solution.
+
+G
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",I think It seem cost benefit ratio isnt realli good It term long term mainten gut feel favor simpler solut G,N,2015-01-16 15:31:31
+26,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-16 15:31:31,"I am somewhat agnostic, but I would suggest that the data fetching part of this package could really be an attractive aspect of it.  I think having excellent download tools is going to be extremely important for the USA's BRAIN initiative (among others; it's the one I'm most familiar with) and the current push for data sharing.
+
+I plan to post an issue to discuss later, but I think that the `nilearn` dataset functionality can be used as a starting point for something much bigger.  This is something I would be happy to work on, and I think I have some contacts that could help get some traction on it.  For this reason, I suggest keeping this kind of code in--I think it'll become more important over time.
+
+With that said, it's such a simple snippet, I would only mention this once now and leave it to others to decide what's the right way to go!
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",I somewhat agnost I would suggest data fetch part packag could realli attract aspect I think excel download tool go extrem import usa brain initi among other one Im familiar current push data share I plan post issu discuss later I think dataset function use start point someth much bigger thi someth I would happi work I think I contact could help get traction for reason I suggest keep kind code ini think itll becom import time with said simpl snippet I would mention leav other decid what right way go,N,2015-01-16 21:33:06
+27,pull_request_commit_comment,351,nilearn,nilearn,AlexandreAbraham,2015-01-16 21:33:06,"> it's not like the dataset download time is a critical piece of information and I must say I have probably never paid attention to it ...
+
+I think that's the point: you never needed it so you never paid attention. But when you want to know (typically when you have a slow connection), having false information is very annoying. And this is not an edge case: when downloading a big dataset, I put my computer to sleep a lot (I do it 3 times a day: when commuting and when sleeping). Also, when I wanted to get my bandwith back temporary, I paused the process using Ctrl + Z, this also invalidate estimated time. Because of that, I ended up using wget instead of nilearn.
+But I agree: this solution is not optimal (I thought that uptime was a standard module as it was installed on my box) and this is not the most important bug. Do we have a solution that can be coded fast and solve this problem ?
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",I think that point never need never paid attent but want know typic slow connect fals inform annoy and edg case download big dataset I put comput sleep lot I 3 time day commut sleep also I want get bandwith back temporari I paus process use ctrl Z also invalid estim time becaus I end use wget instead nilearn but I agre solut optim I thought uptim standard modul instal box import bug Do solut code fast solv problem,N,2015-01-17 10:26:42
+28,pull_request_commit_comment,351,nilearn,nilearn,GaelVaroquaux,2015-01-17 10:26:42,"> I am somewhat agnostic, but I would suggest that the data fetching part
+> of this package could really be an attractive aspect of it.
+
+Maybe, but we are speculating on the future. Who knows how the resources
+to maintain nilearn are going to evolve, and how the demand is going to
+evolve. Right now, we are a small team, and I am afraid that the
+complexity of the download code is starting to become disproportionate to
+its usefulness. Importantly, the priority of nilearn is to be useful to
+neuroimaging and we need to invest best our efforts to find the simplest
+way to achieve this goal.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",mayb specul futur who know resourc maintain nilearn go evolv demand go evolv right small team I afraid complex download code start becom disproportion use importantli prioriti nilearn use neuroimag need invest best effort find simplest way achiev goal,N,2015-01-17 13:21:38
+29,pull_request_commit_comment,351,nilearn,nilearn,GaelVaroquaux,2015-01-17 13:21:38,"> Do we have a solution that can be coded fast and solve this problem ?
+
+Implement a residual time based on a local speed of download. Or simply
+move on.
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",implement residu time base local speed download Or simpli move,N,2015-01-17 19:34:46
+30,pull_request_commit_comment,351,nilearn,nilearn,bcipolli,2015-01-17 19:34:46,"I suggest to move on.  
+
+If so, the first commit contains the original changes and none of this uptime stuff.  Perhaps it can be cherry-picked into master?  Or do you prefer I force the change to my branch, so we can merge here? 
+",3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,"(None, '', u'nilearn/datasets.py')",I suggest move If first commit contain origin chang none uptim stuff perhap cherrypick master Or prefer I forc chang branch merg,N,2015-01-15 18:56:00
+1,issue_title,277,nilearn,nilearn,banilo,2014-11-11 14:33:26,"tries to address #183
+",start issue,added concat_img() in nilearn.image,tri address 183,N,2015-01-14 09:32:34
+3,pull_request_title,277,nilearn,nilearn,banilo,2014-11-11 14:33:26,"tries to address #183
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,added concat_img() in nilearn.image,tri address 183,N,2015-01-14 09:32:34
+18,issue_comment,277,nilearn,nilearn,lesteve,2015-01-05 15:39:55,"An additional thing is that the promise of this PR is not fulfilled: you have not added concat_img to nilearn.image ...
+
+I think the idea was just to do something along the lines of:
+`from _utils.niimg_conversions import concat_niimg as concat_img`
+in `nilearn/image/__init__.py`. A test using nilearn.image.concat_img would be good.
+",,,An addit thing promis PR fulfil ad concatimg nilearnimag I think idea someth along line A test use nilearnimageconcatimg would good,Y,2015-01-07 11:48:08
+19,issue_comment,277,nilearn,nilearn,AlexandreAbraham,2015-01-07 11:48:08,"Is there a usecase where we want to concat 3D and 4D images ? I would expect to concat only 3D or 4D images, mixing 3D and 4D images should raise an error, or at least a warning.
+",,,Is usecas want concat 3D 4D imag I would expect concat 3D 4D imag mix 3D 4D imag rais error least warn,N,2015-01-07 09:41:59
+20,issue_comment,277,nilearn,nilearn,banilo,2015-01-07 09:41:59,"All aspects should have been addressed now.
+",,,all aspect address,N,2015-01-14 09:06:40
+21,issue_comment,277,nilearn,nilearn,banilo,2015-01-14 09:06:40,"As @lesteve said, this PR does not relate to the behavior you are talking about. This aspect remains unchanged.
+",,,As lestev said PR relat behavior talk thi aspect remain unchang,N,2015-01-14 09:34:46
+43,pull_request_commit_comment,277,nilearn,nilearn,bthirion,2014-12-23 15:52:56,"Nosetest tells me that lines 290-297 are not tested. If it is the case, could you add a test ?
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/_utils/niimg_conversions.py')",nosetest tell line 290297 test If case could add test,Y,2015-01-12 16:36:27
+44,pull_request_commit_comment,277,nilearn,nilearn,lesteve,2015-01-12 16:36:27,"You could do something like this that would test that they are actually the exact same function
+
+``` python
+# in the imports
+from ..._utils import niimg_conversions
+
+# in the tests
+def test_concat_imgs():
+    image.concat_imgs is niimg_conversions.concat_niimgs
+```
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/image/tests/test_image.py')",you could someth like would test actual exact function,Y,2015-01-12 16:39:58
+45,pull_request_commit_comment,277,nilearn,nilearn,lesteve,2015-01-12 16:39:58,"I don't understand what you mean by ""parse"" here and also a few times in the lines below. Also I am not sure what useful piece of information this comments bring.
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I dont understand mean pars also time line also I sure use piec inform comment bring,N,2015-01-12 16:47:52
+46,pull_request_commit_comment,277,nilearn,nilearn,lesteve,2015-01-12 16:47:52,"Sorry there is a missing assert_true in the previous comment:
+
+``` python
+# in the tests
+def test_concat_imgs():
+    assert_true(image.concat_imgs is niimg_conversions.concat_niimgs)
+```
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/image/tests/test_image.py')",sorri miss asserttru previou comment,N,2015-01-13 10:48:50
+47,pull_request_commit_comment,277,nilearn,nilearn,lesteve,2015-01-13 10:48:50,"I guess you don't need this test any more, i.e. all the testing is done in the _utils.niimg_conversions test
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/image/tests/test_image.py')",I guess dont need test ie test done utilsniimgconvers test,Y,2015-01-13 10:27:35
+48,pull_request_commit,277,nilearn,nilearn,banilo,2015-01-13 10:27:35,added auto_resample to concat_niimgs(),55cffe5607a7f079bb2bf3612a3bb44bfe93851a,,ad autoresampl concatniimg,N,2015-01-14 07:41:42
+1,issue_title,307,nilearn,nilearn,banilo,2014-12-06 18:41:02,"Some functions with mask arguments did not complain about iterables of niimg-like objects.
+
+attempts to address #302 
+",start issue,Added missing 3d-image enforcements,some function mask argument complain iter niimglik object attempt address 302,N,2015-01-09 15:05:05
+3,pull_request_title,307,nilearn,nilearn,banilo,2014-12-06 18:41:02,"Some functions with mask arguments did not complain about iterables of niimg-like objects.
+
+attempts to address #302 
+",46c8cac595072cd7384b5747b8a65a2411226615,Added missing 3d-image enforcements,some function mask argument complain iter niimglik object attempt address 302,N,2015-01-09 15:05:04
+8,issue_comment,307,nilearn,nilearn,banilo,2014-12-23 13:44:35,"last requests done.
+",,,last request done,N,2015-01-06 14:45:06
+20,pull_request_commit,307,nilearn,nilearn,banilo,2014-12-18 15:12:37,enforced missing 3d arguments,d9f7127241840d25516fbabbf36536a8a959c7a3,,enforc miss 3d argument,N,2015-01-07 09:59:03
+21,pull_request_commit,307,nilearn,nilearn,banilo,2015-01-07 09:59:03,unnecessary import,4cbc107b192a428b568ce6bdadf2c0732c4f61f7,,unnecessari import,N,2015-01-07 10:03:20
+1,issue_title,345,nilearn,nilearn,bcipolli,2015-01-09 07:05:46,"(edited to add link to original issue: fix #328)
+
+**Summary:**
+Previously, dependency checks were defined inside `__init__.py`.  I've:
+- Moved the dependency check code to `version.py`
+- Called the code from `__init__.py` and `setup.py`
+
+This required some additional tweaks:
+- Add metadata about which modules must be installed manually.
+- Do slightly different dependency checks pre-setup (when we only need to check modules requiring manual installation) and post-setup (where we should check all modules).
+
+There were a few other tiny tweaks I made, that I'll document inline.
+
+ **Testing:**
+- I tested that `nilearn` installs properly when all dependencies are installed
+- I tested that `nilearn` fails with an error message if one of the `manual_only` modules is not installed (in my case, `sklearn`)
+  ![screen shot 2015-01-08 at 10 57 52 pm](https://cloud.githubusercontent.com/assets/4072455/5676439/ad3396e4-978a-11e4-8694-4613882b8bd9.png)
+
+**Notes:**
+- The error message for modules requiring manual installation are very generic; further installation info could be stuffed into the `required_module` metadata, to produce better error messages.  Let me know if you'd like me to do that (I think it would be good...)
+",start issue,Add dependency checks to setup.py,edit add link origin issu fix 328 summari previous depend check defin insid ive move depend check code call code thi requir addit tweak add metadata modul must instal manual Do slightli differ depend check presetup need check modul requir manual instal postsetup check modul there tini tweak I made ill document inlin test I test instal properli depend instal I test fail error messag one modul instal case screen shot 20150108 10 57 52 pm note the error messag modul requir manual instal gener instal info could stuf metadata produc better error messag let know youd like I think would good,N,2015-01-16 14:03:37
+2,issue_closed,345,nilearn,nilearn,lesteve,2015-01-16 14:03:37,,closed issue,Add dependency checks to setup.py,,N,2015-01-09 07:05:46
+3,pull_request_title,345,nilearn,nilearn,bcipolli,2015-01-09 07:05:46,"(edited to add link to original issue: fix #328)
+
+**Summary:**
+Previously, dependency checks were defined inside `__init__.py`.  I've:
+- Moved the dependency check code to `version.py`
+- Called the code from `__init__.py` and `setup.py`
+
+This required some additional tweaks:
+- Add metadata about which modules must be installed manually.
+- Do slightly different dependency checks pre-setup (when we only need to check modules requiring manual installation) and post-setup (where we should check all modules).
+
+There were a few other tiny tweaks I made, that I'll document inline.
+
+ **Testing:**
+- I tested that `nilearn` installs properly when all dependencies are installed
+- I tested that `nilearn` fails with an error message if one of the `manual_only` modules is not installed (in my case, `sklearn`)
+  ![screen shot 2015-01-08 at 10 57 52 pm](https://cloud.githubusercontent.com/assets/4072455/5676439/ad3396e4-978a-11e4-8694-4613882b8bd9.png)
+
+**Notes:**
+- The error message for modules requiring manual installation are very generic; further installation info could be stuffed into the `required_module` metadata, to produce better error messages.  Let me know if you'd like me to do that (I think it would be good...)
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,Add dependency checks to setup.py,edit add link origin issu fix 328 summari previous depend check defin insid ive move depend check code call code thi requir addit tweak add metadata modul must instal manual Do slightli differ depend check presetup need check modul requir manual instal postsetup check modul there tini tweak I made ill document inlin test I test instal properli depend instal I test fail error messag one modul instal case screen shot 20150108 10 57 52 pm note the error messag modul requir manual instal gener instal info could stuf metadata produc better error messag let know youd like I think would good,N,2015-01-16 14:03:37
+4,pull_request_merged,345,nilearn,nilearn,lesteve,2015-01-16 14:03:37,Add dependency checks to setup.py,0eef8ab41977c9d2a383dfdc034e45b4d653d23f,Pull request merge from bcipolli/nilearn:setup_dependencies to nilearn/nilearn:master,add depend check setuppi,N,2015-01-16 14:06:30
+5,issue_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-16 14:06:30,"Thanks Heaps!
+",,,thank heap,N,2015-01-16 14:05:27
+6,issue_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-16 14:05:27,"Yeah, great work!
+",,,yeah great work,N,2015-01-09 13:59:22
+7,issue_comment,345,nilearn,nilearn,bcipolli,2015-01-09 13:59:22,"Thanks for all the comments and suggestions!  I'll go through these now and push up an update to the PR this morning.
+",,,thank comment suggest ill go push updat PR morn,N,2015-01-09 15:23:13
+8,issue_comment,345,nilearn,nilearn,bcipolli,2015-01-09 15:23:13,"Pushed changes.  Tested with both `nibabel` and `sklearn` uninstalled; both return errors (and with more informative info):
+![image](https://cloud.githubusercontent.com/assets/4072455/5681784/4d2f628c-97d0-11e4-8b04-7caf4ac54538.png)
+",,,push chang test uninstal return error inform info imag,Y,2015-01-09 17:28:25
+9,issue_comment,345,nilearn,nilearn,bcipolli,2015-01-09 17:28:25,"@lesteve made requested changes.  Re: testing--I worded that poorly.  I checked that without `nibabel` and `sklearn`, an error re: `sklearn` is thrown (i.e. showing that `nilearn` isn't imported within setup).
+
+I verified that `nibabel` is installed if the other ""manual"" packages exist and it does not.  
+",,,lestev made request chang Re testingi word poorli I check without error thrown ie show isnt import within setup I verifi instal manual packag exist,N,2015-01-12 14:26:16
+10,issue_comment,345,nilearn,nilearn,bcipolli,2015-01-12 14:26:16,"Rolled back from `execfile` to `exec`; I think all of the issues brought up have been addressed.
+",,,roll back I think issu brought address,N,2015-01-15 19:06:22
+11,issue_comment,345,nilearn,nilearn,bcipolli,2015-01-15 19:06:22,"@lesteve @GaelVaroquaux I removed the gzip checks, made the comment / variable name tweaks requested, and pushed the `chdir` in `setup.py` back to the file level.
+",,,lestev gaelvaroquaux I remov gzip check made comment variabl name tweak request push back file level,N,2015-01-09 07:06:26
+12,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:06:26,"Within a package, I always try to do relative imports to avoid any possible import conflicts.  Is this OK here?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",within packag I alway tri rel import avoid possibl import conflict Is OK,N,2015-01-09 07:06:47
+13,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:06:47,"This all got moved to `version.py`, except the few lines below.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",thi got move except line,N,2015-01-09 07:07:19
+14,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-09 07:07:19,"> Within a package, I always try to do relative imports to avoid any possible
+> import conflicts. Is this OK here?
+
+Yes, this is good practice.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",ye good practic,N,2015-01-09 07:07:31
+15,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:07:31,"This code actually changes a setting, so is appropriate to stay.  The dependency check for `gzip` is already done (above), so no longer needs to be wrapped in the `try...catch` block.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",thi code actual chang set appropri stay the depend check alreadi done longer need wrap block,N,2015-01-09 07:07:57
+16,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:07:57,"Code is the same, except for one small tweak (comment below)
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",code except one small tweak comment,N,2015-01-09 07:09:12
+17,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:09:12,"I made this a `getattr`, as `gzip` doesn't have a `__version__` attribute.  This allows a bit more flexibility (though ... perhaps could be perceived as a hack?), by allowing `gzip` (and other modules not playing the `__version__` game) to be processed as dependencies in the same codepath as our other module dependencies.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(52, '', u'nilearn/version.py')",I made doesnt attribut thi allow bit flexibl though perhap could perceiv hack allow modul play game process depend codepath modul depend,N,2015-01-09 07:09:35
+18,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:09:35,"New function, with greater metadata (see docstrings)
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",new function greater metadata see docstr,N,2015-01-09 07:10:11
+19,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:10:11,"I'm not sure if this check is the best way to go about things, or to create two different functions (one in `setup.py`, one in `__init__.py`).  I'm open to either.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",Im sure check best way go thing creat two differ function one one Im open either,N,2015-01-09 07:10:36
+20,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:10:36,"Make sure the `nilearn` we import is the one we're installing, not one in the system path.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",make sure import one instal one system path,N,2015-01-09 07:11:14
+21,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:11:14,"Here (and below) allows `setup.py` to be called from a different working directory than the `nilearn` directory.  Not sure if it's every needed by `pypi`, but it did help me with testing... :)
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",here allow call differ work directori directori not sure everi need help test,Y,2015-01-09 07:11:48
+22,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 07:11:48,"One nice thing about the current setup is that there's only one place where the dependencies are defined (in 'version.py'); the needed strings to pass to `setup` are created from that data here.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",one nice thing current setup there one place depend defin versionpi need string pass creat data,N,2015-01-09 07:54:50
+23,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-09 07:54:50,"I think that rather than importing and deleting, which we did to avoid polluting the namespace, eg for tab completion, I would rename the function to _check_module_dependencies, and not delete it. IPython will by default hide these from tab-completion.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",I think rather import delet avoid pollut namespac eg tab complet I would renam function checkmoduledepend delet ipython default hide tabcomplet,N,2015-01-09 08:00:28
+24,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-09 08:00:28,"Why do we need a function here, and not simply a module-level dictionary (which should be named ALL_CAPS, as it is a constant): REQUIRED_MODULE_METADATA?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",whi need function simpli modulelevel dictionari name allcap constant requiredmodulemetadata,N,2015-01-09 08:01:17
+25,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-09 08:01:17,"I believe that iteritems is deprecated in Python 3, and ""items()"" should be used.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I believ iteritem deprec python 3 item use,N,2015-01-09 08:03:24
+26,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-09 08:03:24,"I would rather that you use the mechanism used below in ""get_version"", that doesn't rely on importing nilearn. Indeed, there are multiple reasons why importing nilearn could fail with a non helpful error, while simply running the corresponding file (as in get_version), is quite robust.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I would rather use mechan use getvers doesnt reli import nilearn inde multipl reason import nilearn could fail non help error simpli run correspond file getvers quit robust,N,2015-01-09 08:04:15
+27,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-09 08:04:15,"I am not sure what is the purpose of this change?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I sure purpos chang,N,2015-01-09 10:13:41
+28,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-09 10:13:41,"`gzip` is not a dependency. It is optional and allows to open `.nii.gz` files, this is why it was in a `try ... catch` block.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",depend It option allow open file block,N,2015-01-09 10:15:09
+29,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-09 10:15:09,"See above, it is to be able to call setup.py outside of nilearn directory.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",see abl call setuppi outsid nilearn directori,N,2015-01-09 13:38:46
+30,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 13:38:46,"> I would rather that you use the mechanism used below in ""get_version"", that doesn't rely on importing nilearn
+
++1. I reckon with your changes `python setup.py install` won't work if nibabel is not installed. This is because you are importing nilearn (and hence executing `nilearn/__init__.py`) which requires nibabel before giving a chance to setup to actually install nibabel. If I am not clear enough, there is a better explanation [there](https://github.com/audreyr/cookiecutter-pypackage/issues/1). This is where the exec trick is coming from by the way.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",1 I reckon chang wont work nibabel instal thi import nilearn henc execut requir nibabel give chanc setup actual instal nibabel If I clear enough better explan thi exec trick come way,N,2015-01-09 13:51:13
+31,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-09 13:51:13,"... but making it mandatory is defenitely a good idea. Aprat from the .nii.gz format, a lot of datasets use this format.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",make mandatori defenit good idea aprat niigz format lot dataset use format,N,2015-01-09 13:52:56
+32,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-09 13:52:56,"BTW, instead of appending `__curdir__` everywhere, wouldn't it be easier to chdir at the beginning of the script?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",btw instead append everywher wouldnt easier chdir begin script,N,2015-01-09 13:56:17
+33,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 13:56:17,"Could you use a collections.OrderedDict? The main reason is to ensure that dependencies order makes sense as was previously the case: numpy, scipy, sklearn, nibabel.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",could use collectionsordereddict the main reason ensur depend order make sens previous case numpi scipi sklearn nibabel,N,2015-01-09 13:57:46
+34,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 13:57:46,"Out of interest, what do you gain by being able to execute setup.py outside of the directory where it lives?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",out interest gain abl execut setuppi outsid directori live,N,2015-01-09 14:01:46
+35,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 14:01:46,"@AlexandreAbraham Thanks for the comment!  As far as I understood, the `import gzip` was in a `try...catch` block, but the `catch` re-raises the error.  The code is run within `nilearn/__init__.py`, so every time you import the package.  
+
+So I read it as a hard dependency.  Am I reading the old code incorrectly?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",alexandreabraham thank comment As far I understood block rerais error the code run within everi time import packag So I read hard depend Am I read old code incorrectli,N,2015-01-09 14:03:21
+36,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 14:03:21,"I'm not sure at all, beyond testing--I'm not so familiar with `setup.py`.  Semantically, for me, this is simply cleaner and safer--those files are in a specific location, not relative to the current working directory.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",Im sure beyond testingim familiar semant simpli cleaner saferthos file specif locat rel current work directori,N,2015-01-09 14:04:47
+37,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 14:04:47,"I will do that.  I didn't do that because I thought `_check_module_dependencies` would suggest it is private to that module, not shared across files.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",I I didnt I thought would suggest privat modul share across file,N,2015-01-09 14:08:15
+38,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 14:08:15,"@GaelVaroquaux done.  @lesteve good point.  Using `collections.OrderedDict` will create a dependency on Python 2.7 (2.6 won't work).  Is that OK?  Alternately, I could go back to a list of tuples...
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",gaelvaroquaux done lestev good point use creat depend python 27 26 wont work Is OK altern I could go back list tupl,N,2015-01-09 14:15:52
+39,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 14:15:52,"> So I read it as a hard dependency. Am I reading the old code incorrectly?
+
+gzip is a hard-dependency indeed. To be honest I reckon that having a python without gzip is not likely at all (one way I know of is to compile python yourself with the right flag). The point of the try/catch was also to have a nicer error message. 
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",gzip harddepend inde To honest I reckon python without gzip like one way I know compil python right flag the point trycatch also nicer error messag,N,2015-01-09 14:37:43
+40,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 14:37:43,"Good point about OrderedDict and 2.6, then a list of module_name, metadata tuples would do just fine. I believe you are only iterating over the collection anyway.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",good point ordereddict 26 list modulenam metadata tupl would fine I believ iter collect anyway,N,2015-01-09 15:08:39
+41,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 15:08:39,"OK.  As mentioned above, with a bit more work I could include installation info (usable for error messages) in the metadata above.  I've done this now, will push the changes shortly.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",OK As mention bit work I could includ instal info usabl error messag metadata ive done push chang shortli,N,2015-01-09 15:10:20
+42,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 15:10:20,"I moved this back to a tuple of tuples (well, it was a list of tuples before, but it should be immutable, so made it a list of lists.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I move back tupl tupl well list tupl immut made list list,N,2015-01-09 15:10:33
+43,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 15:10:33,"@GaelVaroquaux I did my best to avoid the `import nilearn` and figure out how to call functions, will push the changes I made shortly.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",gaelvaroquaux I best avoid figur call function push chang I made shortli,N,2015-01-09 15:56:44
+44,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 15:56:44,"I believe you can use `_VERSION_GLOBALS['_check_module_dependencies'](manual_install_only=True)` here
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I believ use,N,2015-01-09 15:58:57
+45,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 15:58:57,"You need > 2 here. When using `python setup.py install`, sys.argv[0] is setup.py and sys.argv[1] is install.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",you need,N,2015-01-09 16:03:45
+46,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 16:03:45,"`os.path.dirname(os.path.abspath(__file__))` is the way to circumvent this issue I know of.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",way circumv issu I know,N,2015-01-09 16:12:51
+47,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 16:12:51,"Please don't remove `__version__`. It is very handy to figure out which version of the package you are running for example, via:
+
+``` python
+import nilearn
+print nilearn.__version__
+```
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(4, '', u'nilearn/__init__.py')",pleas dont remov It handi figur version packag run exampl via,N,2015-01-09 16:15:08
+48,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 16:15:08,"typo in the second occurence of installed: intalled -> in**s**talled
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",typo second occur instal intal,N,2015-01-09 16:19:22
+49,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 16:19:22,"not a big fan of the `manual_install` naming but I have to admit I haven't found a great alternative yet ...
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",big fan name I admit I havent found great altern yet,N,2015-01-09 16:28:22
+50,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 16:28:22,"I would point to the installation instructions on the website: http://nilearn.github.io/introduction.html#installation
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I would point instal instruct websit,N,2015-01-09 17:19:07
+51,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 17:19:07,":+1: 
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",1,N,2015-01-09 17:20:09
+52,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 17:20:09,"I believe '>1' is right, or '>=2'.  The second arg must be present, and I think those two checks check that. I also tested this, and believe this is right.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I believ,N,2015-01-09 17:21:16
+53,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 17:21:16,":+1: 
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",1,N,2015-01-09 17:21:42
+54,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 17:21:42,"Right... I was thinking all wrong here.  Thanks!
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(4, '', u'nilearn/__init__.py')",right I think wrong thank,N,2015-01-09 17:26:02
+55,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-09 17:26:02,"Same here, and also stuck...
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",same also stuck,N,2015-01-09 18:23:54
+56,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 18:23:54,"Yep you are completely right, I spoke too fast on this one ...
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",yep complet right I spoke fast one,N,2015-01-09 18:26:34
+57,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-09 18:26:34,"Took me a while to remember why we used exec rather than execfile and the reason is execfile doesn't exist in Python 3.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",took rememb use exec rather execfil reason execfil doesnt exist python 3,N,2015-01-12 15:38:07
+58,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-12 15:38:07,"I am guessing this four lines can now be removed now that you do the chdir above?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I guess four line remov chdir,N,2015-01-12 15:40:53
+59,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-12 15:40:53,"You can probably remove the comment
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",you probabl remov comment,N,2015-01-12 15:41:45
+60,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-12 15:41:45,"Just to be clear, I don't think the sys.path.insert is needed since we don't import nilearn.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",just clear I dont think syspathinsert need sinc dont import nilearn,N,2015-01-12 19:32:22
+61,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-12 19:32:22,"> > -    return len(sys.argv) > 1 and sys.argv[1] == 'install'
+> 
+> You need > 2 here. When using python setup.py install, sys.argv[0] is setup.py
+> and sys.argv[1] is install.
+
+It should probably be 'install' in sys.arg[1:], as it is legit to do
+'python setup.py build install'.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",It probabl instal sysarg1 legit python setuppi build instal,N,2015-01-12 21:57:33
+62,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-12 21:57:33,"I am nitpicking again, but why not using the mechanism provided by setuptools?
+
+``` python
+from setuptools import setup
+from setuptools.command.install import install
+
+
+class CustomInstallCommand(install):
+    """"""Customized setuptools install command - prints a friendly greeting.""""""
+    def run(self):
+        print ""Hello, developer, how are you? :)""
+        install.run(self)
+```
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I nitpick use mechan provid setuptool,N,2015-01-12 22:02:57
+63,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-12 22:02:57,"Not setuptools. Never setuptools. Setuptools is not the official way of
+installing Python packages and should never be imported by default a
+setup.py: it monky-patches distutils and thus changes the way Python
+packages are installed (and not in a good way).
+
+Maybe, these things can be done using pure distutils, in which case we
+should probably use them.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",not setuptool never setuptool setuptool offici way instal python packag never import default setuppi monkypatch distutil thu chang way python packag instal good way mayb thing done use pure distutil case probabl use,N,2015-01-12 22:14:43
+64,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-12 22:14:43,"The exact same mechanism exists in distutils:
+
+``` python
+import os, sys
+from distutils.core import setup
+from distutils.command.install import install as _install
+
+
+class install(_install):
+    def run(self):
+        print 'pre-install stuff'
+        _install.run(self)
+
+setup(
+    ...
+    cmdclass={'install': install},
+)
+```
+
+Note that setuptools is actually used in nilearn, this is why I suggested the previous one.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",the exact mechan exist distutil note setuptool actual use nilearn I suggest previou one,N,2015-01-12 22:21:46
+65,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-12 22:21:46,"> The exact same mechanism exists in distutils:
+
+Great!
+
+> Note that setuptools is actually used in nilearn, this is why I suggested the
+> previous one.
+
+Shit. I missed that. AFAICT it was added by @lesteve in decembre.
+
+This is really a no-no. Using setuptools makes installs be eggs, which
+circumvent the normal Python import mechanisms and has many detrimental
+consequences [*]. We should not be using setuptools. Besides, this adds a
+dependency (setuptools is not in the standard library).
+
+[*] One of them, amongst others:
+http://gael-varoquaux.info/programming/long-syspath-and-consequences-one-more-reason-not-to-use-easy_install.html
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",great shit I miss afaict ad lestev decembr thi realli nono use setuptool make instal egg circumv normal python import mechan mani detriment consequ We use setuptool besid add depend setuptool standard librari one amongst other,N,2015-01-12 22:53:19
+66,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-12 22:53:19,"setuptools is recommended by the [Python Packaging User Guide](https://packaging.python.org/en/latest/current.html) over distutils.
+
+It was used before I changed setup.py for example back in [2012](https://github.com/nilearn/nilearn/blob/2d2c50159164159482f5047b36a3f6f4e31a3aa2/setup.py)
+
+For completeness it is also listed in the dependencies in README.rst.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",setuptool recommend python packag user guid distutil It use I chang setuppi exampl back 2012 for complet also list depend readmerst,N,2015-01-12 23:03:34
+67,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-12 23:03:34,"Note that it doesn't matter in the end:
+
+```
+Even for projects that do choose to use distutils, when pip
+installs such projects directly from source (rather than installing
+from a prebuilt wheel file), it will actually build your project using
+setuptools instead.
+```
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",note doesnt matter end,N,2015-01-13 06:01:29
+68,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-13 06:01:29,"> setuptools is recommended by the Python Packaging User Guide over distutils.
+
+Yes. This has been a long running argument. It brings certain good
+things, and has benefits.
+
+As long as it is not in the standard library, I am against using it. The
+reason it has never made in the standard library, although it has strong
+proponents, is that it has never met the quality standards corresponding
+to the standard library. Unlike pip, which is now in the standard library
+for Python 3.5. It is improving, though, and I am hopeful that something
+good will come out of it. However, in the mean time, I think that we can
+stick to distutils.
+
+> It was used before I changed setup.py for example back in 2012
+
+OK. I am not sure how I missed that :$.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",ye thi long run argument It bring certain good thing benefit As long standard librari I use the reason never made standard librari although strong propon never met qualiti standard correspond standard librari unlik pip standard librari python 35 It improv though I hope someth good come howev mean time I think stick distutil OK I sure I miss,N,2015-01-13 15:15:48
+69,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-13 15:15:48,"I think the choice of using distutils vs setuptools can be made separately from this PR which is almost there in terms of fulfilling its original promise.
+
+A few comments:
+- I seem to remember distutils doesn't have find_packages, which makes it a pain because you have to list all the subpackages by hand and it is quite easy to forget to add a subpackage in setup.py next time each time we add a subpackage.
+- ensurepip which bootstraps pip in python 2.7.9 and 3.4 installs both pip and setuptools so the latter must have been deemed of reasonable quality
+- Full disclosure: setuptools was used in nilearn in 2012 but only for a selection of commands that requires setuptools and 'install' is not one of them
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I think choic use distutil vs setuptool made separ PR almost term fulfil origin promis A comment I seem rememb distutil doesnt findpackag make pain list subpackag hand quit easi forget add subpackag setuppi next time time add subpackag ensurepip bootstrap pip python 279 34 instal pip setuptool latter must deem reason qualiti full disclosur setuptool use nilearn 2012 select command requir setuptool instal one,N,2015-01-13 17:37:05
+70,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-13 17:37:05,"> I think the choice of using distutils vs setuptools can be made
+> separately from this PR which is almost there in terms of fulfilling
+> its original promise.
+
+Yes! Agreed.
+
+>   • I seem to remember distutils doesn't have find_packages, which makes it a
+>     pain because you have to list all the subpackages by hand and it is quite
+>     easy to forget to add a subpackage in setup.py next time each time we add a
+>     subpackage.
+
+That's a benefit benefit indeed. Setuptools do bring benefits.
+
+>   • Full disclosure: setuptools was used in nilearn in 2012 but only for a
+>     selection of commands that requires setuptools and 'install' is not one of
+>     them
+
+OK. Yes, this makes sens. That's the way it should be. In now way the
+install mechanism of setuptools should be used. Setuptools should be used
+for operations that cannot be done with distutils.
+
+I'd really like to stress that while there are benefits, setuptools has
+historically been very controversial, because it made choices that had
+wide reaching impacts on the import mechanisms and the installation of
+packages. There is a reason for which after 10 years it is not in the
+standard library.
+
+Installation is something that we really want robust and reliable. We do
+not want to be making it brittle.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",ye agre that benefit benefit inde setuptool bring benefit OK ye make sen that way In way instal mechan setuptool use setuptool use oper cannot done distutil Id realli like stress benefit setuptool histor controversi made choic wide reach impact import mechan instal packag there reason 10 year standard librari instal someth realli want robust reliabl We want make brittl,N,2015-01-14 12:47:02
+71,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 12:47:02,"I reckon you and I are the only ones who touched nilearn/version.py so I assume the comment should reflect that.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I reckon I one touch nilearnversionpi I assum comment reflect,N,2015-01-14 13:00:54
+72,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:00:54,"I would just use `install_requires` for the variable name and remove the comment that doesn't bring too much additional information.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I would use variabl name remov comment doesnt bring much addit inform,N,2015-01-14 13:12:26
+73,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:12:26,"I think you can remove len(sys.argv) > 1 now. The comment could be removed too although I don't feel too strongly about it.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I think remov lensysargv,N,2015-01-14 13:14:36
+74,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-14 13:14:36,"> The comment could be removed too although I don't feel too strongly
+> about it.
+
+I think that we should keep it, to avoid forgetting such case (as we
+cannot easily have a test).
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I think keep avoid forget case cannot easili test,Y,2015-01-14 13:14:38
+75,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:14:38,"I am a bit confused, don't you need the os.chdir to be at module-scope level because of the `open('README.rst)`? I seem to remember that was the case at one point, but maybe I just dreamt about the whole thing.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",I bit confus dont need oschdir modulescop level I seem rememb case one point mayb I dreamt whole thing,N,2015-01-14 13:23:58
+76,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:23:58,"I would do minver -> min_version everywhere
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I would minver,N,2015-01-14 13:24:42
+77,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-14 13:24:42,"> I would do minver -> min_version everywhere
+
++1. We prefer underscore-separated words in variable names.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",1 We prefer underscoresepar word variabl name,N,2015-01-14 13:26:14
+78,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:26:14,"This comment should be moved just before the definition of REQUIRED_MODULE_METADATA
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",thi comment move definit requiredmodulemetadata,N,2015-01-14 13:40:34
+79,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:40:34,"OK here is the best candidate I could find: required_at_installation_time. Not so great so better suggestions more than welcome!
+
+I would use installation_time=False for this parameter and I would replace manual_install by required_at_installation_time in the required modules metadata.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",OK best candid I could find requiredatinstallationtim not great better suggest welcom I would use installationtimefals paramet I would replac manualinstal requiredatinstallationtim requir modul metadata,N,2015-01-14 13:42:39
+80,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:42:39,"Maybe at_installation_time or during_installation is slightly better to make it more obvious that it is a boolean rather than a float. 
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",mayb atinstallationtim duringinstal slightli better make obviou boolean rather float,N,2015-01-14 13:43:42
+81,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-14 13:43:42,"> OK here is the best candidate I could find: required_at_installation_time. Not
+> so great so better suggestions more than welcome!
+
+required_at_installation would also work, IMHO.
+
+> I would use installation_time=False for this parameter and I would replace
+> manual_install by required_at_installation_time in the required modules
+> metadata.
+
+Same overall feeling here.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",requiredatinstal would also work imho same overal feel,N,2015-01-14 13:44:42
+82,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-14 13:44:42,"> Maybe at_installation_time or during_installation is slightly better to
+> make it more obvious that it is a boolean rather than a float.
+
+In LaTeX coding standards, booleans are often 'is_installation_time'
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",In latex code standard boolean often isinstallationtim,N,2015-01-14 13:50:00
+83,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:50:00,"Rather than a continue I would negate the predicate and put it in front of the `_import_module_with_version_check(...)`
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",rather continu I would negat predic put front,N,2015-01-14 13:53:20
+84,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:53:20,"I would reinstate the original error message:
+'Python has been compiled without gzip support, reading nii.gz files will be impossible.'
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I would reinstat origin error messag python compil without gzip support read niigz file imposs,N,2015-01-14 13:56:58
+85,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 13:56:58,"This docstring is not accurate any more. Something like ""Executes nilearn/version.py in a globals dictionary and return it'
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'setup.py')",thi docstr accur someth like execut nilearnversionpi global dictionari return,N,2015-01-14 14:02:03
+86,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 14:02:03,"OK then my current preference: `required_at_installation` for the required module metatdata key and `is_nilearn_installing` for the `_check_module_dependencies` parameter name. Could be easily swayed by better alternatives though!
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",OK current prefer requir modul metatdata key paramet name could easili sway better altern though,N,2015-01-14 14:03:33
+87,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-14 14:03:33,"> OK then my current preference: required_at_installation for the
+> required module metatdata key and is_nilearn_installing for the
+> _check_module_dependencies parameter name. Could be easily swayed by
+> better alternatives though!
+
+Good with me...
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",good,N,2015-01-14 14:35:09
+88,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 14:35:09,"It's not a list but a tuple (to be honest a list would be fine too, mutable vs immutable is not so crucial here). 
+
+I would also make it more explicit that we care about order because we want to check required dependencies in a meaningful order (from most core/common packages to less core/common ones roughly). In this regards gzip should probably be first in the list.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",it list tupl honest list would fine mutabl vs immut crucial I would also make explicit care order want check requir depend meaning order corecommon packag less corecommon one roughli In regard gzip probabl first list,N,2015-01-14 14:36:42
+89,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-14 14:36:42,"I reckon this part of the comment should go, _check_module_dependencies is documented well enough and how REQUIRED_MODULE_METADATA is used is quite straightforwardvariable naming make the rest reasonably.
+
+As a side-comment  that's what I am a bit biased about comments with too small added value, they tend to rot very quickly, only five commits and already a few inaccuracies have crept in:
+- manual should have been replaced by manual_install
+- check_module_dependencies should have been _check_module_dependencies (missing leading underscore)
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I reckon part comment go checkmoduledepend document well enough requiredmodulemetadata use quit straightforwardvari name make rest reason As sidecom that I bit bias comment small ad valu tend rot quickli five commit alreadi inaccuraci crept manual replac manualinstal checkmoduledepend checkmoduledepend miss lead underscor,N,2015-01-15 07:46:08
+90,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-15 07:46:08,"This is called `snake_case` as opposed to `CamelCase`.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",thi call oppos,N,2015-01-15 07:48:15
+91,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-15 07:48:15,"It is not the only problem: most (if not all) of the datasets won't be fetchable.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",It problem dataset wont fetchabl,N,2015-01-15 08:19:49
+92,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 08:19:49,"Just as a reminder, not having gzip support will result in an exception not a warning. You won't be able to fetch any datasets because you won't be able to import nilearn. Feel free to suggest a better error message!
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",just remind gzip support result except warn you wont abl fetch dataset wont abl import nilearn feel free suggest better error messag,N,2015-01-15 08:28:00
+93,pull_request_commit_comment,345,nilearn,nilearn,GaelVaroquaux,2015-01-15 08:28:00,"> This is called snake_case as opposed to CamelCase.
+
+Nice, I like it (said in a Borat way)!
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",nice I like said borat way,N,2015-01-15 15:08:20
+94,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-15 15:08:20,"If `nilearn` will work for `.nii` files, then seems non-fatal to lack `gzip`.  Perhaps just having a warning inside `_check_module_dependencies`, and (re-)wrapping any `gzip` imports / manipulations in a non-fatal `try..catch` block would be best?
+
+Something like :
+
+``` python
+warnings.warn(""This version of Python does not contain gzip support; ""
+              ""fetching datasets / reading nii.gz files ""
+              ""will raise exceptions."")
+```
+
+Or, in this case, perhaps we just wrap the one true `gzip` import (that I can find), and explain the error there:
+https://github.com/nilearn/nilearn/blob/master/nilearn/datasets.py#L267
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",If work file seem nonfat lack perhap warn insid rewrap import manipul nonfat block would best someth like Or case perhap wrap one true import I find explain error,N,2015-01-15 15:22:57
+95,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 15:22:57,"1) It's such a edge case that will never ever happen in practice 2) I'd rather consider a python without gzip broken and raise an exception early that letting the user use a restricted set of nilearn features
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",1 it edg case never ever happen practic 2 Id rather consid python without gzip broken rais except earli let user use restrict set nilearn featur,N,2015-01-15 15:32:17
+96,pull_request_commit_comment,345,nilearn,nilearn,AlexandreAbraham,2015-01-15 15:32:17,":+1:, even in Gentoo, there is no flag to remove it.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",1 even gentoo flag remov,N,2015-01-15 15:34:35
+97,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-15 15:34:35,"OK, then how about we just remove the (global) gzip check?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",OK remov global gzip check,N,2015-01-15 15:47:57
+98,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 15:47:57,"I would be fine to remove the try catch around import gzip TBH.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I would fine remov tri catch around import gzip tbh,N,2015-01-15 20:51:46
+99,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 20:51:46,"I guess this code was there just for gzip so we can remove it and go back to:
+
+``` python
+module_version = module.__version__
+```
+
+I am not sure whether there is any guarantee but I have never met a widely used python package that didn't have a `__version__` attribute.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(52, '', u'nilearn/version.py')",I guess code gzip remov go back I sure whether guarante I never met wide use python packag didnt attribut,N,2015-01-15 20:53:20
+100,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-15 20:53:20,"Actually, I ran into one today: `uptime`.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(52, '', u'nilearn/version.py')",actual I ran one today,N,2015-01-15 21:11:23
+101,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 21:11:23,"I guess I wouldn't qualify it as ""widely used"" though
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(52, '', u'nilearn/version.py')",I guess I wouldnt qualifi wide use though,N,2015-01-15 21:14:42
+102,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-15 21:14:42,"I agree.  I think it just takes one--if we remove this code and add a dependency with no `__version__`, there's no way forward and no good error.  I suggest either keeping this in, or throwing a meaningful error (with text about alternative options of what to do).
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(52, '', u'nilearn/version.py')",I agre I think take oneif remov code add depend there way forward good error I suggest either keep throw meaning error text altern option,N,2015-01-15 21:20:10
+103,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 21:20:10,"I find the ""each time"" wording a bit misleading I would use ""when"" (The way the import mechanism works in python if you do import nilearn twice the code in `nilearn/__init__.py` is actually executed only once). TBH that's another case of small added value comment if you ask me: we are in `nilearn/__init__.py` so it's quite clear this code is executed when nilearn is imported and the function has a self-explanatory name.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",I find time word bit mislead I would use the way import mechan work python import nilearn twice code actual execut tbh that anoth case small ad valu comment ask quit clear code execut nilearn import function selfexplanatori name,N,2015-01-15 21:24:32
+104,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 21:24:32,"I am not sure what you mean by that, care to elaborate?
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I sure mean care elabor,N,2015-01-15 21:39:45
+105,pull_request_commit_comment,345,nilearn,nilearn,lesteve,2015-01-15 21:39:45,"I don't feel too strongly about it so feel free to leave the code as it is. I would argue that adding a dependency would only be done by a developer not a user and the error you get is developer-friendly enough.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(52, '', u'nilearn/version.py')",I dont feel strongli feel free leav code I would argu ad depend would done develop user error get developerfriendli enough,N,2015-01-15 23:42:31
+106,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-15 23:42:31,"OK.  The behavior of `_check_module_dependencies` was unclear to me (whether it warns or throws), but I like the idea of having really clear goals with comments (vs. good naming of functions).  Removed.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/__init__.py')",OK the behavior unclear whether warn throw I like idea realli clear goal comment vs good name function remov,N,2015-01-15 23:46:32
+107,pull_request_commit_comment,345,nilearn,nilearn,bcipolli,2015-01-15 23:46:32,"I think this docstring sucks; the format is non-standard and it's pretty unclear.  I'll push a better one now.
+",6e6b559a38eb1cf8596471a8ea6bd8ff11c0df06,"(None, '', u'nilearn/version.py')",I think docstr suck format nonstandard pretti unclear ill push better one,N,2015-01-09 06:59:41
+108,pull_request_commit,345,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-09 06:59:41,"Separate required dependency checks into version.py, and call from __init__.py and setup.py.",69288940875646bba5de4b62ea0438e2d898e338,,separ requir depend check versionpi call initpi setuppi,N,2015-01-09 15:20:30
+109,pull_request_commit,345,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-09 15:20:30,"Avoid importing nilearn in setup.py, minor style changes and bugfixes.",e5808ab76380fac8b26dcc2dde0dad5f3dcf56e6,,avoid import nilearn setuppi minor style chang bugfix,N,2015-01-09 17:28:03
+110,pull_request_commit,345,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-09 17:28:03,Code tweaks as requested by @lesteve in PR.,051a0d4b1b63f9f719155ff8674708b499b0afde,,code tweak request lestev PR,N,2015-01-12 17:55:28
+111,pull_request_commit,345,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-12 17:55:28,"Style changes to deal with PEP8, general code cleanup",28c0e5a682c7e64907cd7df81af03221e7302e12,,style chang deal pep8 gener code cleanup,N,2015-01-12 19:47:49
+112,pull_request_commit,345,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-12 19:47:49,More flexible command-line handling,a36aff995f6b6fdb155d0dd00a4d30129da365e3,,more flexibl commandlin handl,N,2015-01-15 19:01:41
+113,pull_request_commit,345,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-15 19:01:41,"Remove gzip check, tweak comments and variable names.",abdf3be30fff8651d12f66550a92e6259f01fa8b,,remov gzip check tweak comment variabl name,N,2015-01-15 23:47:19
+1,issue_title,359,nilearn,nilearn,bcipolli,2015-01-20 15:35:50,"This partially addresses #357.
+
+There are a few issues preventing the setup script, code, and tests from running in Python 2.6:
+- Trailing whitespace in `version.py` led to a setup syntax error.
+- `""format_str{}"".format(str)` is illegal in Python 2.6; use `""format_str{0}"".format(str)`
+- Dictionary comprehensions are NYI in Python 2.6; use `dict([list_comprehension])`
+- Many `assert_X` functions are unavailable in Python 2.6; convert the few we were using to `assert_true`
+- Context managers for `ZipFile`, `TarFile` don't exist in Python 2.6; wrap with `contextlib`
+- Context manager for `nose.assert_raises` doesn't exist in Python 2.6; use our custom `assert_raises_regexp`, which was more appropriate anyway (since we wanted to check the error message of the error anyway).
+
+I've also changed the `.travis.yml` file to contain a flow like `scikit-learn`.  The following three scenarios are now enabled:
+- Python 2.6 under Anaconda install
+- Python 2.7 using system packages
+- Python 2.7 under neurodebian.
+
+Tests for all three scenarios are working (or were working; seems the PGP key for neurodebian is choking at this moment, out of the blue)...
+",start issue,Enable Python 2.6 support,thi partial address 357 there issu prevent setup script code test run python 26 trail whitespac led setup syntax error illeg python 26 use dictionari comprehens nyi python 26 use mani function unavail python 26 convert use context manag dont exist python 26 wrap context manag doesnt exist python 26 use custom appropri anyway sinc want check error messag error anyway ive also chang file contain flow like the follow three scenario enabl python 26 anaconda instal python 27 use system packag python 27 neurodebian test three scenario work work seem pgp key neurodebian choke moment blue,N,2015-01-21 21:26:56
+2,issue_closed,359,nilearn,nilearn,lesteve,2015-01-21 21:26:56,,closed issue,Enable Python 2.6 support,,N,2015-01-20 15:35:50
+3,pull_request_title,359,nilearn,nilearn,bcipolli,2015-01-20 15:35:50,"This partially addresses #357.
+
+There are a few issues preventing the setup script, code, and tests from running in Python 2.6:
+- Trailing whitespace in `version.py` led to a setup syntax error.
+- `""format_str{}"".format(str)` is illegal in Python 2.6; use `""format_str{0}"".format(str)`
+- Dictionary comprehensions are NYI in Python 2.6; use `dict([list_comprehension])`
+- Many `assert_X` functions are unavailable in Python 2.6; convert the few we were using to `assert_true`
+- Context managers for `ZipFile`, `TarFile` don't exist in Python 2.6; wrap with `contextlib`
+- Context manager for `nose.assert_raises` doesn't exist in Python 2.6; use our custom `assert_raises_regexp`, which was more appropriate anyway (since we wanted to check the error message of the error anyway).
+
+I've also changed the `.travis.yml` file to contain a flow like `scikit-learn`.  The following three scenarios are now enabled:
+- Python 2.6 under Anaconda install
+- Python 2.7 using system packages
+- Python 2.7 under neurodebian.
+
+Tests for all three scenarios are working (or were working; seems the PGP key for neurodebian is choking at this moment, out of the blue)...
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,Enable Python 2.6 support,thi partial address 357 there issu prevent setup script code test run python 26 trail whitespac led setup syntax error illeg python 26 use dictionari comprehens nyi python 26 use mani function unavail python 26 convert use context manag dont exist python 26 wrap context manag doesnt exist python 26 use custom appropri anyway sinc want check error messag error anyway ive also chang file contain flow like the follow three scenario enabl python 26 anaconda instal python 27 use system packag python 27 neurodebian test three scenario work work seem pgp key neurodebian choke moment blue,N,2015-01-21 21:26:56
+4,pull_request_merged,359,nilearn,nilearn,lesteve,2015-01-21 21:26:56,Enable Python 2.6 support,9a50f96b6e6ead1c6d335d24fc307b011d3b9a4a,Pull request merge from bcipolli/nilearn:python-2.6 to nilearn/nilearn:master,enabl python 26 support,N,2015-01-20 17:29:03
+5,issue_comment,359,nilearn,nilearn,GaelVaroquaux,2015-01-20 17:29:03,"Thanks for the PR. This is absolutely great!
+
+> - Many `assert_X` functions are unavailable in Python 2.6; convert the few we were using to `assert_true`
+
+Have you check in sklearn.utils.testing. I believe that we have
+backported everything that was necessary there.
+
+> - Context manager for `nose.assert_raises` doesn't exist in Python 2.6; use our custom `assert_raises_regexp`, which was more appropriate anyway (since we wanted to check the error message of the error anyway).
+
+Same thing, there is a fairly developed framework for testing assertions
+in scikit-learn. We should rely on it, as these things are actually quite
+tricky to get right.
+",,,thank PR thi absolut great have check sklearnutilstest I believ backport everyth necessari same thing fairli develop framework test assert scikitlearn We reli thing actual quit tricki get right,Y,2015-01-20 17:39:09
+6,issue_comment,359,nilearn,nilearn,GaelVaroquaux,2015-01-20 17:39:09,"> Also this was added only in scikit-learn 0.15, so we can not rely only
+> on scikit-learn for this functionality since we need to support much
+> older versions.
+
+OK. Good reason.
+",,,OK good reason,N,2015-01-20 17:13:46
+7,issue_comment,359,nilearn,nilearn,lesteve,2015-01-20 17:13:46,"Thanks a for for this, this is super useful!
+
+> Tests for all three scenarios are working (or were working; seems the PGP key for neurodebian is choking at this moment, out of the blue)...
+
+Yeah this is quite annoying when that happens, not sure whether there is a way to work around it. I restarted the job on Travis and everything seems fine now.
+",,,thank super use yeah quit annoy happen sure whether way work around I restart job travi everyth seem fine,Y,2015-01-20 17:38:20
+8,issue_comment,359,nilearn,nilearn,lesteve,2015-01-20 17:38:20,"> Same thing, there is a fairly developed framework for testing assertions in scikit-learn. We should rely on it, as these things are actually quite tricky to get right.
+
+For nilearn._utils.testing.assert_raises_regexp, I actually copied the code from scikit-learn. The main reason I did that is [there](https://github.com/nilearn/nilearn/commit/a0c7693e0325dea9c7ce04a8512936eede881d32). Also this was added only in scikit-learn 0.15, so we can not rely only on scikit-learn for this functionality since we need to support much older versions.
+",,,for nilearnutilstestingassertraisesregexp I actual copi code scikitlearn the main reason I also ad scikitlearn 015 reli scikitlearn function sinc need support much older version,N,2015-01-20 18:21:05
+9,issue_comment,359,nilearn,nilearn,bcipolli,2015-01-20 18:21:05,"> For nilearn._utils.testing.assert_raises_regexp, I actually copied the code from scikit-learn. The main reason I did that is there. Also this was added only in scikit-learn 0.15, so we can not rely only on scikit-learn for this functionality since we need to support much older versions.
+
+Good point, but supporting scikit-learn < 0.15 for users is different than supporting it for developers.  I think that, to avoid copying code and to use the full scikit-learn test functionality, it would be reasonable to require developers to use scikit-learn >= 0.15 (and show a meaningful error if they are not).
+
+That doesn't seem to challenging to do... I'd be willing to make that happen if others are on-board with it.
+",,,good point support scikitlearn 015 user differ support develop I think avoid copi code use full scikitlearn test function would reason requir develop use scikitlearn that doesnt seem challeng Id will make happen other onboard,Y,2015-01-20 18:48:40
+10,issue_comment,359,nilearn,nilearn,lesteve,2015-01-20 18:48:40,"> Good point, but supporting scikit-learn < 0.15 for users is different than supporting it for developers. 
+
+Not sure where you would draw the line and which mechanism you would use. The thing is that Travis need to run the tests with old versions of scikit-learn so I don't really see how we can avoid providing an assert_raises_regexp inside nilearn.
+
+Also as you might have seen from the link in my previous message there is a small but very nasty bug that is only fixed in scikit-learn master: assert_raises_regexp provided by scikit-learn is using match rather than search to check the error message. As far as I was concerned that was the last straw that broke the camel's back of my attempts at reusing scikit-learn assert_raises regexp.
+",,,not sure would draw line mechan would use the thing travi need run test old version scikitlearn I dont realli see avoid provid assertraisesregexp insid nilearn also might seen link previou messag small nasti bug fix scikitlearn master assertraisesregexp provid scikitlearn use match rather search check error messag As far I concern last straw broke camel back attempt reus scikitlearn assertrais regexp,Y,2015-01-20 18:50:16
+11,issue_comment,359,nilearn,nilearn,bcipolli,2015-01-20 18:50:16,"> The thing is that Travis need to run the tests with old versions of scikit-learn so I don't really see how we can avoid providing an assert_raises_regexp inside nilearn.
+
+Good point.  OK then! :)
+",,,good point OK,N,2015-01-20 20:59:11
+12,issue_comment,359,nilearn,nilearn,bcipolli,2015-01-20 20:59:11,"Made the few cleanup / reporting tweaks; and made no further changes to the tests.  Let me know if there's anything else to do here; otherwise, I'll focus my time on completing Python 3.x support.
+
+Thanks!
+",,,made cleanup report tweak made chang test let know there anyth els otherwis ill focu time complet python 3x support thank,Y,2015-01-21 21:26:39
+13,issue_comment,359,nilearn,nilearn,lesteve,2015-01-21 21:26:39,"This looks good to me, merging, Thanks a lot for that!
+",,,thi look good merg thank lot,N,2015-01-20 15:36:04
+14,pull_request_commit_comment,359,nilearn,nilearn,bcipolli,2015-01-20 15:36:04,"This all got moved into the `install.sh` file.
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(13, '', u'.travis.yml')",thi got move file,N,2015-01-20 17:19:38
+15,pull_request_commit_comment,359,nilearn,nilearn,lesteve,2015-01-20 17:19:38,"It'd be quite nice to add other dependencies versions here. I am thinking matplotlib and nibabel.
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(None, '', u'continuous_integration/install.sh')",itd quit nice add depend version I think matplotlib nibabel,N,2015-01-20 17:25:49
+16,pull_request_commit_comment,359,nilearn,nilearn,lesteve,2015-01-20 17:25:49,"Nice catch, it took me a little while to figure out why you were renaming the list comprehension variables ... (answer: shadowing the _get_json_and_transform 'direction' parameter)
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(16, '', u'nilearn/plotting/glass_brain.py')",nice catch took littl figur renam list comprehens variabl answer shadow getjsonandtransform direct paramet,N,2015-01-20 17:30:27
+17,pull_request_commit_comment,359,nilearn,nilearn,lesteve,2015-01-20 17:30:27,"I don't think the COVERAGE environment variable is used anywhere in the scripts or travis.yml. Also coverage is enabled in setup.cfg.
+
+Which reminds me It'd be quite nice to setup coversall one day similarly to what scikit-learn is doing.
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(None, '', u'.travis.yml')",I dont think coverag environ variabl use anywher script travisyml also coverag enabl setupcfg which remind itd quit nice setup coversal one day similarli scikitlearn,N,2015-01-20 17:32:56
+18,pull_request_commit_comment,359,nilearn,nilearn,lesteve,2015-01-20 17:32:56,"bonus points if you fix this PEP8 warning, while you are touching the line above.
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",bonu point fix pep8 warn touch line,N,2015-01-20 19:00:27
+19,pull_request_commit_comment,359,nilearn,nilearn,bcipolli,2015-01-20 19:00:27,"Yup!  And nice catch; I should have added a comment to the PR to point out that change...
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(16, '', u'nilearn/plotting/glass_brain.py')",yup and nice catch I ad comment PR point chang,N,2015-01-20 19:01:40
+20,pull_request_commit_comment,359,nilearn,nilearn,bcipolli,2015-01-20 19:01:40,"I will remove these and add an issue for setting up `coversall`.  It's along the lines of things I'm able and happy to contribute.
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(None, '', u'.travis.yml')",I remov add issu set it along line thing Im abl happi contribut,N,2015-01-20 19:59:23
+21,pull_request_commit_comment,359,nilearn,nilearn,GaelVaroquaux,2015-01-20 19:59:23,"> I will remove these and add an issue for setting up coversall. It's along the
+> lines of things I'm able and happy to contribute.
+
+It's really great to have you on board, Ben!
+",1ebfe989d5732ea01e4cbdf804123b63c3cc4bac,"(None, '', u'.travis.yml')",it realli great board ben,N,2015-01-20 15:02:36
+22,pull_request_commit,359,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-20 15:02:36,Use scikit-learn-style .travis.yml / installation script; enable Python 2.6 testing.,72504e498bec5cb2a97aee683577efe96144b6ec,,use scikitlearnstyl travisyml instal script enabl python 26 test,N,2015-01-20 00:50:37
+23,pull_request_commit,359,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-20 00:50:37,"Changing `""format_str{}"".format(str)` to `""format_str{0}"".format(str)`",b915fc230f2c13c7fe364747a7c26e406d1d453a,,chang,N,2015-01-20 01:36:42
+24,pull_request_commit,359,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-20 01:36:42,Change dictionary comprehensions to equivalent list comprehensions.,40cbf7dd5a54e91b6ac5808ddff9df9c79c76f65,,chang dictionari comprehens equival list comprehens,N,2015-01-20 07:29:22
+25,pull_request_commit,359,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-20 07:29:22,Only a few nose assert_X functions are available in Python 2.6,cc1d7335731212babe75e3585153c3c5d313f083,,onli nose assertx function avail python 26,N,2015-01-20 14:24:09
+26,pull_request_commit,359,nilearn,nilearn,bcipolli@ucsd.edu,2015-01-20 14:24:09,Using contextlib to make context managers where none exist in Python 2.6.,afcbb9c0b89c4788c9294366fd0265de8b4ca61e,,use contextlib make context manag none exist python 26,N,2015-01-20 20:06:01
+2,issue_closed,356,nilearn,nilearn,lesteve,2015-01-29 09:09:41,,closed issue,Add functions to slice and iterate over a 4D image,,N,2015-01-19 10:32:50
+6,issue_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-29 09:29:39,"This is really awesome.
+
+Now we should adapt all the examples to use these functions. The goal
+would be to call get_data on the Nifti1Images as little as possible.
+
+In general, I always like to design such function via the modification of
+example files: it tells me if I am making the life of users easier or
+not.
+",,,thi realli awesom now adapt exampl use function the goal would call getdata nifti1imag littl possibl In gener I alway like design function via modif exampl file tell I make life user easier,N,2015-01-20 08:44:42
+15,issue_comment,356,nilearn,nilearn,AlexandreAbraham,2015-01-29 09:35:22,"> In general, I always like to design such function via the modification of example files: it tells me if I am making the life of users easier or not.
+
+No doubts on this one. It will definitely get rid of some nasty code in the examples.
+",,,No doubt one It definit get rid nasti code exampl,N,2015-01-19 10:37:06
+16,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 10:37:06,"This is a bit surprising, the iterator only throws when next is called.
+
+We could do something similar to the coroutine decorator to make sure that the error is raised at construction time:
+
+``` python
+
+def wrapped(raise_error):
+    if raise_error:
+        raise ValueError('Nope')
+    yield
+
+    for i in range(10):
+        yield i
+
+def gen(raise_error):
+    it = wrapped(raise_error)
+    next(it)
+    return it
+
+g = gen(raise_error=True)
+```
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",thi bit surpris iter throw next call We could someth similar coroutin decor make sure error rais construct time,N,2015-01-19 11:55:08
+17,pull_request_commit_comment,356,nilearn,nilearn,AlexandreAbraham,2015-01-19 11:55:08,"I think we should not make this option available to people. You can create an `_index_img` method that does not do the `check_niimg` and call it from both functions.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",I think make option avail peopl you creat method call function,N,2015-01-19 11:58:56
+18,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 11:58:56,"Yep I could do that, this was mostly done this way by laziness I must admit.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",yep I could mostli done way lazi I must admit,N,2015-01-19 12:00:15
+19,pull_request_commit_comment,356,nilearn,nilearn,AlexandreAbraham,2015-01-19 12:00:15,"As dimensionality of the data has been checked, you can use `...`:
+
+```
+return nibabel.Nifti1Image(imgs.get_data()[..., index],
+    imgs.get_affine(),
+    header=imgs.get_header())
+```
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",As dimension data check use,N,2015-01-19 12:12:24
+20,pull_request_commit_comment,356,nilearn,nilearn,AlexandreAbraham,2015-01-19 12:12:24,"Forget that, I remember reading somewhere that `...` was faster than `:,:,:` but a quick benchmark shows that it's the same.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",forget I rememb read somewher faster quick benchmark show,N,2015-01-19 12:21:03
+21,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 12:21:03,"I have to admit I just copied and pasted @GaelVaroquaux's code. From a quick grep, we do tend to use `...` more often than `:, :, :`. `...` also looks slightly easier on the eyes in my biased opinion.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",I admit I copi past gaelvaroquaux code from quick grep tend use often also look slightli easier eye bias opinion,N,2015-01-19 12:39:09
+22,pull_request_commit_comment,356,nilearn,nilearn,AlexandreAbraham,2015-01-19 12:39:09,"For the record, I tried several strategies to iterate on Nifti Images and they seem to have the same performance:
+
+```
+python -m timeit -s '
+import numpy as np
+import nibabel
+d = nibabel.load(""bold.nii"")
+for i in range(d.get_data().shape[3]):
+    a = d.get_data()[:, :, :, i]'
+
+python -m timeit -s '
+import numpy as np
+import nibabel
+d = nibabel.load(""bold.nii"")
+for i in range(d.get_data().shape[3]):
+    a = d.get_data()[..., i]'
+
+python -m timeit -s '
+import numpy as np
+import nibabel
+d = nibabel.load(""bold.nii"")
+for id in np.rollaxis(d.get_data(), 3, 0):
+    a = id'
+
+python -m timeit -s '
+import numpy as np
+import nibabel
+d = nibabel.load(""bold.nii"")
+for id in d.get_data().T:
+    a = id.T'
+```
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",for record I tri sever strategi iter nifti imag seem perform,N,2015-01-19 14:00:21
+23,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:00:21,"perhaps, add an informative error message when index is out of bounds and/or image is not 4D?
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",perhap add inform error messag index bound andor imag 4D,N,2015-01-19 14:02:20
+24,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:02:20,"The later could be done easily by `accept_3d=False`.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",the later could done easili,N,2015-01-19 14:04:48
+25,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:04:48,"accept_3d=False?
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",accept3dfals,N,2015-01-19 14:08:00
+26,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:08:00,"yield does not exist for python <2.5, but that's ok, I guess.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",yield exist python 25 that ok I guess,N,2015-01-19 14:09:01
+27,pull_request_commit_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-19 14:09:01,"> yield does not exist for python <2.5, but that's ok, I guess.
+
+Yes, quite clearly
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",ye quit clearli,N,2015-01-19 14:10:08
+28,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 14:10:08,"accept_3d is False by default.
+
+I haven't looked at the out of bounds error, I have to say. Also I should probably add some tests for it.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",accept3d fals default I havent look bound error I say also I probabl add test,Y,2015-01-19 14:27:19
+29,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 14:27:19,"re out of bounds error. This is how it looks at the moment. Is that not good enough?
+
+```
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-6-32c3bef60180> in <module>()
+----> 1 image.index_img(img, 9)
+
+/home/lesteve/dev/nilearn/nilearn/image/image.pyc in index_img(imgs, index)
+    534     """"""
+    535     imgs = check_niimgs(imgs)
+--> 536     return _index_img(imgs, index)
+    537 
+    538 
+
+/home/lesteve/dev/nilearn/nilearn/image/image.pyc in _index_img(imgs, index)
+    511     """"""Helper function for index_img and iter_img
+    512     """"""
+--> 513     return nibabel.Nifti1Image(imgs.get_data()[..., index],
+    514                                imgs.get_affine(),
+    515                                header=imgs.get_header())
+
+IndexError: index 9 is out of bounds for axis 3 with size 6
+```
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",bound error thi look moment Is good enough,N,2015-01-19 14:38:24
+30,pull_request_commit_comment,356,nilearn,nilearn,AlexandreAbraham,2015-01-19 14:38:24,"Edit: I didn't get Loïc's remark at first time. OK for the coroutine but document it because it is quite a mindfuck to read ;)
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",edit I didnt get loïc remark first time OK coroutin document quit mindfuck read,N,2015-01-19 14:38:58
+31,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:38:58,":+1:
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",1,N,2015-01-19 14:49:20
+32,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:49:20,"`this_img_3d`is actually 4d in the last 2 iterations.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",actual 4d last 2 iter,N,2015-01-19 14:53:45
+33,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 14:53:45,"As _index_img() also passes on the header, one might add a test for this.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",As indeximg also pass header one might add test,Y,2015-01-19 14:54:59
+34,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 14:54:59,"Just for the sake of clarity, here is what I meant originally: it would make more sense and be more user-friendly if `gen = iter_img(img_3d)` was raising an error saying that `iter_img` only takes 4d images. At the moment, it doesn't and the error is raised only when doing `next(iter)` as the test shows.
+
+My snippet above was meant to be a demonstration how to get `gen = iter_img(img_3d)` to raise an error.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",just sake clariti I meant origin would make sens userfriendli rais error say take 4d imag At moment doesnt error rais test show My snippet meant demonstr get rais error,Y,2015-01-19 14:56:19
+35,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 14:56:19,"Fair point, I'll change that.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",fair point ill chang,N,2015-01-19 14:59:56
+36,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 14:59:56,"Is there a good way to do that? I originally tried to test the header, but actually the following statement doesn't hold:
+
+`index_img(img, index).get_header() == img.get_header()`
+
+One of the reason is the header contains the shape of the data and that the indexed image generally doesn't have the same dimensions as the original image.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",Is good way I origin tri test header actual follow statement doesnt hold one reason header contain shape data index imag gener doesnt dimens origin imag,Y,2015-01-19 15:09:11
+37,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 15:09:11,"That's unfair. I wasn't allow to do this :-P
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(12, '', u'nilearn/image/__init__.py')",that unfair I wasnt allow P,N,2015-01-19 15:11:59
+38,pull_request_commit_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-19 15:11:59,"Yes, I agree with @AlexandreAbraham that it's code that's really hard to read. My gut feeling is: isn't there a simpler way to do this? Such code gets me nervous.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",ye I agre alexandreabraham code that realli hard read My gut feel isnt simpler way such code get nervou,N,2015-01-19 15:17:20
+39,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 15:17:20,"here and for `ìndex``argument: perhaps add/exchange by ""slicing"" to explicitly communicate that more than one target image can be drawn from imgs. At first sight, the user might think index_img is constrained to retrieving single niftis.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",,N,2015-01-19 15:28:58
+40,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 15:28:58,"Doing it in **init**() of classical generator object could be more readable?
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",do init classic gener object could readabl,N,2015-01-19 15:33:14
+41,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-19 15:33:14,"That might have been a bit harsh on you indeed ;-). In my defense I added a line in the immediate vicinity so I was allowed to fix this PEP8 infraction.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(12, '', u'nilearn/image/__init__.py')",that might bit harsh inde In defens I ad line immedi vicin I allow fix pep8 infract,N,2015-01-19 15:36:50
+42,pull_request_commit_comment,356,nilearn,nilearn,banilo,2015-01-19 15:36:50,"Since we are at it, is `ìndex=[]`` tested somewhere?
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(46, '', u'nilearn/image/tests/test_image.py')",sinc,N,2015-01-19 16:00:12
+43,pull_request_commit_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-19 16:00:12,"> IndexError: index 9 is out of bounds for axis 3 with size 6
+
+I think that it is good enough for now.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",I think good enough,N,2015-01-19 16:00:36
+44,pull_request_commit_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-19 16:00:36,"> Doing it in init() of classical generator object could be more readable?
+
+That's possible.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/tests/test_image.py')",that possibl,N,2015-01-20 08:28:29
+45,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-20 08:28:29,"Sorry I didn't see @GaelVaroquaux's comment about being nervous with this kind of code before pushing (now it is hidden somewhere in one of the outdated diffs, annoying). I can replace it by a object instead if people feel better about that:
+
+``` python
+class Iterator(object):
+    def __init__(self, imgs):
+        self.imgs = check_niimgs(imgs)
+    def __iter__(self):
+        for i in range(_get_shape(self.imgs)[3]):
+            yield _index_img(self.imgs, i)
+```
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",sorri I didnt see gaelvaroquaux comment nervou kind code push hidden somewher one outdat diff annoy I replac object instead peopl feel better,N,2015-01-20 08:32:13
+46,pull_request_commit_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-20 08:32:13,"> class Iterator(object):
+>     def **init**(self, imgs):
+>         self.imgs = check_niimgs(imgs)
+>     def **iter**(self):
+>         for i in range(_get_shape(imgs)[3]):
+>             yield _index_img(imgs, i)
+
+I actually feel better about this. You will seldom hear me argue for a
+class instead of functions, but I feel that the class is more explicite
+here.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",I actual feel better you seldom hear argu class instead function I feel class explicit,N,2015-01-20 22:28:21
+47,pull_request_commit_comment,356,nilearn,nilearn,eickenberg,2015-01-20 22:28:21,"`index=slice(0, imgs.shape[0], 2)` will not make a copy, whereas `index=range(0, imgs.shape[0], 2)` will. Do we trust that any user who knows the difference between these expressions also knows about memory-related issues of their use? (I would say yes)
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",make copi wherea Do trust user know differ express also know memoryrel issu use I would say ye,N,2015-01-20 22:35:07
+48,pull_request_commit_comment,356,nilearn,nilearn,GaelVaroquaux,2015-01-20 22:35:07,"> Do we trust that any user who knows the difference between these
+> expressions also knows about memory-related issues of their use?
+
+Clueless users don't, but we cannot solve their problems with low-level
+code. Advanced users do, and we should enable them by no trying to
+second-guess their goals.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(None, '', u'nilearn/image/image.py')",clueless user dont cannot solv problem lowlevel code advanc user enabl tri secondguess goal,N,2015-01-20 22:40:45
+74,pull_request_commit_comment,356,nilearn,nilearn,lesteve,2015-01-29 09:09:21,"OK merging then. Further optimisation can be added later if needed.
+",3071c38abaab4dd0013500a085d83f0d9a305dfb,"(40, '', u'nilearn/_utils/niimg_conversions.py')",OK merg further optimis ad later need,N,2015-01-19 10:30:40
+75,pull_request_commit,356,nilearn,nilearn,lesteve,2015-01-19 10:30:40,Add functions to slice and iterate over a 4D image,7217e255f9872dca0f7b27cf562fbf1307237396,,add function slice iter 4D imag,N,2015-01-19 13:24:19
+76,pull_request_commit,356,nilearn,nilearn,lesteve,2015-01-19 13:24:19,"Add _index_img helper function
+
+rather than allowing check_imgs=False in index_img. Other minor fixes",f8b5ba9f9a388e3d49604d8f5bc5a9072ce24f79,,add indeximg helper function rather allow checkimgsfals indeximg other minor fix,N,2015-01-19 14:11:06
+77,pull_request_commit,356,nilearn,nilearn,lesteve,2015-01-19 14:11:06,Add index_img/iter_img to image/__init__.py,382d9d5b002569303d1d98011062ae6fd7ef9206,,add indeximgiterimg imageinitpi,N,2015-01-19 14:37:11
+78,pull_request_commit,356,nilearn,nilearn,lesteve,2015-01-19 14:37:11,Test out of bounds errors in index_img,88776ff221c84c48d3d2e102271fc74ef0d82905,,test bound error indeximg,N,2015-01-19 15:06:29
+79,pull_request_commit,356,nilearn,nilearn,lesteve,2015-01-19 15:06:29,"Variable renaming
+
+this_img_3d was actually not 3d for all the tested indices",cf3c67487e4bb572f1dea00905939135324b883e,,variabl renam thisimg3d actual 3d test indic,N,2015-01-19 15:37:56
+80,pull_request_commit,356,nilearn,nilearn,lesteve,2015-01-19 15:37:56,"Get iter_img to raise when image is not 4D
+
+Previously the error was raised only when the generator returned by iter_img was used",623a88d902698e288de8298414b7ec12a311de40,,get iterimg rais imag 4D previous error rais gener return iterimg use,N,2015-01-20 08:42:30

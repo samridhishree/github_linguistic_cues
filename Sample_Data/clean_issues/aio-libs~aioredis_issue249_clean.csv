@@ -1,0 +1,4 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,249,aio-libs,aioredis,thomasst,2017-06-20 12:59:13,Redis supports PING in SUBSCRIBE mode (see https://redis.io/commands/ping for details) but aioredis unexpectedly fails with `aioredis.errors.RedisError: Connection in SUBSCRIBE mode`.,start issue,PING command should work in SUBSCRIBE mode,redi support ping subscrib mode see detail aioredi unexpectedli fail
+issue_closed,249,aio-libs,aioredis,popravich,2017-09-26 06:51:34,,closed issue,PING command should work in SUBSCRIBE mode,

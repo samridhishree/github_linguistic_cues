@@ -1,0 +1,431 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,542,nilearn,nilearn,lesteve,2015-04-30 08:20:08,,closed issue,Rely on a common iterator for check_niimg* and concat_niimg.,,N,2015-04-15 08:34:17
+4,pull_request_merged,542,nilearn,nilearn,lesteve,2015-04-30 08:20:08,Rely on a common iterator for check_niimg* and concat_niimg.,90adb38723eabd59a2ea87f89111d8a2ba10d22d,Pull request merge from AlexandreAbraham/nilearn:danilo_fix to nilearn/nilearn:master,reli common iter checkniimg concatniimg,N,2015-04-16 15:10:05
+5,issue_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-16 15:10:05,"@lesteve: it's all green, ready to review :)
+",,,lestev green readi review,N,2015-04-17 11:13:38
+6,issue_comment,542,nilearn,nilearn,lesteve,2015-04-17 11:13:38,"There still seems to be this bug from #463, is this PR supposed to fix it?
+
+``` python
+import numpy as np
+from nibabel import Nifti1Image
+
+from nilearn import _utils
+
+affine = np.eye(4)
+img_3d = Nifti1Image(np.ones((10, 10, 10)), affine)
+
+input_iterator = iter([img_3d, img_3d])
+img_4d = _utils.check_niimg_4d(input_iterator)
+img_4d.shape  # (10, 10, 10, 1) instead of (10, 10, 10, 2)
+
+input_iterator = iter([img_3d, img_3d])
+img_4d = _utils.check_niimg(input_iterator)
+img_4d.shape  # (10, 10, 10, 1) instead of (10, 10, 10, 2)
+```
+",,,there still seem bug 463 PR suppos fix,N,2015-04-17 11:16:32
+7,issue_comment,542,nilearn,nilearn,lesteve,2015-04-17 11:16:32,"Forget what I said I was on master rather than on your branch, sorry for the noise !
+",,,forget I said I master rather branch sorri nois,N,2015-04-21 09:03:40
+14,issue_comment,542,nilearn,nilearn,lesteve,2015-04-30 09:00:46,"@banilo you are aware that the PR has been merged right? Feel free to open another PR if you feel strongly about any of your points!
+",,,banilo awar PR merg right feel free open anoth PR feel strongli point,N,2015-04-17 08:33:11
+15,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 08:33:11,"Pfff...
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(4, '', u'nilearn/_utils/__init__.py')",pfff,N,2015-04-17 08:47:08
+16,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 08:47:08,":bow:
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(4, '', u'nilearn/_utils/__init__.py')",bow,N,2015-04-17 08:47:45
+17,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 08:47:45,"Error message update due to code factorization in one function.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(5, '', u'nilearn/tests/test_region.py')",error messag updat due code factor one function,N,2015-04-17 11:47:39
+18,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 11:47:39,"`niimg` is a Image object, so I guess the function should be called `_index_img` and the variable `img`.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",imag object I guess function call variabl,N,2015-04-17 11:52:13
+19,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 11:52:13,"what about calling it ndim_minus_one?
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",call ndimminuson,N,2015-04-17 11:57:04
+20,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 11:57:04,"maybe put ""Must be 3 or 4"" in the docstring instead:
+
+ndim: integer {3, 4}, optional
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",mayb put must 3 4 docstr instead ndim integ 3 4 option,N,2015-04-17 11:57:27
+21,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 11:57:27,"Fixed.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",fix,N,2015-04-17 11:58:27
+22,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 11:58:27,"Fixed.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",fix,N,2015-04-17 12:03:35
+23,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:03:35,"assert_equal provides better error when it fails
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",assertequ provid better error fail,N,2015-04-17 12:07:03
+24,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:07:03,"could we have a more explicit message checking that 'image' while you are at it ?
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",could explicit messag check imag,N,2015-04-17 12:26:03
+25,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:26:03,"Any reason why you removed the caching params from concat_niimgs?
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",ani reason remov cach param concatniimg,N,2015-04-17 12:29:25
+26,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:29:25,"Good question, the answer is yes since you added a test so we can remove this last line from the comment.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",good question answer ye sinc ad test remov last line comment,Y,2015-04-17 12:32:04
+27,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:32:04,"unnecessary parentheses around the isinstance call
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",unnecessari parenthes around isinst call,N,2015-04-17 12:32:26
+28,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:32:26,"unnecessary parentheses around the isinstance call
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",unnecessari parenthes around isinst call,N,2015-04-17 12:40:48
+29,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 12:40:48,"accept_4d is not used in this function !
+
+Not sure what you mean with this docstring. Isn't it just that you can concatenate 4D niimg-like images together along the 4th dimension.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",accept4d use function not sure mean docstr isnt concaten 4D niimglik imag togeth along 4th dimens,N,2015-04-17 12:41:43
+30,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 12:41:43,"I think danilo did it and I didn't put it back...
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I think danilo I didnt put back,N,2015-04-17 12:42:54
+31,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 12:42:54,"Removed. It was never used.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",remov It never use,N,2015-04-17 13:34:10
+32,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 13:34:10,"I think 'iterable' is the right word here
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I think iter right word,N,2015-04-17 13:34:47
+33,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 13:34:47,"another one of these parentheses ...
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",anoth one parenthes,N,2015-04-17 14:00:46
+34,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-17 14:00:46,"`inspect.isgenerator` has some weird corner cases:
+
+``` python
+import inspect
+import itertools
+inspect.isgenerator(itertools.chain('a', 'bc'))  # return False
+```
+
+I reckon we should either use:
+
+``` python
+if hasattr(niimgs, '__iter__') and not hasattr(niimgs, '__len__')
+```
+
+or 
+
+``` python
+isinstance(niimgs, collections.Iterator)
+```
+
+haven't investigated in detail about this is too many details, TBH.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",weird corner case I reckon either use havent investig detail mani detail tbh,N,2015-04-17 14:34:44
+35,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 14:34:44,"``` python
+inspect.isgenerator(itertools.chain('a', 'bc'))  # return False
+```
+
+Well, I see no problem here.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",well I see problem,N,2015-04-20 07:43:18
+36,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-20 07:43:18,"``` python
+import itertools
+
+import numpy as np
+from nibabel import Nifti1Image
+
+from nilearn import _utils
+
+affine = np.eye(4)
+img_3d = Nifti1Image(np.ones((10, 10, 10)), affine)
+
+input_iterator = itertools.chain([img_3d], [img_3d])
+img_4d = _utils.check_niimg_4d(input_iterator)
+print(img_4d.shape)  # (10, 10, 10, 2) which is correct
+print(img_4d.get_data())  # uninitialised data rather than ones
+```
+
+This happens because the first loop to compute the shape works fine but the second loop to set the data never gets run because the iterator has already been consumed in the first one.
+
+All I am trying to say is that the check should be whether `niimgs` is an iterator rather than a generator.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",thi happen first loop comput shape work fine second loop set data never get run iter alreadi consum first one all I tri say check whether iter rather gener,N,2015-04-20 08:38:00
+37,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-20 08:38:00,"Do you think we should fallback on case 2 for iterator or use tee?
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",Do think fallback case 2 iter use tee,N,2015-04-20 09:16:00
+38,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-20 09:16:00,"I think the simplest thing to do is to check whether `niimg` is an iterator since this is a single-line change and the rest of the code stays the same.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I think simplest thing check whether iter sinc singlelin chang rest code stay,N,2015-04-20 09:34:57
+39,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-20 09:34:57,"Using tee is also a single line change...
+![your-argument-is-invalid-meme-dumpaday-10](https://cloud.githubusercontent.com/assets/1647301/7227475/443ca6be-e751-11e4-9916-6f1e5e10a5e5.jpg)
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",use tee also singl line chang yourargumentisinvalidmemedumpaday10,N,2015-04-21 09:39:46
+40,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-21 09:39:46,"In some small tests I did itertools.tee seems to work fine with generators so I don't really see the point of having two code paths anymore.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",In small test I itertoolste seem work fine gener I dont realli see point two code path anymor,Y,2015-04-21 09:45:27
+41,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-21 09:45:27,"`tee` can yield a signficant memory overhead and, if somebody uses a generator for NiftiImages (well, I see no reason to do that but it may happen), they may not want to deal with that. I see no point in saving memory by pre-allocating memory if we lose it in the copy of the generator.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",yield signfic memori overhead somebodi use gener niftiimag well I see reason may happen may want deal I see point save memori prealloc memori lose copi gener,N,2015-04-21 10:55:09
+42,pull_request_commit_comment,542,nilearn,nilearn,GaelVaroquaux,2015-04-21 10:55:09,"If niimgs is a string, there will be an incomprehensible error further down (as the line above will work).
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",If niimg string incomprehens error line work,N,2015-04-21 10:56:14
+43,pull_request_commit_comment,542,nilearn,nilearn,GaelVaroquaux,2015-04-21 10:56:14,"It would be good to have the filename in the error message ('%r"" % niimg).
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",It would good filenam error messag r niimg,N,2015-04-21 10:58:01
+44,pull_request_commit_comment,542,nilearn,nilearn,GaelVaroquaux,2015-04-21 10:58:01,"Isn't this argument redundant with ndim.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(104, '', u'nilearn/_utils/niimg_conversions.py')",isnt argument redund ndim,N,2015-04-21 11:22:11
+45,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-21 11:22:11,"This function is meant to iterate over a list of niimg. It is never called with a filename.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",thi function meant iter list niimg It never call filenam,N,2015-04-21 11:29:20
+46,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-21 11:29:20,"Agreed.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",agre,N,2015-04-21 11:37:03
+47,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-21 11:37:03,"Then I guess niimg should not be used. Maybe `_iter_check_imgs(imgs, ...)` would be better. A short docstring would be great as well.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",then I guess niimg use mayb would better A short docstr would great well,N,2015-04-21 11:41:25
+48,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-21 11:41:25,"No because we iterate on a list of niimg. I'll add a docstring.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",No iter list niimg ill add docstr,N,2015-04-21 11:53:34
+49,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-21 11:53:34,"Oops sorry for the noise.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(None, '', u'nilearn/_utils/niimg_conversions.py')",oop sorri nois,N,2015-04-21 12:03:25
+50,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-21 12:03:25,"Not really. ndim is a stronger limitation, atleast_4d is more smooth. ndim = 4 will fail if 3d images is provided.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(104, '', u'nilearn/_utils/niimg_conversions.py')",not realli ndim stronger limit atleast4d smooth ndim 4 fail 3d imag provid,N,2015-04-22 05:47:33
+60,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-30 09:12:06,"Fixed.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(90, '', u'nilearn/tests/test_niimg_conversions.py')",fix,N,2015-04-08 14:07:31
+61,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-08 14:07:31,"Refactor check_niimg (again, more final version)",057ce85932ea16e86f85fba1e837fa7b50d43584,,refactor checkniimg final version,N,2015-04-08 14:14:12
+62,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-08 14:14:12,Move code,b113bb84518b0c9332743520657551975f8b4a6d,,move code,N,2015-04-10 16:59:32
+63,pull_request_commit,542,nilearn,nilearn,banilo,2015-04-10 16:59:32,concat_niimgs uses iterator,b3a89a78bb2a6402db49a100ee3e365063f5f094,,concatniimg use iter,N,2015-04-15 08:31:42
+64,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-15 08:31:42,Fix part of iterator problems in concat_niimgs,1adf6bb44e1897757464394bcf7502de30278b16,,fix part iter problem concatniimg,N,2015-04-15 11:09:36
+65,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-15 11:09:36,FIx P3 compat,6cb367aae453bde72579dfe6d7e0d758735d0ac9,,fix P3 compat,N,2015-04-16 09:03:08
+66,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-16 09:03:08,Finalize code,a65b1cfd38e96dbb27491546199e9a15e7254c0e,,final code,N,2015-04-16 13:59:23
+67,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-16 13:59:23,Add iterator / generator test,a160fd432b6c1a7270a545acc5a01d2f46f9a885,,add iter gener test,N,2015-04-16 14:01:17
+68,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-16 14:01:17,Better tests,47d7eb881d358574ca2c829532c40a7401ac77ee,,better test,N,2015-04-16 14:55:33
+69,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-16 14:55:33,Fix P3,7583a682e156ca0225f8101e59c885e19ead5f8e,,fix P3,N,2015-04-17 11:58:54
+70,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 11:58:54,Fix Loic comments,828c5136c00b008ed10a2f52e19ac96b2df5fa13,,fix loic comment,N,2015-04-17 12:04:18
+71,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 12:04:18,Fix docstring,c8b350ac5d2a3af94e93b847459274b551634acc,,fix docstr,N,2015-04-17 12:06:41
+72,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 12:06:41,Use assert_euqal in tests,92b4a9d6264039aaf4fc3d03905656be85e5a29d,,use asserteuq test,N,2015-04-17 12:18:13
+73,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 12:18:13,Richer regexp in tests,f7600758f9f56e189d191130f268def0717cf796,,richer regexp test,N,2015-04-17 12:46:28
+74,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 12:46:28,Bring memory back,8c2ffbedb94da8b1b702776148615233de8d2179,,bring memori back,N,2015-04-17 13:37:41
+75,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 13:37:41,Fix doc,4cdbb3589b2bd17c2082b9afaaf270a5672fdc56,,fix doc,N,2015-04-17 13:40:24
+76,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-17 13:40:24,Remove spurious parenthesis,2cb7cf3d62202ea6d9d5b8393b561df3cc58bf84,,remov spuriou parenthesi,N,2015-04-20 12:35:21
+77,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-20 12:35:21,Fix iterator bug,a81baffdf52a8e09f138d303668b40d85c2b5149,,fix iter bug,N,2015-04-20 13:18:35
+2,issue_closed,553,nilearn,nilearn,GaelVaroquaux,2015-05-11 09:26:00,,closed issue,[MRG] BUG: don't normalize when confounds,,N,2015-04-20 16:16:22
+9,issue_comment,553,nilearn,nilearn,eickenberg,2015-05-11 09:25:50,"> Pouce vers le haut !
+
+Bon pour fusion?
+
+http://www.wordreference.com/enfr/merge
+",,,bon pour fusion,N,2015-04-20 20:34:22
+10,pull_request_commit_comment,553,nilearn,nilearn,AlexandreAbraham,2015-04-20 20:34:22,"Do we have to put space before colons now?
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(None, '', u'nilearn/signal.py')",Do put space colon,N,2015-04-20 20:35:53
+11,pull_request_commit_comment,553,nilearn,nilearn,GaelVaroquaux,2015-04-20 20:35:53,"> Do we have to put space before colons now?
+
+Yes. It's always been like this in the numpy doc standard. But we keep
+forgetting.
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(None, '', u'nilearn/signal.py')",ye it alway like numpi doc standard but keep forget,N,2015-04-20 20:52:58
+12,pull_request_commit_comment,553,nilearn,nilearn,AlexandreAbraham,2015-04-20 20:52:58,"Well, I don't keep forgetting, I've been corrected several times when I add them...
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(None, '', u'nilearn/signal.py')",well I dont keep forget ive correct sever time I add,N,2015-04-20 20:54:24
+13,pull_request_commit_comment,553,nilearn,nilearn,GaelVaroquaux,2015-04-20 20:54:24,"> Well, I don't keep forgetting, I've been corrected several times when I add
+> them...
+
+:$
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(None, '', u'nilearn/signal.py')",,N,2015-04-21 08:54:50
+14,pull_request_commit_comment,553,nilearn,nilearn,AlexandreAbraham,2015-04-21 08:54:50,"Here is an image of generated doc. For the first parameter, there is no space. For the second one, I put a space. You can see that the extra space shows in the doc. This is, AFAIK, why we decided not to put them (this is the same in scikit-learn). I am not against adding them but we should be consistent and do that in a dedicated PR.
+
+![space](https://cloud.githubusercontent.com/assets/1647301/7248651/a5291bba-e814-11e4-8c76-9ae3ecb2d685.png)
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(None, '', u'nilearn/signal.py')",here imag gener doc for first paramet space for second one I put space you see extra space show doc thi afaik decid put scikitlearn I ad consist dedic PR space,N,2015-04-21 08:56:29
+25,pull_request_commit_comment,553,nilearn,nilearn,salma1601,2015-05-09 22:41:23,"> Or options: the norm of residuals is really related to the norm of what goes in. Relative errors are what it meaningful, not absolute. Thus, it is normal that it goes up.
+
+for me this is the reason we need to relax both tests. To be convinced, rerun the same tests on the master with standardize=True (which results in a multiplication of the output signal by some factor) and the tests will not work.
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(14, '', u'nilearn/tests/test_signal.py')",reason need relax test To convinc rerun test master standardizetru result multipl output signal factor test work,Y,2015-04-20 15:54:36
+1,issue_title,525,nilearn,nilearn,surchs,2015-03-27 21:13:12,"Hey,
+
+I have encountered a bit of a weird bug.
+Running
+`from nilearn import plotting`
+triggers
+
+```
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-35cd2f5e057b> in <module>()
+----> 1 from nilearn import plotting
+
+/home/surchs/Enthought/Canopy_64bit/User/lib/python2.7/site-packages/nilearn/plotting/__init__.py in <module>()
+     31 
+     32 from . import cm
+---> 33 from .img_plotting import plot_img, plot_anat, plot_epi, \
+     34     plot_roi, plot_stat_map, plot_glass_brain, plot_connectome
+     35 from .find_cuts import find_xyz_cut_coords
+
+/home/surchs/Enthought/Canopy_64bit/User/lib/python2.7/site-packages/nilearn/plotting/img_plotting.py in <module>()
+    308               output_file=None, display_mode='ortho', figure=None,
+    309               axes=None, title=None, annotate=True, draw_cross=True,
+--> 310               black_bg='auto', dim=False, cmap=pl.cm.gray, **kwargs):
+    311     """""" Plot cuts of an anatomical image (by default 3 cuts:
+    312         Frontal, Axial, and Lateral)
+
+NameError: name 'pl' is not defined
+```
+
+Not sure what is happening, since pl is defined right at the start. However, if I run the same command again in the same shell, I get a different error:
+
+```
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-2-35cd2f5e057b> in <module>()
+----> 1 from nilearn import plotting
+
+/home/surchs/Enthought/Canopy_64bit/User/lib/python2.7/site-packages/nilearn/plotting/__init__.py in <module>()
+     30 ###############################################################################
+     31 
+---> 32 from . import cm
+     33 from .img_plotting import plot_img, plot_anat, plot_epi, \
+     34     plot_roi, plot_stat_map, plot_glass_brain, plot_connectome
+
+ImportError: cannot import name cm
+```
+
+So far, I have tried updating nilearn and matplotlib but still have the same error. Any ideas?
+",start issue,Pylab import undefined in img_plotting with Enthought,hey I encount bit weird bug run trigger not sure happen sinc pl defin right start howev I run command shell I get differ error So far I tri updat nilearn matplotlib still error ani idea,N,2015-04-08 22:39:47
+8,issue_comment,525,nilearn,nilearn,lesteve,2015-03-29 19:02:21,"> @lesteve do you know why we have pylab stuff here?
+
+No reason other than historical ones I reckon, it'd be good to change `import pylab` by `import matplotlib.pyplot as plt` which is probably recommended anyway.
+",,,No reason histor one I reckon itd good chang probabl recommend anyway,N,2015-04-08 22:39:47
+1,issue_title,501,nilearn,nilearn,satra,2015-03-17 16:25:37,"if i give a list of these images to niftimasker it complains that it received 4d images. i have opened an issue with nibabel asking why it's return the 4th dimension, but i think this is also a case where niftimasker can simply check if the 4th dimension is one for it's image check to know that this is a 3d file.
+
+```
+images[0] = nb.load('cope01.nii.gz')
+images[0].shape
+(91, 109, 91, 1)
+```
+
+```
+--> 176             imgs = _utils.check_niimgs(imgs, accept_3d=True)
+    177             self.mask_img_ = self._cache(compute_mask,
+    178                               func_memory_level=1,
+
+/om/user/satra/envs/testenv/lib/python2.7/site-packages/nilearn/_utils/niimg_conversions.pyc in check_niimgs(niimgs, accept_3d, return_iterator)
+    384                         ""%s%dD image(s), of shape %s. ""
+    385                         ""See http://nilearn.github.io/building_blocks/manipulating_mr_images.html#niimg."" % (
+--> 386                         'list of ' * depth, dim, shape))
+    387 
+    388     # Now, we load data as we know its format
+
+TypeError: Data must be a 4D Niimg-like object. You provided a list of 4D image(s), of shape (91, 109, 91, 1). See http://nilearn.github.io/building_blocks/manipulating_mr_images.html#niimg.
+```
+",start issue,nilearn _check_niimgs called from niftimasker doesn't support current nibabel shape output,give list imag niftimask complain receiv 4d imag open issu nibabel ask return 4th dimens think also case niftimask simpli check 4th dimens one imag check know 3d file,N,2015-04-15 10:46:26
+2,issue_closed,501,nilearn,nilearn,GaelVaroquaux,2015-04-15 10:46:26,,closed issue,nilearn _check_niimgs called from niftimasker doesn't support current nibabel shape output,,N,2015-04-15 14:22:28
+4,issue_comment,501,nilearn,nilearn,GaelVaroquaux,2015-03-17 16:58:15,"> but i think this is also a case where niftimasker can simply check if
+> the 4th dimension is one for it's image check to know that this is a 3d
+> file.
+
+Agreed.
+",,,agre,N,2015-04-15 10:46:26
+5,issue_comment,501,nilearn,nilearn,GaelVaroquaux,2015-04-15 10:46:26,"Is this fixed? I think it is, so I am closing the issue. If it's not fixed, @satra, please ping us, and we will reopen the issue.
+",,,Is fix I think I close issu If fix satra pleas ping us reopen issu,N,2015-04-15 10:53:16
+6,issue_comment,501,nilearn,nilearn,GaelVaroquaux,2015-04-15 10:53:16,"> It is fixed but I am not sure that we added a test for that case. I'll take 5
+> minutes to do it.
+
+Cool, thx
+",,,cool thx,N,2015-04-15 14:24:19
+10,issue_comment,501,nilearn,nilearn,AlexandreAbraham,2015-03-27 08:50:40,"Hi @satra,
+
+Sorry for the long wait. We have just merged a PR that should fix your problem. Could you try again and report us any error?
+
+Thanks!
+",,,Hi satra sorri long wait We merg PR fix problem could tri report us error thank,N,2015-04-15 10:49:17
+11,issue_comment,501,nilearn,nilearn,AlexandreAbraham,2015-04-15 10:49:17,"It is fixed but I am not sure that we added a test for that case. I'll take 5 minutes to do it.
+",,,It fix I sure ad test case ill take 5 minut,Y,2015-04-15 11:04:27
+1,issue_title,399,nilearn,nilearn,Titan-C,2015-02-05 14:13:09,"This pull request uses the today published sphinx-gallery-0.0.5 in pypi to generate the gallery.
+It also updates some examples to a python3 compatible syntax, so they can be executed within sphinx-gallery. As sphinx-gallery already imports from future print and division
+
+I'm listening to comments and bugs.
+the old gen_rst.py shall be deleted before merge.
+",start issue,Sphinx-gallery into nilearn ,thi pull request use today publish sphinxgallery005 pypi gener galleri It also updat exampl python3 compat syntax execut within sphinxgalleri As sphinxgalleri alreadi import futur print divis Im listen comment bug old genrstpi shall delet merg,N,2015-04-14 07:50:31
+3,pull_request_title,399,nilearn,nilearn,Titan-C,2015-02-05 14:13:09,"This pull request uses the today published sphinx-gallery-0.0.5 in pypi to generate the gallery.
+It also updates some examples to a python3 compatible syntax, so they can be executed within sphinx-gallery. As sphinx-gallery already imports from future print and division
+
+I'm listening to comments and bugs.
+the old gen_rst.py shall be deleted before merge.
+",f733ad2b1521f4474d050a00c89004509f775441,Sphinx-gallery into nilearn ,thi pull request use today publish sphinxgallery005 pypi gener galleri It also updat exampl python3 compat syntax execut within sphinxgalleri As sphinxgalleri alreadi import futur print divis Im listen comment bug old genrstpi shall delet merg,N,2015-04-14 07:50:31
+8,issue_comment,399,nilearn,nilearn,GaelVaroquaux,2015-02-16 16:41:46,"> I would be inclined to say let's just use the joblib +
+> sklearn.externals.joblib fall-back for now so that we can merge this
+> PR.
+
+I'd rather not. Creeping dependencies are a problem, and we must tackle
+them. The pseudo code that I have given demonstrates how easy it is to
+use shelve.
+
+> As far as I know, the two projects that are closer to start using
+> sphinx-gallery are nilearn and scikit-learn anyway.
+
+Well, as Oscar is mentionning, it's already posing problems for CI.
+
+But anyhow, let us foster adoption by having little dependencies.
+",,,Id rather creep depend problem must tackl the pseudo code I given demonstr easi use shelv well oscar mention alreadi pose problem CI but anyhow let us foster adopt littl depend,N,2015-04-14 05:59:36
+9,issue_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 05:59:36,"> There are examples missing, because documentation calls them.
+
+Good catch. Could you add an issue listing all the problems that you have
+found in the documentation. We can address it separately.
+",,,good catch could add issu list problem found document We address separ,N,2015-04-14 06:50:24
+10,issue_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 06:50:24,"Almost there: only a few cosmetic comments. After these are addressed, we are ready to merge.
+
+Congratulations, this is great!
+",,,almost cosmet comment after address readi merg congratul great,N,2015-04-14 07:36:49
+21,issue_comment,399,nilearn,nilearn,lesteve,2015-03-18 09:10:21,"> As some to do from @GaelVaroquaux are still missing. sphinx-gallery/sphinx-gallery#20
+
+They could be tackled in a further release.
+
+> Moreover I want to test a bit longer on the configuration dictionary key naming, test the nametuple as well. Since after a stable release one shall not change the user interphase.
+
+Fair enough, how long do you need roughly to be reasonably confident there is no major issues?
+
+Because sphinx-gallery is not used massively at the moment backward-incompatible changes are not such a big deal I would say.
+",,,they could tackl releas fair enough long need roughli reason confid major issu becaus sphinxgalleri use massiv moment backwardincompat chang big deal I would say,N,2015-04-13 09:09:57
+22,issue_comment,399,nilearn,nilearn,lesteve,2015-04-13 09:09:57,"@Titan-C any news on this front? We may do a release of nilearn soonish, it'd be great to start using sphinx-gallery!
+
+I think the main things we need is:
+- a sphinx-gallery release with the shelve functionality (maybe it has already happened I haven't checked)
+- a script to update the nilearn sphinx-gallery copy similary to what is done for joblib in scikit-learn. TBH, it would be fine to have a simple copy as a first step and work on this script in a separate PR.
+",,,titanc news front We may releas nilearn soonish itd great start use sphinxgalleri I think main thing need sphinxgalleri releas shelv function mayb alreadi happen I havent check script updat nilearn sphinxgalleri copi similari done joblib scikitlearn tbh would fine simpl copi first step work script separ PR,N,2015-04-13 09:25:50
+23,issue_comment,399,nilearn,nilearn,Titan-C,2015-04-13 09:25:50,"Yes, few days ago I updated to version 0.0.7 which includes the shelve and the dictionary configuration. Then the quick release of 0.0.8 is because I get a bug with CSS as it conflicts with some of the Sphinx themes. The update script is already there and it worked for the last 2 updates.
+- You can run this branch. There are some examples that in my computer don't work, as I claimed before. 
+",,,ye day ago I updat version 007 includ shelv dictionari configur then quick releas 008 I get bug css conflict sphinx theme the updat script alreadi work last 2 updat you run branch there exampl comput dont work I claim,N,2015-04-13 10:04:07
+24,issue_comment,399,nilearn,nilearn,Titan-C,2015-04-13 10:04:07,"> ~~You can run this branch. There are some examples that in my computer don't work, as I claimed before.~~
+- I merged locally master into this to test. All examples work!
+- But now one has to rename all images in the documentation, as now they are numbered with 3 digits (001). So the carousel it the star page can't find the image as neither other places in the documentation
+",,,I merg local master test all exampl work but one renam imag document number 3 digit 001 So carousel star page cant find imag neither place document,Y,2015-04-13 10:46:03
+25,issue_comment,399,nilearn,nilearn,lesteve,2015-04-13 10:46:03,"> Yes, few days ago I updated to version 0.0.7 which includes the shelve and the dictionary configuration. Then the quick release of 0.0.8 is because I get a bug with CSS as it conflicts with some of the Sphinx themes. The update script is already there and it worked for the last 2 updates.
+
+Great stuff, I'll take a closer look this afternoon!
+
+ Don't hesitate to add a comment when you push commits into your PR branch and you think things are in a good shape. This way we get notifications and it's easier to get a feeling what is going on with the project.
+",,,great stuff ill take closer look afternoon dont hesit add comment push commit PR branch think thing good shape thi way get notif easier get feel go project,N,2015-04-13 12:29:59
+26,issue_comment,399,nilearn,nilearn,lesteve,2015-04-13 12:29:59,"@Titan-C, I did some quick and dirty renaming of the pngs in https://github.com/lesteve/nilearn/commit/e00ca5006febccd9928b22b4ea04af862b73e1f9. You should be able to cherry-pick it easily into your PR branch.
+
+I did a few sanity checks and it seems fine but it'd be great if you could double-check too. A good comparison would be the documentation that Gaël generated for one of his course: http://gaelvaroquaux.github.io since nilearn.github.io is trailing a lot behind master atm.
+",,,titanc I quick dirti renam png you abl cherrypick easili PR branch I saniti check seem fine itd great could doublecheck A good comparison would document gaël gener one cours sinc nilearngithubio trail lot behind master atm,N,2015-04-13 20:12:48
+27,issue_comment,399,nilearn,nilearn,Titan-C,2015-04-13 20:12:48,"It doesn't work in my home computer. Certainly this needs a new issue. But I can't get 2 examples to work at home. 
+- plot_probabilistic_atlas_extraction.py
+- plot_inverse_covariance_connectome.py
+  https://gist.github.com/Titan-C/7eab460917461adc61a4
+  there seems like the data has changes, but has not been updated. How to do it?
+
+Apart from this, and everything that links to this images, I don't see much any difference.
+",,,It doesnt work home comput certainli need new issu but I cant get 2 exampl work home plotprobabilisticatlasextractionpi plotinversecovarianceconnectomepi seem like data chang updat how apart everyth link imag I dont see much differ,N,2015-04-13 20:39:27
+28,issue_comment,399,nilearn,nilearn,lesteve,2015-04-13 20:39:27,"Hmmm works for me, try `rm ~/nilearn_data/msdl_atlas/ -rf` and rerunning the examples which are failing.
+",,,hmmm work tri rerun exampl fail,N,2015-04-13 22:20:30
+29,issue_comment,399,nilearn,nilearn,Titan-C,2015-04-13 22:20:30,"OK it works ! all examples execute!
+
+There are examples missing, because documentation calls them.
+- connectivity/plot_connect_comparison.py removed in 25bce1f1d9a0a722faa099d95dcce8c478f21b39
+  called from connectivity/connectome_extraction.rst
+  I fixed one reference in this file, the other I'm not completely sure which is re replacement file.
+
+This I don't if is related to this PR
+- I don't get the user guide for Image manipulation and visualization and Advanced usage: manual pipelines and scaling up. So 2 complete chapters are missing.
+- And also I have some missing links appear in manipulating_visualizing/plotting.rst. They are missing in Gael's version too.
+",,,OK work exampl execut there exampl miss document call connectivityplotconnectcomparisonpi remov 25bce1f1d9a0a722faa099d95dcce8c478f21b39 call connectivityconnectomeextractionrst I fix one refer file Im complet sure replac file thi I dont relat PR I dont get user guid imag manipul visual advanc usag manual pipelin scale So 2 complet chapter miss and also I miss link appear manipulatingvisualizingplottingrst they miss gael version,N,2015-04-14 06:58:29
+30,issue_comment,399,nilearn,nilearn,lesteve,2015-04-14 06:58:29,"> Almost there: only a few cosmetic comments. After these are addressed, we are ready to merge.
+> 
+> Congratulations, this is great!
+
+I think your comments are related to sphinx-gallery and not nilearn. I reckon we should merge this PR. The alternative is for your comments to be addressed in sphinx-gallery and a new sphinx-gallery release to be made before we can merge this PR. This seems a little bit too much overhead for what it is worth IMHO.
+
+Just for clarity we'll try to keep the sphinx-gallery copy inside nilearn in sync with the latest sphinx-gallery release going forward, which means that if your comments get addressed in sphinx-gallery they will eventually reach the nilearn sphinx-gallery copy.
+",,,I think comment relat sphinxgalleri nilearn I reckon merg PR the altern comment address sphinxgalleri new sphinxgalleri releas made merg PR thi seem littl bit much overhead worth imho just clariti well tri keep sphinxgalleri copi insid nilearn sync latest sphinxgalleri releas go forward mean comment get address sphinxgalleri eventu reach nilearn sphinxgalleri copi,N,2015-04-14 07:37:10
+31,issue_comment,399,nilearn,nilearn,AlexandreAbraham,2015-04-14 07:37:10,":+1: for merging as-is and address comments in sphinx-gallery repo.
+",,,1 merg asi address comment sphinxgalleri repo,N,2015-04-14 07:50:36
+41,pull_request_commit_comment,399,nilearn,nilearn,lesteve,2015-03-18 10:31:43,"I can run this example in master with python 3 so I don't think this change is absolutely needed.
+
+Using float as numpy array indices is deprecated indeed as the following snippet shows so feel free to open a separate PR with this change
+
+``` python
+import warnings
+import numpy as np
+warnings.simplefilter('always', DeprecationWarning)
+
+arr = np.arange(10)
+print(arr[2.3:5.9])
+```
+",f733ad2b1521f4474d050a00c89004509f775441,"(1, '', u'examples/decoding/plot_simulated_data.py')",I run exampl master python 3 I dont think chang absolut need use float numpi array indic deprec inde follow snippet show feel free open separ PR chang,N,2015-04-14 06:46:19
+42,pull_request_commit_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 06:46:19,"PEP8: you should have spaces before and after the ""+"" operator. 
+
+In addition, it would be better if you used os.path.join, rather than string concatenation (it avoid hard coding the ""/"", which varies across OS).
+",f733ad2b1521f4474d050a00c89004509f775441,"(8, '', u'doc/sphinxext/sphinxgallery/__init__.py')",pep8 space oper In addit would better use ospathjoin rather string concaten avoid hard code vari across OS,N,2015-04-14 06:46:55
+43,pull_request_commit_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 06:46:55,"Maybe some white space: ""}"" on new lines and empty lines between blocks.
+",f733ad2b1521f4474d050a00c89004509f775441,"(12, '', u'doc/sphinxext/sphinxgallery/_static/gallery.css')",mayb white space new line empti line block,N,2015-04-14 06:47:13
+44,pull_request_commit_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 06:47:13,"It seems to me that these blocks are not indented correctly.
+",f733ad2b1521f4474d050a00c89004509f775441,"(23, '', u'doc/sphinxext/sphinxgallery/_static/gallery.css')",It seem block indent correctli,N,2015-04-14 06:48:24
+45,pull_request_commit_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 06:48:24,"PEP8: isn't this line too long (more than 79 characters)?
+",f733ad2b1521f4474d050a00c89004509f775441,"(51, '', u'doc/sphinxext/sphinxgallery/gen_gallery.py')",pep8 isnt line long 79 charact,N,2015-04-14 06:48:49
+46,pull_request_commit_comment,399,nilearn,nilearn,GaelVaroquaux,2015-04-14 06:48:49,"PEP8: two empty lines should separate top-level definitions.
+",f733ad2b1521f4474d050a00c89004509f775441,"(92, '', u'doc/sphinxext/sphinxgallery/gen_gallery.py')",pep8 two empti line separ toplevel definit,N,2015-04-14 06:49:20
+55,pull_request_commit,399,nilearn,nilearn,Titan-C,2015-03-17 23:34:37,"In future updates of sphinx gallery there is an update script
+to download from the pypi published version. This update that
+includes shelve is already beyond the current pypi version",19ef39ebdad608a1a849bd7c2b931ba4940728dc,,In futur updat sphinx galleri updat script download pypi publish version thi updat includ shelv alreadi beyond current pypi version,N,2015-04-10 09:31:41
+56,pull_request_commit,399,nilearn,nilearn,Titan-C,2015-04-10 09:31:41,Update through automatic script into sphinx-gallery 0.0.7,b3a5bafaf3f1a103b432a15b602c4063bfc48d2e,,updat automat script sphinxgalleri 007,N,2015-04-10 09:31:52
+57,pull_request_commit,399,nilearn,nilearn,Titan-C,2015-04-10 09:31:52,Sphinx-gallery 0.0.7 configuration,56225d4e09320985e5ef38dfae760cb4e468204e,,sphinxgalleri 007 configur,N,2015-04-11 11:36:31
+58,pull_request_commit,399,nilearn,nilearn,Titan-C,2015-04-11 11:36:31,Sphinx-gallery 0.0.8 update for css div selector enforcement,601991ce1f92a927a56c3eda3beef190de4f3c23,,sphinxgalleri 008 updat css div selector enforc,N,2015-04-11 13:46:25
+59,pull_request_commit,399,nilearn,nilearn,Titan-C,2015-04-11 13:46:25,Merge branch 'master' into sphinxgallery,e74da384843865e5b6c8f382761cf1ef4f1d09c5,,merg branch master sphinxgalleri,N,2015-04-13 12:26:12
+60,pull_request_commit,399,nilearn,nilearn,lesteve,2015-04-13 12:26:12,"DOC: rename png targets
+
+since sphinx-gallery automatic figure naming now has fixed width of 3.",7dd40db0cb6979c573edeef782ecf99cbc7d83a8,,doc renam png target sinc sphinxgalleri automat figur name fix width 3,N,2015-04-13 22:14:17

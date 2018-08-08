@@ -1,0 +1,89 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,510,nilearn,nilearn,GaelVaroquaux,2015-03-19 19:06:12,"To reproduce: set a ""threshold"" high enough in plot_stat_maps
+
+The traceback is:
+
+<pre>
+/home/varoquau/.local/lib/python2.7/site-packages/nilearn/plotting/img_plotting.py in _plot_img_with_bg(img, bg_img, cut_coords, output_file, display_mode, colorbar, figure, axes, title, threshold, annotate, draw_cross, black_bg, bg_vmin, bg_vmax, interpolation, display_factory, cbar_vmin, cbar_vmax, **kwargs)
+     96         display.add_overlay(new_img_like(img, data, affine),
+     97                             threshold=threshold, interpolation=interpolation,
+---> 98                             colorbar=colorbar, **kwargs)
+     99 
+    100     if annotate:
+
+/home/varoquau/.local/lib/python2.7/site-packages/nilearn/plotting/displays.py in add_overlay(self, img, threshold, colorbar, **kwargs)
+    486 
+    487         if colorbar:
+--> 488             self._colorbar_show(ims[0], threshold)
+    489 
+    490         pl.draw_if_interactive()
+
+/home/varoquau/.local/lib/python2.7/site-packages/nilearn/plotting/displays.py in _colorbar_show(self, im, threshold)
+    593             self._colorbar_ax, ticks=ticks, norm=im.norm,
+    594             orientation='vertical', cmap=our_cmap, boundaries=bounds,
+--> 595             spacing='proportional')
+    596         self._cbar.set_ticklabels([""%.2g"" % t for t in ticks])
+    597 
+
+/usr/lib/pymodules/python2.7/matplotlib/colorbar.pyc in __init__(self, ax, cmap, norm, alpha, values, boundaries, orientation, ticklocation, extend, spacing, ticks, format, drawedges, filled, extendfrac, extendrect, label)
+    315         # The rest is in a method so we can recalculate when clim changes.
+    316         self.config_axis()
+--> 317         self.draw_all()
+    318 
+    319     def _extend_lower(self):
+
+/usr/lib/pymodules/python2.7/matplotlib/colorbar.pyc in draw_all(self)
+    340         X, Y = self._mesh()
+    341         C = self._values[:, np.newaxis]
+--> 342         self._config_axes(X, Y)
+    343         if self.filled:
+    344             self._add_solids(X, Y, C)
+
+/usr/lib/pymodules/python2.7/matplotlib/colorbar.pyc in _config_axes(self, X, Y)
+    431         ax.add_artist(self.patch)
+    432 
+--> 433         self.update_ticks()
+    434 
+    435     def _set_label(self):
+
+/usr/lib/pymodules/python2.7/matplotlib/colorbar.pyc in update_ticks(self)
+    365         """"""
+    366         ax = self.ax
+--> 367         ticks, ticklabels, offset_string = self._ticker()
+    368         if self.orientation == 'vertical':
+    369             ax.yaxis.set_ticks(ticks)
+
+/usr/lib/pymodules/python2.7/matplotlib/colorbar.pyc in _ticker(self)
+    582         ticks = ticks[inrange]
+    583         b = b[inrange]
+--> 584         formatter.set_locs(b)
+    585         ticklabels = [formatter(t, i) for i, t in enumerate(b)]
+    586         offset_string = formatter.get_offset()
+
+/usr/lib/pymodules/python2.7/matplotlib/ticker.pyc in set_locs(self, locs)
+    482                 self._set_offset(d)
+    483             self._set_orderOfMagnitude(d)
+--> 484             self._set_format(vmin, vmax)
+    485 
+    486     def _set_offset(self, range):
+
+/usr/lib/pymodules/python2.7/matplotlib/ticker.pyc in _set_format(self, vmin, vmax)
+    543             # We needed the end points only for the loc_range calculation.
+    544             locs = locs[:-2]
+--> 545         loc_range_oom = int(math.floor(math.log10(loc_range)))
+    546         # first estimate:
+    547         sigfigs = max(0, 3 - loc_range_oom)
+
+ValueError: math domain error
+</pre>
+",start issue,Colobar code breaks when a map is fully empty,To reproduc set threshold high enough plotstatmap the traceback prehomevaroquaulocallibpython27sitepackagesnilearnplottingimgplottingpi plotimgwithbgimg bgimg cutcoord outputfil displaymod colorbar figur axe titl threshold annot drawcross blackbg bgvmin bgvmax interpol displayfactori cbarvmin cbarvmax kwarg 96 displayaddoverlaynewimglikeimg data affin 97 thresholdthreshold interpolationinterpol 99 100 annot homevaroquaulocallibpython27sitepackagesnilearnplottingdisplayspi addoverlayself img threshold colorbar kwarg 486 487 colorbar 489 490 pldrawifinteract homevaroquaulocallibpython27sitepackagesnilearnplottingdisplayspi colorbarshowself im threshold 593 selfcolorbarax tickstick normimnorm 594 orientationvert cmapourcmap boundariesbound 596 selfcbarsetticklabels2g tick 597 usrlibpymodulespython27matplotlibcolorbarpyc initself ax cmap norm alpha valu boundari orient tickloc extend space tick format drawedg fill extendfrac extendrect label 315 the rest method recalcul clim chang 316 selfconfigaxi 318 319 def extendlowerself usrlibpymodulespython27matplotlibcolorbarpyc drawallself 340 X Y selfmesh 341 C selfvalu npnewaxi 343 selffil 344 selfaddsolidsx Y C usrlibpymodulespython27matplotlibcolorbarpyc configaxesself X Y 431 axaddartistselfpatch 432 434 435 def setlabelself usrlibpymodulespython27matplotlibcolorbarpyc updateticksself 365 366 ax selfax 368 selforient vertic 369 axyaxissettickstick usrlibpymodulespython27matplotlibcolorbarpyc tickerself 582 tick ticksinrang 583 b binrang 585 ticklabel formattert enumerateb 586 offsetstr formattergetoffset usrlibpymodulespython27matplotlibtickerpyc setlocsself loc 482 selfsetoffsetd 483 selfsetorderofmagnitud 485 486 def setoffsetself rang usrlibpymodulespython27matplotlibtickerpyc setformatself vmin vmax 543 We need end point locrang calcul 544 loc locs2 546 first estim 547 sigfig max0 3 locrangeoom valueerror math domain error pre
+issue_closed,510,nilearn,nilearn,lesteve,2015-03-26 08:16:18,,closed issue,Colobar code breaks when a map is fully empty,
+issue_comment,510,nilearn,nilearn,GaelVaroquaux,2015-03-20 07:35:32,"Thanks! Can you also add a smoke test please.
+",,,thank can also add smoke test pleas
+issue_comment,510,nilearn,nilearn,banilo,2015-03-20 07:33:50,"Ok guilty, I will try to fix that today.
+",,,Ok guilti I tri fix today
+issue_comment,510,nilearn,nilearn,AlexandreAbraham,2015-03-20 08:24:48,"Works for me and for @banilo, cannot reproduce... @banilo, can you add a test and see if it passes travis?
+",,,work banilo cannot reproduc banilo add test see pass travi
+issue_comment,510,nilearn,nilearn,lesteve,2015-03-26 08:16:18,"Closed via #511.
+",,,close via 511

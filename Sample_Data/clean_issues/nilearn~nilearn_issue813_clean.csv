@@ -1,0 +1,4 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,813,nilearn,nilearn,AlexandreAbraham,2015-11-02 14:18:38,"The nilearn homepage should promote some aspects of the package like ""Easy Decoding"", ""Easy plotting"" along with examples and appropriate links.
+",start issue,Make website more modern,the nilearn homepag promot aspect packag like easi decod easi plot along exampl appropri link

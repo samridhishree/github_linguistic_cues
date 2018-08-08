@@ -1,0 +1,1854 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,245,nilearn,nilearn,lesteve,2014-09-26 09:57:48,"This pull request is WIP for now and was only opened to get some feedback, both visualisation-wise and code-wise.
+
+Here is how it looks like atm:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4442285/9d705a8c-47dd-11e4-9732-31fc07802367.png)
+
+The code to generate the plots is [there](https://github.com/lesteve/nilearn/blob/glass-brain/nilearn/plotting/glass_brain_scripts/plot_glass_brain.py).
+",start issue,[MRG] Glass brain visualisation,thi pull request wip open get feedback visualisationwis codewis here look like atm glassbrain the code gener plot,N,2014-12-04 15:21:44
+3,pull_request_title,245,nilearn,nilearn,lesteve,2014-09-26 09:57:48,"This pull request is WIP for now and was only opened to get some feedback, both visualisation-wise and code-wise.
+
+Here is how it looks like atm:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4442285/9d705a8c-47dd-11e4-9732-31fc07802367.png)
+
+The code to generate the plots is [there](https://github.com/lesteve/nilearn/blob/glass-brain/nilearn/plotting/glass_brain_scripts/plot_glass_brain.py).
+",88f70361a337a72718e3697a83d3a614ef7876be,[MRG] Glass brain visualisation,thi pull request wip open get feedback visualisationwis codewis here look like atm glassbrain the code gener plot,N,2014-12-04 15:21:44
+31,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-11-18 10:08:45,"> TBH maybe it's just that I have been staring at this way too long and that I am now unable to reliably distinguish gray from transparent red any more...
+
+No, no, I confirm.
+",,,No I confirm,N,2014-11-24 08:46:08
+32,issue_comment,245,nilearn,nilearn,lesteve,2014-11-24 08:46:08,"OK an attempt to use a non transparent colormap (plt.cm.Reds, better suggestion welcome). Default threshold is still 1e-6 (same as plot_stat_map):
+
+![glass_brain_plt_reds](https://cloud.githubusercontent.com/assets/1680079/5162329/4fc4a1be-73be-11e4-96a5-4395a33e63f1.png)
+",,,OK attempt use non transpar colormap pltcmred better suggest welcom default threshold still 1e6 plotstatmap glassbrainpltr,N,2014-11-24 10:10:05
+33,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-11-24 10:10:05,"This looks better, but it's still not there.
+
+The first thing that worries me is that the colormap doesn't seem to go all the way to white. Do you understand why?
+
+The second thing is that on the black bg, we should probably have a colormap going to black (which tells us that the argument that we take should maybe be a color, not a colormap, and we would generate the corresponding colormap.
+
+The last thing is that the threshold is wrong. But maybe we should not try to guess a threshold, and let the user specify one, or give us thresholded maps. By the way, are you applying the threshold on the projected maps? I think that we should apply it on the raw maps, and then project, as this is what a user would want to do when visualizing a statistical map: do not display any voxel that has too small a statistic.
+",,,thi look better still the first thing worri colormap doesnt seem go way white Do understand the second thing black bg probabl colormap go black tell us argument take mayb color colormap would gener correspond colormap the last thing threshold wrong but mayb tri guess threshold let user specifi one give us threshold map By way appli threshold project map I think appli raw map project user would want visual statist map display voxel small statist,N,2014-11-24 10:45:06
+34,issue_comment,245,nilearn,nilearn,lesteve,2014-11-24 10:45:06,"> The first thing that worries me is that the colormap doesn't seem to go all the way to white. Do you understand why?
+
+I think it does, there are a few very negative values in the eyes that survive the max along an axis.
+
+> The second thing is that on the black bg, we should probably have a colormap going to black (which tells us that the argument that we take should maybe be a color, not a colormap, and we would generate the corresponding colormap.
+
+We could have the cmap default to None and then do the logic in plot_glass_brain to switch between the white and black background. The white background would have a colormap going from white to red and the black one a colormap going from black to red.
+
+> I think that we should apply it on the raw maps, and then project, as this is what a user would want to do when visualizing a statistical map: do not display any voxel that has too small a statistic.
+
+I believe that's what we are doing at the moment. That would explain why you see some white pixels (e.g. top left or bottom left) with the threshold=10 which are not here with the default threshold. The threshold removes small positive values and you are left with the more extreme negative ones. 
+
+One last comment, the data is actually contrast data, I am wondering whether it would be worth calculating p-values like this [example](http://nilearn.github.io/auto_examples/plot_localizer_simple_analysis.html#example-plot-localizer-simple-analysis-py) to have a more realistic use case.
+",,,I think neg valu eye surviv max along axi We could cmap default none logic plotglassbrain switch white black background the white background would colormap go white red black one colormap go black red I believ that moment that would explain see white pixel eg top left bottom left threshold10 default threshold the threshold remov small posit valu left extrem neg one one last comment data actual contrast data I wonder whether would worth calcul pvalu like exampl realist use case,N,2014-11-24 10:57:37
+35,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-11-24 10:57:37,"> I think it does, there are a few very negative values in the eyes that survive
+> the max along an axis.
+
+Ah, OK. Shouldn't we be taking the absolutely value before summing?
+
+> We could have the cmap default to None and then do the logic in
+> plot_glass_brain to switch between the white and black background. The white
+> background would have a colormap going from white to red and the black one a
+> colormap going from black to red.
+
+That's an option. It's simple and would do the trick. Let's go for this.
+
+> One last comment, the data is actually contrast data, I am wondering
+> whether it would be worth calculating p-values like this example to
+> have a more realistic use case.
+
+These are T maps? If they are T maps, that's a pretty good example of
+standard usecase.
+",,,Ah OK shouldnt take absolut valu sum that option it simpl would trick let go these T map If T map that pretti good exampl standard usecas,N,2014-11-24 13:49:36
+36,issue_comment,245,nilearn,nilearn,lesteve,2014-11-24 13:49:36,"> Ah, OK. Shouldn't we be taking the absolutely value before summing?
+
+I went back on forth on this one, that's what I did naively at first but I got convinced by @bthirion to only take the max (something related to the fact that you can easily transformation t-tests into F-test and that the latter only has only positive values). Also as a side comment, note we are not summing but taking the max along an axis.
+
+> These are T maps? If they are T maps, that's a pretty good example of standard usecase.
+
+I think we are using the contrasts via `datasets.get_localizer_contrasts`. I hadn't seen until now that you could get t_maps by setting `get_tmaps=True` in this function. I'll try that.
+",,,I went back forth one that I naiv first I got convinc bthirion take max someth relat fact easili transform ttest ftest latter posit valu also side comment note sum take max along axi I think use contrast via I hadnt seen could get tmap set function ill tri,N,2014-11-27 14:33:21
+37,issue_comment,245,nilearn,nilearn,lesteve,2014-11-27 14:33:21,"OK now with localizer t-maps and a cmap that changes depending on the background. My choices of cmap were mostly dictated by finding matplotlib built-in ones which is black for low values. Better suggestions of colorbar more than welcome!
+
+![glass_brain_t_maps](https://cloud.githubusercontent.com/assets/1680079/5218204/4d677a98-764a-11e4-85a0-cfb6ec9bb296.png)
+",,,OK local tmap cmap chang depend background My choic cmap mostli dictat find matplotlib builtin one black low valu better suggest colorbar welcom glassbraintmap,N,2014-11-27 14:45:40
+38,issue_comment,245,nilearn,nilearn,lesteve,2014-11-27 14:45:40,"Oops, I unintentionally added the colormap for the last plots I posted. Now fixed:
+![glass_brain_t_maps](https://cloud.githubusercontent.com/assets/1680079/5218374/5cb76c22-764c-11e4-99c0-73cbf9c293fb.png)
+",,,oop I unintent ad colormap last plot I post now fix glassbraintmap,N,2014-11-27 14:59:00
+39,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-11-27 14:59:00,"That last things looks really good. I think that the lines should all be
+a little bit thinner (like .66 times their current value), but aside from
+that, I think that this is a final good iteration on the visual aspects.
+
+I still need to review the code...
+",,,that last thing look realli good I think line littl bit thinner like 66 time current valu asid I think final good iter visual aspect I still need review code,N,2014-11-28 09:58:41
+40,issue_comment,245,nilearn,nilearn,lesteve,2014-11-28 09:58:41,"Now with thinner lines:
+
+![glass_brain_t_maps_thinner_lines](https://cloud.githubusercontent.com/assets/1680079/5226205/753d1724-76ec-11e4-8ccc-bda9b9a26692.png)
+",,,now thinner line glassbraintmapsthinnerlin,N,2014-11-28 10:36:04
+41,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-11-28 10:36:04,"I think that this looks awesome! Absolutely awesome. I'll review the code on Tuesday (deadline Monday night). In the mean time, maybe someone like @AlexandreAbraham or @eickenberg can have a look at the code.
+",,,I think look awesom absolut awesom ill review code tuesday deadlin monday night In mean time mayb someon like alexandreabraham eickenberg look code,N,2014-12-02 08:45:25
+42,issue_comment,245,nilearn,nilearn,lesteve,2014-12-02 08:45:25,"Added inferior temporal sulcus to make @banilo happy:
+![glass_brain_inferior_temporal_sulcus](https://cloud.githubusercontent.com/assets/1680079/5259883/d098ade0-7a07-11e4-8e22-b40b5859af8d.png)
+",,,ad inferior tempor sulcu make banilo happi glassbraininferiortemporalsulcu,N,2014-12-02 08:48:40
+43,issue_comment,245,nilearn,nilearn,banilo,2014-12-02 08:48:40,":+1:  Perfect, good job!
+",,,1 perfect good job,N,2014-12-02 21:43:29
+44,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:43:29,"OK, I have finished my review. Only very minor, cosmetic comments. This is almost merged. Hurray!
+",,,OK I finish review onli minor cosmet comment thi almost merg hurray,N,2014-12-03 16:15:24
+45,issue_comment,245,nilearn,nilearn,AlexandreAbraham,2014-12-03 16:15:24,"A small visual effect is bugging me. If you look at the last figure posted by @lesteve, on the left column (black background) you can see in the first subplot (the yellow one) that they gray ""internal"" lines are very contrasted while the white ""external"" lines are not visible. On the contrary, when the plot is mainly red (just below) the white lines are visible but not the gray ones. I think that the problem here is that the color of the lines should not depend on the background color, but on the context of the line.
+
+I don't think that matplotlib allows complex overlays of images. And it is technically doable but it would require some dirty code. But it may be good enough for the users to allow a custom value for these colors.
+",,,A small visual effect bug If look last figur post lestev left column black background see first subplot yellow one gray intern line contrast white extern line visibl On contrari plot mainli red white line visibl gray one I think problem color line depend background color context line I dont think matplotlib allow complex overlay imag and technic doabl would requir dirti code but may good enough user allow custom valu color,N,2014-12-03 16:25:42
+46,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-03 16:25:42,"> I don't think that matplotlib allows complex overlays of images. And it is
+> technically doable but it would require some dirty code. But it may be good
+> enough for the users to allow a custom value for these colors.
+
+Let's move on. We have spent enough time on that. We need nilearn to be
+moving on as a bigger picture (and niconnect as a result).
+",,,let move We spent enough time We need nilearn move bigger pictur niconnect result,N,2014-12-04 12:45:31
+47,issue_comment,245,nilearn,nilearn,lesteve,2014-12-04 12:45:31,"I realised one of the main remaining sticking point was in a folded [comment](https://github.com/nilearn/nilearn/pull/245#discussion-diff-21186596), so I am duplicating it here for more visibility. tl; dr. I am going to leave kwargs undocumented and will leave visual improvements for further PRs.
+
+> Please document what the kwargs are (what they are passed for, and where to find what values they can take).
+
+This is a kludge that is only used to be able to get the alpha to percolate from img_plotting.plot_glass_brain to brain_glass.plot_brain_schematics. Eventually they get passed to the matplotlib patches of the brain schematics.
+
+To be honest I am not sure we need alpha. The plots do look better with alpha=0.7 (which has been used for the most recent snapshots) but maybe we can achieve a similar effect by just tweaking the color of the lines in the svg.
+
+**alpha=0.7**
+![glass_brain_alpha_07](https://cloud.githubusercontent.com/assets/1680079/5279213/770ce332-7ae2-11e4-9b85-d9c94fb7d80d.png)
+
+**alpha=1**
+![glass_brain_alpha_1](https://cloud.githubusercontent.com/assets/1680079/5279241/d802030c-7ae2-11e4-8b05-da056d89f428.png)
+",,,I realis one main remain stick point fold comment I duplic visibl tl dr I go leav kwarg undocu leav visual improv pr thi kludg use abl get alpha percol imgplottingplotglassbrain brainglassplotbrainschemat eventu get pass matplotlib patch brain schemat To honest I sure need alpha the plot look better alpha07 use recent snapshot mayb achiev similar effect tweak color line svg alpha07 glassbrainalpha07 alpha1 glassbrainalpha1,N,2014-12-04 13:40:45
+48,issue_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-04 13:40:45,"I saw that, but I prefer it with the alpha. 
+",,,I saw I prefer alpha ,N,2014-12-04 15:21:38
+49,issue_comment,245,nilearn,nilearn,lesteve,2014-12-04 15:21:38,"OK merging this long standing one ! 
+",,,OK merg long stand one,N,2014-12-04 16:37:45
+80,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/slicers.py')",ye that good suggest good idea thank,N,2014-12-02 19:52:06
+81,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 19:52:06,"Thanks for renaming slicer to display in the docs!
+",88f70361a337a72718e3697a83d3a614ef7876be,"(119, '', u'doc/building_blocks/plotting.rst')",thank renam slicer display doc,N,2014-12-02 20:00:20
+82,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 20:00:20,"Please document what the kwargs are (what they are passed for, and where to find what values they can take).
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",pleas document kwarg pass find valu take,N,2014-12-02 20:48:43
+83,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 20:48:43,"I think that I'd prefer a name like: transform_to_2d, or project_to_2d?
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",I think Id prefer name like transformto2d projectto2d,N,2014-12-02 20:52:48
+84,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 20:52:48,"When can d be None? What warrants that not all ds are None?
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",when none what warrant ds none,N,2014-12-02 20:55:21
+85,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 20:55:21,"Is there really a reason to use an izip instead of a zip? It seems to me that the list will always be small, so expanding it isn't a problem.
+
+In addition, I believe that in Python3, itervalues is deprecated, and you should use 'values', that returns some clever view that is not an expanded list.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",Is realli reason use izip instead zip It seem list alway small expand isnt problem In addit I believ python3 itervalu deprec use valu return clever view expand list,N,2014-12-02 21:09:58
+86,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:09:58,"I think that I would prefer this attribute to be named '_axes_class' (ie to be private).
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",I think I would prefer attribut name axesclass ie privat,N,2014-12-02 21:10:53
+87,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:10:53,"A small module-level docstring would be great here.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(5, '', u'nilearn/plotting/glass_brain.py')",A small modulelevel docstr would great,N,2014-12-02 21:14:08
+88,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:14:08,"A comment in this file saying what it does would be a good thing.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(1, '', u'nilearn/plotting/glass_brain_files/generate_json.sh')",A comment file say would good thing,N,2014-12-02 21:15:52
+89,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:15:52,"I'd like a module-level docstring here too :). I am trying to make it as easy as possible for someone to follow up on this work.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(6, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",Id like modulelevel docstr I tri make easi possibl someon follow work,N,2014-12-02 21:23:06
+90,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:23:06,"https://twitter.com/GaelVaroquaux/status/539892002092228608 :)
+",88f70361a337a72718e3697a83d3a614ef7876be,"(6, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",,N,2014-12-02 21:27:25
+91,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:27:25,"What's the point of the partial? I don't think that you are using other values elsewhere for these arguments. Maybe you should just define the function as:
+
+def add_brain_schematic(display, options=dict(alpha=.5, ...)):
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",what point partial I dont think use valu elsewher argument mayb defin function def addbrainschematicdisplay optionsdictalpha5,N,2014-12-02 21:31:37
+92,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:31:37,"Module-level docstring :)  (remember, the serial killer)
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",modulelevel docstr rememb serial killer,N,2014-12-02 21:32:17
+93,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:32:17,"Actually, is there a specific reason that this file is here, and not as an example. It would do a great example, IMHO.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",actual specif reason file exampl It would great exampl imho,N,2014-12-02 21:34:05
+94,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:34:05,"Ouch, code smell: we should be able to deal with nans in the data (because, as you are witnessing, it is often the case in neuroimaging)
+
+I'd be very happy if we could write this example without using nibabel, as an exercise to check that our API is good.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",ouch code smell abl deal nan data wit often case neuroimag Id happi could write exampl without use nibabel exercis check api good,N,2014-12-02 21:34:58
+95,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:34:58,"Module level docstring
+- why the uft-8? I prefer files not to have utf-8 (because it can be hard to type and hard to read).
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/svg_to_json_converter.py')",modul level docstr uft8 I prefer file utf8 hard type hard read,N,2014-12-02 21:36:02
+96,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:36:02,"It doesn't really make much sens to plot an anat in a glass brain. I think that you should remove the few lines above.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",It doesnt realli make much sen plot anat glass brain I think remov line,N,2014-12-02 21:38:39
+97,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:38:39,"You should probably document that new argument.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/img_plotting.py')",you probabl document new argument,N,2014-12-02 21:40:02
+98,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:40:02,"Why the future tense? ""are added"", I would say.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/img_plotting.py')",whi futur tens ad I would say,N,2014-12-02 21:41:25
+99,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-02 21:41:25,"Nice design: this function is very tight.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/img_plotting.py')",nice design function tight,N,2014-12-03 08:00:46
+100,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 08:00:46,"Nice one, I knew it with the ""and knew where you live"" addition but maybe that didn't fit in 140 characters :smile:
+",88f70361a337a72718e3697a83d3a614ef7876be,"(6, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",nice one I knew knew live addit mayb didnt fit 140 charact smile,N,2014-12-03 08:05:19
+101,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-03 08:05:19,"Indeed. It's hard to do philosophy with 140 chars. 
+",88f70361a337a72718e3697a83d3a614ef7876be,"(6, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",inde it hard philosophi 140 chars ,N,2014-12-03 08:08:55
+102,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 08:08:55,"plot_glass_brain.py was mostly used to produce the plots I was showing in this PR. I think it can go. There is an example of glass brain in plot_demo_plotting.py already.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",plotglassbrainpi mostli use produc plot I show PR I think go there exampl glass brain plotdemoplottingpi alreadi,N,2014-12-03 08:10:19
+103,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 08:10:19,"Agreed, the anat was only plotted for alignment purposes. This can probably go to plot_svg_align.py.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",agre anat plot align purpos thi probabl go plotsvgalignpi,N,2014-12-03 08:10:19
+104,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-03 08:10:19,"Ok
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/glass_brain_files/plot_glass_brain.py')",Ok,N,2014-12-03 08:45:30
+105,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 08:45:30,"This is an internal function without detailed documentation for other arguments. It says refer to the docstring of plot_img but that doesn't apply to quite a few arguments like bg_vmin, bg_vmax, interpolation, ...
+
+For completeness create_display_fun is the function that takes a display_mode argument and return a display class. Suggestions for better naming welcome!
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/img_plotting.py')",thi intern function without detail document argument It say refer docstr plotimg doesnt appli quit argument like bgvmin bgvmax interpol for complet createdisplayfun function take displaymod argument return display class suggest better name welcom,N,2014-12-03 08:47:47
+106,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-03 08:47:47,"I think that mayber we should document only the parameters not explained
+in plot_img.
+
+> For completeness create_display_fun is the function that takes a display_mode
+> argument and return a display class. Suggestions for better naming welcome!
+
+This is usually called a 'factory'. At least in C++/java world :). So I
+would call it 'display_factory'.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/img_plotting.py')",I think mayber document paramet explain plotimg thi usual call factori At least cjava world So I would call displayfactori,N,2014-12-03 09:55:46
+107,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 09:55:46,"There is a README.md in the glass_brain_files folder but maybe that's not good enough
+",88f70361a337a72718e3697a83d3a614ef7876be,"(1, '', u'nilearn/plotting/glass_brain_files/generate_json.sh')",there readmemd glassbrainfil folder mayb that good enough,N,2014-12-03 10:02:18
+108,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 10:02:18," The logic was there before me: an IndexError is caught and ignored when plotting slices. In this case data_2d will be None.
+
+This is slicer-specific so this can probably be improved.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",the logic indexerror caught ignor plot slice In case data2d none thi slicerspecif probabl improv,N,2014-12-03 10:52:53
+109,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 10:52:53,"This is a kludge that is only used to be able to get the alpha to percolate from img_plotting.plot_glass_brain to brain_glass.plot_brain_schematics. Eventually they get passed to the matplotlib patches of the brain schematics.
+
+To be honest I am not sure we need alpha. The plots do look better with alpha=0.7 (which has been used for the most recent snapshots) but maybe we can achieve a similar effect by just tweaking the color of the lines in the svg.
+
+**alpha=0.7**
+![glass_brain_alpha_07](https://cloud.githubusercontent.com/assets/1680079/5279213/770ce332-7ae2-11e4-9b85-d9c94fb7d80d.png)
+
+**alpha=1**
+![glass_brain_alpha_1](https://cloud.githubusercontent.com/assets/1680079/5279241/d802030c-7ae2-11e4-8b05-da056d89f428.png)
+",88f70361a337a72718e3697a83d3a614ef7876be,"(None, '', u'nilearn/plotting/displays.py')",thi kludg use abl get alpha percol imgplottingplotglassbrain brainglassplotbrainschemat eventu get pass matplotlib patch brain schemat To honest I sure need alpha the plot look better alpha07 use recent snapshot mayb achiev similar effect tweak color line svg alpha07 glassbrainalpha07 alpha1 glassbrainalpha1,N,2014-12-03 13:52:24
+110,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 13:52:24,"Done.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(5, '', u'nilearn/plotting/glass_brain.py')",done,N,2014-12-03 13:52:34
+111,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 13:52:34,"> A comment in this file saying what it does would be a good thing.
+
+Done
+",88f70361a337a72718e3697a83d3a614ef7876be,"(1, '', u'nilearn/plotting/glass_brain_files/generate_json.sh')",done,N,2014-12-03 13:53:24
+112,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 13:53:24,"> I'd like a module-level docstring here too :)
+
+Done
+",88f70361a337a72718e3697a83d3a614ef7876be,"(6, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",done,N,2014-12-03 13:54:33
+113,pull_request_commit_comment,245,nilearn,nilearn,GaelVaroquaux,2014-12-03 13:54:33,"Merge when you feel ready!
+",88f70361a337a72718e3697a83d3a614ef7876be,"(6, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",merg feel readi,N,2014-12-03 15:38:34
+114,pull_request_commit_comment,245,nilearn,nilearn,AlexandreAbraham,2014-12-03 15:38:34,"Not Python 3.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(443, '', u'nilearn/plotting/displays.py')",not python 3,N,2014-12-03 15:40:10
+115,pull_request_commit_comment,245,nilearn,nilearn,AlexandreAbraham,2014-12-03 15:40:10,"Deprecated.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(502, '', u'nilearn/plotting/displays.py')",deprec,N,2014-12-03 15:40:20
+116,pull_request_commit_comment,245,nilearn,nilearn,AlexandreAbraham,2014-12-03 15:40:20,"Deprecated too.
+",88f70361a337a72718e3697a83d3a614ef7876be,"(503, '', u'nilearn/plotting/displays.py')",deprec,N,2014-12-03 15:41:50
+117,pull_request_commit_comment,245,nilearn,nilearn,AlexandreAbraham,2014-12-03 15:41:50,"Not Python 3
+",88f70361a337a72718e3697a83d3a614ef7876be,"(542, '', u'nilearn/plotting/displays.py')",not python 3,N,2014-12-03 16:17:53
+118,pull_request_commit_comment,245,nilearn,nilearn,AlexandreAbraham,2014-12-03 16:17:53,"Why do you do that?
+",88f70361a337a72718e3697a83d3a614ef7876be,"(13, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",whi,N,2014-12-03 17:29:26
+119,pull_request_commit_comment,245,nilearn,nilearn,lesteve,2014-12-03 17:29:26,"Probably the remains of using %run inside ipython to run the script repeatedly between incremental tweakings of the SVG alignment parameters. I can remove it. 
+",88f70361a337a72718e3697a83d3a614ef7876be,"(13, '', u'nilearn/plotting/glass_brain_files/plot_align_svg.py')",probabl remain use run insid ipython run script repeatedli increment tweak svg align paramet I remov,N,2014-12-03 17:37:56
+160,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-18 09:38:11,Removal of redundant if statement,31ce2c96d39eec8f539f7e400c43c9079f912933,,remov redund statement,N,2014-11-20 15:05:42
+161,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-20 15:05:42,"The color should stay constant for transparent colormap
+
+Otherwise the colormap goes gray towards the low alpha values",6cada3a43c7935be1b842e1f7854564d1f5a181d,,the color stay constant transpar colormap otherwis colormap goe gray toward low alpha valu,N,2014-11-25 09:58:22
+162,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-25 09:58:22,Use t-maps rather than contrasts in plot_glass_brain.py,7d17f985def68822fe0ac8b72a2d6b47bdc71d90,,use tmap rather contrast plotglassbrainpi,N,2014-11-27 14:12:38
+163,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-27 14:12:38,Use max(abs(data)) for 2d projection rather than max(data),d4d51e4298a702057d48b5486eafe99161d13612,,use maxabsdata 2d project rather maxdata,N,2014-11-27 14:42:27
+164,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-27 14:42:27,"Change default plot_glass_brain colormap
+
+depending on black_bg. Also black_bg default to False because 'auto' makes sense only
+when plotting an anat. Updated plot_glass_brain.py accordingly.",f5ef98cc9bf6a2c49c3a6c539d83ab613243950b,,chang default plotglassbrain colormap depend blackbg also blackbg default fals auto make sens plot anat updat plotglassbrainpi accordingli,N,2014-11-28 09:34:37
+165,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-28 09:34:37,"Simplified glass brain SVGs
+
+- Only three kind of stroke-widths: 1.2, 2.5, 3
+- Did some ungrouping in brain_schematics_top.svg
+- Regenerated JSONs",66dfaa4e1ad4977ded3492e19d500a9d0f178a82,,simplifi glass brain svg onli three kind strokewidth 12 25 3 did ungroup brainschematicstopsvg regener json,N,2014-11-28 09:41:24
+166,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-28 09:41:24,"Remove invisible path
+
+in brain_schematics_top.svg. Regenerated JSON",9f011d7996d4c3c46020febbcfc4726ac2fb36fb,,remov invis path brainschematicstopsvg regener json,N,2014-11-28 09:52:04
+167,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-28 09:52:04,"Thiner lines in the glass brain SVGs
+
+and regenerated JSONs",4e1a37bf37ef0c5933d634d8423ea324beaf8177,,thiner line glass brain svg regener json,N,2014-11-28 12:03:50
+168,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-28 12:03:50,Use auto threshold for glass brain,927fa06de0a561b4561d1056d76bd6e4ad183779,,use auto threshold glass brain,N,2014-11-28 12:26:55
+169,pull_request_commit,245,nilearn,nilearn,lesteve,2014-11-28 12:26:55,Tweak glass brain example in plot_demo_plotting.py,c2a6bf9f01436500053be7db857db6c1d4ded6b4,,tweak glass brain exampl plotdemoplottingpi,N,2014-12-02 08:41:42
+170,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-02 08:41:42,Add inferior temporal sulcus,7bcf1a2e04b41e7f9b9b54e32799e4521cb2dae9,,add inferior tempor sulcu,N,2014-12-03 08:58:11
+171,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 08:58:11,Rename some lingering slicer to display,8a42985efed7eb736cabf03307ac298ef7a81521,,renam linger slicer display,N,2014-12-03 09:11:56
+172,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 09:11:56,Fix max instead of min typo in auto vmin logic,9c8f0b6539f9d855319912c6450fefb01ef94ad3,,fix max instead min typo auto vmin logic,N,2014-12-03 09:50:50
+173,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 09:50:50,"Cosmits
+
+* transform_2d -> transform_to_2d
+* axes_class -> _axes_class
+* other minor stuff",f37072bba78c1dc71b40df5bca3a149d92fa32ee,,cosmit transform2d axesclass minor stuff,N,2014-12-03 10:14:15
+174,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 10:14:15,Add module docstrings,3e25fe601c65acc83cf526194f93570560697ce9,,add modul docstr,N,2014-12-03 10:21:34
+175,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 10:21:34,"Document more parameters in _plot_img_with_bg
+
+Also:
+* create_display_fun renamed to display_factory
+* removed unused import
+* PEP8 fix",d97191733c787f7f41dad97536f80f51209a7466,,document paramet plotimgwithbg also createdisplayfun renam displayfactori remov unus import pep8 fix,N,2014-12-03 12:37:30
+176,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 12:37:30,Added OrthoProjector smoke test,71c81114f16817bc6717038bd5aaba38461ff740,,ad orthoprojector smoke test,N,2014-12-03 12:59:11
+177,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-03 12:59:11,"Add anatomy in plot_align_svg.py
+
+Also other minor tweaks",4db09951b571a122f86cfc6b68282a3d9337bcd8,,add anatomi plotalignsvgpi also minor tweak,N,2014-12-04 12:50:48
+178,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-04 12:50:48,"Explicitly say that input data needs to be in MNI space
+
+in plot_glass_brain in order to be aligned with brain schematics",bc75c30fdd9f2d6de383c4cdad64a545a91709e8,,explicitli say input data need mni space plotglassbrain order align brain schemat,N,2014-12-04 12:51:54
+179,pull_request_commit,245,nilearn,nilearn,lesteve,2014-12-04 12:51:54,"Use alpha=0.7 by default for the brain schematics
+
+This is the value that was used in all the latest screen snapshots from the PR",a58cc1507492ee687b8862a7b7251b0e10d0ad94,,use alpha07 default brain schemat thi valu use latest screen snapshot PR,N,2014-12-04 12:59:24
+1,issue_title,294,nilearn,nilearn,banilo,2014-11-24 16:39:55,"tries to address #292 
+",start issue,[ENH] globally unifying _img/_niimg naming in API+variables,tri address 292,N,2014-12-04 13:19:46
+2,issue_closed,294,nilearn,nilearn,lesteve,2014-12-04 13:19:46,,closed issue,[ENH] globally unifying _img/_niimg naming in API+variables,,N,2014-11-24 16:39:55
+3,pull_request_title,294,nilearn,nilearn,banilo,2014-11-24 16:39:55,"tries to address #292 
+",12c3053e78d6338256b8556a6b0888b86c27863e,[ENH] globally unifying _img/_niimg naming in API+variables,tri address 292,N,2014-12-04 13:19:46
+4,pull_request_merged,294,nilearn,nilearn,lesteve,2014-12-04 13:19:46,[ENH] globally unifying _img/_niimg naming in API+variables,93fce15c1b8a032a4fa30365b3e4ab0401eef63e,Pull request merge from banilo/nilearn:niimg to nilearn/nilearn:master,enh global unifi imgniimg name apivari,N,2014-11-25 12:30:51
+5,issue_comment,294,nilearn,nilearn,eickenberg,2014-11-25 12:30:51,"I'm finding this not easy to review, because I am not 1000% sure of the criteria. I can go on giving my opinion, but I'd prefer making sure I am reasoning in the right direction first. I kind of liked ""niimg"" ...
+",,,Im find easi review I 1000 sure criteria I go give opinion Id prefer make sure I reason right direct first I kind like niimg,N,2014-11-25 15:07:17
+6,issue_comment,294,nilearn,nilearn,lesteve,2014-11-25 15:07:17,"Below is my summary of the compromise I gathered from the previous conversations. Please anyone shout if I misunderstood or misrepresented something:
+1. Outside of _utils always use _img. In order to avoid ambiguities I am sincerely hoping that all the user-facing functions always accept Nifti-like images via calling _utils.check_img et al.
+2. Inside _utils, make the difference between
+   - _img: an object that has get_data and get_affine
+   - _niimg: either a Nifti filename or an _img
+
+So to take a few realistic examples:
+
+``` python
+# plotting/img_plotting.py
+
+def plot_img(img):
+    ""are we fine with the check_niimg(img) inconsistency here""
+    img = check_niimg(img)  
+    # rest of the code
+```
+
+``` python
+# _utils/niimg_conversions.py
+
+def check_niimg(niimg):
+    # whatever the code does to check 'niimg' type 
+    # and possibly convert the filename to an image
+
+def is_img(img):
+    # check that img has get_data and get_affine
+```
+",,,below summari compromis I gather previou convers pleas anyon shout I misunderstood misrepres someth 1 outsid util alway use img In order avoid ambigu I sincer hope userfac function alway accept niftilik imag via call utilscheckimg et al 2 insid util make differ img object getdata getaffin niimg either nifti filenam img So take realist exampl,N,2014-11-27 08:49:08
+7,issue_comment,294,nilearn,nilearn,banilo,2014-11-27 08:49:08,"I would realize Loic's suggestion, then. Unless there are objections?
+",,,I would realiz loic suggest unless object,N,2014-11-27 09:45:41
+8,issue_comment,294,nilearn,nilearn,banilo,2014-11-27 09:45:41,"In the last (squashed) commit I attempted the following compromise:
+
+a) functions/variables unambiguously dealing with Nifti1Image objects -> ""img""
+b) functions/variables dealing with either Nifti1Image objects or paths to niftis or lists of these -> ""niimg""
+",,,In last squash commit I attempt follow compromis functionsvari unambigu deal nifti1imag object b functionsvari deal either nifti1imag object path nifti list,N,2014-11-27 09:47:30
+9,issue_comment,294,nilearn,nilearn,eickenberg,2014-11-27 09:47:30,"dont squash until you are ready to merge
+
+On Thursday, November 27, 2014, Danilo Bzdok notifications@github.com
+wrote:
+
+> In the last (squashed) commit I attempted the following compromise:
+> 
+> a) functions/variables unambiguously dealing with Nifti1Image objects ->
+> ""img""
+> b) functions/variables dealing with either Nifti1Image objects or paths to
+> niftis or lists of these -> ""niimg""
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/294#issuecomment-64767176.
+",,,dont squash readi merg On thursday novemb 27 2014 danilo bzdok notificationsgithubcom wrote,N,2014-11-27 10:02:58
+10,issue_comment,294,nilearn,nilearn,lesteve,2014-11-27 10:02:58,"> In the last (squashed) commit I attempted the following compromise:
+> 
+> a) functions/variables unambiguously dealing with Nifti1Image objects -> ""img""
+> b) functions/variables dealing with either Nifti1Image objects or paths to niftis or lists of these -> ""niimg""
+
+You followed this only inside _utils, right?
+",,,you follow insid util right,N,2014-11-27 10:07:20
+11,issue_comment,294,nilearn,nilearn,banilo,2014-11-27 10:07:20,"Rather, for all changes files, including _utils.*
+
+2014-11-27 11:02 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In the last (squashed) commit I attempted the following compromise:
+> 
+> a) functions/variables unambiguously dealing with Nifti1Image objects ->
+> ""img""
+> b) functions/variables dealing with either Nifti1Image objects or paths to
+> niftis or lists of these -> ""niimg""
+> 
+> You followed this only inside _utils, right?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/294#issuecomment-64769154.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,rather chang file includ util 20141127 1102 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo,N,2014-11-27 10:28:38
+12,issue_comment,294,nilearn,nilearn,lesteve,2014-11-27 10:28:38,"> Rather, for all changes files, including _utils.*
+
+:confused: At first sight, it looks like you did what I proposed so I am going to completely disregard your last comment.
+",,,confus At first sight look like I propos I go complet disregard last comment,N,2014-11-27 10:34:41
+13,issue_comment,294,nilearn,nilearn,banilo,2014-11-27 10:34:41,"Whatever the Watzlawickian communication bottleneck... From what I
+understood, we might all agree on the current version of the PR. Let's see.
+
+2014-11-27 11:28 GMT+01:00 Loïc Estève notifications@github.com:
+
+> Rather, for all changes files, including _utils.*
+> 
+> [image: :confused:] At first sight, it looks like you did what I proposed
+> so I am going to completely disregard your last comment.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/294#issuecomment-64772258.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,whatev watzlawickian commun bottleneck from I understood might agre current version PR let see 20141127 1128 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo,N,2014-11-28 08:58:59
+14,issue_comment,294,nilearn,nilearn,lesteve,2014-11-28 08:58:59,"I think we should come up with a uniform description of the `img` parameter in the docstring as well. At the moment here are a few examples I could find:
+- niimg
+- string or object
+- nilearn nifti image
+- a nifti-image like object or a filename
+
+The wording [there](http://nilearn.github.io/building_blocks/manipulating_mr_images.html#niimg-like-objects) seems to be ""Niimg-like object"". We could use this wording but I am not sure how to point to a useful description of what a Niimg-like object inside the docstring.
+",,,I think come uniform descript paramet docstr well At moment exampl I could find niimg string object nilearn nifti imag niftiimag like object filenam the word seem niimglik object We could use word I sure point use descript niimglik object insid docstr,N,2014-11-28 21:50:53
+15,issue_comment,294,nilearn,nilearn,banilo,2014-11-28 21:50:53,"Last commit..
+a) restored unnecessary PEP8 fixes
+b) change concat_img to concat_niimgs
+",,,last commit restor unnecessari pep8 fix b chang concatimg concatniimg,N,2014-12-01 08:05:53
+16,issue_comment,294,nilearn,nilearn,lesteve,2014-12-01 08:05:53,"> a) restored unnecessary PEP8 fixes
+
+There are still some left ...
+
+Besides that I believe the main remaining thing is to come up with a uniform and useful docstring description, see my post above.
+",,,there still left besid I believ main remain thing come uniform use docstr descript see post,N,2014-12-01 08:14:38
+17,issue_comment,294,nilearn,nilearn,banilo,2014-12-01 08:14:38,"Regarding the documentation issue: how about docstring-ing 3 baseline entities:
+a) img: a nibabel.Nifti1Image object, with .get_affine(), .get_data() and shape
+b) str: filename/path to a nifti image
+c) niimg (restriced to _utils): (iterable of) a or b
+",,,regard document issu docstring 3 baselin entiti img nibabelnifti1imag object getaffin getdata shape b str filenamepath nifti imag c niimg restric util iter b,N,2014-12-01 15:12:26
+18,issue_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:12:26,"There are still `niimg` occurences lingering in other files, e.g. nilearn/decoding/searchlight.py
+",,,there still occur linger file eg nilearndecodingsearchlightpi,N,2014-12-01 15:18:52
+19,issue_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:18:52,"> There are still niimg occurences lingering in other files, e.g. nilearn/decoding/searchlight.py
+
+Also in nilearn/image/resampling.py
+",,,also nilearnimageresamplingpi,N,2014-12-01 19:05:39
+20,issue_comment,294,nilearn,nilearn,banilo,2014-12-01 19:05:39,"Ok, how about the current status?
+",,,Ok current statu,N,2014-12-01 19:16:24
+21,issue_comment,294,nilearn,nilearn,lesteve,2014-12-01 19:16:24,"> Ok, how about the current status?
+
+Looking closer but a few of my comments are still visible, meaning they have been missed  ...
+",,,look closer comment still visibl mean miss,N,2014-12-02 10:08:25
+22,issue_comment,294,nilearn,nilearn,banilo,2014-12-02 10:08:25,"Ok, last touches done
+
+:dancers: 
+",,,Ok last touch done dancer,N,2014-12-02 13:22:07
+23,issue_comment,294,nilearn,nilearn,banilo,2014-12-02 13:22:07,"Last last touches done...
+
+:ghost: 
+",,,last last touch done ghost,N,2014-12-02 15:35:37
+24,issue_comment,294,nilearn,nilearn,banilo,2014-12-02 15:35:37,"Last last touches done...
+
+:dancer: :dancer: :dancer: :dancer: :dancer: :dancer: :dancer: 
+",,,last last touch done dancer dancer dancer dancer dancer dancer dancer,N,2014-12-04 08:35:32
+25,issue_comment,294,nilearn,nilearn,banilo,2014-12-04 08:35:32,"Voilà, commits squashed... resolved 1 merge conflict in plot_oasis... on the way.
+
+Regarding test: final commit has works-on-my-machine certificat
+",,,voilà commit squash resolv 1 merg conflict plotoasi way regard test final commit worksonmymachin certificat,Y,2014-12-04 10:06:25
+26,issue_comment,294,nilearn,nilearn,lesteve,2014-12-04 10:06:25,"plot_oasis_vbm.py is broken: you left some niimg in there
+",,,plotoasisvbmpi broken left niimg,N,2014-12-04 10:08:57
+27,issue_comment,294,nilearn,nilearn,lesteve,2014-12-04 10:08:57,"there are still some niimg left in decoding/searchlight.py
+",,,still niimg left decodingsearchlightpi,N,2014-12-04 10:11:26
+28,issue_comment,294,nilearn,nilearn,lesteve,2014-12-04 10:11:26,"Outside the last few comments, I think we are closing in on near-perfection. I am sure we missed a few but they will be fixed incrementally.
+",,,outsid last comment I think close nearperfect I sure miss fix increment,N,2014-12-04 13:19:36
+29,issue_comment,294,nilearn,nilearn,lesteve,2014-12-04 13:19:36,"All right, we got there or close enough in the end :fireworks:!
+
+Kudos for going through the pain to bring this to completion.
+",,,all right got close enough end firework kudo go pain bring complet,N,2014-12-04 13:39:38
+30,issue_comment,294,nilearn,nilearn,GaelVaroquaux,2014-12-04 13:39:38,"Hurray! Thanks
+
+<div>-------- Original message --------</div><div>From: Loïc Estève notifications@github.com </div><div>Date:04/12/2014  14:19  (GMT+01:00) </div><div>To: nilearn/nilearn nilearn@noreply.github.com </div><div>Subject: Re: [nilearn] [ENH] globally unifying _img/_niimg naming in
+  API+variables (#294) </div><div>
+</div>Merged #294.
+
+—
+Reply to this email directly or view it on GitHub.
+",,,hurray thank div apivari 294 divdiv — repli email directli view github,N,2014-11-25 12:11:04
+31,pull_request_commit_comment,294,nilearn,nilearn,eickenberg,2014-11-25 12:11:04,"maybe go for `is_img` because 'a' isn't the right article for 'img'. Interesting that this said ""niimg"" to begin with -- this function will not accept filenames as valid images.
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",mayb go isnt right articl img interest said niimg begin function accept filenam valid imag,N,2014-11-25 12:11:33
+32,pull_request_commit_comment,294,nilearn,nilearn,eickenberg,2014-11-25 12:11:33,"wait for another opinion before making this change
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",wait anoth opinion make chang,N,2014-11-25 12:12:42
+33,pull_request_commit_comment,294,nilearn,nilearn,eickenberg,2014-11-25 12:12:42,"this function also doesn't accept filenames, so good change.
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(23, '', u'nilearn/_utils/niimg_conversions.py')",function also doesnt accept filenam good chang,N,2014-11-25 12:14:50
+34,pull_request_commit_comment,294,nilearn,nilearn,eickenberg,2014-11-25 12:14:50,"I would write ""image"" here or stay with ""niimg"" (but again, it can't be a filename here)
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I would write imag stay niimg cant filenam,N,2014-11-27 08:51:19
+35,pull_request_commit_comment,294,nilearn,nilearn,banilo,2014-11-27 08:51:19,"Yes, is_img appears to be a good solution. Objections?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",ye isimg appear good solut object,N,2014-11-27 08:52:57
+36,pull_request_commit_comment,294,nilearn,nilearn,banilo,2014-11-27 08:52:57,"Suggestion: Should we just tend to use ""image"" in docstrings and comments as a human-language correlate of img objects?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",suggest should tend use imag docstr comment humanlanguag correl img object,N,2014-11-27 14:56:02
+37,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-11-27 14:56:02,"Unnecessary change
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/testing.py')",unnecessari chang,N,2014-11-27 14:58:58
+38,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-11-27 14:58:58,"I guess you should use img rather than nifti_image here.
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I guess use img rather niftiimag,N,2014-11-27 14:59:24
+39,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-11-27 14:59:24,"a_n_ image
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",imag,N,2014-11-27 15:05:09
+40,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-11-27 15:05:09,"I thought we agree that we would keep niimg in this kind of cases:
+- we are in _utils so we bother about making the img/niimg distinction
+- niimgs can be a list of paths or image objects (since we called check_niimg on them)
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I thought agre would keep niimg kind case util bother make imgniimg distinct niimg list path imag object sinc call checkniimg,N,2014-11-27 15:11:41
+41,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-11-27 15:11:41,"I am guessing your editor removes newlines at the end of the file automatically. It would be nice to disable that since that introduces unnecessary noise in the diff.
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/__init__.py')",I guess editor remov newlin end file automat It would nice disabl sinc introduc unnecessari nois diff,N,2014-11-27 15:39:47
+42,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-11-27 15:39:47,"Still some unnecessary PEP8 fixes like this in a few places. Can you look at your diff and remove all of them?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/img_plotting.py')",still unnecessari pep8 fix like place can look diff remov,N,2014-11-27 21:21:04
+43,pull_request_commit_comment,294,nilearn,nilearn,banilo,2014-11-27 21:21:04,"Yes indeed...i will disable this Feature 
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/__init__.py')",ye indeedi disabl featur,N,2014-11-28 21:15:14
+44,pull_request_commit_comment,294,nilearn,nilearn,banilo,2014-11-28 21:15:14,"Fixed this uncalled for default behavior of atom editor now!
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/testing.py')",fix uncal default behavior atom editor,N,2014-12-01 14:26:41
+45,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:26:41,"niimgs?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",niimg,N,2014-12-01 14:28:58
+46,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:28:58,"iterable of niimg-like objects?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",iter niimglik object,N,2014-12-01 14:30:40
+47,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:30:40,"Keep niimg here and the line above, since you are iterating over niimgs?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",keep niimg line sinc iter niimg,N,2014-12-01 14:31:21
+48,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:31:21,"Same thing here img -> niimg
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",same thing img,N,2014-12-01 14:32:12
+49,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:32:12,"iter_img -> iter_niimg
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",iterimg,N,2014-12-01 14:33:10
+50,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:33:10,"I would keep the (iterable of)*
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I would keep iter,N,2014-12-01 14:33:34
+51,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:33:34,"Still a new line here
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/testing.py')",still new line,N,2014-12-01 14:34:07
+52,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:34:07,"list of Niimg-like objects + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/canica.py')",list niimglik object url,N,2014-12-01 14:34:47
+53,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:34:47,"I would keep ""list of""
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",I would keep list,N,2014-12-01 14:35:49
+54,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:35:49,"Niimg-like object, instance of NiftiMasker ...
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",niimglik object instanc niftimask,N,2014-12-01 14:35:59
+55,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:35:59,"List of
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",list,N,2014-12-01 14:36:30
+56,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:36:30,"Niimg-like object?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",niimglik object,N,2014-12-01 14:37:38
+57,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:37:38,"List of or plural?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",list plural,N,2014-12-01 14:37:59
+58,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:37:59,"Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/__init__.py')",niimglik object,N,2014-12-01 14:39:03
+59,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:39:03,"Niimg-like object
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",niimglik object,N,2014-12-01 14:40:58
+60,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:40:58,"I would add ""or iterable of Niimg-like object""
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",I would add iter niimglik object,N,2014-12-01 14:43:07
+61,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:43:07,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",niimglik object url,N,2014-12-01 14:43:28
+62,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:43:28,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",niimglik object url,N,2014-12-01 14:43:53
+63,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:43:53,"Niimg-like object
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",niimglik object,N,2014-12-01 14:44:46
+64,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:44:46,"Should we say image here?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",should say imag,N,2014-12-01 14:45:13
+65,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:45:13,"Add ""or iterable of Niimg-like objects""
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",add iter niimglik object,N,2014-12-01 14:45:55
+66,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:45:55,"Do we need the explanation now that we have the link to the doc?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/image/image.py')",Do need explan link doc,N,2014-12-01 14:48:51
+67,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:48:51,"a_n_ img
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",img,N,2014-12-01 14:49:28
+68,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:49:28,"a_n_ img
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",img,N,2014-12-01 14:49:47
+69,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:49:47,"a_n_ img
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'plot_mask_computation.py')",img,N,2014-12-01 14:52:29
+70,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:52:29,"list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",list niimglik object,N,2014-12-01 14:58:29
+71,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:58:29,"list of?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",list,N,2014-12-01 14:58:40
+72,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:58:40,"Niimg-like object + URL?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",niimglik object url,N,2014-12-01 14:59:31
+73,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 14:59:31,"Niimg-like object
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",niimglik object,N,2014-12-01 15:03:19
+74,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:03:19,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",niimglik object url,N,2014-12-01 15:03:21
+75,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:03:21,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",,N,2014-12-01 15:04:28
+76,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:04:28,"Niimg-like object
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",niimglik object,N,2014-12-01 15:05:04
+77,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:05:04,"Niimg-like object
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",niimglik object,N,2014-12-01 15:05:13
+78,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:05:13,"Niimg-like object
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",niimglik object,N,2014-12-01 15:05:56
+79,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:05:56,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",niimglik object url,N,2014-12-01 15:06:03
+80,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-01 15:06:03,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",,N,2014-12-02 12:40:22
+81,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:40:22,"I think what the (...)\* meant was: Niimg-like object or iterable of Niimg-like objects.
+
+Maybe we should use the wording ""4D Niimg-like object"" to follow the doc URL .
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I think meant niimglik object iter niimglik object mayb use word 4D niimglik object follow doc url,N,2014-12-02 12:41:18
+82,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:41:18,"list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/canica.py')",list niimglik object,N,2014-12-02 12:42:01
+83,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:42:01,"object_s_
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",object,N,2014-12-02 12:42:15
+84,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:42:15,"object_s_
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/decomposition/multi_pca.py')",object,N,2014-12-02 12:42:27
+85,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:42:27,"object_s_
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",object,N,2014-12-02 12:43:23
+86,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:43:23,"and keep 4D. Something like ""list of 4D Niimg-like object""
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",keep 4D someth like list 4D niimglik object,N,2014-12-02 12:45:14
+87,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:45:14,"Syntax error
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/img_plotting.py')",syntax error,N,2014-12-02 12:48:31
+88,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:48:31,"Still some unwanted PEP8 changes
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",still unwant pep8 chang,N,2014-12-02 12:48:41
+89,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:48:41,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",,N,2014-12-02 12:48:45
+90,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:48:45,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",,N,2014-12-02 12:48:50
+91,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:48:50,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",,N,2014-12-02 12:48:54
+92,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:48:54,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",,N,2014-12-02 12:48:59
+93,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:48:59,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",,N,2014-12-02 12:49:03
+94,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:49:03,"and again
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",,N,2014-12-02 12:49:20
+95,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:49:20,"missing URL?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/plotting/slicers.py')",miss url,N,2014-12-02 12:55:11
+96,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 12:55:11,"should we use 4D Niimg-like object here and everywhere that check_niimg_s_ is used?
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",use 4D niimglik object everywher checkniimg use,N,2014-12-02 13:13:47
+97,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 13:13:47,"list of ...
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",list,N,2014-12-02 13:51:06
+98,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 13:51:06,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/nifti_region.py')",niimglik object url,N,2014-12-02 13:51:12
+99,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 13:51:12,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/nifti_region.py')",niimglik object url,N,2014-12-02 13:52:44
+100,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 13:52:44,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/nifti_region.py')",niimglik object url,N,2014-12-02 13:52:51
+101,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 13:52:51,"Niimg-like object + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/nifti_region.py')",niimglik object url,N,2014-12-02 14:01:11
+102,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 14:01:11,"list of Niimg-like objects + URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/masking.py')",list niimglik object url,N,2014-12-02 14:51:10
+103,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 14:51:10,"list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/base_masker.py')",list niimglik object,N,2014-12-02 14:55:20
+104,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 14:55:20,"4D Niimg-like object (I think ...)
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",4D niimglik object I think,N,2014-12-02 14:59:11
+105,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 14:59:11,"Actually I don't understand the code in detail, just follow the old docstring i.e.:
+list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",actual I dont understand code detail follow old docstr ie list niimglik object,N,2014-12-02 15:03:36
+106,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 15:03:36,"Again, I don't follow the code completely but based on the old docstring I would use:
+list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",again I dont follow code complet base old docstr I would use list niimglik object,N,2014-12-02 15:05:23
+107,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 15:05:23,"list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/nifti_masker.py')",list niimglik object,N,2014-12-02 15:10:17
+108,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-02 15:10:17,"same thing as above, I don't understand the code well enough, but I would follow the hint of the old docstring and go for:
+list of Niimg-like objects
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/input_data/nifti_masker.py')",thing I dont understand code well enough I would follow hint old docstr go list niimglik object,N,2014-12-04 10:04:07
+109,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-04 10:04:07,"missing URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",miss url,N,2014-12-04 10:04:15
+110,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-04 10:04:15,"missing URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",miss url,N,2014-12-04 10:04:23
+111,pull_request_commit_comment,294,nilearn,nilearn,lesteve,2014-12-04 10:04:23,"missing URL
+",12c3053e78d6338256b8556a6b0888b86c27863e,"(None, '', u'nilearn/region.py')",miss url,N,2014-12-04 11:55:16
+2,issue_closed,291,nilearn,nilearn,lesteve,2015-02-12 10:07:09,,closed issue,[ENH] NiftiMasker: added time mask,,N,2014-11-22 17:51:32
+4,pull_request_merged,291,nilearn,nilearn,lesteve,2015-02-12 10:07:09,[ENH] NiftiMasker: added time mask,2d3912a3dc8ff56a09d3a4b7cb6ae5ee36572c26,Pull request merge from banilo/nilearn:mask_time to nilearn/nilearn:master,enh niftimask ad time mask,N,2014-11-27 10:05:41
+25,issue_comment,291,nilearn,nilearn,banilo,2015-02-03 10:24:41,"> ""sample_mask"" seems like a reasonnable name
+
++1 on this
+",,,1,N,2014-11-23 22:00:39
+26,pull_request_commit_comment,291,nilearn,nilearn,bthirion,2014-11-23 22:00:39,"I don't understand this part ?
+
+Also, this functionality probably deserves a bit of narrative documentation: what is the use case ? 
+",ca858367317cf691a62672b29623cbd9e27af87a,"(None, '', u'nilearn/input_data/nifti_masker.py')",I dont understand part also function probabl deserv bit narr document use case,N,2014-11-24 11:39:01
+27,pull_request_commit_comment,291,nilearn,nilearn,GaelVaroquaux,2014-11-24 11:39:01,"> I don't understand this part ?
+
+I think that the name is bad.
+
+> Also, this functionality probably deserves a bit of narrative documentation:
+> what is the use case ?
+
+Avoiding the bug we had in the anova haxby example :).
+",ca858367317cf691a62672b29623cbd9e27af87a,"(None, '', u'nilearn/input_data/nifti_masker.py')",I think name bad avoid bug anova haxbi exampl,N,2014-11-24 16:33:28
+28,pull_request_commit_comment,291,nilearn,nilearn,AlexandreAbraham,2014-11-24 16:33:28,"> I think that the name is bad.
+> +1
+> 
+> Avoiding the bug we had in the anova haxby example :).
+> The bug was mainly due to the fact that the shape of the session mask was not checked. I think that the main advantage is to be able to apply a condition mask to the data without having to load them manually (and still delegate that to the NiftiMasker).
+
+However, given that this is only used for transform, shouldn't it be a parameter for the transform function rather than for the Masker in general?
+",ca858367317cf691a62672b29623cbd9e27af87a,"(None, '', u'nilearn/input_data/nifti_masker.py')",howev given use transform shouldnt paramet transform function rather masker gener,N,2014-11-24 16:35:44
+29,pull_request_commit_comment,291,nilearn,nilearn,GaelVaroquaux,2014-11-24 16:35:44,"> However, given that this is only used for transform, shouldn't it be a
+> parameter for the transform function rather than for the Masker in general?
+
+Possible. The real argument is that it's data dependent (ie has a shape
+in n_samples) thus giving it at build-time break cross validation.
+
+Which tells us that sessions shouldn't be given at build time :$
+",ca858367317cf691a62672b29623cbd9e27af87a,"(None, '', u'nilearn/input_data/nifti_masker.py')",possibl the real argument data depend ie shape nsampl thu give buildtim break cross valid which tell us session shouldnt given build time,N,2014-11-24 17:20:06
+30,pull_request_commit_comment,291,nilearn,nilearn,AlexandreAbraham,2014-11-24 17:20:06,"Exactly. We can even go further by saying that this is a form of sample extraction and that it could exist as its own object. Because, for exemple, when working on Haxby, maybe I would like to work first on face vs house and then cat vs chair.
+",ca858367317cf691a62672b29623cbd9e27af87a,"(None, '', u'nilearn/input_data/nifti_masker.py')",exactli We even go say form sampl extract could exist object becaus exempl work haxbi mayb I would like work first face vs hous cat vs chair,N,2014-12-05 10:59:12
+1,issue_title,296,nilearn,nilearn,banilo,2014-11-25 21:41:17,"attemps to adress #231
+
+Here is an example for threshold=5 of what it currently looks like:
+
+![bildschirmfoto 2014-11-25 um 18 53 21](https://cloud.githubusercontent.com/assets/3907396/5191981/85c179e6-74f3-11e4-8def-b032366a3684.png)
+
+Greetings from Berlin
+",start issue,added thresholded colorbar,attemp adress 231 here exampl threshold5 current look like bildschirmfoto 20141125 um 18 53 21 greet berlin,N,2014-12-15 15:26:29
+2,issue_closed,296,nilearn,nilearn,lesteve,2014-12-15 15:26:29,,closed issue,added thresholded colorbar,,N,2014-11-25 21:41:17
+3,pull_request_title,296,nilearn,nilearn,banilo,2014-11-25 21:41:17,"attemps to adress #231
+
+Here is an example for threshold=5 of what it currently looks like:
+
+![bildschirmfoto 2014-11-25 um 18 53 21](https://cloud.githubusercontent.com/assets/3907396/5191981/85c179e6-74f3-11e4-8def-b032366a3684.png)
+
+Greetings from Berlin
+",0095853236306d7d357f9c41d6289b2cdf818f26,added thresholded colorbar,attemp adress 231 here exampl threshold5 current look like bildschirmfoto 20141125 um 18 53 21 greet berlin,N,2014-12-15 15:26:29
+4,pull_request_merged,296,nilearn,nilearn,lesteve,2014-12-15 15:26:29,added thresholded colorbar,5baa862b794149ee541be38eb68197c54728686c,Pull request merge from banilo/nilearn:colorbar to nilearn/nilearn:master,ad threshold colorbar,N,2014-11-26 10:27:08
+5,issue_comment,296,nilearn,nilearn,GaelVaroquaux,2014-11-26 10:27:08,"Two comments: I think that the background shouldn't be a grey colormap, but a uniform color. The reason being that it looks like a colormap. We need to make it very visually explicit that this is a threshold.
+
+Also, I am worried that this will conflict will ongoing work by @eickenberg . You should sync with him.
+",,,two comment I think background shouldnt grey colormap uniform color the reason look like colormap We need make visual explicit threshold also I worri conflict ongo work eickenberg you sync,N,2014-11-26 16:54:13
+6,issue_comment,296,nilearn,nilearn,banilo,2014-11-26 16:54:13,"Ok thanks, should this PR just wait for Michael's to finish?
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 11:27, Gael Varoquaux notifications@github.com wrote:
+> 
+> Two comments: I think that the background shouldn't be a grey colormap, but a uniform color. The reason being that it looks like a colormap. We need to make it very visually explicit that this is a threshold.
+> 
+> Also, I am worried that this will conflict will ongoing work by @eickenberg . You should sync with him.
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",,,Ok thank PR wait michael finish sent iphon,N,2014-11-26 18:27:24
+7,issue_comment,296,nilearn,nilearn,eickenberg,2014-11-26 18:27:24,"ill see to it first thing tomorrow
+
+On Wednesday, November 26, 2014, Danilo Bzdok notifications@github.com
+wrote:
+
+> Ok thanks, should this PR just wait for Michael's to finish?
+> 
+> Sent from my iPhone
+> 
+> > On 26 Nov 2014, at 11:27, Gael Varoquaux <notifications@github.com
+> > <javascript:_e(%7B%7D,'cvml','notifications@github.com');>> wrote:
+> > 
+> > Two comments: I think that the background shouldn't be a grey colormap,
+> > but a uniform color. The reason being that it looks like a colormap. We
+> > need to make it very visually explicit that this is a threshold.
+> > 
+> > Also, I am worried that this will conflict will ongoing work by
+> > @eickenberg . You should sync with him.
+> > 
+> > —
+> > Reply to this email directly or view it on GitHub.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/296#issuecomment-64676037.
+",,,ill see first thing tomorrow On wednesday novemb 26 2014 danilo bzdok notificationsgithubcom wrote,N,2014-11-27 07:45:29
+8,issue_comment,296,nilearn,nilearn,lesteve,2014-11-27 07:45:29,"> Ok thanks, should this PR just wait for Michael's to finish?
+
+I don't think there it too much of a risk of conflict between the two PRs. @eickenberg is changing plot_stat_map in img_plotting.py and aims at changing the cmap before doing the imshow. @banilo is changing stuff mostly in slicers.py and doesn't change the cmap before the imshow but only when the colorbar is displayed.
+",,,I dont think much risk conflict two pr eickenberg chang plotstatmap imgplottingpi aim chang cmap imshow banilo chang stuff mostli slicerspi doesnt chang cmap imshow colorbar display,N,2014-11-27 11:00:11
+9,issue_comment,296,nilearn,nilearn,banilo,2014-11-27 11:00:11,"Ok, cool.
+
+Here is the next code update then.
+Gray is now unicolor, more visually speaking:
+
+![image](https://cloud.githubusercontent.com/assets/3907396/5215944/c79b1dec-762c-11e4-80b5-4e3596780ad7.png)
+",,,Ok cool here next code updat gray unicolor visual speak imag,N,2014-11-27 13:08:25
+10,issue_comment,296,nilearn,nilearn,eickenberg,2014-11-27 13:08:25,"Looking at this again, I am becoming convinced that this PR needs to be merged before the symmetric/non-symmetric colormap one. The changes I need to make for the will have to go into `plot_img_with_bg` and will have to pass colorbar min/max bounds or something. This PR should lay the basis for it.
+
+Currently though, I am not 1000% convinced of the optimality of the ""colorbar hacking"" passage in the code. But at the same time I am not enough of a matplotlib wizard to be able to propose the simple canonical solution.
+",,,look I becom convinc PR need merg symmetricnonsymmetr colormap one the chang I need make go pass colorbar minmax bound someth thi PR lay basi current though I 1000 convinc optim colorbar hack passag code but time I enough matplotlib wizard abl propos simpl canon solut,N,2014-11-28 20:28:52
+11,issue_comment,296,nilearn,nilearn,banilo,2014-11-28 20:28:52,"Ok, I am happy to follow other peoples' advice on how to create our user-defined colormap in a more professional way.
+",,,Ok I happi follow peopl advic creat userdefin colormap profession way,N,2014-11-28 21:13:19
+12,issue_comment,296,nilearn,nilearn,banilo,2014-11-28 21:13:19,"Ok, a) removed redundant data masking and b) compute the threshold offsets in the cmap by im.norm as suggested by @lesteve.
+",,,Ok remov redund data mask b comput threshold offset cmap imnorm suggest lestev,N,2014-12-05 14:51:46
+13,issue_comment,296,nilearn,nilearn,banilo,2014-12-05 14:51:46,"As suggested by Loic, the code does also work without having a special case for threshold==0. Looks unsuspicous.
+
+![image](https://cloud.githubusercontent.com/assets/3907396/5316554/6e0e50a2-7c8d-11e4-9dae-0b1d077b5cfa.png)
+
+Here is the new comit...
+",,,As suggest loic code also work without special case threshold0 look unsuspic imag here new comit,N,2014-12-06 10:02:04
+14,issue_comment,296,nilearn,nilearn,GaelVaroquaux,2014-12-06 10:02:04,"Last image in there is _beautiful_!
+",,,last imag beauti,N,2014-12-10 15:23:05
+15,issue_comment,296,nilearn,nilearn,banilo,2014-12-10 15:23:05,"Now supports threshold=None and threshold=0.
+",,,now support thresholdnon threshold0,N,2014-12-10 17:55:25
+16,issue_comment,296,nilearn,nilearn,GaelVaroquaux,2014-12-10 17:55:25,"What does threshold=None do? 
+
+<div>-------- Original message --------</div><div>From: Danilo Bzdok notifications@github.com </div><div>Date:10/12/2014  16:23  (GMT+01:00) </div><div>To: nilearn/nilearn nilearn@noreply.github.com </div><div>Cc: Gael Varoquaux gael.varoquaux@normalesup.org </div><div>Subject: Re: [nilearn] added thresholded colorbar (#296) </div><div>
+</div>Now supports threshold=None and threshold=0.
+
+—
+Reply to this email directly or view it on GitHub.
+",,,what thresholdnon do  divdiv — repli email directli view github,N,2014-12-10 18:06:05
+17,issue_comment,296,nilearn,nilearn,banilo,2014-12-10 18:06:05,"threshold=None means ""no threshold/gray area in the colorbar, please"". It behaves the same as threshold=0.
+",,,thresholdnon mean thresholdgray area colorbar pleas It behav threshold0,N,2014-12-10 20:20:53
+18,issue_comment,296,nilearn,nilearn,lesteve,2014-12-10 20:20:53,"> It behaves the same as threshold=0.
+
+not entirely True, threshold=0 will mask out zero values, threshold=None won't.
+",,,entir true threshold0 mask zero valu thresholdnon wont,N,2014-12-15 13:08:05
+19,issue_comment,296,nilearn,nilearn,banilo,2014-12-15 13:08:05,"Just addressed last comment.
+",,,just address last comment,N,2014-12-15 15:27:06
+20,issue_comment,296,nilearn,nilearn,lesteve,2014-12-15 15:27:06,"This one eventually got merged, great stuff!
+",,,thi one eventu got merg great stuff,N,2014-12-15 15:29:37
+21,issue_comment,296,nilearn,nilearn,banilo,2014-12-15 15:29:37,":palm_tree: 
+",,,palmtre,N,2014-11-25 21:45:50
+22,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-25 21:45:50,"`range`, `rng` is reserved for random number generators
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",reserv random number gener,N,2014-11-25 21:46:10
+23,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-25 21:46:10,"wish
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",wish,N,2014-11-25 21:46:50
+24,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-25 21:46:50,"sorry, `data_range`
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",sorri,N,2014-11-26 07:42:51
+25,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 07:42:51,"Please refrain to do broad PEP8 fixes like the ones you did in this commit. This is likely to cause merge conflicts for ongoing PRs. The rule of thumb I go with is only fix PEP8 in the vicinity of the lines I touched.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",pleas refrain broad pep8 fix like one commit thi like caus merg conflict ongo pr the rule thumb I go fix pep8 vicin line I touch,N,2014-11-26 07:46:14
+26,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 07:46:14,"You can actually use pl.cm to access the matplotlib colormap module. That's what I have seen used in a few places e.g. plotting/img_plotting.py.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",you actual use plcm access matplotlib colormap modul that I seen use place eg plottingimgplottingpi,N,2014-11-26 07:47:33
+27,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 07:47:33,"I don't think this function should have a default for threshold
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I dont think function default threshold,N,2014-11-26 07:54:16
+28,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 07:54:16,"Why is there a special case for 1e-6? Also magical numbers like this are best promoted to a module variable.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",whi special case 1e6 also magic number like best promot modul variabl,N,2014-11-26 07:54:58
+29,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 07:54:58,"Not really convinced this function is the best place to do this kind of safety checks ...
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",not realli convinc function best place kind safeti check,N,2014-11-26 08:08:20
+30,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 08:08:20,":confused: why are you using jet here? You should use the cmap specified by the user, I think im.cmap will do.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",confus use jet you use cmap specifi user I think imcmap,N,2014-11-26 08:10:32
+31,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 08:10:32,"Same comment as above, why is there a special case for 1e-6? 
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",same comment special case 1e6,N,2014-11-26 08:11:46
+32,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 08:11:46,"I believe we want to use a single gray color here. _cm.gray is a variable gray colormap.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I believ want use singl gray color cmgray variabl gray colormap,N,2014-11-26 08:37:40
+33,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 08:37:40,"Just curious, what was wrong with the original  `figure.colorbar(im, cax=self._colorbar_ax, ticks=ticks)` ?
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",just curiou wrong origin,N,2014-11-26 10:33:13
+34,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 10:33:13,"I don't think we should threshold the anat
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",I dont think threshold anat,N,2014-11-26 10:35:21
+35,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-26 10:35:21,"Now I am wondering whether the masking inside [-threshold, threshold] l.93, 94 is necessary. The add_overlay will do the masking.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",now I wonder whether mask insid threshold threshold l93 94 necessari the addoverlay mask,N,2014-11-26 16:20:42
+36,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:20:42,"Shouldn't the theshold be symmetrical by construction?
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 11:35, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/img_plotting.py:
+> 
+> > @@ -94,7 +94,7 @@ def _plot_img_with_bg(img, bg_img=None, cut_coords=None,
+> >              data = np.ma.masked_inside(data, -threshold, threshold, copy=False)
+> >          slicer.add_overlay(nibabel.Nifti1Image(data, affine),
+> >                             interpolation=interpolation, colorbar=colorbar,
+> > -                           **kwargs)
+> > -                           threshold=threshold, **kwargs)
+> >   Now I am wondering whether the masking inside [-threshold, threshold] l.93, 94 is necessary. The add_overlay will do the masking.
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",shouldnt theshold symmetr construct sent iphon,N,2014-11-26 16:23:38
+37,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:23:38,"Ups...
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 11:33, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/img_plotting.py:
+> 
+> > @@ -86,7 +86,7 @@ def _plot_img_with_bg(img, bg_img=None, cut_coords=None,
+> > 
+> > ```
+> >  if bg_img is not None:
+> >      slicer.add_overlay(bg_img,
+> > ```
+> > -                           vmin=bg_vmin, vmax=bg_vmax,
+> > -                           vmin=bg_vmin, vmax=bg_vmax, threshold=threshold,
+> >   I don't think we should threshold the anat
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",up sent iphon,N,2014-11-26 16:27:34
+38,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:27:34,"I did not get it to take the self defined colormap.
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 09:37, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/slicers.py:
+> 
+> > -        bounds = np.linspace(im.norm.vmin, im.norm.vmax, 100)
+> > -        our_cmap = _cm.jet
+> >   +
+> > -        if threshold != 1e-6:
+> > -            # some colormap hacking
+> > -            cmaplist = [our_cmap(i) for i in range(our_cmap.N)]
+> > -            rng = float(im.norm.vmax + abs(im.norm.vmin))
+> > -            start = (rng - 2 \* threshold) / 2  # in data space
+> > -            stop = rng - start
+> > -            istart = int(our_cmap.N \* start / rng)  # colormap space
+> > -            istop = int(our_cmap.N \* stop / rng)
+> > -            for i in range(istart, istop):
+> > -                cmaplist[i] = _cm.gray(i)
+> > -            our_cmap = our_cmap.from_list('Custom cmap', cmaplist, our_cmap.N)
+> >   +
+> > -        ColorbarBase(self._colorbar_ax, ticks=ticks, norm=im.norm,
+> >   Just curious, what was wrong with the original figure.colorbar(im, cax=self._colorbar_ax, ticks=ticks) ?
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I get take self defin colormap sent iphon,N,2014-11-26 16:29:25
+39,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:29:25,"Ok
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 09:11, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/slicers.py:
+> 
+> > ```
+> >      ticks = np.linspace(im.norm.vmin, im.norm.vmax, 5)
+> > ```
+> > -        figure.colorbar(im, cax=self._colorbar_ax, ticks=ticks)
+> > -        bounds = np.linspace(im.norm.vmin, im.norm.vmax, 100)
+> > -        our_cmap = _cm.jet
+> >   +
+> > -        if threshold != 1e-6:
+> > -            # some colormap hacking
+> > -            cmaplist = [our_cmap(i) for i in range(our_cmap.N)]
+> > -            rng = float(im.norm.vmax + abs(im.norm.vmin))
+> > -            start = (rng - 2 \* threshold) / 2  # in data space
+> > -            stop = rng - start
+> > -            istart = int(our_cmap.N \* start / rng)  # colormap space
+> > -            istop = int(our_cmap.N \* stop / rng)
+> > -            for i in range(istart, istop):
+> > -                cmaplist[i] = _cm.gray(i)
+> >   I believe we want to use a single gray color here. _cm.gray is a variable gray colormap.
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",Ok sent iphon,N,2014-11-26 16:30:19
+40,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:30:19,"This magic number happened to be the default for threshold in other parts of the code.
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 09:10, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/slicers.py:
+> 
+> > ```
+> >      ticks = np.linspace(im.norm.vmin, im.norm.vmax, 5)
+> > ```
+> > -        figure.colorbar(im, cax=self._colorbar_ax, ticks=ticks)
+> > -        bounds = np.linspace(im.norm.vmin, im.norm.vmax, 100)
+> > -        our_cmap = _cm.jet
+> >   +
+> > -        if threshold != 1e-6:
+> >   Same comment as above, why is there a special case for 1e-6?
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",thi magic number happen default threshold part code sent iphon,N,2014-11-26 16:33:10
+41,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:33:10,"Rather in add_overlay then?
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 08:54, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/slicers.py:
+> 
+> > @@ -406,7 +407,20 @@ def _map_show(self, img, type='imshow', **kwargs):
+> >              ims.append(im)
+> >          return ims
+> > -    def _colorbar_show(self, im):
+> > -    def _colorbar_show(self, im, threshold=1e-6):
+> > -        # sanity-check threshold
+> > -        if threshold != 1e-6:
+> > -            if threshold < 0:
+> > -                raise ValueError(""The set threshold (%f) can't be negative""
+> >   Not really convinced this function is the best place to do this kind of safety checks ...
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",rather addoverlay sent iphon,N,2014-11-26 16:35:23
+42,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:35:23,"So the default behavior should not be not to have a gray area in the colorbar?
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 08:47, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/slicers.py:
+> 
+> > @@ -406,7 +407,20 @@ def _map_show(self, img, type='imshow', **kwargs):
+> >              ims.append(im)
+> >          return ims
+> > -    def _colorbar_show(self, im):
+> > -    def _colorbar_show(self, im, threshold=1e-6):
+> >   I don't think this function should have a default for threshold
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",So default behavior gray area colorbar sent iphon,N,2014-11-26 16:35:51
+43,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-26 16:35:51,"Thanks 
+
+Sent from my iPhone
+
+> On 26 Nov 2014, at 08:46, Loïc Estève notifications@github.com wrote:
+> 
+> In nilearn/plotting/slicers.py:
+> 
+> > @@ -14,7 +14,8 @@
+> > 
+> >  try:
+> >      import pylab as pl
+> > -    from matplotlib import transforms
+> > -    from matplotlib import transforms, cm as _cm
+> >   You can actually use pl.cm to access the matplotlib colormap module. That's what I have seen used in a few places e.g. plotting/img_plotting.py.
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",thank sent iphon,N,2014-11-27 07:38:47
+44,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 07:38:47,"All I meant to say is that self._colorbar_show is always called with two arguments in the code so there is no need to a default for threshold here.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",all I meant say selfcolorbarshow alway call two argument code need default threshold,N,2014-11-27 07:40:45
+45,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 07:40:45,"Probably not because you don't have access to im.vmin and im.vmax there. In any case it seems best done as a separate PR.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",probabl dont access imvmin imvmax In case seem best done separ PR,N,2014-11-27 07:43:46
+46,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 07:43:46,"I know (see my comment about promoting it to a module constant above) but still. I don't really understand why 1e-6 should be treated differently from any other threshold. Shouldn't you try to gray the area between [-1e-6, 1e-6]? It will probably only show up a a gray line at 0 I would have thought.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I know see comment promot modul constant still I dont realli understand 1e6 treat differ threshold shouldnt tri gray area 1e6 1e6 It probabl show gray line 0 I would thought,N,2014-11-27 07:49:35
+47,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 07:49:35,"I don't get your question. Basically all I am saying is that in img_plotting.py you masked the data inside [-threshold, threshold] [here](https://github.com/banilo/nilearn/blob/colorbar/nilearn/plotting/img_plotting.py#L94) but then you call add_overlay with a threshold argument which will mask the data again [there](https://github.com/banilo/nilearn/blob/colorbar/nilearn/plotting/slicers.py#L335).
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",I dont get question basic I say imgplottingpi mask data insid threshold threshold call addoverlay threshold argument mask data,N,2014-11-27 10:22:07
+48,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-27 10:22:07,"Actually, I think the directive is to `import matplotlib.pyplot as plt` instead of `import pylab as pl`
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",actual I think direct instead,N,2014-11-27 10:27:03
+49,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-27 10:27:03,"Could you motivate the `abs` in that line? That means that if the minimal value is positive, then the range will assume it was actually its negative symmetric.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",could motiv line that mean minim valu posit rang assum actual neg symmetr,N,2014-11-27 10:30:40
+50,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 10:30:40,"Agreed but we still have `import pylab as pl` in a few places. Should probably be fixed in a separate PR.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",agre still place should probabl fix separ PR,N,2014-11-27 10:30:52
+51,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-27 10:30:52,"Thanks for pointing this one out - I am not sure yet, to be honest, how to
+handle a threshold of e.g. 4 when e.g. vmax=10 and vmin = 2. We just gray 2
+to 4?
+
+2014-11-27 11:27 GMT+01:00 eickenberg notifications@github.com:
+
+> In nilearn/plotting/slicers.py:
+> 
+> > ```
+> >      ticks = np.linspace(im.norm.vmin, im.norm.vmax, 5)
+> > ```
+> > -        figure.colorbar(im, cax=self._colorbar_ax, ticks=ticks)
+> > -        bounds = np.linspace(im.norm.vmin, im.norm.vmax, 100)
+> > -        our_cmap = _cm.jet
+> >   +
+> > -        if threshold != 1e-6:
+> > -            # some colormap hacking
+> > -            cmaplist = [our_cmap(i) for i in range(our_cmap.N)]
+> > -            rng = float(im.norm.vmax + abs(im.norm.vmin))
+> 
+> Could you motivate the abs in that line? That means that if the minimal
+> value is positive, then the range will assume it was actually its negative
+> symmetric.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/296/files#r20988126.
+
+## 
+
+Viele Grüße,
+Danilo
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",thank point one I sure yet honest handl threshold eg 4 eg vmax10 vmin 2 We gray 2 4 20141127 1127 gmt0100 eickenberg notificationsgithubcom viel grüße danilo,N,2014-11-27 10:31:23
+52,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-27 10:31:23,"good idea!
+
+2014-11-27 11:30 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/plotting/slicers.py:
+> 
+> > @@ -14,7 +14,8 @@
+> > 
+> >  try:
+> >      import pylab as pl
+> > -    from matplotlib import transforms
+> > -    from matplotlib import transforms, cm as _cm
+> 
+> Agreed but we still have import pylab as pl in a few places. Should
+> probably be fixed in a separate PR.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/296/files#r20988283.
+
+## 
+
+Viele Grüße,
+Danilo
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",good idea 20141127 1130 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo,N,2014-11-27 10:32:21
+53,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-27 10:32:21,"Looks like we mostly do this in tests:
+
+11:07:50-admin/git/nilearn (mask_time)$ git grep -ni ""import pylab as pl""
+
+nilearn/plotting/img_plotting.py:24:    _import pylab as pl_
+
+nilearn/plotting/slicers.py:16:    _import pylab as pl_
+
+nilearn/plotting/tests/test_cm.py:11:    _import pylab as pl_
+
+nilearn/plotting/tests/test_cm.py:22:    _import pylab as pl_
+
+nilearn/plotting/tests/test_cm.py:29:    _import pylab as pl_
+
+nilearn/plotting/tests/test_img_plotting.py:14:    _import pylab as pl_
+
+nilearn/plotting/tests/test_img_plotting.py:49:    _import pylab as pl_
+
+nilearn/plotting/tests/test_img_plotting.py:62:    _import pylab as pl_
+
+nilearn/plotting/tests/test_img_plotting.py:97:    _import pylab as pl_
+
+nilearn/plotting/tests/test_img_plotting.py:114:    _import pylab as pl_
+
+nilearn/plotting/tests/test_slicers.py:10:    _import pylab as pl_
+
+nilearn/plotting/tests/test_slicers.py:24:    _import pylab as pl_
+
+nilearn/plotting/tests/test_slicers.py:36:    _import pylab as pl_
+
+plot_demo_plotting.py:86:_import pylab as pl_
+
+plot_haxby_simple.py:82:_import pylab as pl_t
+
+plot_ica_resting_state.py:53:_import pylab as pl_t
+
+2014-11-27 11:31 GMT+01:00 Danilo Bzdok danilobzdok@gmail.com:
+
+> good idea!
+> 
+> 2014-11-27 11:30 GMT+01:00 Loïc Estève notifications@github.com:
+> 
+> > In nilearn/plotting/slicers.py:
+> > 
+> > > @@ -14,7 +14,8 @@
+> > > 
+> > >  try:
+> > >      import pylab as pl
+> > > -    from matplotlib import transforms
+> > > -    from matplotlib import transforms, cm as _cm
+> > 
+> > Agreed but we still have import pylab as pl in a few places. Should
+> > probably be fixed in a separate PR.
+> > 
+> > —
+> > Reply to this email directly or view it on GitHub
+> > https://github.com/nilearn/nilearn/pull/296/files#r20988283.
+> 
+> ## 
+> 
+> Viele Grüße,
+> Danilo
+
+## 
+
+Viele Grüße,
+Danilo
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",look like mostli test 110750admingitnilearn masktim git grep ni import pylab pl nilearnplottingimgplottingpy24 import pylab pl nilearnplottingslicerspy16 import pylab pl nilearnplottingteststestcmpy11 import pylab pl nilearnplottingteststestcmpy22 import pylab pl nilearnplottingteststestcmpy29 import pylab pl nilearnplottingteststestimgplottingpy14 import pylab pl nilearnplottingteststestimgplottingpy49 import pylab pl nilearnplottingteststestimgplottingpy62 import pylab pl nilearnplottingteststestimgplottingpy97 import pylab pl nilearnplottingteststestimgplottingpy114 import pylab pl nilearnplottingteststestslicerspy10 import pylab pl nilearnplottingteststestslicerspy24 import pylab pl nilearnplottingteststestslicerspy36 import pylab pl plotdemoplottingpy86import pylab pl plothaxbysimplepy82import pylab plt ploticarestingstatepy53import pylab plt 20141127 1131 gmt0100 danilo bzdok danilobzdokgmailcom viel grüße danilo,Y,2014-11-27 10:37:35
+54,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-27 10:37:35,"The masking of the data has already been therefore. This PR is about the thresholding depicted in the colorbar, not the thresholding int he depicted brain image, which remained unchanged.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",the mask data alreadi therefor thi PR threshold depict colorbar threshold int depict brain imag remain unchang,N,2014-11-27 10:37:52
+55,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-27 10:37:52,"Good to know, thanks.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",good know thank,N,2014-11-27 10:39:34
+56,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 10:39:34,"I could have sworn I posted something about this part of the code but apparently not. There has to be a better way than doing the mapping from data space to colormap space by hand. In particular your code assumes that the mapping is linear. 
+
+One way which may not be the best approach: im.norm is a callable that maps the data space to [0, 1] and then you can multiply by our_cmap.N - 1 to get istart and istop.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I could sworn I post someth part code appar there better way map data space colormap space hand In particular code assum map linear one way may best approach imnorm callabl map data space 0 1 multipli ourcmapn 1 get istart istop,N,2014-11-27 10:45:48
+57,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-27 10:45:48,"I think there had already been a pass through most of the non-test code correcting this.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I think alreadi pass nontest code correct,N,2014-11-27 10:50:45
+58,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-27 10:50:45,"a) I would like to promote threshold=0 as a default
+b) where do you want me to put the default_threshold constant?
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",I would like promot threshold0 default b want put defaultthreshold constant,N,2014-11-27 12:04:28
+59,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-11-27 12:04:28,"But since you are fixing the fact that threshold wasn't passed to add_overlay you may as well remove the unnecessary masking here ...
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",but sinc fix fact threshold wasnt pass addoverlay may well remov unnecessari mask,N,2014-11-27 12:58:59
+60,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-27 12:58:59,"Do we really need to proceed this way? Splitting a continuous colormap into the arbitrary and probably visible binning of 100 shouldn't be necessary.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",Do realli need proceed way split continu colormap arbitrari probabl visibl bin 100 shouldnt necessari,N,2014-11-28 20:26:24
+61,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-28 20:26:24,"That's because I changed back to the lower level ColorbarBase() call since it permits a user-defined cmap as an argument. Without specifying bounds the colorbar did not work out.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",that I chang back lower level colorbarbas call sinc permit userdefin cmap argument without specifi bound colorbar work,N,2014-11-28 20:28:21
+62,pull_request_commit_comment,296,nilearn,nilearn,eickenberg,2014-11-28 20:28:21,"then it needs to scale with the dpi of the figure i guess. maybe overkill
+
+On Friday, November 28, 2014, Danilo Bzdok notifications@github.com wrote:
+
+> In nilearn/plotting/slicers.py:
+> 
+> > ```
+> >      ticks = np.linspace(im.norm.vmin, im.norm.vmax, 5)
+> > ```
+> > -        figure.colorbar(im, cax=self._colorbar_ax, ticks=ticks)
+> > -        bounds = np.linspace(im.norm.vmin, im.norm.vmax, 100)
+> 
+> That's because I changed back to the lower level ColorbarBase() call since
+> it permits a user-defined cmap as an argument. Without specifying bounds
+> the colorbar did not work out.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/296/files#r21043629.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",need scale dpi figur guess mayb overkil On friday novemb 28 2014 danilo bzdok notificationsgithubcom wrote,N,2014-11-28 20:29:57
+63,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-28 20:29:57,"How about cmap.N, that is, the number of maximum color entries that the colormap has to offer.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",how cmapn number maximum color entri colormap offer,N,2014-11-28 20:40:45
+64,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-28 20:40:45,"You are completely right, of course. Removed the one in l.93/94 as masking the data is moved to add_overlay now.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",you complet right cours remov one l9394 mask data move addoverlay,N,2014-11-28 21:09:52
+65,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-11-28 21:09:52,"Works like a charm, thanks.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",work like charm thank,N,2014-12-06 10:00:39
+66,pull_request_commit_comment,296,nilearn,nilearn,GaelVaroquaux,2014-12-06 10:00:39,"> a) I would like to promote threshold=0 as a default
+
+No. An converged algorithm (for l1 penalties) typically gives non-zero
+coeffs where they are zero in practice. 1e-6 is a good compromise,
+because most often values that should not be zeros are above that, and
+sparse algorithms converge below that.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/slicers.py')",No An converg algorithm l1 penalti typic give nonzero coeff zero practic 1e6 good compromis often valu zero spars algorithm converg,N,2014-12-10 21:57:17
+67,pull_request_commit_comment,296,nilearn,nilearn,bthirion,2014-12-10 21:57:17,"Sorry if I missed the point, but for me no error should be raised if the threshold is greater than any value of the map: visualizing an empty map is a perfectly valid use case.
+Similarly, I don't see immediately why negative thresholds are forbidden (maybe I'm missing some context here).
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",sorri I miss point error rais threshold greater valu map visual empti map perfectli valid use case similarli I dont see immedi neg threshold forbidden mayb Im miss context,N,2014-12-11 10:04:47
+68,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-12-11 10:04:47,"> Sorry if I missed the point, but for me no error should be raised if the threshold is greater than any value of the map: visualizing an empty map is a perfectly valid use case.
+
+I kind of agree on this one. I think the grayed cmap logic has to handle this case.
+
+> Similarly, I don't see immediately why negative thresholds are forbidden (maybe I'm missing some context here).
+
+At the moment, the treshold logic is such that values in [-threshold, threshold] are masked so it doesn't make too much sense to have a negative threshold (full disclosure: currently it may well be the case that `threshold=-threshold` works exactly the same as `threshold=threshold` by accident)
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",I kind agre one I think gray cmap logic handl case At moment treshold logic valu threshold threshold mask doesnt make much sens neg threshold full disclosur current may well case work exactli accid,N,2014-12-11 10:18:07
+69,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-12-11 10:18:07,"a) I will take out the check for too big threshold choices
+
+b) Any other decisions to take at this point?
+
+2014-12-11 11:04 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/plotting/displays.py
+> https://github.com/nilearn/nilearn/pull/296#discussion-diff-21667142:
+> 
+> > @@ -401,8 +402,19 @@ def add_overlay(self, img, threshold=1e-6, colorbar=False, **kwargs):
+> > 
+> > ```
+> >      ims = self._map_show(img, type='imshow', **kwargs)
+> > ```
+> > -        if threshold is not None:
+> > -            if threshold < 0:
+> > -                raise ValueError(""The set threshold (%.2f) can't be negative""
+> > -                                 % threshold)
+> > -            if threshold > ims[0].norm.vmax:
+> > -                raise ValueError('The set threshold (%.2f) is higher than '
+> > -                                 'vmax (%.2f)' % (threshold, ims[0].norm.vmax))
+> > -            if threshold > abs(ims[0].norm.vmax):
+> > -                raise ValueError('The set threshold (%.2f) is lower than '
+> > -                                 'vmin (%.2f)' % (threshold, ims[0].norm.vmin))
+> >   +
+> 
+>  Sorry if I missed the point, but for me no error should be raised if the
+> threshold is greater than any value of the map: visualizing an empty map is
+> a perfectly valid use case.
+> 
+> I kind of agree on this one. I think the grayed cmap logic has to handle
+> this case.
+> 
+> Similarly, I don't see immediately why negative thresholds are forbidden
+> (maybe I'm missing some context here).
+> 
+> At the moment, the treshold logic is such that values in [-threshold,
+> threshold] are masked so it doesn't make too much sense to have a negative
+> threshold (full disclosure: currently it may well be the case that
+> threshold=-threshold works exactly the same as threshold=threshold by
+> accident)
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/296/files#r21667142.
+
+## 
+
+Viele Grüße,
+Danilo
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",I take check big threshold choic b ani decis take point 20141211 1104 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo,N,2014-12-11 10:38:56
+70,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-12-11 10:38:56,"Can you use `threshold=threshold` i.e. use a keyword argument here? I reckon this is good practice, see for [example](https://code.google.com/p/soc/wiki/PythonStyleGuide#Function_Arguments)
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/img_plotting.py')",can use ie use keyword argument I reckon good practic see exampl,N,2014-12-11 10:43:00
+71,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-12-11 10:43:00,"I am not a big fan of comments that don't add much like this because they tend to become out of sync with the code. If you think it was not clear enough, why not do something like (I assumed the not so clear part was what color was used for):
+
+``` python
+tick_color = 'w' if self._black_bg else 'k'
+for tick in self._colorbar_ax.yaxis.get_ticklabels():
+    tick.set_color(tick_color)
+```
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",I big fan comment dont add much like tend becom sync code If think clear enough someth like I assum clear part color use,N,2014-12-11 13:18:08
+72,pull_request_commit_comment,296,nilearn,nilearn,bthirion,2014-12-11 13:18:08,"OK, but what should we do about the following use case (people do on SPM all the time): visualize dissymetric ranges of values: [th, +\infty]. This is because in many (most) neuroimaging studies, people are interested in A>B but do not care about B>A, and so do not want to have their image cluttered with negative peaks if they don't care about it.  I agree that this should not be the default, but I would leave this possibility open (through another kwarg ?).
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",OK follow use case peopl spm time visual dissymetr rang valu th infti thi mani neuroimag studi peopl interest A,N,2014-12-11 13:20:09
+73,pull_request_commit_comment,296,nilearn,nilearn,GaelVaroquaux,2014-12-11 13:20:09,"Loic, Michael, Danilo, how about reusing the logic that Michael is
+developping for the range of the colorbar?
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",loic michael danilo reus logic michael develop rang colorbar,N,2014-12-11 14:03:31
+74,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-12-11 14:03:31,"> OK, but what should we do about the following use case (people do on SPM all the time): visualize dissymetric ranges of values: [th, +\infty]. This is because in many (most) neuroimaging studies, people are interested in A>B but do not care about B>A
+
+I would say that we should definitely add this feature but that this should be done outside of this PR.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",I would say definit add featur done outsid PR,N,2014-12-11 14:06:27
+75,pull_request_commit_comment,296,nilearn,nilearn,banilo,2014-12-11 14:06:27,"I am for finishing this PR up first (just commited new changes) and get to
+Michaels code dans un deuxième temps.
+
+2014-12-11 15:03 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/plotting/displays.py
+> https://github.com/nilearn/nilearn/pull/296#discussion-diff-21677276:
+> 
+> > @@ -401,8 +402,19 @@ def add_overlay(self, img, threshold=1e-6, colorbar=False, **kwargs):
+> > 
+> > ```
+> >      ims = self._map_show(img, type='imshow', **kwargs)
+> > ```
+> > -        if threshold is not None:
+> > -            if threshold < 0:
+> > -                raise ValueError(""The set threshold (%.2f) can't be negative""
+> > -                                 % threshold)
+> > -            if threshold > ims[0].norm.vmax:
+> > -                raise ValueError('The set threshold (%.2f) is higher than '
+> > -                                 'vmax (%.2f)' % (threshold, ims[0].norm.vmax))
+> > -            if threshold > abs(ims[0].norm.vmax):
+> > -                raise ValueError('The set threshold (%.2f) is lower than '
+> > -                                 'vmin (%.2f)' % (threshold, ims[0].norm.vmin))
+> >   +
+> 
+>  OK, but what should we do about the following use case (people do on SPM
+> all the time): visualize dissymetric ranges of values: [th, +\infty]. This
+> is because in many (most) neuroimaging studies, people are interested in
+> A>B but do not care about B>A
+> 
+> I would say that we should definitely add this feature but that this
+> should be done outside of this PR.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/296/files#r21677276.
+
+## 
+
+Viele Grüße,
+Danilo
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",I finish PR first commit new chang get michael code dan un deuxièm temp 20141211 1503 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo,N,2014-12-11 14:44:00
+76,pull_request_commit_comment,296,nilearn,nilearn,GaelVaroquaux,2014-12-11 14:44:00,"> I am for finishing this PR up first (just commited new changes) and get to
+> Michaels code dans un deuxième temps.
+
++1.
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",1,N,2014-12-12 15:35:12
+77,pull_request_commit_comment,296,nilearn,nilearn,lesteve,2014-12-12 15:35:12,"Move this statement a few lines below. You have separated the comment and the line it was pertaining to i.e.:
+
+``` python
+nb_ticks = 5 if im.norm.vmin != im.norm.vmax else 1
+```
+",0095853236306d7d357f9c41d6289b2cdf818f26,"(None, '', u'nilearn/plotting/displays.py')",move statement line you separ comment line pertain ie,N,2014-12-12 13:22:27
+78,pull_request_commit,296,nilearn,nilearn,banilo,2014-12-12 13:22:27,display: add threshold for colorbar,b63a928c6b5e3c7007c1bc2454fc3576306592b4,,display add threshold colorbar,N,2014-12-12 13:26:49
+79,pull_request_commit,296,nilearn,nilearn,banilo,2014-12-12 13:26:49,restored comment,1be1f48fa0acc0392fa04d678d6add55b739ab91,,restor comment,N,2014-12-15 13:09:37
+1,issue_title,292,nilearn,nilearn,banilo,2014-11-24 08:53:19,"I have the impression that variable and function names tend to include a ""_data"" suffix when dealing with 3D/4D numpy arrays and an ""_img"" suffix when dealing with Nifti1Image instances. Yet, often one can also read ""_niimg"" in the code, which appears to conflict with the uniqueness of ""_img"". A little summary shows that ""_img"" is more consistently used than ""_niimg"":
+
+```
+git grep -ni ""_img"" | wc -l
+1039
+git grep -ni ""_niimg"" | wc -l
+145
+```
+
+Thus, shouldn't we rename as many of the ""_niimg""'s as possible into ""_img""'s?
+
+**Soft solution:** to rename the following functions and all calls to those:
+
+```
+- _utils.check_niimg
+- _utils.check_niimgs
+- _utils._repr_niimgs
+- _utils.concat_niimgs
+- input_data.base_masker.transform_single_niimgs
+- input_data.base_masker.transform_niimgs
+- tests.test_niimg_conversions
+- tests.test_check_niimg
+- tests.test_check_niimgs
+- tests.test_repr_niimgs
+- test.test_concat_niimgs
+```
+
+**Hard solution:** rename any ""_niimg"" string into ""_img"" in the entire code, thus including variables etc.
+",start issue,"API inconsistency: ""_niimg(s)"" versus ""_img(s)"" suffixes",I impress variabl function name tend includ data suffix deal 3d4d numpi array img suffix deal nifti1imag instanc yet often one also read niimg code appear conflict uniqu img A littl summari show img consist use niimg thu shouldnt renam mani niimg possibl img soft solut renam follow function call hard solut renam niimg string img entir code thu includ variabl etc,N,2014-12-15 20:42:49
+2,issue_closed,292,nilearn,nilearn,lesteve,2014-12-15 20:42:49,,closed issue,"API inconsistency: ""_niimg(s)"" versus ""_img(s)"" suffixes",,N,2014-11-24 11:36:51
+3,issue_comment,292,nilearn,nilearn,GaelVaroquaux,2014-11-24 11:36:51,"Hey Danilo,
+
+I agree with most of your analysis. In believe that in general, functions
+and variable names should end with ""_img"". However, there is one thing
+that we have in nilearn: we call 'niimage', and not 'img', or 'image' the
+type ""NiftiImage-like, or string pointing to a nifti file"". Thus I
+believe that check_niims, check_niimg, repr_niimgs should stay with
+niimg, because they are about dealing with this specific type.
+
+Aside from that, I would say that a PR is most welcome, as ideally we
+want to address these issues before the beta release.
+",,,hey danilo I agre analysi In believ gener function variabl name end img howev one thing nilearn call niimag img imag type niftiimagelik string point nifti file thu I believ checkniim checkniimg reprniimg stay niimg deal specif type asid I would say PR welcom ideal want address issu beta releas,N,2014-11-24 11:48:56
+4,issue_comment,292,nilearn,nilearn,banilo,2014-11-24 11:48:56,"Ok, so we are going for the hard solution? That is change suffixes in both functions and variables in all *.py, except for the three functions you mentioned that deal with nifti/list hybrids?
+
+Sent from my iPhone
+
+> On 24 Nov 2014, at 12:36, Gael Varoquaux notifications@github.com wrote:
+> 
+> Hey Danilo,
+> 
+> I agree with most of your analysis. In believe that in general, functions
+> and variable names should end with ""_img"". However, there is one thing
+> that we have in nilearn: we call 'niimage', and not 'img', or 'image' the
+> type ""NiftiImage-like, or string pointing to a nifti file"". Thus I
+> believe that check_niims, check_niimg, repr_niimgs should stay with
+> niimg, because they are about dealing with this specific type.
+> 
+> Aside from that, I would say that a PR is most welcome, as ideally we
+> want to address these issues before the beta release.
+> —
+> Reply to this email directly or view it on GitHub.
+",,,Ok go hard solut that chang suffix function variabl py except three function mention deal niftilist hybrid sent iphon,N,2014-11-24 11:50:47
+5,issue_comment,292,nilearn,nilearn,GaelVaroquaux,2014-11-24 11:50:47,"> Ok, so we are going for the hard solution? That is change suffixes in both
+> functions and variables in all *.py, except for the three functions you
+> mentioned that deal with nifti/list hybrids?
+
+Yes, and the corresponding tests.
+",,,ye correspond test,Y,2014-11-24 12:53:47
+6,issue_comment,292,nilearn,nilearn,lesteve,2014-11-24 12:53:47,"Hmm, just trying to understand this subtle distinction in more details. What's exactly is different between _img and _niimg? Is the former an object which has get_data and get_affine whereas the latter can also be a filename and may have some NiftiImage specific properties.
+
+Also, `nilearn.plotting.plot_img` is calling `check_niimg`so it accepts a NiftiImage-like object. Does that mean it should be called `plot_niimg` instead? This is probably not the only example as check_niimg(s) is used quite a bit.
+
+Also just curious, do we have some code that only works with Nifti-images?
+",,,hmm tri understand subtl distinct detail what exactli differ img niimg Is former object getdata getaffin wherea latter also filenam may niftiimag specif properti also call accept niftiimagelik object doe mean call instead thi probabl exampl checkniimg use quit bit also curiou code work niftiimag,N,2014-11-24 12:56:27
+7,issue_comment,292,nilearn,nilearn,GaelVaroquaux,2014-11-24 12:56:27,"> Also just curious, do we have some code that only works with Nifti-images?
+
+No, the goal is to have code that works with niimgs every where. I am
+just thinking that for the check and repr, that are the basic engineering
+to support this, I want to be explicit in the names, as these are the
+functions that pretty much define what a niimg is.
+",,,No goal code work niimg everi I think check repr basic engin support I want explicit name function pretti much defin niimg,N,2014-11-24 15:24:35
+8,issue_comment,292,nilearn,nilearn,banilo,2014-11-24 15:24:35,"Why not add a small note in the check_niimg(s) and repr_niimgs docstrings,
+such as ""As a general rule, nilearn function with Nifti1Image input carry
+""_img"" in their name. This function is carries ""niimg"" because, as an
+exception, it accepts both paths and Nifti1Image objects.""
+
+2014-11-24 13:56 GMT+01:00 Gael Varoquaux notifications@github.com:
+
+> > Also just curious, do we have some code that only works with
+> > Nifti-images?
+> 
+> No, the goal is to have code that works with niimgs every where. I am
+> just thinking that for the check and repr, that are the basic engineering
+> to support this, I want to be explicit in the names, as these are the
+> functions that pretty much define what a niimg is.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/292#issuecomment-64190105.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,whi add small note checkniimg reprniimg docstr As gener rule nilearn function nifti1imag input carri img name thi function carri niimg except accept path nifti1imag object 20141124 1356 gmt0100 gael varoquaux notificationsgithubcom viel grüße danilo,N,2014-11-24 15:58:17
+9,issue_comment,292,nilearn,nilearn,eickenberg,2014-11-24 15:58:17,"> as an exception, it accepts both paths and Nifti1Image objects
+
+but this is the rule as far as I know the codebase.
+
+To me the distinction is more about putting `_img` when we want to forget about/hide/render transparent the fact that niimgs can be a lot of things and putting `_niimg` when we need to be aware of this fact.
+",,,rule far I know codebas To distinct put want forget abouthiderend transpar fact niimg lot thing put need awar fact,N,2014-11-24 15:59:09
+10,issue_comment,292,nilearn,nilearn,GaelVaroquaux,2014-11-24 15:59:09,"> but this is the rule as far as I know the codebase.
+
+Yes.
+
+> To me the distinction is more about putting _img when we want to forget
+> about/ hide/render transparent the fact that niimgs can be a lot of
+> things and putting _niimg when we need to be aware of this fact.
+
+Well put.
+",,,ye well put,N,2014-11-24 16:22:28
+11,issue_comment,292,nilearn,nilearn,AlexandreAbraham,2014-11-24 16:22:28,"Another that has been bugging me and may be considered before release is the NiftiMasker (and MultiNiftiMasker). I thing it would more consistent to call them NiimgMasker and NiimgsMasker.
+",,,anoth bug may consid releas niftimask multiniftimask I thing would consist call niimgmask niimgsmask,N,2014-11-24 16:27:03
+12,issue_comment,292,nilearn,nilearn,eickenberg,2014-11-24 16:27:03,"(Or `ImgMasker`. Or `Masker`)
+",,,Or Or,N,2014-11-24 16:36:10
+13,issue_comment,292,nilearn,nilearn,GaelVaroquaux,2014-11-24 16:36:10,"> Another that has been bugging me and may be considered before release is the
+> NiftiMasker (and MultiNiftiMasker). I thing it would more consistent to call
+> them NiimgMasker and NiimgsMasker.
+
+Niimg is jargon that has no meaning outside of nilearn. Thus I am -1 on
+that.
+",,,niimg jargon mean outsid nilearn thu I 1,N,2014-11-25 12:06:47
+2,issue_closed,307,nilearn,nilearn,lesteve,2015-01-09 15:05:05,,closed issue,Added missing 3d-image enforcements,,N,2014-12-06 18:41:02
+4,pull_request_merged,307,nilearn,nilearn,lesteve,2015-01-09 15:05:04,Added missing 3d-image enforcements,e7e1592c4da38e3924639e9fe6a2df609961b4f7,Pull request merge from banilo/nilearn:enforce3Dargs to nilearn/nilearn:master,ad miss 3dimag enforc,N,2014-12-07 17:11:15
+5,issue_comment,307,nilearn,nilearn,bthirion,2014-12-07 17:11:15,"LGTM otherwise.
+",,,lgtm otherwis,N,2014-12-18 15:30:54
+9,issue_comment,307,nilearn,nilearn,banilo,2015-01-06 14:45:06,"Any news on this PR?
+",,,ani news PR,N,2014-12-06 18:51:53
+10,pull_request_commit_comment,307,nilearn,nilearn,eickenberg,2014-12-06 18:51:53,"Can you motivate this change?
+",46c8cac595072cd7384b5747b8a65a2411226615,"(None, '', u'nilearn/input_data/tests/test_multi_nifti_masker.py')",can motiv chang,N,2014-12-06 18:54:16
+11,pull_request_commit_comment,307,nilearn,nilearn,eickenberg,2014-12-06 18:54:16,"Is ""type"" here referring to wrong type of shape?
+",46c8cac595072cd7384b5747b8a65a2411226615,"(None, '', u'nilearn/tests/test_masking.py')",Is type refer wrong type shape,N,2014-12-06 18:54:46
+12,pull_request_commit_comment,307,nilearn,nilearn,banilo,2014-12-06 18:54:46,"The variable name appears to be misleading, it's passed on as 'mask_img' a few lines below.
+",46c8cac595072cd7384b5747b8a65a2411226615,"(None, '', u'nilearn/input_data/tests/test_multi_nifti_masker.py')",the variabl name appear mislead pass maskimg line,N,2014-12-06 18:56:17
+13,pull_request_commit_comment,307,nilearn,nilearn,banilo,2014-12-06 18:56:17,"This lines is now caught by check_niiimg, causing a TypeError, rather than a ValueError because of the shape as before.
+",46c8cac595072cd7384b5747b8a65a2411226615,"(None, '', u'nilearn/tests/test_masking.py')",thi line caught checkniiimg caus typeerror rather valueerror shape,N,2014-12-07 17:10:59
+14,pull_request_commit_comment,307,nilearn,nilearn,bthirion,2014-12-07 17:10:59,"Yes, but why do you make it a 3D image ? 
+",46c8cac595072cd7384b5747b8a65a2411226615,"(None, '', u'nilearn/input_data/tests/test_multi_nifti_masker.py')",ye make 3D imag,N,2014-12-11 14:51:43
+19,pull_request_commit_comment,307,nilearn,nilearn,lesteve,2015-01-05 09:52:02,"Unless I am missing something, assert_raises is not used in test_base_masker.py.
+",46c8cac595072cd7384b5747b8a65a2411226615,"(None, '', u'nilearn/input_data/tests/test_base_masker.py')",unless I miss someth assertrais use testbasemaskerpi,N,2014-12-18 15:12:37
+1,issue_title,289,nilearn,nilearn,banilo,2014-11-21 16:18:24,"Fixes a number of PEP8 violations in affine matrix example.
+",start issue,PEP8 fixes in plot_affine_transformation.py,fix number pep8 violat affin matrix exampl,N,2014-11-24 10:55:24
+2,issue_closed,289,nilearn,nilearn,lesteve,2014-11-24 10:55:24,,closed issue,PEP8 fixes in plot_affine_transformation.py,,N,2014-11-21 16:18:24
+3,pull_request_title,289,nilearn,nilearn,banilo,2014-11-21 16:18:24,"Fixes a number of PEP8 violations in affine matrix example.
+",bacdc849c54e32c880e1da1cea7058c9a464cc97,PEP8 fixes in plot_affine_transformation.py,fix number pep8 violat affin matrix exampl,N,2014-11-24 10:55:24
+4,pull_request_merged,289,nilearn,nilearn,lesteve,2014-11-24 10:55:24,PEP8 fixes in plot_affine_transformation.py,46b3f2f3d070666d29de70e1ff81b6e98aa5cacb,Pull request merge from banilo/nilearn:ex_affine to nilearn/nilearn:master,pep8 fix plotaffinetransformationpi,N,2014-11-23 21:08:50
+5,issue_comment,289,nilearn,nilearn,bthirion,2014-11-23 21:08:50,"LGTM. makes emacs happy.
+
+That's probably only a matter of test, but I'd rather have the 4 examples on one figure with subplots.
+",,,lgtm make emac happi that probabl matter test Id rather 4 exampl one figur subplot,Y,2014-11-24 07:42:44
+6,issue_comment,289,nilearn,nilearn,lesteve,2014-11-24 07:42:44,"> That's probably only a matter of test, but I'd rather have the 4 examples on one figure with subplots.
+
+The only downside with a single figure is that it sometimes clashes with the way we use examples as step by step instructions. For example: [here](http://nilearn.github.io/building_blocks/manipulating_mr_images.html#smoothing) and [there](http://nilearn.github.io/building_blocks/manipulating_mr_images.html#selecting-features). Two plots were put on the same figure and it is slightly misleading.
+",,,the downsid singl figur sometim clash way use exampl step step instruct for exampl two plot put figur slightli mislead,N,2014-11-24 10:03:20
+7,issue_comment,289,nilearn,nilearn,GaelVaroquaux,2014-11-24 10:03:20,"> That's probably only a matter of test, but I'd rather have the 4 examples on
+> one figure with subplots.
+
+I'd rather not. It's much easier to insert in the documentation in the
+current state, and this example is mostly made for the narrative
+documentation.
+",,,Id rather it much easier insert document current state exampl mostli made narr document,N,2014-11-24 10:05:24
+8,issue_comment,289,nilearn,nilearn,bthirion,2014-11-24 10:05:24,"OK, let's keep it as is.
+",,,OK let keep,N,2014-11-24 10:37:38
+9,issue_comment,289,nilearn,nilearn,banilo,2014-11-24 10:37:38,"Fixed missing word. Looks like it might be mergable now...
+",,,fix miss word look like might mergabl,N,2014-11-24 10:55:39
+10,issue_comment,289,nilearn,nilearn,lesteve,2014-11-24 10:55:39,"Merged, thanks for this!
+",,,merg thank,N,2014-11-23 21:02:00
+11,pull_request_commit_comment,289,nilearn,nilearn,bthirion,2014-11-23 21:02:00,"missing 'without' ?
+",bacdc849c54e32c880e1da1cea7058c9a464cc97,"(None, '', u'plot_affine_transformation.py')",miss without,N,2014-11-24 08:03:37
+12,pull_request_commit_comment,289,nilearn,nilearn,lesteve,2014-11-24 08:03:37,"> missing 'without' ?
+
+Looks like it, good catch. @banilo if you fix that, I'll merge this one.
+",bacdc849c54e32c880e1da1cea7058c9a464cc97,"(None, '', u'plot_affine_transformation.py')",look like good catch banilo fix ill merg one,N,2014-11-24 08:11:57
+13,pull_request_commit_comment,289,nilearn,nilearn,dohmatob,2014-11-24 08:11:57,"+1 for merge.
+
+On Mon, Nov 24, 2014 at 9:03 AM, Loïc Estève notifications@github.com
+wrote:
+
+> In plot_affine_transformation.py:
+> 
+> > @@ -25,9 +25,19 @@
+> >     given and no shape given
+> >  3) 4x4 affine matrix given and no shape given
+> > 
+> > ## -While 1) needs no further explanation (it returns an image exactly as specified, with a new view on the data in millimeter space), 2) and 3) are missing some specification, which is subsequently inferred by `resample_img`: If the affine offset is missing (3x3 transformation, case 2), then the new image will be the closest bounding box possible around the data along the new axes. If the affine offset is given, but no shape provided, the resulting image will be the closest bounding box around the union of the data points and the affine offset.
+> > 
+> > -Note that specifying a shape specifying a 3x3 transformation matrix causes an error message, because `resample_img` will not know where to start the bounding box (there is no intelligent way of inferring this given the bounding box shape).
+> > +While 1) needs no further explanation (it returns an image exactly as
+> > +specified, with a new view on the data in millimeter space), 2) and 3) are
+> > +missing some specification, which is subsequently inferred by `resample_img`:
+> > +If the affine offset is missing (3x3 transformation, case 2), then the new
+> > +image will be the closest bounding box possible around the data along the
+> > +new axes. If the affine offset is given, but no shape provided, the
+> > +resulting image will be the closest bounding box around the union of the
+> > +data points and the affine offset.
+> > +
+> > +Note that specifying a shape specifying a 3x3 transformation matrix causes
+> 
+>  missing 'without' ?
+> 
+> Looks like it, good catch. @banilo https://github.com/banilo if you fix
+> that, I'll merge this one.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/289/files#r20776194.
+
+## 
+
+DED
+",bacdc849c54e32c880e1da1cea7058c9a464cc97,"(None, '', u'plot_affine_transformation.py')",1 merg On mon nov 24 2014 903 AM loïc estèv notificationsgithubcom wrote ded,N,2014-11-21 16:19:08
+14,pull_request_commit,289,nilearn,nilearn,banilo,2014-11-21 16:19:08,PEP8 fixes,9f89edf4b4e09262c1367388ac3331ff269732ec,,pep8 fix,N,2014-11-24 10:38:00
+1,issue_title,321,nilearn,nilearn,banilo,2014-12-16 13:56:42,"...because there is niimg_conversions/is_img.py now.
+",start issue,remove obsolete comments,niimgconversionsisimgpi,N,2014-12-17 10:14:43
+2,issue_closed,321,nilearn,nilearn,lesteve,2014-12-17 10:14:43,,closed issue,remove obsolete comments,,N,2014-12-16 13:56:42
+3,pull_request_title,321,nilearn,nilearn,banilo,2014-12-16 13:56:42,"...because there is niimg_conversions/is_img.py now.
+",aef66ce2bb5b49e689ff03ef0ff04e34d9174fdd,remove obsolete comments,niimgconversionsisimgpi,N,2014-12-17 10:14:43
+4,pull_request_merged,321,nilearn,nilearn,lesteve,2014-12-17 10:14:43,remove obsolete comments,e756adc5d384c6f8083757b29e5d547e1c52a93d,Pull request merge from banilo/nilearn:comments to nilearn/nilearn:master,remov obsolet comment,N,2014-12-16 14:23:36
+5,issue_comment,321,nilearn,nilearn,banilo,2014-12-16 14:23:36,"...but this makes the following 4 tests fail:
+
+```
+test_compute_multi_epi_mask()
+test_masking.test_compute_background_mask()
+test_compute_epi_mask()
+test_multi_nifti_masker.test_nan()
+```
+",,,make follow 4 test fail,Y,2014-12-16 20:23:02
+6,issue_comment,321,nilearn,nilearn,banilo,2014-12-16 20:23:02,"...fixed.
+",,,fix,N,2014-12-17 07:46:56
+7,issue_comment,321,nilearn,nilearn,lesteve,2014-12-17 07:46:56,"Looks good, could you squash your commits in a single one to have a nicer history?
+",,,look good could squash commit singl one nicer histori,N,2014-12-17 09:45:23
+8,issue_comment,321,nilearn,nilearn,banilo,2014-12-17 09:45:23,"...squashed.
+",,,squash,N,2014-12-17 09:47:25
+2,issue_closed,293,nilearn,nilearn,GaelVaroquaux,2015-02-05 16:55:50,,closed issue,[ENH + MRG] added symmetric_range kw to plot_stat_map,,N,2014-11-24 10:25:46
+4,pull_request_merged,293,nilearn,nilearn,GaelVaroquaux,2015-02-05 16:55:50,[ENH + MRG] added symmetric_range kw to plot_stat_map,abe92c206ba778273d61dd3f2302aa3727883eea,Pull request merge from eickenberg/nilearn:plot_symmetric_range to nilearn/nilearn:master,enh mrg ad symmetricrang kw plotstatmap,N,2014-11-24 11:52:06
+5,issue_comment,293,nilearn,nilearn,eickenberg,2014-11-24 11:52:06,"![symmetric_cbar](https://cloud.githubusercontent.com/assets/1306635/5164473/9aa40dc2-73d8-11e4-83c9-2845373185e1.png) 
+
+### becomes
+
+![non_symmetric_cbar](https://cloud.githubusercontent.com/assets/1306635/5164477/a40dc8f8-73d8-11e4-981f-6a17f259ed99.png)
+
+Without changing a single line of code in `plot_localizer_simple_analysis.py`
+",,,symmetriccbar becom nonsymmetriccbar without chang singl line code,N,2014-11-24 11:59:41
+6,issue_comment,293,nilearn,nilearn,eickenberg,2014-11-24 11:59:41,"Ah yes, good point. We had discussed that actually. Was too happy when everything worked on the first test :)
+",,,Ah ye good point We discuss actual wa happi everyth work first test,Y,2014-11-24 12:00:44
+7,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-24 12:00:44,"It's more work, I know, but it will really solve the problem that our
+users were having.
+",,,it work I know realli solv problem user,N,2014-11-24 12:02:15
+8,issue_comment,293,nilearn,nilearn,eickenberg,2014-11-24 12:02:15,"I confirm: Changing to default colormap in the cited example leads to a weird plot.
+",,,I confirm chang default colormap cite exampl lead weird plot,N,2014-11-24 12:18:50
+9,issue_comment,293,nilearn,nilearn,lesteve,2014-11-24 12:18:50,"> I confirm: Changing to default colormap in the cited example leads to a weird plot.
+
+What kind of weird are we talking about, blue pixels associated with non-negative values?
+",,,what kind weird talk blue pixel associ nonneg valu,N,2014-11-24 12:23:28
+10,issue_comment,293,nilearn,nilearn,eickenberg,2014-11-24 12:23:28,"exactly :) -- I am looking at matplotlib doc to be able to specify the boundaries of the colormap. One can always use an array as a 1D image to make the whole colorbar, but I am checking to see if this situation is provided for already in matplotlib. Do you happen to know if this is the case?
+",,,exactli I look matplotlib doc abl specifi boundari colormap one alway use array 1D imag make whole colorbar I check see situat provid alreadi matplotlib Do happen know case,N,2014-11-24 12:26:21
+11,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-24 12:26:21,"> One can always use an array as a 1D image to make the whole colorbar,
+
+I am afraid that you'll have to do this.
+",,,I afraid youll,N,2014-11-24 12:46:46
+12,issue_comment,293,nilearn,nilearn,lesteve,2014-11-24 12:46:46,"What about having cmap default to None and seting the colormap in the two different cases, e.g. the current one if there are both negative and positive values and a more suitable one if there are only positive/negative values?
+
+I would be pretty annoyed if I passed in my favourite colormap and realised that only half of it was used because I was in the ""positive values only"" case.
+",,,what cmap default none sete colormap two differ case eg current one neg posit valu suitabl one positiveneg valu I would pretti annoy I pass favourit colormap realis half use I posit valu case,N,2014-11-24 12:50:27
+13,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-24 12:50:27,"> What about having cmap default to None and seting the colormap in the two
+> different cases, e.g. the current one if there are both negative and positive
+> values and a more suitable one if there are only positive/negative values?
+
+I think that explicit is better than implicit. More importantly, I want
+to make it easy for people to use different colormaps.
+
+> I would be pretty annoyed if I passed in my favourite colormap and
+> realised that only half of it was used because I was in the ""positive
+> values only"" case.
+
+Then you would set ""symmetric_range"" to False (and we need to point to
+that in the docstring of the cmap argument).
+",,,I think explicit better implicit more importantli I want make easi peopl use differ colormap then would set symmetricrang fals need point docstr cmap argument,N,2014-11-24 13:27:38
+14,issue_comment,293,nilearn,nilearn,lesteve,2014-11-24 13:27:38,"Maybe I am missing something here but I think what we are trying to fix here is that the **default** cmap doesn't follow the best practices (i.e. using blue/red when all your values have the same sign), hence my suggestion above. To me it doesn't feel very natural to potentially keep only half of the cmap when the user explicitly specifies one.
+
+> More importantly, I want to make it easy for people to use different colormaps.
+
+I don't understand this, the auto-setting of the colormap would only happen when cmap is left to its default (i.e. None). If the cmap is specified then you left it unmodified.
+
+> Then you would set ""symmetric_range"" to False (and we need to point to that in the docstring of the cmap argument).
+
+I don't know it still feels less than great to have to specify two separate arguments when you just want a different colormap.
+",,,mayb I miss someth I think tri fix default cmap doesnt follow best practic ie use bluer valu sign henc suggest To doesnt feel natur potenti keep half cmap user explicitli specifi one I dont understand autoset colormap would happen cmap left default ie none If cmap specifi left unmodifi I dont know still feel less great specifi two separ argument want differ colormap,N,2014-11-24 15:35:51
+15,issue_comment,293,nilearn,nilearn,eickenberg,2014-11-24 15:35:51,"The fact that all nilearn colourmaps are symmetric in this way can be a justification for the `symmetric_range=` keyword etc.
+
+As Gaël (resp. google) rightly said to me (resp. google internal gmail users), ""you are not the user"", when I stated similar reservations wrt this. Now the question is what do the users think about this. 
+
+Coming from using basic matplotlib, I too am annoyed at things not doing what I want them to do. The question is whether the users have used basic matplotlib.
+",,,the fact nilearn colourmap symmetr way justif keyword etc As gaël resp googl rightli said resp googl intern gmail user user I state similar reserv wrt now question user think come use basic matplotlib I annoy thing I want the question whether user use basic matplotlib,N,2014-11-24 15:37:00
+16,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-24 15:37:00,"> Coming from using basic matplotlib, I too am annoyed at things not
+> doing what I want them to do. The question is whether the users have
+> used basic matplotlib.
+
+These users should be using plot_img.
+",,,these user use plotimg,N,2014-11-25 15:38:50
+17,issue_comment,293,nilearn,nilearn,lesteve,2014-11-25 15:38:50,"About plot_img, one of the major annoyances I bumped into is that it doesn't have a default bg_img + anat dimming so that you have to write a few non-trivial lines when switching from plot_stat_map to plot_img.
+
+Any objections to add the default anat + anat dimming to plot_img?
+",,,about plotimg one major annoy I bump doesnt default bgimg anat dim write nontrivi line switch plotstatmap plotimg ani object add default anat anat dim plotimg,N,2014-11-25 15:52:48
+18,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-25 15:52:48,"> Any objections to add the default anat + anat dimming to plot_img?
+
+Objection your honor: it shouldn't be on by default. Not every data is in
+standard space. Not every data should be plotted would a background.
+Actually, most data shouldn't.
+",,,object honor shouldnt default not everi data standard space not everi data plot would background actual data shouldnt,N,2014-11-25 20:55:40
+19,issue_comment,293,nilearn,nilearn,bthirion,2014-11-25 20:55:40,"Is there a way to test this feature ?
+",,,Is way test featur,Y,2014-11-26 09:40:19
+20,issue_comment,293,nilearn,nilearn,lesteve,2014-11-26 09:40:19,"I reckon it could be tested with some matplotlib hackery.
+
+As an aside nilearn plotting functions don't have tests besides smoke tests that only make sure no exception is raised, which is not great. Provided the right matplotlib incantations it is probably possible to check a few things like the threshold logic, the colorbar range, etc...
+",,,I reckon could test matplotlib hackeri As asid nilearn plot function dont test besid smoke test make sure except rais great provid right matplotlib incant probabl possibl check thing like threshold logic colorbar rang etc,Y,2014-11-26 10:06:41
+21,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-26 10:06:41,"> I reckon it could be tested with some matplotlib hackery.
+
+For now, I think that we want smoke test only. But we definitely want a
+smoke test, ie all the lines of code should be covered.
+",,,for I think want smoke test but definit want smoke test ie line code cover,Y,2014-11-26 10:09:29
+22,issue_comment,293,nilearn,nilearn,GaelVaroquaux,2014-11-26 10:09:29,"As the strategy implemented here is not the ""right"" one, I am changing the title from MRG to WIP. Please change it back to MRG when done.
+",,,As strategi implement right one I chang titl mrg wip pleas chang back mrg done,N,2014-11-26 10:16:12
+23,issue_comment,293,nilearn,nilearn,eickenberg,2014-11-26 10:16:12,"thanks, I forgot to do that.
+",,,thank I forgot,N,2014-11-26 10:23:49
+57,pull_request_commit_comment,293,nilearn,nilearn,eickenberg,2015-02-05 16:14:44,"[ref](https://github.com/nilearn/nilearn/pull/293/#issuecomment-68725033)
+",86f3d6b81dcbff8fcd42047eb7e3961d7a43ae08,"(13, '', u'nilearn/plotting/img_plotting.py')",ref,N,2014-11-24 10:15:52
+1,issue_title,276,nilearn,nilearn,banilo,2014-11-09 15:51:52,"tries to address #235
+",start issue,Parallel() for CanICA class,tri address 235,N,2014-11-21 14:00:09
+3,pull_request_title,276,nilearn,nilearn,banilo,2014-11-09 15:51:52,"tries to address #235
+",35c1805993c33e67a394193c7cae9a3f38a7607f,Parallel() for CanICA class,tri address 235,N,2014-11-21 14:00:09
+10,issue_comment,276,nilearn,nilearn,banilo,2014-11-13 20:44:27,"On my laptop in CanICA.fit()...
+- MultiPCA.fit() argument takes ~14s
+- Parallel(..fastica...) also takes ~14s if n_jobs=1, which is then reduced as a function of the number of jobs
+",,,On laptop canicafit multipcafit argument take 14 parallelfastica also take 14 njobs1 reduc function number job,N,2014-11-19 07:59:49
+11,issue_comment,276,nilearn,nilearn,banilo,2014-11-19 07:59:49,"Should I perform other/more specific timing tests?
+",,,should I perform othermor specif time test,Y,2014-11-19 08:42:26
+12,issue_comment,276,nilearn,nilearn,GaelVaroquaux,2014-11-19 08:42:26,"With regards to timing, this feature is especially useful if some of the earlier steps have been cached. In this case, the for loop that Danilo has parallelized is the bottleneck.
+
+The situation in which the earlier steps have been cached happens typically when bootstrapping across subjects. I am currently melting down drago doing that.
+",,,with regard time featur especi use earlier step cach In case loop danilo parallel bottleneck the situat earlier step cach happen typic bootstrap across subject I current melt drago,N,2014-11-19 10:15:33
+13,issue_comment,276,nilearn,nilearn,lesteve,2014-11-19 10:15:33,"FWIW some timings I did using `%run -p -s cumulative plot_canica_resting_state.py`:
+
+|  | n_jobs=1 | n_jobs=2 | n_jobs=4 | n_jobs=8 |
+| --- | --- | --- | --- | --- |
+| PR total | 91.3 | 55.3 | 38.1 | 35.5 |
+| PR canica.fit | 87.3 | 51.1 | 34.0 | 30.3 |
+| PR multi_pca.fit | 31.0 | 19.8 | 14.7 | 14.7 |
+|  |  |  |  |  |
+| master total | 80.8 | 70.8 | 67.4 | 65.8 |
+| master canica.fit | 76.6 | 66.8 | 63.1 | 61.7 |
+| master multi_pca.fit | 31.0 | 19.7 | 16.0 | 14.8 |
+
+so I guess a quick and dirty summary would be that the canica.fit run time is divided by 2 with 8 cores thanks to this PR.
+
+_Edit_: oh and BTW this when the previous steps had been cached already as @GaelVaroquaux mentioned.
+",,,fwiw time I use njobs1 njobs2 njobs4 njobs8 PR total 913 553 381 355 PR canicafit 873 511 340 303 PR multipcafit 310 198 147 147 master total 808 708 674 658 master canicafit 766 668 631 617 master multipcafit 310 197 160 148 I guess quick dirti summari would canicafit run time divid 2 8 core thank PR edit oh btw previou step cach alreadi gaelvaroquaux mention,N,2014-11-19 10:39:33
+14,issue_comment,276,nilearn,nilearn,lesteve,2014-11-19 10:39:33,"Also now that you are familiar with rebase, would you mind squashing a few of your commits. Some of them don't have great commit messages :wink:
+",,,also familiar rebas would mind squash commit some dont great commit messag wink,N,2014-11-19 10:53:36
+15,issue_comment,276,nilearn,nilearn,GaelVaroquaux,2014-11-19 10:53:36,"> FWIW some timings I did using %run -p -s cumulative plot_canica_resting_state.py:
+
+Nice timing, and IMHO quite convincing that this is a useful
+functionality
+",,,nice time imho quit convinc use function,N,2014-11-19 16:01:38
+16,issue_comment,276,nilearn,nilearn,banilo,2014-11-19 16:01:38,"Ok, I should have addressed all comments. I hope the squashing was correct this way?
+",,,Ok I address comment I hope squash correct way,N,2014-11-19 17:13:58
+17,issue_comment,276,nilearn,nilearn,lesteve,2014-11-19 17:13:58,"> Ok, I should have addressed all comments. I hope the squashing was correct this way?
+
+Almost, I would just edit the commit message to remove a few unnecessary things like ""new things"" etc... 
+
+You can do that with `git commit --amend` and then `git push -f yourbranch`.
+",,,almost I would edit commit messag remov unnecessari thing like new thing etc you,N,2014-11-20 12:32:54
+18,issue_comment,276,nilearn,nilearn,banilo,2014-11-20 12:32:54,"Commits squashed and renamed now!
+",,,commit squash renam,N,2014-11-21 13:56:46
+19,issue_comment,276,nilearn,nilearn,banilo,2014-11-21 13:56:46,"Challenge accomplished.
+",,,challeng accomplish,N,2014-11-21 14:00:06
+20,issue_comment,276,nilearn,nilearn,lesteve,2014-11-21 14:00:06,"Great stuff, thanks!
+",,,great stuff thank,N,2014-11-21 14:06:37
+21,issue_comment,276,nilearn,nilearn,lesteve,2014-11-21 14:06:37,"@banilo btw I don't know what the github magic words are but I know that if you use ""Fix #issueNumber"" in the PR description it will close the issue automatically when the PR is merged.
+
+More info [here](https://github.com/blog/1506-closing-issues-via-pull-requests)
+",,,banilo btw I dont know github magic word I know use fix issuenumb PR descript close issu automat PR merg more info,N,2014-11-21 14:09:01
+23,pull_request_commit_comment,276,nilearn,nilearn,bthirion,2014-11-11 09:38:54,"Please keep this comment. 
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",pleas keep comment,N,2014-11-19 08:21:03
+24,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-19 08:21:03,"For completeness, the comment is still there (a few lines above)
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",for complet comment still line,N,2014-11-19 08:38:32
+25,pull_request_commit_comment,276,nilearn,nilearn,GaelVaroquaux,2014-11-19 08:38:32,"If you cannot pass a random_state, you cannot do parallel computing: the random number generation will be duplicated in all the child process, and thus the for loop won't do different initialization.
+
+You should use parallel computing only for versions of scikit-learn above 0.12
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",If cannot pass randomst cannot parallel comput random number gener duplic child process thu loop wont differ initi you use parallel comput version scikitlearn 012,N,2014-11-19 08:39:39
+26,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-19 08:39:39,"I reckon we should use n_jobs=1 in this case I understand correctly what @GaelVaroquaux said in #235:
+
+> Thus we can parallelize the loop only for scikit-learn > 0.13 (I suggest setting n_job to one else)
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",I reckon use njobs1 case I understand correctli gaelvaroquaux said 235,N,2014-11-19 08:39:57
+27,pull_request_commit_comment,276,nilearn,nilearn,GaelVaroquaux,2014-11-19 08:39:57,"We cannot have parallel computing on by default in examples. On windows boxes it can lead to a fork bomb.
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'plot_canica_resting_state.py')",We cannot parallel comput default exampl On window box lead fork bomb,N,2014-11-19 08:40:47
+28,pull_request_commit_comment,276,nilearn,nilearn,GaelVaroquaux,2014-11-19 08:40:47,"Yes
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",ye,N,2014-11-19 10:29:18
+29,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-19 10:29:18,"I reckon the ica_maps_ variable name should be changed because of the for loop -> Parallel restructuring. You could also do the `[2]` and `.T` here. Maybe something like
+
+``` python
+
+results = Parallel(...)
+ica_maps_gen_ = (result[2].T for result in results)
+```
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",I reckon icamap variabl name chang loop,N,2014-11-19 10:36:24
+30,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-19 10:36:24,"I believe you could use `min` with a `key` argument here something like (not tested and dependent on another comment above):
+
+``` python
+ica_maps_and_sparsities = ((ica_maps, np.sum(np.abs(ica_map)).max()) for ica_maps in ica_maps_gen_)
+ica_maps, sparsity = min(ica_maps_and_sparsities, key=operator.itemgetter(-1))
+```
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",I believ could use argument someth like test depend anoth comment,Y,2014-11-19 15:42:18
+31,pull_request_commit_comment,276,nilearn,nilearn,banilo,2014-11-19 15:42:18,"Nice trick, good to know.
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",nice trick good know,N,2014-11-19 17:07:26
+32,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-19 17:07:26,"It looks like `os` is not used anywhere in this file
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",It look like use anywher file,N,2014-11-19 17:08:24
+33,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-19 17:08:24,"Simpler to just leave n_jobs unspecified, i.e. no need to modify this file.
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'plot_canica_resting_state.py')",simpler leav njob unspecifi ie need modifi file,N,2014-11-20 15:36:51
+34,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-20 15:36:51,"Not only is it not PEP8 compliant but this creative alignment makes it really hard to parse this statement, what about something like
+
+``` python
+
+        ica_maps_and_sparsities = [(ica_map,
+                                    np.sum(np.abs(ica_map), axis=1).max())
+                                   for ica_map in ica_maps_gen_]
+```
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",not pep8 compliant creativ align make realli hard pars statement someth like,N,2014-11-20 15:36:54
+35,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-20 15:36:54,"I believe you can replace square brackets by parentheses here, i.e. use a generator rather than a list comprehension.
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",I believ replac squar bracket parenthes ie use gener rather list comprehens,N,2014-11-21 10:02:34
+36,pull_request_commit_comment,276,nilearn,nilearn,lesteve,2014-11-21 10:02:34,"Another PEP8 warning. You can use `from distutils.version import LooseVersion` to shorten it. I would even do something like:
+
+``` python
+if (LooseVersion(sklearn.__version__) > LooseVersion('0.12')):
+```
+",35c1805993c33e67a394193c7cae9a3f38a7607f,"(None, '', u'nilearn/decomposition/canica.py')",anoth pep8 warn you use shorten I would even someth like,N,2014-11-21 13:57:38
+1,issue_title,285,nilearn,nilearn,lesteve,2014-11-20 09:59:25,"Replace + by - to ensure that some voxels pass the threshold. 
+
+I seem to bump on this line on occasions and I figured I would ask whether I was missing something.
+",start issue,Fix auto threshold in img_plotting.py,replac ensur voxel pass threshold I seem bump line occas I figur I would ask whether I miss someth,N,2014-11-20 10:00:26
+2,issue_closed,285,nilearn,nilearn,GaelVaroquaux,2014-11-20 10:00:26,,closed issue,Fix auto threshold in img_plotting.py,,N,2014-11-20 09:59:25
+3,pull_request_title,285,nilearn,nilearn,lesteve,2014-11-20 09:59:25,"Replace + by - to ensure that some voxels pass the threshold. 
+
+I seem to bump on this line on occasions and I figured I would ask whether I was missing something.
+",12db24e92f81f40ba9e5ebf406d5b6e9cbfb0163,Fix auto threshold in img_plotting.py,replac ensur voxel pass threshold I seem bump line occas I figur I would ask whether I miss someth,N,2014-11-20 10:00:26
+4,pull_request_merged,285,nilearn,nilearn,GaelVaroquaux,2014-11-20 10:00:26,Fix auto threshold in img_plotting.py,ef98b58530b588fb342ef145eb6deffa013abe89,Pull request merge from lesteve/nilearn:auto-threshold to nilearn/nilearn:master,fix auto threshold imgplottingpi,N,2014-11-20 10:00:24
+5,issue_comment,285,nilearn,nilearn,GaelVaroquaux,2014-11-20 10:00:24,"Good catch!
+",,,good catch,N,2014-11-20 11:00:52
+6,issue_comment,285,nilearn,nilearn,lesteve,2014-11-20 11:00:52,"BTW just curious, is the 1e-5 coming from somewhere in particular? The reason I ask is because 1e-15 is used [here](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/find_cuts.py#L75) instead.
+",,,btw curiou 1e5 come somewher particular the reason I ask 1e15 use instead,N,2014-11-20 11:07:07
+7,issue_comment,285,nilearn,nilearn,GaelVaroquaux,2014-11-20 11:07:07,"> BTW just curious, is the 1e-5 coming from somewhere in particular? The
+> reason I ask is because 1e-15 is used here instead.
+
+1e-15 is for numerical instability. 1e-5 is because some algorithms do
+not converge at a precision such that what should be 0 is actually 0, but
+more 1e-5 think of it as xtol in an optimization framework).
+",,,1e15 numer instabl 1e5 algorithm converg precis 0 actual 0 1e5 think xtol optim framework,N,2014-11-20 11:15:28
+8,issue_comment,285,nilearn,nilearn,lesteve,2014-11-20 11:15:28,"Maybe I could have been more clear. In both of the cases I mentioned you just offset an activation threshold by an epsilon, except that the epsilon is not the same (1e-5 or 1e-15). Basically just curious about the reason of the difference if there is any good one. Also it could have been a typo given how close they are (in typing distance). 
+",,,mayb I could clear In case I mention offset activ threshold epsilon except epsilon 1e5 1e15 basic curiou reason differ good one also could typo given close type distanc,N,2014-11-20 15:17:03
+9,issue_comment,285,nilearn,nilearn,GaelVaroquaux,2014-11-20 15:17:03,"I just realized that I did a mistake merging your PR. I am doing too many
+things in parallel.
+
+I think that the code was correct. The goal of this code is to say that
+when you are thresholding at 1, the segment [-1, 1](ie 1 included) is
+not displayed. The main usecase is to threshold a O, in which case, you
+want to set transparent {0} and not the null ensemble.
+
+If you agree with the reasonning above (in particular the usecase) could
+please commit (directly into master) a commit that reverts your change
+and explains the code better based on my explaination.
+",,,I realiz I mistak merg PR I mani thing parallel I think code correct the goal code say threshold 1 segment 1 1ie 1 includ display the main usecas threshold O case want set transpar 0 null ensembl If agre reason particular usecas could pleas commit directli master commit revert chang explain code better base explain,N,2014-11-20 18:58:50
+10,issue_comment,285,nilearn,nilearn,lesteve,2014-11-20 18:58:50,"I am not too sure about the use case, because in most cases I have seen, `np.ma.masked_inside(data, -threshold, threshold)` is used to mask the array and this function mask the values inclusively, so zero would be masked.
+
+Note that this code is only used when using `threshold='auto'` in which case your auto threshold is the 80% percentile of np.abs(data).
+
+The use case I thought the code was trying to solve is when you are unlucky enough that no voxel value is _strictly_ greater in absolute value than the auto threshold. I may be wrong about that obviously.
+",,,I sure use case case I seen use mask array function mask valu inclus zero would mask note code use use case auto threshold 80 percentil npabsdata the use case I thought code tri solv unlucki enough voxel valu strictli greater absolut valu auto threshold I may wrong obvious,N,2014-11-20 21:17:16
+11,issue_comment,285,nilearn,nilearn,GaelVaroquaux,2014-11-20 21:17:16,"> Note that this code is only used when using threshold='auto' in which
+> case your auto threshold is the 80% percentile of np.abs(data).
+> 
+> The use case I thought the code was trying to solve is when you are
+> unlucky enough that no voxel value is strictly greater in absolute
+> value than the auto threshold. I may be wrong about that obviously.
+
+Now I think that it comes back to me (I wrote this code, but years ago; I
+do remember that this detail was important) suppose that you have a
+binary image, only zeros and 1. You don't want 1 to be masked, even if
+there are more than 20% of 1. I think that this is the usecase that the
+code was solving (I _think_).
+",,,now I think come back I wrote code year ago I rememb detail import suppos binari imag zero 1 you dont want 1 mask even 20 1 I think usecas code solv I think,N,2014-11-21 09:45:41
+12,issue_comment,285,nilearn,nilearn,lesteve,2014-11-21 09:45:41,"> You don't want 1 to be masked, even if there are more than 20% of 1. I think that this is the usecase that the code was solving (I _think_).
+
+So this agrees with what I had in mind. We definitely want a - sign which is what this PR was about.
+",,,So agre I mind We definit want sign PR,N,2014-11-21 09:59:22
+13,issue_comment,285,nilearn,nilearn,GaelVaroquaux,2014-11-21 09:59:22,"> So this agrees with what I had in mind. We definitely want a - sign which is
+> what this PR was about.
+
+OK. I think that you are right and I am wrong. Is it possible to write a
+test for this or not (ie is the function structure right, or do we have a
+tangle). If it's easy to do so, it would be great if you could write a
+test. If it's not easy, just give up.
+",,,OK I think right I wrong Is possibl write test ie function structur right tangl If easi would great could write test If easi give,Y,2014-11-21 10:21:49
+14,issue_comment,285,nilearn,nilearn,lesteve,2014-11-21 10:21:49,"Off the top of my head, I seem to remember this auto threshold logic is deep inside the plotting functions. I guess one quick and dirty way to do it would be to use the plotting function with some toy image and look at the image vmin and vmax (we can probably retrieve them in some way from the display object).
+",,,off top head I seem rememb auto threshold logic deep insid plot function I guess one quick dirti way would use plot function toy imag look imag vmin vmax probabl retriev way display object,N,2014-11-21 10:23:58
+15,issue_comment,285,nilearn,nilearn,GaelVaroquaux,2014-11-21 10:23:58,"> I seem to remember this auto threshold logic is deep inside the
+> plotting functions.
+
+Me too :(.
+
+> I guess one quick and dirty way to do it would be to use the plotting
+> function with some toy image and look at the image vmin and vmax (we
+> can probably retrieve them in some way from the display object).
+
+If it's easy, go for it. It's a functional test that makes sens!
+",,,Me If easi go it function test make sen,Y,2014-11-20 09:57:13
+1,issue_title,278,nilearn,nilearn,banilo,2014-11-11 16:48:06,"in response to #203
+
+@AlexandreAbraham: Does this make any sense and is it approximately what you guys had in mind?
+",start issue,[ENH] Shelving option for NiftiMasker,respons 203 alexandreabraham doe make sens approxim guy mind,N,2014-11-19 08:08:52

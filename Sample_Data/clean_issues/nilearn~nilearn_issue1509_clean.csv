@@ -1,0 +1,48 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1509,nilearn,nilearn,grjd,2017-09-12 14:16:50," Just to make sure how the precision matrix is built.
+I do a GraphLassoCV estimator for just 4 nodes and plot the covariance and the precision matrix, also Ledoit (which is pretty much like the precision)
+The precision matrix (also Ledoit) dont recover the main diagonal, i should have maximum values for the diagonal, normalized or not.
+
+lw_cov_, _ = ledoit_wolf(time_series)
+lw_prec_ = linalg.inv(lw_cov_)
+lw_prec_.precision_  gives me
+array([[ 1.31104237, -0.32148359, -0.1051193 , -0.4004092 ],
+[-0.32148359, 2.01339135, -1.22316702, -0.09501513],
+[-0.1051193 , -1.22316702, 1.93573103, -0.21259643],
+[-0.4004092 , -0.09501513, -0.21259643, 1.2511603 ]])
+
+This is the ledoit estimator.prec_
+![screen shot 2017-09-12 at 3 39 36 pm](https://user-images.githubusercontent.com/7142903/30330525-9d08ffe0-97d5-11e7-8190-a0d1fb745a89.png)
+",start issue,precision matrix diagonal not max values,just make sure precis matrix built I graphlassocv estim 4 node plot covari precis matrix also ledoit pretti much like precis the precis matrix also ledoit dont recov main diagon maximum valu diagon normal lwcov ledoitwolftimeseri lwprec linalginvlwcov lwprecprecis give array 131104237 032148359 01051193 04004092 032148359 201339135 122316702 009501513 01051193 122316702 193573103 021259643 04004092 009501513 021259643 12511603 thi ledoit estimatorprec screen shot 20170912 3 39 36 pm
+issue_closed,1509,nilearn,nilearn,GaelVaroquaux,2017-11-06 20:37:13,,closed issue,precision matrix diagonal not max values,
+issue_comment,1509,nilearn,nilearn,grjd,2017-09-12 14:58:16,"The partial correlation of one variable with itself should be one.
+",,,the partial correl one variabl one
+issue_comment,1509,nilearn,nilearn,grjd,2017-09-12 15:33:41,"Yes, but the precision matrix is proportional to the partial correlation matrix and the diagonal elements should  keep the same proportion, right? ",,,ye precis matrix proport partial correl matrix diagon element keep proport right
+issue_comment,1509,nilearn,nilearn,grjd,2017-09-12 16:22:42,"I guess is this , for the Conditional Covariance Formula
+Cov(X, Y) = E[Cov(X, Y|Z)] + Cov(E[X|Z], E[Y|Z]), when X=Y 
+...
+Cov(X, X) = E(X|Z)",,,I guess condit covari formula covx Y ecovx YZ covexz eyz XY covx X exz
+issue_comment,1509,nilearn,nilearn,GaelVaroquaux,2017-09-12 14:25:48,"> Just to make sure how the precision matrix is built.
+
+It's the standard mathematical definition, with the corresponding
+estimator.
+
+> I do a GraphLassoCV estimator for just 4 nodes and plot the covariance and the
+> precision matrix, also Ledoit (which is pretty much like the precision)
+> The precision matrix (also Ledoit) dont recover the main diagonal, i should
+> have maximum values for the diagonal, normalized or not.
+
+I don't understand the question.
+",,,it standard mathemat definit correspond estim I dont understand question
+issue_comment,1509,nilearn,nilearn,GaelVaroquaux,2017-09-12 15:30:16,"> The partial correlation of one variable with itself should be one.
+
+Yes, but this is a precision matrix, and not a partial correlation
+matrix.
+",,,ye precis matrix partial correl matrix
+issue_comment,1509,nilearn,nilearn,GaelVaroquaux,2017-09-12 15:55:30,"> Yes, but the precision matrix is proportional to the partial
+> correlation matrix and the diagonal elements should keep the same
+> proportion, right?
+
+No.
+",,,No

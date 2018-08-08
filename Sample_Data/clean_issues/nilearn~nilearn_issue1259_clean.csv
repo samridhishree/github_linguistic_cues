@@ -1,0 +1,82 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1259,nilearn,nilearn,salma1601,2016-09-03 02:52:24,"I can no more build the docs with `make html`. I just backuped all the nilearn folder after the ubuntu reinstall
+
+>  Make sym-links to share the cache across various example
+>  directories
+> cd ../examples/ && mkdir nilearn_cache
+> mkdir: impossible de créer le répertoire «nilearn_cache»: Le fichier existe
+> Makefile:42 : la recette pour la cible « sym_links » a échouée
+> make: [sym_links] Erreur 1 (ignorée)
+> cd ../examples/01_plotting/ && ln -s ../nilearn_cache
+> ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+> Makefile:42 : la recette pour la cible « sym_links » a échouée
+> make: [sym_links] Erreur 1 (ignorée)
+> cd ../examples/02_decoding/ && ln -s ../nilearn_cache
+> ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+> Makefile:42 : la recette pour la cible « sym_links » a échouée
+> make: [sym_links] Erreur 1 (ignorée)
+> cd ../examples/03_connectivity/ && ln -s ../nilearn_cache
+> ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+> Makefile:42 : la recette pour la cible « sym_links » a échouée
+> make: [sym_links] Erreur 1 (ignorée)
+> cd ../examples/04_manipulating_images/ && ln -s ../nilearn_cache
+> ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+> Makefile:42 : la recette pour la cible « sym_links » a échouée
+> make: [sym_links] Erreur 1 (ignorée)
+> cd ../examples/05_advanced/ && ln -s ../nilearn_cache
+> ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+> Makefile:42 : la recette pour la cible « sym_links » a échouée
+> make: [sym_links] Erreur 1 (ignorée)
+>  These two lines make the build a bit more lengthy, and the
+>  the embedding of images more robust
+> rm -rf _build/html/_images
+> sphinx-build -b html -d _build/doctrees   . _build/html
+> make: sphinx-build : commande introuvable
+> Makefile:57 : la recette pour la cible « html » a échouée
+> make: **\* [html] Erreur 127
+",start issue,not succeeding to build my docs after ubuntu reinstall,I build doc I backup nilearn folder ubuntu reinstal
+issue_closed,1259,nilearn,nilearn,aabadie,2016-09-04 12:47:14,,closed issue,not succeeding to build my docs after ubuntu reinstall,
+issue_comment,1259,nilearn,nilearn,GaelVaroquaux,2016-09-03 09:23:01,"You should install python-sphinx, or python3-sphinx.
+",,,you instal pythonsphinx python3sphinx
+issue_comment,1259,nilearn,nilearn,aabadie,2016-09-03 08:17:00,"You tried on a freshly reinstalled Ubuntu but it seems that you forgot to install `sphinx-build` (see last error message).
+Le 3 sept. 2016 4:52 AM, salma1601 notifications@github.com a écrit :I can no more build the docs with make html. I just backuped all the nilearn folder after the ubuntu reinstall
+
+Make sym-links to share the cache across various example
+ directories
+cd ../examples/ && mkdir nilearn_cache
+mkdir: impossible de créer le répertoire «nilearn_cache»: Le fichier existe
+Makefile:42 : la recette pour la cible « sym_links » a échouée
+make: [sym_links] Erreur 1 (ignorée)
+cd ../examples/01_plotting/ && ln -s ../nilearn_cache
+ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+Makefile:42 : la recette pour la cible « sym_links » a échouée
+make: [sym_links] Erreur 1 (ignorée)
+cd ../examples/02_decoding/ && ln -s ../nilearn_cache
+ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+Makefile:42 : la recette pour la cible « sym_links » a échouée
+make: [sym_links] Erreur 1 (ignorée)
+cd ../examples/03_connectivity/ && ln -s ../nilearn_cache
+ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+Makefile:42 : la recette pour la cible « sym_links » a échouée
+make: [sym_links] Erreur 1 (ignorée)
+cd ../examples/04_manipulating_images/ && ln -s ../nilearn_cache
+ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+Makefile:42 : la recette pour la cible « sym_links » a échouée
+make: [sym_links] Erreur 1 (ignorée)
+cd ../examples/05_advanced/ && ln -s ../nilearn_cache
+ln: impossible de créer le lien symbolique './nilearn_cache': Le fichier existe
+Makefile:42 : la recette pour la cible « sym_links » a échouée
+make: [sym_links] Erreur 1 (ignorée)
+ These two lines make the build a bit more lengthy, and the
+ the embedding of images more robust
+rm -rf _build/html/_images
+sphinx-build -b html -d _build/doctrees   . _build/html
+make: sphinx-build : commande introuvable
+Makefile:57 : la recette pour la cible « html » a échouée
+make: **\* [html] Erreur 127
+
+—You are receiving this because you are subscribed to this thread.Reply to this email directly, view it on GitHub, or mute the thread.
+",,,you tri freshli reinstal ubuntu seem forgot instal see last error messag le 3 sept 2016 452 AM salma1601 notificationsgithubcom écrit i build doc make html I backup nilearn folder ubuntu reinstal make symlink share cach across variou exampl directori cd exampl mkdir nilearncach mkdir imposs de créer le répertoir «nilearncache» Le fichier exist makefile42  la recett pour la cibl « symlinks » échoué make symlink erreur 1 ignoré cd examples01plot ln nilearncach ln imposs de créer le lien symboliqu nilearncach Le fichier exist makefile42  la recett pour la cibl « symlinks » échoué make symlink erreur 1 ignoré cd examples02decod ln nilearncach ln imposs de créer le lien symboliqu nilearncach Le fichier exist makefile42  la recett pour la cibl « symlinks » échoué make symlink erreur 1 ignoré cd examples03connect ln nilearncach ln imposs de créer le lien symboliqu nilearncach Le fichier exist makefile42  la recett pour la cibl « symlinks » échoué make symlink erreur 1 ignoré cd examples04manipulatingimag ln nilearncach ln imposs de créer le lien symboliqu nilearncach Le fichier exist makefile42  la recett pour la cibl « symlinks » échoué make symlink erreur 1 ignoré cd examples05advanc ln nilearncach ln imposs de créer le lien symboliqu nilearncach Le fichier exist makefile42  la recett pour la cibl « symlinks » échoué make symlink erreur 1 ignoré these two line make build bit lengthi embed imag robust rm rf buildhtmlimag sphinxbuild b html builddoctre buildhtml make sphinxbuild  command introuv makefile57  la recett pour la cibl « html » échoué make html erreur 127 —you receiv subscrib threadrepli email directli view github mute thread
+issue_comment,1259,nilearn,nilearn,salma1601,2016-09-04 12:01:18,"Thanks for the replies ! Now it works after installing python-sphinx, and also removing sphinx installed with conda and reinstalling it with pip ...
+",,,thank repli now work instal pythonsphinx also remov sphinx instal conda reinstal pip

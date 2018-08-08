@@ -13,14 +13,27 @@ import cPickle as pickle
 from collections import defaultdict
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+import argparse
 
 csv.field_size_limit(sys.maxsize)
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-raw_issue_dir = sys.argv[1]
-clean_issue_dir = sys.argv[2]
+parser = argparse.ArgumentParser()
+parser.add_argument('--raw_issue_dir', help='The directory containing raw issue files', 
+                default='Sample_Data/raw_issues/')
+parser.add_argument('--clean_issue_dir', help='Directory containing the clean issues', 
+                default='Sample_Data/clean_issues/')
+args, unknown = parser.parse_known_args()
+
+raw_issue_dir = args.raw_issue_dir
+clean_issue_dir = args.clean_issue_dir
 MAX_LEN = 400
+
+try:
+    os.makedirs(clean_issue_dir)
+except:
+    pass
 
 def CleanIssueComment(text):
     i=text.find('~~')    

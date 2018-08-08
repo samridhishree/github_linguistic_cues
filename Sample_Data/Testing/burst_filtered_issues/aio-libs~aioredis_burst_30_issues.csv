@@ -1,0 +1,19 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,240,aio-libs,aioredis,popravich,2017-06-09 12:02:06,,closed issue,Allow inject a pool class and connection class,,N,2017-06-07 14:55:00
+4,pull_request_merged,240,aio-libs,aioredis,popravich,2017-06-09 12:02:06,Allow inject a pool class and connection class,83fcf0653c37739abcc4a71fc79b00789cfc5165,Pull request merge from pfreixes/aioredis:pool_class_connection_class to aio-libs/aioredis:master,allow inject pool class connect class,N,2017-06-07 15:30:43
+12,pull_request_commit_comment,240,aio-libs,aioredis,pfreixes,2017-06-09 11:04:24,"done, thanks.
+
+Btw can you restart the Travis Job for an unknown reason the py35 environment failed the command `make examples`",cdfe3863c89d8961ffa4acac32844915125bca87,"(None, '', u'aioredis/pool.py')",done thank btw restart travi job unknown reason py35 environ fail command,Y,2017-06-07 14:51:53
+13,pull_request_commit,240,aio-libs,aioredis,pfreixes,2017-06-07 14:51:53,"Allow inject a pool class and connection class
+
+Both factories to create a new pool and new connections allow to the
+developer pass as a kw an alternative class. Developers can develop
+their own pools or connection classes inheriting from the official one
+and implementing ad-hoc functionalities.",6dbe74eb9c39ee44bfbaf202bcdf261bc21dddce,,allow inject pool class connect class both factori creat new pool new connect allow develop pass kw altern class develop develop pool connect class inherit offici one implement adhoc function,N,2017-06-07 15:30:23
+2,issue_closed,241,aio-libs,aioredis,popravich,2017-06-21 06:46:50,,closed issue,#231 Patch for the cpython issue with Lock bpo-27585,,N,2017-06-07 21:06:54
+4,pull_request_merged,241,aio-libs,aioredis,popravich,2017-06-21 06:46:50,#231 Patch for the cpython issue with Lock bpo-27585,0c4c04c2bcffb7aa93310d26baa8ab0050b1baa5,Pull request merge from pfreixes/aioredis:cancelled_tasks_wake_up_next to aio-libs/aioredis:master,231 patch cpython issu lock bpo27585,N,2017-06-07 21:54:25
+16,pull_request_commit_comment,241,aio-libs,aioredis,pfreixes,2017-06-14 21:50:31,"yes, a shame of me. Take a look to the last commit, unified to a unique function that should be compatible with all Python versions and free of issues.",d15cb976c6ec57ec1f896db823ce277c7996e5d9,"(None, '', u'aioredis/locks.py')",ye shame take look last commit unifi uniqu function compat python version free issu,N,2017-06-07 21:04:34
+17,pull_request_commit,241,aio-libs,aioredis,pfreixes,2017-06-07 21:04:34,#231 Patch for the cpython issue with Lock,978cff53bb58aa16a8643b530ab51bf783586253,,231 patch cpython issu lock,N,2017-06-07 21:54:11
+18,pull_request_commit,241,aio-libs,aioredis,pfreixes,2017-06-07 21:54:11,Make Lock compatible with 3.3 and 3.4,40245354e643a678aaf09ee8c8ecb3a124a44f5c,,make lock compat 33 34,N,2017-06-07 22:55:55
+19,pull_request_commit,241,aio-libs,aioredis,pfreixes,2017-06-07 22:55:55,Changed test to make it compatible with python 3.3 version,253169d7f0f94cb0533f0f52f707ec373320d0b0,,chang test make compat python 33 version,N,2017-06-07 22:56:56
+20,pull_request_commit,241,aio-libs,aioredis,pfreixes,2017-06-07 22:56:56,Flake8 issue,2ac4a010c49aabf42c96f1eb29b7235f140cd09e,,flake8 issu,N,2017-06-08 06:49:49

@@ -1,0 +1,228 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1432,nilearn,nilearn,SylvainLan,2017-04-05 15:38:26,"I purposely mainly put direct code in the .rst file over inclusions from the plot_decoding_tutorial.py to be run directly by copy and paste. 
+
+I also reordered the parts, and corrected the condition paragraph with didn't make sense to the condition in the code. ",start issue,New version of section 6,I purpos mainli put direct code rst file inclus plotdecodingtutorialpi run directli copi past I also reorder part correct condit paragraph didnt make sens condit code,N,2017-04-06 07:29:04
+2,issue_closed,1432,nilearn,nilearn,SylvainLan,2017-04-06 07:29:04,,closed issue,New version of section 6,,N,2017-04-05 15:38:26
+3,pull_request_title,1432,nilearn,nilearn,SylvainLan,2017-04-05 15:38:26,"I purposely mainly put direct code in the .rst file over inclusions from the plot_decoding_tutorial.py to be run directly by copy and paste. 
+
+I also reordered the parts, and corrected the condition paragraph with didn't make sense to the condition in the code. ",e2c2d770561c8205c1c82e0a5cdf4e7e7b01af5b,New version of section 6,I purpos mainli put direct code rst file inclus plotdecodingtutorialpi run directli copi past I also reorder part correct condit paragraph didnt make sens condit code,N,2017-04-05 15:41:14
+4,issue_comment,1432,nilearn,nilearn,GaelVaroquaux,2017-04-05 15:41:14,"That's not the right approach: code in the RST file is not well tested
+and hard to maintain. The approach that we are taking is to enrich the
+example files with blocks of rich comments and trying to remove as much
+as possible from the rst files.
+",,,that right approach code rst file well test hard maintain the approach take enrich exampl file block rich comment tri remov much possibl rst file,Y,2017-04-05 15:47:24
+5,issue_comment,1432,nilearn,nilearn,GaelVaroquaux,2017-04-05 15:47:24,"> Ok, so the code in the rst file is not supposed to be run?
+
+I think that I'd like to move as much as possible out to a long tutorial
+example, and reference that example. I think that the narrative parts of
+the documentation should be as much as possible about high-level
+concepts, and the code should be as much as possible in examples
+referenced from the docs.
+
+> And what is your opinion on the order of this part?
+
+I am not sure that I love it :$. We can discuss that at a coffee break.
+",,,I think Id like move much possibl long tutori exampl refer exampl I think narr part document much possibl highlevel concept code much possibl exampl referenc doc I sure I love We discuss coffe break,N,2017-04-05 15:45:00
+6,issue_comment,1432,nilearn,nilearn,SylvainLan,2017-04-05 15:45:00,"Ok, so the code in the rst file is not supposed to be run? And what is your opinion on the order of this part? ",,,Ok code rst file suppos run and opinion order part,N,2017-04-06 07:29:04
+7,issue_comment,1432,nilearn,nilearn,SylvainLan,2017-04-06 07:29:04,consequently close this PR,,,consequ close PR,N,2017-04-05 14:33:11
+8,pull_request_commit,1432,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 14:33:11,section 6 new version,7f8f73f13753ea16775fb05fc13565b1cf22b7fd,,section 6 new version,N,2017-04-05 15:34:11
+2,issue_closed,1428,nilearn,nilearn,GaelVaroquaux,2017-05-23 10:06:22,,closed issue,[MRG] checks that the threshold is not higher than number of maps for canICA ,,N,2017-04-05 07:44:21
+5,issue_comment,1428,nilearn,nilearn,GaelVaroquaux,2017-05-23 10:06:17,LGTM. Merging,,,lgtm merg,N,2017-04-05 08:42:58
+6,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:42:58,"Also, you forgot to add bounds in the ```threshold``` parameter documentation. From the issue, if I get correctly threshold should be between [0. and n_components]",,,also forgot add bound paramet document from issu I get correctli threshold 0 ncompon,N,2017-04-05 08:44:18
+7,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:44:18,You should also add tests to check whether error is raised or not. Tests should be added in nilearn/decomposition/tests/test_canica.py,,,you also add test check whether error rais test ad nilearndecompositionteststestcanicapi,Y,2017-04-05 09:07:08
+8,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 09:07:08,">Also, you forgot to add bounds in the threshold parameter documentation. From the issue, if I get correctly 
+threshold should be between [0. and n_components]
+
+May be it would be good idea to put threshold bound [0. and n_components] near the description of float value. Right after non-zero voxels). ....... ",,,threshold 0 ncompon may would good idea put threshold bound 0 ncompon near descript float valu right nonzero voxel,N,2017-04-05 13:13:56
+9,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 13:13:56,">You should also add tests to check whether error is raised or not. Tests should be added in nilearn/decomposition/tests/test_canica.py
+
+Could you add tests please ?",,,could add test pleas,Y,2017-04-05 13:42:56
+10,issue_comment,1428,nilearn,nilearn,codecov[bot],2017-04-05 13:42:56,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=h1) Report
+> Merging [#1428](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **decrease** coverage by `<.01%`.
+> The diff coverage is `50%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1428/graphs/tree.svg?width=650&token=KpYArSdyXv&height=150&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff            @@
+##           master   #1428      +/-   ##
+=========================================
+- Coverage   94.51%   94.5%   -0.01%     
+=========================================
+  Files         118     118              
+  Lines       13470   13472       +2     
+=========================================
++ Hits        12731   12732       +1     
+- Misses        739     740       +1
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decomposition/canica.py](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2NhbmljYS5weQ==) | `92.5% <50%> (-2.24%)` | :arrow_down: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=footer). Last update [87c12ef...f1a292b](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file tree graph impact file coverag Δ nilearndecompositioncanicapi arrowdown continu review full report codecov,N,2017-04-05 13:42:56
+11,issue_comment,1428,nilearn,nilearn,codecov[bot],2017-04-05 13:42:56,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=h1) Report
+> Merging [#1428](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1428/graphs/tree.svg?src=pr&token=KpYArSdyXv&width=650&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1428      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13470    13474       +4     
+==========================================
++ Hits        12731    12735       +4     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decomposition/tests/test\_canica.py](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL3Rlc3RzL3Rlc3RfY2FuaWNhLnB5) | `98.82% <100%> (+0.02%)` | :arrow_up: |
+| [nilearn/decomposition/canica.py](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2NhbmljYS5weQ==) | `95% <100%> (+0.26%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=footer). Last update [87c12ef...27243ee](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file tree graph impact file coverag Δ nilearndecompositionteststestcanicapi arrowup nilearndecompositioncanicapi arrowup continu review full report codecov,N,2017-04-05 19:26:46
+12,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 19:26:46,LGTM,,,lgtm,N,2017-04-06 16:44:39
+13,issue_comment,1428,nilearn,nilearn,bthirion,2017-04-06 16:44:39,LGTM,,,lgtm,N,2017-04-05 08:37:34
+14,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:37:34,"From the doc, the given threshold can be None, 'auto' or float. Here, you should also check that the given threshold should be a ```numbers.Number``` to raise an error. Also, in Python I think we don't need parenthesis.",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/canica.py')",from doc given threshold none auto float here also check given threshold rais error also python I think dont need parenthesi,N,2017-04-05 08:39:09
+15,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:39:09,"In the error message, there is no space after number. You can leave space after number before "".
+Error message can be seen here, https://travis-ci.org/nilearn/nilearn/jobs/218779100#L2729",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/canica.py')",In error messag space number you leav space number error messag seen,N,2017-04-05 08:40:17
+16,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:40:17,Please don't remove lines which are not related to your changes.,27243ee461a3345091c3828681488c4d303a276e,"(27, '', u'nilearn/decomposition/canica.py')",pleas dont remov line relat chang,N,2017-04-05 14:16:16
+17,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:16:16,We don't need this because directly validating the parameters where data is not required.,27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",We dont need directli valid paramet data requir,N,2017-04-05 14:17:18
+18,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:17:18,"Should be doing like this. Below CanICA is an object followed by inputs
+```python
+ assert_raises(ValueError, CanICA, n_components=4, threshold=5.)
+```",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",should like below canica object follow input,N,2017-04-05 14:19:00
+19,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:19:00,"Can you include threshold in the error message. I think writing as and ""you provided threshold=%s"" would be bit clear.",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/canica.py')",can includ threshold error messag I think write provid threshold would bit clear,N,2017-04-05 14:51:34
+20,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:51:34,"It should 'C' capital (CanICA).
+
+For reference ```from nilearn.decomposition import CanICA```.",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",It C capit canica for refer,N,2017-04-05 07:20:23
+21,pull_request_commit,1428,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 07:20:23,checks that the threshold is not higher than number of maps,c1e96fbd807114093b454bbd81f0610bde1831de,,check threshold higher number map,N,2017-04-05 09:14:24
+22,pull_request_commit,1428,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 09:14:24,corrected the errors,59ef00b40db591fae35a665255646b2626dc1423,,correct error,N,2017-04-05 12:43:31
+23,pull_request_commit,1428,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 12:43:31,change logical,c694a015632b0ad1757bd6355aa4084c35cfcb61,,chang logic,N,2017-04-05 13:42:53
+24,pull_request_commit,1428,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 13:42:53,add a test,f1a292bba53458bee1203447eda5f3ae6d6b7669,,add test,N,2017-04-05 14:35:50
+25,pull_request_commit,1428,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 14:35:50,change test,6fbfa6f1583ae34b52febc075b496aa6cfb8b3ac,,chang test,N,2017-04-05 14:37:17
+26,pull_request_commit,1428,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 14:37:17,change error message,903330be513fc28de6d35b60c04b06128c696790,,chang error messag,N,2017-04-05 15:17:47
+2,issue_closed,1430,nilearn,nilearn,GaelVaroquaux,2017-11-16 19:56:19,,closed issue,find_xyz_cut can take 3d niimg-like object as mask #1193,,N,2017-04-05 11:16:35
+4,issue_comment,1430,nilearn,nilearn,GaelVaroquaux,2017-11-16 19:54:41,I added a whats_new and merged.,,,I ad whatsnew merg,N,2017-04-06 08:35:16
+5,issue_comment,1430,nilearn,nilearn,codecov[bot],2017-04-06 08:35:16,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=h1) Report
+> Merging [#1430](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1430/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1430      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13470    13477       +7     
+==========================================
++ Hits        12731    12738       +7     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.64% <100%> (+0.27%)` | :arrow_up: |
+| [nilearn/plotting/tests/test\_find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X2ZpbmRfY3V0cy5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=footer). Last update [87c12ef...a42076f](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file tree graph impact file coverag Δ nilearnplottingfindcutspi arrowup nilearnplottingteststestfindcutspi arrowup continu review full report codecov,N,2017-04-06 16:53:29
+6,issue_comment,1430,nilearn,nilearn,bthirion,2017-04-06 16:53:29,LGTM. Need to check the failures though.,,,lgtm need check failur though,N,2017-04-07 08:19:47
+9,issue_comment,1430,nilearn,nilearn,KamalakerDadi,2017-05-23 09:44:05,"There's a change of public API. I (@GaelVaroquaux, borrowing @KamalakerDadi's computer) think that it is fine, because people seldom pass a mask, but we should specify it in the whats_new.rst.",,,there chang public api I gaelvaroquaux borrow kamalakerdadi comput think fine peopl seldom pass mask specifi whatsnewrst,N,2017-04-06 08:05:02
+10,pull_request_commit_comment,1430,nilearn,nilearn,KamalakerDadi,2017-04-06 08:05:02,"This parameter should take only Nifti images and should be renamed from mask -> mask_img.
+
+```mask_img : 3D Nifti1Image, optional```
+
+Should be added a bit of documentation as,  ""An optional brain mask, provided mask_img should not be empty.""",a42076f5b3257e8734549646215fe29b326099f5,"(None, '', u'nilearn/plotting/find_cuts.py')",thi paramet take nifti imag renam mask should ad bit document An option brain mask provid maskimg empti,N,2017-04-06 08:09:17
+12,pull_request_commit_comment,1430,nilearn,nilearn,AlexandreAbraham,2017-04-13 09:51:20,"Do we really have the guarantee that img and mask_img are in the same space? We should at least check it, and at best raise an error or do a resampling if not.",a42076f5b3257e8734549646215fe29b326099f5,"(26, '', u'nilearn/plotting/find_cuts.py')",Do realli guarante img maskimg space We least check best rais error resampl,N,2017-04-05 10:02:09
+13,pull_request_commit,1430,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-05 10:02:09,find_xyz_cut can take 3d niimg-like object as mask,441ea5fed6ced255b1ba7a3c535f8bcb9f2b5054,,findxyzcut take 3d niimglik object mask,N,2017-04-06 08:35:19
+14,pull_request_commit,1430,nilearn,nilearn,SylvainLan,2017-04-06 08:35:19,fix PR,3d8fe5d06fd821746b3b851db438d7a48db5d7e0,,fix PR,N,2017-04-06 08:36:59
+15,pull_request_commit,1430,nilearn,nilearn,SylvainLan,2017-04-06 08:36:59,fix PR,99b068cc9b8f1d1402eff5321196f76b5ad63109,,fix PR,N,2017-04-06 09:44:11
+1,issue_title,1427,nilearn,nilearn,SylvainLan,2017-04-03 15:59:10,,start issue,Fix doc,,N,2017-04-05 13:11:08
+2,issue_closed,1427,nilearn,nilearn,SylvainLan,2017-04-05 13:11:08,,closed issue,Fix doc,,N,2017-04-03 15:59:10
+3,pull_request_title,1427,nilearn,nilearn,SylvainLan,2017-04-03 15:59:10,,747356844dcbe5f14607dfd02ac698d11d80309e,Fix doc,,N,2017-04-03 17:27:22
+4,issue_comment,1427,nilearn,nilearn,codecov[bot],2017-04-03 17:27:22,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=h1) Report
+> Merging [#1427](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1427/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1427   +/-   ##
+=======================================
+  Coverage   94.51%   94.51%           
+=======================================
+  Files         118      118           
+  Lines       13470    13470           
+=======================================
+  Hits        12731    12731           
+  Misses        739      739
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=footer). Last update [87c12ef...7473568](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file tree graph continu review full report codecov,N,2017-04-03 21:19:35
+5,issue_comment,1427,nilearn,nilearn,bthirion,2017-04-03 21:19:35,LGTM.,,,lgtm,N,2017-04-05 07:44:58
+6,issue_comment,1427,nilearn,nilearn,KamalakerDadi,2017-04-05 07:44:58,"I think the best way is to keep fixes related to doc, API, examples separate so that it will make reviewing easy.",,,I think best way keep fix relat doc api exampl separ make review easi,N,2017-04-05 13:11:08
+7,issue_comment,1427,nilearn,nilearn,SylvainLan,2017-04-05 13:11:08,redundant PR with #1429 ,,,redund PR 1429,N,2017-04-05 07:50:58
+8,pull_request_commit_comment,1427,nilearn,nilearn,KamalakerDadi,2017-04-05 07:50:58,tests are failing because of this change. You have any issue or idea behind this change ? Because I could not understand it properly.,747356844dcbe5f14607dfd02ac698d11d80309e,"(5, '', u'nilearn/decomposition/canica.py')",test fail chang you issu idea behind chang becaus I could understand properli,Y,2017-04-03 15:48:29
+9,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-03 15:48:29,corrected some few typos,708d5effc6b37f1cbb9282875d8fa2bcc2f2a708,,correct typo,N,2017-04-03 15:49:05
+10,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-03 15:49:05,corrected some few typos,a4448c2996b678760589db7b57f6df34a476cbb8,,correct typo,N,2017-04-03 15:49:46
+11,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-03 15:49:46,corrected some few typos,458ea2386b325409effa19f090bbee3e25e4542a,,correct typo,N,2017-04-03 15:53:41
+12,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-03 15:53:41,the Warning does not make sense regarding the code in the documentation,da26bb682cc01fb585811ae094649efa7823b942,,warn make sens regard code document,N,2017-04-04 07:39:01
+13,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 07:39:01,added the first lines of the code (introduction to fMRI decoding) so that the lines are executable in a straightforward way in all this part,c89f032e46135d3cd1edf0283e07cb8400a6aa6a,,ad first line code introduct fmri decod line execut straightforward way part,N,2017-04-04 07:47:58
+14,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 07:47:58,change the name of the object to correspond to the ones in the documentation part A decoding tutorial,7177b7ef768368804bd6ba3e2a9808dc0a049cb1,,chang name object correspond one document part A decod tutori,N,2017-04-04 08:00:53
+15,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 08:00:53,"the add-after was put a line too late, corrected it",e8bcee596ca35905cadcc1b96f8647ea4265eae6,,addaft put line late correct,N,2017-04-04 08:05:40
+16,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 08:05:40,hard coded the n_jobs param to be able to run the code in the doc Searchlight,0c0d8c2b0aa879fed1c427a924b6db405faed6c5,,hard code njob param abl run code doc searchlight,N,2017-04-04 08:12:01
+17,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 08:12:01,change the beginning of the code inclusion to be run from in a straightforward way from the documentation,cce6da929d85a6e5f9abd574f27d3007ba1d0a43,,chang begin code inclus run straightforward way document,N,2017-04-04 08:24:35
+18,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 08:24:35,changed the code lines to suit to the actual code in examples and to be run in a straightforward way,299439ef3326069871b3ee8f6a192637c790bc2e,,chang code line suit actual code exampl run straightforward way,N,2017-04-04 08:57:15
+19,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 08:57:15,change the start from the included library to be able to run it directly,f7f93c30b488e2336a8dd457c321cee16c2b1e1b,,chang start includ librari abl run directli,N,2017-04-04 09:01:15
+20,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 09:01:15,remove redundant lines,0987721241eaf8a8cc7c0060059f5193825f3690,,remov redund line,N,2017-04-04 09:06:01
+21,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 09:06:01,this piece of code is not very relevant without the data loading,3907017c72e1031d01eecaa637d9b062dcea67ef,,piec code relev without data load,N,2017-04-04 09:21:35
+22,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 09:21:35,add some lines to be able to run the code firectly,3008cbc05f3582ccfddd2ef48079298ad0bb8e45,,add line abl run code firectli,N,2017-04-04 09:35:03
+23,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 09:35:03,added a line to be able to run the code directly,fc4d4f2271ecf496d98c6a4b5b0662d99cfc423a,,ad line abl run code directli,N,2017-04-04 09:37:20
+24,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 09:37:20,added a line to be able to run the code directly,31c84d0e040cf15cb779f015492946888e07ab71,,ad line abl run code directli,N,2017-04-04 15:47:29
+25,pull_request_commit,1427,nilearn,nilearn,sylvain@dhcp-147-251.via.ecp.fr,2017-04-04 15:47:29,check that the threshold is not above the number of maps,e29b237f5ad7f7ff20469ff186b0b5b10ce85b14,,check threshold number map,N,2017-04-04 16:20:49
+2,issue_closed,1434,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:51:01,,closed issue,[MRG] Fix #1424: control smoothing in region extraction,,N,2017-04-07 13:43:37
+5,issue_comment,1434,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:50:55,LGTM. Thanks. Merging.,,,lgtm thank merg,N,2017-04-07 14:11:50
+10,issue_comment,1434,nilearn,nilearn,bthirion,2017-05-06 21:37:19,LGTM.,,,lgtm,N,2017-04-10 08:15:42
+11,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-10 08:15:42,"I am wandering whether we should test with
+ -   ```float``` as input to smoothing_fwhm
+- low min_region_size_in_mm3 taking data resolution example same as yours.
+
+Does this sounds good ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')",I wander whether test input smoothingfwhm low minregionsizeinmm3 take data resolut exampl doe sound good,Y,2017-04-10 08:19:22
+16,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-05-30 10:16:13,"Ok, done",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')",Ok done,N,2017-04-07 13:40:00
+17,pull_request_commit,1434,nilearn,nilearn,salma1601,2017-04-07 13:40:00,add smoothing_fwhm attribute to RegionExtractor,e50c0da1485a7e87ed003e9637dd7ff7d1c6f0f8,,add smoothingfwhm attribut regionextractor,N,2017-04-07 13:42:40
+18,pull_request_commit,1434,nilearn,nilearn,salma1601,2017-04-07 13:42:40,doc typo,812d61c26852c74066d4f6616c076a98c7376781,,doc typo,N,2017-04-07 14:11:30
+19,pull_request_commit,1434,nilearn,nilearn,salma1601,2017-04-07 14:11:30,include all error message in regex,53c99996e8533c3dd03a2a492a35d1e89917ef4d,,includ error messag regex,N,2017-04-07 14:49:29

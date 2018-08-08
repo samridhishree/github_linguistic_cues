@@ -1,0 +1,47 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,124,aio-libs,aioredis,shicky,2016-05-13 05:55:18,"2 tests are failing for 3d97b83019b122288d7d2f561993ca6f907c6a47
+### My environment:
+- changelist: 3d97b83019b122288d7d2f561993ca6f907c6a47
+- ubuntu 14.04 x64
+- python 3.5.1
+- redis 2.8.4 x64
+### tests.pubsub_commands_test.PubSubCommandsTest
+
+pubsub_numsub() method from PubSubCommandsMixin class returns byte instead of integer.
+
+``` bash
+AssertionError: {b'chan:1': b'0'} != {b'chan:1': 0}
+- {b'chan:1': b'0'}
+?             -- -
++ {b'chan:1': 0}
+```
+### tests.generic_commands_test.GenericCommandsTest.test_object_idletime
+
+This test passes when run individually.
+
+``` bash
+python -m unittest tests.generic_commands_test.GenericCommandsTest.test_object_idletime
+```
+
+But fails when run with `make test`
+
+``` python
+yield from asyncio.sleep(1, loop=self.loop)
+res = yield from self.redis.object_idletime('foo')
+self.assertGreaterEqual(res, 1)
+```
+
+Increasing sleep time to 2 ensures pass.
+",start issue,"2 tests fail on (python 3.5.1, redis 2.8.4 x64)",2 test fail 3d97b83019b122288d7d2f561993ca6f907c6a47 My environ changelist 3d97b83019b122288d7d2f561993ca6f907c6a47 ubuntu 1404 x64 python 351 redi 284 x64 testspubsubcommandstestpubsubcommandstest pubsubnumsub method pubsubcommandsmixin class return byte instead integ testsgenericcommandstestgenericcommandstesttestobjectidletim thi test pass run individu but fail run increas sleep time 2 ensur pass,N
+issue_closed,124,aio-libs,aioredis,shicky,2016-05-13 10:41:42,nan,closed issue,"2 tests fail on (python 3.5.1, redis 2.8.4 x64)",nan,N
+issue_comment,124,aio-libs,aioredis,shicky,2016-05-13 06:08:38,"I have updated redis-server to latest version (3.2.0) and above tests have passed.
+Perhaps, above tests should be skipped at higher version than 2.8.0.
+
+``` python
+@unittest.skipIf(REDIS_VERSION < (2, 8, 0), 'PUBSUB NUMPAT is available since redis>=2.8.0')
+@run_until_complete
+def test_pubsub_numpat(self):
+    ...
+```
+",nan,nan,I updat redisserv latest version 320 test pass perhap test skip higher version 280,Y

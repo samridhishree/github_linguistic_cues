@@ -1,0 +1,122 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 19:58:11,change int8 to int16 to avoid dtype error in compute_epi_mask(),start issue,Update image.py,chang int8 int16 avoid dtype error computeepimask
+pull_request_title,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 19:58:11,change int8 to int16 to avoid dtype error in compute_epi_mask(),121c5b74d34c99c0311c663b6a278a00280ce22d,Update image.py,chang int8 int16 avoid dtype error computeepimask
+issue_comment,1499,nilearn,nilearn,GaelVaroquaux,2017-08-24 19:59:50,"Can you please add a test that demonstrates the error: I do not understand the problem.
+
+Thanks!",,,can pleas add test demonstr error I understand problem thank
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:04:07,"data is a list of Spm2AnalyzeImages, i.e.,
+[<nibabel.spm2analyze.Spm2AnalyzeImage at 0x1e4b2ca6eb8>,
+ <nibabel.spm2analyze.Spm2AnalyzeImage at 0x1e4b2caf278>,
+ <nibabel.spm2analyze.Spm2AnalyzeImage at 0x1e4b2caf438>,
+ <nibabel.spm2analyze.Spm2AnalyzeImage at 0x1e4b2caf710>,
+...
+]
+
+Then I ran this:
+mask = compute_epi_mask(data)
+got the following error, but with the change of int8 to int16, I can get rid of the error.
+
+---------------------------------------------------------------------------
+HeaderDataError                           Traceback (most recent call last)
+<ipython-input-9-57b7ebb2d10a> in <module>()
+----> 1 mask = compute_epi_mask(data)
+
+C:\Users\LYF\Anaconda3\lib\site-packages\nilearn\masking.py in compute_epi_mask(epi_img, lower_cutoff, upper_cutoff, connected, opening, exclude_zeros, ensure_finite, target_affine, target_shape, memory, verbose)
+    287         connected=connected, warning_msg=""Are you sure that input ""
+    288             ""data are EPI images not detrended. "")
+--> 289     return new_img_like(epi_img, mask, affine)
+    290 
+    291 
+
+C:\Users\LYF\Anaconda3\lib\site-packages\nilearn\image\image.py in new_img_like(ref_niimg, data, affine, copy_header)
+    628         header['cal_max'] = np.max(data) if data.size > 0 else 0.
+    629         header['cal_min'] = np.min(data) if data.size > 0 else 0.
+--> 630     return ref_niimg.__class__(data, affine, header=header)
+    631 
+    632 
+
+C:\Users\LYF\Anaconda3\lib\site-packages\nibabel\analyze.py in __init__(self, dataobj, affine, header, extra, file_map)
+    921                  extra=None, file_map=None):
+    922         super(AnalyzeImage, self).__init__(
+--> 923             dataobj, affine, header, extra, file_map)
+    924         # Reset consumable values
+    925         self._header.set_data_offset(0)
+
+C:\Users\LYF\Anaconda3\lib\site-packages\nibabel\spatialimages.py in __init__(self, dataobj, affine, header, extra, file_map)
+    368         if header is None:
+    369             if hasattr(dataobj, 'dtype'):
+--> 370                 self._header.set_data_dtype(dataobj.dtype)
+    371         # make header correspond with image and affine
+    372         self.update_header()
+
+C:\Users\LYF\Anaconda3\lib\site-packages\nibabel\analyze.py in set_data_dtype(self, datatype)
+    576             if dt not in self._data_type_codes:
+    577                 raise HeaderDataError(
+--> 578                     'data dtype ""{0}"" not supported'.format(datatype))
+    579         code = self._data_type_codes[dt]
+    580         dtype = self._data_type_codes.dtype[code]
+
+HeaderDataError: data dtype ""int8"" not supported",,,data list spm2analyzeimag ie nibabelspm2analyzespm2analyzeimag 0x1e4b2ca6eb8 nibabelspm2analyzespm2analyzeimag 0x1e4b2caf278 nibabelspm2analyzespm2analyzeimag 0x1e4b2caf438 nibabelspm2analyzespm2analyzeimag 0x1e4b2caf710 then I ran mask computeepimaskdata got follow error chang int8 int16 I get rid error headerdataerror traceback recent call last ipythoninput957b7ebb2d10a cuserslyfanaconda3libsitepackagesnilearnmaskingpi computeepimaskepiimg lowercutoff uppercutoff connect open excludezero ensurefinit targetaffin targetshap memori verbos 287 connectedconnect warningmsgar sure input 288 data epi imag detrend 290 291 cuserslyfanaconda3libsitepackagesnilearnimageimagepi newimglikerefniimg data affin copyhead 628 headercalmax npmaxdata datas 629 headercalmin npmindata datas 631 632 cuserslyfanaconda3libsitepackagesnibabelanalyzepi initself dataobj affin header extra filemap 921 extranon filemapnon 922 superanalyzeimag selfinit 924 reset consum valu 925 selfheadersetdataoffset0 cuserslyfanaconda3libsitepackagesnibabelspatialimagespi initself dataobj affin header extra filemap 368 header none 369 hasattrdataobj dtype 371 make header correspond imag affin 372 selfupdatehead cuserslyfanaconda3libsitepackagesnibabelanalyzepi setdatadtypeself datatyp 576 dt selfdatatypecod 577 rais headerdataerror 579 code selfdatatypecodesdt 580 dtype selfdatatypecodesdtypecod headerdataerror data dtype int8 support
+issue_comment,1499,nilearn,nilearn,GaelVaroquaux,2017-08-24 20:09:00,"OK, so it seems that this is for analyze only, and not for nifti (I've
+never experienced the problem, and I work with nifti).
+
+Could you please:
+
+1. Adjust the code to do use int16 only for analyze
+
+2. Write a unit test
+
+Thanks
+",,,OK seem analyz nifti ive never experienc problem I work nifti could pleas 1 adjust code use int16 analyz 2 write unit test thank
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:17:02,"Probably we can change line 156 in analyze.py to 
+_dtdefs = (  # code, conversion function, equivalent dtype, aliases
+    (0, 'none', np.void),
+    (1, 'binary', np.void),  # 1 bit per voxel, needs thought
+    (2, 'int8', np.int8),
+    (4, 'int16', np.int16),
+    (8, 'int32', np.int32),
+    (16, 'float32', np.float32),
+    (32, 'complex64', np.complex64),  # numpy complex format?
+    (64, 'float64', np.float64),
+    (128, 'RGB', np.dtype([('R', 'u1'),
+                           ('G', 'u1'),
+                           ('B', 'u1')])),
+    (255, 'all', np.void))",,,probabl chang line 156 analyzepi dtdef code convers function equival dtype alias 0 none npvoid 1 binari npvoid 1 bit per voxel need thought 2 int8 npint8 4 int16 npint16 8 int32 npint32 16 float32 npfloat32 32 complex64 npcomplex64 numpi complex format 64 float64 npfloat64 128 rgb npdtyper u1 G u1 B u1 255 npvoid
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:17:41,Just change uint8 to int8,,,just chang uint8 int8
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:21:00,"You define default dtype for boolean in image.py as int8, but for the analyzeImage, the default dtype list does not inlcude that. I am not sure which part should be changed. ",,,you defin default dtype boolean imagepi int8 analyzeimag default dtype list inlcud I sure part chang
+issue_comment,1499,nilearn,nilearn,GaelVaroquaux,2017-08-24 20:23:15,"> You define default dtype for boolean in image.py as int8, but for the
+> analyzeImage, the default dtype list does not inlcude that. I am not
+> sure which part should be changed.
+
+One is in nilearn, the other in nibabel (different package, with
+different set of contributors), so it's a very different fix.
+
+I cannot speak for nibabel.
+",,,one nilearn nibabel differ packag differ set contributor differ fix I cannot speak nibabel
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:26:15,"I tried this fix, it works on my side.
+Change line 156 in analyze.py to
+_dtdefs = ( # code, conversion function, equivalent dtype, aliases
+(0, 'none', np.void),
+(1, 'binary', np.void), # 1 bit per voxel, needs thought
+(2, 'int8', np.int8),
+(4, 'int16', np.int16),
+(8, 'int32', np.int32),
+(16, 'float32', np.float32),
+(32, 'complex64', np.complex64), # numpy complex format?
+(64, 'float64', np.float64),
+(128, 'RGB', np.dtype([('R', 'u1'),
+('G', 'u1'),
+('B', 'u1')])),
+(255, 'all', np.void))",,,I tri fix work side chang line 156 analyzepi dtdef code convers function equival dtype alias 0 none npvoid 1 binari npvoid 1 bit per voxel need thought 2 int8 npint8 4 int16 npint16 8 int32 npint32 16 float32 npfloat32 32 complex64 npcomplex64 numpi complex format 64 float64 npfloat64 128 rgb npdtyper u1 G u1 B u1 255 npvoid
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:26:29,Do you want me to push a fix for that?,,,Do want push fix
+issue_comment,1499,nilearn,nilearn,GaelVaroquaux,2017-08-24 20:27:44,"> Do you want me to push a fix for that?
+
+I don't believe that this is in the nilearn codebase, but in the nibabel
+codebase. And I cannot assess it's correctness, as I don't know nibabel
+well enough.
+",,,I dont believ nilearn codebas nibabel codebas and I cannot assess correct I dont know nibabel well enough
+issue_comment,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 20:32:55,"Opps, I didn't realize that. I see what you mean. I can make the change in nilearn accordingly.",,,opp I didnt realiz I see mean I make chang nilearn accordingli
+pull_request_commit,1499,nilearn,nilearn,Leo-YF-Liu,2017-08-24 19:57:47,"Update image.py
+
+change int8 to int16 to avoid dtype error in compute_epi_mask()",121c5b74d34c99c0311c663b6a278a00280ce22d,,updat imagepi chang int8 int16 avoid dtype error computeepimask

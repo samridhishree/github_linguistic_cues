@@ -1,0 +1,53 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,563,nilearn,nilearn,salma1601,2015-04-28 14:07:01,"Fixes #561
+It remains to add a test to check that output from regessing out confounds equals residue obtained with scipy least squares. May be it will be better to add it after PR #553 is merged, because this PR will affect the way the regression is done.
+",start issue,Deal with non-full rank confounds,fix 561 It remain add test check output regess confound equal residu obtain scipi least squar may better add PR 553 merg PR affect way regress done,N
+issue_closed,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:30:27,nan,closed issue,Deal with non-full rank confounds,nan,N
+pull_request_title,563,nilearn,nilearn,salma1601,2015-04-28 14:07:01,"Fixes #561
+It remains to add a test to check that output from regessing out confounds equals residue obtained with scipy least squares. May be it will be better to add it after PR #553 is merged, because this PR will affect the way the regression is done.
+",40f7495a399fb62271efa57432a50923716b9164,Deal with non-full rank confounds,fix 561 It remain add test check output regess confound equal residu obtain scipi least squar may better add PR 553 merg PR affect way regress done,N
+issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-07 14:39:55,"@salma1601 : thanks a lot.
+
+The tests are not passing on scipy 0.9.0, which we must support as it is the standard version in one of the ubuntu distributions that we support.
+
+The reason is trivial: the 'pivoting' argument to scipy.linalg.qr was added in version 0.10.1.
+
+The solution is to test for the version of scipy, and use the 'pivoting' only if the version is greater. One example of such code to do this can be found on 
+https://github.com/nilearn/nilearn/blob/master/nilearn/decomposition/canica.py#L153
+
+Thanks!
+",nan,nan,salma1601 thank lot the test pass scipi 090 must support standard version one ubuntu distribut support the reason trivial pivot argument scipylinalgqr ad version 0101 the solut test version scipi use pivot version greater one exampl code found thank,Y
+issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 12:59:24,"Yes, but the QR is significantly faster. The Leipzig people were impressed at how fast this was.
+",nan,nan,ye QR significantli faster the leipzig peopl impress fast,N
+issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:03:13,"OK, maybe not faster. I just know that it is the recommended way of doing it.
+",nan,nan,OK mayb faster I know recommend way,N
+issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:30:26,"Closing this PR as superseeded by #580 
+",nan,nan,close PR superseed 580,N
+issue_comment,563,nilearn,nilearn,eickenberg,2015-05-11 12:57:54,"I may be completely mistaken, but the problem may not have crept up if `signal -= confounds.dot(np.linalg.lstsq(confounds, signal)[0])` or `signal -= confounds.dot(np.linalg.pinv(confounds).dot(signal))` had been used instead of the lower-level QR decomp technique.
+",nan,nan,I may complet mistaken problem may crept use instead lowerlevel QR decomp techniqu,N
+issue_comment,563,nilearn,nilearn,eickenberg,2015-05-11 13:01:33,"Why is it faster? Computing the decomposition vs computing the pinv can
+hardly be the problem. The re-multiplications afterwards are of exactly the
+same shape.
+
+On Mon, May 11, 2015 at 2:59 PM, Gael Varoquaux notifications@github.com
+wrote:
+
+> Yes, but the QR is significantly faster. The Leipzig people were impressed
+> at how fast this was.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/563#issuecomment-100898673.
+",nan,nan,whi faster comput decomposit vs comput pinv hardli problem the remultipl afterward exactli shape On mon may 11 2015 259 PM gael varoquaux notificationsgithubcom wrote,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-27 12:14:22,demo with synthetic data of confounds regression,96f2d5fb79fa9a4c4a1b5a3a89047d4d754c0e98,nan,demo synthet data confound regress,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 12:29:53,fix non-full rank confounds regression,c423ad871753257e0ad4244acff623ade854db5b,nan,fix nonful rank confound regress,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 12:31:29,suppressed demo,1d1d461ba9caaba27a0bc01d36f0603c77086956,nan,suppress demo,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:39:45,null eigenvalue threshold from float precision,99484c3bc1d3164f520d5ecad6ea85ef6a1cbd4f,nan,null eigenvalu threshold float precis,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:48:08,added demo,f7677717aab01d355d7209dc2afa68e4654a421d,nan,ad demo,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:57:02,removed demo,b8d867841a41fd2d72b7880a97c9db49158dc411,nan,remov demo,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:59:12,updated threshold for zero,675dd7e2ca43fd893c322c7a4afa0dd5882544ea,nan,updat threshold zero,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-09 07:36:53,softned precision in test confounds,581c063c8215c977e430b75724a247e2e11ef2f8,nan,softn precis test confound,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-11 09:43:36,"non-full rank regression for scipy 0.9, added test",0a838b69f1df2f953ddd5f81220220fd02037c94,nan,nonful rank regress scipi 09 ad test,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-11 10:01:09,updated with last changes in master,59eba16c131d31d6ce584b8bd3867f23710fe4b3,nan,updat last chang master,N
+pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-11 10:29:04,correct scipy version,40f7495a399fb62271efa57432a50923716b9164,nan,correct scipi version,N

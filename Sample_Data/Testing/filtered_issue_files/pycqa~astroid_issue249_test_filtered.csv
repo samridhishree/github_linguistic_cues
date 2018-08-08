@@ -1,0 +1,40 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,249,pycqa,astroid,pylint-bot,2015-11-08 06:54:03,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+These test is failing because the docstring attribute of the mock ASTs for list and int are no longer tuples: 
+
+``` python
+            self.assertEqual(len(cls.getattr('__doc__')), 1, (cls, cls.getattr('__doc__')))
+```
+
+``` python
+          self.assertEqual(len(inst.getattr('__doc__')), 1)
+```
+
+What I don't understand is why they were enclosed in tuples in the first place.  Maybe change this to a test to make sure it's a Const(str) node and call it a day?
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/249
+",start issue,"[modular-locals bugs] unittest_scoped_nodes, test_cls_special_attributes_1 and test_instance_special_attributes",origin report bitbucket ceridwenv github ceridwen these test fail docstr attribut mock ast list int longer tupl what I dont understand enclos tupl first place mayb chang test make sure conststr node call day bitbucket,N
+issue_closed,249,pycqa,astroid,pylint-bot,2015-12-09 05:55:48,nan,closed issue,"[modular-locals bugs] unittest_scoped_nodes, test_cls_special_attributes_1 and test_instance_special_attributes",nan,N
+issue_comment,249,pycqa,astroid,pylint-bot,2015-11-08 07:10:53,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Are they really tuples? When I ran the test, I get a list of Consts, which is actually correct, because getattr returns all the possible values. 
+",nan,nan,origin comment claudiu popa bitbucket pcmanticor github pcmanticor are realli tupl when I ran test I get list const actual correct getattr return possibl valu,Y
+issue_comment,249,pycqa,astroid,pylint-bot,2015-11-08 15:40:16,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+Hmm, for some reason it was displaying as with parentheses rather than brackets in the REPL, so I thought it was a tuple, but checking the type shows it's a list, so it's working as expected.
+",nan,nan,origin comment bitbucket ceridwenv github ceridwen hmm reason display parenthes rather bracket repl I thought tupl check type show list work expect,N
+issue_comment,249,pycqa,astroid,pylint-bot,2015-11-08 15:44:30,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+ast_from_object was double-counting **doc** and so getattr was producing a length-2 list, fixed in 6da8294.
+",nan,nan,origin comment bitbucket ceridwenv github ceridwen astfromobject doublecount doc getattr produc length2 list fix 6da8294,N

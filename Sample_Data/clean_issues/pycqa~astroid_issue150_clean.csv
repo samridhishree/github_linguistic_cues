@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,150,pycqa,astroid,pylint-bot,2015-07-03 16:10:37,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/150
+",start issue,Understand the int builtin,origin report claudiu popa bitbucket pcmanticor github pcmanticor bitbucket

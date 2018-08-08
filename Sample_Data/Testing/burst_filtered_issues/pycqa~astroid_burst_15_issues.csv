@@ -1,0 +1,665 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,44,pycqa,astroid,pylint-bot,2014-07-31 05:43:38,"Originally reported by: **BitBucket: [idella5](http://bitbucket.org/idella5)**
+
+---
+
+``` python
+...S..F..
+======================================================================
+FAIL: test_pylint_config_attr (unittest_regrtest.NonRegressionTC)
+----------------------------------------------------------------------
+Traceback (most recent call last)
+  File ""/mnt/gen2/TmpDir/portage/dev-python/astroid-1.2.0/work/astroid-1.2.0-python3_4/build/lib/astroid/test/unittest_regrtest.py"", line 116, in test_pylint_config_attr
+    expect)
+  File ""/usr/lib64/python3.4/unittest/case.py"", line 992, in assertListEqual
+    self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+  File ""/usr/lib64/python3.4/unittest/case.py"", line 974, in assertSequenceEqual
+    self.fail(msg)
+  File ""/usr/lib64/python3.4/unittest/case.py"", line 639, in fail
+    raise self.failureException(msg)
+AssertionError: Lists differ: ['Opt[84 chars]enChecker', 'BaseChecker', 'OptionsProviderMixIn', 'ASTWalker'] != ['Opt[84 chars]enChecker', 'BaseChecker', 'OptionsProviderMixIn']
+
+First list contains 1 additional elements.
+First extra element 7:
+ASTWalker
+
+  ['OptionsManagerMixIn',
+   'object',
+   'MessagesHandlerMixIn',
+   'ReportsHandlerMixIn',
+   'BaseTokenChecker',
+   'BaseChecker',
+-  'OptionsProviderMixIn',
+?                        ^
+
++  'OptionsProviderMixIn']
+?                        ^
+
+-  'ASTWalker']
+
+                              no stdout                               
+                              no stderr                               
+======================================================================
+
+Ran 343 test cases in 6.75s (6.75s CPU), 1 failures, 17 skipped
+12 modules OK (1 failed)
+```
+
+Looks fairly straight forward.  Last char a ',' in 1, ']"" in the other.
+ditto python3.3.  Can you replicate? Do you require anything further?
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/44
+",start issue,test_pylint_config_attr fails in version 1.2.0 under py3,origin report bitbucket idella5 look fairli straight forward last char 1 ditto python33 can replic Do requir anyth bitbucket,N,2015-12-09 05:52:19
+1,issue_title,260,pycqa,astroid,pylint-bot,2015-11-22 04:53:18,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+Previously, the code for building mock ASTs for enums was directly inserting Instance objects into the locals dictionary for enums.  I changed this to wrap them in InterpreterObjects, but this is now breaking the tests.  I'm not quite sure what the best way to handle this situation is.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/260
+",start issue,[2.0 bugs] Enum mock ASTs,origin report bitbucket ceridwenv github ceridwen previous code build mock ast enum directli insert instanc object local dictionari enum I chang wrap interpreterobject break test Im quit sure best way handl situat bitbucket,N,2015-12-09 05:55:57
+1,issue_title,58,pycqa,astroid,pylint-bot,2014-11-22 04:38:41,"Originally reported by: **Anonymous**
+
+---
+
+Because of use of print() function without using `from __future__ import print_function`:
+
+```
+$ mkvirtualenv xxx
+New python executable in xxx/bin/python2.7
+Also creating executable in xxx/bin/python
+Installing setuptools, pip...done.
+
+$ pip install astroid
+Downloading/unpacking astroid
+  Downloading astroid-1.3.1-py2.py3-none-any.whl (163kB): 163kB downloaded
+Downloading/unpacking logilab-common>=0.60.0 (from astroid)
+  Downloading logilab-common-0.63.0.tar.gz (195kB): 195kB downloaded
+  Running setup.py (path:/Users/docker/.virtualenvs/xxx/build/logilab-common/setup.py) egg_info for package logilab-common
+
+    package init file './test/__init__.py' not found (or not a regular file)
+Downloading/unpacking six (from astroid)
+  Downloading six-1.8.0-py2.py3-none-any.whl
+Installing collected packages: astroid, logilab-common, six
+Compiling /Users/docker/.virtualenvs/xxx/build/astroid/astroid/tests/testdata/python3/data/module.py ...
+  File ""/Users/docker/.virtualenvs/xxx/build/astroid/astroid/tests/testdata/python3/data/module.py"", line 55
+    print('yo', end=' ')
+                   ^
+SyntaxError: invalid syntax
+
+Compiling /Users/docker/.virtualenvs/xxx/build/astroid/astroid/tests/testdata/python3/data/module2.py ...
+  File ""/Users/docker/.virtualenvs/xxx/build/astroid/astroid/tests/testdata/python3/data/module2.py"", line 100
+    print('bonjour', file=stream)
+                         ^
+SyntaxError: invalid syntax
+
+  Running setup.py install for logilab-common
+    package init file './test/__init__.py' not found (or not a regular file)
+    package init file './test/__init__.py' not found (or not a regular file)
+    changing mode of build/scripts-2.7/pytest from 644 to 755
+
+    package init file './test/__init__.py' not found (or not a regular file)
+    Installing /Users/docker/.virtualenvs/xxx/lib/python2.7/site-packages/logilab_common-0.63.0-py2.7-nspkg.pth
+    changing mode of /Users/docker/.virtualenvs/xxx/bin/pytest to 755
+    package init file './test/__init__.py' not found (or not a regular file)
+Successfully installed astroid logilab-common six
+Cleaning up...
+```
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/58
+",start issue,SyntaxError on install for python2,origin report anonym becaus use print function without use bitbucket,N,2015-12-09 05:52:40
+1,issue_title,190,pycqa,astroid,pylint-bot,2015-09-22 12:56:42,"Originally reported by: **Rohit Bhattacharjee (BitBucket: [rohitativy](http://bitbucket.org/rohitativy), GitHub: @rohitativy?)**
+
+---
+
+Hi,
+
+I have same code in two files in a project, and this is by design, since these are test cases. On running pylint on my project I am being thrown a `duplicate-code` warning by pylint even though I have disabled the pylint check for duplicate-code in both of my files locally `# pylint: disable=duplicate-code` .
+I can suppress this warning globally by running `pylint <foldername> --disable=duplicate-code` which I don't want because I really don't want duplicate-code to exist in the project; they can only exist if the user has any specific requirements.
+
+regards
+Rohit
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/190
+",start issue,Pylint unable to suppress duplicate-code warning across files,origin report rohit bhattacharje bitbucket rohitativi github rohitativi Hi I code two file project design sinc test case On run pylint project I thrown warn pylint even though I disabl pylint check duplicatecod file local I suppress warn global run I dont want I realli dont want duplicatecod exist project exist user specif requir regard rohit bitbucket,N,2015-12-09 05:54:51
+1,issue_title,62,pycqa,astroid,pylint-bot,2014-11-28 16:20:56,"Originally reported by: **BitBucket: [jcristau](http://bitbucket.org/jcristau), GitHub: @jcristau?**
+
+---
+
+in astroid 1.3.2, python 2.7:
+
+```
+=======================  unittest_regrtest.py  =======================
+....SF..F..
+======================================================================
+FAIL: test_new_style_class_detection (unittest_regrtest.NonRegressionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last)
+  File ""/usr/lib/python2.7/unittest/case.py"", line 332, in run
+    testMethod()
+  File ""/home/jcr/src/bitbucket/logilab/astroid/astroid/tests/unittest_regrtest.py"", line 103, in test_new_style_class_detection
+    self.assertTrue(a.newstyle)
+  File ""/usr/lib/python2.7/unittest/case.py"", line 425, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+```
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/62
+",start issue,test failure: FAIL: test_new_style_class_detection (unittest_regrtest.NonRegressionTests),origin report bitbucket jcristau github jcristau astroid 132 python 27 bitbucket,N,2015-12-09 05:52:43
+1,issue_title,214,pycqa,astroid,pylint-bot,2015-10-15 03:05:58,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+At the moment, Instance is used for instances of classes and instances of other built-in types (lists, dicts) are subclasses of it.  This leads to cases where code has to type-test using type identity rather than isinstance, for instance, and makes it impossible to customize the behavior of class instances.  Instance should probably be a superclass, containing code common to all instances, and ClassInstance should be a subclass.  This will probably also make it easier to subclass Instance to build code for other types coded in C.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/214
+",start issue,"Instance should be a superclass, ClassInstance should be a subclass",origin report bitbucket ceridwenv github ceridwen At moment instanc use instanc class instanc builtin type list dict subclass thi lead case code typetest use type ident rather isinst instanc make imposs custom behavior class instanc instanc probabl superclass contain code common instanc classinst subclass thi probabl also make easier subclass instanc build code type code C bitbucket,N,2015-12-09 05:55:17
+1,issue_title,234,pycqa,astroid,pylint-bot,2015-10-29 15:38:22,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+Since I reworked the code for buiding ASTs from objects, the parent of the node corresponding to None is now an Assign node rather than the builtins module directly, which causes the second of the following asserts to fail.
+
+``` python
+    def assert_classes_equal(self, cls, other):
+        self.assertEqual(cls.name, other.name)
+        self.assertEqual(cls.parent, other.parent)
+        self.assertEqual(cls.qname(), other.qname())
+```
+
+Since nodes will no longer hold their parents after the zipper patch, this test needs to be changed anyway.  This may need to be part of a more comprehensive change aimed at these temporary inference objects, since at the moment a ClassDef node that isn't an actual child of a module won't be able to calculate a qname at all, but for now I think removing the parent check is probably best since I'm going to have to revisit it anyway.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/234
+",start issue,"[modular_locals bugs] unittest_helpers, test_object_type",origin report bitbucket ceridwenv github ceridwen sinc I rework code buid ast object parent node correspond none assign node rather builtin modul directli caus second follow assert fail sinc node longer hold parent zipper patch test need chang anyway thi may need part comprehens chang aim temporari infer object sinc moment classdef node isnt actual child modul wont abl calcul qname I think remov parent check probabl best sinc Im go revisit anyway bitbucket,N,2015-12-09 05:55:34
+1,issue_title,256,pycqa,astroid,pylint-bot,2015-11-11 05:29:30,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+With support for global and nonlocal statements officially back-burnered (#250), it would be useful to remove the global statement from this test case so that the other tests depending on it will pass.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/256
+",start issue,[modular-locals bugs] Delete global statement in testdata/.../data/module.py,origin report bitbucket ceridwenv github ceridwen with support global nonloc statement offici backburn 250 would use remov global statement test case test depend pass bitbucket,N,2015-12-09 05:55:54
+1,issue_title,4,pycqa,astroid,pylint-bot,2013-08-14 11:16:08,"Originally reported by: **Anonymous**
+
+---
+1. Create a script named ""2to3.bat"" (containing ""python ""%~dp0..\Tools\Scripts\2to3.py"" %*"") in PYTHONINSTALLDIR\Scripts, so that the setup.py provided with pylint actually works on Windows (that would be a bug too... but the Windows Python installer should take care of this in a perfect world)
+2. Unzip astroid-1.0.0.tar.gz, open a command window and change current working directory to astroid-1.0.0
+3. Type 'python setup.py build'
+4. Here is the result:
+
+D:\Downloads\astroid-1.0.0>python setup.py build
+running build
+running build_py
+creating build
+creating build\lib
+creating build\lib\astroid
+copying .\as_string.py -> build\lib\astroid
+copying .\bases.py -> build\lib\astroid
+[...]
+copying .\test\data\SSL1__init__.py -> build\lib\astroid\test\data\SSL1
+creating build\lib\astroid\test\data2
+copying .\test\data2\clientmodule_test.py -> build\lib\astroid\test\data2
+copying .\test\data2\suppliermodule_test.py -> build\lib\astroid\test\data2
+copying .\test\data2__init__.py -> build\lib\astroid\test\data2
+Skipping implicit fixer: buffer
+Skipping implicit fixer: idioms
+Skipping implicit fixer: set_literal
+Skipping implicit fixer: ws_comma
+package init file '.\test__init__.py' not found (or not a regular file)
+running 2to3 on build\lib\astroid\brain
+error: Le fichier spécifié est introuvable
+
+For what it's worth, the 3 steps above work with logilab-common-0.60.0.tar.gz but not with astroid-1.0.0.tar.gz.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/4
+",start issue,Building astroid on Windows/Python3 fails,origin report anonym 1 creat script name 2to3bat contain python dp0toolsscripts2to3pi pythoninstalldirscript setuppi provid pylint actual work window would bug window python instal take care perfect world 2 unzip astroid100targz open command window chang current work directori astroid100 3 type python setuppi build 4 here result ddownloadsastroid100run build run buildpi creat build creat buildlib creat buildlibastroid copi asstringpi copi basespi copi testdatassl1initpi creat buildlibastroidtestdata2 copi testdata2clientmoduletestpi copi testdata2suppliermoduletestpi copi testdata2initpi skip implicit fixer buffer skip implicit fixer idiom skip implicit fixer setliter skip implicit fixer wscomma packag init file testinitpi found regular file run 2to3 buildlibastroidbrain error Le fichier spécifié est introuv for worth 3 step work logilabcommon0600targz astroid100targz bitbucket,N,2015-12-09 05:51:31
+1,issue_title,187,pycqa,astroid,pylint-bot,2015-09-14 12:11:54,"Originally reported by: **Marcus Bajohr (BitBucket: [antiphasis](http://bitbucket.org/antiphasis), GitHub: @antiphasis?)**
+
+---
+
+Setting up a new development computer with python 3.5 i stumpled upon the following error:
+
+Using this trivial working valid python code file, name it dummy.py:
+
+```
+#!python
+
+print(""test"")
+```
+
+testing it with `pylint dummy.py` causes this traceback: 
+
+```
+No config file found, using default configuration
+Traceback (most recent call last):
+  File ""c:\python35\lib\site-packages\pylint\lint.py"", line 910, in get_ast
+    return MANAGER.ast_from_file(filepath, modname, source=True)
+  File ""c:\python35\lib\site-packages\astroid\manager.py"", line 112, in ast_from_file
+    return AstroidBuilder(self).file_build(filepath, modname)
+  File ""c:\python35\lib\site-packages\astroid\builder.py"", line 134, in file_build
+    module = self._data_build(data, modname, path)
+  File ""c:\python35\lib\site-packages\astroid\builder.py"", line 177, in _data_build
+    module = rebuilder.visit_module(node, modname, node_file, package)
+  File ""c:\python35\lib\site-packages\astroid\rebuilder.py"", line 148, in visit_module
+    newnode.body = [self.visit(child, newnode) for child in node.body]
+  File ""c:\python35\lib\site-packages\astroid\rebuilder.py"", line 148, in <listcomp>
+    newnode.body = [self.visit(child, newnode) for child in node.body]
+  File ""c:\python35\lib\site-packages\astroid\rebuilder.py"", line 161, in visit
+    return self._transform(visit_method(node, parent))
+  File ""c:\python35\lib\site-packages\astroid\rebuilder.py"", line 427, in visit_discard
+    newnode.value = self.visit(node.value, newnode)
+  File ""c:\python35\lib\site-packages\astroid\rebuilder.py"", line 161, in visit
+    return self._transform(visit_method(node, parent))
+  File ""c:\python35\lib\site-packages\astroid\rebuilder.py"", line 331, in visit_callfunc
+    if node.starargs is not None:
+AttributeError: 'Call' object has no attribute 'starargs'
+************* Module dummy
+F:  1, 0: <class 'AttributeError'>: 'Call' object has no attribute 'starargs' (astroid-error)
+
+```
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/187
+",start issue,'Call' object has no attribute 'starargs' (astroid-error),origin report marcu bajohr bitbucket antiphasi github antiphasi set new develop comput python 35 stumpl upon follow error use trivial work valid python code file name dummypi test caus traceback bitbucket,N,2015-12-09 05:54:43
+1,issue_title,188,pycqa,astroid,pylint-bot,2015-09-18 20:01:50,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+Found by an user. The traceback and a reproducer: https://gist.github.com/federicobond/9f233baf054f7f957440
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/188
+",start issue,astroid.exceptions.AstroidError: Could not find <Import() l.400 [os] at 0x10d551a90> in <TryExcept() l.394 [os] at 0x10d545950>'s children,origin report claudiu popa bitbucket pcmanticor github pcmanticor found user the traceback reproduc bitbucket,N,2015-12-09 05:54:44
+1,issue_title,287,pycqa,astroid,dashea,2015-12-11 20:10:20,"Running _import_gi_module('gi.repository.GLib') with astroid-1.4.1 fails with a syntax error while trying to parse the generated module stub, and I found that the modcode contained properties such as:
+
+`IO_ERR = <flags G_IO_ERR of type GLib.IOCondition>`
+
+This is due to the switch from `type(x) == y` to `isinstance(x, y)` in a079c3d4abecee064c3ab4c44f086b618f06fa8c. GLib.IO_ERR, for example, returns gi.repository.GLib.GIOCondition for type(), but also inherits from int.
+",start issue,Check for flags/enum types before checking for int,run importgimodulegirepositoryglib astroid141 fail syntax error tri pars gener modul stub I found modcod contain properti thi due switch a079c3d4abecee064c3ab4c44f086b618f06fa8c glibioerr exampl return girepositoryglibgiocondit type also inherit int,N,2015-12-11 20:58:49
+2,issue_closed,287,pycqa,astroid,PCManticore,2015-12-11 20:58:49,,closed issue,Check for flags/enum types before checking for int,,N,2015-12-11 20:10:20
+3,pull_request_title,287,pycqa,astroid,dashea,2015-12-11 20:10:20,"Running _import_gi_module('gi.repository.GLib') with astroid-1.4.1 fails with a syntax error while trying to parse the generated module stub, and I found that the modcode contained properties such as:
+
+`IO_ERR = <flags G_IO_ERR of type GLib.IOCondition>`
+
+This is due to the switch from `type(x) == y` to `isinstance(x, y)` in a079c3d4abecee064c3ab4c44f086b618f06fa8c. GLib.IO_ERR, for example, returns gi.repository.GLib.GIOCondition for type(), but also inherits from int.
+",b0fdfe55e8428f3a9a141f70632607d6bf0d9bb2,Check for flags/enum types before checking for int,run importgimodulegirepositoryglib astroid141 fail syntax error tri pars gener modul stub I found modcod contain properti thi due switch a079c3d4abecee064c3ab4c44f086b618f06fa8c glibioerr exampl return girepositoryglibgiocondit type also inherit int,N,2015-12-11 20:58:49
+4,pull_request_merged,287,pycqa,astroid,PCManticore,2015-12-11 20:58:49,Check for flags/enum types before checking for int,47dea8e4fd97e1f69b24ce311eb4df995d283187,Pull request merge from dashea/astroid:gi-stub-enum to PyCQA/astroid:master,check flagsenum type check int,N,2015-12-11 20:58:43
+5,issue_comment,287,pycqa,astroid,PCManticore,2015-12-11 20:58:43,"Thanks! We could add some tests for this plugin in order to prevent future regressions. I must admit though that this is a black box for me, since I'm not familiar with gi.
+",,,thank We could add test plugin order prevent futur regress I must admit though black box sinc Im familiar gi,Y,2015-12-11 20:04:21
+1,issue_title,83,pycqa,astroid,pylint-bot,2015-03-16 19:40:26,"Originally reported by: **Arfrever Frehtes Taifersar Arahesis (BitBucket: [arfrever](http://bitbucket.org/arfrever), GitHub: @arfrever?)**
+
+---
+
+Astroid has some test failures with Jython.
+
+It seems that many of them are due to assumption that byte-compiled modules have `.pyc` suffix, but Jython uses `$py.class`.
+
+I attach output of test suite of Astroid 1.3.6.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/83
+",start issue,Test failures with Jython,origin report arfrev freht taifersar arahesi bitbucket arfrev github arfrev astroid test failur jython It seem mani due assumpt bytecompil modul suffix jython use I attach output test suit astroid 136 bitbucket,N,2015-12-09 05:53:05
+1,issue_title,220,pycqa,astroid,pylint-bot,2015-10-20 21:33:27,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+If the co_filename attribute is not found, then object_build_methoddescriptor will be called instead: https://bitbucket.org/logilab/astroid/src/6d4e198bdc7091f36c2c24d911c5ee92b64847c2/astroid/raw_building.py?at=default&fileviewer=file-view-default#raw_building.py-239
+
+The branch can be taken on PyPy and on Jython. Removing it leads to some interesting results, where some builtins can get additional information regarding their parameters (which also leads to tons of false positives on pylint):
+
+```
+#!python
+
+from astroid.test_utils import extract_node
+n = extract_node('''
+NotImplementedError
+''')
+i = next(n.infer())
+i = i.getattr('__init__')[0]
+print(i.args.args)
+
+```
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/220
+",start issue,Investigate why _build_from_function from raw_building handles differently objects with co_filename,origin report claudiu popa bitbucket pcmanticor github pcmanticor If cofilenam attribut found objectbuildmethoddescriptor call instead the branch taken pypi jython remov lead interest result builtin get addit inform regard paramet also lead ton fals posit pylint bitbucket,N,2015-12-09 05:55:23
+1,issue_title,1,pycqa,astroid,pylint-bot,2013-06-22 11:55:26,"Originally reported by: **BitBucket: [idella5](http://bitbucket.org/idella5)**
+
+---
+
+firstly under py3.2; Python 3.2.4
+
+pytest
+
+yields
+
+``` python
+........E............
+======================================================================
+ERROR: test_generator_attributes (unittest_lookup.LookupTC)
+----------------------------------------------------------------------
+Traceback (most recent call last)
+  File ""/mnt/gen2/TmpDir/portage/dev-python/astng-0.24.3/work/logilab-astng-0.24.3-python3_2/test/lib/logilab_astng-0.24.3-py3.2.egg/logilab/astng/test/unittest_lookup.py"", line 228, in test_generator_attributes
+    self.assertIsInstance(gener.getattr('next')[0], Function)
+  File ""/usr/lib64/python3.2/site-packages/logilab/astng/bases.py"", line 160, in getattr
+    return self._proxied.getattr(name, context)
+  File ""/usr/lib64/python3.2/site-packages/logilab/astng/scoped_nodes.py"", line 886, in getattr
+    raise NotFoundError(name)
+logilab.astng.exceptions.NotFoundError: next
+
+                              no stdout                               
+                              no stderr                               
+______________________________________________
+--------------------------------------------------------------------------
+..S.F..
+======================================================================
+FAIL: test_numpy_crash (unittest_regrtest.NonRegressionTC)
+test don't crash on numpy
+----------------------------------------------------------------------
+Traceback (most recent call last)
+  File ""/mnt/gen2/TmpDir/portage/dev-python/astng-0.24.3/work/logilab-astng-0.24.3-python3_2/test/lib/logilab_astng-0.24.3-py3.2.egg/logilab/astng/test/unittest_regrtest.py"", line 136, in test_numpy_crash
+    self.assertIsInstance(infered[0], Instance)
+  File ""/usr/lib64/python3.2/site-packages/logilab/common/testlib.py"", line 1102, in assertIsInstance
+    self.assertTrue(isinstance(obj, klass), msg)
+  File ""/usr/lib64/python3.2/unittest/case.py"", line 506, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : YES is not an instance of <class 'logilab.astng.bases.Instance'> but of <class 'logilab.astng.bases._Yes'>
+
+                              no stdout                               
+                              no stderr                               
+```
+
+Secondly pypy.  The patch I made below resets the tests to yield a pass for pypy running them. Note ""# no way for this one (is 4 actually)"" in the test file implies you know of this oddity yet there it still sits.  For py2.7 3.2 it passes but under pypy it yeilds these different data.
+
+``` bash
+diff -ur logilab-astng-0.24.3.orig/test/unittest_builder.py logilab-astng-0.24.3/test/unittest_builder.py
+--- test/unittest_builder.py    2013-04-17 17:38:31.000000000 +0800
++++ test/unittest_builder.py    2013-06-19 02:13:51.425269363 +0800
+@@ -62,8 +62,12 @@
+         self.assertEqual(name.tolineno, 4)
+         strarg = callfunc.args[0]
+         self.assertIsInstance(strarg, nodes.Const)
+-        self.assertEqual(strarg.fromlineno, 5) # no way for this one (is 4 actually)
+-        self.assertEqual(strarg.tolineno, 5)
++        if hasattr(sys, 'pypy_version_info'):
++            self.assertEqual(strarg.fromlineno, 4) # no way for this one (is 4 actually)
++            self.assertEqual(strarg.tolineno, 4)
++        else:
++            self.assertEqual(strarg.fromlineno, 5) # no way for this one (is 4 actually)
++            self.assertEqual(strarg.tolineno, 5)
+         namearg = callfunc.args[1]
+         self.assertIsInstance(namearg, nodes.Name)
+         self.assertEqual(namearg.fromlineno, 5)
+diff -ur logilab-astng-0.24.3.orig/test/unittest_inference.py logilab-astng-0.24.3/test/unittest_inference.py
+--- test/unittest_inference.py  2013-04-17 17:38:31.000000000 +0800
++++ test/unittest_inference.py  2013-06-19 02:52:41.618270007 +0800
+@@ -710,8 +710,12 @@
+         node = get_name_node(astng, 'open', -1)
+         infered = list(node.infer())
+         self.assertEqual(len(infered), 1)
+-        self.assertIsInstance(infered[0], nodes.Function)
+-        self.assertEqual(infered[0].name, 'open')
++        if hasattr(sys, 'pypy_version_info'):
++            self.assertIsInstance(infered[0], nodes.Class)
++            self.assertEqual(infered[0].name, 'file')
++        else:
++            self.assertIsInstance(infered[0], nodes.Function)
++            self.assertEqual(infered[0].name, 'open')
+
+     def test_callfunc_context_func(self):
+         code = '''
+```
+
+The remaining test left to just fail is
+
+``` python
+.....S.......E..........................................
+======================================================================
+ERROR: test_socket_build (unittest_builder.BuilderTC)
+----------------------------------------------------------------------
+Traceback (most recent call last)
+  File ""/usr/lib64/pypy2.0/site-packages/logilab/common/testlib.py"", line 661, in _proceed
+    testfunc(*args, **kwargs)
+  File ""/mnt/gen2/TmpDir/portage/dev-python/astng-0.24.3/work/logilab-astng-0.24.3-pypy2_0/test/lib/logilab_astng-0.24.3-py2.7.egg/logilab/astng/test/unittest_builder.py"", line 442, in test_socket_build
+    self.assertIn('connect', fclass)
+  File ""/usr/lib64/pypy2.0/lib-python/2.7/unittest/case.py"", line 798, in assertIn
+    if member not in container:
+TypeError: '_Yes' object is not iterable
+
+                              no stdout                               
+                              no stderr                               
+```
+
+It appears to me that pypy reading the ??same directory structure comes up with _Yes object, a valid astng object I gather but the wrong damned one.
+There's a build log for you.
+
+Over to you
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/1
+",start issue,"test suite fails in -0.24.3 under py3.2, pypy",origin report bitbucket idella5 firstli py32 python 324 pytest yield secondli pypi the patch I made reset test yield pass pypi run note way one 4 actual test file impli know odditi yet still sit for py27 32 pass pypi yeild differ data the remain test left fail It appear pypi read directori structur come ye object valid astng object I gather wrong damn one there build log over bitbucket,N,2015-12-09 05:51:25
+1,issue_title,295,pycqa,astroid,PCManticore,2015-12-15 14:55:17,"Hey folks,
+
+Here's a basic setup of AppVeyor which I'd like to get into astroid as part of its testing suite. It kinda works so far, but depending on numpy takes its toll reflected on the unusual build run time (almost an hour for all the Python versions). I tried multiple solutions, but none worked so far. If you have any idea how we might improve things on this side, please tell me about it. 
+
+cc @The-Compiler would you mind setting up an AppVeyor account for pylint-bot, when you'll get some time? Most probably using it is the best solution.
+",start issue,Setup a basic AppVeyor deployment.,hey folk here basic setup appveyor Id like get astroid part test suit It kinda work far depend numpi take toll reflect unusu build run time almost hour python version I tri multipl solut none work far If idea might improv thing side pleas tell cc thecompil would mind set appveyor account pylintbot youll get time most probabl use best solut,N,2015-12-16 09:10:32
+2,issue_closed,295,pycqa,astroid,PCManticore,2015-12-16 09:10:32,,closed issue,Setup a basic AppVeyor deployment.,,N,2015-12-15 14:55:17
+3,pull_request_title,295,pycqa,astroid,PCManticore,2015-12-15 14:55:17,"Hey folks,
+
+Here's a basic setup of AppVeyor which I'd like to get into astroid as part of its testing suite. It kinda works so far, but depending on numpy takes its toll reflected on the unusual build run time (almost an hour for all the Python versions). I tried multiple solutions, but none worked so far. If you have any idea how we might improve things on this side, please tell me about it. 
+
+cc @The-Compiler would you mind setting up an AppVeyor account for pylint-bot, when you'll get some time? Most probably using it is the best solution.
+",b194b835be4335dcca25b50c5ea79f959e90025b,Setup a basic AppVeyor deployment.,hey folk here basic setup appveyor Id like get astroid part test suit It kinda work far depend numpi take toll reflect unusu build run time almost hour python version I tri multipl solut none work far If idea might improv thing side pleas tell cc thecompil would mind set appveyor account pylintbot youll get time most probabl use best solut,N,2015-12-16 09:10:32
+4,pull_request_merged,295,pycqa,astroid,PCManticore,2015-12-16 09:10:32,Setup a basic AppVeyor deployment.,f5b826e2b6648598af883d256a997af2d770c604,Pull request merge from PyCQA/astroid:appveyor to PyCQA/astroid:master,setup basic appveyor deploy,N,2015-12-15 19:20:17
+5,issue_comment,295,pycqa,astroid,ceridwen,2015-12-15 19:20:17,"I know next to nothing about installing Python on Windows, so I don't know if I comment about that, though I support testing on it.   This might be a good place to handle IronPython, since .NET is Windows-native?  For numpy, I still think we should split off most of brain.
+",,,I know next noth instal python window I dont know I comment though I support test thi might good place handl ironpython sinc net windowsn for numpi I still think split brain,Y,2015-12-15 19:26:52
+6,issue_comment,295,pycqa,astroid,PCManticore,2015-12-15 19:26:52,"I agree with the splitting, but in my opinion we should do it after switching completely to GitHub (having Travis and AppVeyor working for most of the cases).
+",,,I agre split opinion switch complet github travi appveyor work case,Y,2015-12-15 19:27:56
+7,issue_comment,295,pycqa,astroid,PCManticore,2015-12-15 19:27:56,"Yeah, we could add IronPython as well, after having the basic blocks integrated.
+",,,yeah could add ironpython well basic block integr,N,2015-12-16 05:35:32
+8,issue_comment,295,pycqa,astroid,The-Compiler,2015-12-16 05:35:32,"https://ci.appveyor.com/project/pylint-bot/pylint and https://ci.appveyor.com/project/pylint-bot/astroid are up and running. :wink:
+",,,run wink,N,2015-12-16 08:46:21
+9,issue_comment,295,pycqa,astroid,PCManticore,2015-12-16 08:46:21,"Thanks @The-Compiler ! By the way, I think you need to add the hooks for the project. I pushed a commit, but no build was triggered or am I doing something wrong?
+",,,thank thecompil By way I think need add hook project I push commit build trigger I someth wrong,N,2015-12-16 09:10:26
+10,issue_comment,295,pycqa,astroid,PCManticore,2015-12-16 09:10:26,"Let's merge it as is and we'll do a test PR shortly.
+",,,let merg well test PR shortli,Y,2015-12-14 11:02:05
+1,issue_title,275,pycqa,astroid,pylint-bot,2015-12-01 02:16:02,"Originally reported by: **Paul Michali (BitBucket: [paul_michali](http://bitbucket.org/paul_michali))**
+
+---
+
+In openstack.org's neutron project, using pylint 1.4.4, when astroid updated to 1.4.1 pylint failed with many non-sensical errors. For example, use of any module from an import was showing a undefined variable error in pylint, which worked fine with astroid 1.3.8 and pylint 1.4.4. We see the same issue with astroid 1.4.0 as well.
+
+E.g.
+
+import abc
+import six
+...
+@six.add_metaclass(abc.ABCMeta)
+
+Plyint would report undefined variable for 'abc' and 'six'. This happens for every import in every file.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/275
+",start issue,1.4.0 and 1.4.1 fail to work with pylint 1.4.4,origin report paul michali bitbucket paulmichali In openstackorg neutron project use pylint 144 astroid updat 141 pylint fail mani nonsens error for exampl use modul import show undefin variabl error pylint work fine astroid 138 pylint 144 We see issu astroid 140 well Eg import abc import six sixaddmetaclassabcabcmeta plyint would report undefin variabl abc six thi happen everi import everi file bitbucket,N,2015-12-09 05:56:13
+1,issue_title,249,pycqa,astroid,pylint-bot,2015-11-08 06:54:03,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+These test is failing because the docstring attribute of the mock ASTs for list and int are no longer tuples: 
+
+``` python
+            self.assertEqual(len(cls.getattr('__doc__')), 1, (cls, cls.getattr('__doc__')))
+```
+
+``` python
+          self.assertEqual(len(inst.getattr('__doc__')), 1)
+```
+
+What I don't understand is why they were enclosed in tuples in the first place.  Maybe change this to a test to make sure it's a Const(str) node and call it a day?
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/249
+",start issue,"[modular-locals bugs] unittest_scoped_nodes, test_cls_special_attributes_1 and test_instance_special_attributes",origin report bitbucket ceridwenv github ceridwen these test fail docstr attribut mock ast list int longer tupl what I dont understand enclos tupl first place mayb chang test make sure conststr node call day bitbucket,N,2015-12-09 05:55:48
+1,issue_title,229,pycqa,astroid,pylint-bot,2015-10-27 15:42:56,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+_nose is inserting live objects directly into locals, without using EmptyNodes, in _nose_tools_trivial_transform and _nose_tools_transform.  Should I just use EmptyNodes to build these ASTs or could I introspect the functions to get FunctionDef nodes and put those into the AST instead?
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/229
+",start issue,Malformed AST in brain/_nose,origin report bitbucket ceridwenv github ceridwen nose insert live object directli local without use emptynod nosetoolstrivialtransform nosetoolstransform should I use emptynod build ast could I introspect function get functiondef node put ast instead bitbucket,N,2015-12-09 05:55:30
+1,issue_title,50,pycqa,astroid,pylint-bot,2014-10-16 07:58:33,"Originally reported by: **BitBucket: [carlio](http://bitbucket.org/carlio), GitHub: @carlio?**
+
+---
+
+If a decorator returns itself, type inference in Astroid can get into an infinite loop. The following will cause Pylint to stall forever:
+
+```
+def decorator():
+    def wrapper():
+        return decorator()
+    return wrapper
+
+@decorator()
+def do_a_thing():
+    print 'hello'
+```
+
+Here is a real-world example of this code: https://github.com/allegro/ralph/blob/develop/src/ralph/util/plugin.py#L25
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/50
+",start issue,Infinite loop in inference with decorators,origin report bitbucket carlio github carlio If decor return type infer astroid get infinit loop the follow caus pylint stall forev here realworld exampl code bitbucket,N,2015-12-09 05:52:28
+1,issue_title,233,pycqa,astroid,pylint-bot,2015-10-28 04:43:43,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+The urlparse module in 2 was consolidated into the urllib module on Python 3.  I tried replacing urlparse with six.moves.urllib.urlparse.
+
+``` python
+result = test_utils.extract_node(""""""
+import six
+
+result = __(six.moves.urllib.parse.urlparse('gopher://'))
+"""""")
+```
+
+This seems to work for now, but it's not exactly a clean test case, we should consider replacing it.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/233
+",start issue,test_namedtuple_advanced_inference fails on Python 3 because urlparse no longer exists,origin report bitbucket ceridwenv github ceridwen the urlpars modul 2 consolid urllib modul python 3 I tri replac urlpars sixmovesurlliburlpars thi seem work exactli clean test case consid replac bitbucket,N,2015-12-09 05:55:33
+1,issue_title,33,pycqa,astroid,pylint-bot,2014-06-06 15:21:22,"Originally reported by: **BitBucket: [jcristau](http://bitbucket.org/jcristau), GitHub: @jcristau?**
+
+---
+
+On python 2, the rebuilder sets _newstyle to True on a class node if a __metaclass__ variable is set in the parent namespace.  This is wrong, per https://docs.python.org/2/reference/datamodel.html#customizing-class-creation only the global namespace matters.
+
+Test case::
+
+```
+def test_metaclass_nested(self):
+    astroid = abuilder.string_build(dedent(""""""
+    class Test:
+        __metaclass__ = type
+        class Nested: pass
+    """"""))
+    nested = astroid['Test'].locals['Nested'][0]
+    self.assertFalse(nested.newstyle)
+```
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/33
+",start issue,wrong handling of metaclass/newstyle in rebuilder,origin report bitbucket jcristau github jcristau On python 2 rebuild set newstyl true class node metaclass variabl set parent namespac thi wrong per global namespac matter test case bitbucket,N,2015-12-09 05:52:07
+1,issue_title,216,pycqa,astroid,pylint-bot,2015-10-19 17:23:54,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+EmptyNode is used to hold a name and a node for an arbitrary object in the locals attribute of astroid scoped nodes in artificial ASTs that mimic builtin objects or other such things.  Since it has fields, ""Empty"" isn't an appropriate moniker.  Maybe ""Alias?""  There's probably another better name.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/216
+",start issue,Rename EmptyNode and repurpose it to explicitly hold representations of runtime objects inside ASTs,origin report bitbucket ceridwenv github ceridwen emptynod use hold name node arbitrari object local attribut astroid scope node artifici ast mimic builtin object thing sinc field empti isnt appropri monik mayb alia there probabl anoth better name bitbucket,N,2015-12-09 05:55:19
+1,issue_title,232,pycqa,astroid,pylint-bot,2015-10-28 01:52:09,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+With the changes I've made in this bookmark, the nodes representing None and dicts no longer have locals or instance_attrs attributes, so as written this test fails, and the situation that it's testing shouldn't be possible in the first place because there should no longer be external assignments to locals in astroid at all and only nodes with explicit need for instance_attrs should have that dictionary available.  What should I do with the test?
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/232
+",start issue,[modular_locals bugs] test_inferred_dont_pollute changes,origin report bitbucket ceridwenv github ceridwen with chang ive made bookmark node repres none dict longer local instanceattr attribut written test fail situat test shouldnt possibl first place longer extern assign local astroid node explicit need instanceattr dictionari avail what I test bitbucket,N,2015-12-09 05:55:33
+1,issue_title,84,pycqa,astroid,pylint-bot,2015-03-20 16:30:38,"Originally reported by: **Ned Batchelder (BitBucket: [ned](http://bitbucket.org/ned), GitHub: @ned?)**
+
+---
+
+When running on the edx-platform repo (https://github.com/edx/edx-platform), 1.3.4 successfully reports 5782 errors, but 1.3.5 crashes with a TypeError.  I've attached the output.  These are each concatenations of three different pylint runs.
+
+I am running with:
+logilab-astng==0.24.3
+logilab-common==0.63.0
+pylint==1.4.1
+
+pylout_134.txt is with astroid 1.3.4 installed.  pylout_135.txt is with 1.3.5.
+
+BTW: 1.3.6 also crashes.
+
+We also have a few pylint plugins of our own, from https://github.com/edx/edx-lint
+
+Pylint ends with this exception:
+
+```
+    sys.exit(run_pylint())
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/__init__.py"", line 23, in run_pylint
+    Run(sys.argv[1:])
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/lint.py"", line 1266, in __init__
+    linter.check(args)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/lint.py"", line 674, in check
+    self._do_check(files_or_modules)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/lint.py"", line 805, in _do_check
+    self.check_astroid_module(ast_node, walker, rawcheckers, tokencheckers)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/lint.py"", line 881, in check_astroid_module
+    walker.walk(ast_node)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/utils.py"", line 869, in walk
+    self.walk(child)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/utils.py"", line 869, in walk
+    self.walk(child)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/utils.py"", line 869, in walk
+    self.walk(child)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/utils.py"", line 866, in walk
+    cb(astroid)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/checkers/typecheck.py"", line 293, in visit_assign
+    function_node = safe_infer(node.value.func)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/pylint/checkers/utils.py"", line 96, in safe_infer
+    next(inferit)
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/bases.py"", line 327, in wrapped
+    for res in _func(node, context, **kwargs):
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/bases.py"", line 351, in wrapper
+    for node in func(*args, **kwargs):
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/inference.py"", line 247, in infer_getattr
+    for obj in owner.igetattr(self.attrname, context):
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/scoped_nodes.py"", line 1211, in igetattr
+    for infered in _infer_stmts(self.getattr(name, context), context,
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/scoped_nodes.py"", line 1196, in getattr
+    for classnode in self.ancestors(recurs=True, context=context):
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/scoped_nodes.py"", line 1103, in ancestors
+    context=context):
+  File ""/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/astroid/scoped_nodes.py"", line 1089, in ancestors
+    for baseobj in stmt.infer(context):
+TypeError: '_Yes' object is not iterable
+```
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/84
+",start issue,1.3.5 crashes with TypeError: '_Yes' object is not iterable,origin report ned batcheld bitbucket ned github ned when run edxplatform repo 134 success report 5782 error 135 crash typeerror ive attach output these concaten three differ pylint run I run logilabastng0243 logilabcommon0630 pylint141 pylout134txt astroid 134 instal pylout135txt 135 btw 136 also crash We also pylint plugin pylint end except bitbucket,N,2015-12-09 05:53:13

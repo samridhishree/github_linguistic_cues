@@ -1,0 +1,128 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,950,nilearn,nilearn,salma1601,2016-01-16 21:29:54,"I kept the ROIs order as in the original paper. I also have a version of these ROIs ordered by networks, in case this would be preferred ?
+",start issue,Dosenbach 2010 ROIs as in paper,I kept roi order origin paper I also version roi order network case would prefer,N
+issue_closed,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 23:01:48,nan,closed issue,Dosenbach 2010 ROIs as in paper,nan,N
+pull_request_title,950,nilearn,nilearn,salma1601,2016-01-16 21:29:54,"I kept the ROIs order as in the original paper. I also have a version of these ROIs ordered by networks, in case this would be preferred ?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,Dosenbach 2010 ROIs as in paper,I kept roi order origin paper I also version roi order network case would prefer,N
+pull_request_merged,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 23:01:48,Dosenbach 2010 ROIs as in paper,c43324dc2757f4f4acc382c652802bffcfa14753,Pull request merge from salma1601/nilearn:dosenbach_atlas to nilearn/nilearn:master,dosenbach 2010 roi paper,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:31:55,"I think that we only need to fix @banilo's comments. For the example, I was thinking of adding dosenbach to my example with the power atlas in #924. What do you think?
+",nan,nan,I think need fix banilo comment for exampl I think ad dosenbach exampl power atla 924 what think,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:42:37,"> I was waiting for a decision about the naming issue #954. Shall I name it fetch_atlas or fetch_coords or load_coords ??
+
+The actual policy in nilearn is to name it `load_atlas`. `load` because it is not downloaded and `atlas` because we do not differentiate atlases from coordinates ATM. I suggest that you set this name and we open an issue to discuss atlas vs. coords.
+",nan,nan,the actual polici nilearn name download differenti atlas coordin atm I suggest set name open issu discuss atla vs coord,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:53:53,"`load_atlas`
+",nan,nan,nan,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:56:57,"OK, Kamalakar is right. I thought we had `load_atlas_power` but it's `fetch`. Let's call it `fetch_atlas`
+",nan,nan,OK kamalakar right I thought let call,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 15:18:19,"Can you fix the conflicts?
+",nan,nan,can fix conflict,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 15:47:37,"> merge master
+
+To keep history clean, we do not allow merges. Please rebase.
+
+> test_atlas.test_fail_fetch_atlas_harvard_oxford is failing on my labtop.
+
+Trace?
+",nan,nan,To keep histori clean allow merg pleas rebas trace,N
+issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 18:07:05,"You may have local changes, Travis is happy with this test...
+",nan,nan,you may local chang travi happi test,Y
+issue_comment,950,nilearn,nilearn,salma1601,2016-01-18 11:03:12,"> I do wonder if we should call this an atlas? Maybe fetch_coords_dosenbach rather?
+
+I changed the function naming. Then  `fetch_atlas_power_2011` also should be renamed using coords I think.
+I have a problem in the documentation: in the modules reference page only the first sentence is given so it stops at ""...Dosenbach et al."" . I don't know how to avoid this ?
+@KamalakerDadi  `datasets.fetch_abide_pcp(derivatives=['rois_dosenbach160'])` gives ABIDE time-series extracted from an atlas of spheres of 4.5 mm radius around these coordinates.
+",nan,nan,I chang function name then also renam use coord I think I problem document modul refer page first sentenc given stop dosenbach et al I dont know avoid kamalakerdadi give abid timeseri extract atla sphere 45 mm radiu around coordin,N
+issue_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-18 14:36:59,"> Then fetch_atlas_power_2011 also should be renamed using coords I
+> think.
+
+I agree. Do you want to add an issue for that?
+",nan,nan,I agre Do want add issu,N
+issue_comment,950,nilearn,nilearn,salma1601,2016-01-18 14:44:31,"> Do you want to add an issue for that?
+
+Yes, I am a passionate nilearn-issue-generator
+Done in #954 
+",nan,nan,ye I passion nilearnissuegener done 954,N
+issue_comment,950,nilearn,nilearn,salma1601,2016-02-16 14:15:23,"> I was thinking of adding dosenbach to my example with the power atlas in #924.
+
+I was thinking the same thing !
+
+> I think that we only need to fix @banilo's comments
+
+I was waiting for a decision about the naming issue #954. Shall I name it fetch_atlas or fetch_coords or load_coords ??
+",nan,nan,I think thing I wait decis name issu 954 shall I name fetchatla fetchcoord loadcoord,N
+issue_comment,950,nilearn,nilearn,KamalakerDadi,2016-02-17 14:49:49,"> I suggest that you set this name
+
+meaning `fetch_atlas` ?
+",nan,nan,mean,N
+issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:17:19,"> I suggest that you set this name and we open an issue to discuss atlas vs. coords.
+
+This is #954.
+
+> Let's call it `fetch_atlas`
+
+Ok, done.
+",nan,nan,thi 954 Ok done,N
+issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:23:42,"Yes I am on it
+",nan,nan,ye I,N
+issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:42:24,"test_atlas.test_fail_fetch_atlas_harvard_oxford is failing on my labtop.
+",nan,nan,testatlastestfailfetchatlasharvardoxford fail labtop,N
+issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 16:48:19,"> To keep history clean, we do not allow merges. Please rebase.
+
+Sorry. Is it ok now ?
+
+> Trace?
+
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/salma/CODE/Parietal/nilearn/nilearn/datasets/tests/test_atlas.py"", line 143, in test_fail_fetch_atlas_harvard_oxford
+    assert_equal(len(ho.labels), 5)
+AssertionError: 97 != 5
+    '97 != 5' = '%s != %s' % (safe_repr(97), safe_repr(5))
+    '97 != 5' = self._formatMessage('97 != 5', '97 != 5')
+  raise self.failureException('97 != 5')
+",nan,nan,sorri Is ok traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homesalmacodeparietalnilearnnilearndatasetsteststestatlaspi line 143 testfailfetchatlasharvardoxford assertequallenholabel 5 assertionerror 97 5 97 5 saferepr97 saferepr5 97 5 selfformatmessage97 5 97 5 rais selffailureexception97 5,N
+pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-17 23:37:39,"The difference form many other fetchers appears to be gthat the atlas is a set of coordinates and not 3D shapes. That might be mentioned here.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')",the differ form mani fetcher appear gthat atla set coordin 3D shape that might mention,N
+pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-18 06:01:03,"> The difference form many other fetchers appears to be gthat the atlas is a set
+> of coordinates and not 3D shapes. That might be mentioned here.
+
+I do wonder if we should call this an atlas? Maybe fetch_coords_dosenbach
+rather?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')",I wonder call atla mayb fetchcoordsdosenbach rather,N
+pull_request_commit_comment,950,nilearn,nilearn,KamalakerDadi,2016-01-18 10:46:17,"Just curious to know `datasets.fetch_abide_pcp(derivatives=['rois_dosenbach160'])` ?
+
+Is this PR different than we get ?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(6, '', u'nilearn/datasets/atlas.py')",just curiou know Is PR differ get,N
+pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-18 23:31:46,"write out ""ROI""
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",write roi,N
+pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-18 23:32:31,"maybe make the type of modularity analysis explicit here, such that one does not need to go back read the paper
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",mayb make type modular analysi explicit one need go back read paper,N
+pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-19 06:35:23,"> maybe make the type of modularity analysis explicit here, such that one does
+> not need to go back read the paper
+
+Really? I don't think that we should strive to summarize or explain
+methods that we are not implementing.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",realli I dont think strive summar explain method implement,N
+pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-21 11:19:57,"""modularity analysis"" does not mean anything -> perhaps add a half sentence that at least is not ambiuous about what will be fetched. In short, just say the method exactly.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",modular analysi mean anyth,N
+pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-21 11:21:15,"maybe move the MNI statement to the returns section
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')",mayb move mni statement return section,N
+pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-21 11:23:17,"grammar: ""assigned to""
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')",grammar assign,N
+pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-21 11:52:53,"> > +160 ROIs covering much of the cerebral cortex and cerebellum.
+> > +They were obtained from meta-analyses of fMRI activation studies
+> > +and assigned into 6 networks according to a modularity analysis of
+> 
+> ""modularity analysis"" does not mean anything -> perhaps add a half sentence
+> that at least is not ambiuous about what will be fetched
+
+That's the terminology they use in the paper. I would simply leave it
+like that, and reference the paper.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",that terminolog use paper I would simpli leav like refer paper,N
+pull_request_commit,950,nilearn,nilearn,salma1601,2016-01-16 21:25:05,dosenbach2010 rois as in paper,e6bf5eacc9db6c5ef10bac6aed6c13b56019984d,nan,dosenbach2010 roi paper,N
+pull_request_commit,950,nilearn,nilearn,salma1601,2016-01-17 15:46:00,str labels,6c40f49b2b23315f526f59354cd35dab4ae2cb4c,nan,str label,N
+pull_request_commit,950,nilearn,nilearn,salma1601,2016-01-18 10:46:14,use coords in function naming,2f3c1d50e675cd654a26b772bbcbb0c5aeb958f6,nan,use coord function name,N
+pull_request_commit,950,nilearn,nilearn,salma1601,2016-02-04 16:04:50,address Danilo's comments,ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,nan,address danilo comment,N

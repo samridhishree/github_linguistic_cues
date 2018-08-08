@@ -1,0 +1,4 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,241,idan,oauthlib,ib-lundgren,2014-04-12 10:06:59,"OAuth1 allows custom signature methods and the ability to customize the method was recently added to the client side in #239. It would be neat to enable this customization on the server side as well. However, it should come well documented with advise/warning about the risks of rolling your own crypto.
+",start issue,OAuth1 Server: Enable custom signature methods,oauth1 allow custom signatur method abil custom method recent ad client side 239 It would neat enabl custom server side well howev come well document advisewarn risk roll crypto

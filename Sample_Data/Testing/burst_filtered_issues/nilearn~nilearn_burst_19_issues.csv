@@ -1,0 +1,82 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,100,nilearn,nilearn,pgervais,2013-08-29 11:59:45,"This is an implementation of the algorithm described in 
+
+_Jean Honorio and Dimitris Samaras ""Simultaneous and Group-Sparse Multi-Task Learning of Gaussian Graphical Models"", arXiv:1207.4255 (17 July 2012), http://arxiv.org/abs/1207.4255._
+
+Given several sets of input signals, it computes several sparse precision matrices at once, using a common sparsity pattern.
+
+The implementation itself is already fairly stable and optimized. It remains mainly some technical issues (like API, argument names, etc.). Namely:
+- [x] Settle on names for functions and classes, the current ones may not be the best (group_sparse_covariance GroupSparseCovariance and GroupSparseCovarianceCV)
+- [x] Clean up handling of stopping criteria (esp. the _group_sparse_covariance_costs function)
+- [x] Separate in GroupSparseCovarianceCV the parameters for selection of alpha and parameters for final fit.
+- [x] Automatically normalize input signals.
+- [x] Clean up user messages, use the logging system of PR #84 (or similar). 
+- [x] Write some documentation on the inner working of the CV version, namely the modified stopping criterion to stop optimization.
+- [x] Rename the internal variable `Winv` into `W_inv`
+- [x] Rename the regularization parameter `rho` to `alpha`, to match scikit-learn's convention. This implies renaming an internal variable already called `alpha`
+- [x] add support for caching in GroupSparseCovariance|CV
+",start issue,"[ENH] Group-sparse precision estimation, by Honorio & Samaras.",thi implement algorithm describ jean honorio dimitri samara simultan groupspars multitask learn gaussian graphic model arxiv12074255 17 juli 2012 given sever set input signal comput sever spars precis matric use common sparsiti pattern the implement alreadi fairli stabl optim It remain mainli technic issu like api argument name etc name x settl name function class current one may best groupsparsecovari groupsparsecovari groupsparsecovariancecv x clean handl stop criteria esp groupsparsecovariancecost function x separ groupsparsecovariancecv paramet select alpha paramet final fit x automat normal input signal x clean user messag use log system PR 84 similar x write document inner work CV version name modifi stop criterion stop optim x renam intern variabl x renam regular paramet match scikitlearn convent thi impli renam intern variabl alreadi call x add support cach groupsparsecovariancecv,N,2013-09-18 16:24:24
+3,pull_request_title,100,nilearn,nilearn,pgervais,2013-08-29 11:59:45,"This is an implementation of the algorithm described in 
+
+_Jean Honorio and Dimitris Samaras ""Simultaneous and Group-Sparse Multi-Task Learning of Gaussian Graphical Models"", arXiv:1207.4255 (17 July 2012), http://arxiv.org/abs/1207.4255._
+
+Given several sets of input signals, it computes several sparse precision matrices at once, using a common sparsity pattern.
+
+The implementation itself is already fairly stable and optimized. It remains mainly some technical issues (like API, argument names, etc.). Namely:
+- [x] Settle on names for functions and classes, the current ones may not be the best (group_sparse_covariance GroupSparseCovariance and GroupSparseCovarianceCV)
+- [x] Clean up handling of stopping criteria (esp. the _group_sparse_covariance_costs function)
+- [x] Separate in GroupSparseCovarianceCV the parameters for selection of alpha and parameters for final fit.
+- [x] Automatically normalize input signals.
+- [x] Clean up user messages, use the logging system of PR #84 (or similar). 
+- [x] Write some documentation on the inner working of the CV version, namely the modified stopping criterion to stop optimization.
+- [x] Rename the internal variable `Winv` into `W_inv`
+- [x] Rename the regularization parameter `rho` to `alpha`, to match scikit-learn's convention. This implies renaming an internal variable already called `alpha`
+- [x] add support for caching in GroupSparseCovariance|CV
+",a895fded9e5cc73dd3ce7f03c1896e1fbf7d83ce,"[ENH] Group-sparse precision estimation, by Honorio & Samaras.",thi implement algorithm describ jean honorio dimitri samara simultan groupspars multitask learn gaussian graphic model arxiv12074255 17 juli 2012 given sever set input signal comput sever spars precis matric use common sparsiti pattern the implement alreadi fairli stabl optim It remain mainli technic issu like api argument name etc name x settl name function class current one may best groupsparsecovari groupsparsecovari groupsparsecovariancecv x clean handl stop criteria esp groupsparsecovariancecost function x separ groupsparsecovariancecv paramet select alpha paramet final fit x automat normal input signal x clean user messag use log system PR 84 similar x write document inner work CV version name modifi stop criterion stop optim x renam intern variabl x renam regular paramet match scikitlearn convent thi impli renam intern variabl alreadi call x add support cach groupsparsecovariancecv,N,2013-09-18 16:24:24
+13,issue_comment,100,nilearn,nilearn,pgervais,2013-09-05 15:47:46,"Wait. I already have the answer: compare the two algorithms. 
+",,,wait I alreadi answer compar two algorithm,N,2013-09-11 13:12:54
+14,issue_comment,100,nilearn,nilearn,pgervais,2013-09-11 13:12:54,"In the last commits, I added two pages of documentation. One is about functional connectivity analysis with nilearn (in user's guide, under ""unsupervised learning""), the other is a technical description of the implementation of the group-sparse covariance algorithm. The latter is accessible via a link at the very bottom of the former. This link is rather hard to find, it has been done on purpose: the technical page is for developers or machine-learning guys.
+",,,In last commit I ad two page document one function connect analysi nilearn user guid unsupervis learn technic descript implement groupspars covari algorithm the latter access via link bottom former thi link rather hard find done purpos technic page develop machinelearn guy,N,2013-09-11 21:31:55
+81,pull_request_commit_comment,100,nilearn,nilearn,bthirion,2013-09-05 16:46:01,"Could the title be improved to be more explicit (\alpha=...)? 
+
+Otherwise, the example runs well on my box
+",a895fded9e5cc73dd3ce7f03c1896e1fbf7d83ce,"(None, '', u'plot_adhd_covariance2.py')",could titl improv explicit alpha otherwis exampl run well box,N,2013-09-11 21:19:22
+82,pull_request_commit_comment,100,nilearn,nilearn,bthirion,2013-09-11 21:19:22,"convergence
+",a895fded9e5cc73dd3ce7f03c1896e1fbf7d83ce,"(None, '', u'doc/developers/group_sparse_covariance.rst')",converg,N,2013-09-11 21:22:01
+153,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-09 08:28:57,"Separated convergence parameters in CV
+
+In GroupSparseCovarianceCV, tolerance and maximum iteration number can
+have different values for the alpha selection phase, and the final
+optimization. Two keywords have been added: tol_cv and max_iter_cv.",5ee35b3def2d7b1e15b65b626d406b8da1e5682f,,separ converg paramet CV In groupsparsecovariancecv toler maximum iter number differ valu alpha select phase final optim two keyword ad tolcv maxitercv,N,2013-09-10 12:50:51
+154,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-10 12:50:51,Example comparing sparse precision estimation,35c8a5d57ac877e47041d9e2e64c779bfae0de11,,exampl compar spars precis estim,N,2013-09-10 12:59:17
+155,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-10 12:59:17,"Removed ""assume_centered"" keyword in g.s.c.
+
+The ""assume_centered"" keyword has been removed from every function
+related to group-sparse covariance (useless).",63375299bad2c7374d372d1ce17228354f187a71,,remov assumecent keyword gsc the assumecent keyword remov everi function relat groupspars covari useless,N,2013-09-11 08:32:37
+156,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-11 08:32:37,"[DOC] fixed paragraph on data extraction
+
+plot_adhd_covariance.py example had changed a lot, the rst file was
+referencing lines that didn't exist anymore.",2b2a15c8e2b156b35fa66130876a5a77e87d4489,,doc fix paragraph data extract plotadhdcovariancepi exampl chang lot rst file referenc line didnt exist anymor,N,2013-09-11 12:01:39
+157,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-11 12:01:39,[BUG] compatibility with sklearn 0.10-0.14,8acb04971d8f06887521fbdc6a17589390003c79,,bug compat sklearn 010014,N,2013-09-11 12:38:11
+158,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-11 12:38:11,"[DOC] functional connectivity page
+
+And a page on the technical aspects of the group-sparse covariance
+implementation.
+
+Also fixed some bugs.",47bddb156c7406532560b7c679e430606a162de0,,doc function connect page and page technic aspect groupspars covari implement also fix bug,N,2013-09-11 13:06:11
+159,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-11 13:06:11,"Merge branch 'master' into honorio_samaras
+
+Conflicts:
+	doc/index.rst",33f19ea7355c58237cd07fa2ef4b48d09bca4850,,merg branch master honoriosamara conflict docindexrst,N,2013-09-11 13:34:35
+160,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-11 13:34:35,"[TST] Fix failing test
+
+A test is failing on Travis (np.diff(objective) <= 0 in
+test_group_sparse_covariance.py:51), that does not occur of the
+developer's machine. np.diff(objective) may be hitting the numerical
+noise floor (1e-14 or so). Some values may then be slightly positive.
+This is most probably due to a different numerical library which leads to
+a slightly different result.
+
+The fix consists in decreasing the number of iterations so that optimization
+stops before hitting the noise floor.",8647d78eff16492804d460e5666e91c9a8fb9ea5,,tst fix fail test A test fail travi npdiffobject 0 testgroupsparsecovariancepy51 occur develop machin npdiffobject may hit numer nois floor 1e14 some valu may slightli posit thi probabl due differ numer librari lead slightli differ result the fix consist decreas number iter optim stop hit nois floor,N,2013-09-13 07:39:01
+161,pull_request_commit,100,nilearn,nilearn,pgervais,2013-09-13 07:39:01,[DOC] fixed some typos,a895fded9e5cc73dd3ce7f03c1896e1fbf7d83ce,,doc fix typo,N,2013-09-11 21:08:06

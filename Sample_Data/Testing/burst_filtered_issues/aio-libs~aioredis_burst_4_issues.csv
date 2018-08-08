@@ -1,0 +1,27 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+5,issue_comment,28,aio-libs,aioredis,popravich,2014-07-14 07:15:25,"Thanks, I will look through
+",,,thank I look,N,2014-07-16 19:31:05
+6,issue_comment,28,aio-libs,aioredis,jettify,2014-07-16 19:31:05,"done, but one test failed for  for _python 3.4_:
+
+```
+======================================================================
+FAIL: test_pexpireat (tests.generic_commands_test.GenericCommandsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+File ""tests/_testutil.py"", line 18, in wrapper
+ret = loop.run_until_complete(fun(test, *args, **kw))
+File ""/opt/python/3.4.0/lib/python3.4/asyncio/base_events.py"", line 208, in run_until_complete
+return future.result()
+File ""/opt/python/3.4.0/lib/python3.4/asyncio/futures.py"", line 243, in result
+raise self._exception
+File ""/opt/python/3.4.0/lib/python3.4/asyncio/tasks.py"", line 281, in _step
+result = coro.send(value)
+File ""tests/generic_commands_test.py"", line 314, in test_pexpireat
+self.assertAlmostEqual(res, 1)
+AssertionError: 0 != 1 within 7 places
+```
+
+unfortunately I can not reproduce on my localhost...
+",,,done one test fail python 34 unfortun I reproduc localhost,Y,2014-07-16 11:56:30
+10,pull_request_commit,28,aio-libs,aioredis,jettify,2014-07-13 18:47:01,"zrangebylex, zrange, zlexcount commands",5a46a4f47bf52902d9c984c32216a64688ca52e1,,zrangebylex zrang zlexcount command,N,2014-07-16 17:27:53
+11,pull_request_commit,28,aio-libs,aioredis,jettify,2014-07-16 17:27:53,move convert_to_int_or_float to SortedSetCommandsMixin,786d83766383a0b73e272a2d4c38f44be7d3f61d,,move converttointorfloat sortedsetcommandsmixin,N,2014-07-16 17:44:26

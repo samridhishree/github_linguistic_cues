@@ -1,0 +1,37 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1,idan,oauthlib,ib-lundgren,2012-01-16 22:34:35,"Fixed domain to lower case as per 3.4.1.2.
+Added support for extracting query parameters as per 3.4.1.3.1.
+The parameters does not have to be unique, thus I have modified for use of a list of tuples instead of a dictionary
+The parameters were escaped one time to much, removed.
+Both client and access secret can be empty, not only access. Per 3.4.2.
+Added a few tests based on the RFC and http://hueniverse.com/oauth/guide/authentication/
+
+Please comment if there is anything that is wrong or you don't like about the code.
+",start issue,Created a few tests and modified oauth.py a bit,fix domain lower case per 3412 ad support extract queri paramet per 34131 the paramet uniqu thu I modifi use list tupl instead dictionari the paramet escap one time much remov both client access secret empti access per 342 ad test base rfc pleas comment anyth wrong dont like code
+issue_closed,1,idan,oauthlib,ib-lundgren,2012-01-17 21:38:29,,closed issue,Created a few tests and modified oauth.py a bit,
+pull_request_title,1,idan,oauthlib,ib-lundgren,2012-01-16 22:34:35,"Fixed domain to lower case as per 3.4.1.2.
+Added support for extracting query parameters as per 3.4.1.3.1.
+The parameters does not have to be unique, thus I have modified for use of a list of tuples instead of a dictionary
+The parameters were escaped one time to much, removed.
+Both client and access secret can be empty, not only access. Per 3.4.2.
+Added a few tests based on the RFC and http://hueniverse.com/oauth/guide/authentication/
+
+Please comment if there is anything that is wrong or you don't like about the code.
+",fcd0d5af0334b6d8409a3129fce78c7dc297b383,Created a few tests and modified oauth.py a bit,fix domain lower case per 3412 ad support extract queri paramet per 34131 the paramet uniqu thu I modifi use list tupl instead dictionari the paramet escap one time much remov both client access secret empti access per 342 ad test base rfc pleas comment anyth wrong dont like code
+issue_comment,1,idan,oauthlib,kennethreitz,2012-01-16 22:59:17,"This is awesome.
+",,,thi awesom
+issue_comment,1,idan,oauthlib,ib-lundgren,2012-01-17 21:38:29,"Created a new pull requests since I cant figure out how to update this one. Closing.
+",,,creat new pull request sinc I cant figur updat one close
+issue_comment,1,idan,oauthlib,kennethreitz,2012-01-17 21:39:39,"ib, to update this one, just push more commits to the same branch this one was based on (`fcd0d5a`). Looks like you're using a git ref instead of a real branch though, so I can understand the confusion ;)
+",,,ib updat one push commit branch one base look like your use git ref instead real branch though I understand confus
+issue_comment,1,idan,oauthlib,ib-lundgren,2012-01-17 21:41:04,"Ah okay, ill look into that and update my other pull request when the time comes =)
+",,,Ah okay ill look updat pull request time come
+pull_request_commit,1,idan,oauthlib,ib@ib-laptop.bredband2.se,2012-01-16 22:18:44,"Fixed a few bugs in oauth.py, added 100% test coverage",fcd0d5af0334b6d8409a3129fce78c7dc297b383,,fix bug oauthpi ad 100 test coverag
+pull_request_commit_comment,1,idan,oauthlib,ib-lundgren,2012-01-16 22:24:28,"Fixed domain to lower case as per 3.4.1.2.
+Added support for extracting query parameters as per 3.4.1.3.1.
+The parameters does not have to be unique, thus I have modified for use of a list of tuples instead of a dictionary
+The parameters were escaped one time to much, removed.
+Both client and access secret can be empty, not only access. Per 3.4.2.
+Added a few tests based on the RFC and http://hueniverse.com/oauth/guide/authentication/
+",fcd0d5af0334b6d8409a3129fce78c7dc297b383,"(None, None, None)",fix domain lower case per 3412 ad support extract queri paramet per 34131 the paramet uniqu thu I modifi use list tupl instead dictionari the paramet escap one time much remov both client access secret empti access per 342 ad test base rfc

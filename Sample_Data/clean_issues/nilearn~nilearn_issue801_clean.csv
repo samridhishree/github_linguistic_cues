@@ -1,0 +1,13 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,801,nilearn,nilearn,AlexandreAbraham,2015-10-21 12:56:47,"Some neuropeople asked me why we were only plotting the right hemisphere in nilearn. In fact, in our plotting functions, in the sagittal view, the brain is ""looking to"" the right, which means that this is a right hemisphere to neuropeople. We probably want to flip it when the slice is in the left part of the brain in plotting and make two sagittal plots (one left hemisphere and one right hemisphere) in the glass brain.
+",start issue,Hemisphere plotting,some neuropeopl ask plot right hemispher nilearn In fact plot function sagitt view brain look right mean right hemispher neuropeopl We probabl want flip slice left part brain plot make two sagitt plot one left hemispher one right hemispher glass brain
+issue_closed,801,nilearn,nilearn,GaelVaroquaux,2016-02-08 22:54:55,,closed issue,Hemisphere plotting,
+issue_comment,801,nilearn,nilearn,rschmaelzle,2016-02-08 16:45:59,"Hi, that is indeed something I would find handy. Is there perhaps an interim solution? I tried playing with gca.invert_xaxis() but did not succeed. Best, Ralf.
+",,,Hi inde someth I would find handi Is perhap interim solut I tri play gcainvertxaxi succeed best ralf
+issue_comment,801,nilearn,nilearn,lesteve,2016-02-08 22:50:37,"This is a duplicate of #942, right ?
+",,,thi duplic 942 right
+issue_comment,801,nilearn,nilearn,GaelVaroquaux,2016-02-08 22:54:53,"Indeed, it's a duplicate.
+
+Also,  @rschmaelzle : there is no quick workaround
+",,,inde duplic also rschmaelzl quick workaround

@@ -1,0 +1,68 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,307,pycqa,astroid,dbaum,2016-01-15 17:44:46,"This particular test sometimes fails, although I have not figured out a way to make it fail reliably.  Here is the error message:
+## FAIL: test_builtin_fromlineno_missing (unittest_nodes.ArgumentsNodeTC)
+
+Traceback (most recent call last):
+  File ""/Users/dbaum/Desktop/pylint/astroid/astroid/tests/unittest_nodes.py"", line 507, in test_builtin_fromlineno_missing
+    self.assertEqual(new.args.fromlineno, 0)
+AssertionError: 1 != 0
+
+Unfortunately, altering the test code often causes the flakiness to go away which is making it hard to instrument.  I was able to get it to fail occasionally with the following instrumentation:
+
+```
+    new_list = cls.getattr('__new__')
+    for x in new_list:
+      try:
+        print x.name, x.args.fromlineno
+      except Exception:
+        print x
+    new = new_list[-1]
+    self.assertEqual(new.args.fromlineno, 0)
+```
+
+On I failure I see:
+
+**new** ImportFrom.**new**(modname='**builtin**',
+                   names=[('**new**', None)],
+                   level=0)
+**new** ImportFrom.**new**(modname='**builtin**',
+                   names=[('**new**', None)],
+                   level=0)
+**new** 0
+**new** 0
+**new** 1
+
+On success I see:
+
+**new** ImportFrom.**new**(modname='**builtin**',
+                   names=[('**new**', None)],
+                   level=0)
+**new** ImportFrom.**new**(modname='**builtin**',
+                   names=[('**new**', None)],
+                   level=0)
+**new** 0
+**new** 1
+**new** 0
+
+This leads me to believe that the order of getattr() results is non-deterministic.
+",start issue,unittest_nodes.ArgumentsNodeTC.test_builtin_fromlineno_missing is flaky,thi particular test sometim fail although I figur way make fail reliabl here error messag fail testbuiltinfromlinenomiss unittestnodesargumentsnodetc traceback recent call last file usersdbaumdesktoppylintastroidastroidtestsunittestnodespi line 507 testbuiltinfromlinenomiss selfassertequalnewargsfromlineno 0 assertionerror 1 0 unfortun alter test code often caus flaki go away make hard instrument I abl get fail occasion follow instrument On I failur I see new importfromnewmodnamebuiltin namesnew none level0 new importfromnewmodnamebuiltin namesnew none level0 new 0 new 0 new 1 On success I see new importfromnewmodnamebuiltin namesnew none level0 new importfromnewmodnamebuiltin namesnew none level0 new 0 new 1 new 0 thi lead believ order getattr result nondeterminist
+issue_closed,307,pycqa,astroid,dbaum,2016-01-15 20:08:02,,closed issue,unittest_nodes.ArgumentsNodeTC.test_builtin_fromlineno_missing is flaky,
+issue_comment,307,pycqa,astroid,dbaum,2016-01-15 17:52:39,"More info: upon success the last two values from getattr() are 
+
+<BoundMethod **new** of **builtin**.type at 0x4597724240
+<BoundMethod **new** of **builtin**.object at 0x4597883472
+
+on failure they are:
+
+<BoundMethod **new** of **builtin**.object at 0x4529744784
+<BoundMethod **new** of **builtin**.type at 0x4529787216
+
+So it comes down to the ordering of object and type and one has an args with fromlineno=0 and the other has fromlineno=1.
+",,,more info upon success last two valu getattr boundmethod new builtintyp 0x4597724240 boundmethod new builtinobject 0x4597883472 failur boundmethod new builtinobject 0x4529744784 boundmethod new builtintyp 0x4529787216 So come order object type one arg fromlineno0 fromlineno1
+issue_comment,307,pycqa,astroid,dbaum,2016-01-15 17:59:45,"Now I'm very confused.  When running just the one test file it looks like the fromlineno on both type and object are 0.  When running all tests via test discovery then the args for type seem to have fromlineno=1.  But I'm not even sure this is 100% true.  I'm out of my depth here.
+",,,now Im confus when run one test file look like fromlineno type object 0 when run test via test discoveri arg type seem fromlineno1 but Im even sure 100 true Im depth
+issue_comment,307,pycqa,astroid,PCManticore,2016-01-15 19:53:49,"There's also https://github.com/PyCQA/astroid/issues/195 for tracking this issue, which has nothing to do with the order of the results of getattr. The problem is caused by https://github.com/PyCQA/astroid/blob/master/astroid/node_classes.py#L387, which uses as a line number, in case one is not defined for a node, the first one of the children or the parents of the node. This happens usually with builtin modules, since there is no way to find out on which lines they actually are. The approach is definitely not a good idea and the fix would be to remove fixed_source_line altogether and leave such nodes with a line number not set. While this is rather easy, the hard thing is going through pylint and see where this might trip an exception or something undefined. Unfortunately I didn't have time to look over pylint for this issue. 
+",,,there also track issu noth order result getattr the problem caus use line number case one defin node first one children parent node thi happen usual builtin modul sinc way find line actual the approach definit good idea fix would remov fixedsourcelin altogeth leav node line number set while rather easi hard thing go pylint see might trip except someth undefin unfortun I didnt time look pylint issu
+issue_comment,307,pycqa,astroid,dbaum,2016-01-15 20:08:02,"I'm fine with closing this issue since #195 is tracking it (or perhaps there's a way to merge this into #195 as a duplicate).
+",,,Im fine close issu sinc 195 track perhap there way merg 195 duplic

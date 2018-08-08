@@ -1,0 +1,84 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,1141,nilearn,nilearn,GaelVaroquaux,2016-07-03 10:54:09,,closed issue,Fixes #1127. Removed haxby_simple,,N,2016-06-20 20:43:42
+3,pull_request_title,1141,nilearn,nilearn,sahmed95,2016-06-20 20:43:42,"Removed redundant fetcher.
+",02b8422865a7d14b11001c1b595a06f84e6badf2,Fixes #1127. Removed haxby_simple,remov redund fetcher,N,2016-06-20 20:58:50
+5,issue_comment,1141,nilearn,nilearn,Joaoloula,2016-07-02 10:36:22,"Actually, just substituting the function breaks most examples, seeing as the simple fetcher can be loaded with `np.loadtxt` and returns an int-coded target, which `fetch_haxby` does not. I was actually working on this as well and made another PR fixing the examples, deprecating the function and adding a new test for the dummy file: hope that's alright!
+",,,actual substitut function break exampl see simpl fetcher load return intcod target I actual work well made anoth PR fix exampl deprec function ad new test dummi file hope that alright,Y,2016-06-20 20:40:04
+6,pull_request_commit,1141,nilearn,nilearn,shd339@gmail.com,2016-06-20 20:40:04,Fixes #1127. Removed haxby_simple,70ac8b4fb40f24c98bcb3f29106bba66ed29cf10,,fix 1127 remov haxbysimpl,N,2016-06-20 21:05:16
+1,issue_title,1144,nilearn,nilearn,alexsavio,2016-06-22 10:07:50,"Hi,
+
+This fix I think it makes sense since BaseSlices._map_show can actually return an empty list.
+",start issue,displays.add_overlay: Add check if ims is empty,Hi thi fix I think make sens sinc baseslicesmapshow actual return empti list,N,2016-06-23 12:56:04
+2,issue_closed,1144,nilearn,nilearn,GaelVaroquaux,2016-06-23 12:56:04,,closed issue,displays.add_overlay: Add check if ims is empty,,N,2016-06-22 10:07:50
+3,pull_request_title,1144,nilearn,nilearn,alexsavio,2016-06-22 10:07:50,"Hi,
+
+This fix I think it makes sense since BaseSlices._map_show can actually return an empty list.
+",5d52bd4f11d54d9711caa8a1d6b768c8e3c6145a,displays.add_overlay: Add check if ims is empty,Hi thi fix I think make sens sinc baseslicesmapshow actual return empti list,N,2016-06-23 12:56:04
+4,pull_request_merged,1144,nilearn,nilearn,GaelVaroquaux,2016-06-23 12:56:04,displays.add_overlay: Add check if ims is empty,40069cb14b43333a73137797eac895cfb054db29,Pull request merge from Neurita/nilearn:fixcutplot to nilearn/nilearn:master,displaysaddoverlay add check im empti,N,2016-06-22 13:34:15
+5,issue_comment,1144,nilearn,nilearn,alexsavio,2016-06-22 13:34:15,"In the issue #1135 I linked a small example where this happens.
+In this example the files don't have exactly the same matrix shape, I was expecting a 'shape mismatch' error, but I guess you already added the resampling for plotting.
+
+In my use case I want to plot a subset of the cuts that I get with find_cut_slices.
+The thing is that I have it solved already with this PR.
+
+Here goes the test:
+
+``` python
+import nilearn.plotting as niplot
+import nilearn.image as niimg
+
+img    = niimg.load_img('test.nii.gz')  # shape is (79,  95, 79)
+bg_img = 'single_subj_T1_brain.nii.gz'  # shape is (91, 109, 91)
+
+cuts = niplot.find_cut_slices(img, 
+                              n_cuts=20,
+                              direction='z')
+
+p = niplot.plot_stat_map(img, 
+                         display_mode='z', 
+                         cut_coords=cuts[-8:],)
+                         bg_img=bg_img)
+
+niplot.show()
+
+p.close()
+```
+",,,In issu 1135 I link small exampl happen In exampl file dont exactli matrix shape I expect shape mismatch error I guess alreadi ad resampl plot In use case I want plot subset cut I get findcutslic the thing I solv alreadi PR here goe test,Y,2016-06-22 15:51:02
+6,issue_comment,1144,nilearn,nilearn,alexsavio,2016-06-22 15:51:02,"I didn't know exactly what to put there, since I still haven't gone through `_map_show`.
+",,,I didnt know exactli put sinc I still havent gone,N,2016-06-22 15:58:29
+7,issue_comment,1144,nilearn,nilearn,alexsavio,2016-06-22 15:58:29,"Not sure if this is enough. If you have patience, a few days, I can decipher _map_show and add comments and docstrings to it.
+",,,not sure enough If patienc day I deciph mapshow add comment docstr,N,2016-06-22 13:06:23
+8,pull_request_commit_comment,1144,nilearn,nilearn,GaelVaroquaux,2016-06-22 13:06:23,"That is actually a surprising line for me. Could you add a comment explaining when ims doesn't evaluate to true (ie it's an empty list?)
+",5d52bd4f11d54d9711caa8a1d6b768c8e3c6145a,"(None, '', u'nilearn/plotting/displays.py')",that actual surpris line could add comment explain im doesnt evalu true ie empti list,N,2016-06-22 15:42:32
+9,pull_request_commit_comment,1144,nilearn,nilearn,GaelVaroquaux,2016-06-22 15:42:32,"Looks like you forgot to end the sentence.
+",5d52bd4f11d54d9711caa8a1d6b768c8e3c6145a,"(None, '', u'nilearn/plotting/tests/test_img_plotting.py')",look like forgot end sentenc,N,2016-06-22 15:50:26
+10,pull_request_commit_comment,1144,nilearn,nilearn,GaelVaroquaux,2016-06-22 15:50:26,"Can you also address this comment please :)
+
+I am thinking about people looking at the code in the future.
+",5d52bd4f11d54d9711caa8a1d6b768c8e3c6145a,"(None, '', u'nilearn/plotting/displays.py')",can also address comment pleas I think peopl look code futur,N,2016-06-22 10:03:38
+11,pull_request_commit,1144,nilearn,nilearn,alexsavio,2016-06-22 10:03:38,displays.add_overlay:add check if ims is empty,080915a327bfd46f90cacde7ef3df3d219be696d,,displaysaddoverlayadd check im empti,N,2016-06-22 15:26:24
+12,pull_request_commit,1144,nilearn,nilearn,alexsavio,2016-06-22 15:26:24,add test for corner cut subset,29e12d5218ddf9c8dbd1050777db8325748e50eb,,add test corner cut subset,N,2016-06-22 15:49:30
+13,pull_request_commit,1144,nilearn,nilearn,alexsavio,2016-06-22 15:49:30,fix docstring in test_outlier_cut_coords.,86c8f3edf5de407e9791ba764ebd330fed00303a,,fix docstr testoutliercutcoord,N,2016-06-22 15:57:00
+2,issue_closed,1143,nilearn,nilearn,GaelVaroquaux,2016-07-05 08:22:35,,closed issue,"fixed doc in all maskers, changed False possibility for None. Moreove…",,N,2016-06-21 16:57:22
+4,pull_request_merged,1143,nilearn,nilearn,GaelVaroquaux,2016-07-05 08:22:35,"fixed doc in all maskers, changed False possibility for None. Moreove…",d9ee0e84d74f372850fe7889c67826e2d97436e8,Pull request merge from MartinPerez/nilearn:doc_fix to nilearn/nilearn:master,fix doc masker chang fals possibl none moreove…,N,2016-06-23 06:00:16
+5,issue_comment,1143,nilearn,nilearn,lesteve,2016-06-23 06:00:16,"> memory failure in one build?
+
+Ignore this one, it is failing intermittently and unfortunately @aabadie did not find a way to make it more reliable.
+",,,ignor one fail intermitt unfortun aabadi find way make reliabl,N,2016-06-21 19:20:29
+6,issue_comment,1143,nilearn,nilearn,MartinPerez,2016-06-21 19:20:29,"@AlexandreAbraham this is what I told you about, sorry I took some time to make the PR.
+",,,alexandreabraham I told sorri I took time make PR,N,2016-06-22 19:33:00
+10,issue_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-01 19:55:27,"Can you also have a look at `nilearn/decoding/space_net.py` ?
+",,,can also look,N,2016-06-21 20:46:23
+11,pull_request_commit_comment,1143,nilearn,nilearn,bthirion,2016-06-21 20:46:23,"Could you add a test for that ?
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(None, '', u'nilearn/signal.py')",could add test,Y,2016-06-22 08:27:34
+15,pull_request_commit_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-02 09:46:01,"string is expressed in quotes actually.
+
+We will wait for final reviews from @lesteve @AlexandreAbraham 
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(6, '', u'nilearn/signal.py')",string express quot actual We wait final review lestev alexandreabraham,N,2016-06-21 16:53:35
+16,pull_request_commit,1143,nilearn,nilearn,MartinPerez,2016-06-21 16:53:35,"fixed doc in all maskers, changed False possibility for None. Moreover raise an error in signal.py to make it clear that False is not an acceptable value",8e6427004c93b739e5ff38d95f5fcdb0628aa9f3,,fix doc masker chang fals possibl none moreov rais error signalpi make clear fals accept valu,N,2016-06-22 18:58:52
+17,pull_request_commit,1143,nilearn,nilearn,MartinPerez,2016-06-22 18:58:52,added test and corrected exception message,fdb0d4de83ff72b98493a8cef25352ec8872ec57,,ad test correct except messag,N,2016-06-22 19:16:12
+2,issue_closed,1148,nilearn,nilearn,AlexandreAbraham,2016-07-21 10:49:46,,closed issue,[MRG] Scikit-learn backports: Checking length of inputs,,N,2016-06-23 13:04:06
+29,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 09:19:00,"Ok.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(16, '', u'nilearn/_utils/fixes/sklearn_validation.py')",Ok,N,2016-06-23 10:15:04
+30,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-06-23 10:15:04,adding sklearn backport,c18682733af8d9a0e266d7e11d08b61649c9b0c6,,ad sklearn backport,N,2016-06-23 10:17:50
+31,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-06-23 10:17:50,adding backports to __init__,5e4afbd3de98c26c48719f41e62d3d49ba933268,,ad backport init,N,2016-06-23 12:53:39

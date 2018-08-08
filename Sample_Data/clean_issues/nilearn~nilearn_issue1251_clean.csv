@@ -1,0 +1,21 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1251,nilearn,nilearn,GaelVaroquaux,2016-08-19 16:43:16,"Code to reproduce
+
+<pre>
+from nilearn import datasets
+
+localizer_dataset = datasets.fetch_localizer_button_task()
+localizer_tmap_filename = localizer_dataset.tmaps[0]
+
+from nilearn import plotting
+glass_brain = plotting.plot_glass_brain(None)
+
+glass_brain.add_contours(localizer_tmap_filename, filled=True,
+                         levels=[3, ], colors=['g', ], alpha=1)
+</pre>
+
+
+This doesn't run if I don't specify colors and alpha. It does if I don't use filled=True. I really should have to worry about colors, and alpha: it should work the same way in both cases.
+",start issue,add_contours(filled=True) requires to specify color and alpha,code reproduc prefrom nilearn import dataset localizerdataset datasetsfetchlocalizerbuttontask localizertmapfilenam localizerdatasettmaps0 nilearn import plot glassbrain plottingplotglassbrainnon glassbrainaddcontourslocalizertmapfilenam filledtru levels3 colorsg alpha1 pre thi doesnt run I dont specifi color alpha It I dont use filledtru I realli worri color alpha work way case
+issue_closed,1251,nilearn,nilearn,GaelVaroquaux,2016-11-03 13:25:37,,closed issue,add_contours(filled=True) requires to specify color and alpha,

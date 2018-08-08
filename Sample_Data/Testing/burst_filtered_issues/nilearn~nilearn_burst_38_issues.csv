@@ -1,0 +1,34 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,192,nilearn,nilearn,VirgileFritsch,2014-04-29 09:32:50,"This PR introduces covariates fetching for the Localizer dataset.
+
+Miscellaneous subject characteristics are available in two separate CSV files that can be downloaded on brainomics website (http://http://brainomics.cea.fr/localizer). They are now fetched together with images and put in the Bunch object that comes out of the downloader.
+
+The covariates are not used yet in the examples, so there is no publicly-available use-case for it.
+
+One caveat is that we need to ship the CSV files into the nilearn/tests/data directory in order to have the tests pass. Once again, this is a Nilearn issue that will be solved independently of this PR.
+",start issue,[ENH] Localizer and covariates,thi PR introduc covari fetch local dataset miscellan subject characterist avail two separ csv file download brainom websit they fetch togeth imag put bunch object come download the covari use yet exampl publiclyavail usecas one caveat need ship csv file nilearntestsdata directori order test pass onc nilearn issu solv independ PR,N,2014-06-17 15:23:10
+3,pull_request_title,192,nilearn,nilearn,VirgileFritsch,2014-04-29 09:32:50,"This PR introduces covariates fetching for the Localizer dataset.
+
+Miscellaneous subject characteristics are available in two separate CSV files that can be downloaded on brainomics website (http://http://brainomics.cea.fr/localizer). They are now fetched together with images and put in the Bunch object that comes out of the downloader.
+
+The covariates are not used yet in the examples, so there is no publicly-available use-case for it.
+
+One caveat is that we need to ship the CSV files into the nilearn/tests/data directory in order to have the tests pass. Once again, this is a Nilearn issue that will be solved independently of this PR.
+",7429cc8986a88eb63c4a1b37ec2c09a2b424a4c8,[ENH] Localizer and covariates,thi PR introduc covari fetch local dataset miscellan subject characterist avail two separ csv file download brainom websit they fetch togeth imag put bunch object come download the covari use yet exampl publiclyavail usecas one caveat need ship csv file nilearntestsdata directori order test pass onc nilearn issu solv independ PR,N,2014-06-17 15:23:10
+7,issue_comment,192,nilearn,nilearn,GaelVaroquaux,2014-05-21 09:27:24,"> I can write/modify an example if you think it is better.
+
+Ideally yes, and ideally in a way that's meaningful to an end user (at
+least as much as possible).
+",,,ideal ye ideal way that meaning end user least much possibl,N,2014-06-17 09:20:54
+8,issue_comment,192,nilearn,nilearn,GaelVaroquaux,2014-06-17 09:20:54,"One remark on the docstring of the example, and one on style in datasets.py (usage of the '+' operator on strings and lists. But aside these 2 remarks, this PR can be merged. Congratulations and thank you!
+",,,one remark docstr exampl one style datasetspi usag oper string list but asid 2 remark PR merg congratul thank,N,2014-06-17 15:23:17
+24,pull_request_commit_comment,192,nilearn,nilearn,bthirion,2014-05-30 21:37:21,"Sorry, but I don't see the meaning of this example: adding a covariate drastically reduces the sensitivity of the test ? Actually, it does so for a bad reason: it has not been centered, hence it competes with the intercept to fit the mean signal in the data...
+If  you want to make this example meaningful, center the covariate and test it instead of testing the intercept.
+
+Moreover, I think that there should be 2 examples instead of that one:
+- one ""data example"", that shows how to use the localizer dataset, with simple methodology (classical t-test, no permutations)
+- one ""methods example"", that compares permuted OLS with standard OLS. (and then other examples for RPBI, robust regression etc.)
+",7429cc8986a88eb63c4a1b37ec2c09a2b424a4c8,"(None, '', u'plot_localizer_mass_univariate.py')",sorri I dont see mean exampl ad covari drastic reduc sensit test actual bad reason center henc compet intercept fit mean signal data If want make exampl meaning center covari test instead test intercept moreov I think 2 exampl instead one one data exampl show use local dataset simpl methodolog classic ttest permut one method exampl compar permut ol standard ol exampl rpbi robust regress etc,Y,2014-06-17 09:18:34
+38,pull_request_commit,192,nilearn,nilearn,VirgileFritsch,2014-06-06 22:42:58,Localizer: Example + bugs fix.,25592e493bd89fed5bf1f7d436f7b02786fe376f,,local exampl bug fix,N,2014-06-16 10:00:35
+39,pull_request_commit,192,nilearn,nilearn,VirgileFritsch,2014-06-16 10:00:35,Localizer: Split the example into two + correct some contrast names.,da6ead1d0184d3e903329a30ee1fc824df6b7cd0,,local split exampl two correct contrast name,N,2014-06-16 15:30:06
+40,pull_request_commit,192,nilearn,nilearn,VirgileFritsch,2014-06-16 15:30:06,Localizer: fix example plots that did not work on some installs.,2c1c531d825812b90197baa15872b8e84ff2643f,,local fix exampl plot work instal,N,2014-06-17 14:49:27

@@ -1,0 +1,17 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1555,nilearn,nilearn,KamalakerDadi,2017-11-16 20:35:22,"Should fix some issues to more get_affine(img) to img.affine
+
+Please reviews ?",start issue,FIX: nibabel bumpup compatible changes,should fix issu getaffineimg imgaffin pleas review
+issue_closed,1555,nilearn,nilearn,GaelVaroquaux,2017-11-16 20:57:16,,closed issue,FIX: nibabel bumpup compatible changes,
+pull_request_title,1555,nilearn,nilearn,KamalakerDadi,2017-11-16 20:35:22,"Should fix some issues to more get_affine(img) to img.affine
+
+Please reviews ?",9a4ee70ceaac81138d5a7614ae07914bb1ba78a2,FIX: nibabel bumpup compatible changes,should fix issu getaffineimg imgaffin pleas review
+pull_request_merged,1555,nilearn,nilearn,GaelVaroquaux,2017-11-16 20:57:16,FIX: nibabel bumpup compatible changes,ca6cf18c007dc96aa9ccc7799162d035bab2fc37,Pull request merge from KamalakerDadi/nilearn:fix_master to nilearn/nilearn:master,fix nibabel bumpup compat chang
+issue_comment,1555,nilearn,nilearn,KamalakerDadi,2017-11-16 20:57:30,">The failure is due to a network glitch
+
+I am trying to get some clue from google",,,I tri get clue googl
+issue_comment,1555,nilearn,nilearn,KamalakerDadi,2017-11-16 21:08:43,">The failure is due to a network glitch
+
+FYI:Network is now up and running.",,,fyinetwork run
+pull_request_commit,1555,nilearn,nilearn,KamalakerDadi,2017-11-16 20:32:28,FIX: nibabel bumpup compatible changes,9a4ee70ceaac81138d5a7614ae07914bb1ba78a2,,fix nibabel bumpup compat chang

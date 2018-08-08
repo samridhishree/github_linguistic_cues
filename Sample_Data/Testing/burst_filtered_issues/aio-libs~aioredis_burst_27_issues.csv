@@ -1,0 +1,52 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,212,aio-libs,aioredis,popravich,2017-04-29 08:02:59,pure-python parser (PyPy3 support as a bonus),start issue,Python parser,purepython parser pypy3 support bonu,N,2017-05-03 14:52:43
+3,pull_request_title,212,aio-libs,aioredis,popravich,2017-04-29 08:02:59,pure-python parser (PyPy3 support as a bonus),7ad965c5e93371b99fe643a1a42f32c4482a82fc,Python parser,purepython parser pypy3 support bonu,N,2017-05-03 14:52:43
+13,pull_request_commit,212,aio-libs,aioredis,popravich,2017-04-25 09:29:00,adopt hiredis.Reader tests,9c2dbacfbf5f622d5025738934bf61e36151c449,,adopt hiredisread test,N,2017-05-03 12:11:57
+14,pull_request_commit,212,aio-libs,aioredis,popravich,2017-05-03 12:11:57,update setup.py,b9d0ba4c604fe56de5ed966d6b657f0cdd45bb4d,,updat setuppi,N,2017-05-03 12:20:17
+15,pull_request_commit,212,aio-libs,aioredis,popravich,2017-05-03 12:20:17,update .travis.yml: switch to trusty,091724fd9b83454e38e195fdf4f0c3eee461bb54,,updat travisyml switch trusti,N,2017-05-03 12:21:12
+16,pull_request_commit,212,aio-libs,aioredis,popravich,2017-05-03 12:21:12,update requirement.txt files,3898340489935021f62548dc1e1085fbc5158581,,updat requirementtxt file,N,2017-05-03 12:23:38
+17,pull_request_commit,212,aio-libs,aioredis,popravich,2017-05-03 12:23:38,update Makefile & add SSL keys to repository,551ba955f9e4463ca35e1552b1acbcddda29b318,,updat makefil add ssl key repositori,N,2017-05-03 12:25:11
+1,issue_title,210,aio-libs,aioredis,hubo1016,2017-04-28 08:38:27,"A redis connection cannot return to a pool if it has pending requests, especially blocking commands like ""BLPOP/BRPOP"". The command may block for an indefinite time, and stops the following commands from executing if the connection is acquired from the pool. Also, because the command is still executing, the BRPOP command may pop an item and drop it which creates bugs which are very hard to debug.",start issue,Do not return a connection with pending requests to the pool,A redi connect cannot return pool pend request especi block command like blpopbrpop the command may block indefinit time stop follow command execut connect acquir pool also command still execut brpop command may pop item drop creat bug hard debug,N,2017-05-03 12:02:53
+3,pull_request_title,210,aio-libs,aioredis,hubo1016,2017-04-28 08:38:27,"A redis connection cannot return to a pool if it has pending requests, especially blocking commands like ""BLPOP/BRPOP"". The command may block for an indefinite time, and stops the following commands from executing if the connection is acquired from the pool. Also, because the command is still executing, the BRPOP command may pop an item and drop it which creates bugs which are very hard to debug.",67a199173c4f432ff2d85f8e66d42dc5e2d108ca,Do not return a connection with pending requests to the pool,A redi connect cannot return pool pend request especi block command like blpopbrpop the command may block indefinit time stop follow command execut connect acquir pool also command still execut brpop command may pop item drop creat bug hard debug,N,2017-05-03 12:02:53
+6,issue_comment,210,aio-libs,aioredis,codecov-io,2017-05-02 08:21:08,"# [Codecov](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=h1) Report
+> Merging [#210](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=desc) into [master](https://codecov.io/gh/aio-libs/aioredis/commit/44964976fabfacb06254bf273873dd4d25cc46ec?src=pr&el=desc) will **decrease** coverage by `0.14%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/aio-libs/aioredis/pull/210/graphs/tree.svg?token=THCDhqngRB&width=650&height=150&src=pr)](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master     #210      +/-   ##
+==========================================
+- Coverage    95.6%   95.45%   -0.15%     
+==========================================
+  Files          56       56              
+  Lines        7273     7306      +33     
+  Branches      595      599       +4     
+==========================================
++ Hits         6953     6974      +21     
+- Misses        231      241      +10     
+- Partials       89       91       +2
+```
+
+
+| [Impacted Files](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [tests/pool\_test.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-dGVzdHMvcG9vbF90ZXN0LnB5) | `98.17% <100%> (+0.07%)` | :arrow_up: |
+| [aioredis/pool.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-YWlvcmVkaXMvcG9vbC5weQ==) | `84.72% <100%> (+0.16%)` | :arrow_up: |
+| [tests/py35\_pubsub\_receiver\_test.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-dGVzdHMvcHkzNV9wdWJzdWJfcmVjZWl2ZXJfdGVzdC5weQ==) | `94.11% <0%> (-5.89%)` | :arrow_down: |
+| [aioredis/sentinel/pool.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-YWlvcmVkaXMvc2VudGluZWwvcG9vbC5weQ==) | `79.37% <0%> (-2.73%)` | :arrow_down: |
+| [tests/sentinel\_failover\_test.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-dGVzdHMvc2VudGluZWxfZmFpbG92ZXJfdGVzdC5weQ==) | `84.21% <0%> (-2.26%)` | :arrow_down: |
+| [tests/pubsub\_receiver\_test.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-dGVzdHMvcHVic3ViX3JlY2VpdmVyX3Rlc3QucHk=) | `100% <0%> (ø)` | :arrow_up: |
+| [aioredis/pubsub.py](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=tree#diff-YWlvcmVkaXMvcHVic3ViLnB5) | `94.47% <0%> (+0.17%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=footer). Last update [4496497...67a1991](https://codecov.io/gh/aio-libs/aioredis/pull/210?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",,,codecov report impact file tree graph impact file coverag Δ testspooltestpi arrowup aioredispoolpi arrowup testspy35pubsubreceivertestpi arrowdown aioredissentinelpoolpi arrowdown testssentinelfailovertestpi arrowdown testspubsubreceivertestpi arrowup aioredispubsubpi arrowup continu review full report codecov,N,2017-05-03 07:33:20
+7,issue_comment,210,aio-libs,aioredis,hubo1016,2017-05-03 07:33:20,"@popravich tests done. Some tests are failing on Travis-CI, but they are not likely related to the changes.",,,popravich test done some test fail travisci like relat chang,Y,2017-05-03 07:34:22
+8,issue_comment,210,aio-libs,aioredis,popravich,2017-05-03 07:34:22,"Ok, thanks, I will check everything",,,Ok thank I check everyth,N,2017-05-03 12:03:00
+15,pull_request_commit,210,aio-libs,aioredis,hubo1016,2017-05-02 08:48:40,bug fix: parameters,5a0faa83c595270106ced2001b90340366d23f9e,,bug fix paramet,N,2017-05-03 07:25:14

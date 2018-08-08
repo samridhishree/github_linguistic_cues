@@ -1,0 +1,37 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,830,nilearn,nilearn,AlexandreAbraham,2015-11-06 12:42:11,"In #826, a user could not download an atlas because of SSL certificate verification error. He was probably behind a reverse proxy.
+
+First, I think that we should favorize HTTP over HTTPS. I will make a PR to remove it where it is not necessary.
+
+Second, it is possible to tell Python to ignore SSL verification. Should we do that? Ping @GaelVaroquaux .
+",start issue,Certificate problem,In 826 user could download atla ssl certif verif error He probabl behind revers proxi first I think favor http http I make PR remov necessari second possibl tell python ignor ssl verif should ping gaelvaroquaux
+issue_closed,830,nilearn,nilearn,AlexandreAbraham,2015-12-02 15:59:00,,closed issue,Certificate problem,
+issue_comment,830,nilearn,nilearn,aabadie,2015-12-02 15:41:12,"+1 for Requests. The API is great.
+",,,1 request the api great
+issue_comment,830,nilearn,nilearn,GaelVaroquaux,2015-11-06 12:44:29,"> First, I think that we should favorize HTTP over HTTPS. I will make a PR to
+> remove it where it is not necessary.
+
++1
+
+> Second, it is possible to tell Python to ignore SSL verification.
+> Should we do that? Ping @GaelVaroquaux .
+
++1
+",,,1 1
+issue_comment,830,nilearn,nilearn,KamalakerDadi,2015-11-13 20:23:49,"> First, I think that we should favorize HTTP over HTTPS. I will make a PR to remove it where it is not necessary.
+
+If you haven't started, can I address this in Megatrawls PR ?
+",,,If havent start I address megatrawl PR
+issue_comment,830,nilearn,nilearn,AlexandreAbraham,2015-11-13 21:02:06,"You can take care of it but in a separated PR.
+",,,you take care separ PR
+issue_comment,830,nilearn,nilearn,KamalakerDadi,2015-11-13 21:07:26,"I would replace all https to http? Is it not necessary for all of them ?
+",,,I would replac Is necessari
+issue_comment,830,nilearn,nilearn,AlexandreAbraham,2015-11-13 22:11:50,"In a first time, we can replace the URLs that works in http, typically nitrc ones. In a second time, we can disable the certificate checking directly into the download request.
+",,,In first time replac url work typic nitrc one In second time disabl certif check directli download request
+issue_comment,830,nilearn,nilearn,KamalakerDadi,2015-11-13 22:25:45,"Ok Thanks.
+",,,Ok thank
+issue_comment,830,nilearn,nilearn,GaelVaroquaux,2015-12-02 08:26:47,"@aabadie : maybe you can take this one over?
+",,,aabadi mayb take one
+issue_comment,830,nilearn,nilearn,AlexandreAbraham,2015-12-02 10:03:40,"@aabadie : I'll take a quick look at it.
+",,,aabadi ill take quick look

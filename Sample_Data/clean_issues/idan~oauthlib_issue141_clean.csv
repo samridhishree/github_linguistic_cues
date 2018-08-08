@@ -1,0 +1,23 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,141,idan,oauthlib,rmasters,2013-04-28 15:10:25,"Tiny documentation example fix :)
+
+Django 1.5 allows apps to change the default user model - so `get_user_model()` should be called rather than using User directly.
+",start issue,"Django example should use get_user_model(), rather than User as of 1.5",tini document exampl fix django 15 allow app chang default user model call rather use user directli
+issue_closed,141,idan,oauthlib,ib-lundgren,2013-05-05 16:26:47,,closed issue,"Django example should use get_user_model(), rather than User as of 1.5",
+pull_request_title,141,idan,oauthlib,rmasters,2013-04-28 15:10:25,"Tiny documentation example fix :)
+
+Django 1.5 allows apps to change the default user model - so `get_user_model()` should be called rather than using User directly.
+",10888c6be7328f83e9d4fbe5eeae23fcebdae681,"Django example should use get_user_model(), rather than User as of 1.5",tini document exampl fix django 15 allow app chang default user model call rather use user directli
+issue_comment,141,idan,oauthlib,ib-lundgren,2013-04-29 19:51:06,"Looks good! Is the get_user_model valid prior to django 1.5 too?
+",,,look good Is getusermodel valid prior django 15
+issue_comment,141,idan,oauthlib,ondrowan,2013-04-30 07:05:16,"It's not. I'd keep the original example as calling explicitly `User` class isn't really harmful. It's an example anyway, so it doesn't need to be overly complicated.
+",,,it Id keep origin exampl call explicitli class isnt realli harm it exampl anyway doesnt need overli complic
+issue_comment,141,idan,oauthlib,rmasters,2013-04-30 09:12:59,"I had some notion of it being backported but I don't think that's the case actually - sticking with `User` makes sense.
+",,,I notion backport I dont think that case actual stick make sens
+issue_comment,141,idan,oauthlib,ib-lundgren,2013-05-05 16:26:47,"Let's stick to user then =)
+",,,let stick user
+pull_request_commit,141,idan,oauthlib,rmasters,2013-04-28 15:03:53,"Django example should use get_user_model(), rather than User as of 1.5
+
+Django 1.5 allows apps to change the default user model - so
+get_user_model() should be called rather than using User directly.",10888c6be7328f83e9d4fbe5eeae23fcebdae681,,django exampl use getusermodel rather user 15 django 15 allow app chang default user model getusermodel call rather use user directli

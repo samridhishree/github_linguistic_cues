@@ -1,0 +1,51 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,311,nilearn,nilearn,GaelVaroquaux,2014-12-12 10:55:46,"2 problems:
+- The ""pre"" flag does not seem to exist in old versions of pip
+- When the package installs, it spits out a few errors/warnings that look ugly.
+
+<pre>
+$ pip install -U --pre --user nilearn
+Usage: /usr/bin/pip install [OPTIONS] PACKAGE_NAMES...
+
+/usr/bin/pip install: error: no such option: --pre
+
+$ pip install -U --user nilearn
+Downloading/unpacking nilearn
+  Downloading nilearn-0.1a1.tar.gz (614Kb): 614Kb downloaded
+  Running setup.py egg_info for package nilearn
+    
+    package init file 'nilearn/data/__init__.py' not found (or not a regular file)
+    package init file 'nilearn/plotting/glass_brain_files/__init__.py' not found (or not a regular file)
+    package init file 'nilearn/tests/data/__init__.py' not found (or not a regular file)
+Installing collected packages: nilearn
+  Found existing installation: nilearn 0.1-git
+    Uninstalling nilearn:
+      Successfully uninstalled nilearn
+  Running setup.py install for nilearn
+    package init file 'nilearn/data/__init__.py' not found (or not a regular file)
+    package init file 'nilearn/plotting/glass_brain_files/__init__.py' not found (or not a regular file)
+    package init file 'nilearn/tests/data/__init__.py' not found (or not a regular file)
+    
+Successfully installed nilearn
+</pre>
+",start issue,Installation instructions are not suited to ubuntu 12.04,2 problem the pre flag seem exist old version pip when packag instal spit errorswarn look ugli pre pip instal U pre user nilearn usag usrbinpip instal option packagenam usrbinpip instal error option pre pip instal U user nilearn downloadingunpack nilearn download nilearn01a1targz 614kb 614kb download run setuppi egginfo packag nilearn packag init file nilearndatainitpi found regular file packag init file nilearnplottingglassbrainfilesinitpi found regular file packag init file nilearntestsdatainitpi found regular file instal collect packag nilearn found exist instal nilearn 01git uninstal nilearn success uninstal nilearn run setuppi instal nilearn packag init file nilearndatainitpi found regular file packag init file nilearnplottingglassbrainfilesinitpi found regular file packag init file nilearntestsdatainitpi found regular file success instal nilearn pre
+issue_closed,311,nilearn,nilearn,GaelVaroquaux,2015-01-08 13:56:56,,closed issue,Installation instructions are not suited to ubuntu 12.04,
+issue_comment,311,nilearn,nilearn,lesteve,2014-12-12 12:32:00,"`--pre` option was new in pip 1.4. Excerpt from [there](https://pip.pypa.io/en/latest/news.html):
+
+> 1.4 (2013-07-23)
+> 
+>    BACKWARD INCOMPATIBLE pip now only installs stable versions by default, and offers a new --pre option to also find pre-release and development versions. (Pull #834)
+
+ I'll update the install instructions to differentiate between the two cases.
+",,,option new pip 14 excerpt ill updat instal instruct differenti two case
+issue_comment,311,nilearn,nilearn,GaelVaroquaux,2014-12-12 12:35:12,"> I'll update the install instructions to differentiate between the two cases.
+
+That's kinda nasty, because it makes those instructions more lengthy,
+which is what we are trying to avoid. It does tell us that we need to
+release a 0.1 soon. Let's say as a Christmas present?
+",,,that kinda nasti make instruct lengthi tri avoid It tell us need releas 01 soon let say christma present
+issue_comment,311,nilearn,nilearn,lesteve,2014-12-17 10:34:31,"FWIW the warnings about missing `__init__.py` during install should have been fixed in 5a309af2b9f07550c8d07d542453839f3a285f4b. 
+",,,fwiw warn miss instal fix 5a309af2b9f07550c8d07d542453839f3a285f4b
+issue_comment,311,nilearn,nilearn,AlexandreAbraham,2015-01-06 21:34:12,"Should we release it soon?
+",,,should releas soon

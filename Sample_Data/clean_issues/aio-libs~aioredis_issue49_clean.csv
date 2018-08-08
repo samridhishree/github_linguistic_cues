@@ -1,0 +1,97 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,49,aio-libs,aioredis,lud4ik,2014-09-24 23:02:27,"Do you have any suggestions for API? 
+",start issue,Lock support,Do suggest api
+issue_closed,49,aio-libs,aioredis,lud4ik,2014-09-28 17:25:08,,closed issue,Lock support,
+pull_request_title,49,aio-libs,aioredis,lud4ik,2014-09-24 23:02:27,"Do you have any suggestions for API? 
+",5b0874f4792879f1580fea85398213a2baadfafe,Lock support,Do suggest api
+issue_comment,49,aio-libs,aioredis,jettify,2014-09-25 18:47:46,"Hi Luda!
+I suggest look through following article  [1]. Where  extension to algorithm [2] is described. As result, lock would be possible to use on multiple nodes.
+[1] http://redis.io/topics/distlock
+[2] http://redis.io/commands/set 
+",,,Hi luda I suggest look follow articl 1 where extens algorithm 2 describ As result lock would possibl use multipl node 1 2
+issue_comment,49,aio-libs,aioredis,lud4ik,2014-09-25 18:53:23,"Maybe, I don't get, but what's wrong with my pull request code? Actually, I have already read second article and used it, first I've read long ago ... so did I miss smth?
+I asked question because, maybe, author think it would be better with cm (not sure it's possible because release is also coroutine) or to extend api with method for making lock live longer for specified tms. It's my first asyncio code:)
+",,,mayb I dont get what wrong pull request code actual I alreadi read second articl use first ive read long ago I miss smth I ask question mayb author think would better cm sure possibl releas also coroutin extend api method make lock live longer specifi tm it first asyncio code
+issue_comment,49,aio-libs,aioredis,popravich,2014-09-25 19:22:50,"Hi Luda,
+I need to look into your pull request.
+I will come back a bit later 
+",,,Hi luda I need look pull request I come back bit later
+issue_comment,49,aio-libs,aioredis,jettify,2014-09-25 19:23:30,"http://redis.io/topics/distlock is extension of your approach for multiple servers. It is nice feature to have :) Since it is common case where you have to run  some kind of service on several nodes and use distributed locking mechanism. 
+
+I am not an author of this library, and my comments are just my 2 cents :) 
+",,,extens approach multipl server It nice featur sinc common case run kind servic sever node use distribut lock mechan I author librari comment 2 cent
+issue_comment,49,aio-libs,aioredis,tailhook,2014-09-25 20:50:10,"From quick skimming:
+1. The ""register_script"" thing. I believe common pattern is try evalsha and if there is no such script at server-side, send whole script. It seems a convenience method for such behavior should be implemented first.
+2. ""sleep"" may need to be growing (not sure)
+3. uuid.uuid4() is too slow and overkill for the task
+
+About the API, it would be cool if it look like:
+
+```
+with (yield from self.redis.acquire(""name"")):
+   something
+```
+
+Having the ""release"" thing in an asynchronous task. Not sure if this is as cool as it looks.
+",,,from quick skim 1 the registerscript thing I believ common pattern tri evalsha script serversid send whole script It seem conveni method behavior implement first 2 sleep may need grow sure 3 uuiduuid4 slow overkil task about api would cool look like have releas thing asynchron task not sure cool look
+issue_comment,49,aio-libs,aioredis,lud4ik,2014-09-25 23:05:22,"Travis failed not from my fault.
+
+> Having the ""release"" thing in an asynchronous task. Not sure if this is as cool as it looks.
+
+It looks like you desire impossible thing
+",,,travi fail fault It look like desir imposs thing
+issue_comment,49,aio-libs,aioredis,tailhook,2014-09-25 23:12:18,"The `urandom` thing is **the** slow thing in uuid.uuid4(). Some simpler value non involving system calls should be used IMO. You don't need cryptographically secure random value here.
+
+> It looks like you desire impossible thing
+
+Something along the lines of:
+
+```
+def __exit__(self, _, _, _):
+  Task(self.release(), loop=self._loop)
+```
+
+I'm not sure its a good pattern though.
+",,,the thing slow thing uuiduuid4 some simpler valu non involv system call use imo you dont need cryptograph secur random valu someth along line Im sure good pattern though
+issue_comment,49,aio-libs,aioredis,popravich,2014-09-26 07:43:25,"Hi Luda,
+
+I appreciate your effort, but this PR has too much things that could be done simplier and cleaner.
+
+Regarding API:
+1. Lock should be available as context manager (for implementation you can see either CM in pool.py or locks.py in asyncio);
+2. I'm still not sure if locks should be implemented through `LockMixin`,
+I thing it would be better if lock is implemented as stand-alone feature and could be used as:
+`lock = Lock(redis, 'lock-key', ...)`;
+summarizing points above for end-user usage should look like:
+
+``` python
+redis = yield from aioredis.create_redis(....)
+with (yield from aioredis.extra.Lock(redis, 'my-lock-key')):
+    pass # do some work
+```
+
+Regarding code itself see my line comments.
+",,,Hi luda I appreci effort PR much thing could done simplier cleaner regard api 1 lock avail context manag implement see either CM poolpi lockspi asyncio 2 Im still sure lock implement I thing would better lock implement standalon featur could use summar point endus usag look like regard code see line comment
+issue_comment,49,aio-libs,aioredis,lud4ik,2014-09-26 12:26:44,"Thank you. Fixed.
+What params would you like to drop? Honestly, I've taken a look at params of sync client realization. There api consider situation for continue trying forever if blocking_timeout is None and blocking = True. I guess it's not a use case, so I've dropped blocking param. blocking_timeout = None means stop trying after first fail.
+I don't understand why ""timeout should be decremented each time you failed acquireing lock"". This parameter is for expiration of key, there are no such remark for single node algorithm. 
+In release I must check token (it's coroutine), so code after with block should block until it has yieded. Does using Task in **exit** method guarantee it?
+
+I guess that No because other test failed because of my test. Even in twisted if one of tests has a delayed call it would fail that test and here if I've properly understood, my test's call falled during other test execution and my tests succeeded.
+Don't know how to fix.
+",,,thank fix what param would like drop honestli ive taken look param sync client realiz there api consid situat continu tri forev blockingtimeout none block true I guess use case ive drop block param blockingtimeout none mean stop tri first fail I dont understand timeout decrement time fail acquir lock thi paramet expir key remark singl node algorithm In releas I must check token coroutin code block block yied doe use task exit method guarante I guess No test fail test even twist one test delay call would fail test ive properli understood test call fall test execut test succeed dont know fix
+pull_request_commit_comment,49,aio-libs,aioredis,popravich,2014-09-26 07:53:41,"Too much parameters here.
+- `blocking_timeout` and `timeout` are used improperly:
+- `timeout` should be decremented each time you failed acquireing lock;
+- `blocking_timeout` should be used as `yield from asyncio.wait_for(self._acquire(), blocking_timeout)`
+  because `_acquire` can block for longer period then specified in `blocking_timeout`;
+",5b0874f4792879f1580fea85398213a2baadfafe,"(None, '', u'aioredis/extra/lock.py')",too much paramet use improperli decrement time fail acquir lock use block longer period specifi
+pull_request_commit_comment,49,aio-libs,aioredis,popravich,2014-09-26 07:56:40,"here test will fail because there is no global event loop (the `loop` argument should be passed explicitly).
+",5b0874f4792879f1580fea85398213a2baadfafe,"(None, '', u'aioredis/extra/lock.py')",test fail global event loop argument pass explicitli
+pull_request_commit,49,aio-libs,aioredis,lud4ik,2014-09-24 22:58:29,Lock support,e0bccaf5f761cb82415e39071663986607d7474b,,lock support
+pull_request_commit,49,aio-libs,aioredis,lud4ik,2014-09-24 23:14:58,Fixes,a95a83b6cd3c133a2b8827a9b318117978bafaaf,,fix
+pull_request_commit,49,aio-libs,aioredis,lud4ik,2014-09-24 23:22:27,Fix pep8,ca24262d0b7275ada74ec3685a03d9e0be7786f7,,fix pep8
+pull_request_commit,49,aio-libs,aioredis,lud4ik,2014-09-25 22:48:41,"Fixes: replace uuid with urandom, sleep factor, handling of NOSCRIPT",dac2d236f4a9975c0e422431042799b77e96b370,,fix replac uuid urandom sleep factor handl noscript
+pull_request_commit,49,aio-libs,aioredis,lud4ik,2014-09-25 23:34:16,fix,1fd58e3cda98e03b980b71a6b723b18381ea7dd2,,fix
+pull_request_commit,49,aio-libs,aioredis,lud4ik,2014-09-26 12:20:34,cm & fixes,5b0874f4792879f1580fea85398213a2baadfafe,,cm fix

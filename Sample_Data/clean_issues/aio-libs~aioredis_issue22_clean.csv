@@ -1,0 +1,17 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,22,aio-libs,aioredis,popravich,2014-07-04 06:25:05,"Implementation status:
+- [x] connection commands http://redis.io/commands/#connection
+- [x] generic commands http://redis.io/commands/#generic
+- [x] string commands http://redis.io/commands/#string
+- [x] hash commands http://redis.io/commands/#hash
+- [x] list commands http://redis.io/commands/#list
+- [x] set commands http://redis.io/commands/#set
+- [x] sorted set commands http://redis.io/commands/#sorted_set
+- [x] hyperloglog commands http://redis.io/commands/#hyperloglog
+- [x] transactions commands http://redis.io/commands/#transactions
+- [x] scripting commands http://redis.io/commands/#scripting
+- [x] server commands http://redis.io/commands/#server (except `client kill` & `monitor`)
+- [x] pub/sub commands http://redis.io/commands/#pubsub
+",start issue,Commands Mixins Implementation status,implement statu x connect command x gener command x string command x hash command x list command x set command x sort set command x hyperloglog command x transact command x script command x server command except x pubsub command
+issue_closed,22,aio-libs,aioredis,popravich,2017-01-17 09:57:36,,closed issue,Commands Mixins Implementation status,

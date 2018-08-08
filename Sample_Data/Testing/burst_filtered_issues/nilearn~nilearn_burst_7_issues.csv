@@ -1,0 +1,84 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,43,nilearn,nilearn,AlexandreAbraham,2013-04-11 15:53:58,,closed issue,API cleanup,,N,2013-04-08 12:40:39
+14,pull_request_commit,43,nilearn,nilearn,pgervais,2013-04-04 14:42:13,Comment cleanup,364ed5878f34c581b389e159376225a2707f1ec0,,comment cleanup,N,2013-04-08 12:12:47
+25,pull_request_commit_comment,43,nilearn,nilearn,pgervais,2013-04-09 16:18:45,"It's just a matter of adding detrend=True, I'll do it.
+",a6e805fec3a150652e90e52d337dce11cb680f4d,"(86, 86, u'nisl/tests/test_io_nifti_masker.py')",it matter ad detrendtru ill,N,2013-04-08 12:58:57
+26,pull_request_commit_comment,43,nilearn,nilearn,AlexandreAbraham,2013-04-08 12:58:57,"Why do you remove the colon ?
+",c26a546081504415132372f2997e6c34f8fc00b3,"(14, 271, u'nisl/masking.py')",whi remov colon,N,2013-04-08 13:13:21
+1,issue_title,41,nilearn,nilearn,pgervais,2013-04-02 11:07:18,"I made utils.cache a method of the class CacheMixin (this function already looked like a method anyway). Some checks have been added to make its usage as transparent as possible (namely, there is no need anymore to define self.memory and self.memory_level in **init**() if no caching is requested: CacheMixin.cache() defines them if necessary.
+
+I know there's nothing to be done about it, but ""memory_level"" would be better called ""cache_level"" and ""memory"" called ""cache"" IMO. Since the latter is used extensively in scikit-learn, I resisted the tentation to rename them.
+
+At the same time, I started removing occurences of ""except"" where all exceptions are caught, which is quite dangerous, and useful only in **very rare** cases. Most of the time, it just hides programming errors and makes programs harder to debug.
+",start issue,Cachemixin,I made utilscach method class cachemixin function alreadi look like method anyway some check ad make usag transpar possibl name need anymor defin selfmemori selfmemorylevel init cach request cachemixincach defin necessari I know there noth done memorylevel would better call cachelevel memori call cach imo sinc latter use extens scikitlearn I resist tentat renam At time I start remov occur except except caught quit danger use rare case most time hide program error make program harder debug,N,2013-04-08 12:09:07
+3,pull_request_title,41,nilearn,nilearn,pgervais,2013-04-02 11:07:18,"I made utils.cache a method of the class CacheMixin (this function already looked like a method anyway). Some checks have been added to make its usage as transparent as possible (namely, there is no need anymore to define self.memory and self.memory_level in **init**() if no caching is requested: CacheMixin.cache() defines them if necessary.
+
+I know there's nothing to be done about it, but ""memory_level"" would be better called ""cache_level"" and ""memory"" called ""cache"" IMO. Since the latter is used extensively in scikit-learn, I resisted the tentation to rename them.
+
+At the same time, I started removing occurences of ""except"" where all exceptions are caught, which is quite dangerous, and useful only in **very rare** cases. Most of the time, it just hides programming errors and makes programs harder to debug.
+",bbe59dec3761aba617a37825238e0eb692b5423a,Cachemixin,I made utilscach method class cachemixin function alreadi look like method anyway some check ad make usag transpar possibl name need anymor defin selfmemori selfmemorylevel init cach request cachemixincach defin necessari I know there noth done memorylevel would better call cachelevel memori call cach imo sinc latter use extens scikitlearn I resist tentat renam At time I start remov occur except except caught quit danger use rare case most time hide program error make program harder debug,N,2013-04-08 12:09:07
+4,pull_request_merged,41,nilearn,nilearn,AlexandreAbraham,2013-04-08 12:09:07,Cachemixin,500734dcd774ae1066249b470f9c10e7b3510abb,Pull request merge from pgervais/nilearn:cachemixin to nilearn/nilearn:master,cachemixin,N,2013-04-05 08:41:17
+5,issue_comment,41,nilearn,nilearn,GaelVaroquaux,2013-04-05 08:41:17,"Looks great. I added a few minor remarks. Thanks!
+",,,look great I ad minor remark thank,N,2013-04-05 07:17:29
+6,issue_comment,41,nilearn,nilearn,pgervais,2013-04-05 07:17:29,"@AlexandreAbraham (or someone else) could you review/merge this pull request?
+",,,alexandreabraham someon els could reviewmerg pull request,N,2013-04-05 08:27:46
+7,pull_request_commit_comment,41,nilearn,nilearn,GaelVaroquaux,2013-04-05 08:27:46,"I think this method should be private.
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(None, '', u'nisl/io/base_masker.py')",I think method privat,N,2013-04-05 08:33:10
+8,pull_request_commit_comment,41,nilearn,nilearn,GaelVaroquaux,2013-04-05 08:33:10,"You should also point out that '-2' means 'all CPUs but one', etc.
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(None, '', u'nisl/io/nifti_multi_masker.py')",you also point 2 mean cpu one etc,N,2013-04-05 08:36:39
+9,pull_request_commit_comment,41,nilearn,nilearn,GaelVaroquaux,2013-04-05 08:36:39,"I am toying with the idea of splitting up utils: it's a non-descriptive name, and people (ie developers) might not guess what's in there. I am suggesting the following layout:
+- a directory called '_utils'
+- in it:
+  - validations.py (or conversions.py) for check_niimg and co
+  - caching.py for the new mixin.
+
+What do people think?
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(36, '', u'nisl/utils.py')",I toy idea split util nondescript name peopl ie develop might guess what I suggest follow layout directori call util validationspi conversionspi checkniimg co cachingpi new mixin what peopl think,N,2013-04-05 08:39:22
+10,pull_request_commit_comment,41,nilearn,nilearn,GaelVaroquaux,2013-04-05 08:39:22,"I think that I would prefer that when there is no cache, a joblib.Memory object with cachedir=None is returned. This object doesn't cache anything, but it ensures a uniform behavior of the code.
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(None, '', u'nisl/utils.py')",I think I would prefer cach joblibmemori object cachedirnon return thi object doesnt cach anyth ensur uniform behavior code,N,2013-04-05 08:41:49
+11,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 08:41:49,"I am OK to put the cache mixin in its own file and keep some machinery away from the user in a _utils directory.
+Although I think that at least one function could be useful to the users : concat_niimgs. When talking with Michael about nisl, he told me that he may need this kind of function (he has several 4D nifti files that he wants to concatenate as they are all related to a single subject).
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(36, '', u'nisl/utils.py')",I OK put cach mixin file keep machineri away user util directori although I think least one function could use user concatniimg when talk michael nisl told may need kind function sever 4D nifti file want concaten relat singl subject,N,2013-04-05 08:52:19
+12,pull_request_commit_comment,41,nilearn,nilearn,GaelVaroquaux,2013-04-05 08:52:19,"> Although I think that at least one function could be useful to the users :
+> concat_niimgs. When talking with Michael about nisl, he told me that he may
+> need this kind of function (he has several 4D nifti files taht he wants to
+> concatenate).
+
+That's a good point. We definitely want this function with a non-private
+import path. I'd still like a better name than 'utils'. Any suggestions?
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(36, '', u'nisl/utils.py')",that good point We definit want function nonpriv import path Id still like better name util ani suggest,N,2013-04-05 08:59:44
+13,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 08:59:44,"We could have a dedicated 'niimg' namespace. Maybe 'toolbox' but I prefer shorter names.
+",bbe59dec3761aba617a37825238e0eb692b5423a,"(36, '', u'nisl/utils.py')",We could dedic niimg namespac mayb toolbox I prefer shorter name,N,2013-04-05 09:26:54
+18,pull_request_commit,41,nilearn,nilearn,pgervais,2013-04-02 10:52:04,Merge branch 'master' into cachemixin,2de1e4c17f12ea590158a02f414e24c70bb43b0d,,merg branch master cachemixin,N,2013-04-05 08:48:18
+19,pull_request_commit,41,nilearn,nilearn,pgervais,2013-04-05 08:48:18,"Renamed CacheMixin.cache to _cache
+
+Corrected a bug in _cache() as well: return the input function
+unchanged if self.memory is None.",592f840f351150ecb927d91eac038af54310dece,,renam cachemixincach cach correct bug cach well return input function unchang selfmemori none,N,2013-04-05 09:22:30
+20,pull_request_commit,41,nilearn,nilearn,pgervais,2013-04-05 09:22:30,Documentation fix,804675d1ed8dedbdc1d22cf47c995d0f32e6ecb5,,document fix,N,2013-04-05 12:19:48
+21,pull_request_commit,41,nilearn,nilearn,pgervais,2013-04-05 12:19:48,"CacheMixin._cache always returns a Memory object.
+
+All default 'memory' parameters have been set to Memory(cachedir=None)
+for _cache() to always return a Memory() object.",bbe59dec3761aba617a37825238e0eb692b5423a,,cachemixincach alway return memori object all default memori paramet set memorycachedirnon cach alway return memori object,N,2013-04-05 07:32:49
+22,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 07:32:49,"I am curious: why did you change that ?
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(5, 302, u'doc/sphinxext/gen_rst.py')",I curiou chang,N,2013-04-05 07:36:13
+23,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 07:36:13,"As a general remark, this file directly comes from the scikit learn documentation template. We should not modify it, and if we do, we should propagate the changes to the scikit by doing a pull request.
+For the time_elapsed question, I see in the scikit that 0 is now the default value. Maybe we should stick to that and integrate the last modifications of gen_rst in nisl.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(None, None, None)",As gener remark file directli come scikit learn document templat We modifi propag chang scikit pull request for timeelaps question I see scikit 0 default valu mayb stick integr last modif genrst nisl,N,2013-04-05 08:14:28
+24,pull_request_commit_comment,41,nilearn,nilearn,pgervais,2013-04-05 08:14:28,"Because this is C-like programming. None has been designed exactly for this purpose: indicating a missing/undefined value. There is no reason to print something ""time elapsed: -1"", such message is just useless to the user. If something failed, then print the actual elapsed time to failure or nothing at all. 
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(5, 302, u'doc/sphinxext/gen_rst.py')",becaus clike program none design exactli purpos indic missingundefin valu there reason print someth time elapsed 1 messag useless user If someth fail print actual elaps time failur noth,N,2013-04-05 08:18:38
+25,pull_request_commit_comment,41,nilearn,nilearn,pgervais,2013-04-05 08:18:38,"I didn't know this file came from scikit-learn. Both files must certainly be maintained in sync.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(None, None, None)",I didnt know file came scikitlearn both file must certainli maintain sync,N,2013-04-05 08:28:29
+26,pull_request_commit_comment,41,nilearn,nilearn,pgervais,2013-04-05 08:28:29,"After discussing with Gael V., it seems that gen_rst.py from scikit-learn is already quite different from nisl's. Synchronising the files will take some time, and this is not possible for me right now.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(None, None, None)",after discuss gael V seem genrstpi scikitlearn alreadi quit differ nisl synchronis file take time possibl right,N,2013-04-05 08:32:07
+27,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 08:32:07,"This is precisely the contrary here: None is replaced by -1.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(5, 302, u'doc/sphinxext/gen_rst.py')",thi precis contrari none replac 1,N,2013-04-05 08:37:24
+28,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 08:37:24,"Files are not sync because some modifications in this file may imply modifications in some other files of the doc. I used to update the gen_rst file time to time while checking documentation generation. Some recent changes may in fact completely break documentation generation and require heavy refactoring, Gael knows that better than me.
+
+However, if we modify this file by our side and add some feature, we must keep in mind to make a PR to scikit-learn.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(None, None, None)",file sync modif file may impli modif file doc I use updat genrst file time time check document gener some recent chang may fact complet break document gener requir heavi refactor gael know better howev modifi file side add featur must keep mind make PR scikitlearn,N,2013-04-05 08:53:55
+29,pull_request_commit_comment,41,nilearn,nilearn,pgervais,2013-04-05 08:53:55,"Damn. It seems I'm against my own modifications :-). Then I don't know why I did that, I'd better check this out or revert.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(5, 302, u'doc/sphinxext/gen_rst.py')",damn It seem Im modif then I dont know I Id better check revert,N,2013-04-05 09:22:19
+30,pull_request_commit_comment,41,nilearn,nilearn,pgervais,2013-04-05 09:22:19,"I think this is a bug fix, but I can't really remember. Testing this thoroughly would take too much time right now, As long as documentation compiles, I suggest we leave this for later development. Ideally, we need test cases for this, but this is probably to be done together with scikit-learn.
+",2de1e4c17f12ea590158a02f414e24c70bb43b0d,"(5, 302, u'doc/sphinxext/gen_rst.py')",I think bug fix I cant realli rememb test thoroughli would take much time right As long document compil I suggest leav later develop ideal need test case probabl done togeth scikitlearn,Y,2013-04-05 07:25:58
+31,pull_request_commit_comment,41,nilearn,nilearn,AlexandreAbraham,2013-04-05 07:25:58,"Here, the initialization of memory is replaced by None. If I am not mistaken, this could break something in the cache function of the CacheMixin (see next comment).
+",991e5fe2cf9be4b428b0e03584438ef690231a8c,"(71, 125, u'nisl/io/nifti_multi_masker.py')",here initi memori replac none If I mistaken could break someth cach function cachemixin see next comment,N,2013-04-05 07:27:37

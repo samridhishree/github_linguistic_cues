@@ -1,0 +1,15 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,368,idan,oauthlib,lepture,2015-07-28 05:46:43,"`request.client_secret` is used in Flask-OAuthlib.
+",start issue,Add client_secret for Request,use flaskoauthlib
+issue_closed,368,idan,oauthlib,thedrow,2015-08-10 08:25:29,,closed issue,Add client_secret for Request,
+pull_request_title,368,idan,oauthlib,lepture,2015-07-28 05:46:43,"`request.client_secret` is used in Flask-OAuthlib.
+",69645ff5d8b918aaefca0a8d0caaef23d5fe3662,Add client_secret for Request,use flaskoauthlib
+pull_request_merged,368,idan,oauthlib,thedrow,2015-08-10 08:25:29,Add client_secret for Request,eed9265206e6f09b769576947b3e17691ace39af,Pull request merge from lepture/oauthlib:request-client-secret to idan/oauthlib:master,add clientsecret request
+issue_comment,368,idan,oauthlib,masci,2015-07-28 06:21:10,":+1: 
+",,,1
+issue_comment,368,idan,oauthlib,lepture,2015-08-03 06:51:52,"Merge?
+",,,merg
+issue_comment,368,idan,oauthlib,ghost,2015-08-04 09:45:32,"+1 for merging and pushing as 1.0.2 to PyPi. This bug is quite problematic.
+",,,1 merg push 102 pypi thi bug quit problemat
+pull_request_commit,368,idan,oauthlib,lepture,2015-07-28 05:46:00,Add client_secret for Request,69645ff5d8b918aaefca0a8d0caaef23d5fe3662,,add clientsecret request

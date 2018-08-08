@@ -1,0 +1,87 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 07:19:01,"First attempt to solve #1116.
+",start issue,Add function clean_img,first attempt solv 1116,N
+issue_closed,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 13:00:53,nan,closed issue,Add function clean_img,nan,N
+pull_request_title,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 07:19:01,"First attempt to solve #1116.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,Add function clean_img,first attempt solv 1116,N
+pull_request_merged,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 13:00:53,Add function clean_img,86d3eb88a96b31ec069e7d511132c1c848cb3652,Pull request merge from AlexandreAbraham/nilearn:img_functions to nilearn/nilearn:master,add function cleanimg,N
+issue_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:53:37,"LGTM apart from some minor details.
+",nan,nan,lgtm apart minor detail,N
+issue_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:55:09,"Also, doc/whats_new and version added
+",nan,nan,also docwhatsnew version ad,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:46:13,"I would remove from this signature ""atleast_4d"" and ""ensure_ndim"", and move one step forward ""wildcards"" which is more important to the end use than the control on the dtype.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I would remov signatur atleast4d ensurendim move one step forward wildcard import end use control dtype,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:47:05,"This note is relevant to nilearn developers, but not to end users, I would remove it.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",thi note relev nilearn develop end user I would remov,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:47:53,"Nitpick: orthodox pep8 would like you to align this line with the opening parenthesis above.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",nitpick orthodox pep8 would like align line open parenthesi,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:48:42,"Shouldn't this function be in nilearn.image? This is where I would look for it.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",shouldnt function nilearnimag thi I would look,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:51:53,"You should create a local rng, and not sample from the global one, using something like:
+
+rng = np.random.RandomState(0)
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/tests/test_signal.py')",you creat local rng sampl global one use someth like rng nprandomrandomstate0,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:20:22,"I would say Nifti-like, parameter implies the same.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I would say niftilik paramet impli,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:22:15,"missing doc, ensure_ndim if it is not going to removed
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(103, '', u'nilearn/image/image.py')",miss doc ensurendim go remov,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 11:22:42,"> I would say Nifti-like, parameter implies the same.
+
+I am not sure that I agree. Niimg-like comes with a specific definition
+in the nilearn context.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I sure I agre niimglik come specif definit nilearn context,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:24:52,"I saw a lot documentation describing like this.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I saw lot document describ like,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:33:34,"A bit explicit may be dtype -> data-type ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",A bit explicit may dtype,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:35:05,"bool ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",bool,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:36:07,"May be `nilearn.image.clean_img` if this tends to be in nilearn.image
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",may tend nilearnimag,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:36:46,"avoid
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",avoid,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:41:25,"parameter is named as niimg, above.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",paramet name niimg,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:42:54,"filtered -> cleaned ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",filter,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:47:14,"optional, missing
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",option miss,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:49:13,"Are we not expect to return image here ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",are expect return imag,N
+pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:51:11,"Minor detail: it would be nice if doc too follows the same order as described above.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",minor detail would nice doc follow order describ,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:03:50,"Any special reason to do that? We don't need strong repeatbility on this one. Also, we never use this in the rest of the tests.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/tests/test_signal.py')",ani special reason We dont need strong repeatbl one also never use rest test,Y
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:05:20,"In all the docs, we have ""Niimg-like"" (in the docstrings).
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",In doc niimglik docstr,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:05:27,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(103, '', u'nilearn/image/image.py')",fix,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:05:52,"We use dtype to be consistent with numpy.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",We use dtype consist numpi,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:06:13,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",fix,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:06:21,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",fix,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:06:28,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",fix,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:08:37,"Fixed. I used img to be consistent with the other functions.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",fix I use img consist function,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:09:06,"`clean` is a bit general. I would keep `filtered`
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",bit gener I would keep,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:09:27,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",fix,N
+pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:09:34,"of course !
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",cours,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 12:25:36,"Indentation seems wrong here.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",indent seem wrong,N
+pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 12:26:36,"We should always do that, because people copy-paste code to write their own test, and we want them to use this pattern.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/tests/test_signal.py')",We alway peopl copypast code write test want use pattern,Y
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 07:06:11,Add function clean_img,72033b20576abe5f02677825fd2eff1371a13008,nan,add function cleanimg,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 08:37:25,Expose load_niimg,4497e293ebab5ad302fb9eee4c20e3c37db09837,nan,expos loadniimg,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 09:36:16,Remove ensure_ndim,d372d9d17f587354aaa8fa5ad5c0957bbfd96aef,nan,remov ensurendim,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:10:27,Address comments,d6e92cac818a4497cd343b68269d144e77e92ea8,nan,address comment,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:18:15,Address comments,8405e53b55291c325e2ea46aaa04a2ac31747d71,nan,address comment,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:20:30,Fix doc,9e6e7c1d82bdc975c8f35bf2b6e5abb01daf4a59,nan,fix doc,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:29:43,Fix test and indent,58ead6ea4bb059193d777b3f19777e834a964618,nan,fix test indent,N
+pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:31:52,Init RNG,47e9010c467b5e80e190eb07a5e93a73630f008e,nan,init rng,N

@@ -1,0 +1,8 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,972,nilearn,nilearn,GaelVaroquaux,2016-02-01 20:55:13,"The logs of circleCI are very hard to work with, because the progress log of the downloaders drowns the information:
+https://circleci.com/gh/nilearn/nilearn/1097
+
+I am in favor of introducing an environment variable that decreases by something like 50 the number of times that the progress is printed. It would be checked in the datasets code, and set in the circleCI build scripts.
+",start issue,Decrease verbosity of download progress on CI,the log circleci hard work progress log download drown inform I favor introduc environ variabl decreas someth like 50 number time progress print It would check dataset code set circleci build script
+issue_closed,972,nilearn,nilearn,lesteve,2016-02-03 17:21:01,,closed issue,Decrease verbosity of download progress on CI,

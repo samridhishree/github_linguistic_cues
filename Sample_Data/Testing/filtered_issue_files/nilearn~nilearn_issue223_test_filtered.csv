@@ -1,0 +1,90 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,223,nilearn,nilearn,dohmatob,2014-07-01 16:05:47,"Traceback (most recent call last):
+  File ""/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/nose/case.py"", line 197, in runTest
+    self.test(_self.arg)
+  File ""/home/travis/build/nilearn/nilearn/nilearn/plotting/test/test_slicers.py"", line 27, in test_demo_ortho_slicer
+    pl.clf()
+  File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 443, in clf
+    gcf().clf()
+  File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 369, in gcf
+    return figure()
+  File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 343, in figure
+    *_kwargs)
+  File ""/usr/lib/pymodules/python2.7/matplotlib/backends/backend_tkagg.py"", line 80, in new_figure_manager
+    window = Tk.Tk()
+  File ""/usr/lib/python2.7/lib-tk/Tkinter.py"", line 1688, in **init**
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+TclError: no display name and no $DISPLAY environment variable
+",start issue,Weird issue about no $DISPLAY (test_img_plot.py). Or maybe it's a private bug ?,traceback recent call last file hometravisvirtualenvpython27withsystemsitepackageslocallibpython27sitepackagesnosecasepi line 197 runtest selftestselfarg file hometravisbuildnilearnnilearnnilearnplottingtesttestslicerspi line 27 testdemoorthoslic plclf file usrlibpymodulespython27matplotlibpyplotpi line 443 clf gcfclf file usrlibpymodulespython27matplotlibpyplotpi line 369 gcf return figur file usrlibpymodulespython27matplotlibpyplotpi line 343 figur kwarg file usrlibpymodulespython27matplotlibbackendsbackendtkaggpi line 80 newfiguremanag window tktk file usrlibpython27libtktkinterpi line 1688 init selftk tkintercreatescreennam basenam classnam interact wantobject usetk sync use tclerror display name display environ variabl,N
+issue_closed,223,nilearn,nilearn,AlexandreAbraham,2014-09-15 12:54:57,nan,closed issue,Weird issue about no $DISPLAY (test_img_plot.py). Or maybe it's a private bug ?,nan,N
+issue_comment,223,nilearn,nilearn,dohmatob,2014-07-01 16:06:55,"This error was reported by travis on PR #219
+",nan,nan,thi error report travi PR 219,Y
+issue_comment,223,nilearn,nilearn,GaelVaroquaux,2014-07-01 16:06:55,"Yes, you need an X server. Our new pull request should solve this
+problem, hopefully, via a bit of woodoo magic.
+
+G
+
+On Tue, Jul 01, 2014 at 09:05:48AM -0700, dohmatob elvis dopgima wrote:
+
+> Traceback (most recent call last):
+> File ""/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/
+> python2.7/site-packages/nose/case.py"", line 197, in runTest
+> self.test(_self.arg)
+> File ""/home/travis/build/nilearn/nilearn/nilearn/plotting/test/
+> test_slicers.py"", line 27, in test_demo_ortho_slicer
+> pl.clf()
+> File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 443, in clf
+> gcf().clf()
+> File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 369, in gcf
+> return figure()
+> File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 343, in figure
+> *_kwargs)
+> File ""/usr/lib/pymodules/python2.7/matplotlib/backends/backend_tkagg.py"", line
+> 80, in new_figure_manager
+> window = Tk.Tk()
+> File ""/usr/lib/python2.7/lib-tk/Tkinter.py"", line 1688, in init
+> self.tk = _tkinter.create(screenName, baseName, className, interactive,
+> wantobjects, useTk, sync, use)
+> TclError: no display name and no $DISPLAY environment variable
+> 
+> —
+> Reply to this email directly or view it on GitHub.*
+
+## 
+
+```
+Gael Varoquaux
+Researcher, INRIA Parietal
+Laboratoire de Neuro-Imagerie Assistee par Ordinateur
+NeuroSpin/CEA Saclay , Bat 145, 91191 Gif-sur-Yvette France
+Phone:  ++ 33-1-69-08-79-68
+http://gael-varoquaux.info            http://twitter.com/GaelVaroquaux
+```
+",nan,nan,ye need X server our new pull request solv problem hope via bit woodoo magic G On tue jul 01 2014 090548am 0700 dohmatob elvi dopgima wrote,N
+issue_comment,223,nilearn,nilearn,GaelVaroquaux,2014-07-01 16:07:45,"> This error was reported by travis on PR #219
+
+That means that we need to merge our PR. Do you want to have a go
+reviewing it? I can work on it on the train tomorrow.
+",nan,nan,that mean need merg PR Do want go review I work train tomorrow,N
+issue_comment,223,nilearn,nilearn,dohmatob,2014-07-01 16:12:09,"Yeah I'd already seen the ""no back-end / switch backend use(""svg"") /
+use('Agg') ""  fix(es). Cool. Yeah, I can review it at home. See you.
+
+On Tue, Jul 1, 2014 at 6:07 PM, Gael Varoquaux notifications@github.com
+wrote:
+
+> > This error was reported by travis on PR #219
+> 
+> That means that we need to merge our PR. Do you want to have a go
+> reviewing it? I can work on it on the train tomorrow.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/223#issuecomment-47675817.
+
+## 
+
+DED
+",nan,nan,yeah Id alreadi seen backend switch backend usesvg useagg fix cool yeah I review home see On tue jul 1 2014 607 PM gael varoquaux notificationsgithubcom wrote ded,N
+issue_comment,223,nilearn,nilearn,AlexandreAbraham,2014-09-15 12:54:57,"Seems to be fixed.
+",nan,nan,seem fix,N

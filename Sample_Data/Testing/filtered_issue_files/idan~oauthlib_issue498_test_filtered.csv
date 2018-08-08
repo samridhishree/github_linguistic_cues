@@ -1,0 +1,42 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,498,idan,oauthlib,ViktorHaag,2017-10-27 16:03:48,"This pull incorporates changes from PR #388 as it appears orphaned.
+
+I cleaned up the comments for the HMAC-SHA256 signing method, and added tests for the SHA1 and SHA256 signing methods (I verified the signature generation code against node's `oauth-1.0a` and `crypto` modules, to be satisfied that the test signature values were valid).",start issue,Add support for HMAC-SHA256 (builds on PR#388),thi pull incorpor chang PR 388 appear orphan I clean comment hmacsha256 sign method ad test sha1 sha256 sign method I verifi signatur gener code node modul satisfi test signatur valu valid,N
+issue_closed,498,idan,oauthlib,thedrow,2017-11-14 15:44:45,nan,closed issue,Add support for HMAC-SHA256 (builds on PR#388),nan,N
+pull_request_title,498,idan,oauthlib,ViktorHaag,2017-10-27 16:03:48,"This pull incorporates changes from PR #388 as it appears orphaned.
+
+I cleaned up the comments for the HMAC-SHA256 signing method, and added tests for the SHA1 and SHA256 signing methods (I verified the signature generation code against node's `oauth-1.0a` and `crypto` modules, to be satisfied that the test signature values were valid).",be7d482a5d5696ea8aa468dc8f31a0188bc74033,Add support for HMAC-SHA256 (builds on PR#388),thi pull incorpor chang PR 388 appear orphan I clean comment hmacsha256 sign method ad test sha1 sha256 sign method I verifi signatur gener code node modul satisfi test signatur valu valid,N
+pull_request_merged,498,idan,oauthlib,thedrow,2017-11-14 15:44:45,Add support for HMAC-SHA256 (builds on PR#388),cfb82feb03fcd60b3b66ac09bf1b478cd5f11b7d,Pull request merge from ViktorHaag/oauthlib:hmac-sha256 to idan/oauthlib:master,add support hmacsha256 build pr388,N
+issue_comment,498,idan,oauthlib,lepture,2017-10-27 17:44:45,"Actually there is a way to register your own signature method.
+https://github.com/idan/oauthlib/blob/master/oauthlib/oauth1/rfc5849/__init__.py#L52
+
+This **HMAC-SHA256** is not a part of the specification in RFC. This patch should not be included in this repo.",nan,nan,actual way regist signatur method thi hmacsha256 part specif rfc thi patch includ repo,N
+issue_comment,498,idan,oauthlib,thedrow,2017-11-14 15:44:36,"I have given this some thought.
+I don't see the harm in providing this implementation to our users.
+It's a pretty common usecase.",nan,nan,I given thought I dont see harm provid implement user it pretti common usecas,N
+issue_comment,498,idan,oauthlib,thedrow,2017-11-14 15:45:34,"Thank you @ViktorHaag @mick88 
+Feel free to add yourselves to the AUTHORS file.
+
+@lepture If you strongly disagree let's chat about this over email.
+We can always revert before making a new release.",nan,nan,thank viktorhaag mick88 feel free add author file leptur If strongli disagre let chat email We alway revert make new releas,N
+pull_request_commit_comment,498,idan,oauthlib,lepture,2017-10-27 17:41:27,There is no such thing in RFC5849.,be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')",there thing rfc5849,N
+pull_request_commit_comment,498,idan,oauthlib,ViktorHaag,2017-10-27 18:21:43,"Agreed. Note that my comment didn't claim it was in RFC5849, but defined in RFC4634 (as one of the suite of accepted Secure Hash Algorithms beyond SHA-1).
+
+I took 5849's provision of three signature methods as _not exclusive_. In section 3.4, it says ""OAuth _does not mandate_ a particular signature method"" (my emphasis), and so it seems useful, with little harm, to add support for SHA2-family signing methods.
+
+If the maintainers would prefer to have clients add support for more modern signing methods via extension, rather than provided in the library, I can understand that decision. I would have thought having the support in-library would at least help clients ensure consistency, but it's clearly not my decision.",be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')",agre note comment didnt claim rfc5849 defin rfc4634 one suit accept secur hash algorithm beyond sha1 I took 5849 provis three signatur method exclus In section 34 say oauth mandat particular signatur method emphasi seem use littl harm add support sha2famili sign method If maintain would prefer client add support modern sign method via extens rather provid librari I understand decis I would thought support inlibrari would least help client ensur consist clearli decis,N
+pull_request_commit_comment,498,idan,oauthlib,lepture,2017-10-27 18:43:48,"@ViktorHaag See my comment. There is a register function to extend signature methods. The folder is named as rfc5849, things beyond this scope should not be included.
+
+cc @thedrow @ib-lundgren ",be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')",viktorhaag see comment there regist function extend signatur method the folder name rfc5849 thing beyond scope includ cc thedrow iblundgren,N
+pull_request_commit_comment,498,idan,oauthlib,ViktorHaag,2017-10-27 19:14:35,"Yes, I understand your point. I had assumed from the comments in #388, that the blocking factor here was a lack of testing and documentation, and not the idea in the first place. It was or that reason that I decided to help by ""finishing"" the original PR. If the maintainer group would prefer not to include it, that's fine: I'm glad there is a way to extend the package usefully.",be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')",ye I understand point I assum comment 388 block factor lack test document idea first place It reason I decid help finish origin PR If maintain group would prefer includ that fine Im glad way extend packag use,Y
+pull_request_commit,498,idan,oauthlib,mick88,2015-08-31 13:44:13,Add support for HMAC-SHA256,9d8b4329cc223982ac72b987789178064f858db5,nan,add support hmacsha256,N
+pull_request_commit,498,idan,oauthlib,mick88,2015-08-31 13:59:38,"Add explicit declaration of HMAC-SHA1 and point HMAC at it
+
+To avoid confusion, HMAC constant name should explicitly state which SHA variant is used, but for backwards compatibility, SIGNATURE_HMAC is still needed",ab1b728a50b86a786247559fb423d01260dd438c,nan,add explicit declar hmacsha1 point hmac To avoid confus hmac constant name explicitli state sha variant use backward compat signaturehmac still need,N
+pull_request_commit,498,idan,oauthlib,mick88,2015-08-31 14:09:04,Merge branch 'hmac-sha256',6edc359c8fab227eff8d2b34521bff7409d48e55,nan,merg branch hmacsha256,N
+pull_request_commit,498,idan,oauthlib,ViktorHaag,2017-10-26 15:20:46,Merge branch 'master' of https://github.com/idan/oauthlib,d27af15e098ed29cca5c234cf99fd447658999cb,nan,merg branch master,N
+pull_request_commit,498,idan,oauthlib,ViktorHaag,2017-10-27 15:58:05,add support for HMAC-SHA256 including tests and comments,b9c647087377b5dd2411fc9f7e72ebbb0a82fd86,nan,add support hmacsha256 includ test comment,N
+pull_request_commit,498,idan,oauthlib,ViktorHaag,2017-10-27 15:58:55,Merge branch 'master' of https://github.com/idan/oauthlib,c5f8e91b62dab6a213c671aebf4e384f64b43970,nan,merg branch master,N
+pull_request_commit,498,idan,oauthlib,ViktorHaag,2017-10-27 15:59:11,Merge branch 'master' into hmac-sha256,b457f88aad6c1b01021369cc8b8b357ab13e3917,nan,merg branch master hmacsha256,N
+pull_request_commit,498,idan,oauthlib,ViktorHaag,2017-10-27 17:11:27,constructor tests verify client built with correct signer method,be7d482a5d5696ea8aa468dc8f31a0188bc74033,nan,constructor test verifi client built correct signer method,N

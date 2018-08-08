@@ -1,0 +1,90 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1284,nilearn,nilearn,Joaoloula,2016-09-20 08:27:12,"Work needed on examples and documentation. We could also consider adding other measures of similarity (ICC, mutual information).
+",start issue,[WIP] Adding Jaccard index for computing atlas similarity,work need exampl document We could also consid ad measur similar icc mutual inform
+issue_closed,1284,nilearn,nilearn,AlexandreAbraham,2016-10-31 16:04:18,,closed issue,[WIP] Adding Jaccard index for computing atlas similarity,
+pull_request_title,1284,nilearn,nilearn,Joaoloula,2016-09-20 08:27:12,"Work needed on examples and documentation. We could also consider adding other measures of similarity (ICC, mutual information).
+",eaa9684f12f18e2ec36e0aed1d6c07389123e8c0,[WIP] Adding Jaccard index for computing atlas similarity,work need exampl document We could also consid ad measur similar icc mutual inform
+pull_request_merged,1284,nilearn,nilearn,AlexandreAbraham,2016-10-31 16:04:18,[WIP] Adding Jaccard index for computing atlas similarity,eaa9684f12f18e2ec36e0aed1d6c07389123e8c0,Pull request merge from Joaoloula/nilearn:jaccard_index to nilearn/nilearn:master,wip ad jaccard index comput atla similar
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 08:44:51,"Jaccard similarity is already in scikit-learn:
+http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html
+
+Overall, this kind of functionality, not strictly neuroimaging related, lives more in scikit-learn than nilearn.
+
+What may be useful could be to add a function to do matching of 2 sets of maps, using sklearn.utils.linear_assignment. It should also be added to a nilearn example, for instance at the end of http://nilearn.github.io/auto_examples/03_connectivity/plot_compare_resting_state_decomposition.html, to plot the same map for both ICA and dict-learning.
+",,,jaccard similar alreadi scikitlearn overal kind function strictli neuroimag relat live scikitlearn nilearn what may use could add function match 2 set map use sklearnutilslinearassign It also ad nilearn exampl instanc end plot map ica dictlearn
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 08:56:08,"I won't accept this in nilearn unless it comes with clear neuroimaging
+applications. Everything in nilearn should solve a brain-research
+problem.
+
+What's the problem that you are trying to solve?
+",,,I wont accept nilearn unless come clear neuroimag applic everyth nilearn solv brainresearch problem what problem tri solv
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:00:20,"> ```
+> What's the problem that you are trying to solve?
+> ```
+> 
+> Having a similarity score between two sets of brain maps with
+> continuous values and possible overlaps.
+
+No, that's a formal problem. In what application setting? What the
+'brain' question?
+",,,No that formal problem In applic set what brain question
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:21:20,"You don't have to convince me it is useful, I am convinced. You have to
+put it in a way that non technical users can use it, understand how and
+why.
+
+Nilearn targets people who are not computer scientists. If we cannot
+demonstrate how some piece of code makes their life better, it does not
+enter nilearn.
+",,,you dont convinc use I convinc you put way non technic user use understand nilearn target peopl comput scientist If cannot demonstr piec code make life better enter nilearn
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:40:45,"Yes, but just giving them a metric won't help them solve their problem.
+They need more. It's like giving people a showel when they want to build
+a house.
+
+Once again: either you can do a convincing example, or it does not go
+into nilearn. Without a convincing example, it either won't be used, or
+we'll keep getting questions on how to use it.
+
+That's a clear and important rule of nilearn: anything that goes in must
+produce an example that is relevant for brain imaging, even for people
+who are not computer scientists.
+",,,ye give metric wont help solv problem they need it like give peopl showel want build hous onc either convinc exampl go nilearn without convinc exampl either wont use well keep get question use that clear import rule nilearn anyth goe must produc exampl relev brain imag even peopl comput scientist
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 12:08:51,"OK. Make sure that the example runs fast enough. Maybe limit yourself to
+6 subjects, and make 2 different sub-groups of 5 subjects, with only 10
+components.
+
+To make an example that is easy to follow, I think that you need
+something higher level than just the Jaccard index. It's too low level,
+and will lead to a lot of numpy code in the example. Maybe a function
+that take 2 set of maps, returns a reordered version and a list of
+similarities.
+",,,OK make sure exampl run fast enough mayb limit 6 subject make 2 differ subgroup 5 subject 10 compon To make exampl easi follow I think need someth higher level jaccard index it low level lead lot numpi code exampl mayb function take 2 set map return reorder version list similar
+issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-10-31 18:44:25,"> Merged #1284.
+
+Not happy
+",,,not happi
+issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 08:54:02,"> Jaccard similarity is already in scikit-learn:
+> http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html
+
+Scikit-learn implements the Jaccard Index in the specific setting of measuring clustering similarity. Here we have a fuzzy extension of the measure that will probably not be accepted in sklearn because there is no ""best"" way to make this extension. In particular, people in neuroimaging tend to use extensions that do not rely on linear assignment of the regions, see _Generalized Overlap Measures for Evaluation and
+Validation in Medical Image Analysis_ (Crum 2006)
+",,,scikitlearn implement jaccard index specif set measur cluster similar here fuzzi extens measur probabl accept sklearn best way make extens In particular peopl neuroimag tend use extens reli linear assign region see gener overlap measur evalu valid medic imag analysi crum 2006
+issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 08:58:38,"> What's the problem that you are trying to solve?
+
+Having a similarity score between two sets of brain maps with continuous values and possible overlaps.
+",,,have similar score two set brain map continu valu possibl overlap
+issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 09:07:08,"I'd argue one of the main interests is a matter of reproducibility; we could introduce an example in which we split a dataset and build atlases from each of the splits and compare their similarity (the brain question being: are the regions we're learning serving actual stable and interesting neuroscientific purposes or are they just an artifact of the specific subset we looked at?)
+",,,Id argu one main interest matter reproduc could introduc exampl split dataset build atlas split compar similar brain question region learn serv actual stabl interest neuroscientif purpos artifact specif subset look
+issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 09:36:53,"So! People here wants to assess the _reliability_ of methods extracting resting state networks. They define _reliability_ as the ability to extract similar brain atlases on test-retest sessions. In particular, most of them want to compare ICA to their approach. This is what I understood!
+",,,So peopl want assess reliabl method extract rest state network they defin reliabl abil extract similar brain atlas testretest session In particular want compar ica approach thi I understood
+issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 10:07:00,"I think the following example is quite didactic: in the spirit of 8.4.7, we take ADHD and we split it in two. We then create atlases for both splits using CanICA and Dictionary Learning. Finally, we compute two Jaccard indexes: one between the CanICA atlases and one between the DictLearning atlases, to compare replicability between methods. The narrative would explain that we want our methods to be not only valid, but also replicable, and would give an intuitive explanation of the index.
+",,,I think follow exampl quit didact spirit 847 take adhd split two We creat atlas split use canica dictionari learn final comput two jaccard index one canica atlas one dictlearn atlas compar replic method the narr would explain want method valid also replic would give intuit explan index
+issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 11:53:28,"A rough idea of the example: http://bit.ly/2cVX1Hh
+",,,A rough idea exampl
+issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 14:17:25,"Simplified example (with 10 subjects because the atlas using 6 subjects were just too ugly): http://bit.ly/2cVX1Hh. I think it's reasonably high-level and light on numpy code (most of the example is just _getting_ the atlases, which is quite a standard analysis, and computing the jaccard indexes is done in one line).
+
+I really like the idea of comparing two atlases map by map and trying to find a one-to-one correspondence, and I believe a lot of people would be interested in it. However, it seems to me like a significantly different question than just measuring similarity between atlases, shouldn't we leave it to another PR?
+",,,simplifi exampl 10 subject atla use 6 subject ugli I think reason highlevel light numpi code exampl get atlas quit standard analysi comput jaccard index done one line I realli like idea compar two atlas map map tri find onetoon correspond I believ lot peopl would interest howev seem like significantli differ question measur similar atlas shouldnt leav anoth PR
+issue_comment,1284,nilearn,nilearn,Joaoloula,2016-11-01 11:33:51,"Sorry about that, totally my fault: I got mixed up with the working branch for the other PR and it ended up pushing this one, since the changes had been reverted I didn't think it would change anything. I didn't know this would get automatically merged as well. I'll create new, clean PRs.
+",,,sorri total fault I got mix work branch PR end push one sinc chang revert I didnt think would chang anyth I didnt know would get automat merg well ill creat new clean pr
+pull_request_commit,1284,nilearn,nilearn,Joaoloula,2016-09-20 08:26:29,added jaccard index and jaccard distance functions to nilearn.connectome,eaa9684f12f18e2ec36e0aed1d6c07389123e8c0,,ad jaccard index jaccard distanc function nilearnconnectom

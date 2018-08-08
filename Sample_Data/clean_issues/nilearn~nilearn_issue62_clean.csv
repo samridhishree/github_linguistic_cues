@@ -1,0 +1,60 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,62,nilearn,nilearn,pgervais,2013-05-27 09:29:01,"The memory usage of resample_img() has been reduced, by removing usage of the infamous numpy.concatenate function. The resulting function is also very slightly faster (5%). 
+
+The overall function structure hase been clarified. Some tests for error handling in resample_img() have been added as well.
+",start issue,Optimization of resample_img(),the memori usag resampleimg reduc remov usag infam numpyconcaten function the result function also slightli faster 5 the overal function structur hase clarifi some test error handl resampleimg ad well
+issue_closed,62,nilearn,nilearn,pgervais,2013-05-28 13:39:52,,closed issue,Optimization of resample_img(),
+pull_request_title,62,nilearn,nilearn,pgervais,2013-05-27 09:29:01,"The memory usage of resample_img() has been reduced, by removing usage of the infamous numpy.concatenate function. The resulting function is also very slightly faster (5%). 
+
+The overall function structure hase been clarified. Some tests for error handling in resample_img() have been added as well.
+",597894a02778c154fb31153666ac0a5db6b64826,Optimization of resample_img(),the memori usag resampleimg reduc remov usag infam numpyconcaten function the result function also slightli faster 5 the overal function structur hase clarifi some test error handl resampleimg ad well
+pull_request_merged,62,nilearn,nilearn,pgervais,2013-05-28 13:39:52,Optimization of resample_img(),3ae698d3a3c997d7a716990474d963c7ae6a09f5,Pull request merge from pgervais/nilearn:resampling_opt to nilearn/nilearn:master,optim resampleimg
+issue_comment,62,nilearn,nilearn,pgervais,2013-05-27 12:25:30,"The last commit fixed all issues raised. I didn't add the ""copy"" argument to check_niimg() though, because it would have led to an unused copy in most cases. In fact, the keyword has only an effect for no-op cases. When a resampling has to be performed for real, a copy in always made (this is by design and cannot be changed).
+
+Code coverage is now 100% for nisl.resampling.
+",,,the last commit fix issu rais I didnt add copi argument checkniimg though would led unus copi case In fact keyword effect noop case when resampl perform real copi alway made design cannot chang code coverag 100 nislresampl
+pull_request_commit_comment,62,nilearn,nilearn,GaelVaroquaux,2013-05-27 10:32:33,"This is not garantied to induce a copy:
+
+<pre>
+In [11]: a = np.zeros((10, 10, 10))
+
+In [12]: af = np.identity(4)
+
+In [13]: niimg = nibabel.Nifti1Image(a, af)
+
+In [16]: data = niimg.get_data()
+
+In [17]: data2 = niimg.get_data()
+
+In [18]: np.may_share_memory(data, data2)
+Out[18]: True
+</pre>
+
+
+Of course, if the input niimg was a file name this copy is irrelevant. This is why I think that it is of high priority to add a ""copy"" keyword argument to check_niimg.
+",597894a02778c154fb31153666ac0a5db6b64826,"(None, '', u'nisl/resampling.py')",thi garanti induc copi prein 11 npzeros10 10 10 In 12 af npidentity4 In 13 niimg nibabelnifti1imagea af In 16 data niimggetdata In 17 data2 niimggetdata In 18 npmaysharememorydata data2 out18 true pre Of cours input niimg file name copi irrelev thi I think high prioriti add copi keyword argument checkniimg
+pull_request_commit_comment,62,nilearn,nilearn,GaelVaroquaux,2013-05-27 10:35:19,"Very cool!
+",597894a02778c154fb31153666ac0a5db6b64826,"(None, '', u'nisl/resampling.py')",veri cool
+pull_request_commit_comment,62,nilearn,nilearn,pgervais,2013-05-27 11:00:39,"True. I already did this mistake before. I'll add the ""copy"" keyword argument asap.
+",597894a02778c154fb31153666ac0a5db6b64826,"(None, '', u'nisl/resampling.py')",true I alreadi mistak ill add copi keyword argument asap
+pull_request_commit_comment,62,nilearn,nilearn,AlexandreAbraham,2013-05-27 11:09:18,"Indeed ! I did not knew this one.
+",597894a02778c154fb31153666ac0a5db6b64826,"(None, '', u'nisl/resampling.py')",inde I knew one
+pull_request_commit_comment,62,nilearn,nilearn,pgervais,2013-05-27 11:31:07,"I didn't either a few hours ago :-)
+",597894a02778c154fb31153666ac0a5db6b64826,"(None, '', u'nisl/resampling.py')",I didnt either hour ago
+pull_request_commit,62,nilearn,nilearn,pgervais,2013-05-23 11:10:55,Small fix in resampling test.,5674a7099e8c46c849b934e851536065ce5ba59b,,small fix resampl test
+pull_request_commit,62,nilearn,nilearn,pgervais,2013-05-24 11:43:09,"Cleanup in resample_img.
+
+Added tests, reorganized code in resample_img.",718df52c79e93904db3ac6e326512d1a5c6942d3,,cleanup resampleimg ad test reorgan code resampleimg
+pull_request_commit,62,nilearn,nilearn,pgervais,2013-05-27 09:18:43,"Optimized memory usage for resample_img()
+
+The original resample_img used np.concatenate, which caused the memory usage
+to double shortly before leaving the function. This is not the case anymore.
+
+The execution time is slightly shorter (of the order of 5%).
+
+Added an ""order"" keyword to resample_img.",b0394007e741b6a1adbc4cc2665ee86a342afda6,,optim memori usag resampleimg the origin resampleimg use npconcaten caus memori usag doubl shortli leav function thi case anymor the execut time slightli shorter order 5 ad order keyword resampleimg
+pull_request_commit,62,nilearn,nilearn,pgervais,2013-05-27 12:21:17,"""copy"" kwarg in resample_img works in all cases
+
+In some no-op cases, the ""copy"" keyword did nothing.
+Added some tests cases. 100% test coverage for nisl.resampling.",597894a02778c154fb31153666ac0a5db6b64826,,copi kwarg resampleimg work case In noop case copi keyword noth ad test case 100 test coverag nislresampl

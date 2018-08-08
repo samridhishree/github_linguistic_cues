@@ -11,13 +11,27 @@ import cPickle as pickle
 import pandas as pd
 from collections import defaultdict
 from datetime import datetime
-
+import argparse
 
 csv.field_size_limit(sys.maxsize)
 
-filtered_issue_dir = sys.argv[1]
-output_dir = sys.argv[2]
-project_burst_pickle = sys.argv[3]
+parser = argparse.ArgumentParser()
+parser.add_argument('--filtered_issue_dir', help='Directory contianing issue threads that have comments related to the Testing tag', 
+                default='Sample_Data/Testing/filtered_issue_files/')
+parser.add_argument('--output_dir', help='The directory containing burst-wise filtered issue threads. (Issues in the burst that are potentially valid for testing', 
+                default='Sample_Data/Testing/burst_filtered_issues/')
+parser.add_argument('--project_burst_pickle', help='Pickle containing the project bursts', 
+                default='Sample_Data/hmm_bursts.pickle')
+args, unknown = parser.parse_known_args()
+
+filtered_issue_dir = args.filtered_issue_dir
+output_dir = args.output_dir
+project_burst_pickle = args.project_burst_pickle
+
+try:
+    os.makedirs(output_dir)
+except:
+    pass
 
 burst_dict = pickle.load(open(project_burst_pickle, 'rb'))
 projects = burst_dict.keys()
@@ -76,12 +90,16 @@ Extract issues that were either opened or closed during the bursty period
 def ExtractAndStoreIssues(bursts, project_name):
 	pattern = filtered_issue_dir + '*' + project_name + '_issue*.csv'
 	issue_files = glob.glob(pattern)
-
+	if len(issue_files) == 0:
+		return
+	
 	#Get the correct issues with appropriate start and end times
+	print "Processing for project : ", project
 	valid_issues = defaultdict(list)
 	formatted_bursts = FormatBurstTimeInterval(bursts)
 	for file in issue_files:
 		issue = pd.read_csv(file)#, names=colnames, header=None)
+		issue = issue[issue['time'] != 'time']
 		issue.fillna('', inplace=True)
 		start = issue.loc[issue['action'] == 'start issue']
 		close = issue.loc[issue['action'] == 'closed issue']
@@ -118,7 +136,6 @@ def ExtractAndStoreIssues(bursts, project_name):
 # projects = ['rackspace~pyrax', 'darklow~django-suit', 'pazz~alot', 'aio-libs~aioredis', 'idan~oauthlib',\
 # 'jtriley~StarCluster', 'plone~plone.dexterity', 'darklow~django-suit']
 for project in projects:
-	print "Processing for project : ", project
 	burst = burst_dict[project]
 	ExtractAndStoreIssues(burst, project)
 

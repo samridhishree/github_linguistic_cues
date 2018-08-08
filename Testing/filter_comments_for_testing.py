@@ -7,12 +7,25 @@ import sys
 import csv
 import pandas as pd
 from nltk.stem import PorterStemmer
-
+import argparse
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-clean_issue_dir = sys.argv[1]
-output_dir = sys.argv[2]
+parser = argparse.ArgumentParser()
+parser.add_argument('--clean_issue_dir', help='The directory containing cleaned issue threads', 
+                default='Sample_Data/clean_issues/')
+parser.add_argument('--output_dir', help='Directory contianing issue threads that have comments related to the Testing tag', 
+                default='Sample_Data/Testing/filtered_issue_files/')
+args, unknown = parser.parse_known_args()
+
+clean_issue_dir = args.clean_issue_dir
+output_dir = args.output_dir
+
+try:
+    os.makedirs(output_dir)
+except Exception as e:
+    print e
+    pass
 
 # Get the stemmed versions of all the keywords to search
 keywords = ['test', 'coveralls', 'travis', 'codecov-io', 'travisci']

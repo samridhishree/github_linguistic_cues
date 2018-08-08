@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,846,nilearn,nilearn,dohmatob,2015-11-20 02:20:06,"`nilearn.decomposition.multi_pca.session_pca` seems to be a very low-level helper function (undocumented params, etc.)
+",start issue,session_pca function should be private / protected,seem lowlevel helper function undocu param etc
+issue_closed,846,nilearn,nilearn,lesteve,2015-11-20 09:40:02,,closed issue,session_pca function should be private / protected,
+issue_comment,846,nilearn,nilearn,lesteve,2015-11-20 09:40:02,"> See PR #693, it will be refactored
+
+That's what I kind of thought, closing.
+",,,that I kind thought close

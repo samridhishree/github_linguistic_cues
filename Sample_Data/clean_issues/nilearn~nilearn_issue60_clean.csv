@@ -1,0 +1,31 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,60,nilearn,nilearn,bthirion,2013-05-23 21:30:55,"I took a look at the test: actually the ICA estimate of the ICs is really poor: it fails to recover the components, and actually gets linear combinations of these (meaning that the failure is related to the ICA part). The initial test is quite robust to this effect, but not enough, at least on my box.
+Using
+
+rng = np.random.RandomState(1)
+
+in the test solves the issue on my box, but I don't find it satisfactory.
+Possible solutions are:
+- test that the right subspace is recovered (instead of the right components)
+- Make the fit more robust, by breaking the symmetry of the components (seems to work on my box).
+",start issue,test_canica_square_img fails randomly,I took look test actual ica estim ic realli poor fail recov compon actual get linear combin mean failur relat ica part the initi test quit robust effect enough least box use rng nprandomrandomstate1 test solv issu box I dont find satisfactori possibl solut test right subspac recov instead right compon make fit robust break symmetri compon seem work box
+issue_closed,60,nilearn,nilearn,GaelVaroquaux,2013-06-10 17:15:13,,closed issue,test_canica_square_img fails randomly,
+issue_comment,60,nilearn,nilearn,GaelVaroquaux,2013-05-23 21:36:53,"> I took a look at the test: actually the ICA estimate of the ICs is
+> really poor: it fails to recover the components, and actually gets
+> linear combinations of these (meaning that the failure is related to
+> the ICA part). 
+
+Yeah, ICA is crap...
+
+>   • test that the right subspace is recovered (instead of the right components)
+
+That's not really what we would like.
+
+>   • Make the fit more robust, by breaking the symmetry of the
+>   components (seems to work on my box).
+
+This seems like a good thing to attempt.
+",,,yeah ica crap that realli would like thi seem like good thing attempt
+issue_comment,60,nilearn,nilearn,GaelVaroquaux,2013-06-10 17:15:13,"Closing as fixed by PR #61
+",,,close fix PR 61

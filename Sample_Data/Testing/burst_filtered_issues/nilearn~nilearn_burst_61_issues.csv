@@ -1,0 +1,318 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,758,nilearn,nilearn,MartinPerez,2015-08-08 17:02:59,"@GaelVaroquaux I added the fetch_atlas_aal function following example from the other atlas downloaded as requested in #706 
+
+For now I implemented the download of the SPM12 version, any other SPM version would require to hardcode reference to a lot matlab files. I dont know if this would actually be useful for the users, but can implement it if you want. What do you think?
+",start issue,added aal atlas download and updated reference.rst,gaelvaroquaux I ad fetchatlasa function follow exampl atla download request 706 for I implement download spm12 version spm version would requir hardcod refer lot matlab file I dont know would actual use user implement want what think,N,2015-08-21 11:58:45
+3,pull_request_title,758,nilearn,nilearn,MartinPerez,2015-08-08 17:02:59,"@GaelVaroquaux I added the fetch_atlas_aal function following example from the other atlas downloaded as requested in #706 
+
+For now I implemented the download of the SPM12 version, any other SPM version would require to hardcode reference to a lot matlab files. I dont know if this would actually be useful for the users, but can implement it if you want. What do you think?
+",490c0bba540405d888e9592b2bb07e0614642953,added aal atlas download and updated reference.rst,gaelvaroquaux I ad fetchatlasa function follow exampl atla download request 706 for I implement download spm12 version spm version would requir hardcod refer lot matlab file I dont know would actual use user implement want what think,N,2015-08-21 11:58:45
+5,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-09 20:10:01,"added test
+",,,ad test,Y,2015-08-17 11:40:32
+6,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-17 11:40:32,"@AlexandreAbraham I fixed all the comments, and about the naming I finally changed anat for maps, which i think follow the convention behind the other atlases.
+",,,alexandreabraham I fix comment name I final chang anat map think follow convent behind atlas,N,2015-08-17 11:41:45
+7,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-17 11:41:45,"I realized that when it comes to what to return there is no standard across atlases, some return directly a nibable.Niftiimage while others return the file name, with respect to labels, some just return a list while I am returning a dictionary... Should this be reported as an issue?
+",,,I realiz come return standard across atlas return directli nibableniftiimag other return file name respect label return list I return dictionari should report issu,N,2015-08-17 11:53:55
+8,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-17 11:53:55,"> about the naming I finally changed anat for maps
+
+This is misleading: your atlas cannot be trated by NiftiMapsMasker, it should be fed to NiftiLabelsMasker.
+
+> some return directly a nibable.Niftiimage while others return the file name
+
+When a Nifti1Image is returned, it is probably that some processing of the atlas was required. However, this doesn't matter as both are niimgs and can be processed by all nilearn functions.
+
+> some just return a list while I am returning a dictionary
+
+Well, a list can be seen as an ""int to string"" dictionary :P. I think that we should return dictionaries everywhere.
+
+> Should this be reported as an issue?
+
+Yes! We definitely need to harmonize the naming conventions and return types. However, I have no time to do it. Let's merge your PR and then solve the problem of the naming.
+",,,thi mislead atla cannot trate niftimapsmask fed niftilabelsmask when nifti1imag return probabl process atla requir howev doesnt matter niimg process nilearn function well list seen int string dictionari P I think return dictionari everywher ye We definit need harmon name convent return type howev I time let merg PR solv problem name,N,2015-08-17 14:49:57
+9,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-17 14:49:57,"sorry i didnt understand the first comment, so what should I name it finally?
+",,,sorri didnt understand first comment I name final,N,2015-08-17 22:02:45
+10,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-17 22:02:45,"I don't know.
+",,,I dont know,N,2015-08-18 20:30:23
+11,issue_comment,758,nilearn,nilearn,bthirion,2015-08-18 20:30:23,"Regarding the naming: maybe label_masks or multi_mask ?
+",,,regard name mayb labelmask multimask,N,2015-08-18 22:00:34
+12,issue_comment,758,nilearn,nilearn,bthirion,2015-08-18 22:00:34,"No other comment atm.
+",,,No comment atm,N,2015-08-19 09:31:59
+13,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-19 09:31:59,"I changed the import and the name to multi_mask then
+",,,I chang import name multimask,N,2015-08-19 10:39:39
+14,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-19 10:39:39,"For me, it's even worse. People will try to stick it into the MultiNiftiMasker and wonder why it doesn't work.
+",,,for even wors peopl tri stick multiniftimask wonder doesnt work,N,2015-08-19 10:42:28
+15,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-19 10:42:28,"@AlexandreAbraham  What if we use then something like ""regions"" and clarify in the documentation what people are supposed to do with the file?
+
+All these problems with the naming, seem to me like something coming from problems in conventions in the rest of the framework, I think this should be opened as another issue and will likely lead to renaming the output of other atlases.
+",,,alexandreabraham what use someth like region clarifi document peopl suppos file all problem name seem like someth come problem convent rest framework I think open anoth issu like lead renam output atlas,N,2015-08-19 10:48:43
+16,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-19 10:48:43,"Yes, any naming like ""atlas"", ""regions"" or even ""label_masks"" is fine with me. I just don't want it to collide with other maskers name. We'll change it afterward when we'll agree on the right vocabulary.
+",,,ye name like atla region even labelmask fine I dont want collid masker name well chang afterward well agre right vocabulari,N,2015-08-19 11:16:47
+17,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-19 11:16:47,"Ok the name is 'regions' now
+",,,Ok name region,N,2015-08-20 08:10:13
+18,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:10:13,"You have failing tests.
+",,,you fail test,Y,2015-08-20 08:19:57
+19,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:19:57,"Seems like your failing test is related to the test, which is normal because ot tries to load an empty XML file. Take a look at the harvard oxford fetch function: we create a dummy XML file to avoid this kind of crash.
+",,,seem like fail test relat test normal ot tri load empti xml file take look harvard oxford fetch function creat dummi xml file avoid kind crash,Y,2015-08-20 09:00:13
+20,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 09:00:13,"thank you for the tip @AlexandreAbraham, I think I fixed the test now following your advice.
+",,,thank tip alexandreabraham I think I fix test follow advic,Y,2015-08-20 11:31:39
+21,issue_comment,758,nilearn,nilearn,lesteve,2015-08-20 11:31:39,"It's getting there but you still have an error for Python 2.6 due to the fact that the `.iter` method is new in python 2.7. It looks like `.getiterator` although deprecated works for all the python versions we care about.
+",,,it get still error python 26 due fact method new python 27 It look like although deprec work python version care,N,2015-08-20 13:13:46
+22,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 13:13:46,"@lesteve thanks for the advice. The checks seem to be fine finally.
+",,,lestev thank advic the check seem fine final,N,2015-08-20 13:31:47
+23,issue_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:31:47,"Do we want to have fetch_atlas_aal_spm_12 exposed in `nilearn/datasets/__init__.py`?
+",,,Do want fetchatlasaalspm12 expos,N,2015-08-20 14:58:07
+24,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 14:58:07,"@lesteve I made the changes you pointed out, except for the description and exposing the function in `__init__`. I await your confirmation on what to do about that.
+",,,lestev I made chang point except descript expos function I await confirm,N,2015-08-20 15:06:56
+25,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 15:06:56,"Yes we want a description if possible (not mandatory, you can skip it or make it short), and yes it should be exposed like the others :).
+",,,ye want descript possibl mandatori skip make short ye expos like other,N,2015-08-20 15:26:36
+26,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 15:26:36,"ok exposed it and added the description file, but im not sure is snough to add aal_spm_12.rst to descriptions folder?
+",,,ok expos ad descript file im sure snough add aalspm12rst descript folder,N,2015-08-20 15:29:49
+27,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 15:29:49,"Yes it is. This line `fdescr = _get_dataset_descr(dataset_name)` does all the magic of loading it for you ;).
+",,,ye thi line magic load,N,2015-08-20 15:32:38
+28,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 15:32:38,"but what is the convention? yeo for example should be yeo_2011.rst but instead it is just yeo.rst ... well happy its done then :)
+",,,convent yeo exampl yeo2011rst instead yeorst well happi done,N,2015-08-20 15:33:52
+29,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 15:33:52,"> but what is the convention? yeo for example should be yeo_2011.rst but instead it is just yeo.rst ... well happy its done then :)
+
+Seems like an error to me...
+",,,seem like error,N,2015-08-21 06:46:51
+30,issue_comment,758,nilearn,nilearn,lesteve,2015-08-21 06:46:51,"> Seems like an error to me...
+
+Good catch, I just fixed it in master.
+",,,good catch I fix master,N,2015-08-21 08:14:43
+31,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-21 08:14:43,"I see, thanks @lesteve , done!
+",,,I see thank lestev done,N,2015-08-21 12:03:27
+49,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-11 12:18:41,"I mean actually loading the content of the XML file and provide a dictionnary associating the label id with the region name.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')",I mean actual load content xml file provid dictionnari associ label id region name,N,2015-08-18 22:00:02
+50,pull_request_commit_comment,758,nilearn,nilearn,bthirion,2015-08-18 22:00:02,"Maybe more simply: import xml.etree.ElementTree
+as this is used only once.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')",mayb simpli import xmletreeelementtre use,N,2015-08-20 13:24:24
+51,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:24:24,"Why not put that on a single line?
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')",whi put singl line,N,2015-08-20 13:24:54
+52,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:24:54,"It looks like you are only using `keys` once so I would remove the `keys` definition above and do:
+
+``` python
+params = {'descr': fdescr, 'regions': atlas_img, 'labels': labels_dict}
+```
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')",It look like use I would remov definit,N,2015-08-20 13:28:10
+53,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:28:10,"you can use a context manager here:
+
+``` python
+with open(os.path.join(ho_dir, 'AAL.xml'), 'w') as xml_file:
+    xml_file.write(...)
+```
+
+and the file will be closed at the exit of the block.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",use context manag file close exit block,N,2015-08-20 13:29:34
+54,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:29:34,"Would it make sense to add a description of the dataset in nilearn/datasets/description? All you need to do is add aal_spm_12.rst there I think.
+",490c0bba540405d888e9592b2bb07e0614642953,"(88, '', u'nilearn/datasets/atlas.py')",would make sens add descript dataset nilearndatasetsdescript all need add aalspm12rst I think,N,2015-08-20 13:34:20
+55,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 13:34:20,"Adding the atlas is @GaelVaroquaux  idea so im not sure what extra documentation is useful or desirable. I will add it if you want.
+",490c0bba540405d888e9592b2bb07e0614642953,"(88, '', u'nilearn/datasets/atlas.py')",ad atla gaelvaroquaux idea im sure extra document use desir I add want,N,2015-08-21 06:55:19
+60,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-09 20:08:19,added test for fetch_atlas_aal,9db10db27d9e75d0a12f9c2ef0d68ba023e64d16,,ad test fetchatlasa,N,2015-08-17 11:38:44
+61,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-17 11:38:44,"implemented multiple minor fixes, particularly returns dictionary of labels instead of reference to xml file",54ba1dc8b141e149eb535123d38d7a2379ff9140,,implement multipl minor fix particularli return dictionari label instead refer xml file,N,2015-08-19 09:31:14
+62,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-19 09:31:14,name and import corrections,7fe68cb57900ad5014082b28c1c1b38952d9ae5a,,name import correct,N,2015-08-19 11:15:52
+63,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-19 11:15:52,name changed to regions,b4e577d8da88ba5b3bcecc784cf8e13252c72583,,name chang region,N,2015-08-20 08:59:28
+64,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 08:59:28,fixed test. Included dummy xml file,ff43c4796882b1203d06044ba9f7710beaedcc49,,fix test includ dummi xml file,N,2015-08-20 10:48:35
+65,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 10:48:35,test fix,2d40415b7f3de5926ce2b268eca8dd9d2a5c661c,,test fix,N,2015-08-20 10:49:31
+66,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 10:49:31,test fix,5b10df8bcc4dddfbbd7cc6905a72c42935cc65e1,,test fix,N,2015-08-20 11:37:45
+67,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 11:37:45,getiterator fix for all python versions,f1b9b4424997064b16f4f8475325bd7eb7dd4bb5,,getiter fix python version,N,2015-08-20 14:56:31
+68,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 14:56:31,code style fixes,b282567cada395b44099011f4403fe200aceedbf,,code style fix,N,2015-08-20 15:25:36
+69,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 15:25:36,extra documentation,53b67bcf358406a7829681b63a5642896e92913b,,extra document,N,2015-08-20 15:40:14
+70,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 15:40:14,unicode correction,88450b2ed01868e6d0a920581fe68185f6c7c7b7,,unicod correct,N,2015-08-20 15:41:30
+71,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 15:41:30,unicode correction,915aab8c310436cfce967a585457b5bf396e5a65,,unicod correct,N,2015-08-20 18:43:48
+72,pull_request_commit,758,nilearn,nilearn,MartinPerez,2015-08-20 18:43:48,corrected a doc mistake,d0e64a2dd4fe223cc365dad27156818ae42eb2a9,,correct doc mistak,N,2015-08-21 08:13:49
+1,issue_title,738,nilearn,nilearn,AlexandreAbraham,2015-07-29 11:41:49,"Address #720 step 1.2, 1.3 and 3.1.
+
+The goal here is to establish a common basis for NiftiMasker, NiftiLabelsMasker and NiftiMapsMasker. There are a lot of advantages:
+- NiftiMasker features come for free in Nifti*Maskers (sessions and sample masks)
+- If we design it well, MultiNifti_Masker flavors will come for free for all Nifti_Maskers.
+- Code is slightly more complicated (very slightly actually) but much smaller, making maintenance and bug tracking easier.
+
+Steps done:
+- [x] Make `filter_and_mask` rely on `filter_and_extract`
+- [x] Make NiftiSpheresMasker rely on `filter_and_extract`
+- [x] Make `BaseMasker` more generic. NiftiLabelsMasker and NiftiMapsMasker should inherit from it.
+- [x] Make `MultiNiftiMasker` independant by inheriting `NiftiMasker`
+",start issue,[MRG] Use filter_and_extract as a basis signal extractor.,address 720 step 12 13 31 the goal establish common basi niftimask niftilabelsmask niftimapsmask there lot advantag niftimask featur come free niftimask session sampl mask If design well multiniftimask flavor come free niftimask code slightli complic slightli actual much smaller make mainten bug track easier step done x make reli x make niftispheresmask reli x make gener niftilabelsmask niftimapsmask inherit x make independ inherit,N,2015-08-21 06:28:02
+3,pull_request_title,738,nilearn,nilearn,AlexandreAbraham,2015-07-29 11:41:49,"Address #720 step 1.2, 1.3 and 3.1.
+
+The goal here is to establish a common basis for NiftiMasker, NiftiLabelsMasker and NiftiMapsMasker. There are a lot of advantages:
+- NiftiMasker features come for free in Nifti*Maskers (sessions and sample masks)
+- If we design it well, MultiNifti_Masker flavors will come for free for all Nifti_Maskers.
+- Code is slightly more complicated (very slightly actually) but much smaller, making maintenance and bug tracking easier.
+
+Steps done:
+- [x] Make `filter_and_mask` rely on `filter_and_extract`
+- [x] Make NiftiSpheresMasker rely on `filter_and_extract`
+- [x] Make `BaseMasker` more generic. NiftiLabelsMasker and NiftiMapsMasker should inherit from it.
+- [x] Make `MultiNiftiMasker` independant by inheriting `NiftiMasker`
+",546888b3495564218d5e443041441476084b316b,[MRG] Use filter_and_extract as a basis signal extractor.,address 720 step 12 13 31 the goal establish common basi niftimask niftilabelsmask niftimapsmask there lot advantag niftimask featur come free niftimask session sampl mask If design well multiniftimask flavor come free niftimask code slightli complic slightli actual much smaller make mainten bug track easier step done x make reli x make niftispheresmask reli x make gener niftilabelsmask niftimapsmask inherit x make independ inherit,N,2015-08-21 06:28:02
+8,issue_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-05 13:11:18,"Since master examples are broken, I pushed a 5-minutes crafted emergency patch. We may want to merge it fast.
+",,,sinc master exampl broken I push 5minut craft emerg patch We may want merg fast,N,2015-08-18 21:31:30
+9,issue_comment,738,nilearn,nilearn,bthirion,2015-08-18 21:31:30,"I have no further issue to raise on this PR. Should be good to merge.
+",,,I issu rais PR should good merg,N,2015-08-20 19:42:41
+10,issue_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 19:42:41,"@lesteve : doc fixed as requested. 
+",,,lestev doc fix request,N,2015-08-21 06:28:00
+27,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-06 08:00:37,"Good catch! Fixed.
+",546888b3495564218d5e443041441476084b316b,"(9, '', u'nilearn/signal.py')",good catch fix,N,2015-08-18 07:37:35
+28,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:37:35,"Usual stuff about niimg-like object? It looks like it may need to be 4D from a quick look at the code below as well, not sure.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",usual stuff niimglik object It look like may need 4D quick look code well sure,N,2015-08-18 07:38:43
+29,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:38:43,"This seems a bit fragile, maybe pass the class name as an additional optional parameter ?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",thi seem bit fragil mayb pass class name addit option paramet,N,2015-08-18 07:45:47
+30,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:45:47,"invalid**ate** the cache
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_masker.py')",invalid cach,N,2015-08-18 07:49:47
+31,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:49:47,"`-----` rather than `====` 
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",rather,N,2015-08-18 07:49:55
+32,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:49:55,"`-----` rather than `====` 
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",rather,N,2015-08-18 07:50:47
+33,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:50:47,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 07:52:00
+34,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:52:00,"slight niggle, I tend to prefer:
+
+``` python
+smoothing_fwhm = parameters.get('smoothing_fwhm')
+if smoothing_fwhm is not None:
+    ...
+```
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",slight niggl I tend prefer,N,2015-08-18 07:52:32
+35,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:52:32,"This function has been created precisely to avoid that.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",thi function creat precis avoid,N,2015-08-18 07:53:44
+36,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:53:44,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_masker.py')",fix,N,2015-08-18 07:58:37
+37,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:58:37,"I am not sure how enclosing_scope_name works but it feels like the magical stack_level set to 3 may not work for all cases since you don't have any idea how far away in the stack the class is.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",I sure enclosingscopenam work feel like magic stacklevel set 3 may work case sinc dont idea far away stack class,N,2015-08-18 08:03:38
+38,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:03:38,"You don't need None in this line and the line above, `{}.get('whatever')` returns None.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",you dont need none line line return none,N,2015-08-18 08:05:07
+39,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:05:07,"Returns is not documented
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",return document,N,2015-08-18 08:05:36
+40,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:05:36,"Maybe document shortly what the function takes as arguments and what it returns?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",mayb document shortli function take argument return,N,2015-08-18 08:07:23
+41,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:07:23,"is a 4D Niimg-like object not required here?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",4D niimglik object requir,N,2015-08-18 08:08:27
+42,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:08:27,"We tend to use triple double quotes reasonably consistently everywhere else for docstrings.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",We tend use tripl doubl quot reason consist everywher els docstr,N,2015-08-18 08:10:34
+43,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:10:34,"Is there a reason to use a list here rather than a generator?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",Is reason use list rather gener,N,2015-08-18 08:11:21
+44,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:11:21,"Both are used equally in nilearn. Please open an issue about that to harmonize.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",both use equal nilearn pleas open issu harmon,N,2015-08-18 08:13:02
+45,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:13:02,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 08:15:39
+46,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:15:39,"You mean that joblib magic inbetween can make this number bigger? I've raised it to 10.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",you mean joblib magic inbetween make number bigger ive rais 10,N,2015-08-18 08:16:23
+47,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:16:23,"memory_level missing from the ignore
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_masker.py')",memorylevel miss ignor,N,2015-08-18 08:17:47
+48,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:17:47,"Fixed
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 08:17:48
+49,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:17:48,"memory_level missing from the ignore
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",memorylevel miss ignor,N,2015-08-18 08:20:16
+50,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:20:16,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 08:21:42
+51,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:21:42,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 08:23:30
+52,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:23:30,"Yes, it's written below. I think that 3D niimg work too since it is converted to 4D with a single scan as last dimension.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",ye written I think 3D niimg work sinc convert 4D singl scan last dimens,N,2015-08-18 08:25:29
+53,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:25:29,"Yes, sorry, this is just a copy/paste from BaseMasker original code. I'll fix it.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",ye sorri copypast basemask origin code ill fix,N,2015-08-18 08:27:41
+54,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:27:41,"Bad habits.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",bad habit,N,2015-08-18 08:30:53
+55,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:30:53,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",fix,N,2015-08-18 08:32:51
+56,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:32:51,"should be NotImplementedError()
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",notimplementederror,N,2015-08-18 08:38:38
+57,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:38:38,"Why not put 4D it in the type then?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",whi put 4D type,N,2015-08-18 08:41:02
+58,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:41:02,"Returns not documented
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",return document,N,2015-08-18 08:41:44
+59,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:41:44,"Fixed
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 08:43:42
+60,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:43:42,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",fix,N,2015-08-18 08:44:22
+61,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:44:22,"AFAIK this is not something that we do in nilearn. But I added it. We should put it everywhere it matters.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",afaik someth nilearn but I ad We put everywher matter,N,2015-08-18 08:44:48
+62,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:44:48,"Undocumented returns.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",undocu return,N,2015-08-18 08:45:59
+63,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:45:59,"Just wondering whether you should not copy and paste the docstring from BaseMasker.transform_single_imgs here.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')",just wonder whether copi past docstr basemaskertransformsingleimg,N,2015-08-18 08:46:59
+64,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:46:59,"If yes, then it would need to be done for all other classes overriding transform_single_imgs
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')",If ye would need done class overrid transformsingleimg,N,2015-08-18 08:48:12
+65,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:48:12,"It should be done and customized regarding the special behavior of the class.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')",It done custom regard special behavior class,N,2015-08-18 11:06:01
+66,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 11:06:01,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')",fix,N,2015-08-18 13:58:37
+67,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 13:58:37,"Tests are failing because you removed this line ...
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",test fail remov line,Y,2015-08-18 14:00:47
+68,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 14:00:47,"That was obviously not volontary :P.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",that obvious volontari P,N,2015-08-18 20:12:19
+69,pull_request_commit_comment,738,nilearn,nilearn,banilo,2015-08-18 20:12:19,"perhaps use ""pooling function"" somewhere?
+",546888b3495564218d5e443041441476084b316b,"(60, '', u'nilearn/input_data/base_masker.py')",perhap use pool function somewher,N,2015-08-18 20:31:18
+70,pull_request_commit_comment,738,nilearn,nilearn,banilo,2015-08-18 20:31:18,"No simpler way possible?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",No simpler way possibl,N,2015-08-18 21:56:59
+71,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 21:56:59,"Suggestions welcome ;).
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",suggest welcom,N,2015-08-19 06:20:34
+72,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-19 06:20:34,"My suggestions:
+`return list(map(lambda x: x[0], data))`
+or
+`return [d[0] for d in data]]`
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",My suggest,N,2015-08-19 06:24:10
+73,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-19 06:24:10,"My preference goes to the first one because I like functional programming but I'm going for the second one.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')",My prefer goe first one I like function program Im go second one,N,2015-08-20 08:45:19
+74,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-20 08:45:19,"FYI I just checked the code and stack_level is not used when check_estimator=True (which it is by default) ...
+",546888b3495564218d5e443041441476084b316b,"(85, '', u'nilearn/input_data/base_masker.py')",fyi I check code stacklevel use checkestimatortru default,N,2015-08-20 08:47:05
+75,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-20 08:47:05,"what's the aux variable then?
+
+``` python
+region_signals, aux = cache(extraction_function, ...)
+```
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",what aux variabl,N,2015-08-20 08:48:48
+76,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:48:48,"Oh, I can remove it then :).
+",546888b3495564218d5e443041441476084b316b,"(85, '', u'nilearn/input_data/base_masker.py')",Oh I remov,N,2015-08-20 08:51:30
+77,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:51:30,"The `aux` variable is an additional result that can be provided. In NiftiLabelsMasker, it is used to get the loaded labels back from the extraction function to provide them to the user in the `labels_` property.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')",the variabl addit result provid In niftilabelsmask use get load label back extract function provid user properti,N,2015-08-20 09:17:01
+83,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-06 08:00:21,Add doc for sessions parameter,63da266aa28835dfdcb11d82212e414d77fd87fa,,add doc session paramet,N,2015-08-18 07:53:30
+84,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:53:30,Address comments,5e6b46818ba87dfe7872d08a092d46e7534cb5d5,,address comment,N,2015-08-18 08:26:49
+85,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:26:49,Fix docs.,b1741a58ce0b9bfc0668642eccb1971c300b4f1c,,fix doc,N,2015-08-18 08:31:37
+86,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:31:37,Address more comments,797051b2270029f51d3b20d44cfa128b4d11b56b,,address comment,N,2015-08-18 08:44:53
+87,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:44:53,Address more comments,32e926941bed6b296337b3efa4669517b0389f5e,,address comment,N,2015-08-18 08:47:07
+88,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:47:07,Address comments,3a87ca9054b26dcdfefc5d797ed0a39d0b73a4b4,,address comment,N,2015-08-18 11:05:41
+89,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 11:05:41,Fix doc,71806b088b16f4e29a5cbe7f262f3cf2e8820c23,,fix doc,N,2015-08-18 14:01:40
+90,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 14:01:40,Reverse line deletion.,660b25e228b34a4298af155fdab777583a3cd0bb,,revers line delet,N,2015-08-19 06:25:26
+91,pull_request_commit,738,nilearn,nilearn,AlexandreAbraham,2015-08-19 06:25:26,Simplify code,0c604251a0cc93b7d3292dbc1355065b1d8ad8e7,,simplifi code,N,2015-08-20 19:41:14
+3,issue_comment,763,nilearn,nilearn,aabadie,2015-10-15 14:29:40,"> To sum up the work to be done:
+> - Have check_niimg optionally use glob (and sort if using glob) (with the default being true)
+> - Have a constant at the level of nilearn.init to control this behavior
+> - Have a very clear error message if a glob returns an empty list, that explains what is going on, and > assumes that the user might have made a glob by mistake (thus points out the above constant).
+
+@GaelVaroquaux, I pushed 419019a that should address this feature. A test is missing though.
+",,,gaelvaroquaux I push 419019a address featur A test miss though,Y,2015-08-21 08:57:31
+1,issue_title,702,nilearn,nilearn,arthurmensch,2015-07-17 13:35:54,"This PR adds an utility function check_embedded_nifti_masker, that retrieves a MultiNiftiMasker / NiftiMasker from the parameters of a given estimator instance.
+
+This would be useful in decomposition module, spacenet module, spectral clustering module, and would help sorting issue #688 
+
+Ping @dohmatob @ahoyosid @AlexandreAbraham @GaelVaroquaux 
+",start issue,[MRG] Added check_embedded_nifti_masker,thi PR add util function checkembeddedniftimask retriev multiniftimask niftimask paramet given estim instanc thi would use decomposit modul spacenet modul spectral cluster modul would help sort issu 688 ping dohmatob ahoyosid alexandreabraham gaelvaroquaux,N,2015-08-20 11:40:45
+3,pull_request_title,702,nilearn,nilearn,arthurmensch,2015-07-17 13:35:54,"This PR adds an utility function check_embedded_nifti_masker, that retrieves a MultiNiftiMasker / NiftiMasker from the parameters of a given estimator instance.
+
+This would be useful in decomposition module, spacenet module, spectral clustering module, and would help sorting issue #688 
+
+Ping @dohmatob @ahoyosid @AlexandreAbraham @GaelVaroquaux 
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,[MRG] Added check_embedded_nifti_masker,thi PR add util function checkembeddedniftimask retriev multiniftimask niftimask paramet given estim instanc thi would use decomposit modul spacenet modul spectral cluster modul would help sort issu 688 ping dohmatob ahoyosid alexandreabraham gaelvaroquaux,N,2015-08-20 11:40:45
+4,pull_request_merged,702,nilearn,nilearn,lesteve,2015-08-20 11:40:45,[MRG] Added check_embedded_nifti_masker,7e964de2bca2fbcb1a58aea1d5ff48e2c39482e7,Pull request merge from arthurmensch/nilearn:check_embedded_nifti_masker to nilearn/nilearn:master,mrg ad checkembeddedniftimask,N,2015-08-18 21:55:32
+5,issue_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:55:32,"Besides syntactic trifle, looks good.
+",,,besid syntact trifl look good,N,2015-08-19 07:07:03
+6,issue_comment,702,nilearn,nilearn,arthurmensch,2015-08-19 07:07:03,"Should I add some kind of developer note in the documentation ?
+",,,should I add kind develop note document,N,2015-08-20 09:24:26
+7,issue_comment,702,nilearn,nilearn,lesteve,2015-08-20 09:24:26,"> Should I add some kind of developer note in the documentation ?
+
+I reckon the docstring is probably good enough.
+",,,I reckon docstr probabl good enough,N,2015-08-20 11:40:43
+66,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-08-04 21:58:28,"To ensure the reproducibility of the error message in Python 3, since dictionaries order is arbritrary. Try to run `python -c ""print({'a': 1, 'b': 2})""` a few times with Python 3.
+
+Also even with Python 2 it just makes for a nicer error message if keys are sorted alphabetically.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(58, '', u'nilearn/input_data/masker_validation.py')",To ensur reproduc error messag python 3 sinc dictionari order arbritrari tri run time python 3 also even python 2 make nicer error messag key sort alphabet,N,2015-08-17 09:32:07
+67,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-08-17 09:32:07,"I removed `str()`, let's see what Travis is saying
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')",I remov let see travi say,Y,2015-08-18 21:42:44
+68,pull_request_commit_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:42:44,"This indentation is non-standard
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')",thi indent nonstandard,N,2015-08-18 21:44:00
+69,pull_request_commit_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:44:00,"------- (7 \* '-')
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')",7,N,2015-08-18 21:45:18
+70,pull_request_commit_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:45:18,"MultiNiftiMasker or NiftiMasker
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')",multiniftimask niftimask,N,2015-08-20 10:56:18

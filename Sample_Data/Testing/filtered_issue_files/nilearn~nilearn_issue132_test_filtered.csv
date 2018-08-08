@@ -1,0 +1,61 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,132,nilearn,nilearn,jaquesgrobler,2013-11-19 09:28:33,"Fixes the breakages to Nilearn gallery
+- makes 5 items per row (changeable if necessary)
+- Hovering docstring tooltips added 
+- Some js cleanup
+
+Very close to finished - so MRG soon.
+Tooltip needs a little bit of rounding off regarding positioning etc but it works well now
+
+[Online build](http://jaquesgrobler.github.io/online-sklearn-build/auto_examples/index.html)
+",start issue,WIP : Doc gallery fixes,fix breakag nilearn galleri make 5 item per row changeabl necessari hover docstr tooltip ad some js cleanup veri close finish mrg soon tooltip need littl bit round regard posit etc work well onlin build,N
+issue_closed,132,nilearn,nilearn,GaelVaroquaux,2013-11-20 16:30:27,nan,closed issue,WIP : Doc gallery fixes,nan,N
+pull_request_title,132,nilearn,nilearn,jaquesgrobler,2013-11-19 09:28:33,"Fixes the breakages to Nilearn gallery
+- makes 5 items per row (changeable if necessary)
+- Hovering docstring tooltips added 
+- Some js cleanup
+
+Very close to finished - so MRG soon.
+Tooltip needs a little bit of rounding off regarding positioning etc but it works well now
+
+[Online build](http://jaquesgrobler.github.io/online-sklearn-build/auto_examples/index.html)
+",3db06754623e0ac63e2bb3a48b7a41baf8de1b24,WIP : Doc gallery fixes,fix breakag nilearn galleri make 5 item per row changeabl necessari hover docstr tooltip ad some js cleanup veri close finish mrg soon tooltip need littl bit round regard posit etc work well onlin build,N
+issue_comment,132,nilearn,nilearn,GaelVaroquaux,2013-11-19 19:14:54,"This is just beautiful work! The code is simple and I really like the visual result.
+
+I'd like @AlexandreAbraham to have a look, and if you could address my minor comment it would be great. But beyond that, I am :+1: for merge, and super positive about the result.
+",nan,nan,thi beauti work the code simpl I realli like visual result Id like alexandreabraham look could address minor comment would great but beyond I 1 merg super posit result,N
+issue_comment,132,nilearn,nilearn,GaelVaroquaux,2013-11-20 16:30:24,"I fixed a few things in the CSS and merged. This was the last block to push the new nilearn website. Ouf! As we say in French.
+",nan,nan,I fix thing css merg thi last block push new nilearn websit ouf As say french,N
+issue_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 11:43:26,"Online build should be updated to latest now
+",nan,nan,onlin build updat latest,N
+issue_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 11:44:53,"This is an **html-noplot** build, by the way. So the plots aren't there
+",nan,nan,thi htmlnoplot build way So plot arent,N
+issue_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 12:41:23,"I think that caption below images should be centered.
+",nan,nan,I think caption imag center,N
+issue_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 12:42:21,"@AlexandreAbraham  good point - thanks... fixing
+",nan,nan,alexandreabraham good point thank fix,N
+issue_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:57:30,"I found the behavior of the tooltip annoying in a particular situation: if you go on a figure, make the tooltip appear and then go right to hover the next figure (trhough the tooltip) I would like the tooltip to disappear. No other comment on the rendering: it's far more better than the previous one.
+",nan,nan,I found behavior tooltip annoy particular situat go figur make tooltip appear go right hover next figur trhough tooltip I would like tooltip disappear No comment render far better previou one,N
+pull_request_commit_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 12:20:46,"whoops - deleting this
+",3db06754623e0ac63e2bb3a48b7a41baf8de1b24,"(None, '', u'doc/sphinxext/gen_rst.py')",whoop delet,N
+pull_request_commit_comment,132,nilearn,nilearn,GaelVaroquaux,2013-11-19 19:12:02,"Would it be possible to move the CSS part in the CSS file? If need be, do not hesitate to give a more specific css attribute to the corresponding figures.
+",3db06754623e0ac63e2bb3a48b7a41baf8de1b24,"(2, '', u'doc/sphinxext/gen_rst.py')",would possibl move css part css file If need hesit give specif css attribut correspond figur,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-15 12:16:15,reset gen_rst to working state,2529b77a08499012d5f03f062659c079840916b9,nan,reset genrst work state,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-15 12:20:21,"add dependencies, embed link functions",caf063dacd24dc564634cebc9ea589c17e8be780,nan,add depend emb link function,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-19 05:11:19,selective changes from scikit-learn added,af7f1066031cc2df7bfa21e5882dc1f21038e169,nan,select chang scikitlearn ad,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-19 05:44:00,add embed code to generate_file_rst,c4b1004045a8dc57642f7139fcbbf896ccabb215,nan,add emb code generatefilerst,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-19 09:18:51,"squashed, clean, tooltip readd, line_count readded",0dbe1f49b988ef212590e8f208a58d3cdfddc63f,nan,squash clean tooltip readd linecount read,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-19 11:38:11,"prettyfication of the popup, typos in examples, docstring added to python_101 example",864ef5aa17c0c619bcd7c0ba43de8187708acafe,nan,prettyf popup typo exampl docstr ad python101 exampl,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-19 12:21:51,remove some forgotten debug leftovers,15ef8cf508949cbd3d04345a8180065fedb4f4fb,nan,remov forgotten debug leftov,N
+pull_request_commit,132,nilearn,nilearn,jaquesgrobler,2013-11-19 12:27:34,update gitignore,3db06754623e0ac63e2bb3a48b7a41baf8de1b24,nan,updat gitignor,N
+pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:49:18,"If I am not mistaken, these lines are actually useful: if you change an example, it forces sphinx to re-run it. Ideally, there should be a test of files modification date (if the script is newer than the image, re-run it, otherwise keep the already computed image). Have you tested that these lines are superfluous ?
+",0dbe1f49b988ef212590e8f208a58d3cdfddc63f,"(5, 42, u'doc/Makefile')",If I mistaken line actual use chang exampl forc sphinx rerun ideal test file modif date script newer imag rerun otherwis keep alreadi comput imag have test line superflu,Y
+pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-20 10:10:55,"Even if it works, I really doubt that adding a `tooltip` field to a `div` is standard. I think that HTML 5 introduce a way to store custom data (throught the data-\* fileds) but otherwise, this may cause trouble. Hace you tried it on older browsers ?
+
+At least, renaming it `data-tooltip` has to be done, so we are HTML 5 compliant. At best, I think that we could use an existing unused tag like `title`.
+",0dbe1f49b988ef212590e8f208a58d3cdfddc63f,"(201, 588, u'doc/sphinxext/gen_rst.py')",even work I realli doubt ad field standard I think html 5 introduc way store custom data throught data file otherwis may caus troubl hace tri older browser At least renam done html 5 compliant At best I think could use exist unus tag like,N
+pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:43:53,"If a file is opened with a `with ... as` statement, there is no need to close it.
+",c4b1004045a8dc57642f7139fcbbf896ccabb215,"(68, 774, u'doc/sphinxext/gen_rst.py')",If file open statement need close,N
+pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:44:08,"Same here, no need to close.
+",c4b1004045a8dc57642f7139fcbbf896ccabb215,"(76, 782, u'doc/sphinxext/gen_rst.py')",same need close,N

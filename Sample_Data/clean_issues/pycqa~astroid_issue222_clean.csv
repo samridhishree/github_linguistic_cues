@@ -1,0 +1,30 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,222,pycqa,astroid,pylint-bot,2015-10-21 07:50:23,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+We should use a special node instead, so that the AST does not contain non-AST nodes.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/222
+",start issue,Don't use None to specify that arguments can't be determined in raw_building,origin report claudiu popa bitbucket pcmanticor github pcmanticor We use special node instead ast contain nonast node bitbucket
+issue_closed,222,pycqa,astroid,pylint-bot,2015-12-09 05:55:24,,closed issue,Don't use None to specify that arguments can't be determined in raw_building,
+issue_comment,222,pycqa,astroid,pylint-bot,2015-10-26 00:10:30,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+Since I need to fix this, what node should I use?
+",,,origin comment bitbucket ceridwenv github ceridwen sinc I need fix node I use
+issue_comment,222,pycqa,astroid,pylint-bot,2015-10-26 00:19:57,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Just define something that suggests that it's unknown. Maybe UnknownNode or something similar? This should be ignored by all other operations, such as inference or calling as_string on it. Also, it would be good to be in its own changeset, so that we can track better where it got changed.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor just defin someth suggest unknown mayb unknownnod someth similar thi ignor oper infer call asstr also would good changeset track better got chang
+issue_comment,222,pycqa,astroid,pylint-bot,2015-10-26 02:27:04,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+This is closed by e956e29392a8 and 5fe25086c708, which adds the Unknown node with some stub functions and uses it for non-introspectable signatures.
+",,,origin comment bitbucket ceridwenv github ceridwen thi close e956e29392a8 5fe25086c708 add unknown node stub function use nonintrospect signatur

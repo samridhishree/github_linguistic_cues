@@ -1,0 +1,28 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,495,nilearn,nilearn,AlexandreAbraham,2015-03-12 08:52:36,"Related to #478. Must be done after #483.
+",start issue,Update Niimage documentation to say that we accept any SpatialImage,relat 478 must done 483
+issue_closed,495,nilearn,nilearn,AlexandreAbraham,2015-06-01 08:51:27,,closed issue,Update Niimage documentation to say that we accept any SpatialImage,
+issue_comment,495,nilearn,nilearn,GaelVaroquaux,2015-03-12 09:42:35,"Care should be taken addressing this issue: this is nibabel jargon that will not mean anything to 99% of users.  We should not let this make our docs harder to understand or scare users. 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Mar 12, 2015, 09:52, at 09:52, Alexandre Abraham notifications@github.com wrote:
+
+> Related to #478. Must be done after #483.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/issues/495
+",,,care taken address issu nibabel jargon mean anyth 99 users  We let make doc harder understand scare user sent phone pleas forgiv breviti mi spell On mar 12 2015 0952 0952 alexandr abraham notificationsgithubcom wrote
+issue_comment,495,nilearn,nilearn,AlexandreAbraham,2015-03-12 10:29:51,"I think that we should say to the users that we accept any format read by nibabel. The, in a (wiki) developper page, precise that any type derived from SpatialImage is accepted. We could also enlarge that to any type compatible with spatialimage (get_data, get_affine, get_header, to_filename...).
+",,,I think say user accept format read nibabel the wiki developp page precis type deriv spatialimag accept We could also enlarg type compat spatialimag getdata getaffin gethead tofilenam
+issue_comment,495,nilearn,nilearn,GaelVaroquaux,2015-03-12 12:09:03,"> I think that we should say to the users that we accept any format read by
+> nibabel.
+
+Just say 'formats read by nibabel' without 'any'. That way it is vague.
+In a footnote be more precise.
+",,,just say format read nibabel without that way vagu In footnot precis
+issue_comment,495,nilearn,nilearn,AlexandreAbraham,2015-06-01 08:51:27,"Since we don't really know if we accept all formats, I suggest that we stick to Nifti1Image for the moment. See #579 for further developments.
+",,,sinc dont realli know accept format I suggest stick nifti1imag moment see 579 develop

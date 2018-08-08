@@ -1,0 +1,46 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,862,nilearn,nilearn,GaelVaroquaux,2015-11-29 22:29:08,"I have just added a 'make check' target to the doc Makefile. It fails when there is a warning in the docs.
+
+I have also fixed all the warnings (hours of work :( ).
+
+I think that we should add ""make check"" as a test on circleci. It needs to be done after we build the docs, as the examples need to be run for warnings to pass.
+
+@jnothman : we might be interested in porting ""make check"" to scikit-learn, and the CI test too, if the experiment in nilearn is successful. It's been such a fight with warnings in the scikit-learn docs.
+",start issue,Avoid documentation rot in continuous integration,I ad make check target doc makefil It fail warn doc I also fix warn hour work I think add make check test circleci It need done build doc exampl need run warn pass jnothman might interest port make check scikitlearn CI test experi nilearn success it fight warn scikitlearn doc,N
+issue_closed,862,nilearn,nilearn,lesteve,2015-12-03 12:50:08,nan,closed issue,Avoid documentation rot in continuous integration,nan,N
+issue_comment,862,nilearn,nilearn,aabadie,2015-12-02 09:06:49,"I had a look at this one and I'm about to have something fully working on circle ci.
+
+Here are my conclusions:
+- make -C doc check requires packages to be installed on the Ubuntu VM (12.04): dvipng.
+- installing extra packages was broken on the VM but I could fix the issue by removing the conflicting latex package (texlive-binaries).
+- I'm now trying the identify the missing packages in order to have the full doc check running.
+
+As I had problems with circle-ci at the beginning, I also tried to run the doc check on travis and noticed a few things:
+- I couldn't succeed because of the output limit (4MB) being reached by the full test suite (including doc test/check).
+- At the beginning I reached several times the maximum resources provided by the legacy infrastructure of travis-ci. I gave a try to the container based one using : `sudo: required` in the `.travis.yml` configuration file. It works. The container infrastructure should be faster (that's what travis-ci claims). Maybe this change can be part of another PR.
+",nan,nan,I look one Im someth fulli work circl ci here conclus make C doc check requir packag instal ubuntu VM 1204 dvipng instal extra packag broken VM I could fix issu remov conflict latex packag texlivebinari Im tri identifi miss packag order full doc check run As I problem circleci begin I also tri run doc check travi notic thing I couldnt succeed output limit 4mb reach full test suit includ doc testcheck At begin I reach sever time maximum resourc provid legaci infrastructur travisci I gave tri contain base one use configur file It work the contain infrastructur faster that travisci claim mayb chang part anoth PR,Y
+issue_comment,862,nilearn,nilearn,lesteve,2015-12-02 12:49:20,"> sudo: required in the .travis.yml configuration file. It works. The container infrastructure should be faster (that's what travis-ci claims). Maybe this change can be part of another PR.
+
+The only reason we have to stick with the legacy Travis infrastructure is because we want to add neurodebian to the apt sources. For us to move the container-based one, we need Travis to add neurodebian to a white list. It hasn't happened and it is not clear whether/when it will. The PR on the travis repo is https://github.com/travis-ci/apt-source-whitelist/pull/10.
+",nan,nan,the reason stick legaci travi infrastructur want add neurodebian apt sourc for us move containerbas one need travi add neurodebian white list It hasnt happen clear whetherwhen the PR travi repo,Y
+issue_comment,862,nilearn,nilearn,lesteve,2015-12-02 15:54:33,"> That's the purpose of using sudo: required in the travis configuration file.
+
+:confused: If I am reading the docs correctly:
+https://docs.travis-ci.com/user/workers/container-based-infrastructure
+https://docs.travis-ci.com/user/workers/standard-infrastructure/
+
+we are using the default (which is the same as sudo: required) i.e. going to the legacy infrastructure.
+",nan,nan,confus If I read doc correctli use default sudo requir ie go legaci infrastructur,N
+issue_comment,862,nilearn,nilearn,lesteve,2015-12-02 17:27:08,"> Indeed, I got confused by the error messages returned by circle ci
+
+Hopefully you mean Travis here ...
+
+> Now my understanding is that if you set sudo: false one time in your travis.yml file, later you have to explicitly set the legacy infrastructure using sudo: required, otherwise it uses the container infrastructure (even without the sudo:false in the configuration file).
+
+Hmm slightly weird, but this may be Travis way of changing the default infrastructure on a per-project basis. I am guessing you are talking about Travis building on your branches from aabadie/nilearn otherwise I am a bit lost.
+",nan,nan,hope mean travi hmm slightli weird may travi way chang default infrastructur perproject basi I guess talk travi build branch aabadienilearn otherwis I bit lost,Y
+issue_comment,862,nilearn,nilearn,lesteve,2015-12-02 18:29:27,"> Exactly I tried on a personnal project in order to avoid polluting the upstream repo.
+
+OK that's what I thought. This may be useful to remember if we ever switch back and forth with nilearn/nilearn.
+",nan,nan,OK that I thought thi may use rememb ever switch back forth nilearnnilearn,N

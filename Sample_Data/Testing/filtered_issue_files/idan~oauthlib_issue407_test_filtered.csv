@@ -1,0 +1,29 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,407,idan,oauthlib,eofs,2016-03-11 09:21:46,"Current implementation doesn't allow `/` and `?` character to appear in query string in non-encoded form.
+
+However RFC 3986 section 3.4 states following:
+
+> However, as query components are often used to carry identifying information in the form of ""key=value"" pairs and one frequently used value is a reference to another URI, it is sometimes better for usability to avoid percent-encoding those characters.
+
+This pull requests adds `/` and `?` characters into allowed characters list.
+",start issue,Allow `/` and `?` characters in query string (RFC 3986 section 3.4),current implement doesnt allow charact appear queri string nonencod form howev rfc 3986 section 34 state follow thi pull request add charact allow charact list,N
+issue_closed,407,idan,oauthlib,thedrow,2016-03-14 09:48:03,nan,closed issue,Allow `/` and `?` characters in query string (RFC 3986 section 3.4),nan,N
+pull_request_title,407,idan,oauthlib,eofs,2016-03-11 09:21:46,"Current implementation doesn't allow `/` and `?` character to appear in query string in non-encoded form.
+
+However RFC 3986 section 3.4 states following:
+
+> However, as query components are often used to carry identifying information in the form of ""key=value"" pairs and one frequently used value is a reference to another URI, it is sometimes better for usability to avoid percent-encoding those characters.
+
+This pull requests adds `/` and `?` characters into allowed characters list.
+",e59f04bf577f0faa3e5fe2de177d65d094592b55,Allow `/` and `?` characters in query string (RFC 3986 section 3.4),current implement doesnt allow charact appear queri string nonencod form howev rfc 3986 section 34 state follow thi pull request add charact allow charact list,N
+pull_request_merged,407,idan,oauthlib,thedrow,2016-03-14 09:48:03,Allow `/` and `?` characters in query string (RFC 3986 section 3.4),ce8857d297f9218107da89bd49f8d2aedc9b5359,Pull request merge from eofs/oauthlib:feature/rfc-3986-section-3.4 to idan/oauthlib:master,allow charact queri string rfc 3986 section 34,N
+issue_comment,407,idan,oauthlib,thedrow,2016-03-14 09:47:25,"The tests fail on 3.2 because virtualenv dropped support. Disregard that.
+I think there was a reason why these were disallowed though I'm not sure.
+",nan,nan,the test fail 32 virtualenv drop support disregard I think reason disallow though Im sure,Y
+issue_comment,407,idan,oauthlib,thedrow,2016-03-14 09:48:01,"No you're right.
+",nan,nan,No your right,N
+pull_request_commit,407,idan,oauthlib,eofs,2016-03-11 09:15:02,"Allow `/` and `?` characters per RFC 3986 section 3.4 specification.
+
+Fixes #404",028720698e17a61b975acced53fad31e569fe41c,nan,allow charact per rfc 3986 section 34 specif fix 404,N
+pull_request_commit,407,idan,oauthlib,eofs,2016-03-11 09:15:38,Tests for `/` and `?` characters in query.,e59f04bf577f0faa3e5fe2de177d65d094592b55,nan,test charact queri,N

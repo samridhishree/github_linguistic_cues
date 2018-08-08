@@ -1,0 +1,6 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,301,pycqa,astroid,PCManticore,2015-12-30 14:40:34,"Since we have Jython support in Travis, we can see easily what tests are failing on it.
+",start issue,Investigate Jython's difference in test results on Travis,sinc jython support travi see easili test fail
+issue_closed,301,pycqa,astroid,PCManticore,2016-12-03 12:45:28,,closed issue,Investigate Jython's difference in test results on Travis,
+issue_comment,301,pycqa,astroid,PCManticore,2016-12-03 12:45:28,Dropped support for Jython. It has too many discrepancies in comparison to CPython / PyPy and I feel it is not worth it making astroid compatible with it. ,,,drop support jython It mani discrep comparison cpython pypi I feel worth make astroid compat

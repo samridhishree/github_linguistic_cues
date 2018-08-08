@@ -1,0 +1,50 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,168,idan,oauthlib,ib-lundgren,2013-05-30 11:09:28,"While it is most fun to dig in and develop new features it is equally, if not more, important to keep the code clean, the tests unforgiving and the documentation clear. 
+
+If you want to earn eternal fame and glory any help looking into
+- Module descriptions, i.e. what the current file / package does
+- Escalating file size, a file spanning hundreds of lines should likely be broken apart into several sub modules.
+- Method documentation should include parameter descriptions and a short overview of what its purpose is. Interactive style examples are great to have as well.
+- Documentation is rendered with Sphinx and can utilize a range of nice mark up features which can be used to make it easier to digest, i.e. code block highlighting and cross referencing.
+- Any PEP8 violations.
+- Lack of code coverage
+- Lack of edge case tests exercising input sizes and encodings
+- Messy imports. Should preferably be uniform and ordered alphabetically.
+- Widespead py 2/3 compatability clauses that should be moved into a new oauthlib.compat
+- And anything else you can think of to improve code and docs health
+
+will be greatly appreciated =)
+",start issue,"Keeping the source tidy, tested and documented",while fun dig develop new featur equal import keep code clean test unforgiv document clear If want earn etern fame glori help look modul descript ie current file packag escal file size file span hundr line like broken apart sever sub modul method document includ paramet descript short overview purpos interact style exampl great well document render sphinx util rang nice mark featur use make easier digest ie code block highlight cross referenc ani pep8 violat lack code coverag lack edg case test exercis input size encod messi import should prefer uniform order alphabet widespead py 23 compat claus move new oauthlibcompat and anyth els think improv code doc health greatli appreci
+issue_comment,168,idan,oauthlib,lepture,2013-05-30 11:18:35,"There are many sentences that are longer than 80 words, should we clean those up?
+",,,there mani sentenc longer 80 word clean
+issue_comment,168,idan,oauthlib,lepture,2013-05-30 11:19:56,"I use `flake8` as the lint tool.
+",,,I use lint tool
+issue_comment,168,idan,oauthlib,ib-lundgren,2013-05-30 11:23:11,"I hope there are not many sentences over 80 words but please sort them out if there are =)
+
+I think you meant lines with over 80 characters, and yes if you fancy splitting them that would be awesome.
+
+Feel free to use whatever linter you prefer, not tried flake8 myself yet.
+",,,I hope mani sentenc 80 word pleas sort I think meant line 80 charact ye fanci split would awesom feel free use whatev linter prefer tri flake8 yet
+issue_comment,168,idan,oauthlib,lepture,2013-05-30 11:25:02,"@ib-lundgren Sorry for the misunderstanding. Yes, I do mean characters.
+",,,iblundgren sorri misunderstand ye I mean charact
+issue_comment,168,idan,oauthlib,synasius,2013-05-30 13:15:44,"I think today everyone has a monitor capable of displaying more than 80 chars. Observe this limit or not is up to you.  
+You can easily raise the limit to 120 chars adding a `.pep8` config to your project.
+
+```
+[pep8]
+max-line-length = 120
+...
+```
+
+See: https://github.com/evonove/django-oauth-toolkit/blob/master/.pep8
+",,,I think today everyon monitor capabl display 80 char observ limit you easili rais limit 120 char ad config project see
+issue_comment,168,idan,oauthlib,ib-lundgren,2013-05-30 15:26:22,"I have a resolution of 3840 and I still very much like to keep the limit at 80 characters so I can have 6x vim windows tiled up next to each other =) 
+",,,I resolut 3840 I still much like keep limit 80 charact I 6x vim window tile next
+issue_comment,168,idan,oauthlib,synasius,2013-05-30 16:09:58,">  I can have 6x vim windows tiled up next to each other =)
+
+This is serious stuff! :+1: 
+",,,thi seriou stuff 1
+issue_comment,168,idan,oauthlib,duaneking,2017-11-13 16:59:32,"It may be best if a ""contributors guide"" was added so that these rules are explicitly spelled out in the code so there is no lack of clarity.
+
+For example, its common to run a python linter tool such as flake8; Maybe that should be the official standard for the project?",,,It may best contributor guid ad rule explicitli spell code lack clariti for exampl common run python linter tool flake8 mayb offici standard project

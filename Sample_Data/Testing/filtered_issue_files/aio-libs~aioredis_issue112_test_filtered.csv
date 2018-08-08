@@ -1,0 +1,20 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,112,aio-libs,aioredis,the-panda,2016-03-09 13:39:32,"To run the tests in a cluster environment I want to make sure that all used keys map to the same key slot. I think there are two solutions based on hash tags:
+- Use 'key' whenever possible and 'non-existing-{key}', '{key}-1' '{key}-2' etc. when more keys are needed. Send a FLUSHALL command before each test to make sure that tests don't interfere (FLUSHALL  is already used by some tests).
+- Use a separate key for each test, e.g. '{key}:set:expire'. Send FLUSHALL once at the start of the test suite.
+
+What are your thoughts?
+",start issue,Cluster compatible tests,To run test cluster environ I want make sure use key map key slot I think two solut base hash tag use key whenev possibl nonexistingkey key1 key2 etc key need send flushal command test make sure test dont interfer flushal alreadi use test use separ key test eg keysetexpir send flushal start test suit what thought,N
+issue_closed,112,aio-libs,aioredis,the-panda,2016-04-05 16:00:14,nan,closed issue,Cluster compatible tests,nan,N
+issue_comment,112,aio-libs,aioredis,popravich,2016-03-09 14:42:01,"Hi, both solutions are fine, but I personally would prefer second one, ie:
+using keys prefixed with specific hash tags and sending FLUSHALL only when needed.
+",nan,nan,Hi solut fine I person would prefer second one ie use key prefix specif hash tag send flushal need,N
+issue_comment,112,aio-libs,aioredis,the-panda,2016-03-14 13:29:38,"I have now modified most of your tests so that they run successfully on a cluster. I changed keys to something like {key:delete}:1 whenever multiple keys are used on the same node. The remaining tests are skipped because the tested functionality is not meaningful on a cluster or has not yet been implemented by the cluster code.
+
+You can find my pull request to trezorg's fork here: https://github.com/trezorg/aioredis/pull/1
+
+To reduce the risk of merge conflicts while the cluster code is still in development I could create a pull request to your repository which would only include my changes to the *_commands_test.py files (and a bit in _testutils.py), but no actual cluster code. Do you think this is a good idea?
+
+Besides, I still think that it would be better to flush the database before each test. It would make the tests independent and would allow to remove many delete-commands at the beginning of various tests.
+",nan,nan,I modifi test run success cluster I chang key someth like keydelete1 whenev multipl key use node the remain test skip test function meaning cluster yet implement cluster code you find pull request trezorg fork To reduc risk merg conflict cluster code still develop I could creat pull request repositori would includ chang commandstestpi file bit testutilspi actual cluster code Do think good idea besid I still think would better flush databas test It would make test independ would allow remov mani deletecommand begin variou test,Y

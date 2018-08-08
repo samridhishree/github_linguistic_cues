@@ -1,0 +1,8 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,40,aio-libs,aioredis,popravich,2014-08-04 11:31:33,"`RedisPool` must be pool of connections and `Redis` must hide from end-user what it uses inside.
+It must be possible to instantiate `Redis` with connection and with connection's pool
+thus providing single consistent high-level interface.
+",start issue,Refactor RedisPool to deal with RedisConnections and not Redis instances,must pool connect must hide endus use insid It must possibl instanti connect connect pool thu provid singl consist highlevel interfac
+issue_closed,40,aio-libs,aioredis,popravich,2017-01-13 14:51:28,,closed issue,Refactor RedisPool to deal with RedisConnections and not Redis instances,
+issue_comment,40,aio-libs,aioredis,popravich,2017-01-13 14:51:28,Done in #129 ,,,done 129

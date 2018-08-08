@@ -1,0 +1,546 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,677,nilearn,nilearn,salma1601,2015-07-15 15:39:11,"Classification on ADHD with different measures of connectivity. Addresses most comments of PR #227, except moving functions _cov_to_corr and prec_to_partial to nilearn._utils.
+I am wondering if the name 'tangent' is a good one.
+",start issue,Tangent classif,classif adhd differ measur connect address comment PR 227 except move function covtocorr prectoparti nilearnutil I wonder name tangent good one
+issue_closed,677,nilearn,nilearn,GaelVaroquaux,2015-11-22 09:53:14,,closed issue,Tangent classif,
+pull_request_title,677,nilearn,nilearn,salma1601,2015-07-15 15:39:11,"Classification on ADHD with different measures of connectivity. Addresses most comments of PR #227, except moving functions _cov_to_corr and prec_to_partial to nilearn._utils.
+I am wondering if the name 'tangent' is a good one.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,Tangent classif,classif adhd differ measur connect address comment PR 227 except move function covtocorr prectoparti nilearnutil I wonder name tangent good one
+pull_request_merged,677,nilearn,nilearn,GaelVaroquaux,2015-11-22 09:53:14,Tangent classif,03242ab2a381f0417441001339a6a0ebafc534ad,Pull request merge from salma1601/nilearn:tangent_classif to nilearn/nilearn:master,tangent classif
+issue_comment,677,nilearn,nilearn,GaelVaroquaux,2015-07-16 17:02:51,"I haven't had time to look at this pull request in detail, but I am very excited about the direction it is taking.
+
+One general comment that I have is that we are going to have to work on the phrasing and terminology to be a bit less frightening to non math people. Words like 'tangent' or 'embedding' should be a bit less emphasized, for instance in names of examples or objects.
+",,,I havent time look pull request detail I excit direct take one gener comment I go work phrase terminolog bit less frighten non math peopl word like tangent embed bit less emphas instanc name exampl object
+issue_comment,677,nilearn,nilearn,GaelVaroquaux,2015-07-16 17:26:35,"Another comment: the example (which is actually really cool) takes quite a while to run.
+
+I think that we should restrict it to only SVM. It will make it faster, and simpler to read.
+",,,anoth comment exampl actual realli cool take quit run I think restrict svm It make faster simpler read
+issue_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-16 10:31:23,"> Should we merge this one @AlexandreAbraham @GaelVaroquaux ? I don't see any
+> outstanding issues and I can do the Python 3 fixes after the merge.
+
+There is an outstanding naming issue, isn't it? With a conclusion, I
+believe, but I am not sure that it has been implement.
+
+I'd like to do a pass on this. Maybe this afternoon? I do agree that the
+PR is pretty much mergeable.
+",,,there outstand name issu isnt with conclus I believ I sure implement Id like pass mayb afternoon I agre PR pretti much mergeabl
+issue_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-16 16:26:50,"One last thing (hopefully): it would be great to have a subsection about
+this functionality in the reference documentation. For instance at the
+end of doc/connectivity/connectome_extraction.rst in a new section, that
+would link to the example.
+",,,one last thing hope would great subsect function refer document for instanc end docconnectivityconnectomeextractionrst new section would link exampl
+issue_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-22 09:53:11,"Merging. Thank you!
+",,,merg thank
+issue_comment,677,nilearn,nilearn,salma1601,2015-07-19 13:49:44,"> words like 'tangent' or 'embedding' should be a bit less emphasized, for instance in names of examples or objects.
+
+Hi @GaelVaroquaux 
+what about  
+
+``` python
+from nilearn.connectivity import ConnectivityMatrix
+matrix = ConnectivityMatrix(type='robust dispersion')
+```
+
+to explain that individual matrices are not covariance matrices (they can show negative or positive values on the diagonal) and also encourage users to use this matrix type if noisy data ?
+",,,Hi gaelvaroquaux explain individu matric covari matric show neg posit valu diagon also encourag user use matrix type noisi data
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-08-07 21:01:07,"So, the only thing blocking this PR are naming and a bunch of details?
+",,,So thing block PR name bunch detail
+issue_comment,677,nilearn,nilearn,salma1601,2015-11-22 21:34:41,"Youpi :+1: 
+I can bring my pastries Tuesday !
+",,,youpi 1 I bring pastri tuesday
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 08:18:57,"Yeah, Salma's back in the place!
+",,,yeah salma back place
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 08:26:44,"Minor details. LGTM otherwise. @GaelVaroquaux any remark regarding naming?
+",,,minor detail lgtm otherwis gaelvaroquaux remark regard name
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-10-22 13:03:49,"Apart from very minor details, :+1:.
+",,,apart minor detail 1
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-10-22 14:15:33,"Since the PR is fully functional, I suggest that we merge it (after resolving the naming issue) and that I take care of the last details.
+",,,sinc PR fulli function I suggest merg resolv name issu I take care last detail
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-11-16 08:47:51,"+1 for me!
+",,,1
+issue_comment,677,nilearn,nilearn,AlexandreAbraham,2015-11-22 09:58:37,"Who's gonna bring champagne tomorrow?
+",,,who gonna bring champagn tomorrow
+issue_comment,677,nilearn,nilearn,lesteve,2015-09-22 08:00:04,"@salma1601 if you rebase on master, the libgfortran error should go away.
+",,,salma1601 rebas master libgfortran error go away
+issue_comment,677,nilearn,nilearn,lesteve,2015-11-16 08:43:08,"Should we merge this one @AlexandreAbraham @GaelVaroquaux ? I don't see any outstanding issues and I can do the Python 3 fixes after the merge.
+",,,should merg one alexandreabraham gaelvaroquaux I dont see outstand issu I python 3 fix merg
+issue_comment,677,nilearn,nilearn,salma1601,2015-09-17 10:35:27,"@KamalakerDadi could you please take a look and give me feedback ? I also hesitated a lot on the naming, so if someone have other suggestions/comments ...
+",,,kamalakerdadi could pleas take look give feedback I also hesit lot name someon suggestionscom
+issue_comment,677,nilearn,nilearn,salma1601,2015-11-16 11:20:40,"> There is an outstanding naming issue, isn't it? With a conclusion, I believe, but I am not sure that it has been implement.
+
+I renamed using ""tangent"" and stopped after addressing Gaël's comments.
+I didn't address Loïc's (python 3 + colormap)
+",,,I renam use tangent stop address gaël comment I didnt address loïc python 3 colormap
+issue_comment,677,nilearn,nilearn,salma1601,2015-11-16 19:46:23,"Ok I can take care of that.
+",,,Ok I take care
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 08:18:43,"No hardcoded path in examples please.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",No hardcod path exampl pleas
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 08:19:24,"Have you tried putting low_pass and high_pass filters? Also, why don't you standardize?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",have tri put lowpass highpass filter also dont standard
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-07-16 08:19:36,"you should import joblib from sklearn.externals. There is no guarantee that users have joblib installed.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",import joblib sklearnextern there guarante user joblib instal
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 08:21:30,"`memory='nilearn_cache'` and do not specify `memory_level`
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",specifi
+pull_request_commit_comment,677,nilearn,nilearn,banilo,2015-07-16 09:29:59,"Perhaps just paste the value into a new variable, instead of accessing `scores[measure][classifier_name]`three times
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",perhap past valu new variabl instead access three time
+pull_request_commit_comment,677,nilearn,nilearn,banilo,2015-07-16 09:33:13,"why only close? Should this not be equal?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",close should equal
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 09:50:07,"In a perfect world, yes. In the world of computer, we have numercial instability.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",In perfect world ye In world comput numerci instabl
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-16 10:42:24,"Yes here I am !
+I removed filtering and confounds regression on purpose: tangent behaves better with noisy data. Its score falls down when filtering.
+I don't standardize because 
+- I want to show the difference between covariance and correlation measure
+- standardizing ruins tangent score
+- the tangent mean has not unit diagonal even if individual time series are standardized
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",ye I I remov filter confound regress purpos tangent behav better noisi data it score fall filter I dont standard I want show differ covari correl measur standard ruin tangent score tangent mean unit diagon even individu time seri standard
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-16 10:43:31,"why not specify memory_level ? I have an ugly warning when not
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",specifi memorylevel I ugli warn
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-16 10:43:38,"fixed
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",fix
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-16 10:43:51,"fixed
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",fix
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-16 12:10:59,"My bad. I thought that when you specify the cache, memory_level=1 was
+forced. Leave it then but it looks like an issue to me (nilearn issue, not
+yours of course).
+
+On Thu, Jul 16, 2015 at 12:43 PM, salma1601 notifications@github.com
+wrote:
+
+> In examples/connectivity/plot_adhd_tangent.py
+> https://github.com/nilearn/nilearn/pull/677#discussion_r34775249:
+> 
+> > +
+> > +""""""
+> > +
+> > +# Fetch dataset
+> > +import nilearn.datasets
+> > +atlas = nilearn.datasets.fetch_atlas_msdl()
+> > +dataset = nilearn.datasets.fetch_adhd()
+> > +
+> > +# Extract and preprocess regions time series
+> > +import nilearn.input_data
+> > +import joblib
+> > +mem = joblib.Memory('/home/sb238920/CODE/Parietal/nilearn/nilearn_cache/adhd')
+> > +masker = nilearn.input_data.NiftiMapsMasker(
+> > -    atlas.maps, resampling_target=""maps"", detrend=True,
+> > -    low_pass=None, high_pass=None, t_r=2.5, standardize=False,
+> > -    memory=mem, memory_level=1)
+> 
+> why not specify memory_level ? I have an ugly warning when not
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/677/files#r34775249.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",My bad I thought specifi cach memorylevel1 forc leav look like issu nilearn issu cours On thu jul 16 2015 1243 PM salma1601 notificationsgithubcom wrote
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-16 17:34:47,"This line fails on my laptop (numpy version=1.9.1).  Is this an issue with my configuration ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",thi line fail laptop numpi version191 Is issu configur
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 10:25:35,"Please be more precise: this is a scalar function that takes non-negative inputs...
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",pleas precis scalar function take nonneg input
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 10:26:24,"M should be n_dim or something more explicit.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",M ndim someth explicit
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 10:26:58,"can't it be an (p, n) matrix with p>n or p<n ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",cant p n matrix p
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 13:28:29,"Do we really need the option. In the current code base, the default is used systematically. 
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",Do realli need option In current code base default use systemat
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 13:30:29,"Same question here.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",same question
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 14:03:05,"But... x -> 1./x does not invert the matrix
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",but x
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 14:16:34,"Typically you would use a seed value. Why don't you do this ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/tests/test_embedding.py')",typic would use seed valu whi dont
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-17 14:17:06,"idem
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/tests/test_embedding.py')",idem
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 13:51:54,"I don't know why it's failing for you, what is your python version ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",I dont know fail python version
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 13:54:19,"It doesn't take non-negative inputs, I use it with `np.exp`
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",It doesnt take nonneg input I use
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 13:54:42,"changed to n_features
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",chang nfeatur
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 13:59:11,"Yes it can, but what would be the benefit of this generalization ?
+This function is used to transform the eigenvalues of a symmetric matrix, while keeping the same eigenvectors, so vecs is always a square matrix.
+May be the naming of the parameters should be more explicit to explain better what I am doing?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",ye would benefit gener thi function use transform eigenvalu symmetr matrix keep eigenvector vec alway squar matrix may name paramet explicit explain better I
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 14:00:26,"You are right, I removed it. I used it with the option to transform p-values.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",you right I remov I use option transform pvalu
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 14:03:44,"`_map_sym` applies the given function (x -> 1./x) to the matrix eigenvalues, keeping the eigenvectors, so actually this inverses the matrix.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",appli given function x
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-07-19 14:03:57,"Fixed
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/tests/test_embedding.py')",fix
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-21 09:24:21,"But clearly, the function would work even if the vecs are not square matrices... and there is no checking to enforce this rule. 
+eigen_vectors / eigen_values would definitely be a better wording. 
+
+----- Mail original -----
+
+> De: ""salma1601"" notifications@github.com
+> À: ""nilearn/nilearn"" nilearn@noreply.github.com
+> Cc: ""bthirion"" bertrand.thirion@inria.fr
+> Envoyé: Dimanche 19 Juillet 2015 15:59:11
+> Objet: Re: [nilearn] Tangent classif (#677)
+> 
+> In nilearn/connectivity/embedding.py :
+> 
+> > +
+> > +
+> > +def _map_eig(function, vals, vecs):
+> > -    """"""Return the symmetric matrix with eigenvectors vecs and eigenvalues
+> > -    obtained by applying the function to vals.
+> >   +
+> > -    Parameters
+> > -    ----------
+> > -    function : function
+> > -        The function to apply.
+> >   +
+> > -    vals : numpy.ndarray, shape (M, )
+> > -        Input argument of the function.
+> >   +
+> > -    vecs : numpy.ndarray, shape (M, M)
+> > -        Unitary matrix.
+> 
+> Yes it can, but what would be the benefit of this generalization ?
+> This function is used to transform the eigenvalues of a symmetric matrix,
+> while keeping the same eigenvectors, so vecs is always a square matrix.
+> May be the naming of the parameters should be more explicit to explain better
+> what I am doing?
+> 
+> —
+> Reply to this email directly or view it on GitHub .
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",but clearli function would work even vec squar matric check enforc rule eigenvector eigenvalu would definit better word mail origin
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-24 15:25:01,"Do we really want an example that relies on full ADHD?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",Do realli want exampl reli full adhd
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-24 15:27:12,"Can't you put the parameter directly instead of instantiating a dictionary?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",cant put paramet directli instead instanti dictionari
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-24 15:31:08,"Works for me, numpy 1.9.2. Can you put the stacktrace? Note that this problem is not yours, we shouldn't give path to CSV files to the user, we should load them directly.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",work numpi 192 can put stacktrac note problem shouldnt give path csv file user load directli
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-07-24 15:49:09,"Please use `labels[['x', 'y', 'z']].tolist()`, calling vstack is really ugly...
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",pleas use call vstack realli ugli
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-24 21:13:39,"## In [2]: %run plot_adhd_tangent.py
+
+ValueError                                Traceback (most recent call last)
+/home/bertrand/mygit/nilearn/examples/connectivity/plot_adhd_tangent.py in <module>()
+     46 import numpy as np
+     47 import nilearn.plotting
+---> 48 labels = np.recfromcsv(atlas.labels)
+     49 region_coords = np.vstack((labels['x'], labels['y'], labels['z'])).T
+     50 for measure in ['tangent', 'correlation', 'partial correlation']:
+
+/usr/local/lib/python2.7/dist-packages/numpy/lib/npyio.pyc in recfromcsv(fname, *_kwargs)
+   1904     kwargs.setdefault(""delimiter"", "","")
+   1905     kwargs.setdefault(""dtype"", None)
+-> 1906     output = genfromtxt(fname, *_kwargs)
+   1907 
+   1908     usemask = kwargs.get(""usemask"", False)
+
+/usr/local/lib/python2.7/dist-packages/numpy/lib/npyio.pyc in genfromtxt(fname, dtype, comments, delimiter, skiprows, skip_header, skip_footer, converters, missing, missing_values, filling_values, usecols, names, excludelist, deletechars, replace_space, autostrip, case_sensitive, defaultfmt, unpack, usemask, loose, invalid_raise)
+   1686             # Raise an exception ?
+   1687             if invalid_raise:
+-> 1688                 raise ValueError(errmsg)
+   1689             # Issue a warning ?
+   1690             else:
+
+ValueError: Some errors were detected !
+    Line #2 (got 5 columns instead of 4)
+    Line #3 (got 5 columns instead of 4)
+    Line #4 (got 5 columns instead of 4)
+    Line #5 (got 5 columns instead of 4)
+    Line #6 (got 5 columns instead of 4)
+    Line #7 (got 5 columns instead of 4)
+    Line #8 (got 5 columns instead of 4)
+    Line #9 (got 5 columns instead of 4)
+    Line #10 (got 5 columns instead of 4)
+    Line #11 (got 5 columns instead of 4)
+    Line #12 (got 5 columns instead of 4)
+    Line #13 (got 5 columns instead of 4)
+    Line #14 (got 5 columns instead of 4)
+    Line #15 (got 5 columns instead of 4)
+    Line #16 (got 5 columns instead of 4)
+    Line #17 (got 5 columns instead of 4)
+    Line #18 (got 5 columns instead of 4)
+    Line #19 (got 5 columns instead of 4)
+    Line #20 (got 5 columns instead of 4)
+    Line #21 (got 5 columns instead of 4)
+    Line #22 (got 5 columns instead of 4)
+    Line #23 (got 5 columns instead of 4)
+    Line #24 (got 5 columns instead of 4)
+    Line #25 (got 5 columns instead of 4)
+    Line #26 (got 5 columns instead of 4)
+    Line #27 (got 5 columns instead of 4)
+    Line #28 (got 5 columns instead of 4)
+    Line #29 (got 5 columns instead of 4)
+    Line #30 (got 5 columns instead of 4)
+    Line #31 (got 5 columns instead of 4)
+    Line #32 (got 5 columns instead of 4)
+    Line #33 (got 5 columns instead of 4)
+    Line #34 (got 5 columns instead of 4)
+    Line #35 (got 5 columns instead of 4)
+    Line #36 (got 5 columns instead of 4)
+    Line #37 (got 5 columns instead of 4)
+    Line #38 (got 5 columns instead of 4)
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",In 2 run plotadhdtangentpi valueerror traceback recent call last homebertrandmygitnilearnexamplesconnectivityplotadhdtangentpi modul 46 import numpi np 47 import nilearnplot 49 regioncoord npvstacklabelsx labelsi labelszt 50 measur tangent correl partial correl usrlocallibpython27distpackagesnumpylibnpyiopyc recfromcsvfnam kwarg 1904 kwargssetdefaultdelimit 1905 kwargssetdefaultdtyp none 1907 1908 usemask kwargsgetusemask fals usrlocallibpython27distpackagesnumpylibnpyiopyc genfromtxtfnam dtype comment delimit skiprow skiphead skipfoot convert miss missingvalu fillingvalu usecol name excludelist deletechar replacespac autostrip casesensit defaultfmt unpack usemask loos invalidrais 1686 rais except 1687 invalidrais 1689 issu warn 1690 els valueerror some error detect line 2 got 5 column instead 4 line 3 got 5 column instead 4 line 4 got 5 column instead 4 line 5 got 5 column instead 4 line 6 got 5 column instead 4 line 7 got 5 column instead 4 line 8 got 5 column instead 4 line 9 got 5 column instead 4 line 10 got 5 column instead 4 line 11 got 5 column instead 4 line 12 got 5 column instead 4 line 13 got 5 column instead 4 line 14 got 5 column instead 4 line 15 got 5 column instead 4 line 16 got 5 column instead 4 line 17 got 5 column instead 4 line 18 got 5 column instead 4 line 19 got 5 column instead 4 line 20 got 5 column instead 4 line 21 got 5 column instead 4 line 22 got 5 column instead 4 line 23 got 5 column instead 4 line 24 got 5 column instead 4 line 25 got 5 column instead 4 line 26 got 5 column instead 4 line 27 got 5 column instead 4 line 28 got 5 column instead 4 line 29 got 5 column instead 4 line 30 got 5 column instead 4 line 31 got 5 column instead 4 line 32 got 5 column instead 4 line 33 got 5 column instead 4 line 34 got 5 column instead 4 line 35 got 5 column instead 4 line 36 got 5 column instead 4 line 37 got 5 column instead 4 line 38 got 5 column instead 4
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-07-27 08:41:48,"Could it be that the csv has been fixed? Try deleting ~/nilearn_data/msdl_atlas and rerunning the example.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",could csv fix tri delet nilearndatamsdlatla rerun exampl
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-07-27 08:53:14,"This is a fair point I fixed the examples accordingly in c8555ec.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",thi fair point I fix exampl accordingli c8555ec
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-07-27 09:03:13,"Yes, this indeed solves the issue. This example is _really_ nice.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",ye inde solv issu thi exampl realli nice
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-08-25 08:32:49,"Why not leaving the inversion job to scipy?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/embedding.py')",whi leav invers job scipi
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-09-17 10:33:28,"I speeded up the example by replacing the StratifiedShuffleSplit by StratifiedKFold. I can decrease the subjects number to 24, the classification results remain OK. But does it make sense to run a classification on 24 subjects?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",I speed exampl replac stratifiedshufflesplit stratifiedkfold I decreas subject number 24 classif result remain OK but make sens run classif 24 subject
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-09-17 10:33:40,"done
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_adhd_tangent.py')",done
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-09-21 13:28:06,"This idea of the example compares different measures. But, the end-result is shown as classification accuracy which is actually overtaken. Will it be good to show example only about measures ? If this is the case, we can also reduce number of ADHD subjects which obviously can save time. Just an idea. 
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",thi idea exampl compar differ measur but endresult shown classif accuraci actual overtaken will good show exampl measur If case also reduc number adhd subject obvious save time just idea
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-09-21 13:28:08,"It would be nice if we can strict to showing only measures to partial correlation, covariances, correlation. This way we can also save some time in running.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",It would nice strict show measur partial correl covari correl thi way also save time run
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-09-21 13:30:32,"Can we change ""matrix_operations"" to ""connectome_matrices"" since its the base to use for learning any functional connectomes ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/matrix_operations.py')",can chang matrixoper connectomematric sinc base use learn function connectom
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-09-21 13:41:42,"> This idea of the example compares different measures. But, the end-result is shown as classification accuracy which is actually overtaken. Will it be good to show example only about measures ?
+
+That's right, but I added this classification example to illustrate the advantage of using the robust dispersion measure over the other standard measures. May be I can add a comment on that?
+
+> we can also reduce number of ADHD subjects which obviously can save time.
+
+I can of course reduce the number of subjects (if  it makes sense to run a classification on 24 subjects for instance).
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",that right I ad classif exampl illustr advantag use robust dispers measur standard measur may I add comment I cours reduc number subject make sens run classif 24 subject instanc
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-09-21 13:42:43,"OK, I am removing precision and covariance measures.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",OK I remov precis covari measur
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-09-21 14:11:14,"> May be I can add a comment on that?
+
+In that case, yes may be you should also add few lines about the application.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",In case ye may also add line applic
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-09-21 14:14:13,"> if it makes sense to run a classification on 24 subjects for instance
+
+Example wise, I feel it is OK.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",exampl wise I feel OK
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-09-22 10:39:44,"@salma1601 You might have forgot to change here and below.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",salma1601 you might forgot chang
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-09-22 13:53:03,"yes, thanks
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",ye thank
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:36:11,"You don't need the + here. Strings are concatenated as long as you have parentheses around them, e.g.:
+
+```
+ In [1]: ('some content '
+   ...:  'and some more content')
+Out[1]: 'some content and some more content'
+```
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",you dont need string concaten long parenthes around eg
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:38:37,"You should if, elif, ..., else and raise a ValueError if prop is not in {'square', 'symmetric', 'spd'}. To be perfectly honest, in this particular case, I'd rather have three functions with explicit names than one with a `prop` string argument.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",you elif els rais valueerror prop squar symmetr spd To perfectli honest particular case Id rather three function explicit name one string argument
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:40:14,"It seems that eigenvalues and eigenvectors are generally spelled in one word, in which case removing the underscore from these variable names would make sense.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",It seem eigenvalu eigenvector gener spell one word case remov underscor variabl name would make sens
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:45:26,"I find the or None a bit misleading (I originally thought the ""or None"" applied to the shape ...). Maybe just remove it, since you have optional and you explain what happens if init=None below.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I find none bit mislead I origin thought none appli shape mayb remov sinc option explain happen initnon
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:47:17,"Use array or matrix consistently, rather than a mix of both.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",use array matrix consist rather mix
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:49:49,"""all of shape"", rather than ""shape of each"" ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",shape rather shape
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:56:25,"Not a big fan in general of documenting default in docstrings since it is redundant with the signature. In this case it seems way to verbose and also wrong since it defaults to sklearn.covariance.EmpiricalCovariance(assume_centered=True).
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",not big fan gener document default docstr sinc redund signatur In case seem way verbos also wrong sinc default sklearncovarianceempiricalcovarianceassumecenteredtru
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:57:30,"IIRC you need a backslash at the end of this line if you want the sphinx documentation to format properly.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",iirc need backslash end line want sphinx document format properli
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:58:48,"Why the backquotes ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",whi backquot
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:59:05,"> Why the backquotes ?
+
+Same thing for all the attributes
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",same thing attribut
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 13:59:43,"Maybe you could put that in a ""References"" section ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",mayb could put refer section
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 14:04:31,"Not sure where the sqrt(2) comes from but it is not mentioned in the docstring.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",not sure sqrt2 come mention docstr
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 14:06:24,"I may be wrong, but there must be a simpler way to implement this function, in particular without having to copy the input array (`symmetric = symmetric.copy()` l.205 of the current diff).
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I may wrong must simpler way implement function particular without copi input array l205 current diff
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-05 14:10:17,"It would be nice if the error message could mention both the allowed connectivity kinds and the one that the user provided.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",It would nice error messag could mention allow connect kind one user provid
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-06 06:43:31,"Just wondering, what's the difference between tol=None and tol=0, i.e. is it common elsewhere, for example scikit-learn, to allow tol=None?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",just wonder what differ tolnon tol0 ie common elsewher exampl scikitlearn allow tolnon
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-10-06 15:47:41,"I saw this in decoding/searchlight.py and group_sparse_covariance.py
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I saw decodingsearchlightpi groupsparsecovariancepi
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-10-06 15:48:02,"changed
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",chang
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-10-06 15:57:46,"again I saw it in group_sparse_covariance.py. I added a similar explanation in the docstring.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I saw groupsparsecovariancepi I ad similar explan docstr
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:40:27,"I would add a `raise_error=True` parameter to `is_spd` instead of declaring a whole new function.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I would add paramet instead declar whole new function
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:42:34,"Could you please be more verbose? You could print the metrix shape and the expected one.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",could pleas verbos you could print metrix shape expect one
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:43:13,"Same here.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",same
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-10-22 14:14:37,"I remember having a debate on the naming of the method. Is ""robust dispersion"" the consensus naming?
+Ping @bthirion @GaelVaroquaux.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I rememb debat name method Is robust dispers consensu name ping bthirion gaelvaroquaux
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-10-22 14:18:44,"> I remember having a debate on the naming of the method. Is ""robust dispersion""
+> the consensus naming?
+
+I am a bit uneasy about calling it 'robust dispersion', because I don't
+think that it maps to anything that has been published in the brain
+imaging literature.
+
+The terms that have been employed in the brain imaging literature to
+denote this have been so far centered around the ideas of 'manifold',
+'tangent' and 'riemannian'. I think that these would be 3 valid
+suggestions for a naming. My favorite is 'manifold' because it is more
+big picture, and because I can never spell 'riemannian' right.
+
+So +1 for manifold on my side.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I bit uneasi call robust dispers I dont think map anyth publish brain imag literatur the term employ brain imag literatur denot far center around idea manifold tangent riemannian I think would 3 valid suggest name My favorit manifold big pictur I never spell riemannian right So 1 manifold side
+pull_request_commit_comment,677,nilearn,nilearn,KamalakerDadi,2015-10-22 15:13:57,"With no magic, I prefer to be as standard `riemannian manifold`. 
+A seperate example on `plot_riemannian_manifold_functional_connectivity` would be really great to motivate users. ;)
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",with magic I prefer standard A seper exampl would realli great motiv user
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-10-22 20:46:32,"Sorry, I like neither 'Riemannian' nor 'manifold' because these terms are not specific enough. Almost all objects you can think of are Riemannian manifolds,  so this does not tell you anything. I think we had the same discussion 5 years ago, but the main point here is that the computations are made in the geometry implied by the 'affine invariant' metric. So I would use 'tangent' or 'affine invariant'. 
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",sorri I like neither riemannian manifold term specif enough almost object think riemannian manifold tell anyth I think discuss 5 year ago main point comput made geometri impli affin invari metric So I would use tangent affin invari
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-10-22 20:50:37,"Think of it as a marketting problem, not a mathematical one. People need
+to be able to remember the name, and link it to publications, possibly
+via Google. In that sense 'affine invariant' is not great, because the
+terms hasn't been used in fMRI and EEG.
+
+'tangent' is OK, as I think that it conveys the right idea. But in fMRI,
+Bernard has been pushing forward Riemannian, and people in EEG too.
+That's was I was thinking of 'manifold'. But I am OK with 'tangent'.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",think market problem mathemat one peopl need abl rememb name link public possibl via googl In sens affin invari great term hasnt use fmri eeg tangent OK I think convey right idea but fmri bernard push forward riemannian peopl eeg that I think manifold but I OK tangent
+pull_request_commit_comment,677,nilearn,nilearn,bthirion,2015-10-22 21:29:23,"Sure, but the community we're talking to does not read MICCAI proceedings and does not value that much Riemannian poetry. Now I can live with whatever suits you best.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",sure commun talk read miccai proceed valu much riemannian poetri now I live whatev suit best
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-10-22 21:31:48,"> Now I can live with whatever suits you best.
+
+It's not about what suits me best, it's about finding what's best for the
+future of this code.
+
+Note that 'tangent' is quite fine with me. It's the vocabulary that I
+tend to use in talks, or in my review paper with Cameron Craddock.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",it suit best find what best futur code note tangent quit fine it vocabulari I tend use talk review paper cameron craddock
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-10-27 13:42:22,"> People need to be able to remember the name, and link it to publications, possibly via Google
+
+I think 'tangent' meets this goal and I prefer it to 'manifold', 'affine invariant' and 'Riemannian'.
+Of course I am not fully satisfied by it since for me when I hear tangent I want to ask tangent to what. I am also not satisfied with 'robust dispersion' but couldn't come up with a better suggestion.
+
+So +1 for 'tangent'   
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I think tangent meet goal I prefer manifold affin invari riemannian Of cours I fulli satisfi sinc I hear tangent I want ask tangent I also satisfi robust dispers couldnt come better suggest So 1 tangent
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-10-27 13:46:07,"OK, we have a consensus on tangent! Let's go for it, then. 
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",OK consensu tangent let go
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-27 13:47:34,"Side-comment as a note to myself. This example does not work with Python 3 because np.genfromtxt loads all the strings as bytes so `phenotypic['site']` is never in `['""NYU""', '""OHSU""', '""NeuroImage""']`. I remember trying to convince np.genfromtxt to return strings to no avail a little while ago.
+
+Also it is not great that  the site name is doubly quoted i.e. `""'NYU'""` rather than `""NYU""` ... Should we try to fix this in the dowloader ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",sidecom note thi exampl work python 3 npgenfromtxt load string byte never I rememb tri convinc npgenfromtxt return string avail littl ago also great site name doubli quot ie rather should tri fix dowload
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-10-27 13:51:30,"For the record, I don't think this is needed. For example see https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#class-docstring.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",for record I dont think need for exampl see
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 08:28:01,"I think that we should use as a currentmodule nilearn.connectivity, and the 'nilearn.connectivity.connectivity_matrices' module should pretty much be hidden from users.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",I think use currentmodul nilearnconnect nilearnconnectivityconnectivitymatric modul pretti much hidden user
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 08:29:16,"I would be in favor of renaming 'nilearn.connectivity' to 'nilearn.connectome'
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/__init__.py')",I would favor renam nilearnconnect nilearnconnectom
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 08:32:28,"This if/else tell me that we have a suboptimal design in the ConnectivityMeasure object. It seems to me that it should expose a 'mean_' attribute always.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",thi ifels tell suboptim design connectivitymeasur object It seem expos mean attribut alway
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 08:33:42,"OK, I just realized that when kind is not 'tangent', it doesn't need to compute the mean to do the fit_transform... Then I understand better.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",OK I realiz kind tangent doesnt need comput mean fittransform then I understand better
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 08:38:01,"I think that we should just call this attribute 'mean_'
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",I think call attribut mean
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 08:39:06,"Any reason that we are not using a LedoitWolf by default? My reflex would be to do that.
+
+My reflex would also be not to turn 'assume_centered' on by default.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",ani reason use ledoitwolf default My reflex would My reflex would also turn assumecent default
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-11-02 09:35:08,"> Any reason that we are not using a LedoitWolf by default?
+> for a bad reason: I always observed that 'tangent' gives better results with EmpiricalCovariance
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 10:26:35,"> > ```
+> > Any reason that we are not using a LedoitWolf by default?
+> > ```
+> 
+> ```
+> for a bad reason: I always observed that 'tangent' gives better results
+> with EmpiricalCovariance
+> ```
+
+You mean that it makes tangent space look better compared to the others?
+Here, we are interested in getting overall good performance in every
+scenario. The defaults in nilearn should be as robust as possible.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'nilearn/connectivity/connectivity_matrices.py')",you mean make tangent space look better compar other here interest get overal good perform everi scenario the default nilearn robust possibl
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-11-02 13:01:46,"For the doc to be generated, it is necessary to specify the whole path. As in `.. currentmodule:: nilearn.plotting.displays` for the `OrthoSlicer`.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",for doc gener necessari specifi whole path As
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-02 13:02:40,"> For the doc to be generated, it is necessary to specify the whole path. As in
+> .. currentmodule:: nilearn.plotting.displays for the OrthoSlicer.
+
+OK. I thought that an import path was enough.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",OK I thought import path enough
+pull_request_commit_comment,677,nilearn,nilearn,AlexandreAbraham,2015-11-02 13:08:32,"I am not the best one to talk about doc generation but if you look at the doc generated by CircleCI, most of sections are empty because the import is not precise enough.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",I best one talk doc gener look doc gener circleci section empti import precis enough
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-11-02 13:39:16,"I am not sure off the top of my head either. There is a bug in sphinx 1.3.1 and we should probably try with sphinx 1.2 before drawing any conclusion. See #712. 
+
+BTW I am going to update circle.yml directly in master.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",I sure top head either there bug sphinx 131 probabl tri sphinx 12 draw conclus see 712 btw I go updat circleyml directli master
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-11-02 14:40:56,"when I write only .. currentmodule:: nilearn.connectome in the file reference.rst, my doc is not generated
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'doc/modules/reference.rst')",I write currentmodul nilearnconnectom file referencerst doc gener
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-11-03 08:53:20,"@salma1601 you can prefix the strings with b, i.e. `b'""NYU""'`, etc... Not great but this would make this example work with Python 3.
+
+I still think the downloader should be fixed to not have the site names contain quotes.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(None, '', u'examples/connectivity/plot_connectivity_measures.py')",salma1601 prefix string b ie etc not great would make exampl work python 3 I still think download fix site name contain quot
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-11-03 09:35:34,"People using this code to compare conditions/groups may fit separately the individual time-series for each condition/group. This will not be meaningful for the tangent measure. Shall comment about this ?
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(42, '', u'examples/connectivity/plot_connectivity_measures.py')",peopl use code compar conditionsgroup may fit separ individu timeseri conditiongroup thi meaning tangent measur shall comment
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-11-03 12:06:20,"Another Python 3 fix needed:
+
+``` python
+classes = ['%s%s' % (site, adhd) for ...]
+```
+
+site is of type bytes and str(adhd) of type str.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(72, '', u'examples/connectivity/plot_connectivity_measures.py')",anoth python 3 fix need site type byte stradhd type str
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-11-03 12:06:56,"It'd be great to use a red/blue colormap for showing the correlation matrix as in other examples.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(56, '', u'examples/connectivity/plot_connectivity_measures.py')",itd great use redblu colormap show correl matrix exampl
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-17 17:42:40,"I think that this still needs addressing.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(72, '', u'examples/connectivity/plot_connectivity_measures.py')",I think still need address
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-11-17 17:53:12,"I very nicely said that I could do it post-merge somewhere below.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(72, '', u'examples/connectivity/plot_connectivity_measures.py')",I nice said I could postmerg somewher
+pull_request_commit_comment,677,nilearn,nilearn,GaelVaroquaux,2015-11-17 17:53:58,"> I very nicely said that I could do it post-merge somewhere below.
+
+OK sure.
+
+So we are only missing the doc thingy
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(72, '', u'examples/connectivity/plot_connectivity_measures.py')",OK sure So miss doc thingi
+pull_request_commit_comment,677,nilearn,nilearn,lesteve,2015-11-17 17:55:23,"Obviously I'd be more than happy if @salma1601 does it.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(72, '', u'examples/connectivity/plot_connectivity_measures.py')",obvious Id happi salma1601
+pull_request_commit_comment,677,nilearn,nilearn,salma1601,2015-11-17 20:42:26,"I can work on it by Thursday.
+",e78cf53782f2dd712f6dde023591b696609ab5f6,"(72, '', u'examples/connectivity/plot_connectivity_measures.py')",I work thursday
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-01 08:52:20,classification on different connectivity measures,d9644019bfa793b7f87d16a6005df0f8a1dbcb51,,classif differ connect measur
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-02 12:03:16,"added classifiers, fixed same cv across experiments",9b5be80e771b791637e07b896c292e5a25e7be33,,ad classifi fix cv across experi
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-02 20:00:49,fixed random state,c81a77a36b3b91b2745ee7c02177428d2c92e1fa,,fix random state
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-01 08:52:20,classification on different connectivity measures,613499eb6ca3bc47b050d7c42e58a66b154483b2,,classif differ connect measur
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-02 12:03:16,"added classifiers, fixed same cv across experiments",136f8718fce569dd8829d9a5c00c9dd8b727443c,,ad classifi fix cv across experi
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-02 20:00:49,fixed random state,e98cd373f27b99ecd222838fce35ff80bba4df42,,fix random state
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-04 11:12:55,minor changes,bb9b21fedf9692150f1e77c1350c6bce880d7850,,minor chang
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-12 16:00:54,best score,3daebb18d2a89ef304790d46fabeef096e59b531,,best score
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-15 15:17:19,classif,4c44eac4148a8b8e411287ef30569319bc0fd067,,classif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-15 15:20:56,"Merge branch 'tangent_classif' of github.com:salma1601/nilearn into tangent_classif
+
+Conflicts:
+	examples/connectivity/plot_adhd_tangent.py
+	nilearn/connectivity/embedding.py
+	nilearn/connectivity/tests/test_embedding.py",ca1a95631c474c5e3349a92e727ea5eec6191f52,,merg branch tangentclassif githubcomsalma1601nilearn tangentclassif conflict examplesconnectivityplotadhdtangentpi nilearnconnectivityembeddingpi nilearnconnectivityteststestembeddingpi
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-15 17:47:30,replaced mean_cov_ by tangent_mean_,ed65e487d088ace9153b9727448b0b68713d0fb6,,replac meancov tangentmean
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-15 18:12:25,removed nose.tools.assert_is_instance,695c7c9693eab26f6f4c1ad9548daf4817ab24da,,remov nosetoolsassertisinst
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-15 18:34:32,removed nose.tools.assert_greater,b4c16e10eb52d463c21e52a257b6e999fa5ca539,,remov nosetoolsassertgreat
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-15 18:47:48,Fix,6764c0173c2c32c5f0f1940172bf96627f114df4,,fix
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-16 10:34:41,remove joblib import and fix caching,22f2e7cf22b22f7681977e91b8d4b275c17aec7f,,remov joblib import fix cach
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-19 14:24:53,kept only SVM classifier,cd7af42c5eb8836eb053f619aa269dc56f006d6c,,kept svm classifi
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-19 14:25:29,addressed comments,eaed2c8a781462fa322f48425795919244a5d957,,address comment
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-07-19 15:30:12,renaming variable,eb8e2447f4621f67a8853e96653e1fe2708347ef,,renam variabl
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-04 18:16:59,Merge branch 'master' into tangent_classif,9f24288cbe5e3cc68ed2ab449e19ec0419342b4a,,merg branch master tangentclassif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-15 16:55:23,addressed comments,ab2c5d3a8c733e5febcfce970a9b967fb8edba1e,,address comment
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-16 12:47:47,more explicit naming,96140b6643854ef22c3faf3355bf5d4279bdba34,,explicit name
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-16 12:50:54,Merge branch 'master' into tangent_classif,ca1ccf68182088c2a3ee91baed81936930ba6bed,,merg branch master tangentclassif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-17 10:09:45,"renaming, changing output of transform to matrices",8b42cd3061847d7a1484e71031c92a1c02cd4cd9,,renam chang output transform matric
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-17 10:15:20,fix doc,21c34bbe74daeaac542d94028085e0feab2694a9,,fix doc
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-17 10:27:07,removed vec_to_sym,7f7dce8557d18795a0b49210cdeb80741f7c27ed,,remov vectosym
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-21 15:14:16,reduced subjects number and measures,eb6d3e371a623a96303cbeef54c131b10ca3c3a0,,reduc subject number measur
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-21 15:23:07,renaming and doc cosmetics,8add7c79ecdaf211859731d097efcd98ec7faf88,,renam doc cosmet
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-21 15:37:09,added comment on classif performance,6d3b6eb5a06ab747ea669225d44016c0bec79c72,,ad comment classif perform
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-22 09:35:15,Merge branch 'master' into tangent_classif,cc07ca866ea71bafc4db4e865166f34c935f8e93,,merg branch master tangentclassif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-09-22 12:11:49,updated doc,f3e7fd0d14bc8ffe8340d6a982e654b92c8c592c,,updat doc
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-10-06 15:43:23,addressed Loic's comments,d5af4c37893a7ead45a966eb89a3e4018a97e556,,address loic comment
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-10-06 15:43:53,Merge branch 'master' into tangent_classif,16da5795189cc99e2cedc3c46e9a9104da2c97ed,,merg branch master tangentclassif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-10-06 15:56:35,tolerance None explained,610a1b53e445d3c2693c6e0cde9bc73b61d0c4f7,,toler none explain
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-11-02 13:15:25,addressed Gael's comments,8875d710970ab6000d93dce159bd8e018bd79bc1,,address gael comment
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-11-02 13:15:57,Merge branch 'master' into tangent_classif,0e46bdfedcfe48b8257e06f9d62df2a6a9e10ed8,,merg branch master tangentclassif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-11-02 13:54:55,Merge branch 'master' into tangent_classif,e5c3ba50204a4b63f8bb64fb82fbe37c84348093,,merg branch master tangentclassif
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-11-03 09:34:01,prefixing strings with b for python 3 compatibility,bf335d778ce5f86b7e521b0407691e6099393d2f,,prefix string b python 3 compat
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-11-19 14:47:40,narrative doc on tangent measure,ac2ee789e5703c0953cfb966386d263013315404,,narr doc tangent measur
+pull_request_commit,677,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-11-19 14:48:38,Merge branch 'master' into tangent_classif,e78cf53782f2dd712f6dde023591b696609ab5f6,,merg branch master tangentclassif

@@ -1,0 +1,8 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+18,pull_request_commit_comment,1255,nilearn,nilearn,bthirion,2016-08-29 21:52:09,"check if the get_data() method and affine attribute are present 
+",d6c754a83f8f3e1d052e3e356636d19651e23ca3,"(None, '', u'nilearn/_utils/niimg_conversions.py')",check getdata method affin attribut present,N,2016-08-30 18:58:09
+19,pull_request_commit_comment,1255,nilearn,nilearn,KamalakerDadi,2016-08-30 18:58:09,"I might be wrong also. Let's wait for any other opinion.
+",d6c754a83f8f3e1d052e3e356636d19651e23ca3,"(None, '', u'nilearn/plotting/displays.py')",I might wrong also let wait opinion,N,2016-08-30 19:58:51
+20,pull_request_commit_comment,1255,nilearn,nilearn,GaelVaroquaux,2016-08-30 19:58:51,"The code that you have above is a bit hacky. A better way to solve this issue would be to fix the ""affine"" attribute of the _MNI152Template. The way you can do this is using Python ""properties"", they are functions that are called upon access of an attribute. It is actually done in the _MNI152Template for the 'shape' attribute, so you have to mimic the strategy used for ""shape"".
+",d6c754a83f8f3e1d052e3e356636d19651e23ca3,"(None, '', u'nilearn/plotting/displays.py')",the code bit hacki A better way solv issu would fix affin attribut mni152templ the way use python properti function call upon access attribut It actual done mni152templ shape attribut mimic strategi use shape,N,2016-08-30 20:22:07
+24,pull_request_commit,1255,nilearn,nilearn,KamalakerDadi,2016-08-26 17:29:57,"Addressed:placing function module level, affine methods to attributes",28e7294d2530a214416776fad1792e418c516d6b,,addressedplac function modul level affin method attribut,N,2016-08-30 17:30:19

@@ -1,0 +1,11 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,202,pycqa,astroid,pylint-bot,2015-09-29 23:18:36,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+We should add inference support for the new coroutines added in Python 3.5. Targeted for astroid 1.5 mostly.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/202
+",start issue,Understand await / async,origin report claudiu popa bitbucket pcmanticor github pcmanticor We add infer support new coroutin ad python 35 target astroid 15 mostli bitbucket

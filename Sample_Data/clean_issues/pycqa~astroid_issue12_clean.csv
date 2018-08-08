@@ -1,0 +1,45 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,12,pycqa,astroid,pylint-bot,2014-01-15 11:04:24,"Originally reported by: **Antony Lee (BitBucket: [anntzer](http://bitbucket.org/anntzer), GitHub: @anntzer?)**
+
+---
+
+With the current tip of astroid, pylint-python3 still warns about no-argument `super()` used on old-style classes, which is obviously wrong.  I guess this can be fixed by changing the check in `TreeRebuilder.visit_class` (`newnode._newstyle = metaclass in ('type', 'ABCMeta')`) to include also the case `sys.version_info > (3,)`.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/12
+",start issue,Spurious old-style class warnings for Python 3,origin report antoni lee bitbucket anntzer github anntzer with current tip astroid pylintpython3 still warn noargument use oldstyl class obvious wrong I guess fix chang check includ also case bitbucket
+issue_closed,12,pycqa,astroid,pylint-bot,2015-12-09 05:51:43,,closed issue,Spurious old-style class warnings for Python 3,
+issue_comment,12,pycqa,astroid,pylint-bot,2014-01-15 10:26:12,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+I'm interested in this issue, I'll have a look in the weekend. In the past I investigated this problem, the only things left after adding your suggested check was that there were warnings about missing **init** (no-init warning) and `.bases` didn't contain `object` for Python 3, which could potentially lead to some problems (like missing attributes? although I'm not certain if this is the case).
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor Im interest issu ill look weekend In past I investig problem thing left ad suggest check warn miss init noinit warn didnt contain python 3 could potenti lead problem like miss attribut although Im certain case
+issue_comment,12,pycqa,astroid,pylint-bot,2014-01-15 12:30:08,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+Claudiu, imo the pb is simply that 'newstyle' attribute should always be
+true w/ Python3. At some point we may want to inject 'object' in the base
+classes but that shouldn't be necessary at a first glance.
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault claudiu imo pb simpli newstyl attribut alway true w python3 At point may want inject object base class shouldnt necessari first glanc
+issue_comment,12,pycqa,astroid,pylint-bot,2014-01-15 12:57:12,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Sure, agreed. I'll have a pull request ready in short time.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor sure agre ill pull request readi short time
+issue_comment,12,pycqa,astroid,pylint-bot,2014-01-16 07:57:31,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Hello. Please see
+https://bitbucket.org/logilab/astroid/pull-request/18/all-class-nodes-are-marked-as-new-style/diff. 
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor hello pleas see
+issue_comment,12,pycqa,astroid,pylint-bot,2014-01-16 08:04:57,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+All class nodes are marked as new style classes for Py3k, closes #12.
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault all class node mark new style class py3k close 12

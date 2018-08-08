@@ -1,0 +1,24 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,34,pycqa,astroid,pylint-bot,2014-06-11 17:54:08,"Originally reported by: **Emile Anclin (BitBucket: [anclin](http://bitbucket.org/anclin), GitHub: @anclin?)**
+
+---
+
+Hello, here is a patch for the infinite loop of Pyreverse (Pylint bug #4), with a non regression test. Probably it yields also some small performance improvement on bigger projects...
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/34
+",start issue,[patch] fix infinite loop for Pylint bug #4 (Pyreverse),origin report emil anclin bitbucket anclin github anclin hello patch infinit loop pyrevers pylint bug 4 non regress test probabl yield also small perform improv bigger project bitbucket
+issue_closed,34,pycqa,astroid,pylint-bot,2015-12-09 05:52:09,,closed issue,[patch] fix infinite loop for Pylint bug #4 (Pyreverse),
+issue_comment,34,pycqa,astroid,pylint-bot,2014-08-20 14:12:52,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Fix an infinite loop in the inference, by returning a copy of instance attributes, when calling 'instance_attr'. Closes issue #34 (patch by Emile Anclin).
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor fix infinit loop infer return copi instanc attribut call instanceattr close issu 34 patch emil anclin
+issue_comment,34,pycqa,astroid,pylint-bot,2014-08-20 14:13:25,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Thank you, Emile. I integrated the patch.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor thank emil I integr patch

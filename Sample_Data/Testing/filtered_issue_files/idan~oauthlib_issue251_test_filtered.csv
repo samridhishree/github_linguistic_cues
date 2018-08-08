@@ -1,0 +1,31 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,251,idan,oauthlib,tuannh99,2014-05-29 16:57:15,"Many client set the content-type header like this:
+
+Content-Type: application/x-www-form-urlencoded;charset=utf8
+
+We should allow this case or some cases like that, instead of just 'application/x-www-form-urlencoded',
+as showed in the commit
+
+For example this library: https://github.com/joelchen/AFOAuth1Client/blob/master/AFOAuth1Client/AFOAuth1Client.m#L456
+",start issue,Accept 'Content-Type: application/x-www-form-urlencoded;charset=utf8' al...,mani client set contenttyp header like contenttyp applicationxwwwformurlencodedcharsetutf8 We allow case case like instead applicationxwwwformurlencod show commit for exampl librari,N
+issue_closed,251,idan,oauthlib,ib-lundgren,2014-06-03 13:39:59,nan,closed issue,Accept 'Content-Type: application/x-www-form-urlencoded;charset=utf8' al...,nan,N
+pull_request_title,251,idan,oauthlib,tuannh99,2014-05-29 16:57:15,"Many client set the content-type header like this:
+
+Content-Type: application/x-www-form-urlencoded;charset=utf8
+
+We should allow this case or some cases like that, instead of just 'application/x-www-form-urlencoded',
+as showed in the commit
+
+For example this library: https://github.com/joelchen/AFOAuth1Client/blob/master/AFOAuth1Client/AFOAuth1Client.m#L456
+",fd3e25b267f0e3cc239c2bc6dee77dfaf957d09a,Accept 'Content-Type: application/x-www-form-urlencoded;charset=utf8' al...,mani client set contenttyp header like contenttyp applicationxwwwformurlencodedcharsetutf8 We allow case case like instead applicationxwwwformurlencod show commit for exampl librari,N
+pull_request_merged,251,idan,oauthlib,ib-lundgren,2014-06-03 13:39:59,Accept 'Content-Type: application/x-www-form-urlencoded;charset=utf8' al...,29e040d6d05df86e020fec69ba4d19abd6b1b1ef,Pull request merge from tuannh99/oauthlib:master to idan/oauthlib:master,accept contenttyp applicationxwwwformurlencodedcharsetutf8 al,N
+issue_comment,251,idan,oauthlib,tuannh99,2014-05-30 03:43:27,"FYI, the Travis build is failed before of this commit!
+",nan,nan,fyi travi build fail commit,Y
+issue_comment,251,idan,oauthlib,ib-lundgren,2014-06-03 13:39:56,"Good idea :) Thanks for the PR!
+
+Tested fine locally after addressing the unrelated errors I introduced by mistake...
+",nan,nan,good idea thank PR test fine local address unrel error I introduc mistak,Y
+issue_comment,251,idan,oauthlib,tuannh99,2014-06-03 13:47:57,"Thank you, too.
+",nan,nan,thank,N
+pull_request_commit,251,idan,oauthlib,tuannh99,2014-05-29 16:48:01,Accept 'Content-Type: application/x-www-form-urlencoded;charset=utf8' also,fd3e25b267f0e3cc239c2bc6dee77dfaf957d09a,nan,accept contenttyp applicationxwwwformurlencodedcharsetutf8 also,N

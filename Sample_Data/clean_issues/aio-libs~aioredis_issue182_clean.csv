@@ -1,0 +1,12 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,182,aio-libs,aioredis,popravich,2017-01-13 14:54:24,"TODO:
+* [ ] Update examples and check code samples in docs
+* [ ] Add *upgrading from 0.x to 1.0* instructions
+* [ ] Add notes on known bugs/limitations/expected behavior",start issue,New Pool documentation,todo updat exampl check code sampl doc add upgrad 0x 10 instruct add note known bugslimitationsexpect behavior
+issue_comment,182,aio-libs,aioredis,dpereira,2017-03-15 16:35:35,"Not sure if it will be already covered by this, but the 1st example here:
+
+https://aioredis.readthedocs.io/en/v0.3.0/api_reference.html#connections-pool
+
+seems to be missing a call to 'acquire' before 'execute'.",,,not sure alreadi cover 1st exampl seem miss call acquir execut
+issue_comment,182,aio-libs,aioredis,popravich,2017-03-15 16:41:14,"Yeap, its probably example for `master` branch not for `v0.3`",,,yeap probabl exampl branch

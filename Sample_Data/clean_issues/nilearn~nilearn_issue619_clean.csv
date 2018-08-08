@@ -1,0 +1,43 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,619,nilearn,nilearn,banilo,2015-06-27 03:30:46,"Next round of documentation tuning...
+",start issue,doccheck 3: manipulation,next round document tune
+issue_closed,619,nilearn,nilearn,lesteve,2015-07-16 13:06:08,,closed issue,doccheck 3: manipulation,
+pull_request_title,619,nilearn,nilearn,banilo,2015-06-27 03:30:46,"Next round of documentation tuning...
+",442f555024b1993dcb09d77fd366f889149a0d8d,doccheck 3: manipulation,next round document tune
+pull_request_merged,619,nilearn,nilearn,lesteve,2015-07-16 13:06:08,doccheck 3: manipulation,72c104b000b3dce05a44e8f12d2d1eaf06a8b84c,Pull request merge from banilo/nilearn:doccheck3 to nilearn/nilearn:master,doccheck 3 manipul
+issue_comment,619,nilearn,nilearn,AlexandreAbraham,2015-07-06 21:04:43,"Great work, as usual!
+",,,great work usual
+issue_comment,619,nilearn,nilearn,lesteve,2015-07-16 13:06:00,"Good stuff, merging!
+",,,good stuff merg
+issue_comment,619,nilearn,nilearn,banilo,2015-07-16 08:35:44,":octocat:  says: ""Merge me!""
+",,,octocat say merg
+pull_request_commit_comment,619,nilearn,nilearn,AlexandreAbraham,2015-07-06 20:57:47,"loaded **with** a single line?
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",load singl line
+pull_request_commit_comment,619,nilearn,nilearn,AlexandreAbraham,2015-07-06 20:58:16,"typo voluem.
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",typo voluem
+pull_request_commit_comment,619,nilearn,nilearn,AlexandreAbraham,2015-07-06 21:00:40,"For me, **sets of Nifti-like** means that we have several which has no sense since we don't know what is the dimension of the nifti-like.
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",for set niftilik mean sever sens sinc dont know dimens niftilik
+pull_request_commit_comment,619,nilearn,nilearn,banilo,2015-07-16 08:31:35,"Right!
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",right
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 08:48:06,"file names of the file names ?
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",file name file name
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 08:49:45,"pète un coup please !
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",pète un coup pleas
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 09:39:19,"Nifti vs nifti doesn't seem to be consistent. I don't really know which one is preferable.
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",nifti vs nifti doesnt seem consist I dont realli know one prefer
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 09:40:56,"why did you remove 4D this line is about 4D Niimg-like object ...
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",remov 4D line 4D niimglik object
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 09:54:20,"translate is a bit ambiguous I find especially the mathematical meaning, maybe transform ?
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",translat bit ambigu I find especi mathemat mean mayb transform
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 09:54:35,"I don't really see what compressed means here.
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",I dont realli see compress mean
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 10:02:48,"mean -> means or maybe method, way, etc ...
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",mean
+pull_request_commit_comment,619,nilearn,nilearn,lesteve,2015-07-16 10:05:00,"missing verb: We can then **use**/**apply** a logical ""and"" operation
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",miss verb We useappli logic oper
+pull_request_commit_comment,619,nilearn,nilearn,banilo,2015-07-16 12:52:09,"I wanted to explicitly not use Transform() to paraphrase the function name intentionally.
+",442f555024b1993dcb09d77fd366f889149a0d8d,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",I want explicitli use transform paraphras function name intent
+pull_request_commit,619,nilearn,nilearn,banilo,2015-06-27 03:33:29,double-checked manipulation docs,5cecdc253e9cdf1e41fdeab782e4742cd91122fd,,doublecheck manipul doc
+pull_request_commit,619,nilearn,nilearn,banilo,2015-07-16 08:34:00,cosmit,62545acba02bfd315dbaf4e43a24a7f68f6c060a,,cosmit
+pull_request_commit,619,nilearn,nilearn,banilo,2015-07-16 12:53:53,integrate Loics comments,442f555024b1993dcb09d77fd366f889149a0d8d,,integr loic comment

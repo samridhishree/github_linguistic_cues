@@ -1,0 +1,37 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,277,nilearn,nilearn,lesteve,2015-01-14 09:32:34,,closed issue,added concat_img() in nilearn.image,,N,2014-11-11 14:33:26
+22,issue_comment,277,nilearn,nilearn,banilo,2015-01-14 09:34:46,":beer: 
+",,,beer,N,2014-11-11 22:11:48
+23,pull_request_commit_comment,277,nilearn,nilearn,AlexandreAbraham,2014-11-11 22:11:48,"`array_equal` may not be the best function to use with float values.
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/image/image.py')",may best function use float valu,N,2014-11-11 22:12:54
+24,pull_request_commit_comment,277,nilearn,nilearn,AlexandreAbraham,2014-11-11 22:12:54,"Do you really have a use case where this parameter is useful?
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/image/image.py')",Do realli use case paramet use,N,2014-11-12 08:10:30
+25,pull_request_commit_comment,277,nilearn,nilearn,banilo,2014-11-12 08:10:30,"I was inspired by how the affines are compared in niimg_conversion.py. What should I use instead?
+",4102d5190f84d0f48e3cdde7bca5891db7c97aab,"(None, '', u'nilearn/image/image.py')",I inspir affin compar niimgconversionpi what I use instead,N,2014-11-13 08:01:27
+2,issue_closed,278,nilearn,nilearn,lesteve,2014-11-19 08:08:52,,closed issue,[ENH] Shelving option for NiftiMasker,,N,2014-11-11 16:48:06
+3,pull_request_title,278,nilearn,nilearn,banilo,2014-11-11 16:48:06,"in response to #203
+
+@AlexandreAbraham: Does this make any sense and is it approximately what you guys had in mind?
+",31969337e86e3d6dff5568d08c2911096bf0333c,[ENH] Shelving option for NiftiMasker,respons 203 alexandreabraham doe make sens approxim guy mind,N,2014-11-11 16:58:49
+4,issue_comment,278,nilearn,nilearn,banilo,2014-11-11 16:58:49,"Units tests fail for CanICA although I didn't change anything there??
+
+# 
+
+## FAIL: nilearn.decomposition.tests.test_canica.test_canica_square_img
+
+Traceback (most recent call last):
+  File ""/Users/admin/anaconda/lib/python2.7/site-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/git/nilearn/nilearn/decomposition/tests/test_canica.py"", line 60, in test_canica_square_img
+    assert_true(np.sum(K_abs > .9) == 4)
+AssertionError: False is not true
+    'False is not true' = self._formatMessage('False is not true', ""%s is not true"" % safe_repr(False))
+
+> >  raise self.failureException('False is not true')
+",,,unit test fail canica although I didnt chang anyth fail nilearndecompositionteststestcanicatestcanicasquareimg traceback recent call last file usersadminanacondalibpython27sitepackagesnosecasepi line 197 runtest selftestselfarg file gitnilearnnilearndecompositionteststestcanicapi line 60 testcanicasquareimg asserttruenpsumkab assertionerror fals true fals true selfformatmessagefals true true safereprfals,Y,2014-11-11 22:00:47
+5,issue_comment,278,nilearn,nilearn,AlexandreAbraham,2014-11-11 22:00:47,"The CanICA test can fail randomly, don't worry about that.
+",,,the canica test fail randomli dont worri,Y,2014-11-11 22:07:30
+6,issue_comment,278,nilearn,nilearn,AlexandreAbraham,2014-11-11 22:07:30,"I already have code to add this feature so you don't need to do it yourself. BTW, you should not use MemorizedFunc directly, nor use a temporary directory (shelving has no sense if the results is lost after reboot).
+
+This issue has not been resolved yet because the problem is not in adding shelving support in MultiNiftiMasker. This is the easy part. The question is: how do we handle shelved data in the rest of the library? What if a user wants to use a scikit-learn algorithm on shelved data? We have no answer for these questions. I think this should be discussed with the whole nilearn team.
+",,,I alreadi code add featur dont need btw use memorizedfunc directli use temporari directori shelv sens result lost reboot thi issu resolv yet problem ad shelv support multiniftimask thi easi part the question handl shelv data rest librari what user want use scikitlearn algorithm shelv data We answer question I think discuss whole nilearn team,N,2014-11-11 16:45:41

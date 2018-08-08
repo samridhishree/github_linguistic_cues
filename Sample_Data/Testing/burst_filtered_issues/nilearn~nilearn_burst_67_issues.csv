@@ -1,0 +1,5 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+9,issue_comment,785,nilearn,nilearn,bthirion,2015-09-30 06:19:16,"LGTM
+",,,lgtm,N,2015-10-06 10:40:26
+51,pull_request_commit,785,nilearn,nilearn,KamalakerDadi,2015-09-29 15:20:11,"Addressed comments such as error message, test, n_cuts check moved to top",ced5503312c16a6cc8336e337af8ba61fe407627,,address comment error messag test ncut check move top,N,2015-10-06 08:12:20
+52,pull_request_commit,785,nilearn,nilearn,KamalakerDadi,2015-10-06 08:12:20,Addressed comments related to floating error problems.,1ba29d6a9f7cb786f1b1227ed927a13964fa3142,,address comment relat float error problem,N,2015-10-06 20:30:39

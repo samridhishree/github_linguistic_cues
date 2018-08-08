@@ -1,0 +1,34 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1058,nilearn,nilearn,Naereen,2016-03-17 20:56:12,"Fixing small typos on doc/connectivity/functional_connectomes.rst.
+",start issue,Fixing small typos on functional_connectomes.rst,fix small typo docconnectivityfunctionalconnectomesrst
+issue_closed,1058,nilearn,nilearn,aabadie,2016-03-21 08:24:25,,closed issue,Fixing small typos on functional_connectomes.rst,
+pull_request_title,1058,nilearn,nilearn,Naereen,2016-03-17 20:56:12,"Fixing small typos on doc/connectivity/functional_connectomes.rst.
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,Fixing small typos on functional_connectomes.rst,fix small typo docconnectivityfunctionalconnectomesrst
+pull_request_merged,1058,nilearn,nilearn,aabadie,2016-03-21 08:24:25,Fixing small typos on functional_connectomes.rst,ab8fee54bd0ee6add58d345497a4b63b5a8e54d5,Pull request merge from Naereen/nilearn:patch-1 to nilearn/nilearn:master,fix small typo functionalconnectomesrst
+issue_comment,1058,nilearn,nilearn,aabadie,2016-03-21 08:24:04,"LGTM. Merging, thanks !
+",,,lgtm merg thank
+issue_comment,1058,nilearn,nilearn,Naereen,2016-03-20 01:36:37,"The checks passed, and I added your requests. Can you merge it?
+",,,the check pass I ad request can merg
+issue_comment,1058,nilearn,nilearn,bthirion,2016-03-20 21:26:26,"LGTM.
+",,,lgtm
+issue_comment,1058,nilearn,nilearn,Naereen,2016-03-21 13:59:19,"Thanks!
+",,,thank
+pull_request_commit_comment,1058,nilearn,nilearn,aabadie,2016-03-17 21:58:17,"Any reason for splitting this line ?
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(118, '', u'doc/connectivity/functional_connectomes.rst')",ani reason split line
+pull_request_commit_comment,1058,nilearn,nilearn,aabadie,2016-03-17 21:58:49,"Same question here. (just curious)
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')",same question curiou
+pull_request_commit_comment,1058,nilearn,nilearn,Naereen,2016-03-17 22:18:46,"All the rST files in this repo (and others) try to keep lines below 80 characters, these harmless couple of line splits were done just to keep a more consistent line width style.
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')",all rst file repo other tri keep line 80 charact harmless coupl line split done keep consist line width style
+pull_request_commit_comment,1058,nilearn,nilearn,aabadie,2016-03-17 22:25:39,"Ok, I was just wondering if it won't change the final display result (let's wait for circle ci to finish).
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')",Ok I wonder wont chang final display result let wait circl ci finish
+pull_request_commit_comment,1058,nilearn,nilearn,Naereen,2016-03-17 22:29:54,"No, sphinx, as latex, usually don't care for line splitting (except if it between markup). In this case, for links, it's ok to split the line before the `<...>_` part.
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')",No sphinx latex usual dont care line split except markup In case link ok split line part
+pull_request_commit_comment,1058,nilearn,nilearn,banilo,2016-03-18 19:49:52,"adding ""et al."" here and below might give it a more sciency spin
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(None, '', u'doc/connectivity/functional_connectomes.rst')",ad et al might give scienci spin
+pull_request_commit_comment,1058,nilearn,nilearn,Naereen,2016-03-18 19:57:22,"OK, done, [3ee1c69](https://github.com/Naereen/nilearn/commit/3ee1c693563f5c8babf26b8ec809914bd4d196b8).
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(None, '', u'doc/connectivity/functional_connectomes.rst')",OK done 3ee1c69
+pull_request_commit,1058,nilearn,nilearn,Naereen,2016-03-17 20:53:25,"Fixing small typos on functional_connectomes.rst
+
+Fixing small typos on doc/connectivity/functional_connectomes.rst.",11446e5060a715dfea3416ba336fbb20e79fb274,,fix small typo functionalconnectomesrst fix small typo docconnectivityfunctionalconnectomesrst
+pull_request_commit,1058,nilearn,nilearn,Naereen,2016-03-18 19:56:47,"Adding ""et al."" for [Zalesky2012], [Varoquaux2013]",3ee1c693563f5c8babf26b8ec809914bd4d196b8,,ad et al zalesky2012 varoquaux2013

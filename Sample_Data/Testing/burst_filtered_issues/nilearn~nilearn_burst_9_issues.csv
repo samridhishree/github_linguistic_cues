@@ -1,0 +1,311 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,49,nilearn,nilearn,pgervais,2013-04-23 13:25:45,"The ""detrend"" boolean argument in clean() is an easy way to add a trend as another confound to remove. Thus, it must be exactly equivalent to adding a trend in the ""confounds"" array. This was not the case before this commit. 
+
+The fix was easy: it was just a matter of detrending the confounds as well as the signals.
+
+A similar concern could exist with filtering: if a low-pass or high-pass filter is specified, the output result must not contain unfiltered frequencies, even if some confounds do contain those frequencies. This is not the case with the present implementation, because filtering is performed after everything else.
+",start issue,Fixed a bug in signals.clean(),the detrend boolean argument clean easi way add trend anoth confound remov thu must exactli equival ad trend confound array thi case commit the fix easi matter detrend confound well signal A similar concern could exist filter lowpass highpass filter specifi output result must contain unfilt frequenc even confound contain frequenc thi case present implement filter perform everyth els,N,2013-04-23 13:53:58
+2,issue_closed,49,nilearn,nilearn,pgervais,2013-04-23 13:53:58,,closed issue,Fixed a bug in signals.clean(),,N,2013-04-23 13:25:45
+3,pull_request_title,49,nilearn,nilearn,pgervais,2013-04-23 13:25:45,"The ""detrend"" boolean argument in clean() is an easy way to add a trend as another confound to remove. Thus, it must be exactly equivalent to adding a trend in the ""confounds"" array. This was not the case before this commit. 
+
+The fix was easy: it was just a matter of detrending the confounds as well as the signals.
+
+A similar concern could exist with filtering: if a low-pass or high-pass filter is specified, the output result must not contain unfiltered frequencies, even if some confounds do contain those frequencies. This is not the case with the present implementation, because filtering is performed after everything else.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,Fixed a bug in signals.clean(),the detrend boolean argument clean easi way add trend anoth confound remov thu must exactli equival ad trend confound array thi case commit the fix easi matter detrend confound well signal A similar concern could exist filter lowpass highpass filter specifi output result must contain unfilt frequenc even confound contain frequenc thi case present implement filter perform everyth els,N,2013-04-23 13:53:58
+4,pull_request_merged,49,nilearn,nilearn,pgervais,2013-04-23 13:53:58,Fixed a bug in signals.clean(),81374b399b89bbedf186d7ccc88cfef0c322d908,Pull request merge from pgervais/nilearn:clean_confounds_fix to nilearn/nilearn:master,fix bug signalsclean,N,2013-04-23 13:34:48
+5,issue_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:34:48,"> The fix was easy: it was just a matter of detrending the confounds as well as
+> the signals.
+
+Excellent!
+
+:+1: for merge.
+",,,excel 1 merg,N,2013-04-23 13:16:05
+6,pull_request_commit,49,nilearn,nilearn,pgervais,2013-04-23 13:16:05,"Fixed a bug in signals.clean()
+
+The ""detrend"" boolean argument in clean() is an easy way to add a trend
+as another confound to remove. It must be exactly equivalent to adding
+a trend in the ""confounds"" array. This was not the case before this
+commit.",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,,fix bug signalsclean the detrend boolean argument clean easi way add trend anoth confound remov It must exactli equival ad trend confound array thi case commit,N,2013-04-23 13:33:15
+7,pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:33:15,"I hadn't seen this so far, even though it is not new in your PR: 'nisignals'. I'd rather avoid 'import as'. You can do 'from nisl.signals import clean'.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')",I hadnt seen far even though new PR nisign Id rather avoid import you nislsign import clean,N,2013-04-23 13:34:15
+8,pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:34:15,"Good test! Thanks
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(20, 227, u'nisl/tests/test_signals.py')",good test thank,Y,2013-04-23 13:53:05
+9,pull_request_commit_comment,49,nilearn,nilearn,pgervais,2013-04-23 13:53:05,"I find it much easier to read code where functions are prefixed with their respective package, or a shortcut for it (like np for numpy), than having to scroll all the time to the top of the file to known where it comes from. And I don't like writing ""import"" anywhere in the file either.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')",I find much easier read code function prefix respect packag shortcut like np numpi scroll time top file known come and I dont like write import anywher file either,N,2013-04-23 13:56:21
+1,issue_title,45,nilearn,nilearn,pgervais,2013-04-18 07:50:42,"This branch adds an implementation of the CompCor algorithm, and associated tests. 
+Feedback is welcome on API and implementation.
+",start issue,Added high_variance_confounds() and tests,thi branch add implement compcor algorithm associ test feedback welcom api and implement,N,2013-04-22 09:24:37
+3,pull_request_title,45,nilearn,nilearn,pgervais,2013-04-18 07:50:42,"This branch adds an implementation of the CompCor algorithm, and associated tests. 
+Feedback is welcome on API and implementation.
+",cf9612933e79ba8ed6457b5013f9aa9f8f3376f5,Added high_variance_confounds() and tests,thi branch add implement compcor algorithm associ test feedback welcom api and implement,N,2013-04-22 09:24:36
+10,issue_comment,45,nilearn,nilearn,pgervais,2013-04-19 14:00:36,"The failure in test reported by @bthirion is real, but unrelated to this pull request. If nobody feels strongly against merging this, I'll do it on Monday.
+",,,the failur test report bthirion real unrel pull request If nobodi feel strongli merg ill monday,Y,2013-04-23 12:42:33
+2,issue_closed,47,nilearn,nilearn,pgervais,2013-05-15 15:18:40,,closed issue,Regions/parcellation handling functions (request for comment),,N,2013-04-22 12:13:03
+4,pull_request_merged,47,nilearn,nilearn,pgervais,2013-05-15 15:18:40,Regions/parcellation handling functions (request for comment),9776aa746a7936153617607d44bf53a19b087f4f,Pull request merge from pgervais/nilearn:roi to nilearn/nilearn:master,regionsparcel handl function request comment,N,2013-04-22 14:41:56
+5,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",,,It ntimepoint nregion time point sampl region featur,N,2013-04-22 14:59:50
+6,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",,,you appli transform method ward object what mean I refer If I mistak peopl,N,2013-04-22 15:01:51
+7,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 15:01:51,"> All those generic terms are confusing (features, time points, ...).
+
+Yes. That's why we are not going to use them in nisl. However, in
+scikit-learn, we need them.
+
+> In the present state, the shape output by apply_mask_to_regions() is (voxels
+> number, region number), so that out[i, j] is the weight of the j-th region on
+> the i-th voxel. (voxel numbering being defined by the mask, which is
+> independent from the regions). Is that consistent with scikit-learn or not? Is
+> consistency required?
+
+I hadn't realized that you we talking about this function. I don't think
+that such a function should exist in the public API. I does not serve a
+usecase that people commonly need and will confuse people.
+",,,ye that go use nisl howev scikitlearn need I hadnt realiz talk function I dont think function exist public api I serv usecas peopl commonli need confus peopl,N,2013-04-22 15:47:05
+8,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",,,My point low level probabl hidden user,N,2013-04-23 15:30:48
+9,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",,,I think let simplifi option less featur less code less bug,N,2013-04-23 16:27:36
+10,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 16:27:36,"Minor comment in plot_regions_covariance.py: I prefer if functions are listed in the order of dependence. Thus 'plot_matrices' should go above 'graph_lasso_covariance'.
+",,,minor comment plotregionscovariancepi I prefer function list order depend thu plotmatric go graphlassocovari,N,2013-04-23 16:46:39
+11,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 16:46:39,"Looking at the plot_regions_covariance.py file, a few quick comments.
+
+I think that get_ho_parcellation should be renamed to 'load_harvard_oxford' (load_ to follow the scikit-learn conventions, and 'harvard_oxford' because it is more explicit then HO, and move to the datasets module. I should take an optional argument to divide the regions in 2 or not.
+
+In terms of API, I still am not a huge fan of the duo: apply_mask_to_regions and apply_regions. I think that I would prefer an option 'mask' to apply_regions', that, if not None, would apply the mask.
+
+I think that we need to detrend the signals :). This is not terribly important here, because of the high_pass filter, but still, I think that this is a good habit to give to people.
+
+This is looking good! The next step is to have a 'transformer' that does all this!
+
+PS: this is really just a quick glance at the code while I should be at the poster session. I haven't had time to really have a profound thought about it.
+",,,look plotregionscovariancepi file quick comment I think gethoparcel renam loadharvardoxford load follow scikitlearn convent harvardoxford explicit HO move dataset modul I take option argument divid region 2 In term api I still huge fan duo applymasktoregion applyregion I think I would prefer option mask applyregion none would appli mask I think need detrend signal thi terribl import highpass filter still I think good habit give peopl thi look good the next step transform PS realli quick glanc code I poster session I havent time realli profound thought,N,2013-04-30 13:44:59
+12,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-30 13:44:59,"On Tue, Apr 30, 2013 at 05:14:58AM -0700, Philippe Gervais wrote:
+
+> ```
+> ""signals"" is a series of values extracted from a single voxel.
+> ```
+
+So what comes out of ROIs is not signals? Seems that the API that your
+are proposing below has a large acceptance of the word (which is fine by
+me).
+
+>   • signals_from_labels() and signals_from_maps(): for extracting signals from
+>     regions defined by labels and maps respectively. Both functions take niimgs
+>     as inputs, and return a 2D numpy array, containing signals as columns.
+>   • img_from_labels() and img_from_maps(): for inverting signals_from_*()
+>     functions. Both take a 2D array as input, and ouput a NiftiImage.
+
+Looks good!
+
+>   • high_variance_confounds() should take images as input, not signals.
+>   • rename ""regions_are_overlapping"" to ""maps_are_overlapping""
+>   • remove all the conversion functions (_regions___to__), possibly with the
+>     exception of those involving labels, because they might prove useful,
+>     especially _regions_array_to_labels().
+> 
+> I don't expect everyone to agree on this, but it seems a reasonable compromise
+> to me.
+
+The whole plan seems good to me.
+",,,On tue apr 30 2013 051458am 0700 philipp gervai wrote So come roi signal seem api propos larg accept word fine look good the whole plan seem good,N,2013-04-30 13:54:16
+15,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-15 15:15:54,"> Since my PR is very close to merging (I just wait for your advice and that of
+> @GaelVaroquaux).
+
+Don't wait from me. It looks good!
+",,,dont wait It look good,N,2013-04-22 13:15:46
+16,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 13:15:46,"First thing to change: all the conversion functions regions___to__() should take niimgs as input instead of Python types. Affines are required when working with 3D or 4D data, thus the API should always deal with niimg in that case (as input and output)
+",,,first thing chang convers function regionsto take niimg input instead python type affin requir work 3D 4D data thu api alway deal niimg case input output,N,2013-04-22 13:57:50
+17,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 13:57:50,"Finding the scikit-learn convention about components and maps is quite difficult. I only found one occurence in the documentation (mean_shift). @AlexandreAbraham, can you point me to others? I will fix this problem soon anyway.
+
+I understand your point of view on regions masking, and that keeping the labels after masking could be useful. However, integrating this in apply_mask_to_regions() would lead to an inconsistent API imo. The output of apply_mask_to_regions() is designed to be used as input to apply_regions(), nothing else in the present state.
+
+I used the word ""unapply"" to get a consistent pair of function names (apply_mask / unmask being not consistent enough for me). I'm aware that this may not be the best names ever, particularly because these functions are not exact inverse to each other. Any other ideas (including other arguments against the existence of (un)apply_mask_regions) are welcome!
+",,,find scikitlearn convent compon map quit difficult I found one occur document meanshift alexandreabraham point other I fix problem soon anyway I understand point view region mask keep label mask could use howev integr applymasktoregion would lead inconsist api imo the output applymasktoregion design use input applyregion noth els present state I use word unappli get consist pair function name applymask unmask consist enough Im awar may best name ever particularli function exact invers ani idea includ argument exist unapplymaskregion welcom,N,2013-04-22 14:48:31
+18,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 14:48:31,"All those generic terms are confusing (features, time points, ...).
+In the present state, the _shape_ output by apply_mask_to_regions() is (voxels _number_, region _number_), so that out[i, j] is the _weight_ of the j-th region on the i-th voxel. (voxel numbering being defined by the _mask_, which is independent from the regions). Is that consistent with scikit-learn or not? Is consistency required?
+",,,all gener term confus featur time point In present state shape output applymasktoregion voxel number region number outi j weight jth region ith voxel voxel number defin mask independ region Is consist scikitlearn Is consist requir,N,2013-04-22 14:51:16
+19,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 14:51:16,"@AlexandreAbraham I see your point, the current API is indeed unefficient for your application. There must be an efficient shortcut for learning timeseries starting with masked labels. I'll try to find something suitable.
+",,,alexandreabraham I see point current api inde uneffici applic there must effici shortcut learn timeseri start mask label ill tri find someth suitabl,N,2013-04-22 14:54:52
+20,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",,,alexandreabraham transform oper plan Id like get lowlevel api right go sophist thing,N,2013-04-22 15:34:26
+21,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 15:34:26,"@GaelVaroquaux The apply_mask_to_regions() is required for this low-level API to be consistent. It cannot work without it (people will have to recreate it, or use apply_mask() instead, which I maintain is error-prone).
+
+Still, I agree on the fact that the name is confusing. I made a proposal at the very beginning of this thread that nobody commented on: adding an option to apply_mask() to distinguish between the regions and fMRI data cases. That would be a way to get rid of apply_mask_to_regions().
+
+Another way to get it out of the way would be to change the signature of apply_regions(), and to make it take non-masked input. I think we'll hit performance issues by doing this, that's why I didn't go for this solution.
+",,,gaelvaroquaux the applymasktoregion requir lowlevel api consist It cannot work without peopl recreat use applymask instead I maintain errorpron still I agre fact name confus I made propos begin thread nobodi comment ad option applymask distinguish region fmri data case that would way get rid applymasktoregion anoth way get way would chang signatur applyregion make take nonmask input I think well hit perform issu that I didnt go solut,N,2013-04-23 08:39:00
+22,issue_comment,47,nilearn,nilearn,pgervais,2013-04-23 08:39:00,"The reason why I think it is confusing is when applied to an array of labels. In that case, it will return a one-dimensional array containing the labels, a not a 2 dimensional array containing the weight for each voxel, which would be the case with the other representations of regions. I think of this as an inconsistency, not a feature. Others may think differently, though. 
+",,,the reason I think confus appli array label In case return onedimension array contain label 2 dimension array contain weight voxel would case represent region I think inconsist featur other may think differ though,N,2013-04-24 07:22:24
+23,issue_comment,47,nilearn,nilearn,pgervais,2013-04-24 07:22:24,"I fixed most of the issues you raised (about plot_regions_covariance.py). 
+
+As for the detrending, it was already done (line 81), but independently of nisl.signals.clean(). The reason why I did it that way is that high_variance_confounds() must operate on detrended signals, and clean() too. The best way was to detrend the signals once, and not repeat the detrending in clean(). However, mvt_confounds could have a trend in them as well, and in the current state, they're not detrended. I added a call to _detrend() to clean to fix that. This is however rather convoluted for a low-level programmer, so I'll think of something clearer in the very near future.
+
+This file uses only functions and no transformers on purpose: the goal is to show the low-level API to advanced users. If this API isn't clear, there is no hope to get something simple at the transformer level. When the transformer API is ready, I'll create a second example file, doing the same thing.
+",,,I fix issu rais plotregionscovariancepi As detrend alreadi done line 81 independ nislsignalsclean the reason I way highvarianceconfound must oper detrend signal clean the best way detrend signal repeat detrend clean howev mvtconfound could trend well current state theyr detrend I ad call detrend clean fix thi howev rather convolut lowlevel programm ill think someth clearer near futur thi file use function transform purpos goal show lowlevel api advanc user If api isnt clear hope get someth simpl transform level when transform api readi ill creat second exampl file thing,N,2013-04-24 14:56:12
+24,issue_comment,47,nilearn,nilearn,pgervais,2013-04-24 14:56:12,"As requested by Gaël, I moves the function for loading Harvard-Oxford parcellations in nisl.datasets. It has been slightly adapted, feel free to comment. 
+
+The example file plot_regions_covariance.py has been simplified, it is now only 105 lines long and don't require nibabel anymore. I think it won't shrink much more now.
+",,,As request gaël i mov function load harvardoxford parcel nisldataset It slightli adapt feel free comment the exampl file plotregionscovariancepi simplifi 105 line long dont requir nibabel anymor I think wont shrink much,N,2013-04-25 15:49:36
+25,issue_comment,47,nilearn,nilearn,pgervais,2013-04-25 15:49:36,"I finally dropped the apply_mask_to_regions(), and merged it into apply_mask(). Two different behaviours are now available for this function, choice is made with the ""input_type"" flag. unapply_mask_to_regions() still exists though, I'll get rid of it soon.
+
+A very important change has been made at the same time: **a masked region array must now have as shape (region number, voxel number)**, which is in line with scikit-learn convention, but is the transpose of what was before this commit.
+",,,I final drop applymasktoregion merg applymask two differ behaviour avail function choic made inputtyp flag unapplymasktoregion still exist though ill get rid soon A import chang made time mask region array must shape region number voxel number line scikitlearn convent transpos commit,N,2013-04-30 12:14:57
+26,issue_comment,47,nilearn,nilearn,pgervais,2013-04-30 12:14:57,"After long discussions with both @AlexandreAbraham, @GaelVaroquaux, @bthirion, and others, here is a new proposal for the low-level API. The important points being:
+- Vocabulary: ""maps"" and ""labels"" designate respectively fuzzy regions (possibly intersecting), and flat regions (non intersecting). The former being defined using weights in several 3D arrays, the latter using labels in a single 3D array. This vocabulary is consistent with Scipy's (see e.g. scipy.ndimage.measurements.label or .find_objects). ""images"", abbreviated ""img"" are 3D arrays, with a mandatory affine (even a trivial one). ""signals"" is a series of values extracted from a single voxel. The word ""timeseries"" is somehow specific to resting-state acquisitions: a signal is not necessarily evenly sampled, which is suggested by the term ""timeseries"".
+- Separate functions must exist for maps and labels processing. This will make cleaner API and permit some optimizations by using shortcuts in some cases.
+- Every 3D or 4D array must come with an affine, to permit automatic resampling. This implies passing niimgs as input in every such case, and not just numpy arrays.
+
+I suggest to create the following functions (that would replace the existing un|apply_regions): 
+- signals_from_labels() and signals_from_maps(): for extracting signals from regions defined by labels and maps respectively. Both functions take niimgs as inputs, and return a 2D numpy array, containing signals as columns.
+- img_from_labels() and img_from_maps(): for inverting signals_from_*() functions. Both take a 2D array as input, and ouput a NiftiImage.
+
+and make the modifications:
+- high_variance_confounds() should take images as input, not signals.
+- rename ""regions_are_overlapping"" to ""maps_are_overlapping""
+- remove all the conversion functions (_regions___to__), possibly with the exception of those involving labels, because they might prove useful, especially _regions_array_to_labels().
+
+I don't expect everyone to agree on this, but it seems a reasonable compromise to me.
+Tell me your thoughts before I start implementing this for good.
+",,,after long discuss alexandreabraham gaelvaroquaux bthirion other new propos lowlevel api the import point vocabulary map label design respect fuzzi region possibl intersect flat region non intersect the former defin use weight sever 3D array latter use label singl 3D array thi vocabulari consist scipi see eg scipyndimagemeasurementslabel findobject imag abbrevi img 3D array mandatori affin even trivial one signal seri valu extract singl voxel the word timeseri somehow specif restingst acquisit signal necessarili evenli sampl suggest term timeseri separ function must exist map label process thi make cleaner api permit optim use shortcut case everi 3D 4D array must come affin permit automat resampl thi impli pass niimg input everi case numpi array I suggest creat follow function would replac exist unapplyregion signalsfromlabel signalsfrommap extract signal region defin label map respect both function take niimg input return 2D numpi array contain signal column imgfromlabel imgfrommap invert signalsfrom function both take 2D array input ouput niftiimag make modif highvarianceconfound take imag input signal renam regionsareoverlap mapsareoverlap remov convers function regionsto possibl except involv label might prove use especi regionsarraytolabel I dont expect everyon agre seem reason compromis tell thought I start implement good,N,2013-04-30 13:50:26
+27,issue_comment,47,nilearn,nilearn,pgervais,2013-04-30 13:50:26,"@GaelVaroquaux is right: my definition of signals should not be restricted to values extracted from one voxel, but to a set of voxels as well. 
+
+Getting a precise yet general definition is kind of tricky in the present case. The idea is to transform a set of images, usually represented by a 4D array (3 dimensions for space, one for scans) into a 2D array, (1 dimension for space, 1 for scan). The column of the 2D array is what I call signals. 
+
+Everybody following this discussion has understood what I meant. This might not be the case for all future users.
+",,,gaelvaroquaux right definit signal restrict valu extract one voxel set voxel well get precis yet gener definit kind tricki present case the idea transform set imag usual repres 4D array 3 dimens space one scan 2D array 1 dimens space 1 scan the column 2D array I call signal everybodi follow discuss understood I meant thi might case futur user,N,2013-04-30 15:59:29
+33,issue_comment,47,nilearn,nilearn,pgervais,2013-05-15 15:15:21,"Since my PR is very close to merging (I just wait for your advice and that of @GaelVaroquaux). I saved me some merging effort by directly correcting the bug in the roi branch. Some things had to be corrected in some example scripts that were added by the branch. 
+",,,sinc PR close merg I wait advic gaelvaroquaux I save merg effort directli correct bug roi branch some thing correct exampl script ad branch,N,2013-04-23 16:40:27
+34,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 16:40:27,"from scipy import ndimage please :).
+
+ndimage is a name that is unique enough that what people see it in a source code, they immediately know that it is scipy.ndimage.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')",scipi import ndimag pleas ndimag name uniqu enough peopl see sourc code immedi know scipyndimag,N,2013-04-24 21:27:35
+35,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(6, '', u'doc/modules/classes.rst')",nitpick modul call region rather region,N,2013-04-24 21:29:41
+36,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:29:41,"The public API is too long. We are not in the business of building a swiss army knife. If we address every problem that we are going to quickly drown under the lines of code.
+
+Do you actually need all these functions to code the example?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')",the public api long We busi build swiss armi knife If address everi problem go quickli drown line code Do actual need function code exampl,N,2013-04-24 21:33:35
+37,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:33:35,"I think that the word 'parcellation' should at least appear in the function name: as these functions grow we might drown under many different functions and guess what is what will become harder.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')",I think word parcel least appear function name function grow might drown mani differ function guess becom harder,N,2013-04-24 21:33:57
+38,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')",same remark,N,2013-04-24 21:37:10
+39,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:37:10,"I do believe that the numpy docstring standard specifies that you need the colon after the variable name.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')",I believ numpi docstr standard specifi need colon variabl name,N,2013-04-24 21:37:52
+40,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')",I sure comment mayb better modul docstr,N,2013-04-24 21:38:19
+41,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')",pleas renam,N,2013-04-24 22:02:39
+42,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-04-24 22:02:39,"I do think that the 3 types of regions are useful, even if they are not in the example. It is consistent with the niimg concept.
+Maybe we could only have 3 functions: region.to_array, region.to_label and region.to_list ?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')",I think 3 type region use even exampl It consist niimg concept mayb could 3 function regiontoarray regiontolabel regiontolist,N,2013-04-24 22:05:52
+43,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')",let discuss real life right I tunnel vision comput airport,N,2013-04-24 22:06:25
+44,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')",If leav function would good idea If plan add refer atlas make dedic packag would better choic,N,2013-04-24 22:08:55
+45,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')",flat better nest,N,2013-04-25 07:03:14
+46,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:03:14,"That is a really good question. I think we'd better talk about it in real life, troll, ahead... However my point of view is: follow scipy conventions. And most scipy module names are singular (signal, ndimage). Thus not only should ""region"" be singular, but ""signal"" as well...
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(6, '', u'doc/modules/classes.rst')",that realli good question I think wed better talk real life troll ahead howev point view follow scipi convent and scipi modul name singular signal ndimag thu region singular signal well,N,2013-04-25 07:07:23
+47,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:07:23,"This API is not set in stone, a higher-level one can be built on top of these functions. What you suggest @GaelVaroquaux is a good idea, it would reduce the number of functions and is easy to implement.
+
+I do think, however, that keeping the ""region_"" prefix is useful, because some people will use _from region import *_ thus making call to 'to_list()'. This is not very explicit in my opinion.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')",thi api set stone higherlevel one built top function what suggest gaelvaroquaux good idea would reduc number function easi implement I think howev keep region prefix use peopl use region import thu make call tolist thi explicit opinion,N,2013-04-25 07:10:05
+48,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:10:05,"I agree on the point that these functions (with fetch_yeo_2011())  should be more explicit. Creating dedicated package wouldn't necessarily create a nested hierarchy: just place is next to _dataset_. From example _nisl.atlas_ (or even in nisl.region).
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')",I agre point function fetchyeo2011 explicit creat dedic packag wouldnt necessarili creat nest hierarchi place next dataset from exampl nislatla even nislregion,N,2013-04-25 07:11:55
+49,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:11:55,"I removed the colon because in the current state of the documentation configuration, Sphinx adds another colon at the end of the line. Numpy convention are slightly different from basic Sphinx's, and I don't know if the appropriate configuration has been done in Nisl.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')",I remov colon current state document configur sphinx add anoth colon end line numpi convent slightli differ basic sphinx I dont know appropri configur done nisl,N,2013-04-25 07:12:47
+113,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-19 13:13:18,Merge branch 'master' into roi,e8b724d0fa6a7b2303e6599a288242e0d48d0391,,merg branch master roi,N,2013-04-22 09:26:10
+114,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-22 09:26:10,Merge branch 'master' into roi,7bb9fd227d834ed418846db3da3fe5f7758dff82,,merg branch master roi,N,2013-04-22 11:30:42
+115,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-22 11:30:42,Fixed some Sphinx compilation errors,6dc6699b20e208468b6bdbf183149578aa05e2ef,,fix sphinx compil error,N,2013-04-22 11:56:08
+116,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-22 11:56:08,"Renamed roi.py in region.py
+
+Renamed apply_mask_regions() to apply_mask_to_regions() and similarly
+for unapply_mask_regions().",3b0be157fe848db5c785d0d199514a92802d02ac,,renam roipi regionpi renam applymaskregion applymasktoregion similarli unapplymaskregion,N,2013-04-22 12:12:18
+117,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-22 12:12:18,Renamed tests/test_roi.py to tests/tests_region.py,8c0694f5c2ed83e025fe20a265c426e5928b2390,,renam teststestroipi teststestsregionpi,N,2013-04-22 16:00:39
+118,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-22 16:00:39,Fixed tests of region.py functions.,b69af8b856fbf69ba2b6e372cfea40a24347681f,,fix test regionpi function,N,2013-04-23 09:18:13
+119,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-23 09:18:13,"Added regions_to_mask() and NislImage class
+
+Tests for regions_to_mask() have been written too.",df08e063a0ae9fe466b61ca4149a1c90a0f2ec12,,ad regionstomask nislimag class test regionstomask written,N,2013-04-23 11:56:56
+120,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-23 11:56:56,"Option background_label to regions_labels_to_list()
+
+This option is used to give the label that should be considered as
+background during the conversion (nothing is output for this label)",85c85fd9a58298c6e0d948d071e2cdec5dcddbba,,option backgroundlabel regionslabelstolist thi option use give label consid background convers noth output label,N,2013-04-23 12:24:39
+121,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-23 12:24:39,"Added plot_regions_covariance.py (example file)
+
+This script demonstrates usage of the regions API.",d99f6e7fadac4b162f248aa60d1a6c35d9f59df4,,ad plotregionscovariancepi exampl file thi script demonstr usag region api,N,2013-04-24 07:21:32
+122,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-24 07:21:32,Style fixes in plot_regions_covariance.py,b1b90396a3a5f355942452c71710077e614b86fb,,style fix plotregionscovariancepi,N,2013-04-24 14:09:41
+123,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-24 14:09:41,"Detrending in high_variance_confounds()
+
+Added ""detrend"" parameter in high_variance_confounds(), to detrend
+data before computing confounds.",d373769ca71db04ffc0da020703b04fcf020be58,,detrend highvarianceconfound ad detrend paramet highvarianceconfound detrend data comput confound,N,2013-04-24 14:51:23
+124,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-24 14:51:23,"Created nisl.datasets.load_harvard_oxford()
+
+This function loads Harvard-Oxford atlas, provided it is already
+on the disk. It can also split every region in two symmetric parts.
+
+plot_regions_covariance.py has been heavily adapted.",42c7e598e5e987bc731117a52c59b91acf94df86,,creat nisldatasetsloadharvardoxford thi function load harvardoxford atla provid alreadi disk It also split everi region two symmetr part plotregionscovariancepi heavili adapt,N,2013-04-25 08:05:08
+125,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-25 08:05:08,"Renamed yeo and craddock downloaders
+
+Added ""_atlas"" as a suffix to distinguish these functions from fmri
+data downloaders.",96135a2910b0714fbd76946b46731706952b382b,,renam yeo craddock download ad atla suffix distinguish function fmri data download,N,2013-04-25 08:06:56
+126,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-25 08:06:56,Style fixes,2628130cce13334c36330d5b0348841b70f2e856,,style fix,N,2013-04-25 15:41:51
+127,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-25 15:41:51,"Removed apply_mask_to_regions()
+
+This function was merged with apply_mask(), and the corresponding
+processing is activated using a keyword parameter (input_type).
+
+Masked regions arrays are now transposed compared to before this
+commit. The present state is consistent with scikit-learn's
+convention.
+
+Tests have been adapted, some reorganizing has been made.",b5ce51c697bd2c92986c68c20939779d51492c23,,remov applymasktoregion thi function merg applymask correspond process activ use keyword paramet inputtyp mask region array transpos compar commit the present state consist scikitlearn convent test adapt reorgan made,N,2013-04-26 08:36:22
+128,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-26 08:36:22,"Updated nd_asarray()
+
+nd_asarray does not do any copy when converting from a 1-byte type
+to a boolean.
+
+Increased the number of tests, probably fixed some existing bugs at
+the same time.",13217c2340d0a1d3677b27aaf39105de81770c1c,,updat ndasarray ndasarray copi convert 1byte type boolean increas number test probabl fix exist bug time,N,2013-04-26 12:55:00
+129,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-26 12:55:00,"Made regions conversion functions private.
+
+Functions for regions conversion (regions_labels_to_array e.g.) have
+been renamed (underscore prepended).",f2a96a3f4b12e011489d79145bc8c05256d4a63d,,made region convers function privat function region convers regionslabelstoarray eg renam underscor prepend,N,2013-04-30 12:49:31
+130,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-30 12:49:31,"Merge branch 'master' into roi
+
+Conflicts:
+	nisl/masking.py
+	nisl/tests/test_masking.py",dd394a5feff439f1085c62fc70e21c097ad63782,,merg branch master roi conflict nislmaskingpi nislteststestmaskingpi,N,2013-04-30 13:27:13
+131,pull_request_commit,47,nilearn,nilearn,pgervais,2013-04-30 13:27:13,"NislImage is not used anymore.
+
+Still used in test code though.",b2a7dafe6e2cf934518ed9919a2017b069dae005,,nislimag use anymor still use test code though,N,2013-05-02 11:33:27
+160,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-15 15:02:16,"It was one of my many tests. I left the things like this since it doesn't change anything.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(5, 26, u'nisl/io/nifti_multi_masker.py')",It one mani test I left thing like sinc doesnt chang anyth,Y,2013-05-02 14:52:01
+161,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",df08e063a0ae9fe466b61ca4149a1c90a0f2ec12,"(87, 502, u'nisl/region.py')",use instead ̀str,N,2013-05-02 14:54:14

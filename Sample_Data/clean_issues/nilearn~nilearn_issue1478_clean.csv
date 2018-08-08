@@ -1,0 +1,33 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1478,nilearn,nilearn,paul-bd,2017-06-29 20:59:42,"Good evening, 
+
+I don't know if it is the right place but I haven't found any information regarding a problem I have with niftimasker. 
+I basically just want to extract signal from two ROIs (the striatas and the occipital cortex) to generate Binding Potential parametric brain maps. 
+
+I have therefore two mask in the MNI template and an image 3D DOPA PET (to quantify brain uptake of dopamine) also in the MNI template in which I want to extract the signal ( the masks and images have nevertheless different shapes and affines). 
+ - Those ROI seems to be well co-registred to the image when using nilearn.plotting_roi
+ - but when using niftimasker, and masker.fit_transform to extract data to compute basic stats it seems to not extract the good portion of the image (as striatal would have a higher uptake than occipital cortex).  
+
+<img width=""478"" alt=""capture d ecran 2017-06-29 a 22 02 35"" src=""https://user-images.githubusercontent.com/24830940/27707733-b231db34-5d16-11e7-8798-9e9df7566212.png"">
+
+I guess the problem come from the fact that they have different affine as it fails when I try to use the function apply mask, but I fail to resample them (using resample_to_img) to the same affine.
+
+How can I do it? 
+
+Thanks for your answer and your time.
+
+Best, Paul
+
+[data.zip](https://github.com/nilearn/nilearn/files/1113506/data.zip)
+
+I also added the nii of the occipital template and striatal template and my patient. 
+
+
+",start issue,NiftiMasker,good even I dont know right place I havent found inform regard problem I niftimask I basic want extract signal two roi striata occipit cortex gener bind potenti parametr brain map I therefor two mask mni templat imag 3D dopa pet quantifi brain uptak dopamin also mni templat I want extract signal mask imag nevertheless differ shape affin those roi seem well coregistr imag use nilearnplottingroi use niftimask maskerfittransform extract data comput basic stat seem extract good portion imag striatal would higher uptak occipit cortex img width478 altcaptur ecran 20170629 22 02 35 src I guess problem come fact differ affin fail I tri use function appli mask I fail resampl use resampletoimg affin how I thank answer time best paul datazip I also ad nii occipit templat striatal templat patient
+issue_closed,1478,nilearn,nilearn,GaelVaroquaux,2017-07-06 05:12:27,,closed issue,NiftiMasker,
+issue_comment,1478,nilearn,nilearn,paul-bd,2017-06-30 07:25:29,"Hello,
+indeed seems to be perfectly working (at least when I perform a resampling). 
+Thank you very much for your time,
+
+Paul bd",,,hello inde seem perfectli work least I perform resampl thank much time paul bd

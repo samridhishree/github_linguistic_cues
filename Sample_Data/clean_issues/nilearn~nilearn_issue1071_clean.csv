@@ -1,0 +1,42 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1071,nilearn,nilearn,GaelVaroquaux,2016-04-06 19:19:01,"We already have a TOC (table of content) on the side of the page that stick to the page when scrolling. It currently displays two levels of depth of the page's TOC, however for long pages this is too long (see
+http://nilearn.github.io/manipulating_visualizing/manipulating_images.html ). 
+
+An option (eg used in scipy-lectures) is the expandable TOC, that expands one level to the current section:
+http://www.scipy-lectures.org/intro/matplotlib/matplotlib.html
+It's much more readable.
+
+Other option: grab the full CSS and theme from scipy-lectures, which is overall much better (eg displays better on small devices, less cramped with more whitespace which relaxes the reading). It will however require adapting details like the color scheme. What do people think?
+",start issue,"Collapsable Table of Content on the side (javascript, HTML, style)",We alreadi toc tabl content side page stick page scroll It current display two level depth page toc howev long page long see An option eg use scipylectur expand toc expand one level current section it much readabl other option grab full css theme scipylectur overal much better eg display better small devic less cramp whitespac relax read It howev requir adapt detail like color scheme what peopl think
+issue_comment,1071,nilearn,nilearn,GaelVaroquaux,2016-04-06 19:26:31,"> ...likes CSS.
+
+What do you mean?
+",,,what mean
+issue_comment,1071,nilearn,nilearn,GaelVaroquaux,2016-04-06 22:15:02,"> The expandable TOC is probably simpler to implement. I'd go for it, but
+> this is not a strong opinion.
+
+But there are many more improvement in the scikit-learn theme. So the
+danger is to backport them one after the other.
+",,,but mani improv scikitlearn theme So danger backport one
+issue_comment,1071,nilearn,nilearn,GaelVaroquaux,2016-04-06 22:22:27,"I also want to make sure that people have the same feeling about the
+scipy-lectures theme as me: ie they like it.
+",,,I also want make sure peopl feel scipylectur theme ie like
+issue_comment,1071,nilearn,nilearn,aabadie,2016-04-12 08:46:05,"The given link is broken in the description. I think it should be http://nilearn.github.io/manipulating_images/manipulating_images.html
+",,,the given link broken descript I think
+issue_comment,1071,nilearn,nilearn,AlexandreAbraham,2016-04-07 08:09:37,"> The expandable TOC is probably simpler to implement.
+
+It should be as simple as defining the non-active `li` parent node as hidden by default.
+
+> I also want to make sure that people have the same feeling about the scipy-lectures theme as me: ie they like it.
+
+I see no big difference between the 2. One annoyance with the scipy lecture note website is the size of the fonts: on my laptop they look huge, on my phone, they look OK, except the ones in frames that at are so small that I need to zoom in. nilearn website looks OK on both devices. The only problem is that big images are sometimes out of the frame on my phone, which is not a big deal IMHO.
+",,,It simpl defin nonact parent node hidden default I see big differ 2 one annoy scipi lectur note websit size font laptop look huge phone look OK except one frame small I need zoom nilearn websit look OK devic the problem big imag sometim frame phone big deal imho
+issue_comment,1071,nilearn,nilearn,banilo,2016-04-06 19:25:29,"...likes CSS.
+",,,like css
+issue_comment,1071,nilearn,nilearn,bthirion,2016-04-06 21:41:01,"The expandable TOC is probably simpler to implement. I'd go for it, but this is not a strong opinion.
+",,,the expand toc probabl simpler implement Id go strong opinion
+issue_comment,1071,nilearn,nilearn,bthirion,2016-04-06 22:20:39,"Yes, a global refactoring might be a good solution. Just need to find a volunteer ;-)
+",,,ye global refactor might good solut just need find volunt
+issue_comment,1071,nilearn,nilearn,bthirion,2016-04-07 08:40:19,"I also find the scipy lectures notes font a bit large on my laptop.
+",,,I also find scipi lectur note font bit larg laptop

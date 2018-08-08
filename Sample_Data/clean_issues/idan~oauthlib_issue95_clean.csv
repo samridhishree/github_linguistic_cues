@@ -1,0 +1,25 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,95,idan,oauthlib,ib-lundgren,2013-01-15 20:38:08,"There are two main issues with OAuth 1 provider as it stands today
+- there is some testing but much can be improved
+- verify_request is overly complex and should be split up
+
+I'd like to see the second one addressed by instead using
+- verify_request_token_request
+- verify_access_token_request
+- verify_resource_request (not yet stubbed)
+  and have whatever functionality they share in verify_request refactored into private methods. 
+
+Additionally I'd like to move to inheritance by composition and move request validation (basically all abstract methods) to a request validator object. Similar to what I've begun doing with the w.i.p. oauth 2 server. 
+
+Currently the testing ultimately boils down to checking for ValueErrors or false which makes it easy to introduce subtle errors such as #94. I propose that in addition to this (with a request validator as mentioned above) use mock objects to assert that the False/ValueError is caused the way the test intended it to, i.e. missing parameter or invalid credentials etc.
+
+I'm planning on implementing this when I find a free afternoon which may or may not be soon. If you are interested in giving it a go, please drop me a line =)
+",start issue,OAuth 1 Server / Provider plans,there two main issu oauth 1 provid stand today test much improv verifyrequest overli complex split Id like see second one address instead use verifyrequesttokenrequest verifyaccesstokenrequest verifyresourcerequest yet stub whatev function share verifyrequest refactor privat method addit Id like move inherit composit move request valid basic abstract method request valid object similar ive begun wip oauth 2 server current test ultim boil check valueerror fals make easi introduc subtl error 94 I propos addit request valid mention use mock object assert falsevalueerror caus way test intend ie miss paramet invalid credenti etc Im plan implement I find free afternoon may may soon If interest give go pleas drop line
+issue_closed,95,idan,oauthlib,ib-lundgren,2013-06-20 10:09:14,,closed issue,OAuth 1 Server / Provider plans,
+issue_comment,95,idan,oauthlib,ib-lundgren,2013-01-15 20:50:01,"A change like I'm planning will break backwards compatibility which should not come as a surprise for people knowing semantic versioning. However to not aggravate too many off I'll try and phase it out over the span of 0.4 and remove the old style in 0.5. 
+",,,A chang like Im plan break backward compat come surpris peopl know semant version howev aggrav mani ill tri phase span 04 remov old style 05
+issue_comment,95,idan,oauthlib,ib-lundgren,2013-06-09 19:30:29,"Just an update. I am working on this and am in the process of creating a structure similar to that of the OAuth 2 provider. Stay tuned!
+",,,just updat I work process creat structur similar oauth 2 provid stay tune
+issue_comment,95,idan,oauthlib,ib-lundgren,2013-06-18 20:35:02,"Most of the refactoring is done now. Will keep updating the branch with more tests and doc fixes then merge/push v0.5.0
+",,,most refactor done will keep updat branch test doc fix mergepush v050

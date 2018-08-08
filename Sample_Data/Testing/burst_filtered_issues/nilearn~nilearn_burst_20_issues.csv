@@ -1,0 +1,9 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,113,nilearn,nilearn,AlexandreAbraham,2013-11-06 13:27:26,,closed issue,MultiNiftiMasker should implement transform in parallel,,N,2013-10-11 09:05:45
+3,issue_comment,113,nilearn,nilearn,GaelVaroquaux,2013-10-11 09:05:45,"Awesome. We need to talk to @ogrisel about shelving. You should sit down
+with him and explain the usecase and show the codebase.
+",,,awesom We need talk ogrisel shelv you sit explain usecas show codebas,N,2013-10-11 09:04:27
+4,issue_comment,113,nilearn,nilearn,AlexandreAbraham,2013-10-11 09:04:27,"I thought too... I have a branch with that work but I think I never made the PR because it is intricated with another modification (shelving). I am rebasing it right now, it shouldn't be too much work to remove shelving and keep only the parallel part.
+",,,I thought I branch work I think I never made PR intric anoth modif shelv I rebas right shouldnt much work remov shelv keep parallel part,N,2013-10-11 09:14:14
+5,issue_comment,113,nilearn,nilearn,AlexandreAbraham,2013-10-11 09:14:14,"Rebasing is done. I'll remove the shelving ASAP. I'll do some tests to validate the code. I can do the PR in the early afternoon or you can use my ""parallel_multi"" branch (you must have a joblib version that support shelving, or comment the MemorizedResult import).
+",,,rebas done ill remov shelv asap ill test valid code I PR earli afternoon use parallelmulti branch must joblib version support shelv comment memorizedresult import,Y,2013-10-11 12:56:51

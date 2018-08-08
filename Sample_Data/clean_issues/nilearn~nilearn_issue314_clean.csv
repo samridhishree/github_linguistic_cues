@@ -1,0 +1,5 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,314,nilearn,nilearn,AlexandreAbraham,2014-12-12 15:15:45,"When downloading a dataset, the message indicating the data path is lost in a lot of logs. We should make it clearer.
+",start issue,The message indicating dataset repository path is not clear enough,when download dataset messag indic data path lost lot log We make clearer
+issue_closed,314,nilearn,nilearn,AlexandreAbraham,2015-02-11 09:47:34,,closed issue,The message indicating dataset repository path is not clear enough,

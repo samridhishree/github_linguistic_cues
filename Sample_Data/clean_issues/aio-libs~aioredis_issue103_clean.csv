@@ -1,0 +1,7 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,103,aio-libs,aioredis,asvetlov,2016-01-15 16:12:14,"Absence decreases performance on old linux kernels aiohttp/448
+",start issue,Use TCP_NODELAY for sockets,absenc decreas perform old linux kernel aio
+issue_closed,103,aio-libs,aioredis,popravich,2016-01-25 08:46:32,,closed issue,Use TCP_NODELAY for sockets,
+issue_comment,103,aio-libs,aioredis,popravich,2016-01-18 08:32:02,"ok, will take a look
+",,,ok take look

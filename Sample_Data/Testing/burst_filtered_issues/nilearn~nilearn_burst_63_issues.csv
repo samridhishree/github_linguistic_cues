@@ -1,0 +1,15 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,780,nilearn,nilearn,lesteve,2015-10-27 14:06:40,,closed issue,Fix refs: (WIP) adressing issue #779,,N,2015-09-10 17:01:27
+3,pull_request_title,780,nilearn,nilearn,dohmatob,2015-09-10 17:01:27,"Fix #779.
+",fdede2f7b4e71b7b81ff933c6805ccc3fea7cbd1,Fix refs: (WIP) adressing issue #779,fix 779,N,2015-09-10 22:12:24
+14,pull_request_commit_comment,780,nilearn,nilearn,GaelVaroquaux,2015-09-26 08:47:48,"> Ok, what's the nilearn policy for exposing / not-exposing functions ?
+
+There is no 'policy', I am afraid. It's more a question of 'design'. The
+way I think of it is that nilearn needs to be as accessible as possible
+(my visit to Oxford convinced me even more of this) and for this we need
+to expose only high-level functionnality that is understandable and
+useable to end users doing neuroimaging.
+",fdede2f7b4e71b7b81ff933c6805ccc3fea7cbd1,"(42, '', u'doc/modules/reference.rst')",there polici I afraid it question design the way I think nilearn need access possibl visit oxford convinc even need expos highlevel functionn understand useabl end user neuroimag,N,2015-09-10 16:49:21
+15,pull_request_commit,780,nilearn,nilearn,dohmatob,2015-09-10 16:49:21,added refs decoding-related functions in reference.rst,95e376cef6822a74c481779ddb1c99e11cfaeca9,,ad ref decodingrel function referencerst,N,2015-09-10 16:58:22
+16,pull_request_commit,780,nilearn,nilearn,dohmatob,2015-09-10 16:58:22,more functions added to reference.rst,cf310d0beb314367d564b90c5677fdf1f8140c1b,,function ad referencerst,N,2015-09-10 17:59:30
+17,pull_request_commit,780,nilearn,nilearn,dohmatob,2015-09-10 17:59:30,input_data functions added to reference.rst,50156d9b92ac0535e6cd9cf10c92fca3e9ef8b2d,,inputdata function ad referencerst,N,2015-09-10 18:03:09

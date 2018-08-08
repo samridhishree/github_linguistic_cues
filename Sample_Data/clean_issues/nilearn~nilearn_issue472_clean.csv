@@ -1,0 +1,24 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,472,nilearn,nilearn,bcipolli,2015-03-01 06:25:00,"Trying a `.coveragerc` config file, to specify source files to ignore in code coverage.
+
+Won't know if it works until I create this PR!
+",start issue,Add .coveragerc to ignore some files from coverage.,tri config file specifi sourc file ignor code coverag wont know work I creat PR
+issue_closed,472,nilearn,nilearn,lesteve,2015-03-02 09:34:52,,closed issue,Add .coveragerc to ignore some files from coverage.,
+pull_request_title,472,nilearn,nilearn,bcipolli,2015-03-01 06:25:00,"Trying a `.coveragerc` config file, to specify source files to ignore in code coverage.
+
+Won't know if it works until I create this PR!
+",a6fe90b425b93ec39cf6ddeba9e77ac45255349d,Add .coveragerc to ignore some files from coverage.,tri config file specifi sourc file ignor code coverag wont know work I creat PR
+issue_comment,472,nilearn,nilearn,GaelVaroquaux,2015-03-01 08:14:26,"> Trying a .coveragerc config file, to specify source files to ignore in code
+> coverage.
+
+But I don't think that we want to ignore any files in the code coverage.
+I am quite happy to see that it's reported that they are not covered.
+",,,but I dont think want ignor file code coverag I quit happi see report cover
+issue_comment,472,nilearn,nilearn,bcipolli,2015-03-01 15:32:31,"My thinking was, by ignoring files that are not intended to be covered (like `examples` and `glass_brain_files`) would both improve the code coverage and show relevant files with poor coverage on the `coveralls` homepage (and maybe inspire some of us, including me, to look at the missing coverage!) :).  I tentatively included all `__init__` files, but that's probably to aggressive.
+
+With that said, I'll have no objections if this is closed; I just assumed others would feel the same!
+",,,My think ignor file intend cover like would improv code coverag show relev file poor coverag homepag mayb inspir us includ look miss coverag I tent includ file that probabl aggress with said ill object close I assum other would feel
+issue_comment,472,nilearn,nilearn,lesteve,2015-03-02 09:34:52,"I agree with @GaelVaroquaux on this one, closing.
+",,,I agre gaelvaroquaux one close
+pull_request_commit,472,nilearn,nilearn,bcipolli@ucsd.edu,2015-03-01 05:58:20,Add .coveragerc to ignore some files from coverage.,a6fe90b425b93ec39cf6ddeba9e77ac45255349d,,add coveragerc ignor file coverag

@@ -1,0 +1,530 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,864,nilearn,nilearn,lesteve,2015-12-01 10:31:39,"Add this as a separate entry in the Travis build matrix. For now this
+entry is marked as ""allowed_failures"".
+- add flake8_diff.sh that finds the common ancestor between the branch
+  and upstream/master (or origin/master) and flake8 the diff with respect
+  to this common ancestor
+- general .travis.yml refactor to follow more closely the Travis-CI docs.
+- move each build step into its own script
+- additional SKIP_TESTS environment variable to be able to skip the
+  tests. This is useful when you only want to do the flake8 --diff part
+- Ignore 'module level import not at top of file' in setup.cfg, because
+  we have plenty of those in our examples.
+",start issue,[MRG] Flake8 diff in pull requests,add separ entri travi build matrix for entri mark allowedfailur add flake8diffsh find common ancestor branch upstreammast originmast flake8 diff respect common ancestor gener travisyml refactor follow close travisci doc move build step script addit skiptest environ variabl abl skip test thi use want flake8 diff part ignor modul level import top file setupcfg plenti exampl,N,2016-01-11 09:46:02
+3,pull_request_title,864,nilearn,nilearn,lesteve,2015-12-01 10:31:39,"Add this as a separate entry in the Travis build matrix. For now this
+entry is marked as ""allowed_failures"".
+- add flake8_diff.sh that finds the common ancestor between the branch
+  and upstream/master (or origin/master) and flake8 the diff with respect
+  to this common ancestor
+- general .travis.yml refactor to follow more closely the Travis-CI docs.
+- move each build step into its own script
+- additional SKIP_TESTS environment variable to be able to skip the
+  tests. This is useful when you only want to do the flake8 --diff part
+- Ignore 'module level import not at top of file' in setup.cfg, because
+  we have plenty of those in our examples.
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,[MRG] Flake8 diff in pull requests,add separ entri travi build matrix for entri mark allowedfailur add flake8diffsh find common ancestor branch upstreammast originmast flake8 diff respect common ancestor gener travisyml refactor follow close travisci doc move build step script addit skiptest environ variabl abl skip test thi use want flake8 diff part ignor modul level import top file setupcfg plenti exampl,N,2016-01-11 09:46:02
+4,pull_request_merged,864,nilearn,nilearn,lesteve,2016-01-11 09:46:02,[MRG] Flake8 diff in pull requests,259685606eea0eff2db7a608031627a18980085e,Pull request merge from lesteve/nilearn:flake8-diff to nilearn/nilearn:master,mrg flake8 diff pull request,N,2016-01-08 14:28:01
+6,issue_comment,864,nilearn,nilearn,GaelVaroquaux,2015-12-02 08:35:06,"@ogrisel: can you review this PR? We are somewhat thinking of it as a POC for something that could go in scikit-learn.
+",,,ogrisel review PR We somewhat think poc someth could go scikitlearn,N,2016-01-08 14:12:29
+8,issue_comment,864,nilearn,nilearn,lesteve,2015-12-16 15:09:23,"> Coverage decreased (-0.8%) to 92.767% 
+
+Interesting glitch in coveralls given that I haven't touched a python file in this PR. Will relaunch to see whether it is just temporary.
+",,,interest glitch coveral given I havent touch python file PR will relaunch see whether temporari,Y,2016-01-11 09:46:00
+11,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2015-12-16 09:43:15,"Maybe try: `remotes/upstream/master` instead?
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(None, '', u'continuous_integration/flake8_diff.sh')",mayb tri instead,N,2016-01-08 14:23:48
+12,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2016-01-08 14:23:48,"Do you have an idea of this performance impact of a full fetch on a project like nilearn and on a large project like scikit-learn?
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')",Do idea perform impact full fetch project like nilearn larg project like scikitlearn,N,2016-01-08 14:27:07
+13,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2016-01-08 14:27:07,"Maybe add a comment to explain which error it is and why it needs to be ignored in the context of flake8_diff.
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(None, '', u'setup.cfg')",mayb add comment explain error need ignor context flake8diff,N,2016-01-08 14:38:48
+14,pull_request_commit_comment,864,nilearn,nilearn,lesteve,2016-01-08 14:38:48,"I haven't tried yet. The thing to bear in mind is that the Travis build that does the flake8 checks doesn't run tests so I would expect the unshallowing not to matter that much in practice. Also note that if you run this script locally the unshallowing won't need to happen (at least in most cases).
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')",I havent tri yet the thing bear mind travi build flake8 check doesnt run test I would expect unshallow matter much practic also note run script local unshallow wont need happen least case,Y,2016-01-08 14:58:13
+15,pull_request_commit_comment,864,nilearn,nilearn,lesteve,2016-01-08 14:58:13,"For completeness here are some very rough timings compared for the time `git clone --depth 50` (which is what Travis does at the time of writing) and `git fetch --unshallow`:
+
+|  | git clone depth 50 | git unshallowing |
+| --- | --- | --- |
+| scikit-learn | 10s | 40s |
+| joblib | 1-2s | 2-3s |
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')",for complet rough time compar time travi time write git clone depth 50 git unshallow scikitlearn 10 40 joblib 12 23,Y,2016-01-08 15:00:36
+18,pull_request_commit,864,nilearn,nilearn,lesteve,2015-12-16 12:38:12,"Make sure that $REMOTE/master exists
+
+rather than fetching $REMOTE/master into local branch.
+Also some improvement on the script output to separate the flake8 output",64719c661c30673e8cda16cab15d24082b75f48b,,make sure remotemast exist rather fetch remotemast local branch also improv script output separ flake8 output,N,2016-01-08 15:55:26
+1,issue_title,929,nilearn,nilearn,neurotronix,2016-01-06 18:59:29,"Hi everyone,
+
+using nilearn on OSX El Capitan, when executing the example scripts like plot_demo_glass_brain.py no plots will show up. PiP and iPython linked to the same folders, matplotlib alone does show plots. All dependencies are up-to-date and installed. Don't really know how to fix this.
+",start issue,Plots won't show up,Hi everyon use nilearn osx El capitan execut exampl script like plotdemoglassbrainpi plot show pip ipython link folder matplotlib alon show plot all depend uptod instal dont realli know fix,N,2016-01-13 12:52:16
+2,issue_closed,929,nilearn,nilearn,lesteve,2016-01-13 12:52:16,,closed issue,Plots won't show up,,N,2016-01-07 21:08:48
+3,issue_comment,929,nilearn,nilearn,ogrisel,2016-01-07 21:08:48,"Also:
+
+``` python
+sys.platform == 'darwin'
+```
+
+this is the canonical way to detect OSX.
+",,,also canon way detect osx,N,2016-01-06 19:00:17
+4,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:00:17,"How do you execute these scripts?
+",,,how execut script,N,2016-01-06 19:02:02
+5,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:02:02,"I tried ""python script_name.py"" and ""ipython script_name.py"", respectively
+",,,I tri python scriptnamepi ipython scriptnamepi respect,N,2016-01-06 19:03:39
+6,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:03:39,"OK, ""Python script_name.py"" should work, but it might be an OSX thing, I don't know anything about OSX.
+
+How do you get matplotlib to show plots?
+",,,OK python scriptnamepi work might osx thing I dont know anyth osx how get matplotlib show plot,N,2016-01-06 19:07:05
+7,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:07:05,"I just tested trivial things in the ipython environment like:
+
+```
+import matplotlib.pyplot as plt
+plt.plot(range(10), range(10))
+plt.show()
+```
+
+just to test whether matplotlib works properly
+",,,I test trivial thing ipython environ like test whether matplotlib work properli,Y,2016-01-06 19:08:26
+8,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:08:26,"Then just run the example using ""%run filename.py"" in the IPython
+environnement where things work well.
+",,,then run exampl use run filenamepi ipython environn thing work well,N,2016-01-06 19:13:39
+9,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:13:39,"Ok, didn't try to run it from within python. Now plots show, but I also get following error:
+
+```
+/Users/Stephan/anaconda/lib/python2.7/site-packages/matplotlib/__init__.py:1350: UserWarning:  This call to matplotlib.use() has no effect
+because the backend has already been chosen;
+matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
+or matplotlib.backends is imported for the first time.
+```
+",,,Ok didnt tri run within python now plot show I also get follow error,N,2016-01-06 19:16:34
+10,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:16:34,"plots only show when I open ipython via `ipython --matplotlib` but then I get the error from above. When I open it with without `--matplotlib` flag, no plots and no error
+",,,plot show I open ipython via I get error when I open without flag plot error,N,2016-01-06 19:16:47
+11,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:16:47,"Out of curiosity, can you tell use what do the following return in
+python:
+
+<pre>
+import os
+print(os.name)
+print('DISPLAY' in os.environ')
+</pre>
+",,,out curios tell use follow return python preimport os printosnam printdisplay osenviron pre,N,2016-01-06 19:19:04
+12,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:19:04,"sure:
+
+```
+In [1]: import os
+
+In [2]: print os.name
+posix
+
+In [4]: print('DISPLAY' in os.environ)
+False
+```
+",,,sure,N,2016-01-06 19:23:08
+13,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:23:08,"I am starting to understand better what you are experiencing. Can you
+also give us the output of:
+
+<pre>
+print(os.uname())
+import matplotlib
+print(matplotlib.get_backend())
+</pre>
+",,,I start understand better experienc can also give us output preprintosunam import matplotlib printmatplotlibgetbackend pre,N,2016-01-06 19:28:22
+14,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:28:22,"cool, thanks for your help man. here is the output:
+
+```
+In [5]: print(os.uname())
+('Darwin', 'KH-Lees-Macbook.local', '15.0.0', 'Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64', 'x86_64')
+
+In [7]: print(matplotlib.get_backend())
+MacOSX
+```
+",,,cool thank help man output,N,2016-01-06 19:42:38
+15,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:42:38,"OK. You can work in the ""ipython --matplotlib"" environment; it won't be any problem.
+
+The rest are things that we can fix based on your feedback, so that it works seemlessly in all situations. We'll release a fix soon; Thanks!
+",,,OK you work ipython matplotlib environ wont problem the rest thing fix base feedback work seemlessli situat well releas fix soon thank,N,2016-01-06 19:43:53
+16,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:43:53,"Many thanks, have a good day!
+",,,mani thank good day,N,2016-01-07 19:06:48
+17,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-07 19:06:48,"Note for self (I know how to fix this, and will submit a PR soon): sampling of MacOSX installs:
+- os.name is always posix
+- os.uname()[0] is always 'Darwin':
+- ""'DISPLAY' in os.environ"": True 2 out of 3
+- matplotlib.get_backend():
+  - 'TkAgg' (on @ogrisel's computer)
+  -  'MacOSX' on the two others
+",,,note self I know fix submit PR soon sampl macosx instal osnam alway posix osuname0 alway darwin display osenviron true 2 3 matplotlibgetbackend tkagg ogrisel comput macosx two other,N,2016-01-07 21:09:59
+18,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-07 21:09:59,"> sys.platform == 'darwin'
+> 
+> this is the canonical way to detect OSX.
+
+Thanks! I was missing that.
+",,,thank I miss,N,2016-01-13 16:26:58
+1,issue_title,937,nilearn,nilearn,banilo,2016-01-10 12:31:04,"tries to fix #922
+",start issue,[0.2.2 milestone] find_coords: allow 4D input,tri fix 922,N,2016-01-13 12:33:32
+2,issue_closed,937,nilearn,nilearn,lesteve,2016-01-13 12:33:32,,closed issue,[0.2.2 milestone] find_coords: allow 4D input,,N,2016-01-10 12:31:04
+3,pull_request_title,937,nilearn,nilearn,banilo,2016-01-10 12:31:04,"tries to fix #922
+",63e16a933bcfc7576a4085750d10438f90d14819,[0.2.2 milestone] find_coords: allow 4D input,tri fix 922,N,2016-01-13 12:33:32
+4,pull_request_merged,937,nilearn,nilearn,lesteve,2016-01-13 12:33:32,[0.2.2 milestone] find_coords: allow 4D input,72d3b430ac47abe35f8ec9ec2d38294dc695a951,Pull request merge from banilo/nilearn:fixfindcoord to nilearn/nilearn:master,022 mileston findcoord allow 4D input,N,2016-01-12 06:23:27
+5,issue_comment,937,nilearn,nilearn,banilo,2016-01-12 06:23:27,"All comments addressed.
+",,,all comment address,N,2016-01-12 07:47:15
+6,pull_request_commit_comment,937,nilearn,nilearn,bthirion,2016-01-12 07:47:15,"You don't test the output ?
+x, y, z is supposed to be what ? To me the result is empty for activation_threshold=1.1
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')",you dont test output x z suppos To result empti activationthreshold11,Y,2016-01-12 10:23:45
+7,pull_request_commit_comment,937,nilearn,nilearn,AlexandreAbraham,2016-01-12 10:23:45,"This checks if no exception is raised.
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')",thi check except rais,N,2016-01-12 10:26:11
+8,pull_request_commit_comment,937,nilearn,nilearn,lesteve,2016-01-12 10:26:11,"For a slightly better test, You could do something like this:
+
+``` python
+rng = np.random.RandomState(0)
+data_3d = rng.randn(10, 10, 10)
+data_4d = data_3d[..., np.newaxis]
+affine = np.eye(4)
+img_3d = nibabel.Nifti1Image(data_3d, affine)
+img_4d = nibabel.Nifti1Image(data_4d, affine)
+assert_equal(find_xyz_cut_coords(img_3d), find_xyz_cut_coords(img_4d))
+```
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')",for slightli better test you could someth like,Y,2016-01-12 10:26:49
+9,pull_request_commit_comment,937,nilearn,nilearn,banilo,2016-01-12 10:26:49,"Ok, thanks good idea!
+
+2016-01-12 11:26 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/plotting/tests/test_find_cuts.py
+> https://github.com/nilearn/nilearn/pull/937#discussion_r49436370:
+> 
+> > @@ -42,6 +42,14 @@ def test_find_cut_coords():
+> >          np.array([x, y, z]),
+> >          0.5 \* np.array(data.shape).astype(np.float))
+> > -    # regression test (cf. #922)
+> > -    # pseudo-4D images as input (i.e., X, Y, Z, 1)
+> > -    # previously raised ""ValueError: too many values to unpack""
+> > -    data = np.ones((36, 43, 36))[..., np.newaxis]
+> > -    affine = np.eye(4)
+> > -    img = nibabel.Nifti1Image(data, affine)
+> > -    x, y, z = find_xyz_cut_coords(img, activation_threshold=1.1)
+> >   +
+> 
+> For a slightly better test, You could do something like this:
+> 
+> rng = np.random.RandomState(0)
+> data_3d = rng.randn((10, 10, 10))
+> data_4d = data_3d[..., np.newaxis]
+> affine = np.eye(4)
+> img_3d = nibabel.Nifti1Image(data_3d, affine)
+> img_4d = nibabel.Nifti1Image(data_4d, affine)
+> assert_equal(find_xyz_cut_coords(img_3d), find_xyz_cut_coords(img_4d))
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/937/files#r49436370.
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')",Ok thank good idea 20160112 1126 gmt0100 loïc estèv notificationsgithubcom,N,2016-01-10 12:28:58
+10,pull_request_commit,937,nilearn,nilearn,banilo,2016-01-10 12:28:58,find_coords: allow 4D input,54f042223002796b343e727928f00ed554918b07,,findcoord allow 4D input,N,2016-01-11 23:10:48
+11,pull_request_commit,937,nilearn,nilearn,banilo,2016-01-11 23:10:48,realize feedback,e76dfbe2b35b8c952d9932dac8c292c6112b080d,,realiz feedback,N,2016-01-12 21:36:49
+1,issue_title,806,nilearn,nilearn,KamalakerDadi,2015-10-28 08:59:23,"Fixes #717 
+
+Added:
+- Fetcher
+- Example
+- Doc
+- Tests
+",start issue,[MRG] New fetcher for Megatrawls Netmats,fix 717 ad fetcher exampl doc test,N,2016-01-12 09:54:45
+3,pull_request_title,806,nilearn,nilearn,KamalakerDadi,2015-10-28 08:59:23,"Fixes #717 
+
+Added:
+- Fetcher
+- Example
+- Doc
+- Tests
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,[MRG] New fetcher for Megatrawls Netmats,fix 717 ad fetcher exampl doc test,N,2016-01-12 09:54:45
+1,issue_title,928,nilearn,nilearn,aabadie,2016-01-06 15:51:55,"I found this overlapping text in the online documentation (see https://nilearn.github.io/manipulating_visualizing/manipulating_images.html#fetching-open-datasets). I took this opportunity to fix the full dataset example.
+",start issue,DOC: fixing overlapping text and wrong example,I found overlap text onlin document see I took opportun fix full dataset exampl,N,2016-01-07 12:04:14
+2,issue_closed,928,nilearn,nilearn,lesteve,2016-01-07 12:04:14,,closed issue,DOC: fixing overlapping text and wrong example,,N,2016-01-06 15:51:55
+3,pull_request_title,928,nilearn,nilearn,aabadie,2016-01-06 15:51:55,"I found this overlapping text in the online documentation (see https://nilearn.github.io/manipulating_visualizing/manipulating_images.html#fetching-open-datasets). I took this opportunity to fix the full dataset example.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,DOC: fixing overlapping text and wrong example,I found overlap text onlin document see I took opportun fix full dataset exampl,N,2016-01-07 12:04:14
+4,pull_request_merged,928,nilearn,nilearn,lesteve,2016-01-07 12:04:14,DOC: fixing overlapping text and wrong example,4c97c4be2ccbe686bd3a03dc079af924618aeb3d,Pull request merge from aabadie/nilearn:fix_doc to nilearn/nilearn:master,doc fix overlap text wrong exampl,N,2016-01-06 16:01:51
+5,issue_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:01:51,"In general the changes look right, but I don't think that we should be running downloads during doctests.
+",,,In gener chang look right I dont think run download doctest,N,2016-01-06 16:25:29
+6,issue_comment,928,nilearn,nilearn,aabadie,2016-01-06 16:25:29,"> In general the changes look right, but I don't think that we should be running downloads during doctests.
+
+I pushed the change. Waiting for CI's.
+",,,I push chang wait ci,N,2016-01-06 17:03:40
+7,issue_comment,928,nilearn,nilearn,lesteve,2016-01-06 17:03:40,"Could the text overlap not be fixed at the HTML level rather than in the rst, e.g. by setting overflow-x on the pre class in the CSS ? Not a CSS expert so there might be a better way to do it.
+
+Here is a snapshot to explain what the text overlap issue actually looks like:
+![nilearn_text_overlap](https://cloud.githubusercontent.com/assets/1680079/12148600/9cdd24da-b49f-11e5-83f9-de6edff4170b.png)
+",,,could text overlap fix html level rather rst eg set overflowx pre class css not css expert might better way here snapshot explain text overlap issu actual look like nilearntextoverlap,N,2016-01-06 17:06:15
+8,issue_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 17:06:15,"> Could the text overlap not be fixed at the HTML level rather than in
+> the rst, e.g. by setting overflow-x on the pre class in the CSS ? Not a
+> CSS expert so there might be a better way to do it.
+
+Any change on CSS needs to be validated thoroughly, as it affects the
+whole documentation. These things are tricky.
+
+Backporting some CSS from scipy-lectures to nilearn would probably fix
+this, as a lot of effort went into designing a very good CSS for the code
+block in scipy-lectures. But this is a certain amount of work.
+",,,ani chang css need valid thoroughli affect whole document these thing tricki backport css scipylectur nilearn would probabl fix lot effort went design good css code block scipylectur but certain amount work,N,2016-01-06 17:47:31
+9,issue_comment,928,nilearn,nilearn,lesteve,2016-01-06 17:47:31,"> Any change on CSS needs to be validated thoroughly, as it affects the whole documentation. These things are tricky. 
+
+Makes sense.
+",,,make sens,N,2016-01-07 09:54:19
+10,issue_comment,928,nilearn,nilearn,aabadie,2016-01-07 09:54:19,"@lesteve, @GaelVaroquaux, for the record about the overlap issue, using `# doctest: +NORMALIZE_WHITESPACE` works with the output on 2 lines.
+",,,lestev gaelvaroquaux record overlap issu use work output 2 line,N,2016-01-07 10:35:49
+11,issue_comment,928,nilearn,nilearn,lesteve,2016-01-07 10:35:49,"LGTM, I'll wait for CircleCI green light, and I'll merge this one.
+",,,lgtm ill wait circleci green light ill merg one,N,2016-01-07 12:04:10
+12,issue_comment,928,nilearn,nilearn,lesteve,2016-01-07 12:04:10,"Merging, thanks !
+",,,merg thank,N,2016-01-06 15:59:12
+13,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 15:59:12,"Was removing the doctest skip intentional? This will trigger a download of the data while doctesting, which is probably something that we want to avoid.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",wa remov doctest skip intent thi trigger download data doctest probabl someth want avoid,N,2016-01-06 16:01:10
+14,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:01:10,"Same remark about skipping the doctest. It's probably a bad idea not to skip them, as it will entail heavy downloads on travis.
+
+Another option would be to mock or modify dataset downloads while testing. I'm open to it, but it requires much more work.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",same remark skip doctest it probabl bad idea skip entail heavi download travi anoth option would mock modifi dataset download test Im open requir much work,Y,2016-01-06 16:11:11
+15,pull_request_commit_comment,928,nilearn,nilearn,aabadie,2016-01-06 16:11:11,"> Was removing the doctest skip intentional?
+
+Yes, I just wanted to be sure the example was valid when running `make test-doc`. I can revert this change.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",ye I want sure exampl valid run I revert chang,N,2016-01-06 16:13:18
+16,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:13:18,"> Yes, I just wanted to be sure the example was valid when running make
+> test-doc.
+
+Make sense. I wonder if we can have multiple modes. It probably goes in
+the direction of mocking the downloaders. @AlexandreAbraham might have an
+idea on this.
+
+> I can revert this change.
+
+It would be good.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",make sens I wonder multipl mode It probabl goe direct mock download alexandreabraham might idea It would good,N,2016-01-06 16:15:48
+17,pull_request_commit_comment,928,nilearn,nilearn,AlexandreAbraham,2016-01-06 16:15:48,"Depending on which level you want to mock the downloader, it may not be as easy as it seems.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",depend level want mock download may easi seem,N,2016-01-06 16:20:08
+18,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:20:08,"> Depending on which level you want to mock the downloader, it may not be
+> as easy as it seems.
+
+I was thinking on a very high level: returning meaningful paths without
+any download. The next step would even be to put some generated data in
+these meaningful paths.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",I think high level return meaning path without download the next step would even put gener data meaning path,N,2016-01-06 16:26:23
+19,pull_request_commit_comment,928,nilearn,nilearn,AlexandreAbraham,2016-01-06 16:26:23,"Returning meaningful paths is already what we do in the tests. We can easily generate data in them. However, we sometimes have to generate file with meaningful content (XML) and this is the most difficult part to handle. I mean that we can't automatically mock everything. Some dataset loader requires specific code and we should think of a good way to put that out of the tests  in order to use it elsewhere.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",return meaning path alreadi test We easili gener data howev sometim gener file meaning content xml difficult part handl I mean cant automat mock everyth some dataset loader requir specif code think good way put test order use elsewher,Y,2016-01-06 16:28:30
+20,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:28:30,"Are we already returning paths without downloading the doctests? If so we
+shouldn't need to skip that part?
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",are alreadi return path without download doctest If shouldnt need skip part,N,2016-01-06 16:37:34
+21,pull_request_commit_comment,928,nilearn,nilearn,AlexandreAbraham,2016-01-06 16:37:34,"If you call `nilearn.datasets.tests.test_utils.setup_mock`, the function `fetch_haxby` will return existing paths to empty files.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",If call function return exist path empti file,N,2016-01-06 16:39:49
+22,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:39:49,"Alex Abadie: do you want to try to set this up, and thus remove the
+skips?
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",alex abadi want tri set thu remov skip,N,2016-01-06 16:44:48
+23,pull_request_commit_comment,928,nilearn,nilearn,aabadie,2016-01-06 16:44:48,"Sure :)
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",sure,N,2016-01-06 16:48:34
+24,pull_request_commit_comment,928,nilearn,nilearn,lesteve,2016-01-06 16:48:34,"PEP8 two spaces before an inline comment. Just saying.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",pep8 two space inlin comment just say,N,2016-01-06 16:57:20
+25,pull_request_commit_comment,928,nilearn,nilearn,lesteve,2016-01-06 16:57:20,"I would remove the three dots here
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",I would remov three dot,N,2016-01-07 09:50:36
+26,pull_request_commit_comment,928,nilearn,nilearn,aabadie,2016-01-07 09:50:36,"@GaelVaroquaux @AlexandreAbraham, I gave a try to `setup_mock` but it doesn't work like this out of the box and would require a bit more work (I cannot evaluate how many).
+I reverted the change and now skip the doctest for this. The mock thing could be part of another PR I think.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')",gaelvaroquaux alexandreabraham I gave tri doesnt work like box would requir bit work I cannot evalu mani I revert chang skip doctest the mock thing could part anoth PR I think,N,2016-01-06 15:49:55
+27,pull_request_commit,928,nilearn,nilearn,aabadie,2016-01-06 15:49:55,fixing overlapping text and wrong example,b2f3a4d69b04ac27e39e2e62c95935293319ccf0,,fix overlap text wrong exampl,N,2016-01-06 16:14:02
+28,pull_request_commit,928,nilearn,nilearn,aabadie,2016-01-06 16:14:02,skip doc test in order to avoid too much download.,434d385401abfdbf5f3a1ec645a059de595e1dad,,skip doc test order avoid much download,N,2016-01-06 21:03:05
+29,pull_request_commit,928,nilearn,nilearn,aabadie,2016-01-06 21:03:05,using mock version of haxby fetcher with doctest,93e2123a174b50dffccd2d068f6347b1fb7a1677,,use mock version haxbi fetcher doctest,N,2016-01-07 09:44:59
+2,issue_closed,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 23:01:48,,closed issue,Dosenbach 2010 ROIs as in paper,,N,2016-01-16 21:29:54
+11,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 18:07:05,"You may have local changes, Travis is happy with this test...
+",,,you may local chang travi happi test,Y,2016-01-18 11:03:12
+12,issue_comment,950,nilearn,nilearn,salma1601,2016-01-18 11:03:12,"> I do wonder if we should call this an atlas? Maybe fetch_coords_dosenbach rather?
+
+I changed the function naming. Then  `fetch_atlas_power_2011` also should be renamed using coords I think.
+I have a problem in the documentation: in the modules reference page only the first sentence is given so it stops at ""...Dosenbach et al."" . I don't know how to avoid this ?
+@KamalakerDadi  `datasets.fetch_abide_pcp(derivatives=['rois_dosenbach160'])` gives ABIDE time-series extracted from an atlas of spheres of 4.5 mm radius around these coordinates.
+",,,I chang function name then also renam use coord I think I problem document modul refer page first sentenc given stop dosenbach et al I dont know avoid kamalakerdadi give abid timeseri extract atla sphere 45 mm radiu around coordin,N,2016-01-18 14:36:59
+13,issue_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-18 14:36:59,"> Then fetch_atlas_power_2011 also should be renamed using coords I
+> think.
+
+I agree. Do you want to add an issue for that?
+",,,I agre Do want add issu,N,2016-01-18 14:44:31
+20,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 16:48:19,"> To keep history clean, we do not allow merges. Please rebase.
+
+Sorry. Is it ok now ?
+
+> Trace?
+
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/salma/CODE/Parietal/nilearn/nilearn/datasets/tests/test_atlas.py"", line 143, in test_fail_fetch_atlas_harvard_oxford
+    assert_equal(len(ho.labels), 5)
+AssertionError: 97 != 5
+    '97 != 5' = '%s != %s' % (safe_repr(97), safe_repr(5))
+    '97 != 5' = self._formatMessage('97 != 5', '97 != 5')
+  raise self.failureException('97 != 5')
+",,,sorri Is ok traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homesalmacodeparietalnilearnnilearndatasetsteststestatlaspi line 143 testfailfetchatlasharvardoxford assertequallenholabel 5 assertionerror 97 5 97 5 saferepr97 saferepr5 97 5 selfformatmessage97 5 97 5 rais selffailureexception97 5,N,2016-01-17 23:37:39
+21,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-17 23:37:39,"The difference form many other fetchers appears to be gthat the atlas is a set of coordinates and not 3D shapes. That might be mentioned here.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')",the differ form mani fetcher appear gthat atla set coordin 3D shape that might mention,N,2016-01-18 06:01:03
+22,pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-18 06:01:03,"> The difference form many other fetchers appears to be gthat the atlas is a set
+> of coordinates and not 3D shapes. That might be mentioned here.
+
+I do wonder if we should call this an atlas? Maybe fetch_coords_dosenbach
+rather?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')",I wonder call atla mayb fetchcoordsdosenbach rather,N,2016-01-18 10:46:17
+23,pull_request_commit_comment,950,nilearn,nilearn,KamalakerDadi,2016-01-18 10:46:17,"Just curious to know `datasets.fetch_abide_pcp(derivatives=['rois_dosenbach160'])` ?
+
+Is this PR different than we get ?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(6, '', u'nilearn/datasets/atlas.py')",just curiou know Is PR differ get,N,2016-01-18 23:31:46
+24,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-18 23:31:46,"write out ""ROI""
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",write roi,N,2016-01-18 23:32:31
+25,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-18 23:32:31,"maybe make the type of modularity analysis explicit here, such that one does not need to go back read the paper
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",mayb make type modular analysi explicit one need go back read paper,N,2016-01-19 06:35:23
+30,pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-21 11:52:53,"> > +160 ROIs covering much of the cerebral cortex and cerebellum.
+> > +They were obtained from meta-analyses of fMRI activation studies
+> > +and assigned into 6 networks according to a modularity analysis of
+> 
+> ""modularity analysis"" does not mean anything -> perhaps add a half sentence
+> that at least is not ambiuous about what will be fetched
+
+That's the terminology they use in the paper. I would simply leave it
+like that, and reference the paper.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')",that terminolog use paper I would simpli leav like refer paper,N,2016-01-16 21:25:05
+31,pull_request_commit,950,nilearn,nilearn,salma1601,2016-01-16 21:25:05,dosenbach2010 rois as in paper,e6bf5eacc9db6c5ef10bac6aed6c13b56019984d,,dosenbach2010 roi paper,N,2016-01-17 15:46:00
+32,pull_request_commit,950,nilearn,nilearn,salma1601,2016-01-17 15:46:00,str labels,6c40f49b2b23315f526f59354cd35dab4ae2cb4c,,str label,N,2016-01-18 10:46:14
+1,issue_title,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:18:24,"It is not used for the moment but was requested in #736.
+",start issue,"For tests purposes, adds a memory limiter under the form of a decorator.",It use moment request 736,N,2016-01-20 14:25:47
+5,issue_comment,803,nilearn,nilearn,aabadie,2015-10-23 12:52:36,"@AlexandreAbraham,  in case you missed it, the test is failing on circle ci. Probably an issue when setting memory limit on the VM.
+",,,alexandreabraham case miss test fail circl ci probabl issu set memori limit VM,Y,2016-01-18 13:02:02
+6,issue_comment,803,nilearn,nilearn,aabadie,2016-01-18 13:02:02,"> The problem seems that the code segfaults instead of raising a memory error... Maybe I asked for too much memory?
+
+This is a possibility but I would be surprised as the maximum memory is set to 10000000 (10MB) and the size of the array is 12MB which is not that much.
+
+Maybe using a strategy based on MemoryProfiler would help.
+",,,thi possibl I would surpris maximum memori set 10000000 10mb size array 12mb much mayb use strategi base memoryprofil would help,N,2016-01-19 13:00:25
+7,issue_comment,803,nilearn,nilearn,aabadie,2016-01-19 13:00:25,"> FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler
+
+ @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+",,,alexandreabraham lestev agre ill propos PR base solut,N,2016-01-18 11:54:42
+8,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-18 11:54:42,"The problem seems that the code segfaults instead of raising a memory error... Maybe I asked for too much memory?
+",,,the problem seem code segfault instead rais memori error mayb I ask much memori,N,2016-01-18 15:06:00
+9,issue_comment,803,nilearn,nilearn,GaelVaroquaux,2016-01-18 15:06:00,"> The problem seems that the code segfaults instead of raising a memory error...
+> Maybe I asked for too much memory?
+
+Indeed, under old versions of Python, there were segfaults when you asked
+for too much memory.
+",,,inde old version python segfault ask much memori,N,2016-01-19 12:56:11
+10,issue_comment,803,nilearn,nilearn,lesteve,2016-01-19 12:56:11,"FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler, which is part of https://github.com/joblib/joblib/pull/260.
+
+I am not entirely sure it is worth investigating more time making this PR work.
+",,,fwiw aabadi solut use case test nilearn memori consumpt per 736 base memoryprofil part I entir sure worth investig time make PR work,Y,2016-01-19 13:22:53
+11,issue_comment,803,nilearn,nilearn,lesteve,2016-01-19 13:22:53,"> @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+
+This is fine with me. It would be great to find a few tests to add in order to test functions in nilearn where  memory consumption actually matters. @AlexandreAbraham, @GaelVaroquaux any suggestions ?
+",,,thi fine It would great find test add order test function nilearn memori consumpt actual matter alexandreabraham gaelvaroquaux suggest,Y,2016-01-19 13:31:59
+12,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:31:59,"> Indeed, under old versions of Python, there were segfaults when you asked
+> for too much memory.
+
+But we don't use older versions of Python. This is why this seems strange to me.
+
+> FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler, which is part of joblib/joblib#260.
+
+Yes, I know how to do it with `memory_profiler`. The goal of this PR was to rely on the system and avoid a dependency.
+",,,but dont use older version python thi seem strang ye I know the goal PR reli system avoid depend,N,2016-01-19 13:41:06
+13,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:41:06,"> @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+
+I won't say no :P 
+
+>  It would be great to find a few tests to add in order to test functions in nilearn where memory consumption actually matters. @AlexandreAbraham, @GaelVaroquaux any suggestions ?
+
+Any function that is supposed to treat data iteratively such as `compute_multi_epi_mask` (or `multi_compute_epi_mask` or `compute_epi_multi_mask`).
+",,,I wont say P ani function suppos treat data iter,N,2016-01-20 14:25:47
+28,pull_request_commit,803,nilearn,nilearn,AlexandreAbraham,2015-10-29 21:32:37,Robustify resource setting,f822255208dedfd2c34362927f3b39fc8b614499,,robustifi resourc set,N,2016-01-12 13:17:51
+29,pull_request_commit,803,nilearn,nilearn,AlexandreAbraham,2016-01-12 13:17:51,Fix comment,d2231a41760c974599fef71f51f7f953897c67f8,,fix comment,N,2016-01-12 13:31:34
+2,issue_closed,946,nilearn,nilearn,AlexandreAbraham,2016-02-04 00:30:41,,closed issue,Fix problem of small radius,,N,2016-01-14 00:49:30
+4,pull_request_merged,946,nilearn,nilearn,AlexandreAbraham,2016-02-04 00:30:41,Fix problem of small radius,01fceffb2460005de5bfacb1b8a9317f7da761d2,Pull request merge from AlexandreAbraham/nilearn:fix_small_radius to nilearn/nilearn:master,fix problem small radiu,N,2016-01-14 12:43:01
+11,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-04 00:30:29,"OK. Looking at the history, the problem on AppVeyor seems to happen quite often. I'm going to merge this one but we should investigate this problem at some point.
+",,,OK look histori problem appveyor seem happen quit often Im go merg one investig problem point,N,2016-01-17 08:26:49
+15,issue_comment,946,nilearn,nilearn,aabadie,2016-02-03 14:51:17,"> No idea why the build was cancelled.
+
+New jobs requests can cancel previously started jobs. You probably pushed a new commit to that branch (or another PR was updated in the mean time). Maybe we can change this settings on appveyor.
+",,,new job request cancel previous start job you probabl push new commit branch anoth PR updat mean time mayb chang set appveyor,N,2016-01-14 12:07:21
+16,issue_comment,946,nilearn,nilearn,mrahim,2016-01-14 12:07:21,"Nice.
+I have a warning when running my example: `SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. `
+
+Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+In the current case, the error message is unclear `seed empty`.
+",,,nice I warn run exampl also Im wonder better check seed coordin insid mask continu In current case error messag unclear,N,2016-01-17 23:35:56
+17,pull_request_commit_comment,946,nilearn,nilearn,banilo,2016-01-17 23:35:56,"comment meaning may remain obscure
+",b1d1d21c9fa17b1cd83d8090d43b2a2f2fa18ff1,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')",comment mean may remain obscur,N,2016-01-14 00:45:37
+18,pull_request_commit,946,nilearn,nilearn,AlexandreAbraham,2016-01-14 00:45:37,Fix problem of small radius,8f98754bee50342d4ca519d0191c2c7b46964d64,,fix problem small radiu,N,2016-01-18 11:52:26
+1,issue_title,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:51:44,"Should fix #931 
+",start issue,BUG fixing with view type as filled_contours in plot prob plotting,should fix 931,N,2016-01-07 14:43:47
+2,issue_closed,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 14:43:47,,closed issue,BUG fixing with view type as filled_contours in plot prob plotting,,N,2016-01-07 12:51:44
+3,pull_request_title,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:51:44,"Should fix #931 
+",526eba22d57ada7552756d85a0591fd3044db459,BUG fixing with view type as filled_contours in plot prob plotting,should fix 931,N,2016-01-07 14:43:47
+4,pull_request_merged,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 14:43:47,BUG fixing with view type as filled_contours in plot prob plotting,7f656fe576276c908fa46deed8366380ecb57037,Pull request merge from KamalakerDadi/nilearn:fix_plot_prob_atlas_filled_contours to nilearn/nilearn:master,bug fix view type filledcontour plot prob plot,N,2016-01-07 13:07:43
+5,issue_comment,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 13:07:43,"I think we should just move on. Making a test is possible by grabbing the binary representation of the image directly in matplotlib but the test would require more maintenance than the actual fix.
+",,,I think move make test possibl grab binari represent imag directli matplotlib test would requir mainten actual fix,Y,2016-01-07 14:43:44
+6,issue_comment,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 14:43:44,"Thanks!
+",,,thank,N,2016-01-07 12:59:15
+7,issue_comment,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:59:15,"I am trying to figure out how to add tests. Could you hint me ?
+",,,I tri figur add test could hint,Y,2016-01-07 19:23:36
+8,issue_comment,933,nilearn,nilearn,GaelVaroquaux,2016-01-07 19:23:36,"Good job people!
+",,,good job peopl,N,2016-01-07 12:54:30
+9,pull_request_commit_comment,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 12:54:30,"I don't think that these comments are necessary since the previous behavior was based on a bug. The first is useful though.
+",526eba22d57ada7552756d85a0591fd3044db459,"(None, '', u'nilearn/plotting/displays.py')",I dont think comment necessari sinc previou behavior base bug the first use though,N,2016-01-07 12:57:33
+10,pull_request_commit_comment,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:57:33,"I am trying to give what had happened just in case for future. Ok, I keep only first sentence.
+",526eba22d57ada7552756d85a0591fd3044db459,"(None, '', u'nilearn/plotting/displays.py')",I tri give happen case futur Ok I keep first sentenc,N,2016-01-07 12:48:32
+11,pull_request_commit,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:48:32,BUG fixing with view type as filled_contours in plot prob plotting function,64f26cbfa44400374de90409f95f9cc8f5be1fb1,,bug fix view type filledcontour plot prob plot function,N,2016-01-07 13:12:03
+1,issue_title,951,nilearn,nilearn,KamalakerDadi,2016-01-17 18:43:26,"- NAN values in the input images
+- A bug reported when labels are reordered, only a list of single integer is returned
+",start issue,Bug fixes in region extractor,nan valu input imag A bug report label reorder list singl integ return,N,2016-01-19 13:34:52
+2,issue_closed,951,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:34:52,,closed issue,Bug fixes in region extractor,,N,2016-01-17 18:43:26
+3,pull_request_title,951,nilearn,nilearn,KamalakerDadi,2016-01-17 18:43:26,"- NAN values in the input images
+- A bug reported when labels are reordered, only a list of single integer is returned
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,Bug fixes in region extractor,nan valu input imag A bug report label reorder list singl integ return,N,2016-01-19 13:34:52
+4,pull_request_merged,951,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:34:52,Bug fixes in region extractor,581900d0cabb68f8b45ddda207b6b154469b6693,Pull request merge from KamalakerDadi/nilearn:bugfix_reorder_labels_nanvalues_regext to nilearn/nilearn:master,bug fix region extractor,N,2016-01-19 13:34:49
+5,issue_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:34:49,"Since the `_safe_get_data` question is not related to this PR, I merge it and I open another issue.
+
+Thanks!
+",,,sinc question relat PR I merg I open anoth issu thank,N,2016-01-19 11:34:45
+6,issue_comment,951,nilearn,nilearn,KamalakerDadi,2016-01-19 11:34:45,"Any more reviews on this fix ?
+",,,ani review fix,N,2016-01-17 23:32:04
+7,pull_request_commit_comment,951,nilearn,nilearn,banilo,2016-01-17 23:32:04,"Why not just `np.nan_to_num()` on a general basis? This would only visit each element in img_data once.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')",whi gener basi thi would visit element imgdata,N,2016-01-18 06:44:06
+8,pull_request_commit_comment,951,nilearn,nilearn,GaelVaroquaux,2016-01-18 06:44:06,"That's a great comment. Actually, when doing this we could remove the ""copy"" above, as nan_to_num always does a copy.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')",that great comment actual could remov copi nantonum alway copi,N,2016-01-18 09:49:24
+9,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 09:49:24,"> Why not just np.nan_to_num() on a general basis? This would only visit each element in img_data once.
+
+Aggregating data, such as doing `sum` on all elements, is done faster than a test on each element. So, if we assume that most images will not have NaNs, this actually saves time.
+
++1 for copying only if there is no NaNs.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')",aggreg data element done faster test element So assum imag nan actual save time 1 copi nan,Y,2016-01-18 10:22:07
+10,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 10:22:07,"Not related to your PR but this looks suspicious to me: there is no need to copy data coming from `_safe_get_data`.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')",not relat PR look suspici need copi data come,N,2016-01-18 10:22:58
+11,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 10:22:58,"same as above: if I'm not mistaken, `_safe_get_data` already returns a copy.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",Im mistaken alreadi return copi,N,2016-01-18 15:48:17
+12,pull_request_commit_comment,951,nilearn,nilearn,KamalakerDadi,2016-01-18 15:48:17,"My bad, I will remove it.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",My bad I remov,N,2016-01-18 15:52:22
+13,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 15:52:22,"It's not your fault: we can see elsewhere that the data returned by `_safe_get_data` is copied. But, in my mind, it always returns a copy. Maybe I'm missing a corner case. Does anybody knows if it true or not?
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",it fault see elsewher data return copi but mind alway return copi mayb Im miss corner case doe anybodi know true,N,2016-01-18 15:53:52
+14,pull_request_commit_comment,951,nilearn,nilearn,KamalakerDadi,2016-01-18 15:53:52,"May be @GaelVaroquaux could help us to understand more ?
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",may gaelvaroquaux could help us understand,N,2016-01-18 15:55:52
+15,pull_request_commit_comment,951,nilearn,nilearn,GaelVaroquaux,2016-01-18 15:55:52,"> May be @GaelVaroquaux could help us to understand more ?
+
+I have no clue. Sorry
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",I clue sorri,N,2016-01-18 16:02:44
+16,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 16:02:44,"I'll take a closer look tomorrow.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",ill take closer look tomorrow,N,2016-01-18 16:02:59
+17,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 16:02:59,"The one that could help us is Philippe Gervais :-/
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')",the one could help us philipp gervai,N,2016-01-17 18:29:54
+18,pull_request_commit,951,nilearn,nilearn,KamalakerDadi,2016-01-17 18:29:54,"Bug fixes in region extractor
+- NAN values in the input images
+- A bug reported when labels are reordered, only a list of single integer is returned",d578c33dd2d370612eec4765370bd49feb411ba0,,bug fix region extractor nan valu input imag A bug report label reorder list singl integ return,N,2016-01-19 08:16:13
+2,issue_closed,955,nilearn,nilearn,AlexandreAbraham,2016-02-03 17:27:01,,closed issue,LedoitWolf shrinkage with and without standardization,,N,2016-01-18 23:39:38
+1,issue_title,943,nilearn,nilearn,bcipolli,2016-01-13 13:47:08,"This is in reference to https://github.com/nilearn/nilearn/pull/832
+
+Neurovault has mixed 3D and 4D images. I decimate each image into 3D by calling `iter_img`: 
+https://github.com/bcipolli/nilearn/commit/82dc576903441a60cdfdd37609ca585ee57f3d11#diff-f88135c18752640fe6895cbceaa3ea4cR106
+
+That code required an `if` statement decide whether to iterate or append the image, as `iter_img` fails on a 3D image. I couldn't figure out why the error is raised. I believe that neurovault is the first dataset with mixed 3D/4D images, so I conjectured that it's just because it wasn't necessary before.
+
+So, to simplify the example, I changed the behavior to return an iterator (with one 3D image in it), rather than show an error.
+",start issue,ENH: Extend iter_img to return iterator on 3D image,thi refer neurovault mix 3D 4D imag I decim imag 3D call that code requir statement decid whether iter append imag fail 3D imag I couldnt figur error rais I believ neurovault first dataset mix 3d4d imag I conjectur wasnt necessari So simplifi exampl I chang behavior return iter one 3D imag rather show error,N,2016-01-13 17:58:41
+2,issue_closed,943,nilearn,nilearn,bcipolli,2016-01-13 17:58:41,,closed issue,ENH: Extend iter_img to return iterator on 3D image,,N,2016-01-13 13:47:08
+3,pull_request_title,943,nilearn,nilearn,bcipolli,2016-01-13 13:47:08,"This is in reference to https://github.com/nilearn/nilearn/pull/832
+
+Neurovault has mixed 3D and 4D images. I decimate each image into 3D by calling `iter_img`: 
+https://github.com/bcipolli/nilearn/commit/82dc576903441a60cdfdd37609ca585ee57f3d11#diff-f88135c18752640fe6895cbceaa3ea4cR106
+
+That code required an `if` statement decide whether to iterate or append the image, as `iter_img` fails on a 3D image. I couldn't figure out why the error is raised. I believe that neurovault is the first dataset with mixed 3D/4D images, so I conjectured that it's just because it wasn't necessary before.
+
+So, to simplify the example, I changed the behavior to return an iterator (with one 3D image in it), rather than show an error.
+",e354f00582a6331e05f0897a7cf62825d588716c,ENH: Extend iter_img to return iterator on 3D image,thi refer neurovault mix 3D 4D imag I decim imag 3D call that code requir statement decid whether iter append imag fail 3D imag I couldnt figur error rais I believ neurovault first dataset mix 3d4d imag I conjectur wasnt necessari So simplifi exampl I chang behavior return iter one 3D imag rather show error,N,2016-01-13 14:07:27

@@ -1,0 +1,48 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1068,nilearn,nilearn,KamalakerDadi,2016-03-30 12:59:04,"Mainly `cut_coords` as a list and some additions.
+",start issue,Minor improvements in the basic Nilearn example,mainli list addit
+issue_closed,1068,nilearn,nilearn,AlexandreAbraham,2016-03-31 11:07:04,,closed issue,Minor improvements in the basic Nilearn example,
+pull_request_title,1068,nilearn,nilearn,KamalakerDadi,2016-03-30 12:59:04,"Mainly `cut_coords` as a list and some additions.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,Minor improvements in the basic Nilearn example,mainli list addit
+pull_request_merged,1068,nilearn,nilearn,AlexandreAbraham,2016-03-31 11:07:04,Minor improvements in the basic Nilearn example,e66166ed65dc8b48d5afe6a665a191f2e0201c07,Pull request merge from KamalakerDadi/nilearn:nilearn_plotting_tutorial_to_examples_01basic to nilearn/nilearn:master,minor improv basic nilearn exampl
+issue_comment,1068,nilearn,nilearn,aabadie,2016-03-31 09:28:07,"Travis failed due to the memory profiler usual suspect. I don't know what happened to appeyor (the log was empty).  I respawned both.
+
+When all CI are green, I'll be +1 for merge.
+",,,travi fail due memori profil usual suspect I dont know happen appeyor log empti I respawn when CI green ill 1 merg
+pull_request_commit_comment,1068,nilearn,nilearn,aabadie,2016-03-30 13:15:01,"I don't think we should remove this line as it shows that `image.smooth_img` function can take a nibabel object as input.
+I admit it's a bit weird to smooth an already smoothed object, though. Maybe the comment above could be more explicit or we could use `img_index` to retrieve a nibabel object which will then smoothed with a different factor (let's say 5). Finally both smoothed images could be compared in 2 plots.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')",I dont think remov line show function take nibabel object input I admit bit weird smooth alreadi smooth object though mayb comment could explicit could use retriev nibabel object smooth differ factor let say 5 final smooth imag could compar 2 plot
+pull_request_commit_comment,1068,nilearn,nilearn,KamalakerDadi,2016-03-30 13:36:51,"I agree for the rest but,
+
+> Finally both smoothed images could be compared in 2 plots.
+
+We are not showing any comparisons here.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')",I agre rest We show comparison
+pull_request_commit_comment,1068,nilearn,nilearn,aabadie,2016-03-30 13:40:12,"> We are not showing any comparisons here.
+
+Agreed. Let's go for the comment improvement then !
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')",agre let go comment improv
+pull_request_commit_comment,1068,nilearn,nilearn,GaelVaroquaux,2016-03-30 13:41:58,"> > -# Finally, it can be passed to nilearn function
+> > -smooth_anat_img = image.smooth_img(smooth_anat_img, 3)
+> 
+> I don't think we should remove this line as it shows that image.smooth_img
+> function can take a nibabel object as input.
+
++1.
+
+> I admit it's a bit weird to smooth an already smoothed object, though. Maybe
+> the comment above could be more explicit or we could use img_index to retrieve
+> a nibabel object which will then smoothed with a different factor (let's say
+> 5). Finally both smoothed images could be compared in 2 plots.
+
+I'd rather have a more explicit comment than making this more complex.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')",1 Id rather explicit comment make complex
+pull_request_commit_comment,1068,nilearn,nilearn,KamalakerDadi,2016-03-31 07:54:30,"Fixed. Does this looks good ?
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')",fix doe look good
+pull_request_commit_comment,1068,nilearn,nilearn,GaelVaroquaux,2016-04-07 05:22:12,"I am not sure why this is written ""in-memory Nifti file"", given that we are using a filename below.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(5, '', u'examples/plot_nilearn_101.py')",I sure written inmemori nifti file given use filenam
+pull_request_commit_comment,1068,nilearn,nilearn,GaelVaroquaux,2016-04-07 06:54:48,"Changed in master
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(5, '', u'examples/plot_nilearn_101.py')",chang master
+pull_request_commit,1068,nilearn,nilearn,KamalakerDadi,2016-03-30 12:50:55,Minor improvements in the basic Nilearn example,b1b1dc207fe92b0d41a276a6acd7070fb88663b8,,minor improv basic nilearn exampl
+pull_request_commit,1068,nilearn,nilearn,KamalakerDadi,2016-03-30 16:01:14,Make more verbose comment for second smoothing,639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,,make verbos comment second smooth

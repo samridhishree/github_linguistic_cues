@@ -1,0 +1,7 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,77,idan,oauthlib,ib-lundgren,2012-11-16 19:24:19,"Most people are likely to use OAuthLib indirectly, either through requests or through an extension to their favorite web framework, it would be good to make this explicit in the docs. 
+
+However some will be interested in installing (rather than cloning) and at least PyPi instructions would be useful. Furthermore OAuthLib is included in ubuntu and possibly in other distros, maybe a few unices too, have a look around and add installation instructions.
+",start issue,Installation instruction docs,most peopl like use oauthlib indirectli either request extens favorit web framework would good make explicit doc howev interest instal rather clone least pypi instruct would use furthermor oauthlib includ ubuntu possibl distro mayb unic look around add instal instruct
+issue_closed,77,idan,oauthlib,ib-lundgren,2013-09-19 14:30:40,,closed issue,Installation instruction docs,

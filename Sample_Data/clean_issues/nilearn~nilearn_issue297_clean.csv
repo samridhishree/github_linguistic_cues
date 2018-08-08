@@ -1,0 +1,68 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,297,nilearn,nilearn,lesteve,2014-11-27 10:01:08,"I think this is good to go. A few things worth noting:
+- The scripts generally need z_slice for the plotting function and k_slice, e.g. to figure out the number of detections in the slice. I didn't know better than to use coord_transform. I am wondering whether there is a better way to do this.
+- For long titles, using plot_stat_map with a title argument is not going to work out. In theses cases, I had to hand-tweak the figure size and use `display.title` with a carefully chosen y > 1. Better suggestions more than welcome!
+- In plot_haxby_mass_univariate.py I had to give up on the ImageGrid and have two separate plots. plot_stat_map colorbar is quite off when specifying an axes parameter.
+",start issue,[MRG] Use nilearn plotting in examples bis,I think good go A thing worth note the script gener need zslice plot function kslice eg figur number detect slice I didnt know better use coordtransform I wonder whether better way for long titl use plotstatmap titl argument go work In these case I handtweak figur size use care chosen In plothaxbymassunivariatepi I give imagegrid two separ plot plotstatmap colorbar quit specifi axe paramet
+issue_closed,297,nilearn,nilearn,lesteve,2014-12-03 15:02:41,,closed issue,[MRG] Use nilearn plotting in examples bis,
+pull_request_title,297,nilearn,nilearn,lesteve,2014-11-27 10:01:08,"I think this is good to go. A few things worth noting:
+- The scripts generally need z_slice for the plotting function and k_slice, e.g. to figure out the number of detections in the slice. I didn't know better than to use coord_transform. I am wondering whether there is a better way to do this.
+- For long titles, using plot_stat_map with a title argument is not going to work out. In theses cases, I had to hand-tweak the figure size and use `display.title` with a carefully chosen y > 1. Better suggestions more than welcome!
+- In plot_haxby_mass_univariate.py I had to give up on the ImageGrid and have two separate plots. plot_stat_map colorbar is quite off when specifying an axes parameter.
+",464fc7015ee32daca63c8b37f15d9af6d3730151,[MRG] Use nilearn plotting in examples bis,I think good go A thing worth note the script gener need zslice plot function kslice eg figur number detect slice I didnt know better use coordtransform I wonder whether better way for long titl use plotstatmap titl argument go work In these case I handtweak figur size use care chosen In plothaxbymassunivariatepi I give imagegrid two separ plot plotstatmap colorbar quit specifi axe paramet
+pull_request_merged,297,nilearn,nilearn,lesteve,2014-12-03 15:02:41,[MRG] Use nilearn plotting in examples bis,2ba584ebe63b2487e9b8cf8a30330cfb9108eaca,Pull request merge from lesteve/nilearn:use-nilearn-plotting-in-examples-bis to nilearn/nilearn:master,mrg use nilearn plot exampl bi
+issue_comment,297,nilearn,nilearn,lesteve,2014-12-02 10:08:41,"I used my gh-pages to lower the barrier to entry for comments:
+
+[current website examples](http://nilearn.github.io/auto_examples) vs [this PR examples](http://lesteve.github.io/auto_examples)
+
+# plot_haxby_masks
+
+[current website](http://nilearn.github.io/auto_examples/plot_haxby_masks.html) vs [this PR](http://lesteve.github.io/auto_examples/plot_haxby_masks.html)
+
+# plot_oasis_vbm
+
+[current website](http://nilearn.github.io/auto_examples/plot_oasis_vbm.html) vs [this PR](http://lesteve.github.io/auto_examples/plot_oasis_vbm.html)
+
+# plot_localizer_mass_univariate_methods
+
+[current website](http://nilearn.github.io/auto_examples/plot_localizer_mass_univariate_methods.html) vs [this PR](http://lesteve.github.io/auto_examples/plot_localizer_mass_univariate_methods.html)
+
+# plot_haxby_mass_univariate
+
+[current website](http://nilearn.github.io/auto_examples/plot_haxby_mass_univariate.html) vs [this PR](http://lesteve.github.io/auto_examples/plot_haxby_mass_univariate.html)
+",,,I use ghpage lower barrier entri comment current websit exampl vs PR exampl plothaxbymask current websit vs PR plotoasisvbm current websit vs PR plotlocalizermassunivariatemethod current websit vs PR plothaxbymassunivari current websit vs PR
+issue_comment,297,nilearn,nilearn,lesteve,2014-12-02 10:29:35,"While I am at it I fixed two examples with a similar sessions length bug as before in 5bd8cbd2ee89156f00bd981957603692d2942b51.
+
+# plot_haxby_multiclass
+
+This one seems reasonable: the cv scores go up from 0.2 to 0.7
+[current website](http://nilearn.github.io/auto_examples/plot_haxby_multiclass.html) vs [new candidate](http://lesteve.github.io/auto_examples/plot_haxby_multiclass.html)
+
+# plot_haxby_grid_search
+
+This one I am not sure the cv profiles change quite a bit, especially the Left-out validation scores that start quite high up in the 0.7 before going back to 0.5 when k grows.
+[current website](http://nilearn.github.io/auto_examples/plot_haxby_grid_search.html) vs [new candidate](http://lesteve.github.io/auto_examples/plot_haxby_grid_search.html)
+",,,while I I fix two exampl similar session length bug 5bd8cbd2ee89156f00bd981957603692d2942b51 plothaxbymulticlass thi one seem reason cv score go 02 07 current websit vs new candid plothaxbygridsearch thi one I sure cv profil chang quit bit especi leftout valid score start quit high 07 go back 05 k grow current websit vs new candid
+issue_comment,297,nilearn,nilearn,bthirion,2014-12-03 09:12:30,"The examples look much better, thanks.
+
+I'm a bit worried about x axis flipping: could you make sure to keep the 'L' 'R'  annotations on the images ?
+",,,the exampl look much better thank Im bit worri x axi flip could make sure keep L R annot imag
+issue_comment,297,nilearn,nilearn,lesteve,2014-12-03 09:44:25,"> I'm a bit worried about x axis flipping: could you make sure to keep the 'L' 'R' annotations on the images ?
+
+Are you saying they are hidden by the title from time to time? Maybe they don't show for some other reason.
+",,,are say hidden titl time time mayb dont show reason
+issue_comment,297,nilearn,nilearn,lesteve,2014-12-03 13:31:37,"@AlexandreAbraham if you have 5 minutes to look at this one before I merge it
+",,,alexandreabraham 5 minut look one I merg
+issue_comment,297,nilearn,nilearn,AlexandreAbraham,2014-12-03 14:43:31,"LGTM.
+",,,lgtm
+pull_request_commit_comment,297,nilearn,nilearn,lesteve,2014-11-27 10:05:11,"While I am at it, should I rename all the _unmasked instances by _img?
+",464fc7015ee32daca63c8b37f15d9af6d3730151,"(20, '', u'plot_haxby_mass_univariate.py')",while I I renam unmask instanc img
+pull_request_commit_comment,297,nilearn,nilearn,banilo,2014-11-27 10:19:54,"Grammatical: slice has not been plotted at this point -> ""slice to be plotted""?
+",464fc7015ee32daca63c8b37f15d9af6d3730151,"(51, '', u'plot_haxby_mass_univariate.py')",grammat slice plot point
+pull_request_commit_comment,297,nilearn,nilearn,banilo,2014-11-27 10:24:46,"cf. above
+",464fc7015ee32daca63c8b37f15d9af6d3730151,"(17, '', u'plot_localizer_mass_univariate_methods.py')",cf
+pull_request_commit,297,nilearn,nilearn,lesteve,2014-11-26 13:54:58,Use nilearn plotting functions in plot_haxby_mass_univariate.py,ebeaa193280d2b5d5243380601ca684fe8d059b5,,use nilearn plot function plothaxbymassunivariatepi
+pull_request_commit,297,nilearn,nilearn,lesteve,2014-11-26 14:39:34,Use nilearn plotting functions in plot_localizer_mass_univariate_methods.py,b2dd671ae10e70a51ccb65e744e8cea38a0d1018,,use nilearn plot function plotlocalizermassunivariatemethodspi
+pull_request_commit,297,nilearn,nilearn,lesteve,2014-11-27 08:38:01,Use nilearn plotting functions in plot_oasis_vbm.py,e4c483120e5b812755f590fa4c0cae6b7c8b94bd,,use nilearn plot function plotoasisvbmpi
+pull_request_commit,297,nilearn,nilearn,lesteve,2014-11-27 09:03:16,Use nilearn plotting functions in plot_haxby_masks.py,464fc7015ee32daca63c8b37f15d9af6d3730151,,use nilearn plot function plothaxbymaskspi

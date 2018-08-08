@@ -1,0 +1,85 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,363,nilearn,nilearn,bcipolli,2015-01-22 06:44:24,"These should be investigated and, if not a concern in the tests, turned off within the relevant test code.  That will make the test output more readable, and distinguish between expected and unexpected warnings.
+
+Pasting the current warnings here for reference.
+- /home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/python2.7/site-packages/numpy/core/fromnumeric.py:2499: VisibleDeprecationWarning: `rank` is deprecated; use the `ndim` attribute or function instead. To find the rank of a matrix see `numpy.linalg.matrix_rank`.
+  VisibleDeprecationWarning)
+- nilearn.decoding.tests.test_searchlight.test_searchlight ... /usr/lib/python2.7/dist-packages/joblib/parallel.py:138: UserWarning: Scikit-learn version is too old. scoring argument ignored
+  self.results = func(_args, *_kwargs)
+- /home/travis/build/bcipolli/nilearn/nilearn/input_data/multi_nifti_masker.py:196: UserWarning: [MultiNiftiMasker.fit] Generation of a mask has been requested (imgs != None) while a mask has been provided at masker creation. Given mask will be used.
+  ' will be used.' % self.**class**.**name**)
+- /home/travis/build/bcipolli/nilearn/nilearn/decomposition/multi_pca.py:301: UserWarning: Caching has been enabled (memory_level = 3) but no Memory object or path has been provided (parameter memory). Caching deactivated for function randomized_svd.
+  memory_level=self.memory_level)(
+  /home/travis/build/bcipolli/nilearn/nilearn/masking.py:261: UserWarning: Caching has been enabled (memory_level = 2) but no Memory object or path has been provided (parameter memory). Caching deactivated for function _compute_mean.
+  mean_epi, affine = cache(_compute_mean, memory)(epi_img,
+  /home/travis/build/bcipolli/nilearn/nilearn/masking.py:427: UserWarning: Caching has been enabled (memory_level = 2) but no Memory object or path has been provided (parameter memory). Caching deactivated for function _compute_mean.
+- /home/travis/build/bcipolli/nilearn/nilearn/signal.py:52: DeprecationWarning: Implicitly casting between incompatible kinds. In a future numpy release, this will raise an error. Use casting=""unsafe"" if this is intentional.
+  signals /= std
+  /home/travis/build/bcipolli/nilearn/nilearn/signal.py:125: DeprecationWarning: Implicitly casting between incompatible kinds. In a future numpy release, this will raise an error. Use casting=""unsafe"" if this is intentional.
+  signals -= np.mean(signals, axis=0)
+  /home/travis/build/bcipolli/nilearn/nilearn/signal.py:130: DeprecationWarning: Implicitly casting between incompatible kinds. In a future numpy release, this will raise an error. Use casting=""unsafe"" if this is intentional.
+  regressor -= regressor.mean()
+  /home/travis/build/bcipolli/nilearn/nilearn/signal.py:134: DeprecationWarning: Implicitly casting between incompatible kinds. In a future numpy release, this will raise an error. Use casting=""unsafe"" if this is intentional.
+  regressor /= std
+  /home/travis/build/bcipolli/nilearn/nilearn/mass_univariate/tests/test_permuted_least_squares.py:142: DeprecationWarning: Implicitly casting between incompatible kinds. In a future numpy release, this will raise an error. Use casting=""unsafe"" if this is intentional.
+- /home/travis/build/bcipolli/nilearn/nilearn/decomposition/multi_pca.py:253: UserWarning: Parameter memory of the masker overriden
+  % param_name)
+  /home/travis/build/bcipolli/nilearn/nilearn/decomposition/multi_pca.py:253: UserWarning: Parameter memory_level of the masker overriden
+  % param_name)
+- /home/travis/build/bcipolli/nilearn/nilearn/input_data/base_masker.py:144: UserWarning: Affine is different across subjects. Realignement on first subject affine forced
+  warnings.warn('Affine is different across subjects.'
+- /home/travis/build/bcipolli/nilearn/nilearn/mass_univariate/permuted_least_squares.py:140: RuntimeWarning: divide by zero encountered in divide
+  return beta_targetvars_testedvars \* np.sqrt((dof - 1.) / rss)
+- /home/travis/build/bcipolli/nilearn/nilearn/plotting/tests/test_find_cuts.py:54: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  cut_value = data[cut]
+  /home/travis/build/bcipolli/nilearn/nilearn/plotting/tests/test_find_cuts.py:56: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  cut_value = data[..., cut]
+- /home/travis/build/bcipolli/nilearn/nilearn/_utils/cache_mixin.py:86: UserWarning: Incompatible cache in /tmp/tmpx2t5Cj/joblib: old version of nibabel.
+  ""old version of nibabel."" % cachedir)
+  /home/travis/build/bcipolli/nilearn/nilearn/_utils/cache_mixin.py:66: UserWarning: Incompatible cache in /tmp/tmpx2t5Cj/joblib: old version of nibabel. Deleting the cache. Put nilearn.check_cache_version to false to avoid this behavior.
+  % cachedir)
+- /home/travis/build/bcipolli/nilearn/nilearn/datasets.py:626: UserWarning: An error occured while fetching pymvpa-exampledata/bald.nii.gz
+  warnings.warn('An error occured while fetching %s' % file_)
+- /home/travis/build/bcipolli/nilearn/nilearn/tests/test_masking.py:169: DeprecationWarning: numpy boolean negative (the unary `-` operator) is deprecated, use the bitwise_xor (the `^` operator) or the logical_xor function instead.
+  unmasked4D[-mask, :] = 0
+  /home/travis/build/bcipolli/nilearn/nilearn/tests/test_masking.py:172: DeprecationWarning: numpy boolean negative (the unary `-` operator) is deprecated, use the bitwise_xor (the `^` operator) or the logical_xor function instead.
+  unmasked3D[-mask] = 0
+  /home/travis/build/bcipolli/nilearn/nilearn/tests/test_masking.py:213: DeprecationWarning: numpy boolean negative (the unary `-` operator) is deprecated, use the bitwise_xor (the `^` operator) or the logical_xor function instead.
+- nilearn.tests.test_region.test_signal_extraction_with_maps_and_labels ... /usr/lib/python2.7/dist-packages/scipy/ndimage/measurements.py:545: RuntimeWarning: invalid value encountered in divide
+  return sum / numpy.asanyarray(count).astype(numpy.float)
+- packages/scipy/signal/filter_design.py:268: BadCoefficients: Badly conditioned filter coefficients (numerator): the results may be meaningless
+  ""results may be meaningless"", BadCoefficients)
+- nilearn.tests.test_signal.test_high_variance_confounds ... /usr/lib/python2.7/dist-packages/scipy/stats/stats.py:1367: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+  return values[idx]
+",start issue,Many warnings in test suite,these investig concern test turn within relev test code that make test output readabl distinguish expect unexpect warn past current warn refer hometravisvirtualenvpython27withsystemsitepackageslocallibpython27sitepackagesnumpycorefromnumericpy2499 visibledeprecationwarn deprec use attribut function instead To find rank matrix see visibledeprecationwarn nilearndecodingteststestsearchlighttestsearchlight usrlibpython27distpackagesjoblibparallelpy138 userwarn scikitlearn version old score argument ignor selfresult funcarg kwarg hometravisbuildbcipollinilearnnilearninputdatamultiniftimaskerpy196 userwarn multiniftimaskerfit gener mask request img none mask provid masker creation given mask use use selfclassnam hometravisbuildbcipollinilearnnilearndecompositionmultipcapy301 userwarn cach enabl memorylevel 3 memori object path provid paramet memori cach deactiv function randomizedsvd memorylevelselfmemorylevel hometravisbuildbcipollinilearnnilearnmaskingpy261 userwarn cach enabl memorylevel 2 memori object path provid paramet memori cach deactiv function computemean meanepi affin cachecomputemean memoryepiimg hometravisbuildbcipollinilearnnilearnmaskingpy427 userwarn cach enabl memorylevel 2 memori object path provid paramet memori cach deactiv function computemean hometravisbuildbcipollinilearnnilearnsignalpy52 deprecationwarn implicitli cast incompat kind In futur numpi releas rais error use castingunsaf intent signal std hometravisbuildbcipollinilearnnilearnsignalpy125 deprecationwarn implicitli cast incompat kind In futur numpi releas rais error use castingunsaf intent signal npmeansign axis0 hometravisbuildbcipollinilearnnilearnsignalpy130 deprecationwarn implicitli cast incompat kind In futur numpi releas rais error use castingunsaf intent regressor regressormean hometravisbuildbcipollinilearnnilearnsignalpy134 deprecationwarn implicitli cast incompat kind In futur numpi releas rais error use castingunsaf intent regressor std hometravisbuildbcipollinilearnnilearnmassunivariateteststestpermutedleastsquarespy142 deprecationwarn implicitli cast incompat kind In futur numpi releas rais error use castingunsaf intent hometravisbuildbcipollinilearnnilearndecompositionmultipcapy253 userwarn paramet memori masker overriden paramnam hometravisbuildbcipollinilearnnilearndecompositionmultipcapy253 userwarn paramet memorylevel masker overriden paramnam hometravisbuildbcipollinilearnnilearninputdatabasemaskerpy144 userwarn affin differ across subject realign first subject affin forc warningswarnaffin differ across subject hometravisbuildbcipollinilearnnilearnmassunivariatepermutedleastsquarespy140 runtimewarn divid zero encount divid return betatargetvarstestedvar npsqrtdof 1 rss hometravisbuildbcipollinilearnnilearnplottingteststestfindcutspy54 deprecationwarn use noninteg number instead integ result error futur cutvalu datacut hometravisbuildbcipollinilearnnilearnplottingteststestfindcutspy56 deprecationwarn use noninteg number instead integ result error futur cutvalu data cut hometravisbuildbcipollinilearnnilearnutilscachemixinpy86 userwarn incompat cach,N,2015-06-01 13:06:25
+5,issue_comment,363,nilearn,nilearn,AlexandreAbraham,2015-01-22 08:55:55,"I thing we should the pertinent ones. For example, `numpy boolean negative (the unary - operator) is deprecated`. Fixing all of them is a lost battle. Some of these warnings are normal and should be kept.
+
+I think the one about the memory should be fixed. For example, if you run a NiftiMasker with default parameters, you will get a warning. This annoys me a lot.
+",,,I thing pertin one for exampl fix lost battl some warn normal kept I think one memori fix for exampl run niftimask default paramet get warn thi annoy lot,N,2015-06-01 13:06:25
+2,issue_closed,597,nilearn,nilearn,lesteve,2015-06-18 14:11:43,,closed issue,Ho quirks,,N,2015-06-01 08:28:41
+4,pull_request_merged,597,nilearn,nilearn,lesteve,2015-06-18 14:11:43,Ho quirks,624ec89a2ccaf288050ba0674cb729810bd076a6,Pull request merge from AlexandreAbraham/nilearn:ho_quirks to nilearn/nilearn:master,Ho quirk,N,2015-06-01 12:30:19
+5,issue_comment,597,nilearn,nilearn,lesteve,2015-06-01 12:30:19,"This is going to break a couple of examples and some of the rst doc needs to be updated.
+",,,thi go break coupl exampl rst doc need updat,N,2015-06-01 13:01:32
+6,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 13:01:32,"Fixed!
+",,,fix,N,2015-06-02 07:49:36
+7,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 07:49:36,"@lesteve Is that OK now?
+",,,lestev Is OK,N,2015-06-02 07:49:59
+8,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 07:49:59,"@salma1601 can you test this PR to see if your problems are solved?
+",,,salma1601 test PR see problem solv,Y,2015-06-02 09:40:30
+9,issue_comment,597,nilearn,nilearn,salma1601,2015-06-02 09:40:30,"Yes fetch_harvard_oxford finds the existant atlas file. Could you please update the docstring of this function for the output ?
+",,,ye fetchharvardoxford find exist atla file could pleas updat docstr function output,N,2015-06-02 21:18:57
+10,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 21:18:57,"Docstring updated.
+",,,docstr updat,N,2015-06-03 04:49:07
+11,issue_comment,597,nilearn,nilearn,GaelVaroquaux,2015-06-03 04:49:07,"I would like this PR not to be merged before the middle of next week. The
+reason being that in the beginning of next week we are teaching a nilearn
+course. Just in case someone is using master in the course, this PR would
+break our course.
+
+In general, though, I am not opposed to the changes that this PR brings.
+",,,I would like PR merg middl next week the reason begin next week teach nilearn cours just case someon use master cours PR would break cours In gener though I oppos chang PR bring,N,2015-06-03 11:29:06
+34,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-05-07 09:20:24,Fix quirks,57d338637ef38fac0ddf4e74a086e9d9461a2826,,fix quirk,N,2015-06-01 08:10:48
+35,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 08:10:48,Fix import from FSLDIR in fetch_harvard_oxford,e7b2d85a794e141aa8c92c1fa15f6ec5a455d6dc,,fix import fsldir fetchharvardoxford,N,2015-06-01 08:16:53
+36,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 08:16:53,Return Bunch,18f939200b9b462d408d011f18045a5ccb84fc6e,,return bunch,N,2015-06-01 08:27:44
+37,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 08:27:44,Fix tests,dd670fab5d585ef506d69a4c157a4080f5a6899a,,fix test,N,2015-06-01 13:00:41
+38,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 13:00:41,Fix examples and doc,5b7e11986fe57e2269286faefe1ea58366700308,,fix exampl doc,N,2015-06-01 13:01:11
+39,pull_request_commit,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 13:01:11,Typo,5e1f83fa32a2e667ccf9bff8b2686c3cf88fe651,,typo,N,2015-06-02 21:18:20

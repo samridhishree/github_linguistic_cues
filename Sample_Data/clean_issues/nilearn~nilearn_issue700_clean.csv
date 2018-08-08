@@ -1,0 +1,13 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,700,nilearn,nilearn,GaelVaroquaux,2015-07-17 10:37:51,"This test is much much too slow. Someone should look at it and see if we can make it faster.
+",start issue,Slow test: nilearn.image.tests.test_resampling.test_resample_img_segmentation_fault ,thi test much much slow someon look see make faster
+issue_closed,700,nilearn,nilearn,lesteve,2015-08-24 13:36:26,,closed issue,Slow test: nilearn.image.tests.test_resampling.test_resample_img_segmentation_fault ,
+issue_comment,700,nilearn,nilearn,AlexandreAbraham,2015-08-05 07:24:54,"Linked to #736. By using ulimit, we can reduce the memory available and maybe trigger the segfault faster.
+",,,link 736 By use ulimit reduc memori avail mayb trigger segfault faster
+issue_comment,700,nilearn,nilearn,lesteve,2015-08-05 08:07:41,"> Linked to #736. By using ulimit, we can reduce the memory available and maybe trigger the segfault faster.
+
+Not entirely sure this is true. The segmentation fault is due to an int32 array index wrapping over IIRC.
+",,,not entir sure true the segment fault due int32 array index wrap iirc
+issue_comment,700,nilearn,nilearn,AlexandreAbraham,2015-08-05 08:16:09,"OK, my bad!
+",,,OK bad

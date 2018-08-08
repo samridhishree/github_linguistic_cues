@@ -1,0 +1,21 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,788,nilearn,nilearn,p-ghaemmaghami,2015-10-06 10:03:30,"Dear All,
+
+I have some concerns about haxby (2001) dataset regarding stimuli presentation and decoding pipeline:
+
+1) According to here: https://openfmri.org/dataset/ds000105, the number of presented stimuli is 48. Well, actually when someone download the dataset, there are 48 images per stimuli category (excluding “shoes” which is 47). However, in the description, it is written that, for each subject, per each run, all categories of stimuli (8 categories) were presented and each category was presented 24 sec in each run. Given the fact that the duration of the stimulus presentation is 500 ms with 1500 ms interval. this gives us 2400 ms/(500+1500) ms = 12 stimulus per each category in each run. Since every subject had undergone 12 runs. So the number of stimuli that subject had seen for each category is 12 (run) \* 12 (number of stimulus per object category for each run) = 144, and the total number of stimuli would be 144*8 = 1152. However it is said that subject were seen 48 stimuli !! 
+
+2) Decoding pipeline code that is provided here: http://nilearn.github.io/auto_examples/plot_haxby_simple.html which is one-vs-one classification (face vs cat). In this example, they use voxels as features and volumes as samples. so for each category (e.g. face) we have 9 (volumes)*12(runs)=108 samples. based on these samples they did one vs one classification (using linear SVM). I have some concerns about the code! 
+- we should assume that fMRI volumes are independent from each other. (otherwise the samples are not i.i.d)
+- we should assume that presented stimulus for each volume is different. (otherwise the samples in training can be used in test in cross-validation)
+
+plz correct me on these issues if I’m wrong on this!
+
+3) For my ongoing project, i need to know the exact correspondence between the presented stimulus and the fMRI volume for all subjects. To explain it better i want to know what would subject x has seen at every specific time (or every specific volume). In fact i need to have the presented stimuli per volume. Since i need to extract the visual information from the presented stimulus, i need to have the stimulus (i.e. knowing the category would not be enough for what I’m doing now). Do you know if such information is available?
+
+Thank you in advance. 
+
+Best,
+Pouya
+",start issue,Haxby dataset (Stimuli),dear all I concern haxbi 2001 dataset regard stimuli present decod pipelin 1 accord number present stimuli 48 well actual someon download dataset 48 imag per stimuli categori exclud “shoes” 47 howev descript written subject per run categori stimuli 8 categori present categori present 24 sec run given fact durat stimulu present 500 ms 1500 ms interv give us 2400 ms5001500 ms 12 stimulu per categori run sinc everi subject undergon 12 run So number stimuli subject seen categori 12 run 12 number stimulu per object categori run 144 total number stimuli would 1448 1152 howev said subject seen 48 stimuli 2 decod pipelin code provid onevson classif face vs cat In exampl use voxel featur volum sampl categori eg face 9 volumes12runs108 sampl base sampl one vs one classif use linear svm I concern code assum fmri volum independ otherwis sampl iid assum present stimulu volum differ otherwis sampl train use test crossvalid plz correct issu i’m wrong 3 for ongo project need know exact correspond present stimulu fmri volum subject To explain better want know would subject x seen everi specif time everi specif volum In fact need present stimuli per volum sinc need extract visual inform present stimulu need stimulu ie know categori would enough i’m Do know inform avail thank advanc best pouya

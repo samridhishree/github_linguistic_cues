@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,911,nilearn,nilearn,dohmatob,2015-12-15 13:29:23,"- Stuff returned by  `plot_stat_map` is no documented (it seems a Slicer object is returned by default)
+- if output_file is passed, then a None object is returned instead
+
+It would be nice to have the return type documented, and also we should always return the same object type (e.g a Slicer).
+",start issue,Inconsistent and undocument return types for plot_stat_map (and probably other such API),stuff return document seem slicer object return default outputfil pass none object return instead It would nice return type document also alway return object type eg slicer
+issue_comment,911,nilearn,nilearn,banilo,2015-12-15 22:48:22,"I would like to agree that a) consistency across plotting API and b) mentionning the output variable type in the docstring appears reasonable.
+",,,I would like agre consist across plot api b mention output variabl type docstr appear reason

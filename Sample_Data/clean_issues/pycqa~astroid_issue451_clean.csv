@@ -1,0 +1,31 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,451,pycqa,astroid,pleasantone,2017-09-03 20:25:19,"### Steps to reproduce
+1. install pylint from pypi (1.7.2)
+2. clone astroid master as of 3-Sept-2017
+3. pip install -U astroid/ to update to astroid master (to work around a bug in 1.5.3)
+4. pylint files with classes
+
+### Current behavior
+
+************* Module eyeop.hosting
+W: 47, 0: Unused variable '__class__' (unused-variable)
+W: 47, 0: Unused variable '__class__' (unused-variable)
+W: 47, 0: Unused variable '__class__' (unused-variable)
+W: 82, 0: Unused variable '__class__' (unused-variable)
+W: 94, 0: Unused variable '__class__' (unused-variable)
+W: 94, 0: Unused variable '__class__' (unused-variable)
+W:114, 0: Unused variable '__class__' (unused-variable)
+W:114, 0: Unused variable '__class__' (unused-variable)
+W:148, 0: Unused variable '__class__' (unused-variable)
+W:148, 0: Unused variable '__class__' (unused-variable)
+
+### Expected behavior
+
+no false positives
+
+### ``python -c ""from astroid import __pkginfo__; print(__pkginfo__.version)""`` output
+
+",start issue,pylint: Unused variable '__class__' (unused-variable),step reproduc 1 instal pylint pypi 172 2 clone astroid master 3sept2017 3 pip instal U astroid updat astroid master work around bug 153 4 pylint file class current behavior modul eyeophost W 47 0 unus variabl class unusedvari W 47 0 unus variabl class unusedvari W 47 0 unus variabl class unusedvari W 82 0 unus variabl class unusedvari W 94 0 unus variabl class unusedvari W 94 0 unus variabl class unusedvari w114 0 unus variabl class unusedvari w114 0 unus variabl class unusedvari w148 0 unus variabl class unusedvari w148 0 unus variabl class unusedvari expect behavior fals posit python c astroid import pkginfo printpkginfovers output
+issue_closed,451,pycqa,astroid,pleasantone,2017-09-03 20:30:31,,closed issue,pylint: Unused variable '__class__' (unused-variable),
+issue_comment,451,pycqa,astroid,pleasantone,2017-09-03 20:30:31,Upgrading to pylint master makes this go away. Sorry for the bogus report.,,,upgrad pylint master make go away sorri bogu report

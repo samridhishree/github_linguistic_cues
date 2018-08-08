@@ -1,0 +1,118 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,20,idan,oauthlib,idan,2012-04-19 06:29:58,,closed issue,Bug fixes for the OAuth 1.0 Client and Server,,N,2012-04-18 14:25:11
+4,pull_request_merged,20,idan,oauthlib,idan,2012-04-19 06:29:57,Bug fixes for the OAuth 1.0 Client and Server,3c1b8483eebeb879749745ff8b062bb006399007,Pull request merge from calebbrown/oauthlib:master to idan/oauthlib:master,bug fix oauth 10 client server,N,2012-04-18 15:35:01
+5,issue_comment,20,idan,oauthlib,dgouldin,2012-04-18 15:35:01,"Hey, Caleb.
+
+One of us will look through this pull request as soon as we're able, but in the meantime I just wanted to say thanks for all these changes!  We appreciate your contribution.  If you haven't already, please update your pull request to add yourself to AUTHORS.
+",,,hey caleb one us look pull request soon abl meantim I want say thank chang We appreci contribut If havent alreadi pleas updat pull request add author,N,2012-04-18 22:09:01
+6,issue_comment,20,idan,oauthlib,ib-lundgren,2012-04-18 22:09:01,"Excellent work. Nice to see some tests for Server taking form =)
+
+```
+Fix a collection of broken variables and constants
+Fixed a bug where the server was getting the signature from params when it should've been getting the signature method.
+Fix a broken condition in signature.collect_parameters() which was comparing against the value instead of the key.
+Fix a bug where the Server wasn't passing through the http_method to the client when generating the signature.
+Fixed a bug where HMAC SHA1 signatures were breaking when either secret was None
+```
+
+Looks good.
+
+```
+Changed parameters.prepare_headers() so that it doesn't use unicode strings after they've been passed through utils.escape()
+```
+
+OAuthLib is unicode everwhere, in unicode, out unicode. The spec mentions character codes in ASCII but if you convert unicode to ascii you will see that they are not violated. ie 34 == ord(u'""'.encode(""ascii""))
+
+```
+Added support for only including the body in the signature's base string when the Content-Type is set to application/x-www-form-urlencoded. This brings it inline with the RFC and stops multipart requests failing.
+```
+
+It is true that when contributing parameters from the request body there is only one allowed content type, application/x-www-form-urlencoded (http://tools.ietf.org/html/rfc5849#section-3.4.1.3.1), which must be present in the content-type request header. It is safe to assume this will be the default value, please update content_type to be an optional argument of collect_parameters with default value u'application/x-www-form-urlencoded'. 
+
+```
+Removed the invalid 'safe' parameter from urllib.unquote()
+```
+
+~ really is a safe character http://tools.ietf.org/html/rfc5849#section-3.6 #2
+
+```
+Fixed a bug where the client was dropping all the headers except the Authorization header when signing a request.
+```
+
+Can't seem to find which change you refer to.
+",,,excel work nice see test server take form look good oauthlib unicod everwher unicod unicod the spec mention charact code ascii convert unicod ascii see violat ie 34 orduencodeascii It true contribut paramet request bodi one allow content type applicationxwwwformurlencod must present contenttyp request header It safe assum default valu pleas updat contenttyp option argument collectparamet default valu uapplicationxwwwformurlencod realli safe charact 2 cant seem find chang refer,Y,2012-04-18 22:56:29
+7,issue_comment,20,idan,oauthlib,calebbrown,2012-04-18 22:56:29,"Hi,
+
+Thanks for the quick feedback
+
+> > Changed parameters.prepare_headers() so that it doesn't use unicode strings after they've been passed through utils.escape()
+> 
+> OAuthLib is unicode everwhere, in unicode, out unicode. The spec mentions character codes in ASCII but if you convert unicode to ascii you will see that they are not violated. ie 34 == ord(u'""'.encode(""ascii""))
+
+Ah, I probably should've clarified that before I made the change. Part of the problem was that `utils.unescape()` was only accepting non-unicode strings, and `signature.collect_parameters()` would only unescape strings that weren't unicode. Which means a header passed to it as a unicode string wouldn't be handled correctly.
+
+If you're happy, I can revert that changeset and remove the restrictions on `utils.unescape()` to allow both unicode and str types and fix `signature.collect_paramters()` so that it will call `unescape()` for both types of string.
+
+> > Added support for only including the body in the signature's base string when the Content-Type is set to application/x-www-form-urlencoded. This brings it inline with the RFC and stops multipart requests failing.
+> 
+> It is true that when contributing parameters from the request body there is only one allowed content type, application/x-www-form-urlencoded (http://tools.ietf.org/html/rfc5849#section-3.4.1.3.1), which must be present in the content-type request header. It is safe to assume this will be the default value, please update content_type to be an optional argument of collect_parameters with default value u'application/x-www-form-urlencoded'.
+
+Yep I can make that change. If I do that should I also add content_type as an argument to the methods that call `collect_parameters()` so the code underneath can pass that through?
+
+At the moment it is extracting it from the request headers and will default to `application/x-www-form-urlencoded` if it isn't set.
+
+> > Removed the invalid 'safe' parameter from urllib.unquote()
+> 
+> ~ really is a safe character http://tools.ietf.org/html/rfc5849#section-3.6 #2
+
+Yep, I didn't remove it because it wasn't 'safe', but because [urllib.unquote](http://docs.python.org/library/urllib.html#urllib.unquote) doesn't have 'safe' as an argument. Also `urllib.unquote('~') == '~'` which means it works correctly.
+
+> > Fixed a bug where the client was dropping all the headers except the Authorization header when signing a request.
+> 
+> Can't seem to find which change you refer to.
+
+I'm refering to changeset [f744f6ca1f81e6d48044f7416472f39dbd6e573c](https://github.com/calebbrown/oauthlib/commit/f744f6ca1f81e6d48044f7416472f39dbd6e573c)
+",,,Hi thank quick feedback Ah I probabl shouldv clarifi I made chang part problem accept nonunicod string would unescap string werent unicod which mean header pass unicod string wouldnt handl correctli If your happi I revert changeset remov restrict allow unicod str type fix call type string yep I make chang If I I also add contenttyp argument method call code underneath pass At moment extract request header default isnt set yep I didnt remov wasnt safe urllibunquot doesnt safe argument also mean work correctli Im refer changeset f744f6ca1f81e6d48044f7416472f39dbd6e573c,N,2012-04-18 23:26:37
+8,issue_comment,20,idan,oauthlib,ib-lundgren,2012-04-18 23:26:37,"> If you're happy, I can revert that changeset and remove the restrictions on utils.unescape() to allow both unicode and str types and fix signature.collect_paramters() so that it will call unescape() for both types of string.
+
+Yes, that's better. What do you think @dgouldin @idangazit? 
+
+> Yep I can make that change. If I do that should I also add content_type as an argument to the methods that call collect_parameters() so the code underneath can pass that through?
+
+Good idea but might be worth its own pull request.
+
+> Yep, I didn't remove it because it wasn't 'safe', but because urllib.unquote doesn't have 'safe' as an argument. Also urllib.unquote('~') == '~' which means it works correctly.
+
+Fair enough =) Interestingly the Python docs only mention '_.-' to be safe by default http://docs.python.org/library/urllib.html#urllib.quote. Might be a good idea to add a comment mentioning this.
+
+> I'm refering to changeset f744f6ca1f81e6d48044f7416472f39dbd6e573c
+
+Ah alright, looks good.
+",,,ye that better what think dgouldin idangazit good idea might worth pull request fair enough interestingli python doc mention safe default might good idea add comment mention Ah alright look good,N,2012-04-18 23:44:20
+14,issue_comment,20,idan,oauthlib,idan,2012-04-19 06:45:25,"@calebbrown Unfortunately, I think the changes it is making will render parts of your other pull requests moot, as it changes how things are handled internally (unicode, parameter en/decoding, etc).
+
+No worries though, we'll figure out how to merge it all. Thanks again for contributing, srsly.
+",,,calebbrown unfortun I think chang make render part pull request moot chang thing handl intern unicod paramet endecod etc No worri though well figur merg thank contribut srsli,N,2012-04-18 10:53:36
+15,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 10:53:36,Fix some some broken constants and vars in the OAuth1 Server.,d98d067bd807cbe5a1d3067f57397909e387618b,,fix broken constant var oauth1 server,N,2012-04-18 11:38:41
+16,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 11:38:41,"Extract the signature method for the signature method, not the
+signature.",7118970bb198b1bd34c43e0073da54df3d09d749,,extract signatur method signatur method signatur,N,2012-04-18 11:40:38
+17,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 11:40:38,urllib.unqoute doesn't take 'safe' as an arg. Add a test and fix.,e569fc16ed65a2bfe50061a58f21579025eff3c3,,urllibunqout doesnt take safe arg add test fix,N,2012-04-18 11:51:58
+18,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 11:51:58,Fix a bug in oauth1.signature.collect_parameters preventing unescaping.,1f292e6923aa9419d28e3700e22102dffd447886,,fix bug oauth1signaturecollectparamet prevent unescap,N,2012-04-18 13:13:27
+19,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 13:13:27,Pass through the request method to the client when generating signature.,cb1997081a873e59cf4f2e55d19246cb244a2a60,,pass request method client gener signatur,N,2012-04-18 13:14:17
+20,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 13:14:17,"Make prepare_headers return non-unicode strings.
+
+Because there is an assumption that headers are encoding in ASCII,
+and because all the parameters are passed through utils.escape anyway
+we shouldn't use unicode strings when building the header.
+
+When it was returning unicode strings the base string used to generate
+the signature was being double encoded.",028ff8dced3c63365c580345a145a5e997c312d0,,make preparehead return nonunicod string becaus assumpt header encod ascii paramet pass utilsescap anyway shouldnt use unicod string build header when return unicod string base string use gener signatur doubl encod,N,2012-04-18 13:17:25
+21,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 13:17:25,"Update the tests. Strengthen the unescape and escape tests and add more
+server tests.",361d306d11efedaa63b281d2e87b25f54ef91b38,,updat test strengthen unescap escap test add server test,N,2012-04-18 13:51:18
+22,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 13:51:18,Make sure the OAuth1 client doens't drop headers when signing requests.,f744f6ca1f81e6d48044f7416472f39dbd6e573c,,make sure oauth1 client doenst drop header sign request,N,2012-04-18 13:54:30
+23,pull_request_commit,20,idan,oauthlib,calebbrown,2012-04-18 13:54:30,"Add support to OAuth1 for including body in the base string based on
+encoding.
+
+Section 3.4.1.3.1. (Parameter Sources) in rfc5849 indicates that
+multipart bodies are excluded from the base string when generating the
+signature.",ae386c2154f65054427f33419bf17b6feda563d5,,add support oauth1 includ bodi base string base encod section 34131 paramet sourc rfc5849 indic multipart bodi exclud base string gener signatur,N,2012-04-18 14:03:50

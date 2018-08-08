@@ -1,0 +1,40 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1316,nilearn,nilearn,Joaoloula,2016-10-25 13:15:54,"Updates `fetch_haxby` documentation to include the case when `subjects` parameter is an int and corrects `fetch_abide_pcp` for the new download link.
+",start issue,[MRG] Fixes #1313 and #1314,updat document includ case paramet int correct new download link,N,2016-10-31 16:04:15
+3,pull_request_title,1316,nilearn,nilearn,Joaoloula,2016-10-25 13:15:54,"Updates `fetch_haxby` documentation to include the case when `subjects` parameter is an int and corrects `fetch_abide_pcp` for the new download link.
+",32f41f8a0eb34ce2e1a66a6cb98c95c579891e15,[MRG] Fixes #1313 and #1314,updat document includ case paramet int correct new download link,N,2016-10-31 16:04:15
+7,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:21:13,"I think that taking the md5 hash of a bucnh of random files should be enough. Or maybe @Joaoloula can grab Cameron at brainhack and ask him ? :P
+",,,I think take md5 hash bucnh random file enough Or mayb joaoloula grab cameron brainhack ask P,N,2016-10-31 13:49:59
+8,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-31 13:49:59,"So, let's go merging this one when all is green.
+",,,So let go merg one green,N,2016-10-31 16:04:11
+10,issue_comment,1316,nilearn,nilearn,Joaoloula,2016-10-26 12:08:55,"Cameron's not here :/ In the middle of testing, I actually overwrote the dataset coming from the old download link, so I can't compare the checksums, can someone who still has the 'old' data take care of that?
+",,,cameron In middl test I actual overwrot dataset come old download link I cant compar checksum someon still old data take care,Y,2016-10-31 13:46:54
+15,pull_request_commit,1316,nilearn,nilearn,Joaoloula,2016-10-25 13:14:39,updated haxby fetcher documentation and abide fetcher link,dce978d4ccf3be67807a849729a66959ea0b8974,,updat haxbi fetcher document abid fetcher link,N,2016-10-31 13:44:31
+1,issue_title,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 17:44:55,"Attempts to Fix #1251 
+",start issue,[MRG] Fix: add_contours (filled=True) which will not require to specify color or alpha,attempt fix 1251,N,2016-11-03 13:25:37
+3,pull_request_title,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 17:44:55,"Attempts to Fix #1251 
+",d8f824f114b0f628b39109d475aef9f3167163e5,[MRG] Fix: add_contours (filled=True) which will not require to specify color or alpha,attempt fix 1251,N,2016-11-03 13:25:37
+5,issue_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-10-25 13:01:32,"Looks good in general. I'd like the heuristic that I suggested to be implement when level is not specified:
+
+<pre>
+abs_data = np.abs(data)
+data_90 = np.percentile(abs_data, 90)
+data_50 = np.median(abs_data)
+levels = [data_90, data_50, -data_50, -data_90]
+</pre>
+",,,look good gener Id like heurist I suggest implement level specifi preabsdata npabsdata data90 nppercentileabsdata 90 data50 npmedianabsdata level data90 data50 data50 data90 pre,N,2016-11-03 06:25:00
+6,issue_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:25:00,"This is in general good to go for me. However, I'd that that on the notebook-like example we always have only one figure per cell.
+",,,thi gener good go howev Id notebooklik exampl alway one figur per cell,N,2016-11-03 13:25:33
+21,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-25 14:54:35,"I have opened an issue #1317. I have the same behaviour even for automatic guesses in levels. The thing we are missing is `threshold` from what I have understood. Then in that case, we don't have to worry about guessing values. 
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(45, '', u'nilearn/plotting/displays.py')",I open issu 1317 I behaviour even automat guess level the thing miss I understood then case dont worri guess valu,N,2016-11-03 06:08:51
+22,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:08:51,"I would have liked an extra separation here, so that we have only one figure per cell. It makes things easier to understand for the user.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",I would like extra separ one figur per cell It make thing easier understand user,N,2016-11-03 06:09:17
+23,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:09:17,"Same remark here: one separation would be useful.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(33, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",same remark one separ would use,N,2016-11-03 06:12:33
+24,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:12:33,"A separation here too
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(49, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",A separ,N,2016-11-03 06:12:51
+25,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:12:51,"And one here
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(84, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",and one,N,2016-11-03 06:21:17
+26,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:21:17,"Same here: one new cell, please.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",same one new cell pleas,N,2016-11-03 07:35:01
+30,pull_request_commit,1315,nilearn,nilearn,KamalakerDadi,2016-10-30 13:31:24,"Addressed comments, example enhancement in plot_demo_glass_brain_extensive",aa00b6c09e49d29f6189c9d5d5e6763330192144,,address comment exampl enhanc plotdemoglassbrainextens,N,2016-11-03 10:42:07

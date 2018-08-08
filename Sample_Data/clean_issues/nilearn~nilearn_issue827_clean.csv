@@ -1,0 +1,126 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,827,nilearn,nilearn,GaelVaroquaux,2015-11-05 22:35:19,"nilearn.decomposition.tests.test_multi_pca.test_multi_pca fails with scikit-learn master (but not 0.16). I suspect that this is a numerical instability in scikit-learn and that @giorgiop might know something about that.
+
+While @giorgiop is still at the lab (ie in the next few days), we should investigate that.
+
+<pre>
+======================================================================
+FAIL: nilearn.decomposition.tests.test_multi_pca.test_multi_pca
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/varoquau/dev/nilearn/nilearn/decomposition/tests/test_multi_pca.py"", line 36, in test_multi_pca
+    decimal=4)
+  File ""/usr/lib/python2.7/dist-packages/numpy/testing/utils.py"", line 811, in assert_array_almost_equal
+    header=('Arrays are not almost equal to %d decimals' % decimal))
+  File ""/usr/lib/python2.7/dist-packages/numpy/testing/utils.py"", line 644, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 4 decimals
+
+(mismatch 99.9305555556%)
+ x: array([[ -8.01780945e-03,  -1.57127933e-02,   5.21554343e-02, ...,
+         -2.45565708e-02,   5.41739597e-02,  -6.57871537e-03],
+       [ -4.39631746e-02,   5.23726237e-05,  -2.74229888e-02, ...,...
+ y: array([[ 0.04536376, -0.04022769,  0.00722741, ..., -0.01436048,
+         0.02965129,  0.00382973],
+       [ 0.05776912, -0.04430462,  0.01511899, ...,  0.06632538,...
+>>  raise AssertionError('\nArrays are not almost equal to 4 decimals\n\n(mismatch 99.9305555556%)\n x: array([[ -8.01780945e-03,  -1.57127933e-02,   5.21554343e-02, ...,\n         -2.45565708e-02,   5.41739597e-02,  -6.57871537e-03],\n       [ -4.39631746e-02,   5.23726237e-05,  -2.74229888e-02, ...,...\n y: array([[ 0.04536376, -0.04022769,  0.00722741, ..., -0.01436048,\n         0.02965129,  0.00382973],\n       [ 0.05776912, -0.04430462,  0.01511899, ...,  0.06632538,...')
+</pre>
+",start issue,Numerical error with scikit-learn master,nilearndecompositionteststestmultipcatestmultipca fail scikitlearn master 016 I suspect numer instabl scikitlearn giorgiop might know someth while giorgiop still lab ie next day investig pre fail nilearndecompositionteststestmultipcatestmultipca traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homevaroquaudevnilearnnilearndecompositionteststestmultipcapi line 36 testmultipca decimal4 file usrlibpython27distpackagesnumpytestingutilspi line 811 assertarrayalmostequ headerarray almost equal decim decim file usrlibpython27distpackagesnumpytestingutilspi line 644 assertarraycompar rais assertionerrormsg assertionerror array almost equal 4 decim mismatch 999305555556 x array 801780945e03 157127933e02 521554343e02 245565708e02 541739597e02 657871537e03 439631746e02 523726237e05 274229888e02 array 004536376 004022769 000722741 001436048 002965129 000382973 005776912 004430462 001511899 006632538 pre
+issue_closed,827,nilearn,nilearn,lesteve,2015-11-06 16:02:23,,closed issue,Numerical error with scikit-learn master,
+issue_comment,827,nilearn,nilearn,lesteve,2015-11-06 07:29:51,"The test that fails is the following:
+
+``` python
+# Test that the components are the same if we put twice the same data
+components1 = multi_pca.fit(data).components_
+components2 = multi_pca.fit(2 * data).components_
+np.testing.assert_array_almost_equal(components1, components2)
+```
+
+@arthurmensch was telling me that we should remove it the other day. I don't remember the exact reason though.
+",,,the test fail follow arthurmensch tell remov day I dont rememb exact reason though
+issue_comment,827,nilearn,nilearn,arthurmensch,2015-11-06 07:37:24,"I believe this behavior is expected : we use a random matrix in range
+finder to perform initial projection.  For the result above to be true, the
+random Matrix should be to the concatenation of twice the same random
+matrix. Basically the large eigenvalues vectors are very close, but those
+associated to smaller eigenvalues won't be.
+
+The test that fails is the following:
+
+# Test that the components are the same if we put twice the same data
+
+components1 = multi_pca.fit(data).components_
+components2 = multi_pca.fit(2 \* data).components_
+np.testing.assert_array_almost_equal(components1, components2)
+
+@arthurmensch https://github.com/arthurmensch was telling me that we
+should remove it the other day. I don't remember the exact reason though.
+
+—
+Reply to this email directly or view it on GitHub
+https://github.com/nilearn/nilearn/issues/827#issuecomment-154334220.
+",,,I believ behavior expect use random matrix rang finder perform initi project for result true random matrix concaten twice random matrix basic larg eigenvalu vector close associ smaller eigenvalu wont the test fail follow test compon put twice data components1 multipcafitdatacompon components2 multipcafit2 datacompon nptestingassertarrayalmostequalcomponents1 components2 arthurmensch tell remov day I dont rememb exact reason though — repli email directli view github
+issue_comment,827,nilearn,nilearn,arthurmensch,2015-11-06 07:42:02,"The element that changed in scikit learn master is that n_iter went from 0
+to 2 in randomized_svd if I am not mistaken
+
+I believe this behavior is expected : we use a random matrix in range
+finder to perform initial projection.  For the result above to be true, the
+random Matrix should be to the concatenation of twice the same random
+matrix. Basically the large eigenvalues vectors are very close, but those
+associated to smaller eigenvalues won't be.
+
+The test that fails is the following:
+
+# Test that the components are the same if we put twice the same data
+
+components1 = multi_pca.fit(data).components_
+components2 = multi_pca.fit(2 \* data).components_
+np.testing.assert_array_almost_equal(components1, components2)
+
+@arthurmensch https://github.com/arthurmensch was telling me that we
+should remove it the other day. I don't remember the exact reason though.
+
+—
+Reply to this email directly or view it on GitHub
+https://github.com/nilearn/nilearn/issues/827#issuecomment-154334220.
+",,,the element chang scikit learn master niter went 0 2 randomizedsvd I mistaken I believ behavior expect use random matrix rang finder perform initi project for result true random matrix concaten twice random matrix basic larg eigenvalu vector close associ smaller eigenvalu wont the test fail follow test compon put twice data components1 multipcafitdatacompon components2 multipcafit2 datacompon nptestingassertarrayalmostequalcomponents1 components2 arthurmensch tell remov day I dont rememb exact reason though — repli email directli view github
+issue_comment,827,nilearn,nilearn,GaelVaroquaux,2015-11-06 07:43:04,"> I believe this behavior is expected : we use a random matrix in range
+> finder to perform initial projection. For the result above to be true, the
+> random Matrix should be to the concatenation of twice the same random
+> matrix. Basically the large eigenvalues vectors are very close, but those
+> associated to smaller eigenvalues won't be.
+
+Fair enough, but it's not obvious from a cursory look that this is what
+is happening.
+
+If it's indeed the case, we need to fix the test to check only for the
+leading eigenvalues (for instance by extracting only a small number of
+components).
+",,,fair enough obviou cursori look happen If inde case need fix test check lead eigenvalu instanc extract small number compon
+issue_comment,827,nilearn,nilearn,giorgiop,2015-11-06 07:48:04,"@lesteve is this the only svd-related test failing with the current dev version of scikit-learn or there are more?
+",,,lestev svdrelat test fail current dev version scikitlearn
+issue_comment,827,nilearn,nilearn,giorgiop,2015-11-06 07:50:00,"> The element that changed in scikit learn master is that n_iter went from 0 to 2 in randomized_svd if I am not mistaken
+
+Correct.
+",,,correct
+issue_comment,827,nilearn,nilearn,GaelVaroquaux,2015-11-06 07:51:33,"> @lesteve is this the only svd-related test failing with the current dev
+> version of scikit-learn or there are more?
+
+It's the only one
+",,,it one
+issue_comment,827,nilearn,nilearn,lesteve,2015-11-06 10:26:37,"For the record scikit-learn 0.17 is now available through conda. Because we use the latest versions for the Python 3.5 tests, Travis is failing in master at the moment.
+",,,for record scikitlearn 017 avail conda becaus use latest version python 35 test travi fail master moment
+issue_comment,827,nilearn,nilearn,arthurmensch,2015-11-06 10:26:40,"It turns out that we need to force `transpose=True` in `randomized_svd`. This is actually expected regarding the equations: we feed `data.T` to `randomized_svd`, that is a p x n or a p x 2n matrix.
+Randomized svd perform the computation:
+- `data.T.dot(np.randn((n, k+10)))` (ref case) vs `data.T.dot(np.randn((2n, k+10)))` (tile case) if `transpose = False`
+- data.dot(np.randn(p, k+10)) if `transpose = True` in any case
+
+The random matrix `Q` is different for ref case and tile case if `transpose=False`. It does not mean that we should put `transpose=True` as this is less efficient : on the other hand, if we choose not to, we need to adapt the test. in sklearn < 0.17, `transpose` was always `True` (bug fixed by @giorgiop), hence the bug. `n_iter` has no influence on our test, but it defaults differently in different sklearn, so we should force it in nilearn IMHO.
+
+Hotfix is easy, I'll provide it. Them we should redesign the test in order to test only on leading components.
+",,,It turn need forc thi actual expect regard equat feed p x n p x 2n matrix random svd perform comput ref case vs tile case datadotnprandnp k10 case the random matrix differ ref case tile case It mean put less effici hand choos need adapt test sklearn 017 alway bug fix giorgiop henc bug influenc test default differ differ sklearn forc nilearn imho hotfix easi ill provid them redesign test order test lead compon
+issue_comment,827,nilearn,nilearn,giorgiop,2015-11-06 11:30:09,"This makes sense to me and should solve the issue.
+",,,thi make sens solv issu

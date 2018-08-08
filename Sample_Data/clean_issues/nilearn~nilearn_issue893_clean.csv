@@ -1,0 +1,4 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,893,nilearn,nilearn,AlexandreAbraham,2015-12-08 14:40:01,"""Initial estimation"" does not make sense.
+",start issue,Fix dict_init doc in DictLearning,initi estim make sens

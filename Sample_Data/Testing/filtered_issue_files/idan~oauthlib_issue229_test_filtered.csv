@@ -1,0 +1,32 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,229,idan,oauthlib,TkTech,2013-12-10 19:53:50,"-- NOT READY FOR MERGE --
+
+This PR is not yet ready to be merged, and is just to track work towards ticket #226.
+- [x] Implement `sign_rsa_sha1(base_string, rsa_private_key)` with tlslite
+- [ ] Implement `verify_rsa_sha1(request, rsa_public_key)` with tlslite
+- [ ] Swap pycrypto for tlslite in documentation references
+- [x] Swap pycrypto for tlslite in setup.py
+",start issue,sign_rsa_sha1 no longer requires pycrypto (tests pass),not readi for merg thi PR yet readi merg track work toward ticket 226 x implement tlslite implement tlslite swap pycrypto tlslite document refer x swap pycrypto tlslite setuppi,N
+issue_closed,229,idan,oauthlib,TkTech,2014-09-18 13:38:00,nan,closed issue,sign_rsa_sha1 no longer requires pycrypto (tests pass),nan,N
+pull_request_title,229,idan,oauthlib,TkTech,2013-12-10 19:53:50,"-- NOT READY FOR MERGE --
+
+This PR is not yet ready to be merged, and is just to track work towards ticket #226.
+- [x] Implement `sign_rsa_sha1(base_string, rsa_private_key)` with tlslite
+- [ ] Implement `verify_rsa_sha1(request, rsa_public_key)` with tlslite
+- [ ] Swap pycrypto for tlslite in documentation references
+- [x] Swap pycrypto for tlslite in setup.py
+",87578ec71620be359fb1bdb7fbed8659d1ce3087,sign_rsa_sha1 no longer requires pycrypto (tests pass),not readi for merg thi PR yet readi merg track work toward ticket 226 x implement tlslite implement tlslite swap pycrypto tlslite document refer x swap pycrypto tlslite setuppi,N
+issue_comment,229,idan,oauthlib,ib-lundgren,2014-01-20 10:45:27,"Looks like a good start!
+
+I think having docs for how to keep using PyCrypto would be a good start for sure. Also, this update should make it easier for Windows users to get started using RSA-SHA1 as PyCrypto is fairly cumbersome to install there from what I gather.
+
+Sorry for taking so long to reply. Would you like some help with something in particular or happy to tackle both implementation and docs? 
+",nan,nan,look like good start I think doc keep use pycrypto would good start sure also updat make easier window user get start use rsasha1 pycrypto fairli cumbersom instal I gather sorri take long repli would like help someth particular happi tackl implement doc,N
+issue_comment,229,idan,oauthlib,whit537,2014-09-18 12:59:31,"This PR seems to have stalled. I suggest closing, especially in light of https://github.com/idan/oauthlib/issues/226#issuecomment-53194390.
+",nan,nan,thi PR seem stall I suggest close especi light,N
+issue_comment,229,idan,oauthlib,TkTech,2014-09-18 13:38:00,"Agreed, closing. While I could get it to pass locally, I never managed to get the builds to pass on travis.
+",nan,nan,agre close while I could get pass local I never manag get build pass travi,Y
+pull_request_commit,229,idan,oauthlib,TkTech,2013-12-10 19:06:17,sign_rsa_sha1 no longer requires pycrypto (tests pass),ffd0505db80b0a671b013ab4bd84780591c065ad,nan,signrsasha1 longer requir pycrypto test pass,N
+pull_request_commit,229,idan,oauthlib,TkTech,2013-12-10 19:58:02,Swap pycrypto for tlslite in setup.py,0def5967c3eb5f51fbb159742ea95e19f5330b2d,nan,swap pycrypto tlslite setuppi,N
+pull_request_commit,229,idan,oauthlib,TkTech,2013-12-10 20:00:18,Add tlslite to .travis.yml (Whoops!),87578ec71620be359fb1bdb7fbed8659d1ce3087,nan,add tlslite travisyml whoop,N

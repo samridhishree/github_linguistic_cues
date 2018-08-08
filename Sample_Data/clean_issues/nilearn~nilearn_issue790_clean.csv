@@ -1,0 +1,22 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,790,nilearn,nilearn,aabadie,2015-10-12 15:47:39,"This is the PR corresponding to issue #789.
+",start issue,[MRG] Improving nilearn package docstring,thi PR correspond issu 789
+issue_closed,790,nilearn,nilearn,lesteve,2015-10-13 09:27:56,,closed issue,[MRG] Improving nilearn package docstring,
+pull_request_title,790,nilearn,nilearn,aabadie,2015-10-12 15:47:39,"This is the PR corresponding to issue #789.
+",b94dadd5cd739462a00a2b99ade2281b32a1f729,[MRG] Improving nilearn package docstring,thi PR correspond issu 789
+pull_request_merged,790,nilearn,nilearn,lesteve,2015-10-13 09:27:56,[MRG] Improving nilearn package docstring,971c523eaed596d5ec71c55a84c3f67c678fb452,Pull request merge from aabadie/nilearn:789_nilearn_docstring to nilearn/nilearn:master,mrg improv nilearn packag docstr
+issue_comment,790,nilearn,nilearn,aabadie,2015-10-13 07:54:24,"@lesteve, I rebased the branch on master, waiting for tests results. The ""Utilities"" section has been removed in commit b94dadd.
+",,,lestev I rebas branch master wait test result the util section remov commit b94dadd
+issue_comment,790,nilearn,nilearn,lesteve,2015-10-12 16:37:41,"The test failure is related to numpy 1.10. I can reproduce it locally.
+",,,the test failur relat numpi 110 I reproduc local
+issue_comment,790,nilearn,nilearn,lesteve,2015-10-13 06:58:28,"> The test failure is related to numpy 1.10. I can reproduce it locally.
+
+I push a fix in master https://github.com/nilearn/nilearn/commit/aa4ba03ff334e4ba11904d57db87b64bb4714f1e. @aabadie if you rebase on top of master it should make the test pass.
+",,,I push fix master aabadi rebas top master make test pass
+issue_comment,790,nilearn,nilearn,lesteve,2015-10-13 09:27:53,"LGTM merging, thanks !
+",,,lgtm merg thank
+pull_request_commit_comment,790,nilearn,nilearn,lesteve,2015-10-13 06:59:33,"I would remove this section alltogether, including the two lines below. In the scipy docstring case, the test they mention is scipy.test and we don't have the equivalent in nilearn since we just use nosetets.
+",b94dadd5cd739462a00a2b99ade2281b32a1f729,"(None, '', u'nilearn/__init__.py')",I would remov section alltogeth includ two line In scipi docstr case test mention scipytest dont equival nilearn sinc use nosetet
+pull_request_commit,790,nilearn,nilearn,aabadie,2015-10-12 15:34:24,improving nilearn package docstring nilearn/nilearn#789,5e397f283befa8a14a61313664fb587174569644,,improv nilearn packag docstr nilearnnilearn789
+pull_request_commit,790,nilearn,nilearn,aabadie,2015-10-13 07:51:06,removing Utilities section from nilearn docstring nilearn/nilearn#789,b94dadd5cd739462a00a2b99ade2281b32a1f729,,remov util section nilearn docstr nilearnnilearn789

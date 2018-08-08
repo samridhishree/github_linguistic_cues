@@ -1,0 +1,5 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,9,nilearn,nilearn,AlexandreAbraham,2012-06-25 09:35:42,"An error occurs in the downloader when trying to fetch a dataset : the function _join_ used to build the URLs takes its parameters in one array whereas several parameters are given in the code.
+",start issue,Missing brackets,An error occur download tri fetch dataset function join use build url take paramet one array wherea sever paramet given code
+issue_closed,9,nilearn,nilearn,AlexandreAbraham,2012-06-25 15:47:22,,closed issue,Missing brackets,

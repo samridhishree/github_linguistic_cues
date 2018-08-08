@@ -1,0 +1,415 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,223,nilearn,nilearn,AlexandreAbraham,2014-09-15 12:54:57,,closed issue,Weird issue about no $DISPLAY (test_img_plot.py). Or maybe it's a private bug ?,,N,2014-07-01 16:06:55
+3,issue_comment,223,nilearn,nilearn,dohmatob,2014-07-01 16:06:55,"This error was reported by travis on PR #219
+",,,thi error report travi PR 219,Y,2014-07-01 16:06:55
+4,issue_comment,223,nilearn,nilearn,GaelVaroquaux,2014-07-01 16:06:55,"Yes, you need an X server. Our new pull request should solve this
+problem, hopefully, via a bit of woodoo magic.
+
+G
+
+On Tue, Jul 01, 2014 at 09:05:48AM -0700, dohmatob elvis dopgima wrote:
+
+> Traceback (most recent call last):
+> File ""/home/travis/virtualenv/python2.7_with_system_site_packages/local/lib/
+> python2.7/site-packages/nose/case.py"", line 197, in runTest
+> self.test(_self.arg)
+> File ""/home/travis/build/nilearn/nilearn/nilearn/plotting/test/
+> test_slicers.py"", line 27, in test_demo_ortho_slicer
+> pl.clf()
+> File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 443, in clf
+> gcf().clf()
+> File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 369, in gcf
+> return figure()
+> File ""/usr/lib/pymodules/python2.7/matplotlib/pyplot.py"", line 343, in figure
+> *_kwargs)
+> File ""/usr/lib/pymodules/python2.7/matplotlib/backends/backend_tkagg.py"", line
+> 80, in new_figure_manager
+> window = Tk.Tk()
+> File ""/usr/lib/python2.7/lib-tk/Tkinter.py"", line 1688, in init
+> self.tk = _tkinter.create(screenName, baseName, className, interactive,
+> wantobjects, useTk, sync, use)
+> TclError: no display name and no $DISPLAY environment variable
+> 
+> —
+> Reply to this email directly or view it on GitHub.*
+
+## 
+
+```
+Gael Varoquaux
+Researcher, INRIA Parietal
+Laboratoire de Neuro-Imagerie Assistee par Ordinateur
+NeuroSpin/CEA Saclay , Bat 145, 91191 Gif-sur-Yvette France
+Phone:  ++ 33-1-69-08-79-68
+http://gael-varoquaux.info            http://twitter.com/GaelVaroquaux
+```
+",,,ye need X server our new pull request solv problem hope via bit woodoo magic G On tue jul 01 2014 090548am 0700 dohmatob elvi dopgima wrote,N,2014-07-01 16:07:45
+5,issue_comment,223,nilearn,nilearn,GaelVaroquaux,2014-07-01 16:07:45,"> This error was reported by travis on PR #219
+
+That means that we need to merge our PR. Do you want to have a go
+reviewing it? I can work on it on the train tomorrow.
+",,,that mean need merg PR Do want go review I work train tomorrow,N,2014-07-01 16:12:09
+2,issue_closed,219,nilearn,nilearn,dohmatob,2015-07-14 07:45:53,,closed issue,(WIP) Sparse models: S-LASSO and TV-l1,,N,2014-06-27 09:16:58
+3,pull_request_title,219,nilearn,nilearn,dohmatob,2014-06-27 09:16:58,"- Supports TV-l1 and S-LASSO priors
+- Supports logistic and squared losses
+- Has cross validation
+- Can automatically select alpha by CV (+ automatic computation of useful alpha ranges for the CV)
+- Warning: User must supply l1_ratio
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,(WIP) Sparse models: S-LASSO and TV-l1,support tvl1 slasso prior support logist squar loss ha cross valid can automat select alpha CV automat comput use alpha rang CV warn user must suppli l1ratio,N,2014-06-27 13:22:16
+4,issue_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:22:16,"prox_tv_l1.py should be merged with operators.py
+",,,proxtvl1pi merg operatorspi,N,2014-06-27 14:14:58
+5,issue_comment,219,nilearn,nilearn,agramfort,2014-06-27 14:14:58,"no example with TV L1?
+",,,exampl TV L1,N,2014-06-27 14:51:22
+6,issue_comment,219,nilearn,nilearn,agramfort,2014-06-27 14:51:22,"tests pass in 5s on my box + 88% coverage. Good job.
+
+just a note on the smooth lasso example I am not really able to see something on the score graph.
+
+that's it for me now
+",,,test pass 5s box 88 coverag good job note smooth lasso exampl I realli abl see someth score graph that,Y,2014-06-27 16:11:54
+7,issue_comment,219,nilearn,nilearn,agramfort,2014-06-27 16:11:54,"how about poldrack's data?
+",,,poldrack data,N,2014-06-27 17:00:27
+8,issue_comment,219,nilearn,nilearn,agramfort,2014-06-27 17:00:27,"can you share with me your script on PMG?
+",,,share script pmg,N,2014-06-28 13:19:31
+9,issue_comment,219,nilearn,nilearn,agramfort,2014-06-28 13:19:31,"pretty nice !
+
+the selected alpha seems a bit weird to me. I thought that Gael wanted to
+select one alpha per fold and average the weights rather than refit?
+",,,pretti nice select alpha seem bit weird I thought gael want select one alpha per fold averag weight rather refit,N,2014-06-28 18:34:34
+13,issue_comment,219,nilearn,nilearn,agramfort,2014-09-03 10:35:06,"class SpatialNet(object):
+
+:)
+
+besides I love the idea.
+",,,class spatialnetobject besid I love idea,N,2014-06-30 16:04:14
+29,issue_comment,219,nilearn,nilearn,GaelVaroquaux,2014-10-14 11:57:20,"I don't see the change in EarlyStopping. Did you forget to add it?
+",,,I dont see chang earlystop did forget add,N,2014-06-28 16:34:35
+30,issue_comment,219,nilearn,nilearn,dohmatob,2014-06-28 16:34:35,"The legend about the selected alpha is just for information. The grand final weights map is still an average of the maps corresponding to the best models per fold, as intended. So we are fine. Good remark though.
+",,,the legend select alpha inform the grand final weight map still averag map correspond best model per fold intend So fine good remark though,N,2014-06-30 09:39:41
+31,issue_comment,219,nilearn,nilearn,dohmatob,2014-06-30 09:39:41,"OK, I'll have a look after launch.
+",,,OK ill look launch,N,2014-06-30 16:04:03
+32,issue_comment,219,nilearn,nilearn,dohmatob,2014-06-30 16:04:03,"@agramfort  You may resume reviewing.
+",,,agramfort you may resum review,N,2014-06-30 16:04:30
+65,issue_comment,219,nilearn,nilearn,mrahim,2015-02-04 15:28:28,"> Is there any packaged / fetchable template with / nilearn ?
+
+You can remove `background_img` from `plot_stat_map`
+
+![figure_1](https://cloud.githubusercontent.com/assets/8612476/6043179/cc13308c-ac8a-11e4-94e2-03471d5753a8.png)
+",,,you remov figure1,N,2014-06-27 12:39:19
+66,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:39:19,"how about using 
+
+from distutils.version import LooseVersion
+
+?
+
+ping @GaelVaroquaux 
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",use distutilsvers import loosevers ping gaelvaroquaux,N,2014-06-27 12:39:51
+67,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:39:51,"partial from functools does not pickle. I don't know if it's a pb here
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",partial functool pickl I dont know pb,N,2014-06-27 12:43:10
+68,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:43:10,"it's a correlation of the y right? not an L2 / MSE loss
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",correl right L2 mse loss,N,2014-06-27 12:43:12
+69,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-27 12:43:12,"Yeah, i have other backward-compat problems with center_data (not present sklearn <= 0.10). I'm implementing some lightweight backports, so that travis can let me go...
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",yeah backwardcompat problem centerdata present sklearn 010 Im implement lightweight backport travi let go,Y,2014-06-27 12:43:29
+70,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:43:29,"X_std does not seem to be used
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",xstd seem use,N,2014-06-27 12:44:49
+71,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:44:49,"learned by univariate selection. ANOVA is one way to do it.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",learn univari select anova one way,N,2014-06-27 12:47:01
+72,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:47:01,"returns ones?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",return one,N,2014-06-27 12:47:14
+73,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:47:14,"proof? I would talk about accuracy.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",proof I would talk accuraci,N,2014-06-27 12:48:10
+74,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-27 12:48:10,"Yes.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",ye,N,2014-06-27 12:48:13
+75,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:48:13,"ndim as meaning a numpy which is different here. I would call is size as np.size
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",ndim mean numpi differ I would call size npsize,N,2014-06-27 12:48:36
+76,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:48:36,"missing space before if
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",miss space,N,2014-06-27 12:48:58
+77,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:48:58,"cleanup / decide
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",cleanup decid,N,2014-06-27 12:49:19
+78,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:49:19,"Say what None does
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",say none,N,2014-06-27 12:49:27
+79,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-27 12:49:27,"But precisely, ANOVA (one-way) seems to be what's been done under the hood in the scikit (i just rushed into the code at the moment).
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",but precis anova oneway seem what done hood scikit rush code moment,N,2014-06-27 12:51:10
+80,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:51:10,"remove comment. Name is good for me.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",remov comment name good,N,2014-06-27 12:51:39
+81,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:51:39,"if you return linalg.svdvals(X)[0] *\* 2
+then it corresponds to ""0.5 \* ||y - Xw||^2""
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",return linalgsvdvalsx0 2 correspond 05 xw2,N,2014-06-27 12:52:45
+82,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:52:45,"Compute upper bound on Lipschitz constant for the gradient of the logistic sum:
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",comput upper bound lipschitz constant gradient logist sum,N,2014-06-27 12:52:53
+83,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:52:53,"then remove this 
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",remov,N,2014-06-27 12:53:40
+84,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:53:40,"why norm(X, 2) here and svdvals above? make up your mind on what is faster.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",normx 2 svdval make mind faster,N,2014-06-27 12:55:01
+85,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:55:01,"Standard formatting is:
+
+```
+    X: 2D array, shape (n_samples, n_features)
+        Design matrix.
+```
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",standard format,N,2014-06-27 12:55:30
+86,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:55:30,"```
+   y: 1D array , shape (n_samples,)
+        Target.
+```
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",,N,2014-06-27 12:55:40
+87,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:55:40,"no =
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",,N,2014-06-27 12:55:52
+88,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:55:52,"bad formatting
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",bad format,N,2014-06-27 12:56:24
+89,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:56:24,"call it residual, r or R
+
+aux is bad
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",call residu r R aux bad,N,2014-06-27 12:57:01
+90,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:57:01,"shape?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",shape,N,2014-06-27 12:57:09
+91,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:57:09,"remove empty line
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",remov empti line,N,2014-06-27 12:57:37
+92,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:57:37,"docstring not up to date
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",docstr date,N,2014-06-27 12:58:57
+93,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 12:58:57,"> But precisely, ANOVA (one-way) seems to be what's been done under the hood in the scikit (i just rushed into the code at the moment).
+> 
+> there are different ways. It depends what nilearn supports.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",,N,2014-06-27 13:07:33
+94,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:07:33,"update docstring
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",updat docstr,N,2014-06-27 13:08:01
+95,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:08:01,"+1 for img.dtype
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",1 imgdtyp,N,2014-06-27 13:09:30
+96,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:09:30,"private function?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",privat function,N,2014-06-27 13:10:57
+97,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:10:57,"use np.log1p
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",use nplog1p,N,2014-06-27 13:11:32
+98,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:11:32,"add your name + license on top of every file.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",add name licens top everi file,N,2014-06-27 13:11:52
+99,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:11:52,"import nilearn stuff at the end
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",import nilearn stuff end,N,2014-06-27 13:12:29
+100,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:12:29,"end of sentence ??
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",end sentenc,N,2014-06-27 13:12:50
+101,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:12:50,"documenetation -> documentation
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",documenet,N,2014-06-27 13:13:17
+102,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:13:17,"mechanism
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",mechan,N,2014-06-27 13:13:53
+103,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:13:53,"you don't cache these solver calls?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",dont cach solver call,N,2014-06-27 13:14:14
+104,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:14:14,"don't you want to average rather than refit?
+
+ping @GaelVaroquaux 
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",dont want averag rather refit ping gaelvaroquaux,N,2014-06-27 13:14:26
+105,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:14:26,"XXX : docstring
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",xxx docstr,N,2014-06-27 13:15:11
+106,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:15:11,"cache?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",cach,N,2014-06-27 13:15:38
+107,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:15:38,"no =
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",,N,2014-06-27 13:16:05
+108,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:16:05,"hum :)
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",hum,N,2014-06-27 13:17:12
+109,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:17:12,"???
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",,N,2014-06-27 13:19:40
+110,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:19:40,"remove w
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",remov w,N,2014-06-27 13:20:30
+111,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:20:30,"sklearn import before common
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/estimators.py')",sklearn import common,N,2014-06-27 13:21:49
+112,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-27 13:21:49,"No, because the whole path_func is supposed to be cached anyway. Plus caching has an overhead, and I try to avoid it where i can.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",No whole pathfunc suppos cach anyway plu cach overhead I tri avoid,N,2014-06-27 13:28:35
+113,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-27 13:28:35,"Averaging is done after joining all the fold workers . This re-fit here is simply to solve the best model to high precision to reduce the noise / imprecision in the maps induced by early stopping, etc. Plus this only adds worst-case complexity O(n_folds \* hardness of high precision problem), which is reasonable.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",averag done join fold worker thi refit simpli solv best model high precis reduc nois imprecis map induc earli stop etc plu add worstcas complex onfold hard high precis problem reason,N,2014-06-27 13:29:34
+114,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:29:34,"fair enough.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",fair enough,N,2014-06-27 13:30:52
+115,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:30:52,"why tv stuff in common.py ?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",tv stuff commonpi,N,2014-06-27 13:31:22
+116,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:31:22,"authors + license should be on top of every file
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",author licens top everi file,N,2014-06-27 13:31:44
+117,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:31:44,"logisitc -> logistic
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",logisitc,N,2014-06-27 13:31:49
+118,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:31:49,"these
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",,N,2014-06-27 13:32:02
+119,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:32:02,"this docstring does not respect pep257
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",docstr respect pep257,N,2014-06-27 13:32:20
+120,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 13:32:20,"type is not formatted right
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",type format right,N,2014-06-27 14:09:19
+121,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 14:09:19,"if  loss not in [""mse"", ""logistic""]:
+
+is enough
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",loss mse logist enough,N,2014-06-27 14:13:40
+122,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 14:13:40,"import matplotlib.pyplot as plt
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'plot_haxby_smoothlasso.py')",import matplotlibpyplot plt,N,2014-06-27 14:14:23
+123,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-27 14:14:23,"this print will not work with python3
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'plot_haxby_smoothlasso.py')",print work python3,N,2014-06-29 09:11:13
+124,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 09:11:13,"Indeed, there is an underlying naming problem: ""mse"" or ""squared_loss"". This problem is ubiquitous in the code base. Will fix this asap.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",inde underli name problem mse squaredloss thi problem ubiquit code base will fix asap,N,2014-06-29 09:13:04
+125,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 09:13:04,"rm what ?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",rm,N,2014-06-29 09:28:51
+126,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 09:28:51,"OK, fine. Co-authors should claim ownership by appending / pre-pending their names themselves.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",OK fine coauthor claim ownership append prepend name,N,2014-06-29 09:42:13
+127,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 09:42:13,"Please could you be more precise ? pep257 is a whole document http://legacy.python.org/dev/peps/pep-0257/ :)
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",pleas could precis pep257 whole document,N,2014-06-29 09:54:47
+128,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 09:54:47,"you copied code from different places. Just keep the names when you do this.
+
+At least there is Gael, Gaspard, You, me, certainly Fabian and Michael...
+
+license is important too
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",copi code differ place just keep name At least gael gaspard you certainli fabian michael licens import,N,2014-06-29 09:55:26
+129,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 09:55:26,"If you update the docstring headline you can remove this sentence.
+The headline says it's an upper bound.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",If updat docstr headlin remov sentenc the headlin say upper bound,N,2014-06-29 09:57:42
+130,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 09:57:42,"docstring structures
+
+```
+""""""Headline
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+Parameters
+---------------
+foo : type
+    Description.
+
+Returns
+----------
+out : type
+    Description.
+""""""
+```
+
+Headline fits on one line.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",docstr structur headlin fit one line,N,2014-06-29 09:59:09
+131,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 09:59:09,"ex of type desc for a numpy array
+
+```
+foo : ndarray, shape (n_samples, n_features)
+```
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",ex type desc numpi array,N,2014-06-29 11:02:42
+132,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 11:02:42,"OK, I've tried my best to build a comprehensive authors' list.
+
+@everybody: Please let me know if you think you've been forgotten, or your code has simply been plagiarized! Better still, simply go ahead and (dis-)claim ownership by deleting / appending / prepending your name from / to the authors' list of the concerned module / script. This is an issue like any other code bug, and you shouldn't hesitate to provide fixes, etc.
+
+I'm done with this for now. 
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",OK ive tri best build comprehens author list everybodi pleas let know think youv forgotten code simpli plagiar better still simpli go ahead disclaim ownership delet append prepend name author list concern modul script thi issu like code bug shouldnt hesit provid fix etc Im done,N,2014-06-29 11:24:29
+133,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 11:24:29,"OK. Done.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",OK done,N,2014-06-29 11:28:42
+134,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-29 11:28:42,"OK, makes sense. Done.
+
+On Sun, Jun 29, 2014 at 11:57 AM, Alexandre Gramfort <
+notifications@github.com> wrote:
+
+> In nilearn/sparse_models/tv.py:
+> 
+> > +import numpy as np
+> > +from .common import (compute_mse_lipschitz_constant,
+> > -                     compute_logistic_lipschitz_
+> >   constant,
+> > -                     tv_l1_reg_objective, mse_loss, mse_loss_grad,
+> > -                     logistic_grad as logistic_loss_grad,
+> > -                     logistic as logistic_loss)
+> >   +from .prox_tv_l1 import prox_tv_l1, intercepted_prox_tv_l1
+> >   +from .fista import mfista
+> >   +
+> >   +
+> >   +def tvl1_solver(X, y, alpha, l1_ratio, mask=None, loss=None,
+> > -                rescale_alpha=True, lipschitz_constant=None,
+> > -                prox_max_iter=5000, verbose=0, tol=1e-4, **kwargs):
+> > -    """"""Minimizes empirical risk for TV-l1 penalized least-squares (
+> > -    mean square error --a.k.a mse) or logisitc regression. The same solver
+> > -    works for both of this losses.
+> 
+> docstring structures
+> 
+> """"""Headline
+> 
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+> commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+> occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+> mollit anim id est laborum.
+> 
+> ## Parameters
+> 
+> foo : type
+>     Description.
+> 
+> ## Returns
+> 
+> out : type
+>     Description.
+> 
+> Headline fits on one line.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/219/files#r14328391.
+
+## 
+
+DED
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",OK make sens done On sun jun 29 2014 1157 AM alexandr gramfort notificationsgithubcom ded,N,2014-06-29 16:06:09
+135,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 16:06:09,"why those **kwargs? I tend to avoid kwargs especially in high level functions.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/tv.py')",kwarg I tend avoid kwarg especi high level function,N,2014-06-29 16:09:27
+136,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 16:09:27,"extra =
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",extra,N,2014-06-29 16:09:54
+137,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 16:09:54,"missing . at the end of line. Same pb above.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",miss end line same pb,N,2014-06-29 16:11:59
+138,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 16:11:59,"ping
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",ping,N,2014-06-29 16:12:42
+139,pull_request_commit_comment,219,nilearn,nilearn,agramfort,2014-06-29 16:12:42,"ping this is for w -> 0.5 \* ||y - Xw||^2
+
+as said already. Let me know when you're done addressing my comments.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",ping w said alreadi let know your done address comment,N,2014-06-30 15:52:29
+140,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 15:52:29,"I wouldn't skip a line here.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",I wouldnt skip line,N,2014-06-30 15:58:05
+141,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 15:58:05,"Incorrect docstring formatting: there is a space missing in front of the "":"" (the problem is repeated quite a few times in the file).
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",incorrect docstr format space miss front problem repeat quit time file,N,2014-06-30 15:59:41
+142,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 15:59:41,"I don't think that a function should be called ""my_alpha_grid"". The name isn't quite as explicit as we would like it to be. We need to find a good term to replace the ""my_"". What is special about this alpha_grid?
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",I dont think function call myalphagrid the name isnt quit explicit would like We need find good term replac what special alphagrid,N,2014-06-30 16:02:43
+143,pull_request_commit_comment,219,nilearn,nilearn,dohmatob,2014-06-30 16:02:43,"More control on the way the grid is created (i.e more options). will change the name asap.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/_cv_tricks.py')",more control way grid creat ie option chang name asap,N,2014-06-30 16:05:41
+144,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 16:05:41,"This file needs to be called different. 
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",thi file need call differ,N,2014-06-30 16:26:11
+145,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 16:26:11,"> > -    gradient = np.zeros(shape, dtype=np.float)  # xxx: img.dtype?
+> 
+> +1 for img.dtype
+
+No. It needs to be done in the following way:
+
+<pre>
+if img.dtype.kind == 'f':
+   dtype = img.dtype
+elif img.dtype.itemsize == 8:
+   dtype = np.float64
+else:
+   dtype = np.float32
+</pre>
+
+
+this is to avoid at all cost using float64, which consume a lot of memory
+and slow computations down.
+
+We should implement a helper function in nilearn._utils.numpy_conversions
+that does the above.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",No It need done follow way preif imgdtypekind f dtype imgdtyp elif imgdtypeitems 8 dtype npfloat64 els dtype npfloat32 pre avoid cost use float64 consum lot memori slow comput We implement helper function nilearnutilsnumpyconvers,N,2014-06-30 16:26:43
+146,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 16:26:43,"> > +def test_grad_div_adjoint_arbitrary_ndim(size=5, max_ndim=5, random_state=42):
+> 
+> private function?
+
+Should be in tests.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/common.py')",should test,Y,2014-06-30 16:27:48
+147,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 16:27:48,"> don't you want to average rather than refit?
+> 
+> ping @GaelVaroquaux
+
+Yes, average.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",ye averag,N,2014-06-30 16:29:47
+148,pull_request_commit_comment,219,nilearn,nilearn,GaelVaroquaux,2014-06-30 16:29:47,"> > -        self.**class**.**name**.endswith(""CV"")
+> 
+> ???
+
+Just don't catter for non CV stuff. In the nilearn codebase, the way to
+do non-CV stuff will be to give a single value of alpha and l1_ratio to
+the objects.
+",99b9c5534d1318f2e5f64f69ba8620c73580f0f5,"(None, '', u'nilearn/sparse_models/cv.py')",just dont catter non CV stuff In nilearn codebas way noncv stuff give singl valu alpha l1ratio object,N,2014-06-30 16:33:37

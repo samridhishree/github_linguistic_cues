@@ -1,0 +1,69 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,963,nilearn,nilearn,GaelVaroquaux,2016-01-28 12:00:32,,closed issue,BUG: don't ignore constant part of confounds,,N,2016-01-26 07:56:27
+4,pull_request_merged,963,nilearn,nilearn,GaelVaroquaux,2016-01-28 12:00:32,BUG: don't ignore constant part of confounds,d82f22c75f494656883f424a06fa4c6c219916ff,Pull request merge from GaelVaroquaux/nilearn:standardize_confounds to nilearn/nilearn:master,bug dont ignor constant part confound,N,2016-01-26 08:20:23
+5,pull_request_commit_comment,963,nilearn,nilearn,bthirion,2016-01-26 08:20:23,"pep8
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",pep8,N,2016-01-26 09:09:32
+6,pull_request_commit_comment,963,nilearn,nilearn,lesteve,2016-01-26 09:09:32,"Shameful plug, this was caught by the allowed failures build in Travis:
+https://travis-ci.org/nilearn/nilearn/jobs/104836962
+
+You can run ./continuous_integration/flake8_diff.sh if you want to make sure you don't introduce errors that flake8 would detect.
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",shame plug caught allow failur build travi you run continuousintegrationflake8diffsh want make sure dont introduc error flake8 would detect,Y,2016-01-26 09:20:01
+7,pull_request_commit_comment,963,nilearn,nilearn,GaelVaroquaux,2016-01-26 09:20:01,"Indeed. Fixed!
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",inde fix,N,2016-01-26 09:40:41
+8,pull_request_commit_comment,963,nilearn,nilearn,AlexandreAbraham,2016-01-26 09:40:41,"Personally, I prefer `np.abs(confounds).max(axis=0)`.
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",person I prefer,N,2016-01-26 09:44:20
+9,pull_request_commit_comment,963,nilearn,nilearn,GaelVaroquaux,2016-01-26 09:44:20,"> > -            confound_max = np.maximum(confounds.max(axis=0),
+> > -                                      -confounds.min(axis=0))
+> 
+> Personally, I prefer np.abs(confounds).max(axis=0).
+
+It creates a larger temporary array. But that may be premature
+optimization. On the other hand, your preference may also be premature
+optimization :).
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",It creat larger temporari array but may prematur optim On hand prefer may also prematur optim,N,2016-01-26 09:47:31
+10,pull_request_commit_comment,963,nilearn,nilearn,eickenberg,2016-01-26 09:47:31,"that makes a temporary array, but probably no problem since it wouldn't be
+big
+
+On Tue, Jan 26, 2016 at 10:40 AM, Alexandre Abraham <
+notifications@github.com> wrote:
+
+> In nilearn/signal.py
+> https://github.com/nilearn/nilearn/pull/963#discussion_r50812317:
+> 
+> > @@ -473,7 +473,16 @@ def clean(signals, sessions=None, detrend=True, standardize=True,
+> >      # Remove confounds
+> >      if confounds is not None:
+> >          confounds = _ensure_float(confounds)
+> > -        confounds = _standardize(confounds, normalize=True, detrend=detrend)
+> > -        confounds = _standardize(confounds, normalize=standardize,
+> > -                                 detrend=detrend)
+> > -        if not standardize:
+> > -            # Improve numerical stability by controlling the range of
+> > -            # confounds. We don't rely on _standardize as it removes any
+> > -            # constant contribution to confounds
+> > -            confound_max = np.maximum(confounds.max(axis=0),
+> > -                                      -confounds.min(axis=0))
+> 
+> Personally, I prefer np.abs(confounds).max(axis=0).
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/963/files#r50812317.
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",make temporari array probabl problem sinc wouldnt big On tue jan 26 2016 1040 AM alexandr abraham notificationsgithubcom,N,2016-01-26 10:16:30
+11,pull_request_commit_comment,963,nilearn,nilearn,AlexandreAbraham,2016-01-26 10:16:30,"> It creates a larger temporary array. But that may be premature
+> optimization. On the other hand, your preference may also be premature
+> optimization :).
+
+On one hand, my solution allocates a temporary array of negligible size (given my prior information on what confounds may look like). On the other hand, it is faster and IMHO easier to read than yours.
+
+As I said, it a personal opinion, and I also love to nitpick ;).
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(None, '', u'nilearn/signal.py')",On one hand solut alloc temporari array neglig size given prior inform confound may look like On hand faster imho easier read As I said person opinion I also love nitpick,N,2016-01-26 10:27:16
+14,pull_request_commit_comment,963,nilearn,nilearn,GaelVaroquaux,2016-01-28 09:49:55,"> Nitpick: would it not be slightly better to check that all the values
+> are close to 0, i.e. removing the .mean()?
+
+Addressed. Let's wait for CI.
+",ace4d6b476cdd9fe6d1ac928066396c3c3ba702d,"(6, '', u'nilearn/tests/test_signal.py')",address let wait CI,N,2016-01-26 07:54:13
+15,pull_request_commit,963,nilearn,nilearn,GaelVaroquaux,2016-01-26 07:54:13,"BUG: don't ignore constant part of confounds
+
+When the signal is not detrended or normalized, we need to account for
+constant confounds",03518f81d1448b4bc72a4127e6df6b948acea485,,bug dont ignor constant part confound when signal detrend normal need account constant confound,N,2016-01-26 10:26:18

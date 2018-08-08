@@ -1,0 +1,67 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,267,nilearn,nilearn,banilo,2014-10-25 06:57:03,"Contrary to NiftiMasker, NiftiLabelsMasker.transform() does not currently check whether fit() of the current instance has already been called. Added exception for this case.
+",start issue,[ENH] Fit-Check added to NiftiLabelsMasker,contrari niftimask niftilabelsmaskertransform current check whether fit current instanc alreadi call ad except case
+issue_closed,267,nilearn,nilearn,lesteve,2014-10-29 15:35:23,,closed issue,[ENH] Fit-Check added to NiftiLabelsMasker,
+pull_request_title,267,nilearn,nilearn,banilo,2014-10-25 06:57:03,"Contrary to NiftiMasker, NiftiLabelsMasker.transform() does not currently check whether fit() of the current instance has already been called. Added exception for this case.
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,[ENH] Fit-Check added to NiftiLabelsMasker,contrari niftimask niftilabelsmaskertransform current check whether fit current instanc alreadi call ad except case
+pull_request_merged,267,nilearn,nilearn,lesteve,2014-10-29 15:35:23,[ENH] Fit-Check added to NiftiLabelsMasker,d93b1935ce3d7abe56fdc433cdbf272e24f3e4a5,Pull request merge from banilo/nilearn:masktransf to nilearn/nilearn:master,enh fitcheck ad niftilabelsmask
+issue_comment,267,nilearn,nilearn,lesteve,2014-10-27 08:54:20,"The tests are failing in case you have missed it. 
+
+Also I think it would be better to raise a ValueError rather than an AttributeError to be consistent with what the NiftiMasker is doing. I would even use the same error message:
+
+``` python
+raise ValueError('It seems that %s has not been fit. '
+                             'You must call fit() before calling transform().'
+                             % self.__class__.__name__)
+```
+",,,the test fail case miss also I think would better rais valueerror rather attributeerror consist niftimask I would even use error messag
+issue_comment,267,nilearn,nilearn,banilo,2014-10-27 20:49:15,"Ok, thanks for the advice!
+",,,Ok thank advic
+issue_comment,267,nilearn,nilearn,bthirion,2014-10-28 11:31:06,"LGTM
+",,,lgtm
+issue_comment,267,nilearn,nilearn,banilo,2014-10-29 15:26:51,"All comments should have been addressed now.
+",,,all comment address
+issue_comment,267,nilearn,nilearn,lesteve,2014-10-29 15:35:33,"Merged, thanks a lot.
+",,,merg thank lot
+pull_request_commit_comment,267,nilearn,nilearn,lesteve,2014-10-28 07:41:38,"Could you:
+- use assert_raises_regexp to check that the error message is the one you are expecting
+- add the same test for inverse_transform for completeness
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/tests/test_nifti_region.py')",could use assertraisesregexp check error messag one expect add test inversetransform complet
+pull_request_commit_comment,267,nilearn,nilearn,lesteve,2014-10-28 07:41:42,"It should probably be fitt_ed_ rather than fit. Could you fix it here and I'll fix the error message in BaseMasker?
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/nifti_region.py')",It probabl fit rather fit could fix ill fix error messag basemask
+pull_request_commit_comment,267,nilearn,nilearn,banilo,2014-10-28 11:42:36,"Ok, in progress.
+
+2014-10-28 8:41 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/input_data/nifti_region.py:
+> 
+> > @@ -196,6 +196,12 @@ def fit(self, X=None, y=None):
+> >      def fit_transform(self, niimgs, confounds=None):
+> >          return self.fit().transform(niimgs, confounds=confounds)
+> > -    def _check_fitted(self):
+> > -        if not hasattr(self, ""labels_img_""):
+> > -            raise ValueError('It seems that %s has not been fit. '
+> 
+> It should probably be fitt_ed_ rather than fit. Could you fix it here and
+> I'll fix the error message in BaseMasker.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/267/files#r19456271.
+
+## 
+
+Viele Grüße,
+Danilo
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/nifti_region.py')",Ok progress 20141028 841 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo
+pull_request_commit_comment,267,nilearn,nilearn,lesteve,2014-10-29 15:18:12,"Slight niggle: you separated this comment from the line it is talking about, namely 
+
+``` python
+fmri11_img_r = masker11.inverse_transform(signals11)
+```
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/tests/test_nifti_region.py')",slight niggl separ comment line talk name
+pull_request_commit,267,nilearn,nilearn,banilo,2014-10-25 06:55:11,Fit-Check added to NiftiLabelsMasker,79b636e9618119288333469c5a40f4eb4f89726e,,fitcheck ad niftilabelsmask
+pull_request_commit,267,nilearn,nilearn,banilo,2014-10-27 20:48:41,changed exception type + unit tests pass now,c20e283bed1c495f6e6abba420f29eb32df878ab,,chang except type unit test pass
+pull_request_commit,267,nilearn,nilearn,banilo,2014-10-29 14:39:35,"fit-check for Nifti([Labels, Maps])Masker + type in BaseMasker corrected",9dca9a6249cf6b329e5ff2545afeaf03792359fb,,fitcheck niftilabel mapsmask type basemask correct
+pull_request_commit,267,nilearn,nilearn,banilo,2014-10-29 15:27:58,de-sniggle-ized,ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,,desniggl

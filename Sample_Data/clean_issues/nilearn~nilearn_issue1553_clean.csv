@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1553,nilearn,nilearn,nicofarr,2017-11-16 17:31:53,"It would be good to add an option to the neurovault fetcher so that images are resampled right after downloading, and stored only in resampled format. 
+
+This would be useful to save space when downloading large collections. 
+
+Ran into this issue when considering building an example (see #1506) using a large Neurovault collection (for example collection 503)
+
+@jeromedockes ",start issue,Automatic resampling option for the neurovault fetcher,It would good add option neurovault fetcher imag resampl right download store resampl format thi would use save space download larg collect ran issu consid build exampl see 1506 use larg neurovault collect exampl collect 503 jeromedock

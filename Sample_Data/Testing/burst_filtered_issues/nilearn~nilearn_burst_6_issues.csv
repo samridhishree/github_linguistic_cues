@@ -1,0 +1,18 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,38,nilearn,nilearn,AlexandreAbraham,2013-01-06 23:30:03,,closed issue,Replace FFT filter by Butterworth filter,,N,2012-11-29 14:20:47
+4,pull_request_merged,38,nilearn,nilearn,AlexandreAbraham,2013-01-06 23:30:03,Replace FFT filter by Butterworth filter,38e60271fb9e5541af70ca895b57b23f5d290a01,Pull request merge from AlexandreAbraham/nilearn:butterworth_filter to nilearn/nilearn:master,replac fft filter butterworth filter,N,2012-11-30 16:41:16
+5,pull_request_commit_comment,38,nilearn,nilearn,GaelVaroquaux,2012-11-30 16:41:16,"Please explicit the shape here (as in the scikit)
+",91ad23e008acb39b708722c8a9c22b85cd1cc293,"(24, '', u'nisl/signals.py')",pleas explicit shape scikit,N,2012-11-30 16:42:12
+6,pull_request_commit_comment,38,nilearn,nilearn,GaelVaroquaux,2012-11-30 16:42:12,"Should read 'high_pass'
+",91ad23e008acb39b708722c8a9c22b85cd1cc293,"(None, '', u'nisl/signals.py')",should read highpass,N,2012-11-30 16:42:52
+7,pull_request_commit_comment,38,nilearn,nilearn,GaelVaroquaux,2012-11-30 16:42:52,"This one. This shows that you love your users. :)
+",91ad23e008acb39b708722c8a9c22b85cd1cc293,"(59, '', u'nisl/signals.py')",thi one thi show love user,N,2012-11-30 16:44:01
+8,pull_request_commit_comment,38,nilearn,nilearn,GaelVaroquaux,2012-11-30 16:44:01,"I think that we should set the default of low_pass to None too. We shouldn't be doing things behind people's back.
+",91ad23e008acb39b708722c8a9c22b85cd1cc293,"(None, '', u'nisl/signals.py')",I think set default lowpass none We shouldnt thing behind peopl back,N,2012-11-30 16:46:02
+11,pull_request_commit_comment,38,nilearn,nilearn,AlexandreAbraham,2012-12-03 08:14:50,"I agree, I wanted to ask you about this one. Plus, 0.2 seems strange as a default value.
+",91ad23e008acb39b708722c8a9c22b85cd1cc293,"(None, '', u'nisl/signals.py')",I agre I want ask one plu 02 seem strang default valu,N,2012-11-29 14:17:17
+12,pull_request_commit,38,nilearn,nilearn,alexandre.abraham@cea.fr,2012-11-29 14:17:17,"Replace FFT filter by Butterworth filter
+
+And replace default value for low and high frequency un signal.clean
+by None instead of False.",a166085a7f9965a96012b4907419053a660ab9a4,,replac fft filter butterworth filter and replac default valu low high frequenc un signalclean none instead fals,N,2012-11-30 07:41:51
+14,pull_request_commit,38,nilearn,nilearn,alexandre.abraham@cea.fr,2012-12-03 09:01:48,ENH: Minor fixed. Butterworth takes nD data.,91ad23e008acb39b708722c8a9c22b85cd1cc293,,enh minor fix butterworth take nD data,N,2012-11-29 14:23:26

@@ -1,0 +1,14 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,197,pycqa,astroid,pylint-bot,2015-09-29 17:23:25,"Originally reported by: **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**
+
+---
+
+We could use a convenience method for retrieving all the bindings of a nonlocal node. This will be used by the nonlocal-without-binding checker in pylint, but might be useful for other uses as well.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/197
+",start issue,[easy] Add Nonlocal.bindings(),origin report claudiu popa bitbucket pcmanticor github pcmanticor We could use conveni method retriev bind nonloc node thi use nonlocalwithoutbind checker pylint might use use well bitbucket
+issue_closed,197,pycqa,astroid,PCManticore,2016-02-20 22:49:45,,closed issue,[easy] Add Nonlocal.bindings(),
+issue_comment,197,pycqa,astroid,PCManticore,2016-02-20 22:49:45,"Closing this. I don't have another use case for now, apart of the code that's in the pylint checker and we'll probably not going to need such a method soon.
+",,,close I dont anoth use case apart code that pylint checker well probabl go need method soon

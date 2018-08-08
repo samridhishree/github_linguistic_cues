@@ -1,0 +1,118 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,47,nilearn,nilearn,pgervais,2013-04-22 12:13:03,"This pull request is unfinished, this is just a request for comments right now. 
+
+A few functions for doing processing on brain regions have been added: 
+- Conversion between different storage formats (4D array, 3D array containing labels, list of 3D arrays)
+- Extraction of timeseries for each region from fMRI data, using a generative model, and conversely.
+- Masking/unmasking of regions. 
+- Test for intersection of regions.
+
+**For a clear view of the new API, compile the documentation (cd doc; make) and browse the ""Reference"" page.** For example usage, see in tests/test_region.py
+
+Comments are welcome, especially for masking/unmasking of regions. So far, two new functions have been added: apply_mask_to_regions() and unapply_mask_to_regions(), that most of the time act as wrappers for apply_mask() and unapply_mask(). The only case where things are different is when regions are described as a 3D array containing labels: an additional step is then required. 
+
+An alternative API would be to slightly change apply_mask() and unapply_mask(), to make them process regions as well. I think we could do with just a keyword argument like:
+
+```
+apply_mask(regions_img, mask_img, regions=True)
+```
+
+instead of 
+
+```
+apply_mask_to_regions(regions_img, mask_img)
+```
+
+Tell me what you think.
+",start issue,Regions/parcellation handling functions (request for comment),thi pull request unfinish request comment right A function process brain region ad convers differ storag format 4D array 3D array contain label list 3D array extract timeseri region fmri data use gener model convers maskingunmask region test intersect region for clear view new api compil document cd doc make brows refer page for exampl usag see teststestregionpi comment welcom especi maskingunmask region So far two new function added applymasktoregion unapplymasktoregion time act wrapper applymask unapplymask the case thing differ region describ 3D array contain label addit step requir An altern api would slightli chang applymask unapplymask make process region well I think could keyword argument like instead tell think,N,2013-05-15 15:18:40
+3,pull_request_title,47,nilearn,nilearn,pgervais,2013-04-22 12:13:03,"This pull request is unfinished, this is just a request for comments right now. 
+
+A few functions for doing processing on brain regions have been added: 
+- Conversion between different storage formats (4D array, 3D array containing labels, list of 3D arrays)
+- Extraction of timeseries for each region from fMRI data, using a generative model, and conversely.
+- Masking/unmasking of regions. 
+- Test for intersection of regions.
+
+**For a clear view of the new API, compile the documentation (cd doc; make) and browse the ""Reference"" page.** For example usage, see in tests/test_region.py
+
+Comments are welcome, especially for masking/unmasking of regions. So far, two new functions have been added: apply_mask_to_regions() and unapply_mask_to_regions(), that most of the time act as wrappers for apply_mask() and unapply_mask(). The only case where things are different is when regions are described as a 3D array containing labels: an additional step is then required. 
+
+An alternative API would be to slightly change apply_mask() and unapply_mask(), to make them process regions as well. I think we could do with just a keyword argument like:
+
+```
+apply_mask(regions_img, mask_img, regions=True)
+```
+
+instead of 
+
+```
+apply_mask_to_regions(regions_img, mask_img)
+```
+
+Tell me what you think.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,Regions/parcellation handling functions (request for comment),thi pull request unfinish request comment right A function process brain region ad convers differ storag format 4D array 3D array contain label list 3D array extract timeseri region fmri data use gener model convers maskingunmask region test intersect region for clear view new api compil document cd doc make brows refer page for exampl usag see teststestregionpi comment welcom especi maskingunmask region So far two new function added applymasktoregion unapplymasktoregion time act wrapper applymask unapplymask the case thing differ region describ 3D array contain label addit step requir An altern api would slightli chang applymask unapplymask make process region well I think could keyword argument like instead tell think,N,2013-05-15 15:18:40
+14,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:44:38,"The docstrings (e.g. that of the NiftiLabelsMasker) are not compatible
+with the numpy standard. Sorry for making the trivial remarks first. They
+are the easiest to do.
+",,,the docstr eg niftilabelsmask compat numpi standard sorri make trivial remark first they easiest,N,2013-05-15 15:15:54
+31,issue_comment,47,nilearn,nilearn,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",,,I know Im plan normal pr ha merg,N,2013-05-14 16:08:41
+32,issue_comment,47,nilearn,nilearn,pgervais,2013-05-14 16:08:41,"Almost every problem that has been highlighted in the discussion has been solved by the last commits. Though still not complete, this pull request is imho in a state in which it can be merged. 
+
+Comments may be useful on joblib usage in NiftiLabelsMasker. @AlexandreAbraham this is for you! Most other modifications are technical or of style.
+",,,almost everi problem highlight discuss solv last commit though still complet pull request imho state merg comment may use joblib usag niftilabelsmask alexandreabraham most modif technic style,N,2013-05-15 15:15:21
+103,pull_request_commit_comment,47,nilearn,nilearn,bthirion,2013-05-07 20:55:23,"Isn't there any light-weight dataset that could be downloaded instead ? I understand that this is not simple, as an overly simple example would not be sufficient to demonstrate the effectiveness of the API and algorithms. On the other hand, it is important to be able to work even when the connection is not very strong -- of course, this is for a future PR.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')",isnt lightweight dataset could download instead I understand simpl overli simpl exampl would suffici demonstr effect api algorithm On hand import abl work even connect strong cours futur PR,N,2013-05-13 11:31:59
+146,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-07 16:26:04,"Minor fixes
+
+Implemented NiftiLabelsMasker.fit_transform()
+Style, typos.",e73527275d2df134869e53e3e3a1c567c23b055c,,minor fix implement niftilabelsmaskerfittransform style typo,N,2013-05-13 12:14:18
+147,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-13 12:14:18,"NiftiLabelsMasker can safely process Nifti1Image
+
+In the previous state, passing a Nifti1Image as labels image would modify
+it inplace. A copy is now made before modifying it.",89d6be6abd5a91617fe9fd4d9a752e52213a09da,,niftilabelsmask safe process nifti1imag In previou state pass nifti1imag label imag would modifi inplac A copi made modifi,N,2013-05-13 12:19:57
+148,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-13 12:19:57,"Removed unused functions
+
+regions_are_overlapping() and regions_to_mask() have been removed (and
+their tests.)",d65257937b195906d92db704acf5bcb4b2f71a08,,remov unus function regionsareoverlap regionstomask remov test,N,2013-05-13 12:22:02
+149,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-13 12:22:02,Removed NislImage class.,521db9a1c36e5f9d1bce10789c31e54089030aba,,remov nislimag class,N,2013-05-13 12:44:04
+150,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-13 12:44:04,Added joblib support for NiftiLabelsMasker,d0492c8bff92aa03b580923c8eb10012a73498c2,,ad joblib support niftilabelsmask,N,2013-05-14 08:32:50
+151,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 08:32:50,"Optimized signals_to_img_labels()
+
+This function runs much faster when given a large (>1000) number of regions.
+The found speedup factor is around 6 times on the developer's machine.",65955343b3a66dc20e9152b3f1866d0e0ef43e45,,optim signalstoimglabel thi function run much faster given larg the found speedup factor around 6 time develop machin,N,2013-05-14 11:54:56
+152,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 11:54:56,"Created write_tmp_imgs context manager
+
+This context manager is used to write temporary nifti files on disk, for
+testing purposes.
+
+Used this context manager in several places in nisl/tests, to strengthen
+existing tests.",c5ad56010a3302472f6d25ba1a34d1f826d2d2cb,,creat writetmpimg context manag thi context manag use write temporari nifti file disk test purpos use context manag sever place nisltest strengthen exist test,N,2013-05-14 12:13:18
+153,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 12:13:18,"Cleaned up example scripts
+
+Example scripts for covariance computation of regions are now mostly similar,
+except for the use of functions or objects for region signals extraction.
+
+The scripts have been renamed as well.",8a94f10355b895ba8be0221bd7d22c50d1d887b7,,clean exampl script exampl script covari comput region mostli similar except use function object region signal extract the script renam well,N,2013-05-14 15:09:03
+154,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 15:09:03,"Lots of documentation fixes
+
+Fixed a lot of things in documentation.
+nisl.region is properly documented.
+All example scripts run (plot_nifti_simple has been significantly modified)",71d7505d335e1aa208ecd804606368c4687a4690,,lot document fix fix lot thing document nislregion properli document all exampl script run plotniftisimpl significantli modifi,N,2013-05-14 15:56:22
+155,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 15:56:22,"Docstring style fixes
+
+All docstrings are now in numpy-style.
+Some docstrings have been expanded, a some typos have been corrected.",71c346448e34e908c4db3acc73f027dc16d63097,,docstr style fix all docstr numpystyl some docstr expand typo correct,N,2013-05-14 16:14:23
+156,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 16:14:23,"Merge branch 'master' into roi
+
+Conflicts:
+	plot_nifti_simple.py
+	plot_visualization.py",c15991987f5e283af1d7fc970edc47cbb23d3689,,merg branch master roi conflict plotniftisimplepi plotvisualizationpi,N,2013-05-14 16:31:01
+157,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-14 16:31:01,Fixed some bugs caused by the merge with master,7666e17fd5e1fa788371060fbec379fdf06a8f10,,fix bug caus merg master,N,2013-05-15 13:19:28
+158,pull_request_commit,47,nilearn,nilearn,pgervais,2013-05-15 13:19:28,"Fixed several documentation problems
+
+On example page, the name of the root directory was hard-coded, this is fixed.
+
+Fixed some non-critical documentation compilation problems, and typos.",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,,fix sever document problem On exampl page name root directori hardcod fix fix noncrit document compil problem typo,N,2013-05-15 13:56:41
+159,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-15 13:56:41,"Why did you replace the dashes by equal signs ?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(5, 26, u'nisl/io/nifti_multi_masker.py')",whi replac dash equal sign,N,2013-05-15 15:02:16

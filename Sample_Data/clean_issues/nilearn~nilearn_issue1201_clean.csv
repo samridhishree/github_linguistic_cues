@@ -1,0 +1,4 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1201,nilearn,nilearn,GaelVaroquaux,2016-08-04 21:11:08,"During the download of many files, a significant time is spent waiting for the response of a server in the initial negotiation of the download. We could download in parallel using a thread. Something as simple as a joblib loop with the threading backend and something like 4 jobs would probably be enough to gain a lot.
+",start issue,Asynchronous downloads,dure download mani file signific time spent wait respons server initi negoti download We could download parallel use thread someth simpl joblib loop thread backend someth like 4 job would probabl enough gain lot

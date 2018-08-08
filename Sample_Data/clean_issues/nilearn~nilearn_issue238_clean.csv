@@ -1,0 +1,9 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,238,nilearn,nilearn,AlexandreAbraham,2014-09-14 14:58:56,"I did not made test for global path PR because another PR will slightly modify the fetcher system. Tests should be added later.
+",start issue,Add test for global path handling,I made test global path PR anoth PR slightli modifi fetcher system test ad later
+issue_closed,238,nilearn,nilearn,AlexandreAbraham,2014-10-28 11:27:49,,closed issue,Add test for global path handling,
+issue_comment,238,nilearn,nilearn,lesteve,2014-10-28 08:38:24,"@AlexandreAbraham I guess this will be tackled by #262 or did you have anything else in mind?
+",,,alexandreabraham I guess tackl 262 anyth els mind
+issue_comment,238,nilearn,nilearn,AlexandreAbraham,2014-10-28 11:27:49,"No, #262 solves it. I close.
+",,,No 262 solv I close

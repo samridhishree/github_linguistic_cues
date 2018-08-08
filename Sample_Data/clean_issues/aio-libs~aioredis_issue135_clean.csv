@@ -1,0 +1,29 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,135,aio-libs,aioredis,tkram01,2016-08-10 20:29:09,"Calling close and wait_closed on Redis generates an error since these are not implemented. It also can make it hard to exit gracefully since you can't wait for tasks to finish easily.
+
+`````` python
+@@ -46,15 +46,6 @@
+                     self._conn = conn
+         return self._conn
+
+-    def close(self):
+-        if self._conn is not None and not self._conn.closed:
+-            self._conn.close()
+-
+-    @asyncio.coroutine
+-    def wait_closed(self):
+-        if self._conn is not None and not self._conn.closed:
+-            yield from self._conn.wait_closed()
+-
+
+ class Redis(GenericCommandsMixin, StringCommandsMixin,
+             HyperLogLogCommandsMixin, SetCommandsMixin,```
+``````
+",start issue,AutoConnector needs close and wait_closed,call close waitclos redi gener error sinc implement It also make hard exit grace sinc cant wait task finish easili python 4615 466 selfconn conn return selfconn def closeself selfconn none selfconnclos selfconnclos asynciocoroutin def waitclosedself selfconn none selfconnclos yield selfconnwaitclos class redisgenericcommandsmixin stringcommandsmixin hyperloglogcommandsmixin setcommandsmixin
+issue_comment,135,aio-libs,aioredis,popravich,2016-08-11 07:43:06,"Thanks for report, will fix this.
+",,,thank report fix
+issue_comment,135,aio-libs,aioredis,tkram01,2017-03-30 15:01:09,I see you made a branch for this. Can you merge it in? Is there anything I can do to get this integrated?,,,I see made branch can merg Is anyth I get integr
+issue_comment,135,aio-libs,aioredis,popravich,2017-03-30 15:08:28,"Hi, actually AutoConnector is deprecated and will be removed.
+Pool is now used inside Redis so there is no need in AutoConnector.
+The new code is in master but not yet released.",,,Hi actual autoconnector deprec remov pool use insid redi need autoconnector the new code master yet releas

@@ -1,0 +1,668 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1351,nilearn,nilearn,ahoyosid,2016-12-21 16:57:01,"We refactor the screening_percentile parameter, putting it in _utils. 
+Additionally, we  put create a validation file where the check masking utils is contained.
+The check_masking  is used in two PRs: #1336 and #698
+
+Can someone review this ?
+@KamalakerDadi @GaelVaroquaux @AlexandreAbraham @mrahim 
+
+",start issue,[MRG+1-1] Check masker utils,We refactor screeningpercentil paramet put util addit put creat valid file check mask util contain the checkmask use two pr 1336 698 can someon review kamalakerdadi gaelvaroquaux alexandreabraham mrahim,N,2017-03-02 14:40:28
+3,pull_request_title,1351,nilearn,nilearn,ahoyosid,2016-12-21 16:57:01,"We refactor the screening_percentile parameter, putting it in _utils. 
+Additionally, we  put create a validation file where the check masking utils is contained.
+The check_masking  is used in two PRs: #1336 and #698
+
+Can someone review this ?
+@KamalakerDadi @GaelVaroquaux @AlexandreAbraham @mrahim 
+
+",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,[MRG+1-1] Check masker utils,We refactor screeningpercentil paramet put util addit put creat valid file check mask util contain the checkmask use two pr 1336 698 can someon review kamalakerdadi gaelvaroquaux alexandreabraham mrahim,N,2017-03-02 14:40:28
+4,pull_request_merged,1351,nilearn,nilearn,GaelVaroquaux,2017-03-02 14:40:28,[MRG+1-1] Check masker utils,f0214eacb3857d8225397fe2f219d0d666e1635c,Pull request merge from ahoyosid/nilearn:check_masker_utils to nilearn/nilearn:master,mrg11 check masker util,N,2017-02-22 12:17:10
+18,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2017-01-19 12:38:17,Why did you remove this? You should readd it somewhere else.,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(53, '', u'nilearn/decoding/tests/test_space_net.py')",whi remov you readd somewher els,N,2017-02-14 22:36:54
+19,pull_request_commit_comment,1351,nilearn,nilearn,bthirion,2017-02-14 22:36:54,"You're assuming an orthonormal grid, aren't you. Why don't you take
+np.abs(np.linalg.det (make_img.affine[:3, :3])) instead of np.prod(vox_dims) ?",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",your assum orthonorm grid arent whi dont take npabsnplinalgdet makeimgaffine3 3 instead npprodvoxdim,N,2017-02-14 22:41:33
+20,pull_request_commit_comment,1351,nilearn,nilearn,bthirion,2017-02-14 22:41:33,LGTM otherwise,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",lgtm otherwis,N,2017-02-15 13:25:35
+21,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:25:35,is is -> is,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",,N,2017-02-15 13:26:42
+22,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:26:42,May be MNI mask template -> MNI152 template.,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",may mni mask templat,N,2017-02-15 13:27:50
+23,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:27:50,"This sentence is replicated. You can add remaining ""regardless of the number of voxels."" to start.",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",thi sentenc replic you add remain regardless number voxel start,N,2017-02-15 13:30:04
+24,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:30:04,ANOVa -> ANOVA,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",anova,N,2017-02-15 13:32:01
+25,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:32:01,'100' is represented as string. May removing single quotes ?,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",100 repres string may remov singl quot,N,2017-02-15 13:50:49
+26,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:50:49,test_feature_screening -> test_check_feature_screening,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/tests/test_validation.py')",testfeaturescreen,N,2017-02-15 13:53:07
+27,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:53:07,test_check_masking -> test_check_masker,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/tests/test_validation.py')",testcheckmask,N,2017-02-15 13:53:43
+28,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 13:53:43,nifti -> Nifti,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/validation.py')",nifti,N,2017-02-15 14:00:43
+29,pull_request_commit_comment,1351,nilearn,nilearn,KamalakerDadi,2017-02-15 14:00:43,">The check_masking is used in two PRs: #1336 and #698
+
+Can you not use `check_embedded_nifti_masker` ? ",d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/validation.py')",can use,N,2017-02-23 11:49:41
+30,pull_request_commit_comment,1351,nilearn,nilearn,AlexandreAbraham,2017-02-23 11:49:41,`100` -> `100.` for type consistency. ,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",,N,2017-02-27 22:29:22
+31,pull_request_commit_comment,1351,nilearn,nilearn,GaelVaroquaux,2017-02-27 22:29:22,This should be addressed,d3be66832b25d176ccfc04606d3e9a8d9ea7bf7a,"(None, '', u'nilearn/_utils/param_validation.py')",thi address,N,2017-02-27 22:30:33
+49,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-27 13:17:01,increasing coverage,86f9413a02792f410b9928f3e892d3a0b24db6ac,,increas coverag,N,2017-02-22 09:40:05
+50,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:40:05,cleaning the code,6b00d8a29736653c911d47c44e3eb7ca61993a2d,,clean code,N,2017-02-22 09:53:48
+51,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:53:48,cleaning the code,bc5fafa2118f5e69f74e837106ec2637c404a184,,clean code,N,2017-02-22 10:02:09
+52,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 10:02:09,"Merge branch 'master' of github.com:ahoyosid/nilearn into check_masker_utils
+
+Merging master",a83149f44903ff1c2a7f716924ec45fc0a77aefc,,merg branch master githubcomahoyosidnilearn checkmaskerutil merg master,N,2017-02-22 11:00:55
+53,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 11:00:55,adding check feature screening,dc7f66094b8f36362a7bdcd7a49704f460f5aadb,,ad check featur screen,N,2017-02-22 12:01:43
+54,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:01:43,adding test,265c9cd5036d82216dc84b06c08703e4fe031454,,ad test,N,2017-02-22 12:16:54
+55,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:16:54,adding checking feature screening,76efdbfda0b9afd80d76cdc96278e6669da69c63,,ad check featur screen,N,2017-02-22 12:48:19
+56,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:48:19,removing tests in _utils and moving them to nilearn/tests,b046c27c4815789cdf1d26fb6253210705698f7e,,remov test util move nilearntest,N,2017-02-22 13:26:01
+57,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 13:26:01,adding tests,5fe882541771c34e5efb48e0e42b19926b024cc5,,ad test,N,2017-02-23 14:56:07
+58,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-23 14:56:07,solving conflicts with master,3d3acf74b5896d1f353e40d0dbb9563a3b2a5a5a,,solv conflict master,N,2017-02-28 06:43:21
+59,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 06:43:21,addressing comments,14151e7f6e352c3fb553104ba0c57489dcf96ae4,,address comment,N,2017-02-28 06:46:17
+60,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 06:46:17,"Merge branch 'master' of github.com:ahoyosid/nilearn into check_masker_utils
+
+merging master",9f40441d46fa1850ff6a8a237e966f051402e6b7,,merg branch master githubcomahoyosidnilearn checkmaskerutil merg master,N,2017-02-28 07:28:59
+61,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 07:28:59,solving coverage problem,1a0e1c3f5b7cc3bcfac3e2597373ccb0b6ab2352,,solv coverag problem,N,2017-02-28 08:03:19
+62,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 08:03:19,using get_affine,1a550aba79140b00b4175294d584e82577344351,,use getaffin,N,2017-02-28 08:05:14
+63,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 08:05:14,type consistency,6b22926f8d2b91889e9d40cb95e35266f2ea827a,,type consist,N,2017-03-01 21:23:05
+65,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:15:52,adding checkers into the param validation file,b38f73029d3edee159625ac5ae03f3579d7dc740,,ad checker param valid file,N,2017-03-01 23:19:37
+76,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-26 17:38:32,minor,fa9a39c7bfb0e03c15ddbe1d1f3a84ac81e93b5c,,minor,N,2017-03-01 23:20:56
+77,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-01 23:20:56,solving merging conflicts,fe144da20f527b0cba405e295bd2ad0c7d13f005,,solv merg conflict,N,2017-03-01 23:24:37
+81,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-27 13:17:01,increasing coverage,b08d2b33d41b184478ced39d26edd509742b850a,,increas coverag,N,2017-02-22 09:40:05
+82,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:40:05,cleaning the code,3aa57f59f8f7207f9af161c0c216287637cac632,,clean code,N,2017-02-22 09:53:48
+83,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:53:48,cleaning the code,7d31eddcc5b0a9ea998a43f709dd8b4da4375ff8,,clean code,N,2017-02-22 11:00:55
+84,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 11:00:55,adding check feature screening,43ac195879659ed1ed9526476f2839f9b58d18a5,,ad check featur screen,N,2017-02-22 12:01:43
+85,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:01:43,adding test,c3beccce85900cdfaa6fef9ba68988f84e58aeeb,,ad test,N,2017-02-22 12:16:54
+86,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:16:54,adding checking feature screening,1e6dbd44df8d87c63e41fe317a8fd3c55016737c,,ad check featur screen,N,2017-02-22 12:48:19
+87,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:48:19,removing tests in _utils and moving them to nilearn/tests,a7ec25a62f52b24ebfed8afe6b4ecade2bfe7dae,,remov test util move nilearntest,N,2017-02-22 13:26:01
+88,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 13:26:01,adding tests,496c08d0afe0e9c01cd1656addca8eb8eb5a41ae,,ad test,N,2017-02-28 06:43:21
+89,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 06:43:21,addressing comments,d86f40ba60146d226553227fa7dbeae65f4cbd14,,address comment,N,2017-02-28 07:28:59
+90,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 07:28:59,solving coverage problem,e6a15090c37b55fff233383922a06e37fc96ff69,,solv coverag problem,N,2017-02-28 08:03:19
+91,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 08:03:19,using get_affine,c555608dbd57d7549c78e67210d423396f3a7d12,,use getaffin,N,2017-02-28 08:05:14
+92,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 08:05:14,type consistency,b392c8e73a8f5ee3679d959aa56705b2640bcfc5,,type consist,N,2017-03-01 23:33:35
+94,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:15:52,adding checkers into the param validation file,37d7b0081c8c200d7e30f0d259de8b0fc63e4999,,ad checker param valid file,N,2017-03-01 23:58:24
+105,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-26 17:38:32,minor,1faf2c9e499514073279d5cd11e3d8f719bb9e92,,minor,N,2017-03-01 23:59:30
+109,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-27 13:17:01,increasing coverage,e539d472daba4ce01a71ebb16ca42fca3e4db57c,,increas coverag,N,2017-02-22 09:40:05
+110,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:40:05,cleaning the code,a024065e2b7b8fe9b27d9a2658a645c19ad5a6d7,,clean code,N,2017-02-22 09:53:48
+111,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:53:48,cleaning the code,49bc1dea01f2426a9c54894a131dec1c3eb95ba3,,clean code,N,2017-02-22 11:00:55
+112,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 11:00:55,adding check feature screening,0fb3be853999a482e518a3704a2de4a5fead9718,,ad check featur screen,N,2017-02-22 12:01:43
+113,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:01:43,adding test,474d1968fa697f3017831dfa18df18d9c627d6ef,,ad test,N,2017-02-22 12:16:54
+114,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:16:54,adding checking feature screening,4c1a8bb1c3bc777d6d4f5f5cca8e89e07c3a1b6d,,ad check featur screen,N,2017-02-22 12:48:19
+115,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:48:19,removing tests in _utils and moving them to nilearn/tests,2ec6d9d28a3d482bba5d3de827b0f4d50577967c,,remov test util move nilearntest,N,2017-02-22 13:26:01
+116,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 13:26:01,adding tests,bf2eb63dc6d14a30dc80f121ea335298b60954d4,,ad test,N,2017-02-28 06:43:21
+117,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 06:43:21,addressing comments,ba785c56689904ebee976d609e90939648169a3e,,address comment,N,2017-02-28 07:28:59
+118,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 07:28:59,solving coverage problem,78f4e15944c5b6ffa6c67c3c70a46d295f7a5bc0,,solv coverag problem,N,2017-02-28 08:03:19
+119,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 08:03:19,using get_affine,dcc3833c98763bd41f947c26ed7964e2d67eaf70,,use getaffin,N,2017-02-28 08:05:14
+120,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 08:05:14,type consistency,db35d5cb479ca196a81e64a785e2cc51faed86b4,,type consist,N,2017-03-02 00:03:36
+121,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-02 00:03:36,minor,14e8388378046ae4cbe46b1d8663492c42b3f9ea,,minor,N,2017-03-02 00:06:12
+122,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-02 00:06:12,minor,6c98c9a86fdd7ff0151e82980b2217169e2c0f1a,,minor,N,2017-03-02 00:06:38
+124,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-21 15:35:24,adding validation file,3c53ca0e6abbcb0f19b331c1055b9c614b6acb8c,,ad valid file,N,2017-03-02 00:08:09
+126,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2016-12-22 09:29:29,updating check masker,b5a5c9bde1a3a505562de28bdd853d9b15c1a62b,,updat check masker,N,2017-03-02 00:13:08
+130,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-27 12:51:41,minor,ea4334f7d3e00338ff48bd3f1e7c3e5e01169f33,,minor,N,2017-03-01 23:20:56
+132,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-01-27 13:17:01,increasing coverage,275d58448c024eda5d4c430262434158d26f94f2,,increas coverag,N,2017-02-22 09:40:05
+133,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:40:05,cleaning the code,26a99f17430c79a1b261281f5d4fcb93f7b80801,,clean code,N,2017-02-22 09:53:48
+134,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 09:53:48,cleaning the code,accc35ae2addfe24c18806d116565efada0ff181,,clean code,N,2017-02-22 11:00:55
+135,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 11:00:55,adding check feature screening,b8577d93fc81d2597ad1429cd9d19d22ed41c748,,ad check featur screen,N,2017-02-22 12:01:43
+136,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:01:43,adding test,553938d4f4591842e9009d36382f022789642707,,ad test,N,2017-02-22 12:48:19
+137,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-22 12:48:19,removing tests in _utils and moving them to nilearn/tests,801d60c0189e0192421395505d401385cbc3b609,,remov test util move nilearntest,N,2017-02-28 06:43:21
+138,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 06:43:21,addressing comments,9aa2abe73d58887a0de4cddd02ea3265b1e5e4f8,,address comment,N,2017-02-28 07:28:59
+139,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-02-28 07:28:59,solving coverage problem,1b8a72163eaf60770572fe129b81360d639ca7e3,,solv coverag problem,N,2017-03-02 12:41:17
+140,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-02 12:41:17,improving doc,72e7dff6608038c043d33f4afcf0892c73d5925c,,improv doc,N,2017-03-02 12:45:18
+141,pull_request_commit,1351,nilearn,nilearn,ahoyosid,2017-03-02 12:45:18,solving merging conflics,b3f07918dafa2170c8b31f394eeaa654171e8a52,,solv merg conflic,N,2017-03-02 12:57:24
+1,issue_title,1016,nilearn,nilearn,juhuntenburg,2016-02-25 19:32:11,"Adding surface visualization along with example and data fetcher for NKI enhanced surface data.
+",start issue,Enh/surface plotting2,ad surfac visual along exampl data fetcher nki enhanc surfac data,N,2017-02-23 17:49:22
+21,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-01-11 12:39:28,plotting functions would be only smoke tests unless there are error messages which needs to tested if they are raised or not. For example using ```assert_raises_regex```.,,,plot function would smoke test unless error messag need test rais for exampl use,Y,2017-02-16 09:22:10
+22,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 09:22:10,"Two failures with respect to version dependency nibabel 1.1.0. ```freesurfer``` module is not implemented in nibabel 1.1.0 and also class ```gifti.GiftiDataArray``` has no argument ```intent```. Hence tests failed with nibabel version dependency 1.1.0.
+
+I am not sure of another failure ```Key Error: <type 'int'>``` when writing empty dictionary to gifti file. Can you please have a look ?
+
+May be we could do something like this to fix the tests:
+```python
+if LooseVersion(nibabel.__version__) == LooseVersion('1.1.0'):
+    # Old nibabel cannot use freesurfer module to load the surf atlases
+    # Therefore, we
+    raise SkipTest
+```
+We need to add as a ""Note"" in documentation of atlas fetchers as well as in plotting examples about minimum version requirement of nibabel. This could be as a warning for users particularly who use nibabel==1.1.0. Do you agree ?
+
+I will keep updating with another version failures if any ?",,,two failur respect version depend nibabel 110 modul implement nibabel 110 also class argument henc test fail nibabel version depend 110 I sure anoth failur write empti dictionari gifti file can pleas look may could someth like fix test We need add note document atla fetcher well plot exampl minimum version requir nibabel thi could warn user particularli use nibabel110 Do agre I keep updat anoth version failur,Y,2017-02-16 09:40:24
+23,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 09:40:24,">What's the minimum version of nibabel required? Could one of you do a bisection on the versions of nibabel to find this out?
+
+1.2.0
+Ref: http://nipy.org/nibabel/changelog.html#changelog",,,120 ref,N,2017-02-16 09:51:20
+24,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 09:51:20,">Kamalakar, do you want to do it (change the CI and the specified versions in the docs and in our checks, grep the code to make sure that we don't have compatibility layers that are lying around for version 1.1.0), and send a PR. We'll review it, merge it, and Julia can then rebase on master to get rid of these issues.
+
+I am going to try it. Soon do a PR.",,,I go tri soon PR,N,2017-02-16 09:58:40
+25,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 09:58:40,Bumping the requirement to 1.2.0 can fix freesurfer but not argument failure ```intent``` from class gifti.GiftiDataArray ? Any hints with @juhuntenburg ,,,bump requir 120 fix freesurf argument failur class giftigiftidataarray ani hint juhuntenburg,N,2017-02-16 09:59:08
+26,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 09:59:08,">Also, @KamalakerDadi did you get my e-mail on the report?
+
+I got it. Thanks. I need to go through it.",,,I got thank I need go,N,2017-02-16 13:32:22
+27,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 13:32:22,">Can anyone give me a hint on what might be going on with the destrieux datafetcher test, i.e. what could be the reason it fails since I added the test setup / teardown decorators?
+
+I cannot reproduce the failure. May be I am missing something.
+
+I think it is better to rebase after NiBabel bump PR is merged to get rid of atleast some failures and then fix remaining ones.",,,I cannot reproduc failur may I miss someth I think better rebas nibabel bump PR merg get rid atleast failur fix remain one,N,2017-02-17 14:28:56
+28,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 14:28:56,">Don't test the loading functions to recognize missing intents when loading gifti
+
+If I understood correctly, you want to test the function only for newest version. i.e. nibabel 2.1.
+Using ```LooseVersion``` can be helpful if I am correct.
+```python
+from distutils.version import LooseVersion
+```",,,If I understood correctli want test function newest version ie nibabel 21 use help I correct,Y,2017-02-17 15:12:45
+29,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 15:12:45,"Same as like with argument ```intent```, we have similar no attribute errors with ```write_morph_data``` and ```write_geometry```with older versions.",,,same like argument similar attribut error older version,N,2017-02-17 15:27:59
+30,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 15:27:59,"I would rather say doing version check and run tests passing with latest nibabel versions. As users now a days are mostly updating to most recent versions. Mostly, few users will have older versions. We can also have opinions from @GaelVaroquaux @AlexandreAbraham ",,,I would rather say version check run test pass latest nibabel version As user day mostli updat recent version mostli user older version We also opinion gaelvaroquaux alexandreabraham,Y,2017-02-17 16:50:29
+31,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 16:50:29,"Reminder: Just in case, if you have forgot to add tests for NKI fetcher.",,,remind just case forgot add test nki fetcher,Y,2017-02-22 08:55:49
+32,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-22 08:55:49,I am going to add tests for NKI fetcher.,,,I go add test nki fetcher,Y,2017-02-23 08:18:09
+33,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-23 08:18:09,">I added a test, but not entirely sure if this is how it should be. Maybe you can have a look and take it from there?
+
+Tests you have added are good. I think its no need to take.",,,test ad good I think need take,Y,2017-02-23 08:18:24
+34,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-23 08:18:24,Can you please rebase onto master ?,,,can pleas rebas onto master,N,2017-02-23 08:27:37
+35,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-23 08:27:37,">@KamalakerDadi I just addressed your small comments regarding sphinx, let me know if that fixes it
+
+Sphinx issues are mostly of documentation. We can fix travis and then move on to sphinx.",,,sphinx issu mostli document We fix travi move sphinx,Y,2017-02-23 10:20:25
+36,issue_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-23 10:20:25,We decided to skip tests.,,,We decid skip test,Y,2017-02-23 10:33:18
+38,issue_comment,1016,nilearn,nilearn,Joaoloula,2016-10-26 16:16:32,"On the coverage department, we can write tests for the new code if you think it's a good idea. As for the fetch_surf_fsaverage5 docstring formatting, I'm under the impression it's just an empty line missing before the Parameters, can you confirm this before I commit?
+",,,On coverag depart write test new code think good idea As fetchsurffsaverage5 docstr format Im impress empti line miss paramet confirm I commit,Y,2017-02-21 18:19:14
+147,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2017-02-09 11:12:16,"Here you are using the global, unseeded PRNG. We try to always avoid this, and to use a local PRNG created by rng = np.random.RandomState(0)",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/plotting/tests/test_surf_plotting.py')",here use global unseed prng We tri alway avoid use local prng creat rng nprandomrandomstate0,N,2017-02-16 10:08:12
+148,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 10:08:12,Documentation for 'description' is missing here.,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",document descript miss,N,2017-02-16 10:13:13
+149,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 10:13:13,"I am in favour of like this:
+
+- 'labels' : list
+            Contains labels defined to regions.
+
+Same with 'map_left' : numpy.ndarray
+                               index into 'labels' for each vertex on the left hemishpere
+                               of the fsaverage5 surface
+
+Also, could you correct spelling of ""hemishpere"" to ""hemisphere""",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",I favour like label list contain label defin region same mapleft numpyndarray index label vertex left hemishper fsaverage5 surfac also could correct spell hemishper hemispher,N,2017-02-16 10:15:06
+150,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-16 10:15:06,Indents are missing in my previous comment. Also a worth to check. Useful for doc build with sphinx.,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",indent miss previou comment also worth check use doc build sphinx,N,2017-02-17 13:46:32
+151,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 13:46:32,"Saying that it's ""pial"" is missing in the comment. Like as you said below with inflated.",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",say pial miss comment like said inflat,N,2017-02-17 13:54:44
+152,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 13:54:44,What you retrieve here is bunch of templates. May be we need to update that we retrieve templates and then pick one specific template as a background for plotting. For clarity sake.,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",what retriev bunch templat may need updat retriev templat pick one specif templat background plot for clariti sake,N,2017-02-17 14:01:42
+153,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-17 14:01:42,"Not sure if I understand. It is the same template, just once inflated and once not inflated. Should I add that?",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",not sure I understand It templat inflat inflat should I add,N,2017-02-17 14:37:08
+154,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 14:37:08,"Yeah I agree. But you have bunch of templates in fsaverage not one template. I would just write ""Retrieving fsaverage5 surface based templates and use them for plotting"" ",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",yeah I agre but bunch templat fsaverag one templat I would write retriev fsaverage5 surfac base templat use plot,N,2017-02-17 14:37:39
+155,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-17 14:37:39,Done,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",done,N,2017-02-17 14:37:42
+156,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-17 14:37:42,"Done
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",done,N,2017-02-17 14:39:29
+157,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-17 14:39:29,"Oh didnt see your comment. I did something slightly different: 
+""Retrieve fsaverage5 surface dataset, which contains pial and inflated version of the surface template as well as sulcal depth maps""",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",Oh didnt see comment I someth slightli differ retriev fsaverage5 surfac dataset contain pial inflat version surfac templat well sulcal depth map,N,2017-02-17 15:16:19
+158,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 15:16:19,Empty line missing below.,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(36, '', u'nilearn/datasets/atlas.py')",empti line miss,N,2017-02-17 15:36:39
+159,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 15:36:39,"Here, we have some documentation misalignent problems.
+
+ ""data"" can be aligned right below ----------- and missing ""empty line"" between (dictionary-like object, contains:) and (- 'labels' : list) and no space before colon for return argument 'labels' and missing empty line between each return argument.",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",here document misalign problem data align right miss empti line dictionarylik object contain label list space colon return argument label miss empti line return argument,N,2017-02-17 15:54:56
+160,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 15:54:56,"Actually, I saw tests you test with 76 labels but you have written 74 here ? Can you tell me difference ?",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",actual I saw test test 76 label written 74 can tell differ,Y,2017-02-17 15:57:52
+161,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 15:57:52,I just saw other fetchers. They have return arguments in double quotes but not single quotes. May be that's why sphix fails. Can you also correct them ?,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",I saw fetcher they return argument doubl quot singl quot may that sphix fail can also correct,N,2017-02-17 16:39:47
+162,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-17 16:39:47,Could you tell me why index to labels are 10242 but not 76 ?,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",could tell index label 10242 76,N,2017-02-22 08:16:25
+163,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-22 08:16:25,"One label is ""Unknown"" and one is ""Medial wall"", so only 74 real labels. Still seems kind of confusing, I'll fix it",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/atlas.py')",one label unknown one medial wall 74 real label still seem kind confus ill fix,N,2017-02-22 16:21:54
+164,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-22 16:21:54,Can you add ```b'G_cingul-Post-dorsal'``` to make it to unicode. If not fails with Python 3.,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",can add make unicod If fail python 3,N,2017-02-22 17:23:38
+165,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-22 17:23:38,```load_surf_data``` data loader should be in datasets.py or no ?,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(89, '', u'examples/01_plotting/plot_surf_stat_map.py')",data loader datasetspi,N,2017-02-23 10:18:17
+166,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-23 10:18:17,no i dont think so ,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(89, '', u'examples/01_plotting/plot_surf_stat_map.py')",dont think,N,2017-02-23 10:19:05
+167,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2017-02-23 10:19:05,done,ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",done,N,2017-02-23 10:21:49
+230,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-03 08:47:01,fixing destrieux surf fetcher test,bc248872cda97f8631aa8c7e5ac6765a9bbc382f,,fix destrieux surf fetcher test,N,2017-02-15 10:19:51
+231,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-15 10:19:51,minor changes examples and tests surface plotting,aeee59631bd9e5524d6ade36a7e0fbfcfae8df85,,minor chang exampl test surfac plot,N,2017-02-17 12:55:39
+232,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-17 12:55:39,minor improvement documentation destrieux datafetcher,f0b2c5a4971dba2c31a772946bede0283d089b8b,,minor improv document destrieux datafetch,N,2017-02-17 14:25:05
+233,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-17 14:25:05,fixing nibabel gifti import,2c22cddf44288fec7a3abc039179d2d6185616ee,,fix nibabel gifti import,N,2017-02-17 14:37:03
+234,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-17 14:37:03,minor improvement plot_surf_atlas example docs,4b4a98dab0de9d2bbfb5caa649ed6e990827f5be,,minor improv plotsurfatla exampl doc,N,2017-02-21 17:36:32
+235,pull_request_commit,1016,nilearn,nilearn,GaelVaroquaux,2017-02-21 17:36:32,"BUG: fix tests
+
+Create a mock annotation files for the destrieux loader",68df06645b8a77288f7fab992d6b8865d9940bff,,bug fix test creat mock annot file destrieux loader,N,2017-02-22 08:19:17
+236,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-22 08:19:17,minor fixes for sphinx,b95cd01cfd0c2b5b60c5b9059d791f9ca4e96c76,,minor fix sphinx,N,2017-02-22 08:56:04
+237,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2017-02-22 08:56:04,adding test for nki datafetcher,509e9d6dc28976218a4f65843f8c8016bcf58de6,,ad test nki datafetch,N,2017-02-23 10:01:54
+238,pull_request_commit,1016,nilearn,nilearn,GaelVaroquaux,2017-02-23 10:01:54,FIX: bugware to avoid a bug in old nibabel versions,70a3d8f7356e85727ea5e330e23fc2ae14ce1457,,fix bugwar avoid bug old nibabel version,N,2017-02-23 10:21:25
+2,issue_closed,1410,nilearn,nilearn,AlexandreAbraham,2017-03-07 08:59:07,,closed issue,Support for niimg in find_cut_slices,,N,2017-03-06 10:32:54
+4,pull_request_merged,1410,nilearn,nilearn,AlexandreAbraham,2017-03-07 08:59:07,Support for niimg in find_cut_slices,18c09716c8a07657681ccd1c58aa4884eb76abf0,Pull request merge from akshayah3/nilearn:niimg to nilearn/nilearn:master,support niimg findcutslic,N,2017-03-06 16:11:25
+5,issue_comment,1410,nilearn,nilearn,AlexandreAbraham,2017-03-06 16:11:25,"Thanks, will merge when green.",,,thank merg green,N,2017-03-06 10:40:54
+6,issue_comment,1410,nilearn,nilearn,akshayah3,2017-03-06 10:40:54,I tried to add support for niimg in `find_cut_slices`. I will make further changes and add test cases based on the reviews.   ,,,I tri add support niimg I make chang add test case base review,Y,2017-03-06 12:03:11
+7,issue_comment,1410,nilearn,nilearn,codecov[bot],2017-03-06 12:03:11,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1410?src=pr&el=h1) Report
+> Merging [#1410](https://codecov.io/gh/nilearn/nilearn/pull/1410?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/1d6c15d48d3fa51ee03765485641e63186c266ff?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1410      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13469    13470       +1     
+==========================================
++ Hits        12730    12731       +1     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1410?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/find_cuts.py](https://codecov.io/gh/nilearn/nilearn/compare/1d6c15d48d3fa51ee03765485641e63186c266ff...dc6ce6d98bf0a86540dae44f16ba723ca136e45e?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.37% <100%> (+0.07%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1410?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1410?src=pr&el=footer). Last update [1d6c15d...dc6ce6d](https://codecov.io/gh/nilearn/nilearn/compare/1d6c15d48d3fa51ee03765485641e63186c266ff...dc6ce6d98bf0a86540dae44f16ba723ca136e45e?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearnplottingfindcutspi whitecheckmark continu review full report codecov,N,2017-03-06 15:09:36
+8,pull_request_commit_comment,1410,nilearn,nilearn,AlexandreAbraham,2017-03-06 15:09:36,Please specify 3D here.,dc6ce6d98bf0a86540dae44f16ba723ca136e45e,"(None, '', u'nilearn/plotting/find_cuts.py')",pleas specifi 3D,N,2017-03-06 16:08:37
+9,pull_request_commit_comment,1410,nilearn,nilearn,akshayah3,2017-03-06 16:08:37,Made the change.,dc6ce6d98bf0a86540dae44f16ba723ca136e45e,"(None, '', u'nilearn/plotting/find_cuts.py')",made chang,N,2017-03-06 10:29:20
+10,pull_request_commit,1410,nilearn,nilearn,akshayah3,2017-03-06 10:29:20,Support for niimg on find_cut_slices,6abd04b37d336c8c6fc5363dbd97fc1a7eb57faf,,support niimg findcutslic,N,2017-03-06 16:05:03
+2,issue_closed,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:55:28,,closed issue,[MRG] Added largest_connected_component_img,,N,2017-03-04 17:57:28
+4,pull_request_merged,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:55:28,[MRG] Added largest_connected_component_img,58f9dc4862d3f384ef69761471250a90c5e235b2,Pull request merge from SRSteinkamp/nilearn:master to nilearn/nilearn:master,mrg ad largestconnectedcomponentimg,N,2017-03-06 08:42:24
+5,issue_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-03-06 08:42:24,"> I had a short discussion with @KamalakerDadi about this. We were a bit unsure
+> about how ndimage would behave in the case of 4D images. I am going to look
+> into this tonight.
+
+In case of a 4D image, ndimage is going to take the large CC in all
+direction, ie in the 4D space. That is most likely going to surprise the
+user. I think that, if the input image is 4D, we want to either raise an
+error, or loop on every 3D image.
+
+",,,In case 4D imag ndimag go take larg CC direct ie 4D space that like go surpris user I think input imag 4D want either rais error loop everi 3D imag,N,2017-03-06 12:02:16
+8,issue_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:55:24,Merging. Thanks a lot,,,merg thank lot,N,2017-03-06 11:33:52
+20,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-10 09:10:03,Some minor comments from my side. ,,,some minor comment side,N,2017-03-06 09:06:23
+21,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-06 09:06:23,"Ok, I'll implement the loop over the 3D images. I think this will be nicer from a user's perspective. ",,,Ok ill implement loop 3D imag I think nicer user perspect,N,2017-03-06 12:18:38
+22,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-06 12:18:38,"So in the current form check_niimg_3d(img) should already provide the right error when a 4D image is given - at least if I got that right?
+
+> I think that we should add for 3d first, and discuss in a separate issue how to make it easy for users to process 4d images.
+
+For me (being more of a user): In my feeling no added functionality is needed as iter_image & concat_img should do the job already. But maybe adding an explicit example could do the trick, to stress the usefulness of those function (also new_img_like etc.). However: different issue. ",,,So current form checkniimg3dimg alreadi provid right error 4D imag given least I got right for user In feel ad function need iterimag concatimg job alreadi but mayb ad explicit exampl could trick stress use function also newimglik etc howev differ issu,N,2017-03-04 19:29:54
+23,issue_comment,1409,nilearn,nilearn,codecov[bot],2017-03-04 19:29:54,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=h1) Report
+> Merging [#1409](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/1d6c15d48d3fa51ee03765485641e63186c266ff?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `97.72%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1409/graphs/tree.svg?height=150&width=650&token=KpYArSdyXv&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1409      +/-   ##
+==========================================
++ Coverage   94.51%   94.53%   +0.01%     
+==========================================
+  Files         118      118              
+  Lines       13469    13511      +42     
+==========================================
++ Hits        12730    12772      +42     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/image/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS9fX2luaXRfXy5weQ==) | `100% <ø> (ø)` | :arrow_up: |
+| [nilearn/tests/test\_ndimage.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X25kaW1hZ2UucHk=) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/image/tests/test\_image.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS90ZXN0cy90ZXN0X2ltYWdlLnB5) | `99.66% <100%> (+0.02%)` | :arrow_up: |
+| [nilearn/image/image.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS9pbWFnZS5weQ==) | `96.95% <100%> (+0.21%)` | :arrow_up: |
+| [nilearn/\_utils/ndimage.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvbmRpbWFnZS5weQ==) | `91.42% <75%> (+0.8%)` | :arrow_up: |
+| [nilearn/plotting/find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.37% <0%> (+0.07%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=footer). Last update [1d6c15d...f784fb2](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file tree graph impact file coverag Δ nilearnimageinitpi arrowup nilearnteststestndimagepi arrowup nilearnimageteststestimagepi arrowup nilearnimageimagepi arrowup nilearnutilsndimagepi arrowup nilearnplottingfindcutspi arrowup continu review full report codecov,N,2017-03-05 20:57:59
+24,pull_request_commit_comment,1409,nilearn,nilearn,bthirion,2017-03-05 20:57:59,I'm curious about what happens with a 4D image,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/_utils/ndimage.py')",Im curiou happen 4D imag,N,2017-03-05 21:00:02
+25,pull_request_commit_comment,1409,nilearn,nilearn,bthirion,2017-03-05 21:00:02,"A test with a 4D image, then ?",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')",A test 4D imag,Y,2017-03-06 08:40:35
+46,pull_request_commit_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:54:56,Need to change this to 0.3.1. We'll do it in master,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(9, '', u'nilearn/image/image.py')",need chang 031 well master,N,2017-03-04 17:53:23
+1,issue_title,1328,nilearn,nilearn,KamalakerDadi,2016-11-16 20:52:50,"New function to extract regions on labels images. Worked along with @GaelVaroquaux 
+
+Completed parts:
+
+* Function named as  ```extract_regions_labels_img```
+* Documentation
+* Tests
+* modules reference
+*  whats new reference
+* Example by @darya-chyzhyk 
+
+It is ready for review.",start issue,[MRG] ENH: Region Extractor on labels based atlas images,new function extract region label imag work along gaelvaroquaux complet part function name document test modul refer what new refer exampl daryachyzhyk It readi review,N,2017-02-21 12:07:29
+3,pull_request_title,1328,nilearn,nilearn,KamalakerDadi,2016-11-16 20:52:50,"New function to extract regions on labels images. Worked along with @GaelVaroquaux 
+
+Completed parts:
+
+* Function named as  ```extract_regions_labels_img```
+* Documentation
+* Tests
+* modules reference
+*  whats new reference
+* Example by @darya-chyzhyk 
+
+It is ready for review.",6955248a80ede87ab27ae7567de1d425ed57a202,[MRG] ENH: Region Extractor on labels based atlas images,new function extract region label imag work along gaelvaroquaux complet part function name document test modul refer what new refer exampl daryachyzhyk It readi review,N,2017-02-21 12:07:29
+28,pull_request_commit_comment,1328,nilearn,nilearn,bthirion,2017-01-24 22:22:48,`labels_kept = region_sizes > size_in_vox`,6955248a80ede87ab27ae7567de1d425ed57a202,"(None, '', u'nilearn/regions/region_extractor.py')",,N,2017-02-21 12:18:04
+29,pull_request_commit_comment,1328,nilearn,nilearn,AlexandreAbraham,2017-02-21 12:18:04,Optional: can be replaced by `unique_labels.discard(0)`,6955248a80ede87ab27ae7567de1d425ed57a202,"(219, '', u'nilearn/regions/region_extractor.py')",option replac,N,2017-02-21 12:21:40
+30,pull_request_commit_comment,1328,nilearn,nilearn,AlexandreAbraham,2017-02-21 12:21:40,This is never used.,6955248a80ede87ab27ae7567de1d425ed57a202,"(37, '', u'nilearn/regions/region_extractor.py')",thi never use,N,2017-02-21 12:26:21
+31,pull_request_commit_comment,1328,nilearn,nilearn,AlexandreAbraham,2017-02-21 12:26:21,You should specify that background label must not be given.,6955248a80ede87ab27ae7567de1d425ed57a202,"(174, '', u'nilearn/regions/region_extractor.py')",you specifi background label must given,N,2017-02-21 12:40:24
+32,pull_request_commit_comment,1328,nilearn,nilearn,AlexandreAbraham,2017-02-21 12:40:24,"You can do:
+`new_labels_data += regions + current_max_label`",6955248a80ede87ab27ae7567de1d425ed57a202,"(259, '', u'nilearn/regions/region_extractor.py')",you,N,2017-02-21 12:42:28
+33,pull_request_commit_comment,1328,nilearn,nilearn,AlexandreAbraham,2017-02-21 12:42:28,This data is not the original one. You could do it inplace.,6955248a80ede87ab27ae7567de1d425ed57a202,"(78, '', u'nilearn/regions/region_extractor.py')",thi data origin one you could inplac,N,2017-02-24 15:59:05
+2,issue_closed,1408,nilearn,nilearn,GaelVaroquaux,2017-07-30 09:51:06,,closed issue,WIP: Matrix plotting function,,N,2017-03-04 17:39:27
+30,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-06 09:42:22,Same comment about omiting the grid argument,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')",same comment omit grid argument,N,2017-03-04 17:28:17
+1,issue_title,1401,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:47:46,Automatically switch between randomized SVD and lapack,start issue,OPTIM: faster SVD,automat switch random svd lapack,N,2017-03-03 15:11:08
+2,issue_closed,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 15:11:08,,closed issue,OPTIM: faster SVD,,N,2017-03-02 17:47:46
+3,pull_request_title,1401,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:47:46,Automatically switch between randomized SVD and lapack,1bd907753bb053320a17d99baa9d90f4baa8a618,OPTIM: faster SVD,automat switch random svd lapack,N,2017-03-03 15:11:08
+4,pull_request_merged,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 15:11:08,OPTIM: faster SVD,16b79d28991d5bf5d923d74d8f093b4089e5726f,Pull request merge from GaelVaroquaux/nilearn:faster_svd to nilearn/nilearn:master,optim faster svd,N,2017-03-03 08:49:11
+5,issue_comment,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 08:49:11,"> Great! Do you have a bench to see the difference by any chance?
+
+No. I trusted Giorgio's bench. But in the circleCI build it didn't make
+any difference :(.
+
+I think that we should still merge, as the code will be faster in certain
+situations and it's rather more clean.
+
+The test that I had written had a stupid loop, by the way. I fixed it.
+",,,No I trust giorgio bench but circleci build didnt make differ I think still merg code faster certain situat rather clean the test I written stupid loop way I fix,Y,2017-03-03 09:21:38
+6,issue_comment,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 09:21:38,"> Not a surprise given that we try to keep the examples minimal.
+
+Also, it's smoothing that is dominating this example.
+
+> Maybe we can launch canica on a big dataset to see the difference?
+
+I tried, but without a big subject-level data (eg HCP), the cost of the
+SVDs is lost in things like filtering, smoothing, and the multiple ICAs.
+:(
+
+",,,also smooth domin exampl I tri without big subjectlevel data eg hcp cost svd lost thing like filter smooth multipl ica,N,2017-03-03 09:37:37
+7,issue_comment,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 09:37:37,"> I think that documentation could be useful and not supposed to a private function. Could you please add documentation ?
+
+I added a docstring. But this is supposed to be a private function, hence
+we don't want it in the narrative documentation.
+",,,I ad docstr but suppos privat function henc dont want narr document,N,2017-03-03 14:13:20
+8,issue_comment,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 14:13:20,Can I haz merge?,,,can I haz merg,N,2017-03-03 15:11:04
+9,issue_comment,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 15:11:04,"OK, merging, thanks!",,,OK merg thank,N,2017-03-03 07:58:49
+10,issue_comment,1401,nilearn,nilearn,AlexandreAbraham,2017-03-03 07:58:49,Great! Do you have a bench to see the difference by any chance?,,,great Do bench see differ chanc,N,2017-03-03 08:51:35
+11,issue_comment,1401,nilearn,nilearn,AlexandreAbraham,2017-03-03 08:51:35,"> But in the circleCI build it didn't make any difference :(.
+
+Not a surprise given that we try to keep the examples minimal. Maybe we can launch canica on a big dataset to see the difference?",,,not surpris given tri keep exampl minim mayb launch canica big dataset see differ,N,2017-03-02 18:36:40
+12,issue_comment,1401,nilearn,nilearn,codecov[bot],2017-03-02 18:36:40,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=h1) Report
+> Merging [#1401](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/f0214eacb3857d8225397fe2f219d0d666e1635c?src=pr&el=desc) will **decrease** coverage by `-0.42%`.
+> The diff coverage is `97.14%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1401      +/-   ##
+==========================================
+- Coverage   94.49%   94.07%   -0.42%     
+==========================================
+  Files         118      118              
+  Lines       13417    13445      +28     
+==========================================
+- Hits        12679    12649      -30     
+- Misses        738      796      +58
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decomposition/tests/test_base.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL3Rlc3RzL3Rlc3RfYmFzZS5weQ==) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/decomposition/base.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2Jhc2UucHk=) | `95.33% <94.44%> (-0.36%)` | :x: |
+| [nilearn/_utils/compat.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvY29tcGF0LnB5) | `41.07% <0%> (-57.15%)` | :x: |
+| [nilearn/_utils/fixes/matplotlib_backports.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvZml4ZXMvbWF0cGxvdGxpYl9iYWNrcG9ydHMucHk=) | `66.66% <0%> (-33.34%)` | :x: |
+| [nilearn/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9fX2luaXRfXy5weQ==) | `87.5% <0%> (-12.5%)` | :x: |
+| [nilearn/_utils/fixes/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvZml4ZXMvX19pbml0X18ucHk=) | `80% <0%> (-6.67%)` | :x: |
+| [nilearn/plotting/tests/test_surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X3N1cmZfcGxvdHRpbmcucHk=) | `95.45% <0%> (-4.55%)` | :x: |
+| [nilearn/image/resampling.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS9yZXNhbXBsaW5nLnB5) | `97.93% <0%> (-1.55%)` | :x: |
+| [nilearn/input_data/nifti_spheres_masker.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL25pZnRpX3NwaGVyZXNfbWFza2VyLnB5) | `94.87% <0%> (-0.86%)` | :x: |
+| [nilearn/_utils/testing.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...edfe93de4c45a506124c29a498f4249f7e3c1b3b?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvdGVzdGluZy5weQ==) | `81.56% <0%> (-0.71%)` | :x: |
+| ... and [3 more](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=tree-more) | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=footer). Last update [f0214ea...284b900](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...284b9002b55c9b801d0a02f652ac2d8d1b9c267b?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearndecompositionteststestbasepi whitecheckmark nilearndecompositionbasepi x nilearnutilscompatpi x nilearnutilsfixesmatplotlibbackportspi x nilearninitpi x nilearnutilsfixesinitpi x nilearnplottingteststestsurfplottingpi x nilearnimageresamplingpi x nilearninputdataniftispheresmaskerpi x nilearnutilstestingpi x 3 continu review full report codecov,N,2017-03-02 18:36:40
+13,issue_comment,1401,nilearn,nilearn,codecov[bot],2017-03-02 18:36:40,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=h1) Report
+> Merging [#1401](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/f0214eacb3857d8225397fe2f219d0d666e1635c?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `97.43%`.
+
+
+```diff
+@@            Coverage Diff            @@
+##           master   #1401      +/-   ##
+=========================================
++ Coverage   94.49%   94.5%   +<.01%     
+=========================================
+  Files         118     118              
+  Lines       13417   13448      +31     
+=========================================
++ Hits        12679   12709      +30     
+- Misses        738     739       +1
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/signal.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...1bd907753bb053320a17d99baa9d90f4baa8a618?src=pr&el=tree#diff-bmlsZWFybi9zaWduYWwucHk=) | `85.16% <ø> (-0.09%)` | :x: |
+| [nilearn/decomposition/tests/test_base.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...1bd907753bb053320a17d99baa9d90f4baa8a618?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL3Rlc3RzL3Rlc3RfYmFzZS5weQ==) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/decomposition/base.py](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...1bd907753bb053320a17d99baa9d90f4baa8a618?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2Jhc2UucHk=) | `95.48% <95.65%> (-0.2%)` | :x: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1401?src=pr&el=footer). Last update [f0214ea...1bd9077](https://codecov.io/gh/nilearn/nilearn/compare/f0214eacb3857d8225397fe2f219d0d666e1635c...1bd907753bb053320a17d99baa9d90f4baa8a618?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearnsignalpi x nilearndecompositionteststestbasepi whitecheckmark nilearndecompositionbasepi x continu review full report codecov,N,2017-03-03 09:22:42
+14,pull_request_commit_comment,1401,nilearn,nilearn,KamalakerDadi,2017-03-03 09:22:42,I think that documentation could be useful and not supposed to a private function. Could you please add documentation ?,1bd907753bb053320a17d99baa9d90f4baa8a618,"(None, '', u'nilearn/decomposition/base.py')",I think document could use suppos privat function could pleas add document,N,2017-03-02 17:44:15
+15,pull_request_commit,1401,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:44:15,"OPTIM: faster SVD
+
+Automatically switch between randomized SVD and lapack",edfe93de4c45a506124c29a498f4249f7e3c1b3b,,optim faster svd automat switch random svd lapack,N,2017-03-02 18:36:19
+16,pull_request_commit,1401,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:36:19,COMPAT: support older sklearn,284b9002b55c9b801d0a02f652ac2d8d1b9c267b,,compat support older sklearn,N,2017-03-03 08:46:04
+17,pull_request_commit,1401,nilearn,nilearn,GaelVaroquaux,2017-03-03 08:46:04,"TST: proper test of fast_svd
+
+The loop was stupid: there is no ""solver"" keyword argument.",7d52fee57493cb3cf31f2d4fb716bd9cc33030ae,,tst proper test fastsvd the loop stupid solver keyword argument,N,2017-03-03 09:36:27
+1,issue_title,1372,nilearn,nilearn,darya-chyzhyk,2017-01-31 10:59:09,"Fix #1319 
+
+Substitute the previous version of the COBRE dataset by lightweight version of the COBRE, with simplified pre-processing and with comprehensive list of confounds (the format was changed from .mat to .tsv ). The structure of the data is quite similar to the previous one. The list of input parameters in `fetch_cobre` are kept without changes, in the outputs I added the description of the phenotypic and confounds variables and README.md file.
+
+The confounds and the phynotypic data are stored as compressed file. To uncompressed them during the downloading I used `nilearn.datasets.utils._uncompress_file`. If we use an option `delete_archive = True` to delete the compressed file, in case of gz extension both files compressed and uncompressed were eliminated. To solve that, I moved the deleting of the file `os.remove(file_)` to each case of type of compressed extension.",start issue,[MRG+2] Fetch cobre,fix 1319 substitut previou version cobr dataset lightweight version cobr simplifi preprocess comprehens list confound format chang mat tsv the structur data quit similar previou one the list input paramet kept without chang output I ad descript phenotyp confound variabl readmemd file the confound phynotyp data store compress file To uncompress download I use If use option delet compress file case gz extens file compress uncompress elimin To solv I move delet file case type compress extens,N,2017-02-22 16:54:01
+3,pull_request_title,1372,nilearn,nilearn,darya-chyzhyk,2017-01-31 10:59:09,"Fix #1319 
+
+Substitute the previous version of the COBRE dataset by lightweight version of the COBRE, with simplified pre-processing and with comprehensive list of confounds (the format was changed from .mat to .tsv ). The structure of the data is quite similar to the previous one. The list of input parameters in `fetch_cobre` are kept without changes, in the outputs I added the description of the phenotypic and confounds variables and README.md file.
+
+The confounds and the phynotypic data are stored as compressed file. To uncompressed them during the downloading I used `nilearn.datasets.utils._uncompress_file`. If we use an option `delete_archive = True` to delete the compressed file, in case of gz extension both files compressed and uncompressed were eliminated. To solve that, I moved the deleting of the file `os.remove(file_)` to each case of type of compressed extension.",f3f1c5cacacbfce4c0a2f620271eff14252a52b4,[MRG+2] Fetch cobre,fix 1319 substitut previou version cobr dataset lightweight version cobr simplifi preprocess comprehens list confound format chang mat tsv the structur data quit similar previou one the list input paramet kept without chang output I ad descript phenotyp confound variabl readmemd file the confound phynotyp data store compress file To uncompress download I use If use option delet compress file case gz extens file compress uncompress elimin To solv I move delet file case type compress extens,N,2017-02-22 16:54:00
+4,pull_request_merged,1372,nilearn,nilearn,GaelVaroquaux,2017-02-22 16:54:00,[MRG+2] Fetch cobre,e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e,Pull request merge from darya-chyzhyk/nilearn:fetch_cobre to nilearn/nilearn:master,mrg2 fetch cobr,N,2017-02-22 14:40:44
+5,issue_comment,1372,nilearn,nilearn,darya-chyzhyk,2017-02-22 14:40:44,@AlexandreAbraham could you please have a look here,,,alexandreabraham could pleas look,N,2017-02-22 20:08:25
+9,pull_request_commit_comment,1372,nilearn,nilearn,GaelVaroquaux,2017-02-08 18:09:33,You should delete these lines.,f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/utils.py')",you delet line,N,2017-02-15 14:57:41
+10,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-15 14:57:41,quote missing on right side in name fmri_XXXXXXX.tsv.,f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/func.py')",quot miss right side name fmrixxxxxxxtsv,N,2017-02-15 14:58:05
+11,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-15 14:58:05,"Space missing before ""It""",f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/func.py')",space miss It,N,2017-02-15 14:59:45
+12,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-15 14:59:45,"It think it should be .. versionadded:: 0.3
+
+Ref: http://www.sphinx-doc.org/en/stable/markup/para.html",f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/func.py')",It think versionad 03 ref,N,2017-02-15 15:10:56
+13,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-15 15:10:56,"minor comment: can you change to ""current"" ?",f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/tests/test_func.py')",minor comment chang current,N,2017-02-15 15:12:05
+14,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-15 15:12:05,Can you correct commented line ? Create the tsv file,f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/tests/test_func.py')",can correct comment line creat tsv file,N,2017-02-15 15:31:44
+15,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-15 15:31:44,If I am not wrong. Sphinx is failing at this line.,f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/func.py')",If I wrong sphinx fail line,N,2017-02-20 21:57:59
+16,pull_request_commit_comment,1372,nilearn,nilearn,KamalakerDadi,2017-02-20 21:57:59,This link is not from current light weight one. Light weight one is versioned as 0_17. The one which is commented below.,f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(None, '', u'nilearn/datasets/func.py')",thi link current light weight one light weight one version 017 the one comment,N,2017-02-22 15:15:21
+17,pull_request_commit_comment,1372,nilearn,nilearn,AlexandreAbraham,2017-02-22 15:15:21,This type conversion should serve a purpose. Could you check that the resulting CSV table has all proper types?,f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(118, '', u'nilearn/datasets/func.py')",thi type convers serv purpos could check result csv tabl proper type,N,2017-02-22 16:26:18
+18,pull_request_commit_comment,1372,nilearn,nilearn,darya-chyzhyk,2017-02-22 16:26:18,"Its not a CSV table anymore, its TSV ;)
+In case of this type conversion I had an encode problem in Pyhhon 3
+Looks like it identifies correctly the type
+
+```
+rec.array([(40061, 18, 'Male', 'Right', 'Control', 'None', 133, 0.25512, 0.22657),
+ (40090, 18, 'Female', 'Right', 'Control', 'None', 150, 0.16963, 0.16963),
+ (40046, 18, 'Male', 'Left', 'Patient', '295.70 depressed type', 76, 0.37504, 0.30042)], 
+ dtype=[('id', '<i8'), ('current_age', '<i8'), ('gender', 'S6'), ('handedness', 'S5'), ('subject_type', 'S7'), ('diagnosis', 'S21'), ('frames_ok', '<i8'), ('fd', '<f8'), ('fd_scrubbed', '<f8')])
+```
+",f3f1c5cacacbfce4c0a2f620271eff14252a52b4,"(118, '', u'nilearn/datasets/func.py')",it csv tabl anymor tsv In case type convers I encod problem pyhhon 3 look like identifi correctli type,N,2017-02-22 16:27:36
+32,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-10 22:16:34,make compressed file for tsv,bdcd2a02e51cdfd376f4d9590d9a7bf521820063,,make compress file tsv,N,2017-02-14 22:53:29
+33,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-14 22:53:29,"Fixed the bug, empty zip file uncompressed to the sub-folder instead of to the folder",a7367ad2cd61c886c337ee15b219d5c6d651bdf8,,fix bug empti zip file uncompress subfold instead folder,N,2017-02-14 22:56:32
+34,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-14 22:56:32,Update the description from the readme,aa9a64e0230e401c48d341d407595f6a897dc2e7,,updat descript readm,N,2017-02-14 23:00:55
+35,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-14 23:00:55,delete the readme as output,3beeec49d5963e7e85b34850f02a0d68cc00e6e8,,delet readm output,N,2017-02-14 23:06:59
+36,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-14 23:06:59,fix conflicts,7582e2dbdd9b5d2a0ccf1913d7c5f12651e493a8,,fix conflict,N,2017-02-20 08:28:16
+37,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-20 08:28:16,clean code,6d72f1b772bd74015570962dd264f693b4c37e65,,clean code,N,2017-02-20 15:04:57
+38,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-20 15:04:57,clean the code,797cdd5111b1f6d966a1951f042efcc1f6f22e7d,,clean code,N,2017-02-21 14:19:44
+39,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-21 14:19:44,clean the code,88989d706d4053514a3ecd263fa623b8ec6c7a9c,,clean code,N,2017-02-21 14:32:14
+40,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-21 14:32:14,redo encoding,e3923474930f14dd3bdd7c820fad333ce7b58313,,redo encod,N,2017-02-21 16:23:33
+41,pull_request_commit,1372,nilearn,nilearn,darya-chyzhyk,2017-02-21 16:23:33,encoding,86ad951bc9545dee140f6da856492f3ca58c21af,,encod,N,2017-02-22 09:11:19
+1,issue_title,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 14:53:23,From PR #1016 ,start issue,Surface plotting,from PR 1016,N,2017-02-23 17:40:17
+2,issue_closed,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 17:40:17,,closed issue,Surface plotting,,N,2017-02-23 14:53:23
+3,pull_request_title,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 14:53:23,From PR #1016 ,8e417c05a2dad5de392a7cf460cec5a06e4d160a,Surface plotting,from PR 1016,N,2017-02-23 17:40:17
+4,pull_request_merged,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 17:40:17,Surface plotting,a5c134a8eec56153042283edc7df38dccfa9fce4,Pull request merge from KamalakerDadi/nilearn:surface_plotting to nilearn/nilearn:master,surfac plot,N,2017-02-23 15:04:45
+5,issue_comment,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 15:04:45,"This is pretty much ready (aside from the minor comments that I just made).
+
+It would be useful to add a small section in the plotting chapter of the documentation: a small section 4.5 ""surface plotting"", that clearly uses the ""versionadded"" sphinx directive to stress that this is only available in nilearn 0.3.",,,thi pretti much readi asid minor comment I made It would use add small section plot chapter document small section 45 surfac plot clearli use versionad sphinx direct stress avail nilearn 03,N,2017-02-23 15:48:09
+6,issue_comment,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 15:48:09,"We probably need to extend the versions of nibabel for which I did the bug fix in the tests.
+
+⁣Sent from my phone. Please forgive brevity and mis spelling​
+
+On Feb 23, 2017, 16:06, at 16:06, KamalakerDadi <notifications@github.com> wrote:
+>What is the failure of travis ?
+>
+>-- 
+>You are receiving this because you commented.
+>Reply to this email directly or view it on GitHub:
+>https://github.com/nilearn/nilearn/pull/1387#issuecomment-282017133
+",,,We probabl need extend version nibabel I bug fix test ⁣sent phone pleas forgiv breviti mi spelling​ On feb 23 2017 1606 1606 kamalakerdadi notificationsgithubcom,Y,2017-02-23 16:22:19
+7,issue_comment,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 16:22:19,This seems ready to go for me. Do you have things that you still want to work on?,,,thi seem readi go Do thing still want work,N,2017-02-23 17:40:14
+8,issue_comment,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 17:40:14,Merging! Hurray,,,merg hurray,N,2017-02-23 15:54:35
+9,issue_comment,1387,nilearn,nilearn,codecov[bot],2017-02-23 15:54:35,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1387?src=pr&el=h1) Report
+> Merging [#1387](https://codecov.io/gh/nilearn/nilearn/pull/1387?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5eea93c01684c3146fed09a11cf93ad1a685846d?src=pr&el=desc) will **increase** coverage by `0.07%`.
+> The diff coverage is `96.35%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1387      +/-   ##
+==========================================
++ Coverage   94.32%   94.39%   +0.07%     
+==========================================
+  Files         116      118       +2     
+  Lines       12923    13388     +465     
+==========================================
++ Hits        12189    12637     +448     
+- Misses        734      751      +17
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1387?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/datasets/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9fX2luaXRfXy5weQ==) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/struct.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9zdHJ1Y3QucHk=) | `90.9% <100%> (+2.02%)` | :white_check_mark: |
+| [nilearn/plotting/tests/test_surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X3N1cmZfcGxvdHRpbmcucHk=) | `100% <100%> (ø)` | |
+| [nilearn/datasets/tests/test_atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2F0bGFzLnB5) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/plotting/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9fX2luaXRfXy5weQ==) | `83.33% <100%> (+5.55%)` | :white_check_mark: |
+| [nilearn/datasets/atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9hdGxhcy5weQ==) | `96.13% <100%> (+0.3%)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_struct.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3N0cnVjdC5weQ==) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.01% <87.5%> (-0.12%)` | :x: |
+| [nilearn/plotting/surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...a209f85c746069624459107e1b5599937a52b87f?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9zdXJmX3Bsb3R0aW5nLnB5) | `91.39% <91.39%> (ø)` | |
+| ... and [2 more](https://codecov.io/gh/nilearn/nilearn/pull/1387?src=pr&el=tree-more) | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1387?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1387?src=pr&el=footer). Last update [5eea93c...8e417c0](https://codecov.io/gh/nilearn/nilearn/compare/5eea93c01684c3146fed09a11cf93ad1a685846d...8e417c05a2dad5de392a7cf460cec5a06e4d160a?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearndatasetsinitpi whitecheckmark nilearndatasetsstructpi whitecheckmark nilearnplottingteststestsurfplottingpi nilearndatasetsteststestatlaspi whitecheckmark nilearndatasetsteststestfuncpi whitecheckmark nilearnplottinginitpi whitecheckmark nilearndatasetsatlaspi whitecheckmark nilearndatasetsteststeststructpi whitecheckmark nilearndatasetsfuncpi x nilearnplottingsurfplottingpi 2 continu review full report codecov,N,2017-02-23 14:56:25
+10,pull_request_commit_comment,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 14:56:25,I think that it would be nice to delay these imports to the cell in which they are used first.,8e417c05a2dad5de392a7cf460cec5a06e4d160a,"(None, '', u'examples/01_plotting/plot_surf_atlas.py')",I think would nice delay import cell use first,N,2017-02-23 14:59:30
+11,pull_request_commit_comment,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 14:59:30,"It would be nicer to use the ""extend"" method of the list to add the full list of new names at once, rather than a for loop.",8e417c05a2dad5de392a7cf460cec5a06e4d160a,"(None, '', u'nilearn/plotting/__init__.py')",It would nicer use extend method list add full list new name rather loop,N,2017-02-23 15:07:33
+74,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-03 08:47:01,fixing destrieux surf fetcher test,7dcdf60b3e2de2def4189a9158c45b81c910f6e6,,fix destrieux surf fetcher test,N,2017-02-15 10:19:51
+75,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-15 10:19:51,minor changes examples and tests surface plotting,3a8e35ee4d37edd5b9e98c5d884086df0cb44fef,,minor chang exampl test surfac plot,N,2017-02-17 12:55:39
+76,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-17 12:55:39,minor improvement documentation destrieux datafetcher,4c954925bc2758a1c1195dfe848d62cb56f99e65,,minor improv document destrieux datafetch,N,2017-02-17 14:25:05
+77,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-17 14:25:05,fixing nibabel gifti import,035aa085b1c39843524a38e32b54e1720a05ccfa,,fix nibabel gifti import,N,2017-02-17 14:37:03
+78,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-17 14:37:03,minor improvement plot_surf_atlas example docs,3fab02c0785d6b2ae352beb354ae9907c8c51787,,minor improv plotsurfatla exampl doc,N,2017-02-21 17:36:32
+79,pull_request_commit,1387,nilearn,nilearn,GaelVaroquaux,2017-02-21 17:36:32,"BUG: fix tests
+
+Create a mock annotation files for the destrieux loader",8a4ea9725f660e03c2990841b4813c887b2e809e,,bug fix test creat mock annot file destrieux loader,N,2017-02-22 08:19:17
+80,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-22 08:19:17,minor fixes for sphinx,2f98bb6195e52ad06c90a413ae8336cebe6b87a8,,minor fix sphinx,N,2017-02-22 08:56:04
+81,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-22 08:56:04,adding test for nki datafetcher,dede4b5ad3e30a54f2ef5f6bbd79b0aad9bcefa7,,ad test nki datafetch,N,2017-02-23 10:01:54
+82,pull_request_commit,1387,nilearn,nilearn,GaelVaroquaux,2017-02-23 10:01:54,FIX: bugware to avoid a bug in old nibabel versions,1de8103e14f8adf54d5a0cae2bf0cffc2fab0796,,fix bugwar avoid bug old nibabel version,N,2017-02-23 10:21:25
+83,pull_request_commit,1387,nilearn,nilearn,juhuntenburg,2017-02-23 10:21:25,plot_surf_stat_map label unicode to work with python3,327332f88f1bffc8e06235dc6ef2ba88d2ae1dc1,,plotsurfstatmap label unicod work python3,N,2017-02-23 10:33:23
+84,pull_request_commit,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 10:33:23,Skipping tests with nibabel older versions to address write_annot,710fe6a620cf49681c3fd0a972c03bae7546252c,,skip test nibabel older version address writeannot,N,2017-02-23 12:27:29
+85,pull_request_commit,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 12:27:29,Fixing flake8 and skip tests for older nibabel versions in surf plotting functions,d061a0083e3b4a0275cadd9f7e1bdbd8b0132182,,fix flake8 skip test older nibabel version surf plot function,N,2017-02-23 14:46:16
+86,pull_request_commit,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 14:46:16,"ENH: Documentation, whats_new",8eea80b50d833fe51bdefb0cbe06f34495e62c35,,enh document whatsnew,N,2017-02-23 15:48:25
+87,pull_request_commit,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 15:48:25,Addressed comments and fixed nibabel failure by extending version,a558255238007ebd0d1905c024c59290097dbab2,,address comment fix nibabel failur extend version,N,2017-02-23 16:05:10
+88,pull_request_commit,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 16:05:10,Skip tests for older version of matplotlib,a209f85c746069624459107e1b5599937a52b87f,,skip test older version matplotlib,N,2017-02-23 17:28:55
+89,pull_request_commit,1387,nilearn,nilearn,KamalakerDadi,2017-02-23 17:28:55,Enhancements for version added and documentation,75107c18af1a8a8964233c0109052093a38e8d2e,,enhanc version ad document,N,2017-02-23 17:32:49
+1,issue_title,1323,nilearn,nilearn,dawnsong,2016-11-05 04:05:29,"Dear Dr. Gaël and Arthur, 
+
+The reference given in the help and code of diction learning is:
+Gaël Varoquaux, Gramfort, A., Pedregosa, F., Michel, V., Thirion, B., 2011. Multi-subject dictionary learning to segment an atlas of brain spontaneous activity, in: Information Processing in Medical Imaging. Springer, pp. 562–573.
+
+
+But after reading the code, it looks like the reference should be:
+Mensch, A., Varoquaux, G., Thirion, B., 2016. Compressed online dictionary learning for fast resting-state fMRI decomposition, in: 2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI). Presented at the 2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI), pp. 1282–1285. doi:10.1109/ ISBI.2016.7493501
+
+Am I correct? If I am correct, will you also include MSDL method into nilearn in future?
+
+Best,
+Xiaowei
+
+Reference:
+
+- [nilearn dictionary learning help](http://nilearn.github.io/auto_examples/03_connectivity/plot_compare_resting_state_decomposition.html)
+
+- [nilearn dictionary learning code](https://github.com/nilearn/nilearn/blob/master/nilearn/decomposition/dict_learning.py)",start issue,Wrong reference for dictionary learning in current nilearn?,dear Dr gaël arthur the refer given help code diction learn gaël varoquaux gramfort A pedregosa F michel V thirion B 2011 multisubject dictionari learn segment atla brain spontan activ inform process medic imag springer pp 562–573 but read code look like refer mensch A varoquaux G thirion B 2016 compress onlin dictionari learn fast restingst fmri decomposit 2016 ieee 13th intern symposium biomed imag isbi present 2016 ieee 13th intern symposium biomed imag isbi pp 1282–1285 doi101109 isbi20167493501 Am I correct If I correct also includ msdl method nilearn futur best xiaowei refer nilearn dictionari learn help nilearn dictionari learn code,N,2017-03-03 15:57:10
+1,issue_title,1395,nilearn,nilearn,arthurmensch,2017-03-02 14:07:40,I just adressed the annoying messages from matplotlib 2.0. Works with matplotlib down to 1.3,start issue,Matplotlib 2.0 deprecation,I adress annoy messag matplotlib 20 work matplotlib 13,N,2017-03-04 11:02:36
+2,issue_closed,1395,nilearn,nilearn,GaelVaroquaux,2017-03-04 11:02:36,,closed issue,Matplotlib 2.0 deprecation,,N,2017-03-02 14:07:40
+3,pull_request_title,1395,nilearn,nilearn,arthurmensch,2017-03-02 14:07:40,I just adressed the annoying messages from matplotlib 2.0. Works with matplotlib down to 1.3,81857b9d65524326592385aecdc666a05c00380d,Matplotlib 2.0 deprecation,I adress annoy messag matplotlib 20 work matplotlib 13,N,2017-03-04 11:02:36
+4,pull_request_merged,1395,nilearn,nilearn,GaelVaroquaux,2017-03-04 11:02:36,Matplotlib 2.0 deprecation,b992e9eda220d6c17ee4a22685efac1b16b1c01a,Pull request merge from arthurmensch/nilearn:mpl_2 to nilearn/nilearn:master,matplotlib 20 deprec,N,2017-03-03 14:13:04
+5,issue_comment,1395,nilearn,nilearn,GaelVaroquaux,2017-03-03 14:13:04,Looks good to merge once the LooseVersion thing is addressed.,,,look good merg loosevers thing address,N,2017-03-03 16:29:55
+6,issue_comment,1395,nilearn,nilearn,GaelVaroquaux,2017-03-03 16:29:55,"You did a typo in the current code: ""__version__"" not ""version"". The tests are all failing :)",,,you typo current code version version the test fail,Y,2017-03-03 18:59:53
+7,issue_comment,1395,nilearn,nilearn,GaelVaroquaux,2017-03-03 18:59:53,The code seems broken under MPL 1.4. Check out travis.,,,the code seem broken mpl 14 check travi,Y,2017-03-04 11:02:29
+8,issue_comment,1395,nilearn,nilearn,GaelVaroquaux,2017-03-04 11:02:29,LGTM. Merging. Thanks a lot!,,,lgtm merg thank lot,N,2017-03-03 15:15:57
+9,issue_comment,1395,nilearn,nilearn,codecov[bot],2017-03-03 15:15:57,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=h1) Report
+> Merging [#1395](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/dffd5ec58041aea19f5b89d8a600f95768431c28?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1395      +/-   ##
+==========================================
++ Coverage   94.39%   94.39%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13388    13399      +11     
+==========================================
++ Hits        12637    12648      +11     
+  Misses        751      751
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/displays.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...fed92c088e2b657b0a74cc1f0d75e605557fdef3?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9kaXNwbGF5cy5weQ==) | `94.28% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/datasets/atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...fed92c088e2b657b0a74cc1f0d75e605557fdef3?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9hdGxhcy5weQ==) | `96.18% <100%> (+0.04%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=footer). Last update [dffd5ec...c7a821f](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...c7a821fcee9f708ce4fc9ca3ab8b7921cbcfda8c?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearnplottingdisplayspi whitecheckmark nilearndatasetsatlaspi whitecheckmark continu review full report codecov,N,2017-03-03 15:15:58
+10,issue_comment,1395,nilearn,nilearn,codecov[bot],2017-03-03 15:15:58,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=h1) Report
+> Merging [#1395](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/dffd5ec58041aea19f5b89d8a600f95768431c28?src=pr&el=desc) will **increase** coverage by `0.12%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1395      +/-   ##
+==========================================
++ Coverage   94.39%   94.51%   +0.12%     
+==========================================
+  Files         118      118              
+  Lines       13388    13470      +82     
+==========================================
++ Hits        12637    12731      +94     
++ Misses        751      739      -12
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/displays.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9kaXNwbGF5cy5weQ==) | `94.28% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/datasets/atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9hdGxhcy5weQ==) | `96.18% <100%> (+0.04%)` | :white_check_mark: |
+| [nilearn/tests/test_param_validation.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X3BhcmFtX3ZhbGlkYXRpb24ucHk=) | `97.56% <0%> (-2.44%)` | :x: |
+| [nilearn/decomposition/base.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2Jhc2UucHk=) | `95.48% <0%> (-0.2%)` | :x: |
+| [nilearn/signal.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9zaWduYWwucHk=) | `85.16% <0%> (-0.09%)` | :x: |
+| [nilearn/_utils/param_validation.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvcGFyYW1fdmFsaWRhdGlvbi5weQ==) | `100% <0%> (ø)` | :white_check_mark: |
+| [nilearn/decomposition/tests/test_base.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL3Rlc3RzL3Rlc3RfYmFzZS5weQ==) | `100% <0%> (ø)` | :white_check_mark: |
+| [nilearn/tests/test_masking.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X21hc2tpbmcucHk=) | `100% <0%> (ø)` | :white_check_mark: |
+| [nilearn/masking.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9tYXNraW5nLnB5) | `94.41% <0%> (+0.05%)` | :white_check_mark: |
+| [nilearn/decoding/tests/test_space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy90ZXN0cy90ZXN0X3NwYWNlX25ldC5weQ==) | `99.1% <0%> (+0.42%)` | :white_check_mark: |
+| ... and [3 more](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=tree-more) | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1395?src=pr&el=footer). Last update [dffd5ec...81857b9](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...81857b9d65524326592385aecdc666a05c00380d?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearnplottingdisplayspi whitecheckmark nilearndatasetsatlaspi whitecheckmark nilearnteststestparamvalidationpi x nilearndecompositionbasepi x nilearnsignalpi x nilearnutilsparamvalidationpi whitecheckmark nilearndecompositionteststestbasepi whitecheckmark nilearnteststestmaskingpi whitecheckmark nilearnmaskingpi whitecheckmark nilearndecodingteststestspacenetpi whitecheckmark 3 continu review full report codecov,N,2017-03-03 14:12:36
+11,pull_request_commit_comment,1395,nilearn,nilearn,GaelVaroquaux,2017-03-03 14:12:36,"I think that the right way to do the comparison is LooseVersion(matplotlib.__version__) >= LooseVersion(""1.4"")
+
+(same comment below)",81857b9d65524326592385aecdc666a05c00380d,"(None, '', u'nilearn/plotting/displays.py')",I think right way comparison looseversionmatplotlibvers comment,N,2017-03-03 16:40:38
+12,pull_request_commit_comment,1395,nilearn,nilearn,arthurmensch,2017-03-03 16:40:38,There is no version field in matplotlib lib,81857b9d65524326592385aecdc666a05c00380d,"(None, '', u'nilearn/plotting/displays.py')",there version field matplotlib lib,N,2017-03-02 13:08:39
+13,pull_request_commit,1395,nilearn,nilearn,arthurmensch,2017-03-02 13:08:39,Misc deprecation,fe507c3dba1d6ee247893af188547a3cd62d202d,,misc deprec,N,2017-03-02 13:29:10
+14,pull_request_commit,1395,nilearn,nilearn,arthurmensch,2017-03-02 13:29:10,LooseVersion,fd691af4b1bb1c5c73360927d619379756cf9e16,,loosevers,N,2017-03-02 13:34:27
+15,pull_request_commit,1395,nilearn,nilearn,arthurmensch,2017-03-02 13:34:27,LooseVersion,fed92c088e2b657b0a74cc1f0d75e605557fdef3,,loosevers,N,2017-03-03 15:15:46
+16,pull_request_commit,1395,nilearn,nilearn,arthurmensch,2017-03-03 15:15:46,FIX: version,c7a821fcee9f708ce4fc9ca3ab8b7921cbcfda8c,,fix version,N,2017-03-03 16:41:00
+17,pull_request_commit,1395,nilearn,nilearn,arthurmensch,2017-03-03 16:41:00,Reverted,48e5cf404efa642618083988a7d53f6de7f534db,,revert,N,2017-03-03 17:03:33
+18,pull_request_commit,1395,nilearn,nilearn,arthurmensch,2017-03-03 17:03:33,Tests,ecad8fcec10614f6566cca1084687efb741d2646,,test,N,2017-03-04 09:36:50

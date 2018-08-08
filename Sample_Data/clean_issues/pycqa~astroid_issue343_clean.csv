@@ -1,0 +1,13 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,343,pycqa,astroid,vfaronov,2016-06-29 14:17:41,"astroid’s [changelog](https://github.com/PyCQA/astroid/blob/master/ChangeLog) has not been updated for releases 1.4.2–1.4.6. I think it should be either maintained or dropped entirely.
+
+Currently [AllMyChanges.com](https://allmychanges.com/p/python/astroid/) is set to track the changelog, which causes it to think that 1.4.1 is the latest release. If you wish to drop the changelog, I can reconfigure it to track PyPI instead.
+",start issue,Changelog is not being updated,astroid’ changelog updat releas 142–146 I think either maintain drop entir current allmychangescom set track changelog caus think 141 latest releas If wish drop changelog I reconfigur track pypi instead
+issue_closed,343,pycqa,astroid,PCManticore,2016-06-29 14:28:28,,closed issue,Changelog is not being updated,
+issue_comment,343,pycqa,astroid,PCManticore,2016-06-29 14:28:28,"The changelog is maintained, although it contains entries from the minor releases, they were not put under a particular section. The changelogs from the minor releases have their Changelog properly updated. My plan is to write some day a script for automatically update the change log across the branches, but I didn't have time for this just yet.
+
+I'm sorry, but the changelog is not going anywhere.
+",,,the changelog maintain although contain entri minor releas put particular section the changelog minor releas changelog properli updat My plan write day script automat updat chang log across branch I didnt time yet Im sorri changelog go anywher
+issue_comment,343,pycqa,astroid,vfaronov,2016-06-29 14:59:15,"Ah, I see. It’s in the trees referenced by the release tags. Sorry for the confusion.
+",,,Ah I see it’ tree referenc releas tag sorri confus

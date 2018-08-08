@@ -1,0 +1,99 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1075,nilearn,nilearn,jeromedockes,2016-04-08 12:56:00,,start issue,fix check_embedded_nifti_masker,,N,2016-05-23 08:45:46
+3,pull_request_title,1075,nilearn,nilearn,jeromedockes,2016-04-08 12:56:00,,1008722ae5a75353d2be6eb5c3568728961f0289,fix check_embedded_nifti_masker,,N,2016-05-23 08:45:46
+1,issue_title,1089,nilearn,nilearn,GaelVaroquaux,2016-04-19 10:41:09,"As the bug was triggered in mask extraction, I needed to change the
+code to generate the data, and I needed to make it generate data that
+looked more like brainz so that the mask extraction routines did not
+fail.
+",start issue,BUG: make sure that CanICA works on single subject,As bug trigger mask extract I need chang code gener data I need make gener data look like brainz mask extract routin fail,N,2016-05-19 16:04:44
+3,pull_request_title,1089,nilearn,nilearn,GaelVaroquaux,2016-04-19 10:41:09,"As the bug was triggered in mask extraction, I needed to change the
+code to generate the data, and I needed to make it generate data that
+looked more like brainz so that the mask extraction routines did not
+fail.
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,BUG: make sure that CanICA works on single subject,As bug trigger mask extract I need chang code gener data I need make gener data look like brainz mask extract routin fail,N,2016-05-19 16:04:44
+5,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-04-19 17:30:11,"To reply to @AlexandreAbraham 's comment: in a sense, yes, it's a bit of a quick hack. However, it's a very light modification and it makes the code work like the user expects it: asking the user to do fit(['fmri.nii']) is not good. In addition, the current error
+
+In the long run, maybe we should think about this in the same time as when we do the globbiing.
+
+I have made sure that strings are well handle (as per @AlexandreAbraham 's remark).
+",,,To repli alexandreabraham comment sens ye bit quick hack howev light modif make code work like user expect ask user fitfmrinii good In addit current error In long run mayb think time globbi I made sure string well handl per alexandreabraham remark,N,2016-05-19 11:20:40
+6,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 11:20:40,"Rebased branch. Waiting for tests to finish.
+",,,rebas branch wait test finish,Y,2016-05-19 13:43:34
+7,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 13:43:34,"Can I haz merge?
+",,,can I haz merg,N,2016-05-19 14:00:14
+8,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 14:00:14,"Fixed. Thanks
+",,,fix thank,N,2016-05-19 16:04:42
+10,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-04-26 11:17:50,"This should work if rebased.
+",,,thi work rebas,N,2016-05-19 13:54:04
+11,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 13:54:04,"I can merge and fix the small stuff directly into master or you can fix it now.
+",,,I merg fix small stuff directli master fix,N,2016-05-19 14:13:33
+12,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 14:13:33,"I'll just wait for CI to go green, just to be sure, and I'll merge!
+",,,ill wait CI go green sure ill merg,N,2016-05-19 14:10:42
+13,issue_comment,1089,nilearn,nilearn,bthirion,2016-05-19 14:10:42,"LGTM
+",,,lgtm,N,2016-05-19 15:46:55
+17,pull_request_commit_comment,1089,nilearn,nilearn,banilo,2016-04-26 12:26:46,"- regression test that verifies one-subject compat?
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(68, '', u'nilearn/decomposition/tests/test_canica.py')",regress test verifi onesubject compat,Y,2016-05-19 13:51:19
+21,pull_request_commit,1089,nilearn,nilearn,GaelVaroquaux,2016-04-19 11:12:51,"ENH: cater for strings
+
+In Python 2, strings have an __iter__ but not in Python 3 :)",f3a83994a3771ddf2bc47bff107edbf274de9ae1,,enh cater string In python 2 string iter python 3,N,2016-05-19 13:59:52
+2,issue_closed,1100,nilearn,nilearn,lesteve,2016-06-09 12:47:03,,closed issue,[MRG+1] threshold=None implies keeping data as it is to be visualized in plot_prob_atlas function,,N,2016-05-19 09:19:06
+5,issue_comment,1100,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:40:42,"Aside from my minor comment, LGTM.
+",,,asid minor comment lgtm,N,2016-05-26 14:47:21
+6,issue_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:47:21,"A bit of wording too. Apart from that, +1 for merging.
+",,,A bit word apart 1 merg,N,2016-05-21 20:53:57
+7,issue_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:53:57,"Small wording details. LGTM otherwise.
+",,,small word detail lgtm otherwis,N,2016-05-22 13:07:08
+8,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-22 13:07:08,"Thanks @bthirion addressed wording details.
+",,,thank bthirion address word detail,N,2016-05-26 13:40:07
+9,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 13:40:07,"Any reviews on this please ?
+",,,ani review pleas,N,2016-05-26 14:48:39
+15,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-06-09 09:36:48,"@lesteve your comments are now fixed 
+",,,lestev comment fix,N,2016-05-19 11:14:44
+16,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-19 11:14:44,"Will always return 1e-6 in Python 2.7 and will fail in Python 3.
+
+`threshold=1e-6` is what you wanted, I think!
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",will alway return 1e6 python 27 fail python 3 want I think,N,2016-05-19 11:25:23
+17,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 11:25:23,"> threshold=1e-6 is what you wanted, I think!
+
+Yes, I will change.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",ye I chang,N,2016-05-19 14:11:08
+18,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 14:11:08,"@AlexandreAbraham do you think this sounds reasonable ? 
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",alexandreabraham think sound reason,N,2016-05-21 20:50:39
+19,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:50:39,"If a single
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",If singl,N,2016-05-21 20:50:56
+20,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:50:56,", the same percentile
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",percentil,N,2016-05-21 20:51:45
+21,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:51:45,"Otherwise, if a list of percentiles is provided, each map is...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",otherwis list percentil provid map,N,2016-05-21 20:52:07
+22,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:52:07,"with the number of ...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",number,N,2016-05-21 20:52:33
+23,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:52:33,"the given value
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",given valu,N,2016-05-21 20:53:01
+24,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:53:01,"to threshold the maps without...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",threshold map without,N,2016-05-26 14:39:24
+25,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:39:24,"I would say ""list of str or numbers""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",I would say list str number,N,2016-05-26 14:40:03
+26,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:40:03,"This parameter is optional and is used...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",thi paramet option use,N,2016-05-26 14:43:34
+27,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:43:34,"I agree that the strategy is hard to describe. Instead of describing it, I think that you should at least state what is the purpose of the ""auto"" keyword:
+
+The default strategy, corresponding to ""auto"", computes a threshold that seeks to minimize (yet not eliminate completely) the overlap between maps for a better display.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",I agre strategi hard describ instead describ I think least state purpos auto keyword the default strategi correspond auto comput threshold seek minim yet elimin complet overlap map better display,N,2016-05-26 14:44:50
+28,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:44:50,"It is a bit convoluted. I would simplify:
+
+If None, no threshold is applied.
+
+Even better:
+
+If None, a very small threshold is applied to remove numerical noise from the maps background.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",It bit convolut I would simplifi If none threshold appli even better If none small threshold appli remov numer nois map background,N,2016-05-26 14:46:38
+29,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 14:46:38,"> to remove numerical noise from the maps background
+
+A bit technical for user. I would keep this: ""If None, no threshold is applied.""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",A bit technic user I would keep If none threshold appli,N,2016-05-26 14:46:43
+30,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:46:43,"I would say ""The threshold can also be expressed as a percentile over the values of the whole atlas. In that case, the value must be specified in a string ending with a percent sign, e.g., ""25.3%"".""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",I would say the threshold also express percentil valu whole atla In case valu must specifi string end percent sign eg 253,N,2016-05-26 14:47:29
+43,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-06-09 12:47:24,"Good for me!
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')",good,N,2016-05-19 09:09:46
+44,pull_request_commit,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 09:09:46,threshold=None implies keeping data as it is to be visualized and documentation and tests,51e4bf99019476fdacace6063d3f3886ca00c021,,thresholdnon impli keep data visual document test,N,2016-05-19 13:54:02
+45,pull_request_commit,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 13:54:02,Fixing failures: py3 compat and doc string error,a6efe447ab3b68bf5decf0f6cbef4065bbf11c40,,fix failur py3 compat doc string error,N,2016-05-22 12:43:19

@@ -1,0 +1,7 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,188,aio-libs,aioredis,popravich,2017-01-19 10:30:07,add sentinel client example; updated other examples,start issue,examples update,add sentinel client exampl updat exampl
+issue_closed,188,aio-libs,aioredis,popravich,2017-01-23 08:41:50,,closed issue,examples update,
+pull_request_title,188,aio-libs,aioredis,popravich,2017-01-19 10:30:07,add sentinel client example; updated other examples,bdb22e085b909f54b091e31a100ebe3ca8eaf4d5,examples update,add sentinel client exampl updat exampl
+pull_request_merged,188,aio-libs,aioredis,popravich,2017-01-23 08:41:49,examples update,2d23dcac06029085f22fb63aa633ffc915a8f9ca,Pull request merge from aio-libs/aioredis:examples to aio-libs/aioredis:master,exampl updat
+pull_request_commit,188,aio-libs,aioredis,popravich,2017-01-19 10:29:13,add sentinel client example; updated other examples,bdb22e085b909f54b091e31a100ebe3ca8eaf4d5,,add sentinel client exampl updat exampl

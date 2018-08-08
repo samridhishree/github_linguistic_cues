@@ -1,0 +1,1805 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,996,nilearn,nilearn,KamalakerDadi,2016-02-19 11:34:15,"Attempts to Fix #930 
+",start issue,[MRG+1] Datasets: Uniform representation of labels in MSDL Atlas,attempt fix 930,N,2016-02-25 21:16:29
+2,issue_closed,996,nilearn,nilearn,AlexandreAbraham,2016-02-25 21:16:29,,closed issue,[MRG+1] Datasets: Uniform representation of labels in MSDL Atlas,,N,2016-02-19 11:34:15
+3,pull_request_title,996,nilearn,nilearn,KamalakerDadi,2016-02-19 11:34:15,"Attempts to Fix #930 
+",0ee801d61539161cedd186188a5249003cbd5bb6,[MRG+1] Datasets: Uniform representation of labels in MSDL Atlas,attempt fix 930,N,2016-02-25 21:16:29
+4,pull_request_merged,996,nilearn,nilearn,AlexandreAbraham,2016-02-25 21:16:29,[MRG+1] Datasets: Uniform representation of labels in MSDL Atlas,0168e840d3603a7b9c2564e5084bfed7bc0d92ba,Pull request merge from KamalakerDadi/nilearn:labels to nilearn/nilearn:master,mrg1 dataset uniform represent label msdl atla,N,2016-02-19 11:53:57
+5,issue_comment,996,nilearn,nilearn,GaelVaroquaux,2016-02-19 11:53:57,"We would like the code to be really interchangeable between Harvard-Oxford and MSDL.
+
+If you look at how Harvard-Oxford is used (for instance in the following example:
+http://nilearn.github.io/auto_examples/03_connectivity/plot_signal_extraction.html ) we need the 'labels' field of the data bunch to be an array of labels.
+
+Hence, I suggest putting in this field of the bunch, the ""labels"" field of the current structure, and a adding two other fields; one ""regions_coords"" that would be the current ""labels[['x', 'y', 'z']].tolist()"", and one ""network_name"" that would contain the ""networks"" field of the CSV.
+
+As a results, the code should look much more similar for Harvard-Oxford and for MSDL.
+",,,We would like code realli interchang harvardoxford msdl If look harvardoxford use instanc follow exampl need label field data bunch array label henc I suggest put field bunch label field current structur ad two field one regionscoord would current labelsx ztolist one networknam would contain network field csv As result code look much similar harvardoxford msdl,N,2016-02-19 11:56:01
+6,issue_comment,996,nilearn,nilearn,GaelVaroquaux,2016-02-19 11:56:01,"We also need to make fetch_atlas_aal consistent: the field ""regions"" should be renamed to ""maps"", and we should rethink how the names are given. The goal would be to make AAL and Harvard-Oxford completely interchangeable in the examples:
+
+http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_atlas_aal.html#nilearn.datasets.fetch_atlas_aal
+",,,We also need make fetchatlasa consist field region renam map rethink name given the goal would make aal harvardoxford complet interchang exampl,N,2016-02-22 12:53:42
+7,issue_comment,996,nilearn,nilearn,GaelVaroquaux,2016-02-22 12:53:42,"You have what I believe is a non-spurious failure on numpy 1.6:
+https://travis-ci.org/nilearn/nilearn/jobs/110814412
+",,,you I believ nonspuri failur numpi 16,N,2016-02-25 07:44:59
+8,issue_comment,996,nilearn,nilearn,KamalakerDadi,2016-02-25 07:44:59,"Can I also have reviews on this ?
+",,,can I also review,N,2016-02-22 12:56:22
+9,pull_request_commit_comment,996,nilearn,nilearn,GaelVaroquaux,2016-02-22 12:56:22,"I would like these 2 assignments split in 2 different lines: it makes it easier to follow for the beginner.
+",0ee801d61539161cedd186188a5249003cbd5bb6,"(None, '', u'examples/03_connectivity/plot_probabilistic_atlas_extraction.py')",I would like 2 assign split 2 differ line make easier follow beginn,N,2016-02-22 13:01:21
+10,pull_request_commit_comment,996,nilearn,nilearn,GaelVaroquaux,2016-02-22 13:01:21,"This is the line that's failing in Python 2.6.
+",0ee801d61539161cedd186188a5249003cbd5bb6,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",thi line that fail python 26,N,2016-02-22 15:33:56
+11,pull_request_commit_comment,996,nilearn,nilearn,KamalakerDadi,2016-02-22 15:33:56,"I am not sure whether we really care about Python 2.6 failure here. @AlexandreAbraham any ideas ?
+",0ee801d61539161cedd186188a5249003cbd5bb6,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",I sure whether realli care python 26 failur alexandreabraham idea,N,2016-02-22 15:37:45
+12,pull_request_commit_comment,996,nilearn,nilearn,AlexandreAbraham,2016-02-22 15:37:45,"We are officially supporting Python 2.6 so the test suite must run in 2.6. It should not be that hard to fix, why not using `np.savetxt` ?
+",0ee801d61539161cedd186188a5249003cbd5bb6,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",We offici support python 26 test suit must run 26 It hard fix use,Y,2016-02-22 15:44:16
+13,pull_request_commit_comment,996,nilearn,nilearn,GaelVaroquaux,2016-02-22 15:44:16,"> We are officially supporting Python 2.6 so the test suite must run in 2.6. It
+> should not be that hard to fix, why not using np.savetxt ?
+
+If np.savetxt does the trick, then let's use it.
+
+However, I am really considering droping Py2.6
+",0ee801d61539161cedd186188a5249003cbd5bb6,"(None, '', u'nilearn/datasets/tests/test_atlas.py')",If npsavetxt trick let use howev I realli consid drope py26,N,2016-02-19 11:28:26
+14,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-19 11:28:26,Datasets: Uniform representation of labels in MSDL Atlas,2987d6af74ced55de5195d0dcd381366a4c1b541,,dataset uniform represent label msdl atla,N,2016-02-21 17:12:44
+15,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-21 17:12:44,"Attempts to fix Gael comments, having labels, coords, networks in a bunch",a532c86956ed565ea170ba5353e1b31ce06a0a4d,,attempt fix gael comment label coord network bunch,N,2016-02-21 19:43:59
+16,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-21 19:43:59,Uniform representation with aal atlas,4df0fa8074b674fe6f17eb4d0e7702c25a38167f,,uniform represent aal atla,N,2016-02-21 20:13:53
+17,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-21 20:13:53,changed accordingly whats new documentation and conflicts,c61b05472bb3cb24bc185a0ab664f2bcdcae5031,,chang accordingli what new document conflict,N,2016-02-22 16:36:39
+18,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-22 16:36:39,Attempts to fix Py26 failure,299207744a82077f8b703844a1456e225163272f,,attempt fix py26 failur,N,2016-02-23 10:14:28
+19,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-23 10:14:28,Fixing tests to save csv file,9275b23a3d9d19e304def2cf4b24e42620e219ba,,fix test save csv file,N,2016-02-23 10:30:01
+20,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-23 10:30:01,Passing tests,7fe79ef6b6028e640003d872678b939313a187a7,,pass test,N,2016-02-23 11:31:36
+21,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-23 11:31:36,Passing tests,7a99bf198d7bd231d19e88cd0da285ae062f850a,,pass test,N,2016-02-23 14:34:18
+22,pull_request_commit,996,nilearn,nilearn,KamalakerDadi,2016-02-23 14:34:18,Making tests pass,bd66fd2b850f51ae61ce8c2ace20550add53e4f5,,make test pass,N,2016-02-23 16:21:10
+1,issue_title,986,nilearn,nilearn,aabadie,2016-02-09 09:37:50,"The memory profiling test function fails sporadically : sometimes the measured memory consumption is equal to 0.0, thus the  ̀test_memory_usage`fails.
+The issue is related to`memory_profiler` measures accuracy, maybe it could be fixed by performing several measures and returning the max.
+",start issue,Memory profiling test function fails from time to time,the memori profil test function fail sporad sometim measur memori consumpt equal 00 thu ̀testmemoryusag memoryprofil,N,2016-02-17 14:38:07
+2,issue_closed,986,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:38:07,,closed issue,Memory profiling test function fails from time to time,,N,2016-02-17 06:45:04
+3,issue_comment,986,nilearn,nilearn,GaelVaroquaux,2016-02-17 06:45:04,"If the test is fast, I am :+1: on performing several measures (3?) and returning the max.
+",,,If test fast I 1 perform sever measur 3 return max,Y,2016-02-17 08:02:12
+1,issue_title,918,nilearn,nilearn,AlexandreAbraham,2015-12-17 08:53:29,"Fix #914 
+
+There are still problems since some lateralized regions are splitted because they cross the inter-hemispheric limit but this PR, as for now, addresses most problems.
+",start issue,[MRG+1] Harvard oxford,fix 914 there still problem sinc later region split cross interhemispher limit PR address problem,N,2016-02-03 13:22:45
+3,pull_request_title,918,nilearn,nilearn,AlexandreAbraham,2015-12-17 08:53:29,"Fix #914 
+
+There are still problems since some lateralized regions are splitted because they cross the inter-hemispheric limit but this PR, as for now, addresses most problems.
+",9ffef88b03f894712ccaaadba28ce22198bd5526,[MRG+1] Harvard oxford,fix 914 there still problem sinc later region split cross interhemispher limit PR address problem,N,2016-02-03 13:22:45
+5,issue_comment,918,nilearn,nilearn,AlexandreAbraham,2015-12-17 10:25:03,"Yes we can. But as the tests shows, this is still WIP for the moment.
+",,,ye but test show still wip moment,Y,2016-02-01 16:59:28
+6,issue_comment,918,nilearn,nilearn,AlexandreAbraham,2016-02-01 16:59:28,"> TDD ;-) ?
+
+Actually, my test is the real atlas. But I can't use it in the test suite so I've just put a test using toy data.
+
+The PR should is now mergeable.
+",,,actual test real atla but I cant use test suit ive put test use toy data the PR mergeabl,Y,2016-02-02 00:29:40
+7,issue_comment,918,nilearn,nilearn,AlexandreAbraham,2016-02-02 00:29:40,"The principle is that the splitter consider as lateralized a component with at least 95% of its voxels in one hémisphère. What you observés means that this région vas more than 5% of its voxel in the right hémisphère. I will check that tomorrow.
+",,,the principl splitter consid later compon least 95 voxel one hémisphèr what observé mean région va 5 voxel right hémisphèr I check tomorrow,N,2016-02-02 11:53:47
+8,issue_comment,918,nilearn,nilearn,AlexandreAbraham,2016-02-02 11:53:47,"Do you use the last version of the PR? I can't reproduce your problem.
+",,,Do use last version PR I cant reproduc problem,N,2016-02-03 13:22:43
+9,issue_comment,918,nilearn,nilearn,AlexandreAbraham,2016-02-03 13:22:43,"Merging then!
+",,,merg,N,2016-02-02 18:33:14
+10,issue_comment,918,nilearn,nilearn,salma1601,2016-02-02 18:33:14,"> Do you use the last version of the PR?
+
+No, sorry !! everything looks right now including for subcortical atalses
+",,,No sorri everyth look right includ subcort atals,N,2016-02-01 21:34:54
+11,issue_comment,918,nilearn,nilearn,salma1601,2016-02-01 21:34:54,"For cortical atlases, looks OK.
+For sub cortical, should invalidate the use of symmetric_split because it gives strange things
+
+``` Python
+from nilearn import datasets
+atlas = datasets.fetch_atlas_harvard_oxford('sub-maxprob-thr0-1mm', symmetric_split=True)
+print(atlas.labels[2])
+```
+
+gives `Left Cerebral White Matter, right part`
+",,,for cortic atlas look OK for sub cortic invalid use symmetricsplit give strang thing give,N,2016-02-02 10:22:19
+12,issue_comment,918,nilearn,nilearn,salma1601,2016-02-02 10:22:19,"Everything works great for cortical atlases. Seems to me it is just as you said @AlexandreAbraham
+
+> Already splitted atlases should not be splitted again. The atlas you plot is actually not modified in our but the list of labels is modified even when it should not be.
+",,,everyth work great cortic atlas seem said alexandreabraham,N,2016-02-02 15:08:29
+16,pull_request_commit,918,nilearn,nilearn,AlexandreAbraham,2015-12-17 10:28:35,Fix failing test,792f3c9412eb5435b681655f1ad0e7365b5bd50f,,fix fail test,N,2016-02-01 16:05:06
+17,pull_request_commit,918,nilearn,nilearn,AlexandreAbraham,2016-02-01 16:05:06,Makes splitting more robust,c02649ebd0967be58ca4043eedcbc9c076dbbd8c,,make split robust,N,2016-02-01 16:38:27
+1,issue_title,1033,nilearn,nilearn,aabadie,2016-02-29 14:09:01,"Added an example with resample_to_img function.
+",start issue,[MRG] Resample to img example,ad exampl resampletoimg function,N,2016-03-02 09:23:15
+2,issue_closed,1033,nilearn,nilearn,GaelVaroquaux,2016-03-02 09:23:15,,closed issue,[MRG] Resample to img example,,N,2016-02-29 14:09:01
+3,pull_request_title,1033,nilearn,nilearn,aabadie,2016-02-29 14:09:01,"Added an example with resample_to_img function.
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,[MRG] Resample to img example,ad exampl resampletoimg function,N,2016-03-02 09:23:15
+4,pull_request_merged,1033,nilearn,nilearn,GaelVaroquaux,2016-03-02 09:23:15,[MRG] Resample to img example,2ff524a1406677275d3fc23153dd3bee23a18493,Pull request merge from aabadie/nilearn:resample_to_img_example to nilearn/nilearn:master,mrg resampl img exampl,N,2016-02-29 16:10:12
+5,issue_comment,1033,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:10:12,"Indeed, circleCI failed :(
+",,,inde circleci fail,N,2016-03-01 14:58:13
+6,issue_comment,1033,nilearn,nilearn,GaelVaroquaux,2016-03-01 14:58:13,"Indeed. Why do you use ""dim"" in the plotting? I tend to think that simple examples should focus on conveying only one message, and thus avoid any unecessary options.
+",,,inde whi use dim plot I tend think simpl exampl focu convey one messag thu avoid unecessari option,N,2016-03-02 09:23:27
+7,issue_comment,1033,nilearn,nilearn,GaelVaroquaux,2016-03-02 09:23:27,"Merged. Thanks
+",,,merg thank,N,2016-03-02 09:23:28
+8,issue_comment,1033,nilearn,nilearn,GaelVaroquaux,2016-03-02 09:23:28,"LGTM to me too. Let's merge!
+",,,lgtm let merg,N,2016-02-29 21:48:01
+9,issue_comment,1033,nilearn,nilearn,aabadie,2016-02-29 21:48:01,"> Indeed, circleCI failed :(
+
+@GaelVaroquaux, fixed !
+",,,gaelvaroquaux fix,N,2016-03-01 13:29:19
+10,issue_comment,1033,nilearn,nilearn,aabadie,2016-03-01 13:29:19,"@KamalakerDadi, I addressed your comments. Circle CI was failing due a bad indentation in the documentation I added. Let's see if it passes now.
+",,,kamalakerdadi I address comment circl CI fail due bad indent document I ad let see pass,N,2016-03-01 14:55:47
+11,issue_comment,1033,nilearn,nilearn,aabadie,2016-03-01 14:55:47,"@GaelVaroquaux, @KamalakerDadi, CI's tests passed. The generated documentation seems ok: https://circle-artifacts.com/gh/aabadie/nilearn/273/artifacts/0/home/ubuntu/nilearn/doc/_build/html/index.html
+",,,gaelvaroquaux kamalakerdadi ci test pass the gener document seem ok,Y,2016-03-01 15:20:03
+12,issue_comment,1033,nilearn,nilearn,aabadie,2016-03-01 15:20:03,"> Why do you use ""dim"" in the plotting?
+
+I copy pasted this from another example and didn't change that. Will do !
+",,,I copi past anoth exampl didnt chang will,N,2016-03-01 15:23:36
+13,issue_comment,1033,nilearn,nilearn,aabadie,2016-03-01 15:23:36,"@GaelVaroquaux, indeed, removing the ndim option creates a nicer rendering (less bright).
+",,,gaelvaroquaux inde remov ndim option creat nicer render less bright,N,2016-03-02 09:17:32
+14,issue_comment,1033,nilearn,nilearn,aabadie,2016-03-02 09:17:32,"@GaelVaroquaux, @KamalakerDadi still any comment about this one ?
+",,,gaelvaroquaux kamalakerdadi still comment one,N,2016-03-02 09:22:41
+15,issue_comment,1033,nilearn,nilearn,KamalakerDadi,2016-03-02 09:22:41,"I have no comments. LGTM
+",,,I comment lgtm,N,2016-02-29 14:12:01
+16,pull_request_commit_comment,1033,nilearn,nilearn,GaelVaroquaux,2016-02-29 14:12:01,"The '|' at the beginning of this line seems fishy to me. Is this valid rst?
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'doc/manipulating_images/data_preparation.rst')",the begin line seem fishi Is valid rst,N,2016-02-29 16:45:37
+17,pull_request_commit_comment,1033,nilearn,nilearn,aabadie,2016-02-29 16:45:37,"that's a typo on my side, sorry. I pushed a fix.
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'doc/manipulating_images/data_preparation.rst')",that typo side sorri I push fix,N,2016-02-29 22:15:10
+18,pull_request_commit_comment,1033,nilearn,nilearn,KamalakerDadi,2016-02-29 22:15:10,"@aabadie It would be nice if you ""print affine"" and show before and after resampling effect, which gives nice illustration to the example.
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'examples/04_manipulating_images/plot_resample_to_template.py')",aabadi It would nice print affin show resampl effect give nice illustr exampl,N,2016-02-29 22:15:43
+19,pull_request_commit_comment,1033,nilearn,nilearn,KamalakerDadi,2016-02-29 22:15:43,"to a template reference ""image"" ?
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'doc/manipulating_images/manipulating_images.rst')",templat refer imag,N,2016-02-29 22:16:24
+20,pull_request_commit_comment,1033,nilearn,nilearn,KamalakerDadi,2016-02-29 22:16:24,"Resampling ""an image"" to a given reference image
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'doc/manipulating_images/data_preparation.rst')",resampl imag given refer imag,N,2016-02-29 22:18:51
+21,pull_request_commit_comment,1033,nilearn,nilearn,KamalakerDadi,2016-02-29 22:18:51,"May be title should focus to say about ""resampling"" ?
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'examples/04_manipulating_images/plot_resample_to_template.py')",may titl focu say resampl,N,2016-02-29 22:19:38
+22,pull_request_commit_comment,1033,nilearn,nilearn,KamalakerDadi,2016-02-29 22:19:38,"space missing after import.
+",de9ee901c5be600cb0aed61d1da159fbcb213fa6,"(None, '', u'examples/04_manipulating_images/plot_resample_to_template.py')",space miss import,N,2016-02-29 13:26:22
+23,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-02-29 13:26:22,adding resample_to_img example in manipulating images,e8500047cf159ccd4e619ab4da62f92329fd048f,,ad resampletoimg exampl manipul imag,N,2016-02-29 14:06:24
+24,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-02-29 14:06:24,adding reference and a bit of documentation to resample_to_img function,94e30bb3cfa0aa2be722e4dd6968bdcd5a928ba2,,ad refer bit document resampletoimg function,N,2016-02-29 16:45:09
+25,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-02-29 16:45:09,fixing typo,1b641b5aa4b85cb1072c1e811741e5a625bb00eb,,fix typo,N,2016-02-29 21:24:41
+26,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-02-29 21:24:41,polishing resampling documentation,c44f087b34e8756f06187bb659bf32ee3af9574b,,polish resampl document,N,2016-03-01 10:54:06
+27,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-03-01 10:54:06,fixing indentation,0365bd257b1f4637ec674ede41ce469b26becc12,,fix indent,N,2016-03-01 12:37:44
+28,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-03-01 12:37:44,adressing comments,635313bd7efe865b665c9f23ac81701bace311f3,,adress comment,N,2016-03-01 12:47:35
+29,pull_request_commit,1033,nilearn,nilearn,aabadie,2016-03-01 12:47:35,fixing indentation issue,24e719ed91ba0b94653f10d8aa93cd2ac94f13d0,,fix indent issu,N,2016-03-01 15:22:54
+1,issue_title,976,nilearn,nilearn,aabadie,2016-02-02 10:54:58,"This should fix #972 
+
+The general idea is to use the CIRCLECI environment variable available when building on circle ci along with `functools.partial` to override a parameter of the fetch functions.
+I choose to add a `report_frequency` named parameter (I couldn't find a better one, suggestions greatly appreciated) in `_chunk_read` with is set so that it keeps the current behaviour by default. Setting it to 5, will reduce the number of report displayed.
+It seems that the output on circle ci is pretty weird: on my local computer I have 5 distinct output but this is not always the case on the ci.
+",start issue,MRG: limit download status output displayed on circle ci,thi fix 972 the gener idea use circleci environ variabl avail build circl ci along overrid paramet fetch function I choos add name paramet I couldnt find better one suggest greatli appreci set keep current behaviour default set 5 reduc number report display It seem output circl ci pretti weird local comput I 5 distinct output alway case ci,N,2016-02-03 17:21:01
+2,issue_closed,976,nilearn,nilearn,lesteve,2016-02-03 17:21:01,,closed issue,MRG: limit download status output displayed on circle ci,,N,2016-02-02 10:54:58
+3,pull_request_title,976,nilearn,nilearn,aabadie,2016-02-02 10:54:58,"This should fix #972 
+
+The general idea is to use the CIRCLECI environment variable available when building on circle ci along with `functools.partial` to override a parameter of the fetch functions.
+I choose to add a `report_frequency` named parameter (I couldn't find a better one, suggestions greatly appreciated) in `_chunk_read` with is set so that it keeps the current behaviour by default. Setting it to 5, will reduce the number of report displayed.
+It seems that the output on circle ci is pretty weird: on my local computer I have 5 distinct output but this is not always the case on the ci.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,MRG: limit download status output displayed on circle ci,thi fix 972 the gener idea use circleci environ variabl avail build circl ci along overrid paramet fetch function I choos add name paramet I couldnt find better one suggest greatli appreci set keep current behaviour default set 5 reduc number report display It seem output circl ci pretti weird local comput I 5 distinct output alway case ci,N,2016-02-03 17:21:01
+4,pull_request_merged,976,nilearn,nilearn,lesteve,2016-02-03 17:21:01,MRG: limit download status output displayed on circle ci,8672aa9f71fff6d85cad93fe6cc8933618f46593,Pull request merge from aabadie/nilearn:fix_cicleci_verbosity to nilearn/nilearn:master,mrg limit download statu output display circl ci,N,2016-02-02 13:40:07
+5,issue_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-02 13:40:07,"I would still like some progress on circleCI, to be able to debug download problems. 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Feb 2, 2016, 14:37, at 14:37, ""Loïc Estève"" notifications@github.com wrote:
+
+> > This is what I first tried but this totally disable the output. I
+> > prefer having a subset of messages instead.
+> > 
+> > Indeed, CircleCI replaces carriage returns (\r) by newlines.
+> 
+> Just to reiterate, we are looking for a CircleCI-specific work-around
+> here, because CircleCI changes '\r' into newlines. On a terminal I am
+> not sure you would only change the rate of refresh and I am not
+> convinced this would be really useful. This is why I was saying that
+> setting verbose=0 in CircleCI seemed to do the job well enough.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/976#issuecomment-178576602
+",,,I would still like progress circleci abl debug download problem sent phone pleas forgiv breviti mi spell On feb 2 2016 1437 1437 loïc estèv notificationsgithubcom wrote,N,2016-02-02 13:45:53
+6,issue_comment,976,nilearn,nilearn,aabadie,2016-02-02 13:45:53,"still about playing on verbose default value, with the current design setting `verbose=2` to keep the same behaviour as the one with `verbose=1` has a global impact.
+In the end, I prefer my change, which is less intrusive: it fixes the initial problem but doesn't change the default behaviour.
+",,,still play verbos default valu current design set keep behaviour one global impact In end I prefer chang less intrus fix initi problem doesnt chang default behaviour,N,2016-02-02 15:38:22
+7,issue_comment,976,nilearn,nilearn,aabadie,2016-02-02 15:38:22,"> CircleCI replaces carriage returns (\r) by newlines.
+
+Looking at the behavior on circle ci, to me the problem is more due to the refresh rate. The default behaviour (update the line each time a block 8192 bytes is downloaded) is too fast and circle CI cannot handle correctly the '\r'. There are other places where writing to `sys.stderr` is used and the problem doesn't happen because the time between 2 displays is long enough for circle ci output to handle the '\r' correctly.
+Renaming `report_frequency` with `report_updates` would probably better reflect what this option actually does. Maybe we can use a higher fixed value (something like 100) and remove all CIRCLECI related code.
+",,,look behavior circl ci problem due refresh rate the default behaviour updat line time block 8192 byte download fast circl CI cannot handl correctli r there place write use problem doesnt happen time 2 display long enough circl ci output handl r correctli renam would probabl better reflect option actual mayb use higher fix valu someth like 100 remov circleci relat code,N,2016-02-02 15:40:43
+8,issue_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-02 15:40:43,"What you're suggesting is to say that we don't update more than eg once a
+second might fix the problem? That would be awesome.
+",,,what your suggest say dont updat eg second might fix problem that would awesom,N,2016-02-02 15:43:47
+9,issue_comment,976,nilearn,nilearn,aabadie,2016-02-02 15:43:47,"> What you're suggesting is to say that we don't update more than eg once a second might fix the problem? That would be awesome.
+
+I looked at the output on circle (with the change of this PR) and noticed that each 4 lines (`Downloaded xx% ...`) were displayed and correctly overwritten.
+",,,I look output circl chang PR notic 4 line display correctli overwritten,N,2016-02-02 15:50:44
+10,issue_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-02 15:50:44,"> ```
+> we don't update more than eg once a second might fix the problem?
+> ```
+> 
+> I looked at the output on circle (with the change of this PR) and
+> noticed that each 4 lines (Downloaded xx% ...) were displayed and
+> correctly overwritten.
+
+OK, let's try a rule with ""no update more than once a second"" then, and
+see what it gives.
+",,,OK let tri rule updat second see give,N,2016-02-02 15:52:02
+11,issue_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-02 15:52:02,"> I looked at the output on circle (with the change of this PR) and noticed that each 4 lines (Downloaded xx% ...) were displayed and correctly overwritten.
+
+OK, the behavior of the output is very strange... For example:
+
+```
+Downloading data from https://www.nitrc.org/frs/download.php/7783/adhd40_0010064.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7784/adhd40_0010128.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7785/adhd40_0021019.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7786/adhd40_0023008.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7787/adhd40_0023012.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7788/adhd40_0027011.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7789/adhd40_0027018.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7790/adhd40_0027034.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7791/adhd40_0027037.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7792/adhd40_1019436.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7793/adhd40_1206380.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7794/adhd40_1418396.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7795/adhd40_1517058.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7796/adhd40_1552181.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7797/adhd40_1562298.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7798/adhd40_1679142.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7799/adhd40_2014113.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7800/adhd40_2497695.tgz ...
+Downloading data from https://www.nitrc.org/frs/download.php/7801/adhd40_2950754.tgz ...
+Downloaded 67925261 of 67925261 bytes (100.00%,    0.0s remaining) ...done. (67.9253 MB, 12 seconds, 0 min)
+Extracting data from /home/ubuntu/nilearn_data/adhd/358cf54c801c6157e7ce6865e8dd53e2/adhd40_3007585.tgz..... done.
+
+Downloaded 32919780 of 32919780 bytes (100.00%,    0.0s remaining) ...done. (32.9198 MB, 8 seconds, 0 min)
+Extracting data from /home/ubuntu/nilearn_data/adhd/358cf54c801c6157e7ce6865e8dd53e2/adhd40_3154996.tgz..... done.
+```
+
+Here, the ""Downloaded..."" messages should be after each ""Downloading..."" line. I won't try to understand what's happening but, if it is okay just to print less, I'll be happy!
+",,,OK behavior output strang for exampl here download messag download line I wont tri understand what happen okay print less ill happi,N,2016-02-02 16:50:24
+12,issue_comment,976,nilearn,nilearn,aabadie,2016-02-02 16:50:24,">  I won't try to understand what's happening but, if it is okay just to print less, I'll be happy!
+
+Looking at the current build on circle ci, the last commit of this PR works like a charm ! no more output flooding, one can see the download progression for each % (now it's an int, we don't need 2 precision digits).
+Tell me if this makes you happy.
+",,,look current build circl ci last commit PR work like charm output flood one see download progress int dont need 2 precis digit tell make happi,N,2016-02-02 17:27:33
+13,issue_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-02 17:27:33,"Indeed, it does look great now. Thanks a lot. +1 for merge!
+",,,inde look great thank lot 1 merg,N,2016-02-03 08:58:49
+14,issue_comment,976,nilearn,nilearn,aabadie,2016-02-03 08:58:49,"is it ok for you @AlexandreAbraham ?
+",,,ok alexandreabraham,N,2016-02-03 09:47:16
+15,issue_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 09:47:16,"I'm OK to set the update ""per percent"" on CircleCI but I don't see the interest of doing it for the everyday user, when we can do a more regular update. For instance, if I take the biggest file I've ever downloaded through nilearn, 3GB, that means one update per 30MB which means less than one update per minute on my crappy connection @home. With that update rate, I'll never know if the download is ongoing or stalled.
+
+But since I've no strong feeling about that and that situation (downloading big files) is very rare, I will follow the decision made by the others.
+",,,Im OK set updat per percent circleci I dont see interest everyday user regular updat for instanc I take biggest file ive ever download nilearn 3gb mean one updat per 30mb mean less one updat per minut crappi connect home with updat rate ill never know download ongo stall but sinc ive strong feel situat download big file rare I follow decis made other,N,2016-02-03 09:52:39
+16,issue_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-03 09:52:39,"> I'm OK to set the update ""per percent"" on CircleCI but I don't see the
+> interest of doing it for the everyday user, when we can do a more
+> regular update.
+
+I feel the same.
+
+How about a time-based decision: I would like an update every couple of
+second. It seems that this would solve the circleCI problem too.
+",,,I feel how timebas decis I would like updat everi coupl second It seem would solv circleci problem,N,2016-02-03 09:55:04
+17,issue_comment,976,nilearn,nilearn,aabadie,2016-02-03 09:55:04,"> How about a time-based decision: I would like an update every couple of second. It seems that this would solve the circleCI problem too.
+
+I agree. I can try to slightly change the output messages with an activity like character just to show that something is running.
+",,,I agre I tri slightli chang output messag activ like charact show someth run,N,2016-02-03 09:56:22
+18,issue_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-03 09:56:22,"> I agree. I can try to slightly change the output messages with an
+> activity like character just to show that something is running.
+
+I would also not display percents, but a finer resolution. That would
+show progress
+",,,I would also display percent finer resolut that would show progress,N,2016-02-03 09:57:36
+19,issue_comment,976,nilearn,nilearn,aabadie,2016-02-03 09:57:36,"> I would also not display percents, but a finer resolution. That would show progress
+
+Ok
+",,,Ok,N,2016-02-03 10:31:25
+20,issue_comment,976,nilearn,nilearn,aabadie,2016-02-03 10:31:25,"> How about a time-based decision
+
+Done, the download report is refreshed every half second and looking at circle ci output now, it works.
+",,,done download report refresh everi half second look circl ci output work,N,2016-02-03 12:44:45
+21,issue_comment,976,nilearn,nilearn,aabadie,2016-02-03 12:44:45,"I applied your comments applied @lesteve 
+",,,I appli comment appli lestev,N,2016-02-03 12:46:07
+22,issue_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:46:07,"> I applied your comments applied @lesteve
+
+Thanks. There was a weird Travis failure on the python 2.7 distrib related to pip being unable to install nose-timer. Let's hope it was just a temporary glitch!
+",,,thank there weird travi failur python 27 distrib relat pip unabl instal nosetim let hope temporari glitch,Y,2016-02-03 13:46:45
+23,issue_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 13:46:45,"I'll merge after circleCI is happy.
+",,,ill merg circleci happi,N,2016-02-03 14:58:57
+24,issue_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:58:57,"CircleCI failure seems unrelated. Can anybody confirm?
+",,,circleci failur seem unrel can anybodi confirm,N,2016-02-03 15:12:09
+25,issue_comment,976,nilearn,nilearn,lesteve,2016-02-03 15:12:09,"> CircleCI failure seems unrelated. Can anybody confirm?
+
+Looks like the download of http://www.nitrc.org/frs/download.php/1071/NYU_TRT_session1a.tar.gz failed.
+
+```
+Downloading data from http://www.nitrc.org/frs/download.php/1071/NYU_TRT_session1a.tar.gz ...
+________________________________________________________________________________
+../examples/03_connectivity/plot_rest_clustering.py is not compiling:
+Traceback (most recent call last):
+  File ""/home/ubuntu/nilearn/doc/sphinxext/sphinx_gallery/gen_rst.py"", line 467, in execute_script
+    exec(code_block, example_globals)
+  File ""<string>"", line 8, in <module>
+  File ""/home/ubuntu/nilearn/nilearn/datasets/func.py"", line 382, in fetch_nyu_rest
+    verbose=verbose)
+  File ""/home/ubuntu/nilearn/nilearn/datasets/utils.py"", line 702, in _fetch_files
+    overwrite=overwrite)
+  File ""/home/ubuntu/nilearn/nilearn/datasets/utils.py"", line 529, in _fetch_file
+    data = url_opener.open(request)
+  File ""/usr/lib/python2.7/urllib2.py"", line 404, in open
+    response = self._open(req, data)
+  File ""/usr/lib/python2.7/urllib2.py"", line 422, in _open
+    '_open', req)
+  File ""/usr/lib/python2.7/urllib2.py"", line 382, in _call_chain
+    result = func(*args)
+  File ""/usr/lib/python2.7/urllib2.py"", line 1214, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File ""/usr/lib/python2.7/urllib2.py"", line 1187, in do_open
+    r = h.getresponse(buffering=True)
+  File ""/usr/lib/python2.7/httplib.py"", line 1051, in getresponse
+    response.begin()
+  File ""/usr/lib/python2.7/httplib.py"", line 415, in begin
+    version, status, reason = self._read_status()
+  File ""/usr/lib/python2.7/httplib.py"", line 371, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File ""/usr/lib/python2.7/socket.py"", line 476, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 104] Connection reset by peer
+
+```
+",,,look like download fail,N,2016-02-03 17:20:58
+26,issue_comment,976,nilearn,nilearn,lesteve,2016-02-03 17:20:58,"All CIs are green, merging, thanks !
+",,,all ci green merg thank,N,2016-02-02 11:12:06
+27,pull_request_commit_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-02 11:12:06,"What if total_size is None? (which is possible given the code above)
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",what totals none possibl given code,N,2016-02-02 11:14:50
+28,pull_request_commit_comment,976,nilearn,nilearn,GaelVaroquaux,2016-02-02 11:14:50,"I think that I would prefer having an iteration counter of the ""while"" loop, and reporting only if that iteration counter is an integer fraction of report_frequency, ie
+
+<pre>
+if i // report_frequency == 1:
+   report
+</pre>
+
+
+I find that such a logic is more robust than a logic on the chunk size (and easier to read).
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",I think I would prefer iter counter loop report iter counter integ fraction reportfrequ ie preif reportfrequ 1 report pre I find logic robust logic chunk size easier read,N,2016-02-02 12:32:26
+29,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-02 12:32:26,"If total_size is None, the whole remaining content is downloaded. So normally it's not None at this point.
+see https://github.com/nilearn/nilearn/pull/976/files#diff-c22120ae66106d07e452aed0f968c08eR150
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",If totals none whole remain content download So normal none point see,N,2016-02-02 12:32:47
+30,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-02 12:32:47,"Indeed, I'll try to make this clearer.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",inde ill tri make clearer,N,2016-02-02 13:07:26
+31,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-02 13:07:26,"Reading at the code more carefully, total_size can be None, in case of a failure. See https://github.com/nilearn/nilearn/pull/976/files#diff-c22120ae66106d07e452aed0f968c08eR158
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",read code care totals none case failur see,N,2016-02-02 13:19:55
+32,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-02 13:19:55,"Using modulo operator makes things clearer.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",use modulo oper make thing clearer,N,2016-02-02 16:56:09
+33,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-02 16:56:09,"I made a typo here (_of_ should be _or_)
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",I made typo,N,2016-02-03 08:58:20
+34,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 08:58:20,"Typo is fixed.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",typo fix,N,2016-02-03 10:42:40
+35,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 10:42:40,"1e6 is already a float so you don't need float(1e6)
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",1e6 alreadi float dont need float1e6,N,2016-02-03 12:28:54
+36,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 12:28:54,"Removed.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",remov,N,2016-02-03 12:31:45
+37,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:31:45,"Another slight niggle: you can use `'... {1:.0f} {2:.0f}'.format(dt, dt // 60)` if you want to print without decimal digit. Also it will round to the closer int in contrast to your method.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",anoth slight niggl use want print without decim digit also round closer int contrast method,N,2016-02-03 12:33:16
+38,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:33:16,"you can do `t0 = t_display = time.time()`
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",,N,2016-02-03 12:34:24
+39,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:34:24,"I would use time_last_read and time_last_report for the variable names.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",I would use timelastread timelastreport variabl name,N,2016-02-03 12:35:15
+40,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:35:15,"time_last_report = time_last_read (rather than time.time())
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",timelastreport timelastread rather timetim,N,2016-02-03 12:51:18
+41,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:51:18,"Are the 4 decimals really that useful?
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",are 4 decim realli use,N,2016-02-03 12:51:25
+42,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 12:51:25,"Maybe 2 is good enough.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",mayb 2 good enough,N,2016-02-03 12:56:05
+43,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 12:56:05,"> Maybe 2 is good enough.
+
+That's what I used initially, but with very small data, you can have something like 0.0MB downloaded. Maybe a more clever string (using KB, MB, GB) depending on the size could be better.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",that I use initi small data someth like 00mb download mayb clever string use KB MB GB depend size could better,N,2016-02-03 13:00:28
+44,pull_request_commit_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 13:00:28,"IMHO, problems in this code may rise from big files, not small ones. I wouldn't spend time on that.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",imho problem code may rise big file small one I wouldnt spend time,N,2016-02-03 13:02:06
+45,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 13:02:06,"I see. To be honest you already have the size in bytes on the left (in master):
+
+```
+Downloaded 314803244 of 314803244 bytes (100.0%,    0.0s remaining) ...done. (314.8032 MB, 665 seconds, 11 min)
+```
+
+so maybe just drop it.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",I see To honest alreadi size byte left master mayb drop,N,2016-02-03 13:04:20
+46,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 13:04:20,"I pushed a change about this. Tell me if it's ok.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",I push chang tell ok,N,2016-02-03 13:11:47
+47,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 13:11:47,"> so maybe just drop it.
+
+I reverted the change. It's now back to master version.
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",I revert chang it back master version,N,2016-02-03 15:30:00
+48,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 15:30:00,"total_size can be None maybe just use `not chunk` (which is the exit condition)
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",totals none mayb use exit condit,N,2016-02-03 15:39:21
+49,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 15:39:21,"Done
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(None, '', u'nilearn/datasets/utils.py')",done,N,2016-02-03 15:58:01
+50,pull_request_commit_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 15:58:01,"I can even go further! :trollface: 
+
+```
+    chunk = True
+    while chunk:
+        time_last_display = time.time()
+        while time.time() < time_last_display + 0.5:
+            chunk = response.read(chunk_size)
+            if not chunk:
+                break
+            bytes_so_far += len(chunk)
+            local_file.write(chunk)
+        else:
+            _chunk_report_(len(chunk), bytes_so_far,
+                           total_size, initial_size, t0)
+```
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(28, '', u'nilearn/datasets/utils.py')",I even go trollfac,N,2016-02-03 16:31:10
+51,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 16:31:10,"> I can even go further!
+
+You missed the `report_chunk` check ;)
+",b5dabd5302c81136fd278ee8a406176ac20266b1,"(28, '', u'nilearn/datasets/utils.py')",you miss check,N,2016-02-02 08:27:35
+52,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-02 08:27:35,limit download status output to 4 on circle ci,7de0bee94f8486b97e762acec2845033d6d5f066,,limit download statu output 4 circl ci,N,2016-02-02 15:50:53
+53,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-02 15:50:53,update chunk report for each downloaded percent of the data,5a317b04e2292f882c783125969c6170d9f8c5ed,,updat chunk report download percent data,N,2016-02-03 08:58:03
+54,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-03 08:58:03,fixing typo,5018d6cc67cdb366ede088af0bee9322a7bc2bd5,,fix typo,N,2016-02-03 10:08:22
+55,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-03 10:08:22,refresh report display every half second,1369e6da2834ed8626e144969bfee7ceab61a91c,,refresh report display everi half second,N,2016-02-03 13:11:04
+56,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-03 13:11:04,reverting download completed display change,1284250ba12ede4d0db9281d64d8ea6d221fab62,,revert download complet display chang,N,2016-02-03 13:14:57
+57,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-03 13:14:57,re applying lost changes,3ca02bc280910da19a6b256a009a674a6bc56c8a,,appli lost chang,N,2016-02-03 15:18:58
+58,pull_request_commit,976,nilearn,nilearn,aabadie,2016-02-03 15:18:58,improve refresh display of download report,b5dabd5302c81136fd278ee8a406176ac20266b1,,improv refresh display download report,N,2016-02-03 13:20:59
+59,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 13:20:59,"Could you move this to the `else` clause above?
+",1369e6da2834ed8626e144969bfee7ceab61a91c,"(39, 173, u'nilearn/datasets/utils.py')",could move claus,N,2016-02-03 13:45:29
+60,pull_request_commit_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 13:45:29,"This is not necessary. After the `break`, this code is directly executed.
+",1369e6da2834ed8626e144969bfee7ceab61a91c,"(39, 173, u'nilearn/datasets/utils.py')",thi necessari after code directli execut,N,2016-02-03 13:53:10
+61,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 13:53:10,"Just feels more readable.
+",1369e6da2834ed8626e144969bfee7ceab61a91c,"(39, 173, u'nilearn/datasets/utils.py')",just feel readabl,N,2016-02-03 14:47:47
+62,pull_request_commit_comment,976,nilearn,nilearn,aabadie,2016-02-03 14:47:47,"I don't see the point, this block is only executed if `report_hook` is True. Or maybe you want the full `if` statement in the `else` clause of the `while` loop ?
+",1369e6da2834ed8626e144969bfee7ceab61a91c,"(39, 173, u'nilearn/datasets/utils.py')",I dont see point block execut if  true Or mayb want full statement claus loop,N,2016-02-03 14:59:50
+63,pull_request_commit_comment,976,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:59:50,"For me, the current version is more readable. The block is executed at the end of the while loop.
+",1369e6da2834ed8626e144969bfee7ceab61a91c,"(39, 173, u'nilearn/datasets/utils.py')",for current version readabl the block execut end loop,N,2016-02-03 15:09:27
+64,pull_request_commit_comment,976,nilearn,nilearn,lesteve,2016-02-03 15:09:27,"You would have the decision to exit the loop at the same place where you print the last report, that's all.
+",1369e6da2834ed8626e144969bfee7ceab61a91c,"(39, 173, u'nilearn/datasets/utils.py')",you would decis exit loop place print last report that,N,2016-02-03 15:20:05
+1,issue_title,989,nilearn,nilearn,KamalakerDadi,2016-02-14 14:43:24,"- Added function `fetch_cobre_niak`, documentation, tests, reference
+
+This function downloads current version of datasets  from download link as posted in Issue #915 
+
+Still to add: `whatsnew` and any comments or improvements.
+",start issue,[MRG+1] Datasets: Downloader for COBRE data,ad function document test refer thi function download current version dataset download link post issu 915 still add comment improv,N,2016-02-17 09:02:01
+2,issue_closed,989,nilearn,nilearn,AlexandreAbraham,2016-02-17 09:02:01,,closed issue,[MRG+1] Datasets: Downloader for COBRE data,,N,2016-02-14 14:43:24
+3,pull_request_title,989,nilearn,nilearn,KamalakerDadi,2016-02-14 14:43:24,"- Added function `fetch_cobre_niak`, documentation, tests, reference
+
+This function downloads current version of datasets  from download link as posted in Issue #915 
+
+Still to add: `whatsnew` and any comments or improvements.
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,[MRG+1] Datasets: Downloader for COBRE data,ad function document test refer thi function download current version dataset download link post issu 915 still add comment improv,N,2016-02-17 09:02:01
+4,pull_request_merged,989,nilearn,nilearn,AlexandreAbraham,2016-02-17 09:02:01,[MRG+1] Datasets: Downloader for COBRE data,32fa3e6e39ec90ca329d48789bce5b9398c8652c,Pull request merge from KamalakerDadi/nilearn:cobre_downloader to nilearn/nilearn:master,mrg1 dataset download cobr data,N,2016-02-14 17:06:01
+5,issue_comment,989,nilearn,nilearn,GaelVaroquaux,2016-02-14 17:06:01,"Maybe the function should be called ""fetch_cobre"", and we'll later add an
+option to decide between different preprocessing (niak or otherwise).
+",,,mayb function call fetchcobr well later add option decid differ preprocess niak otherwis,N,2016-02-16 10:10:23
+6,issue_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-16 10:10:23,"Can somebody review this PR ? As we need this for Brain Hack. Thanks
+",,,can somebodi review PR As need brain hack thank,N,2016-02-16 10:48:25
+7,issue_comment,989,nilearn,nilearn,aabadie,2016-02-16 10:48:25,"LGTM +1, The failing test on travis is not related to your PR (#986 was entered for this). Once CircleCI is done, we can merge this.
+",,,lgtm 1 the fail test travi relat PR 986 enter onc circleci done merg,Y,2016-02-17 06:41:32
+8,issue_comment,989,nilearn,nilearn,GaelVaroquaux,2016-02-17 06:41:32,"LGTM. :+1: for merge
+",,,lgtm 1 merg,N,2016-02-14 15:42:57
+9,pull_request_commit_comment,989,nilearn,nilearn,aabadie,2016-02-14 15:42:57,"This line and the one above don't work on python 3, you should use `decode()` in `i` because it's a byte string :
+
+``` python
+func_filenames = [('fmri_' + i.decode().strip(' ""\'') 
+```
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",thi line one dont work python 3 use byte string,N,2016-02-14 15:59:19
+10,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-14 15:59:19,"Thanks. I thought its `encode()`. Is it not ?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",thank I thought Is,N,2016-02-14 16:00:42
+11,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-14 16:00:42,"Could you point me any documentation to find this difference ? If you have any ?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",could point document find differ If,N,2016-02-14 16:10:49
+12,pull_request_commit_comment,989,nilearn,nilearn,aabadie,2016-02-14 16:10:49,"I'm not sure it will work work with `encode()`. `np.recfromcsv` returns an array with `numpy._bytes`. Those only have a `decode()` method.
+You can see in the code another place with the same trick : https://github.com/nilearn/nilearn/blob/master/nilearn/datasets/func.py#L1155
+where `pheno` contains the result of `np.recfromcsv`.
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",Im sure work work return array those method you see code anoth place trick contain result,N,2016-02-16 13:16:47
+13,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:16:47,"I thought that we had a version without scrubbing?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(72, '', u'nilearn/datasets/description/cobre.rst')",I thought version without scrub,N,2016-02-16 13:18:21
+14,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:18:21,"The individual files are available, why do we rely on an aggregation of them?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",the individu file avail reli aggreg,N,2016-02-16 13:19:03
+15,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:19:03,"Isn't that a bit dangerous for reproducibility?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",isnt bit danger reproduc,N,2016-02-16 13:20:03
+16,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:20:03,"`mat` files cannot be processed by nilearn. Should we load them or add some code to process them automatically (can be another PR).
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(97, '', u'nilearn/datasets/func.py')",file cannot process nilearn should load add code process automat anoth PR,N,2016-02-16 13:27:25
+17,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-16 13:27:25,"Yes, but as Pierre said in the issue that it will take time and we decided to proceed with this version. 
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(72, '', u'nilearn/datasets/description/cobre.rst')",ye pierr said issu take time decid proceed version,N,2016-02-16 13:28:07
+18,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-16 13:28:07,"I didn't get your comment. I thought you understand the situation to download each individual file.
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",I didnt get comment I thought understand situat download individu file,N,2016-02-16 13:29:50
+19,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-16 13:29:50,"which one `random_state=0` ?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",one,N,2016-02-16 13:44:46
+20,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:44:46,"OK!
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(72, '', u'nilearn/datasets/description/cobre.rst')",OK,N,2016-02-16 13:46:35
+21,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:46:35,"Well, Gaël said in the issue that a 1 hour download was too much. Plus it does not make sense to return 10 subjects by default if you force downloading the whole dataset. But nevermind, let's move on.
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",well gaël said issu 1 hour download much plu make sens return 10 subject default forc download whole dataset but nevermind let move,N,2016-02-16 13:48:02
+22,pull_request_commit_comment,989,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:48:02,"`random_state=0` may give different results depending on the machine used. If subjects are splitted controls/schizophrenic, maybe we should just take the first `n_subjects/2` controls and the first `n_subject/2` schizos?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",may give differ result depend machin use If subject split controlsschizophren mayb take first control first schizo,N,2016-02-16 17:00:40
+23,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-16 17:00:40,"> Should we load them or add some code to process them automatically (can be another PR).
+
+I will keep it open to matlab users for example. I don't think we need to load them.
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(97, '', u'nilearn/datasets/func.py')",I keep open matlab user exampl I dont think need load,N,2016-02-17 06:38:27
+24,pull_request_commit_comment,989,nilearn,nilearn,KamalakerDadi,2016-02-17 06:38:27,"Done. Can you see it is Ok ?
+",cc4dd733a9a7ea24f7004f2f1228abcdf338f5c2,"(None, '', u'nilearn/datasets/func.py')",done can see Ok,N,2016-02-14 14:37:25
+25,pull_request_commit,989,nilearn,nilearn,KamalakerDadi,2016-02-14 14:37:25,"Datasets: Downloader for COBRE data
+- Added function, documentation, tests, reference",b2431ce513791fc94021397d6f126405ecdb9047,,dataset download cobr data ad function document test refer,N,2016-02-16 09:36:15
+26,pull_request_commit,989,nilearn,nilearn,KamalakerDadi,2016-02-16 09:36:15,Fixing travis py35 failures and name chnaged to fetch_cobre,57839e26fd4cd1d9245963e45fdc477fac6c6ab1,,fix travi py35 failur name chnage fetchcobr,N,2016-02-16 09:58:32
+27,pull_request_commit,989,nilearn,nilearn,KamalakerDadi,2016-02-16 09:58:32,Fixing python 35 compatibility failures,4bede95e7881470c59a0abfc76a7c885bdbcdfb7,,fix python 35 compat failur,N,2016-02-16 21:57:37
+28,pull_request_commit,989,nilearn,nilearn,KamalakerDadi,2016-02-16 21:57:37,Datasets structure link and comments,a9f9c5e31b8e55098e980f2e3fbfd80a43fabfc1,,dataset structur link comment,N,2016-02-16 22:15:04
+1,issue_title,982,nilearn,nilearn,aabadie,2016-02-05 16:57:18,"This is a try for implementing the string formula proposed @GaelVaroquaux in #847.
+
+Surely not perfect, so comments are welcome. My main interrogation is about the type that the function  should return. If it takes niimgs as input should it also return niimgs ?
+",start issue,[MRG] math operator in string,thi tri implement string formula propos gaelvaroquaux 847 sure perfect comment welcom My main interrog type function return If take niimg input also return niimg,N,2016-02-12 21:31:33
+2,issue_closed,982,nilearn,nilearn,GaelVaroquaux,2016-02-12 21:31:33,,closed issue,[MRG] math operator in string,,N,2016-02-05 16:57:18
+3,pull_request_title,982,nilearn,nilearn,aabadie,2016-02-05 16:57:18,"This is a try for implementing the string formula proposed @GaelVaroquaux in #847.
+
+Surely not perfect, so comments are welcome. My main interrogation is about the type that the function  should return. If it takes niimgs as input should it also return niimgs ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,[MRG] math operator in string,thi tri implement string formula propos gaelvaroquaux 847 sure perfect comment welcom My main interrog type function return If take niimg input also return niimg,N,2016-02-12 21:31:33
+4,pull_request_merged,982,nilearn,nilearn,GaelVaroquaux,2016-02-12 21:31:33,[MRG] math operator in string,9c83d07026c7385461be4879eeb12af48eea6cbe,Pull request merge from aabadie/nilearn:math_operator to nilearn/nilearn:master,mrg math oper string,N,2016-02-05 17:17:35
+5,issue_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-05 17:17:35,"> If it takes niimgs as input should it also return niimgs ?
+
+Yes. We are trying to have user-facing functions that are niimgs in,
+niimgs out.
+",,,ye We tri userfac function niimg niimg,N,2016-02-05 17:31:30
+6,issue_comment,982,nilearn,nilearn,aabadie,2016-02-05 17:31:30,"> We are trying to have user-facing functions that are niimgs in, niimgs out.
+
+Ok, that's the way it works.
+
+The tests I added are failing, I have to investigate on this.
+",,,Ok that way work the test I ad fail I investig,Y,2016-02-08 16:38:23
+7,issue_comment,982,nilearn,nilearn,aabadie,2016-02-08 16:38:23,"Changing the title to MRG, as I think it's in a good shape now.
+",,,chang titl mrg I think good shape,N,2016-02-11 16:48:06
+8,issue_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 16:48:06,"@aabadie : two things I forgot:
+- You need to add the function to the relevant part of the module reference (doc/modules/reference.rst)
+- Don't forget to add it to the whats_new.rst, and use the "":func:""... syntax, so that it gets linked to the reference documentation.
+",,,aabadi two thing I forgot you need add function relev part modul refer docmodulesreferencerst dont forget add whatsnewrst use func syntax get link refer document,N,2016-02-11 16:57:50
+9,issue_comment,982,nilearn,nilearn,aabadie,2016-02-11 16:57:50,"> You need to add the function to the relevant part of the module reference (doc/modules/reference.rst)
+>     Don't forget to add it to the whats_new.rst, and use the "":func:""... syntax, so that it gets linked to the reference documentation.
+
+@GaelVaroquaux, I changed both. I'm just wondering if my update in whats_new.rst is fine.
+",,,gaelvaroquaux I chang Im wonder updat whatsnewrst fine,N,2016-02-12 21:31:29
+10,issue_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-12 21:31:29,"There are a couple of things that are not perfect, but in general, it is awesome, so I am merging this, and fixing the rest in master.
+",,,there coupl thing perfect gener awesom I merg fix rest master,N,2016-02-08 12:36:44
+11,pull_request_commit_comment,982,nilearn,nilearn,AlexandreAbraham,2016-02-08 12:36:44,"This sould be `list_data` and you should leave `imgs` untouched.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",thi sould leav untouch,N,2016-02-08 16:37:47
+12,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-08 16:37:47,"Indeed, I changed this.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",inde I chang,N,2016-02-09 11:08:27
+13,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-09 11:08:27,"Can you detail the ""**imgs"" argument, and well as add a ""returns"" description.
+
+It would also be good to have an ""example"" section, that shows couple of example of usage (see the docstring of any numpy function).
+
+You can have a look at https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#sections and 
+http://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",can detail img argument well add return descript It would also good exampl section show coupl exampl usag see docstr numpi function you look,N,2016-02-09 11:09:02
+14,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-09 11:09:02,"Please use full variable names.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",pleas use full variabl name,N,2016-02-09 11:09:25
+15,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-09 11:09:25,"You need to use ""_safe_get_data"" here.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",you need use safegetdata,N,2016-02-09 11:09:51
+16,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-09 11:09:51,"Strange name starting by ""list"" for an object that is a dict.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",strang name start list object dict,N,2016-02-09 16:45:46
+17,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-09 16:45:46,"Comment adressed, along with the others below.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",comment adress along other,N,2016-02-09 19:32:38
+18,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-09 19:32:38,"You may have missed adding documentation about ""Returns"" saying what this function returns.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",you may miss ad document return say function return,N,2016-02-09 19:33:41
+19,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-09 19:33:41,"Can you be more explicit saying something like, Possible arguments are ............. ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",can explicit say someth like possibl argument,N,2016-02-09 19:35:47
+20,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-09 19:35:47,"General comment: Any formula in string works ? such as ""sum"" ""div"" or It should be in numpy context ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",gener comment ani formula string work sum div It numpi context,N,2016-02-09 19:38:20
+21,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-09 19:38:20,"Will it be possible an example in 04_manipulating_images section ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",will possibl exampl 04manipulatingimag section,N,2016-02-09 19:38:52
+22,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-09 19:38:52,"May be capital ""N"" to nifti ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",may capit N nifti,N,2016-02-09 22:05:54
+23,pull_request_commit_comment,982,nilearn,nilearn,bthirion,2016-02-09 22:05:54,"+1
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",1,N,2016-02-10 09:15:54
+24,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-10 09:15:54,"> General comment: Any formula in string works ? such as ""sum"" ""div"" or It should be in numpy context ?
+
+For me moment, the function assumes the inputs are Nifti images, thus they contains numpy arrays. So normally, the formula should contains any function that can be applied on numpy arrays.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",for moment function assum input nifti imag thu contain numpi array So normal formula contain function appli numpi array,N,2016-02-10 12:45:40
+25,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-10 12:45:40,"Done
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",done,N,2016-02-10 12:46:24
+26,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-10 12:46:24,"Added the 'Returns' section.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",ad return section,N,2016-02-10 12:47:26
+27,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-10 12:47:26,"I added a more explicit text saying that the images should be Nifti images.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",I ad explicit text say imag nifti imag,N,2016-02-10 12:50:42
+28,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-10 12:50:42,"> Will it be possible an example in 04_manipulating_images section ?
+
+It is possible. I'll add something in a separate file. Are you ok with `apply_math_operators.py` ? Should I just copy the example I wrote in the doctring to this file ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",It possibl ill add someth separ file are ok should I copi exampl I wrote doctr file,N,2016-02-10 13:09:13
+29,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-10 13:09:13,"> Are you ok with apply_math_operators.py ?
+
+example should start with `plot_....`
+
+> Should I just copy the example I wrote in the doctring to this file ?
+
+Something simple and different example which shows how to use this function on real Nifti images. So that user gets easy going taking this function.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",exampl start someth simpl differ exampl show use function real nifti imag So user get easi go take function,N,2016-02-10 16:19:23
+30,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-10 16:19:23,"> example should start with `plot_....`
+
+So I guess it should include some plotting code.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",So I guess includ plot code,N,2016-02-11 12:35:33
+31,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-11 12:35:33,"> Will it be possible an example in 04_manipulating_images section ?
+
+I added 2 examples but I'm not super happy with them. Maybe someone has better ideas. @AlexandreAbraham, @KamalakerDadi, @bthirion ?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",I ad 2 exampl Im super happi mayb someon better idea alexandreabraham kamalakerdadi bthirion,N,2016-02-11 14:22:36
+32,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:22:36,"That's a great example!
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_compare_mean_image.py')",that great exampl,N,2016-02-11 14:24:08
+33,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:24:08,"Maybe ""Negate image""?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",mayb negat imag,N,2016-02-11 14:25:08
+34,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:25:08,"I don't think that you really need the intermediate variable ""formula"". It just makes the example harder to read.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",I dont think realli need intermedi variabl formula It make exampl harder read,N,2016-02-11 14:25:49
+35,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:25:49,"I am not sure that you really need the intermediate variable ""formula"". It just makes the example harder to read.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_compare_mean_image.py')",I sure realli need intermedi variabl formula It make exampl harder read,N,2016-02-11 14:25:54
+36,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:25:54,"I think that you can just do ""-img"", no?
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",I think img,N,2016-02-11 14:30:16
+37,pull_request_commit_comment,982,nilearn,nilearn,KamalakerDadi,2016-02-11 14:30:16,"Minor comment: Could you just use heading notations like other examples ?
+starting with ############################# gives good consistency with other examples we have.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",minor comment could use head notat like exampl start give good consist exampl,N,2016-02-11 14:30:37
+38,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:30:37,"I think that it would speak more to the user if we used something else than the AAL atlas (why would we want to negate the atlas). How about a simple statistical map, as in
+http://nilearn.github.io/auto_examples/01_plotting/plot_dim_plotting.html#sphx-glr-auto-examples-01-plotting-plot-dim-plotting-py
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",I think would speak user use someth els aal atla would want negat atla how simpl statist map,N,2016-02-11 14:31:06
+39,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:31:06,"I would plot the original image, and the negated image, just to drive the point.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",I would plot origin imag negat imag drive point,N,2016-02-11 14:57:33
+40,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:57:33,"That example is a bit too long for a docstring. How about using 
+
+<pre>
+from nilearn import datasets
+anatomical_image = datasets.load_mni152_template()
+log_img = math_img(""np.log(img1)"", img1=anatomical_image)
+</pre>
+
+
+Yes, taking the log is meaningless, but it's just to illustrate the syntax.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",that exampl bit long docstr how use prefrom nilearn import dataset anatomicalimag datasetsloadmni152templ logimg mathimgnplogimg1 img1anatomicalimag pre ye take log meaningless illustr syntax,N,2016-02-11 14:57:55
+41,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 14:57:55,"I would add ""It can use numpy, imported as np""
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",I would add It use numpi import np,N,2016-02-11 16:26:19
+42,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-11 16:26:19,"I addressed all other comments except this one. I recognize that computing the negate of an atlas is somewhat weird but is it meaningful to do the same with a stat map ?
+I could also add another example with a more realistic use case.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",I address comment except one I recogn comput negat atla somewhat weird meaning stat map I could also add anoth exampl realist use case,N,2016-02-11 16:28:46
+43,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 16:28:46,"> I addressed all other comments except this one. I recognize that computing the
+> negate of an atlas is somewhat weird but is it meaningful to do the same with a
+> stat map ?
+
+Yes, you computed a ""Left - Right"" contrast, but in the paper, you want
+to show a ""Right - Left"" contrast, to be consistent with the narration.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",ye comput left right contrast paper want show right left contrast consist narrat,N,2016-02-11 16:52:39
+44,pull_request_commit_comment,982,nilearn,nilearn,aabadie,2016-02-11 16:52:39,"Got it. I pushed a couple of commits that should hopefully improve things.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_multiply_image.py')",got I push coupl commit hope improv thing,N,2016-02-11 17:01:32
+45,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:01:32,"You are going to have an rst error: the indentation here is incorrect (the line after the ""-"" should start below the ""M"" of ""Mathematical"")
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'doc/whats_new.rst')",you go rst error indent incorrect line start M mathemat,N,2016-02-11 17:02:27
+46,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:02:27,"Say in the docstring that the goal of this example is to demonstrate the use of ""math_img"". You should also mention that ""mean_img"" could have been used to compute the means.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_compare_mean_image.py')",say docstr goal exampl demonstr use mathimg you also mention meanimg could use comput mean,N,2016-02-11 17:02:52
+47,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:02:52,"I'd call this ""Negating an image with math_img""
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_negate_image.py')",Id call negat imag mathimg,N,2016-02-11 17:03:43
+48,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:03:43,"Also say that the purpose of this example is to illustrate math_img.
+
+It's important to always guide the reader so that he or she knows why he is reading an bit of code.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_negate_image.py')",also say purpos exampl illustr mathimg it import alway guid reader know read bit code,N,2016-02-11 17:04:16
+49,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:04:16,"You should change the ""title"" to ""Original image""
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_negate_image.py')",you chang titl origin imag,N,2016-02-11 17:04:27
+50,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:04:27,"You should change the ""title"" to ""Negated image""
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'examples/04_manipulating_images/plot_negate_image.py')",you chang titl negat imag,N,2016-02-11 17:05:09
+51,pull_request_commit_comment,982,nilearn,nilearn,GaelVaroquaux,2016-02-11 17:05:09,"You're missing a "">"" at the beginning of the code line.
+",81f15406191e390066cd62fc5f247464a1fa9ac2,"(None, '', u'nilearn/image/image.py')",your miss,N,2016-02-05 16:53:12
+52,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-05 16:53:12,testing a simple way to apply a formula to a list of images,ac3b131e0955658af2ca01f140fbd36b1376a749,,test simpl way appli formula list imag,N,2016-02-08 09:31:37
+53,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-08 09:31:37,fixing test,c8fca557aa7da1bf20139c01a696d7de1128d616,,fix test,N,2016-02-08 09:54:50
+54,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-08 09:54:50,fixing flake8,b45f06c5869a5c4ca5191235224f7205fd18f37d,,fix flake8,N,2016-02-08 16:27:11
+55,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-08 16:27:11,small refactoring of the math_img function,92083bf3f5e7fdf5a2be194bab90580d1e7ce993,,small refactor mathimg function,N,2016-02-09 15:21:17
+56,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-09 15:21:17,"addressing comments:
+- renaming variables
+- improving docstring with an example
+- use _safe_get_data to retrieve the numpy array a an niimg",ff58fe41dd8bc2316f4a7750da3af9da6d0f4b9e,,address comment renam variabl improv docstr exampl use safegetdata retriev numpi array niimg,N,2016-02-09 16:19:07
+57,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-09 16:19:07,fixing docstring,d3ba69bd2a3f08495b7518a9e2d083f36c296187,,fix docstr,N,2016-02-09 16:35:01
+58,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-09 16:35:01,fixing docstring 2,8650f8faff86ec6227c74d13e1e163eaf0544269,,fix docstr 2,N,2016-02-10 12:45:20
+59,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-10 12:45:20,addressing comments,bd4109875cf98fda4060050b91dca67f12941901,,address comment,N,2016-02-11 12:33:31
+60,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 12:33:31,improving math_img and test,1c08e6a70c5114d1b2a771d2ef88d6e1f03c82b2,,improv mathimg test,N,2016-02-11 12:33:51
+61,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 12:33:51,adding 2 examples using math_img function,c6f574ad7ed50218df6b9e341a9befa9492af3a9,,ad 2 exampl use mathimg function,N,2016-02-11 16:22:07
+62,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 16:22:07,addressing comments,bef9cdcb7f8f6f9b68267ad91146c86683515a6f,,address comment,N,2016-02-11 16:49:06
+63,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 16:49:06,improving doctring and referencing math_img from documentation,ae090db1c14fef89a954a0b6671f216ac2b42db8,,improv doctr referenc mathimg document,N,2016-02-11 16:51:58
+64,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 16:51:58,improving negate example,bbc47fc85e9bc8166110670c50c3791ade8698c6,,improv negat exampl,N,2016-02-11 16:56:38
+65,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 16:56:38,updating whats_new.rst,0619787a09fb4c6f164a6b18a8579deefc44cbe7,,updat whatsnewrst,N,2016-02-11 17:07:20
+66,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 17:07:20,improving t-maps plot titles,525efc8fd137ab68e20202f8810e32ee6dbed1f8,,improv tmap plot titl,N,2016-02-11 17:18:41
+67,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 17:18:41,adressing comments*,0d8e84f13af68d765c19d054e27f3af2b27e22e7,,adress comment,N,2016-02-11 17:22:30
+68,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-11 17:22:30,small improvements in examples,7bc848f809ca6afe2cd3e0237b970fef3d875f1c,,small improv exampl,N,2016-02-12 12:12:49
+69,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-12 12:12:49,fixing tests,fe5d5b69073ac658c2947cec349a70c6a33237d0,,fix test,N,2016-02-12 16:56:42
+70,pull_request_commit,982,nilearn,nilearn,aabadie,2016-02-12 16:56:42,fixing pep8 and documentation generation,1d556d9e634c678f04b377205bb95150d93a4559,,fix pep8 document gener,N,2016-02-12 19:05:57
+1,issue_title,1037,nilearn,nilearn,aabadie,2016-03-01 13:43:09,"Tries to fix #1003, but still doesn't work. Any help/tips greatly appreciated.
+",start issue,[MRG+1] Circle ci anaconda,tri fix 1003 still doesnt work ani helptip greatli appreci,N,2016-03-02 09:59:22
+2,issue_closed,1037,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:59:22,,closed issue,[MRG+1] Circle ci anaconda,,N,2016-03-01 13:43:09
+3,pull_request_title,1037,nilearn,nilearn,aabadie,2016-03-01 13:43:09,"Tries to fix #1003, but still doesn't work. Any help/tips greatly appreciated.
+",30c7f6aca0e551440fe146ea3c12fed41d3d5e14,[MRG+1] Circle ci anaconda,tri fix 1003 still doesnt work ani helptip greatli appreci,N,2016-03-02 09:59:22
+4,pull_request_merged,1037,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:59:22,[MRG+1] Circle ci anaconda,c76aa58f7a79a0c9e472fa4ac62fcd01c3250a06,Pull request merge from aabadie/nilearn:circle_ci_anaconda to nilearn/nilearn:master,mrg1 circl ci anaconda,N,2016-03-01 18:24:41
+5,issue_comment,1037,nilearn,nilearn,GaelVaroquaux,2016-03-01 18:24:41,"Great job!
+
+I don't really see a speed up. Maybe this can be improved by installing the MKL, with ""conda install mkl"", for instance on line 31 of circle.yml.
+",,,great job I dont realli see speed mayb improv instal mkl conda instal mkl instanc line 31 circleyml,N,2016-03-02 06:03:09
+6,issue_comment,1037,nilearn,nilearn,GaelVaroquaux,2016-03-02 06:03:09,"That looks great: it's faster, and the code is as complex, or maybe a bit simpler.
+
+I such that we merge and that, in a separate pull request, someone enables Python3 (and fixes the examples that don't work in Python3)
+",,,that look great faster code complex mayb bit simpler I merg separ pull request someon enabl python3 fix exampl dont work python3,N,2016-03-01 16:48:54
+7,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-01 16:48:54,"@GaelVaroquaux : awesome ! it worked https://circleci.com/gh/aabadie/nilearn/276 :beers: 
+",,,gaelvaroquaux awesom work beer,N,2016-03-01 18:30:13
+8,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-01 18:30:13,"> Great job!
+> Thanks
+> 
+> I don't really see a speed up. Maybe this can be improved by installing the MKL, with ""conda install mkl"", for instance on line 31 of circle.yml
+> Indeed, that would be worth a try. There is already a speedup in the install step which is now only taking about 1 minute and a half (instead of more than 10).
+",,,,N,2016-03-01 18:34:58
+9,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-01 18:34:58,"> Anaconda 2.5 is mkl enabled by default
+> Yes, I saw that but our install script removes it.
+> Le 1 mars 2016 19:30, ""Alexandre Abadie"" notifications@github.com a
+> écrit :
+> 
+> > > Great job!
+> > > Thanks
+> > > 
+> > > I don't really see a speed up. Maybe this can be improved by installing
+> > > the MKL, with ""conda install mkl"", for instance on line 31 of circle.yml
+> > > Indeed, that would be worth a try. There is already a speedup in the
+> > > install step which is now only taking about 1 minute and a half (instead of
+> > > more than 10).
+> > 
+> > —
+> > Reply to this email directly or view it on GitHub
+> > https://github.com/nilearn/nilearn/pull/1037#issuecomment-190843506.
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",,,,N,2016-03-01 21:18:14
+10,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-01 21:18:14,"@GaelVaroquaux, jI pushed a last commit adressing your previous comments. I also keep the use of mkl, just to be sure it's really faster. The answer is : not that much : https://circleci.com/gh/aabadie/nilearn/279
+",,,gaelvaroquaux jI push last commit adress previou comment I also keep use mkl sure realli faster the answer much,N,2016-03-01 21:21:27
+11,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-01 21:21:27,"Comparing with the previous successful build (https://circleci.com/gh/aabadie/nilearn/276), the documentation generation step is 8 minutes faster with mkl.
+",,,compar previou success build document gener step 8 minut faster mkl,N,2016-03-01 21:26:21
+12,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-01 21:26:21,"Comparing with a master build (before the skip test PR merge), it's now 23 minutes faster (23% faster).
+",,,compar master build skip test PR merg 23 minut faster 23 faster,Y,2016-03-02 08:10:11
+13,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-02 08:10:11,"@GaelVaroquaux, I pushed one last commit for making comments clearer in CI scripts.
+",,,gaelvaroquaux I push one last commit make comment clearer CI script,N,2016-03-02 09:16:59
+14,issue_comment,1037,nilearn,nilearn,aabadie,2016-03-02 09:16:59,"Travis is failing but the issue is not related to this PR : memory profiling test error (again)
+",,,travi fail issu relat PR memori profil test error,Y,2016-03-01 18:21:06
+15,pull_request_commit_comment,1037,nilearn,nilearn,GaelVaroquaux,2016-03-01 18:21:06,"I think that we can remove this file, as we are no longer using it, right?
+",30c7f6aca0e551440fe146ea3c12fed41d3d5e14,"(None, '', u'continuous_integration/circle_ci_test.sh')",I think remov file longer use right,N,2016-03-01 18:32:58
+17,pull_request_commit,1037,nilearn,nilearn,lesteve,2015-12-16 08:50:45,wip,00e240ada4630f64405bafe1f6ed88befa77b167,,wip,N,2016-02-25 16:10:10
+18,pull_request_commit,1037,nilearn,nilearn,aabadie,2016-02-25 16:10:10,"# This is a combination of 2 commits.
+# The first commit's message is:
+
+trying to fix circleci
+
+# The 2nd commit message will be skipped:
+
+#	don't change 2 things at the same time",f4a457ead46b9209673f3d39ad037a9fa1fb7ed1,,thi combin 2 commit the first commit messag tri fix circleci the 2nd commit messag skip dont chang 2 thing time,N,2016-03-01 14:49:49
+19,pull_request_commit,1037,nilearn,nilearn,aabadie,2016-03-01 14:49:49,trying to understand what is wrong on travis,c0995272a7d7ca9f07030e5e66a85b8b31d8f644,,tri understand wrong travi,N,2016-03-01 15:17:59
+20,pull_request_commit,1037,nilearn,nilearn,aabadie,2016-03-01 15:17:59,fixing home dirs with CI,f7ebce334697c96bd5e96bf06dd2994b0fdc17ca,,fix home dir CI,N,2016-03-01 19:58:52
+21,pull_request_commit,1037,nilearn,nilearn,aabadie,2016-03-01 19:58:52,"make conda quiet, remove useless file, use mkl with circleci",726cb7b02ae65acb7aadd0391240f8f39055c252,,make conda quiet remov useless file use mkl circleci,N,2016-03-02 08:09:01
+1,issue_title,950,nilearn,nilearn,salma1601,2016-01-16 21:29:54,"I kept the ROIs order as in the original paper. I also have a version of these ROIs ordered by networks, in case this would be preferred ?
+",start issue,Dosenbach 2010 ROIs as in paper,I kept roi order origin paper I also version roi order network case would prefer,N,2016-02-17 23:01:48
+3,pull_request_title,950,nilearn,nilearn,salma1601,2016-01-16 21:29:54,"I kept the ROIs order as in the original paper. I also have a version of these ROIs ordered by networks, in case this would be preferred ?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,Dosenbach 2010 ROIs as in paper,I kept roi order origin paper I also version roi order network case would prefer,N,2016-02-17 23:01:48
+4,pull_request_merged,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 23:01:48,Dosenbach 2010 ROIs as in paper,c43324dc2757f4f4acc382c652802bffcfa14753,Pull request merge from salma1601/nilearn:dosenbach_atlas to nilearn/nilearn:master,dosenbach 2010 roi paper,N,2016-02-16 13:31:55
+5,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:31:55,"I think that we only need to fix @banilo's comments. For the example, I was thinking of adding dosenbach to my example with the power atlas in #924. What do you think?
+",,,I think need fix banilo comment for exampl I think ad dosenbach exampl power atla 924 what think,N,2016-02-17 14:42:37
+6,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:42:37,"> I was waiting for a decision about the naming issue #954. Shall I name it fetch_atlas or fetch_coords or load_coords ??
+
+The actual policy in nilearn is to name it `load_atlas`. `load` because it is not downloaded and `atlas` because we do not differentiate atlases from coordinates ATM. I suggest that you set this name and we open an issue to discuss atlas vs. coords.
+",,,the actual polici nilearn name download differenti atlas coordin atm I suggest set name open issu discuss atla vs coord,N,2016-02-17 14:53:53
+7,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:53:53,"`load_atlas`
+",,,,N,2016-02-17 14:56:57
+8,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:56:57,"OK, Kamalakar is right. I thought we had `load_atlas_power` but it's `fetch`. Let's call it `fetch_atlas`
+",,,OK kamalakar right I thought let call,N,2016-02-17 15:18:19
+9,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 15:18:19,"Can you fix the conflicts?
+",,,can fix conflict,N,2016-02-17 15:47:37
+10,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 15:47:37,"> merge master
+
+To keep history clean, we do not allow merges. Please rebase.
+
+> test_atlas.test_fail_fetch_atlas_harvard_oxford is failing on my labtop.
+
+Trace?
+",,,To keep histori clean allow merg pleas rebas trace,N,2016-02-17 18:07:05
+14,issue_comment,950,nilearn,nilearn,salma1601,2016-01-18 14:44:31,"> Do you want to add an issue for that?
+
+Yes, I am a passionate nilearn-issue-generator
+Done in #954 
+",,,ye I passion nilearnissuegener done 954,N,2016-02-16 14:15:23
+15,issue_comment,950,nilearn,nilearn,salma1601,2016-02-16 14:15:23,"> I was thinking of adding dosenbach to my example with the power atlas in #924.
+
+I was thinking the same thing !
+
+> I think that we only need to fix @banilo's comments
+
+I was waiting for a decision about the naming issue #954. Shall I name it fetch_atlas or fetch_coords or load_coords ??
+",,,I think thing I wait decis name issu 954 shall I name fetchatla fetchcoord loadcoord,N,2016-02-17 14:49:49
+16,issue_comment,950,nilearn,nilearn,KamalakerDadi,2016-02-17 14:49:49,"> I suggest that you set this name
+
+meaning `fetch_atlas` ?
+",,,mean,N,2016-02-17 15:17:19
+17,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:17:19,"> I suggest that you set this name and we open an issue to discuss atlas vs. coords.
+
+This is #954.
+
+> Let's call it `fetch_atlas`
+
+Ok, done.
+",,,thi 954 Ok done,N,2016-02-17 15:23:42
+18,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:23:42,"Yes I am on it
+",,,ye I,N,2016-02-17 15:42:24
+19,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:42:24,"test_atlas.test_fail_fetch_atlas_harvard_oxford is failing on my labtop.
+",,,testatlastestfailfetchatlasharvardoxford fail labtop,N,2016-02-17 16:48:19
+33,pull_request_commit,950,nilearn,nilearn,salma1601,2016-01-18 10:46:14,use coords in function naming,2f3c1d50e675cd654a26b772bbcbb0c5aeb958f6,,use coord function name,N,2016-02-04 16:04:50
+2,issue_closed,1016,nilearn,nilearn,GaelVaroquaux,2017-02-23 17:49:22,,closed issue,Enh/surface plotting2,,N,2016-02-25 19:32:11
+9,issue_comment,1016,nilearn,nilearn,AlexandreAbraham,2016-09-20 07:57:46,"Creating a new dataset on nitrc requires some ""click click"" actions. I can do it for you.
+",,,creat new dataset nitrc requir click click action I,N,2016-02-27 12:29:33
+14,issue_comment,1016,nilearn,nilearn,juhuntenburg,2016-07-17 20:59:34,"The current function is not ideal for plotting labels (atlas, roi) because it interpolates the values and doesn't create clean borders. This can easily be changed by using the median value instead of the mean to calculate the face colors. 
+Does that make more sense?
+",,,the current function ideal plot label atla roi interpol valu doesnt creat clean border thi easili chang use median valu instead mean calcul face color doe make sens,N,2016-02-25 21:44:36
+39,issue_comment,1016,nilearn,nilearn,codecov[bot],2017-02-21 18:19:14,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1016?src=pr&el=h1) Report
+> Merging [#1016](https://codecov.io/gh/nilearn/nilearn/pull/1016?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e?src=pr&el=desc) will **decrease** coverage by `-0.29%`.
+> The diff coverage is `96.13%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1016      +/-   ##
+==========================================
+- Coverage    94.3%   94.02%   -0.29%     
+==========================================
+  Files         116      118       +2     
+  Lines       12896    13310     +414     
+==========================================
++ Hits        12162    12515     +353     
+- Misses        734      795      +61
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1016?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/datasets/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9fX2luaXRfXy5weQ==) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/plotting/tests/test_surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X3N1cmZfcGxvdHRpbmcucHk=) | `100% <100%> (ø)` | |
+| [nilearn/datasets/atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9hdGxhcy5weQ==) | `96.13% <100%> (+0.3%)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2F0bGFzLnB5) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_struct.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3N0cnVjdC5weQ==) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <100%> (ø)` | :white_check_mark: |
+| [nilearn/datasets/struct.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9zdHJ1Y3QucHk=) | `90.9% <100%> (+2.02%)` | :white_check_mark: |
+| [nilearn/plotting/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9fX2luaXRfXy5weQ==) | `78.94% <100%> (+1.16%)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `88.83% <87.87%> (-0.3%)` | :x: |
+| [nilearn/plotting/surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...bd7e4dbe7846e6a85814274c8e1e8a8b9981c414?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9zdXJmX3Bsb3R0aW5nLnB5) | `91.44% <91.44%> (ø)` | |
+| ... and [15 more](https://codecov.io/gh/nilearn/nilearn/pull/1016?src=pr&el=tree-more) | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1016?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1016?src=pr&el=footer). Last update [e5ecaa0...ba96ad6](https://codecov.io/gh/nilearn/nilearn/compare/e5ecaa0af59bd3f5720e0d4dc97a14e638e2b63e...ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1?src=pr&el=footer&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",,,codecov report impact file coverag Δ nilearndatasetsinitpi whitecheckmark nilearnplottingteststestsurfplottingpi nilearndatasetsatlaspi whitecheckmark nilearndatasetsteststestatlaspi whitecheckmark nilearndatasetsteststeststructpi whitecheckmark nilearndatasetsteststestfuncpi whitecheckmark nilearndatasetsstructpi whitecheckmark nilearnplottinginitpi whitecheckmark nilearndatasetsfuncpi x nilearnplottingsurfplottingpi 15 continu review full report codecov,N,2016-02-25 20:27:21
+40,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-25 20:27:21,"I'd prefer if the acceptable value for ""hemi"" would be ""left"" and ""right"", rather than ""lh"" and ""rh"", which are a bit cryptic.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/plotting/surf_plotting.py')",Id prefer accept valu hemi would left right rather lh rh bit cryptic,N,2016-02-25 21:09:33
+41,pull_request_commit_comment,1016,nilearn,nilearn,AlexandreAbraham,2016-02-25 21:09:33,"I guess that the final `[0]` means `lh`. I think we should rather make two fields `fsaverage_pial_left` and `fsaverage_pial_right`.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",I guess final mean I think rather make two field,N,2016-02-25 21:14:06
+42,pull_request_commit_comment,1016,nilearn,nilearn,AlexandreAbraham,2016-02-25 21:14:06,"You can use `nibabel.nifti1.intent_codes['NIFTI_INTENT_POINTSET']` rather than `1008`
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/plotting/surf_plotting.py')",you use rather,N,2016-02-25 21:33:39
+43,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:33:39,"May be you can write few lines about what this example does. For example, I don't know what `nki` is ?
+stating that we are fetching so and so datasets and visualizing them.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",may write line exampl for exampl I dont know state fetch dataset visual,N,2016-02-25 21:34:30
+44,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",pin point refer may funcnilearnplottingplotsurfstatmap,N,2016-02-25 21:35:46
+45,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:35:46,"All examples start with ############### to have head line representation. If you want you can have a look at other examples.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",all exampl start head line represent If want look exampl,N,2016-02-25 21:36:09
+46,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",use,N,2016-02-25 21:37:36
+47,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",ye would clear,N,2016-02-25 21:39:37
+48,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:39:37,"may be its not necessary to import matplotlib
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",may necessari import matplotlib,N,2016-02-25 21:40:54
+49,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:40:54,"adding `title` would be nice I guess ?
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",ad would nice I guess,N,2016-02-25 21:52:29
+50,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2016-02-25 21:52:29,"you may also need to add in `doc/modules/reference.rst`
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/__init__.py')",may also need add,N,2016-02-27 12:18:11
+51,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/plotting/surf_plotting.py')",agre fix,N,2016-02-27 12:18:34
+52,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",agre I chang,N,2016-02-27 12:19:22
+53,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:19:22,"Yes, I will add a description both of the dataset and the example asap.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",ye I add descript dataset exampl asap,N,2016-02-27 12:19:36
+54,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:19:36,"Done
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",done,N,2016-02-27 12:20:03
+55,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",Oh good chang,N,2016-02-27 12:20:23
+56,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",ye isnt necessari anymor,N,2016-02-27 12:20:47
+57,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:20:47,"Done
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/datasets/__init__.py')",done,N,2016-02-27 13:28:28
+58,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",1,N,2016-02-27 13:30:07
+59,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-27 13:30:07,"> May be you can write few lines about what this example does. For example, I
+> don't know what nki is ?
+> stating that we are fetching so and so datasets and visualizing them.
+
+And tell us that this is resting activation.
+
+I just realized something: is it possible to download the FS standard
+parcellations from the web? That would make an awesome visualization
+example.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",and tell us rest activ I realiz someth possibl download FS standard parcel web that would make awesom visual exampl,N,2016-02-27 13:30:47
+60,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-27 13:30:47,"> pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+
+I think that this is OK, as long as there is a section about surface
+visualization in the docs.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",I think OK long section surfac visual doc,N,2016-02-27 13:40:05
+61,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-27 13:40:05,"> you can use plotting.show()
+
+Yes. We do this to avoid having to teach beginners to import matplotlib.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",ye We avoid teach beginn import matplotlib,N,2016-02-27 14:05:09
+62,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'nilearn/plotting/surf_plotting.py')",should ab npab,N,2016-02-28 11:34:00
+63,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-28 11:34:00,"The parcellations are provided with the FS distribution, so I guess we could use them? The problem is that this function is not exactly optimized to plot labels / rois: the boundaries will be blurred because of the interpolation of vertex values to face values. An easy way around this should be to use the median value instead of the mean. But I thought this would go into a separate function (something similar to plot_roi?) and thus separate example. 
+I agree that the data that is used now not a great example, because it isn't a stat map either, but just some random volume of a time series. So maybe I should look into creating an example map from the nki dataset? Or would it be an option to just use some map from Neurovault for now?
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",the parcel provid FS distribut I guess could use the problem function exactli optim plot label roi boundari blur interpol vertex valu face valu An easi way around use median valu instead mean but I thought would go separ function someth similar plotroi thu separ exampl I agre data use great exampl isnt stat map either random volum time seri So mayb I look creat exampl map nki dataset Or would option use map neurovault,N,2016-02-28 16:03:45
+64,pull_request_commit_comment,1016,nilearn,nilearn,GaelVaroquaux,2016-02-28 16:03:45,"> The parcellations are provided with the FS distribution, so I guess we could
+> use them?
+
+Well, we cannot rely on people having FS installed, so we would need to
+provide downloaders, and for this we would need to check that there
+exists URLs where we can download them.
+
+> median value instead of the mean. But I thought this would go into a separate
+> function (something similar to plot_roi?) and thus separate example.
+
+I agree. Let's do this later.
+
+> So maybe I should look into creating an example map from the nki
+> dataset?
+
+Let's worry about this later.
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",well cannot reli peopl FS instal would need provid download would need check exist url download I agre let later let worri later,N,2016-02-28 16:24:01
+65,pull_request_commit_comment,1016,nilearn,nilearn,juhuntenburg,2016-02-28 16:24:01,"Or just upload them to the example dataset just as we did for the fsaverage mesh?
+",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(None, '', u'examples/01_plotting/plot_surf_stat_map.py')",Or upload exampl dataset fsaverag mesh,N,2016-02-28 16:24:36
+168,pull_request_commit_comment,1016,nilearn,nilearn,KamalakerDadi,2017-02-23 10:21:49,"imports needs to be reordered. More general to local.
+import os
+import tempfile
+
+import nibabel
+......",ba96ad67f4d0eb3f9265aadfdc0e856dc290f8c1,"(1, '', u'nilearn/plotting/tests/test_surf_plotting.py')",import need reorder more gener local import os import tempfil import nibabel,N,2016-02-24 16:27:50
+169,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-24 16:27:50,initial commit surface loading and plotting,c300693123b218d70af83da6ef0b7afe86c1e80a,,initi commit surfac load plot,N,2016-02-24 16:30:57
+170,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-24 16:30:57,adding imports to init,9de120303123b444d77cce7db856c4e53cb2f259,,ad import init,N,2016-02-24 16:36:53
+171,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-24 16:36:53,fix import,ce85123b8904f331482083f984eecba860e8d0e8,,fix import,N,2016-02-24 16:37:18
+172,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-24 16:37:18,fix function name,7c2c0c80989b7dbdf33cd96dd4603ff4b55b5bdb,,fix function name,N,2016-02-24 18:22:01
+173,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-24 18:22:01,remove option to input numpy arrays,f3f6e1fbbf7eca25d0efa1d312fcc2d1a26f1385,,remov option input numpi array,N,2016-02-25 17:20:08
+174,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-25 17:20:08,adding nki data fetcher and modifying example,05ac2e5e61f2d85db038a3e2024d11ae36f6d1e7,,ad nki data fetcher modifi exampl,N,2016-02-25 18:10:33
+175,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-25 18:10:33,"fixing gifti import, fixing fsaverage fetching",a9dd2c9f6b32596a209ef7a798fc8dad13be327c,,fix gifti import fix fsaverag fetch,N,2016-02-25 19:12:49
+176,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-25 19:12:49,fixing example,d9b3711ca1a9a4d7cd1270fb015bb681fc369467,,fix exampl,N,2016-02-25 19:28:28
+177,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-25 19:28:28,adjust threshold in example,f283eb46a583458bd7eac789372cb6f5fd5f197c,,adjust threshold exampl,N,2016-02-27 09:55:43
+178,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-27 09:55:43,changing parameter values for hemi to left and right,49db1e155f65bce9fff250d62e137bfd427645c7,,chang paramet valu hemi left right,N,2016-02-27 11:57:43
+179,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-27 11:57:43,updating file names and example to use left right instead of lh rh,2b941edbd937039624a83f719effbe9093f6bfbf,,updat file name exampl use left right instead lh rh,N,2016-02-27 12:03:59
+180,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:03:59,replace numeral intent codes by more explicit ones,f259b138579655f3f40e5354e72c347eb47a09bc,,replac numer intent code explicit one,N,2016-02-27 12:04:25
+181,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:04:25, drop unnecessary matplotlib import from example,91c04394224a6a94b7fd2cbc28c691fec87ecc04,,drop unnecessari matplotlib import exampl,N,2016-02-27 12:09:24
+182,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-27 12:09:24,adding doc/modules/reference.rst,6908cf0b3581c5a2122048fcac00f61862340155,,ad docmodulesreferencerst,N,2016-02-28 11:24:02
+183,pull_request_commit,1016,nilearn,nilearn,juhuntenburg,2016-02-28 11:24:02,abs to np.abs,8df6401b45c3a747f80d094442f7362cd8c6b63e,,ab npab,N,2016-02-28 11:26:01
+1,issue_title,968,nilearn,nilearn,salma1601,2016-01-29 17:57:59,"try to fix #941 and #955
+",start issue,Bug: connectivity measures with LedoitWolf and wrong dimension,tri fix 941 955,N,2016-02-03 16:16:21
+3,pull_request_title,968,nilearn,nilearn,salma1601,2016-01-29 17:57:59,"try to fix #941 and #955
+",10c0921192b3ad24cb600faf0bad19641682f151,Bug: connectivity measures with LedoitWolf and wrong dimension,tri fix 941 955,N,2016-02-03 16:16:21
+4,pull_request_merged,968,nilearn,nilearn,AlexandreAbraham,2016-02-03 16:16:21,Bug: connectivity measures with LedoitWolf and wrong dimension,aeb270464abd3ee12b07928454344ebc4ef5b6f8,Pull request merge from salma1601/nilearn:ledoit_correlation to nilearn/nilearn:master,bug connect measur ledoitwolf wrong dimens,N,2016-02-03 14:02:01
+5,issue_comment,968,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:02:01,"Your PR looks good to me. My comment should fix the Travis failure. Are you planning to do something else in it or can I merge it?
+",,,your PR look good My comment fix travi failur are plan someth els I merg,Y,2016-02-03 14:19:01
+6,issue_comment,968,nilearn,nilearn,salma1601,2016-02-03 14:19:01,"I will only fix the Travis failure, thanks !
+",,,I fix travi failur thank,Y,2016-02-03 14:34:13
+7,issue_comment,968,nilearn,nilearn,salma1601,2016-02-03 14:34:13,"may be I should remove the error raised for unknow kind from fit_transform to fit, what do you think ?
+",,,may I remov error rais unknow kind fittransform fit think,N,2016-02-03 16:16:18
+8,issue_comment,968,nilearn,nilearn,AlexandreAbraham,2016-02-03 16:16:18,"> may be I should remove the error raised for unknow kind from fit_transform to fit, what do you think ?
+
+Let's move on.
+",,,let move,N,2016-02-03 14:01:13
+12,pull_request_commit,968,nilearn,nilearn,salma1601,2016-01-30 13:07:43,flake8,bce519757f8e6be4c1088854dea29565d0ce1c06,,flake8,N,2016-02-02 14:53:56
+13,pull_request_commit,968,nilearn,nilearn,salma1601,2016-02-02 14:53:56,added test for correlation,2a5a6c1fe565d24492c2cafcdaa185f2251dd883,,ad test correl,N,2016-02-03 14:23:02
+14,pull_request_commit,968,nilearn,nilearn,salma1601,2016-02-03 14:23:02,typo,113b24eed8585925760acdd848e580f5c28bf2d4,,typo,N,2016-02-03 14:25:43
+15,pull_request_commit,968,nilearn,nilearn,salma1601,2016-02-03 14:25:43,set syntax for python 2.6,4439072f85faf873c147bfce64d744532765f252,,set syntax python 26,N,2016-02-03 14:48:07
+2,issue_closed,1026,nilearn,nilearn,AlexandreAbraham,2016-06-07 15:27:00,,closed issue,[MRG] Plot prob atlas colorbar,,N,2016-02-26 16:26:43
+10,issue_comment,1026,nilearn,nilearn,arthurmensch,2016-05-27 13:32:20,"I cannot reproduce this issue, no matter the configuration I try. As it is not critical, I suggest we merge this PR and wait for further feedback to identity the reason of this corner case.
+",,,I cannot reproduc issu matter configur I tri As critic I suggest merg PR wait feedback ident reason corner case,N,2016-02-29 22:52:28
+11,issue_comment,1026,nilearn,nilearn,KamalakerDadi,2016-02-29 22:52:28,"Could you please also add about this feature in `whats_new` doc.
+",,,could pleas also add featur doc,N,2016-03-01 12:46:14
+12,issue_comment,1026,nilearn,nilearn,KamalakerDadi,2016-03-01 12:46:14,"@arthurmensch  I am sorry for conflicts. I realized lately.
+",,,arthurmensch I sorri conflict I realiz late,N,2016-02-26 16:28:57
+13,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 16:28:57,"Is this change necessary?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",Is chang necessari,N,2016-02-26 16:29:49
+14,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 16:29:49,"Could you remove the comment line
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",could remov comment line,N,2016-02-26 16:33:05
+15,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 16:33:05,"Could you format this according to the numpy doc standard: a Parameters section, and Example as a section.
+
+The reason that I ask this, is that the docstring is invalid currently.
+
+Also, the examples should be doctests.
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",could format accord numpi doc standard paramet section exampl section the reason I ask docstr invalid current also exampl doctest,N,2016-02-26 16:33:28
+16,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 16:33:28,"isinstance(cmap, basestring)
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",isinstancecmap basestr,N,2016-02-26 16:34:36
+17,pull_request_commit_comment,1026,nilearn,nilearn,arthurmensch,2016-02-26 16:34:36,"This is unused anyway
+Le 26 févr. 2016 17:33, ""Gael Varoquaux"" notifications@github.com a
+écrit :
+
+> In nilearn/plotting/img_plotting.py
+> https://github.com/nilearn/nilearn/pull/1026#discussion_r54266010:
+> 
+> > @@ -815,6 +834,32 @@ def plot_prob_atlas(maps_img, anat_img=MNI152TEMPLATE, view_type='auto',
+> >      return display
+> > 
+> > +def _cmap_discretize(cmap, N):
+> > -    """"""Return a discrete colormap from the continuous colormap cmap.
+> >   +
+> > -        cmap: colormap instance, eg. cm.jet.
+> > -        N: number of colors.
+> >   +
+> > -    Example
+> > -        x = resize(arange(100), (5,100))
+> > -        djet = cmap_discretize(cm.jet, 5)
+> > -        imshow(x, cmap=djet)
+> 
+> Could you format this according to the numpy doc standard: a Parameters
+> section, and Example as a section.
+> 
+> The reason that I ask this, is that the docstring is invalid currently.
+> 
+> Also, the examples should be doctests.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/1026/files#r54266010.
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",thi unus anyway Le 26 févr 2016 1733 gael varoquaux notificationsgithubcom écrit,N,2016-02-26 17:48:10
+18,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 17:48:10,"I think that colorbar should be False by default (and in the example just add one being ""True"").
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",I think colorbar fals default exampl add one true,N,2016-02-26 17:48:26
+19,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 17:48:26,"The reason that I think that is that it isn't that informative.
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",the reason I think isnt inform,N,2016-02-26 17:49:03
+20,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 17:49:03,"I think that the variable 'our_cmap' is not used.
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",I think variabl ourcmap use,N,2016-02-26 18:28:02
+21,pull_request_commit_comment,1026,nilearn,nilearn,bthirion,2016-02-26 18:28:02,"on my box, this creates grayscale colorbars :-( 
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'examples/01_plotting/plot_prob_atlas.py')",box creat grayscal colorbar,N,2016-02-26 18:30:54
+22,pull_request_commit_comment,1026,nilearn,nilearn,bthirion,2016-02-26 18:30:54,"Would it be possible to support user-supplied labels (sorry if my question is silly, I don't know this code well) ?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",would possibl support usersuppli label sorri question silli I dont know code well,N,2016-02-26 18:37:25
+23,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-26 18:37:25,"No because they are too big and we cannot do a good layout.
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Feb 26, 2016, 19:30, at 19:30, bthirion notifications@github.com wrote:
+
+> > -        our_cmap = cmap
+> > -        display._colorbar = True
+> > -   
+> >   display._show_colorbar(matplotlib.colors.LinearSegmentedColormap.
+> > -                               from_list('segmented colors',
+> > -                                         color_list, n_maps + 1),
+> > -                               matplotlib.colors.Normalize(1, n_maps
+> > - 1))
+> > -        tick_locator = matplotlib.ticker.MaxNLocator(nbins=10)
+> > -        display.locator = tick_locator
+> > -        display._cbar.update_ticks()
+> > -        display._cbar.set_ticks(np.round(np.linspace(1, n_maps,
+> > -                                                     min(n_maps,
+> >   10))) + .5)
+> > -        display._cbar.set_ticklabels(np.round(np.linspace(1, n_maps,
+> > -                                                 min(n_maps,
+> >   10))).astype('int'))
+> > -        left, bottom, width, height =
+> >   display._colorbar_ax.get_position().bounds
+> > -        display._colorbar_ax.set_position([left, bottom, width,
+> >   height \* 0.95])
+> > -        display._colorbar_ax.annotate('Map #', xy=(1, 1.03),
+> >   ha='right', va='bottom',
+> 
+> Would it be possible to support user-supplied labels (sorry if my
+> question is silly, I don't know this code well) ?
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/1026/files#r54281846
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",No big cannot good layout sent phone pleas forgiv breviti mi spell On feb 26 2016 1930 1930 bthirion notificationsgithubcom wrote,N,2016-02-27 14:28:51
+24,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-27 14:28:51,"> on my box, this creates grayscale colorbars :-(
+
+Ouch, we have a problem.
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'examples/01_plotting/plot_prob_atlas.py')",ouch problem,N,2016-02-29 12:38:31
+25,pull_request_commit_comment,1026,nilearn,nilearn,banilo,2016-02-29 12:38:31,"Why not also craddock's altas?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'examples/01_plotting/plot_prob_atlas.py')",whi also craddock alta,N,2016-02-29 12:39:46
+26,pull_request_commit_comment,1026,nilearn,nilearn,banilo,2016-02-29 12:39:46,"Add an optional argument to control `cmap` here?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",add option argument control,N,2016-02-29 12:46:46
+27,pull_request_commit_comment,1026,nilearn,nilearn,banilo,2016-02-29 12:46:46,"merge conflicts?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",merg conflict,N,2016-02-29 13:26:48
+28,pull_request_commit_comment,1026,nilearn,nilearn,arthurmensch,2016-02-29 13:26:48,"Not the point of this PR
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'examples/01_plotting/plot_prob_atlas.py')",not point PR,N,2016-02-29 13:27:19
+29,pull_request_commit_comment,1026,nilearn,nilearn,arthurmensch,2016-02-29 13:27:19,"Already there
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",alreadi,N,2016-02-29 16:23:15
+30,pull_request_commit_comment,1026,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:23:15,"The code below would be more readable if you created an intermediate variable containing 
+
+```
+np.round(np.linspace(1, n_maps, min(n_maps, 10)))
+```
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",the code would readabl creat intermedi variabl contain,N,2016-02-29 22:32:41
+31,pull_request_commit_comment,1026,nilearn,nilearn,KamalakerDadi,2016-02-29 22:32:41,"Could you add a line saying about the representation of colorbar ?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/img_plotting.py')",could add line say represent colorbar,N,2016-02-29 22:35:03
+32,pull_request_commit_comment,1026,nilearn,nilearn,KamalakerDadi,2016-02-29 22:35:03,""" Testing the 4D plot prob atlas with colorbar "" you mean ?
+",8b932584bba05404d90a5025e73cf0502569e859,"(None, '', u'nilearn/plotting/tests/test_img_plotting.py')",test 4D plot prob atla colorbar mean,Y,2016-02-29 22:37:33
+35,pull_request_commit_comment,1026,nilearn,nilearn,KamalakerDadi,2016-05-13 10:12:03,"typo here
+",8b932584bba05404d90a5025e73cf0502569e859,"(14, '', u'examples/01_plotting/plot_prob_atlas.py')",typo,N,2016-02-26 16:16:05
+1,issue_title,978,nilearn,nilearn,aabadie,2016-02-04 12:26:25,"This should fix #962 and #891 
+
+I tried to reused documentation from external sources. The contributing file is at the root of the project so that GitHub propose a link a it each time one adds an issue.
+",start issue,[MRG] DOC Adding contributing page in doc,thi fix 962 891 I tri reus document extern sourc the contribut file root project github propos link time one add issu,N,2016-02-05 10:03:56
+2,issue_closed,978,nilearn,nilearn,AlexandreAbraham,2016-02-05 10:03:56,,closed issue,[MRG] DOC Adding contributing page in doc,,N,2016-02-04 12:26:25
+3,pull_request_title,978,nilearn,nilearn,aabadie,2016-02-04 12:26:25,"This should fix #962 and #891 
+
+I tried to reused documentation from external sources. The contributing file is at the root of the project so that GitHub propose a link a it each time one adds an issue.
+",ed66d141d051b40c48cf30acf4047bdfc89980c2,[MRG] DOC Adding contributing page in doc,thi fix 962 891 I tri reus document extern sourc the contribut file root project github propos link time one add issu,N,2016-02-05 10:03:56
+4,pull_request_merged,978,nilearn,nilearn,AlexandreAbraham,2016-02-05 10:03:56,[MRG] DOC Adding contributing page in doc,1ef1bbbc313ef9cd0e6542fb89554bf4af49aaa4,Pull request merge from aabadie/nilearn:dev_documentation to nilearn/nilearn:master,mrg doc ad contribut page doc,N,2016-02-04 12:47:16
+5,issue_comment,978,nilearn,nilearn,aabadie,2016-02-04 12:47:16,"@AlexandreAbraham, it would be great to have it in next release :)
+",,,alexandreabraham would great next releas,N,2016-02-04 13:00:13
+6,issue_comment,978,nilearn,nilearn,AlexandreAbraham,2016-02-04 13:00:13,"+1 for including it in the upcoming release. This is a good start for the contributing part. Let's wait for CircleCI.
+
+PS: have you seen that the appveyor build has been cancelled... Does anybody know the reason?
+",,,1 includ upcom releas thi good start contribut part let wait circleci PS seen appveyor build cancel doe anybodi know reason,N,2016-02-04 13:03:50
+7,issue_comment,978,nilearn,nilearn,lesteve,2016-02-04 13:03:50,"Could it be because of this:
+
+```
+More recent ""master"" branch build has been stated.
+```
+",,,could,N,2016-02-04 16:56:54
+8,issue_comment,978,nilearn,nilearn,aabadie,2016-02-04 16:56:54," @AlexandreAbraham, @lesteve, all tests passed, should be ready to be merged :)
+",,,alexandreabraham lestev test pass readi merg,Y,2016-02-05 09:49:42
+9,pull_request_commit_comment,978,nilearn,nilearn,KamalakerDadi,2016-02-05 09:49:42,"May be its not part of your PR but the link is outdated here.
+
+You could replace with http://python-xy.github.io/ if its the suitable one. Apart from that fine with me.
+",ed66d141d051b40c48cf30acf4047bdfc89980c2,"(9, '', u'doc/install_doc_component.html')",may part PR link outdat you could replac suitabl one apart fine,N,2016-02-05 09:53:49
+10,pull_request_commit_comment,978,nilearn,nilearn,aabadie,2016-02-05 09:53:49,"Indeed, it's not part of the ""real"" changes of this PR but a misconfiguration of my IDE automatically removed trailing spaces in html files. The broken link fix could be part of another PR I think.
+",ed66d141d051b40c48cf30acf4047bdfc89980c2,"(9, '', u'doc/install_doc_component.html')",inde part real chang PR misconfigur ide automat remov trail space html file the broken link fix could part anoth PR I think,N,2016-02-05 10:09:49
+11,pull_request_commit_comment,978,nilearn,nilearn,lesteve,2016-02-05 10:09:49,"This README.rst will be mostly looked at on github, not sure that this line is worth it.
+
+Then just say ""Detailed instructions ...""
+",ed66d141d051b40c48cf30acf4047bdfc89980c2,"(6, '', u'README.rst')",thi readmerst mostli look github sure line worth then say detail instruct,N,2016-02-05 10:10:49
+12,pull_request_commit_comment,978,nilearn,nilearn,lesteve,2016-02-05 10:10:49,"For the record the link is not broken per se, it's just a ""This project has moved"" page with the up-to-date link to github.io.
+",ed66d141d051b40c48cf30acf4047bdfc89980c2,"(9, '', u'doc/install_doc_component.html')",for record link broken per se thi project move page uptod link githubio,N,2016-02-05 10:27:57
+13,pull_request_commit_comment,978,nilearn,nilearn,aabadie,2016-02-05 10:27:57,"I created #980 to fix this.
+",ed66d141d051b40c48cf30acf4047bdfc89980c2,"(6, '', u'README.rst')",I creat 980 fix,N,2016-02-04 10:36:44
+14,pull_request_commit,978,nilearn,nilearn,aabadie,2016-02-04 10:36:44,adding contributing page,d066ba3d2f805685ea938d40bdd32e68cd678a7d,,ad contribut page,N,2016-02-04 11:41:29
+15,pull_request_commit,978,nilearn,nilearn,aabadie,2016-02-04 11:41:29,fix contributing page generation,a1eec4db728c60e6d53fa9db0509a19f73640737,,fix contribut page gener,N,2016-02-04 12:01:50
+16,pull_request_commit,978,nilearn,nilearn,aabadie,2016-02-04 12:01:50,better access strategy of rst located at root,46987cd4778d9d69acce577a1d8bf834b7418e64,,better access strategi rst locat root,N,2016-02-04 12:24:27
+17,pull_request_commit,978,nilearn,nilearn,aabadie,2016-02-04 12:24:27,adding link from README.rst + more information,b759eeabd5c8bf09aa5a61a2b8826aff716e4cad,,ad link readmerst inform,N,2016-02-04 13:06:03
+18,pull_request_commit,978,nilearn,nilearn,aabadie,2016-02-04 13:06:03,"use upper case filename for root rst files (AUTHORS, CONTRIBUTING) and lower case in other places",b061e74781f89eb1c5ecc02f2b8215b1f7e34b61,,use upper case filenam root rst file author contribut lower case place,N,2016-02-04 14:08:39
+1,issue_title,984,nilearn,nilearn,KamalakerDadi,2016-02-08 08:58:58,"1. description file `urchs_multiscale_2015.rst`
+2. the code to download the parcellations `fetch_atlas_basc_multiscale`
+3. tests as mentioned in Issue #916 
+",start issue,[MRG] Datasets: Fetcher for Multiscale Brain Parcellations,1 descript file 2 code download parcel 3 test mention issu 916,N,2016-02-17 14:34:11
+2,issue_closed,984,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:34:11,,closed issue,[MRG] Datasets: Fetcher for Multiscale Brain Parcellations,,N,2016-02-08 08:58:58
+3,pull_request_title,984,nilearn,nilearn,KamalakerDadi,2016-02-08 08:58:58,"1. description file `urchs_multiscale_2015.rst`
+2. the code to download the parcellations `fetch_atlas_basc_multiscale`
+3. tests as mentioned in Issue #916 
+",da638fc7a29e9b692023ef000341728a78ca08b6,[MRG] Datasets: Fetcher for Multiscale Brain Parcellations,1 descript file 2 code download parcel 3 test mention issu 916,N,2016-02-17 14:34:11
+4,pull_request_merged,984,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:34:11,[MRG] Datasets: Fetcher for Multiscale Brain Parcellations,7954ff86d0eafaf3904c463e4c49ae7ce5fb113b,Pull request merge from KamalakerDadi/nilearn:multiscale_parcellations to nilearn/nilearn:master,mrg dataset fetcher multiscal brain parcel,N,2016-02-08 09:34:34
+5,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 09:34:34,"@aabadie Could you hint me about travis failure on memory consumption ? Thanks
+",,,aabadi could hint travi failur memori consumpt thank,Y,2016-02-08 10:05:19
+6,issue_comment,984,nilearn,nilearn,lesteve,2016-02-08 10:05:19,"> @aabadie Could you hint me about travis failure on memory consumption ? Thanks
+
+It's very likely not related to your PR so ignore it for now.
+",,,it like relat PR ignor,N,2016-02-08 10:08:02
+7,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 10:08:02,"Quick Example:
+
+``` python
+from nilearn import datasets
+from nilearn import plotting
+# Atlases fetcher
+multiscale_parcellations = datasets.fetch_atlas_basc_multiscale()
+# Visualization
+plotting.plot_roi(multiscale_parcellations.scale007, title='Scale007')
+plotting.plot_roi(multiscale_parcellations.scale444, title='Scale444')
+plotting.plot_roi(multiscale_parcellations.scale197, title='Scale197')
+```
+",,,quick exampl,N,2016-02-08 10:08:41
+8,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 10:08:41,"> It's very likely not related to your PR so ignore it for now.
+
+Ok. Thanks. 
+",,,Ok thank,N,2016-02-08 10:40:01
+9,issue_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-08 10:40:01,"LGTM apart from one small comment. Question: should we add an example? An exemple with several connectome computation could be cool.
+",,,lgtm apart one small comment question add exampl An exempl sever connectom comput could cool,N,2016-02-08 11:43:48
+10,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 11:43:48,"> Question: should we add a test?
+
+Example you mean ?
+",,,exampl mean,N,2016-02-08 12:16:40
+11,issue_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-08 12:16:40,"> > Question: should we add a test?
+> 
+> Example you mean ?
+
+I don't know what you are talking about :D
+",,,I dont know talk D,N,2016-02-08 12:20:32
+12,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 12:20:32,"> I don't know what you are talking about :D
+> Question: should we add a test? A test with several connectome computation could be cool.
+
+I am talking about this.
+",,,I talk,N,2016-02-08 12:26:07
+13,issue_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-08 12:26:07,"> > I don't know what you are talking about :D
+> > 
+> > > Question: should we add a test? A test with several connectome computation could be cool.
+> > > I am talking about this.
+
+I know what you are talking about, but I have edited my comment to make your remark irrelevant :P. It was supposed to be (kind of) funny!
+",,,I know talk I edit comment make remark irrelev P It suppos kind funni,N,2016-02-08 12:33:18
+14,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 12:33:18,"Now, I got it. :) Yes example will be good but I am not sure whether I should focus on visualization or connectome example. If connectome example which functional datasets. May be we should do an example of COBRE datasets. For datasets fetcher, I will do a PR on that.
+",,,now I got ye exampl good I sure whether I focu visual connectom exampl If connectom exampl function dataset may exampl cobr dataset for dataset fetcher I PR,N,2016-02-10 08:31:39
+15,issue_comment,984,nilearn,nilearn,bthirion,2016-02-10 08:31:39,"I also would like an example. Don't try out something complicated: just plotting an atlas with 3 resolution levels would be sufficient imho.
+",,,I also would like exampl dont tri someth complic plot atla 3 resolut level would suffici imho,N,2016-02-15 08:41:56
+16,issue_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-15 08:41:56,"@bthirion done with the example. Could you have a final review please ?
+",,,bthirion done exampl could final review pleas,N,2016-02-15 14:26:02
+17,issue_comment,984,nilearn,nilearn,bthirion,2016-02-15 14:26:02,"The example is good.
+",,,the exampl good,N,2016-02-16 18:01:54
+18,issue_comment,984,nilearn,nilearn,GaelVaroquaux,2016-02-16 18:01:54,"Aside from the link, LGTM.
+",,,asid link lgtm,N,2016-02-17 14:32:47
+19,issue_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:32:47,"Merging. I'll fix the URL directly into master.
+",,,merg ill fix url directli master,N,2016-02-08 10:36:21
+20,pull_request_commit_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-08 10:36:21,"Why not `basc_multiscale_2015`?
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",whi,N,2016-02-08 11:47:35
+21,pull_request_commit_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 11:47:35,"> Why not `basc_multiscale_2015`?
+
+In the issue Pierre suggested this name. I just followed that. Also, the data upload citations are Sebastian Urchs, Christian Dansereau, Yassine Benhajali, Pierre Bellec
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",In issu pierr suggest name I follow also data upload citat sebastian urch christian dansereau yassin benhajali pierr bellec,N,2016-02-08 12:18:46
+22,pull_request_commit_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-08 12:18:46,"You should be consistent between the name of the dataset and the storage name. Plus, this identifier is only used internally so using a different name will change nothing for the user.
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",you consist name dataset storag name plu identifi use intern use differ name chang noth user,N,2016-02-08 12:21:37
+23,pull_request_commit_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-08 12:21:37,"Ok. I will go for this `basc_multiscale_2015`
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",Ok I go,N,2016-02-09 12:29:19
+24,pull_request_commit_comment,984,nilearn,nilearn,bthirion,2016-02-09 12:29:19,"''Downloads and loads""
+""multiscale""
+""brain""
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",download load multiscal brain,N,2016-02-09 12:29:32
+25,pull_request_commit_comment,984,nilearn,nilearn,bthirion,2016-02-09 12:29:32,"from about
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",,N,2016-02-09 12:30:19
+26,pull_request_commit_comment,984,nilearn,nilearn,bthirion,2016-02-09 12:30:19,"""and includes"": ""among"" 
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",includ among,N,2016-02-10 08:24:23
+27,pull_request_commit_comment,984,nilearn,nilearn,bthirion,2016-02-10 08:24:23,"lower-case: multiscale brain parcellations
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/description/basc_multiscale_2015.rst')",lowercas multiscal brain parcel,N,2016-02-16 13:23:50
+28,pull_request_commit_comment,984,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:23:50,"BASC is a method. We should probably be more specific in the name, something like `basc_multiscale_2015` to avoid name collision if another atlas is generated from another dataset using the same method. Apart from that small detail, +1 for merging.
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",basc method We probabl specif name someth like avoid name collis anoth atla gener anoth dataset use method apart small detail 1 merg,N,2016-02-16 14:11:26
+29,pull_request_commit_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-16 14:11:26,"Done...
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(None, '', u'nilearn/datasets/atlas.py')",done,N,2016-02-16 17:56:32
+30,pull_request_commit_comment,984,nilearn,nilearn,GaelVaroquaux,2016-02-16 17:56:32,"Could you add a link to the figshare page
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(12, '', u'nilearn/datasets/atlas.py')",could add link figshar page,N,2016-02-16 18:42:23
+31,pull_request_commit_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-16 18:42:23,"I tried to add before, its huge in length. Any hint ?
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(12, '', u'nilearn/datasets/atlas.py')",I tri add huge length ani hint,N,2016-02-16 19:29:19
+32,pull_request_commit_comment,984,nilearn,nilearn,KamalakerDadi,2016-02-16 19:29:19,"I will use url shortner https://goo.gl/yfg80t 
+
+Will it be Ok ?
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(12, '', u'nilearn/datasets/atlas.py')",I use url shortner will Ok,N,2016-02-17 05:58:49
+33,pull_request_commit_comment,984,nilearn,nilearn,GaelVaroquaux,2016-02-17 05:58:49,"> I will use url shortner https://goo.gl/yfg80t
+
+I would prefer the full URL, so that people see where it points to.
+",da638fc7a29e9b692023ef000341728a78ca08b6,"(12, '', u'nilearn/datasets/atlas.py')",I would prefer full url peopl see point,N,2016-02-08 08:47:10
+34,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-08 08:47:10,[Datasets] Fetcher for Multiscale Brain Parcellations,0f789a1a6e9347a25b6933a19603bb42dc2928c1,,dataset fetcher multiscal brain parcel,N,2016-02-08 21:40:55
+35,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-08 21:40:55,Fixed changing description filename to basc_multiscale_2015 and flake8,547856b69d2c71a47ff2d39c5b5e52daca1f3355,,fix chang descript filenam bascmultiscale2015 flake8,N,2016-02-09 15:51:50
+36,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-09 15:51:50,Documentation correction,8bb34a4e882ed2a7f01b54ac696b62f4bf5a7447,,document correct,N,2016-02-14 20:37:45
+37,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-14 20:37:45,Example focussing on Visualizing three scales of networks,594f9394e560c58d362adee38107b4f86a0dcc92,,exampl focuss visual three scale network,N,2016-02-14 20:46:09
+38,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-14 20:46:09,Documentation version added,4d13192d28fb645a5d8f42c05ffcc695486a859e,,document version ad,N,2016-02-14 20:55:30
+39,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-14 20:55:30,pep8 corrections,92d193a01108004fe7f4190786728d426761b65f,,pep8 correct,N,2016-02-15 08:57:09
+40,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-15 08:57:09,Cosmit changes in example,c8ea1c7636f5628cfe66802d6d77c99d7491513e,,cosmit chang exampl,N,2016-02-16 13:51:44
+41,pull_request_commit,984,nilearn,nilearn,KamalakerDadi,2016-02-16 13:51:44,Function name change to basc_multiscale_2015,55cd8bcbaedec22d952e61f71197b394302289fd,,function name chang bascmultiscale2015,N,2016-02-17 09:19:53
+2,issue_closed,1034,nilearn,nilearn,AlexandreAbraham,2016-06-07 15:05:47,,closed issue,Glass brain hemispheres,,N,2016-02-29 16:08:21
+4,pull_request_merged,1034,nilearn,nilearn,AlexandreAbraham,2016-06-07 15:05:47,Glass brain hemispheres,fe412f17461fe32715d4b7a079fe59f66626a7e1,Pull request merge from MartinPerez/nilearn:glass_brain_hemispheres to nilearn/nilearn:master,glass brain hemispher,N,2016-02-29 16:27:43
+5,issue_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:27:43,"This does look very nice! On the images at the top (with a white background), there is a strange yellow background color. 
+",,,thi look nice On imag top white background strang yellow background color,N,2016-02-29 16:30:25
+22,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-06-07 16:08:23,"Awesome! thanks!
+On Jun 7, 2016 5:11 PM, ""Gael Varoquaux"" notifications@github.com wrote:
+
+> Whoooot
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly, view it on GitHub
+> https://github.com/nilearn/nilearn/pull/1034#issuecomment-224311972, or mute
+> the thread
+> https://github.com/notifications/unsubscribe/AIXFw3NsUXQYwkzt_0SRwEMZroAcDQhBks5qJYobgaJpZM4HljwT
+> .
+",,,awesom thank On jun 7 2016 511 PM gael varoquaux notificationsgithubcom wrote,N,2016-02-29 16:12:19
+23,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",,,sorri rebas,N,2016-02-29 16:29:19
+24,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",,,you mean two first imag I see white S,N,2016-02-29 16:33:44
+25,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 16:33:44,"in two screens (desktop, laptop) I see it white. No yellow background... @AlexandreAbraham what do you see?
+",,,two screen desktop laptop I see white No yellow background alexandreabraham see,N,2016-02-29 17:24:08
+26,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:24:08,"I fixed the background issue and discovered on the way that I have some yellow daltonism, haha.
+
+![figure_10](https://cloud.githubusercontent.com/assets/8766915/13402645/83d017bc-df11-11e5-9fab-4eb6c43bf6a6.png)
+",,,I fix background issu discov way I yellow dalton haha figure10,N,2016-02-29 18:46:03
+27,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 18:46:03,"Addressed all comments. Added lyr, lzr and lzry and actually generalized the code to accept any order of labels in the future, which also simplified the hemispheric projector class. Added smoke test on test_img_plotting.py.
+
+Examples here:
+
+![figure_11](https://cloud.githubusercontent.com/assets/8766915/13405055/f95bfff4-df1c-11e5-947d-dd3a07e4d795.png)
+![figure_12](https://cloud.githubusercontent.com/assets/8766915/13405057/fa809a7a-df1c-11e5-8e44-407ddc9d593e.png)
+",,,address comment ad lyr lzr lzri actual gener code accept order label futur also simplifi hemispher projector class ad smoke test testimgplottingpi exampl figure11 figure12,Y,2016-03-01 11:23:08
+28,issue_comment,1034,nilearn,nilearn,MartinPerez,2016-03-01 11:23:08,"circle ci seems to fail due to sphinx and doc generation? Can anyone please give me a hand to understand this error. Codacy fails for what was pointed out by @GaelVaroquaux  about code duplication in displays.py in GlassBrainHemisphericAxes class
+",,,circl ci seem fail due sphinx doc gener can anyon pleas give hand understand error codaci fail point gaelvaroquaux code duplic displayspi glassbrainhemisphericax class,N,2016-03-01 22:43:07
+37,issue_comment,1034,nilearn,nilearn,KamalakerDadi,2016-04-27 16:52:08,"Please also add a line about this new feature in `whats_new.rst`
+",,,pleas also add line new featur,N,2016-02-29 16:36:26
+38,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:36:26,"We want to keep this example as simple as possible. I suggest that we remove that last line, which belongs more to the advanced example.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain.py')",We want keep exampl simpl possibl I suggest remov last line belong advanc exampl,N,2016-02-29 16:37:37
+39,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:37:37,"Can we have a demo of ""lzr"", which I suspect is the mode useful mode.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",can demo lzr I suspect mode use mode,N,2016-02-29 16:43:37
+40,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:43:37,"Am I wrong to think that if we modify the base class ""draw_left_right"" method, around line 115, we don't need to reimplement this method in the derived class?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",Am I wrong think modifi base class drawleftright method around line 115 dont need reimplement method deriv class,N,2016-02-29 16:47:00
+41,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:47:00,"It seems to me that there's a lot of copy/paste with regards to the base-class method (in GlassBrainAxes). I would prefer modifying it to support l/r projection.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",It seem there lot copypast regard baseclass method glassbrainax I would prefer modifi support lr project,N,2016-02-29 16:50:50
+42,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",Id like lzr mode I think,N,2016-02-29 16:51:48
+43,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/img_plotting.py')",Is chang intent I feel right,N,2016-02-29 16:52:30
+44,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:52:30,"Could we also test the functionality with a call to plot_glass_brain.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/tests/test_displays.py')",could also test function call plotglassbrain,Y,2016-02-29 17:24:53
+45,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:24:53,"no problem
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')",problem,N,2016-02-29 17:25:41
+46,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:25:41,"ok
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain.py')",ok,N,2016-02-29 17:27:30
+47,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:27:30,"I just mention the default value already implemented. You mean I should not mention it, or that the default itself is wrong?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/img_plotting.py')",I mention default valu alreadi implement you mean I mention default wrong,N,2016-02-29 17:28:18
+48,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:28:18,"Like in the examples?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/tests/test_displays.py')",like exampl,N,2016-02-29 17:34:52
+49,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 17:34:52,"> I just mention the default value already implemented. You mean I should not
+> mention it, or that the default itself is wrong?
+
+The default is ""None"": we are talking about ""output_file"", aren't we?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/img_plotting.py')",the default none talk outputfil arent,N,2016-02-29 17:37:49
+50,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:37:49,"I also noticed that some changes would just mean one line in the parent classes. Nonetheless I put all the changes in the GlassBrainHemisphericAxes class for 2 reasons. First its not just GlassBrainAxes but also BaseAxes that would have modifications, I thought having spread changes across multiple classes for one feature might be confusing in the future and could break some other derived class (so far its assume for all the plotting framework that only xyz exist). Second I am not sure how the changes introduced would interact with the connectomics plots that also use the GlassBrainAxes class. I think putting this together and checking how this should be used with the connectomics should be a different PR. @GaelVaroquaux what do you think?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",I also notic chang would mean one line parent class nonetheless I put chang glassbrainhemisphericax class 2 reason first glassbrainax also baseax would modif I thought spread chang across multipl class one featur might confus futur could break deriv class far assum plot framework xyz exist second I sure chang introduc would interact connectom plot also use glassbrainax class I think put togeth check use connectom differ PR gaelvaroquaux think,N,2016-02-29 17:39:07
+51,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/tests/test_displays.py')",ye simpl smoketest,N,2016-02-29 17:41:44
+52,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:41:44,"sorry you are right. mistake during the rebase merge just done.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/img_plotting.py')",sorri right mistak rebas merg done,N,2016-03-01 20:19:48
+53,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-03-01 20:19:48,"Your problem with circleCI might be that you cannot have a line return here. It's possible that this just needs to be a very long line.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/img_plotting.py')",your problem circleci might cannot line return it possibl need long line,N,2016-03-02 06:09:50
+54,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-03-02 06:09:50,"To make the HTML view of the example simpler to comprehend, I think that it would be good to have 3 different ""cells"" in this example, one per plot.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain.py')",To make html view exampl simpler comprehend I think would good 3 differ cell exampl one per plot,N,2016-03-02 06:13:01
+55,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-03-02 06:13:01,"I don't really mind if the modifications propagate up if it makes the code simpler. For classes that don't accept ""l"" or ""r"", we can always capture this in the **init**
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",I dont realli mind modif propag make code simpler for class dont accept l r alway captur init,N,2016-03-02 06:13:31
+56,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-03-02 06:13:31,"Also, I forgot to mention, but I would love the connectome plots to have logic for ""l"" and ""r"" too.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",also I forgot mention I would love connectom plot logic l r,N,2016-03-02 06:44:07
+57,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-03-02 06:44:07,"That last one should be ""right_side"", no?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/glass_brain.py')",that last one rightsid,N,2016-03-02 09:17:24
+58,pull_request_commit_comment,1034,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",1 push code upper class If afraid break stuff mayb 2 time merg one refactor afterward,N,2016-03-02 09:19:22
+59,pull_request_commit_comment,1034,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:19:22,"I'm pretty sure that this copy is not necessary. This is not a big deal, though.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",Im pretti sure copi necessari thi big deal though,N,2016-03-02 09:20:11
+60,pull_request_commit_comment,1034,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:20:11,"Assuming that data is centered seems dangerous to me. You should use the affine to get the ""real"" coordinate of the center.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",assum data center seem danger you use affin get real coordin center,N,2016-03-02 09:20:47
+61,pull_request_commit_comment,1034,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:20:47,"Can you comment on these lines?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",can comment line,N,2016-03-02 11:56:04
+62,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-03-02 11:56:04,"r reuses the same image as x. So I left it with the same id when getting info from the files. Would you prefer to duplicate the image files with a new name?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/glass_brain.py')",r reus imag x So I left id get info file would prefer duplic imag file new name,N,2016-03-02 12:02:26
+63,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-03-02 12:02:26,"How should it be done? I was just trying to avoid modifying the original data ""passed by reference"" to the transform_to_2d function. Could I instead just do data=data to create a new function local variable?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",how done I tri avoid modifi origin data pass refer transformto2d function could I instead datadata creat new function local variabl,N,2016-03-02 12:03:24
+64,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",I see point address,N,2016-03-02 12:04:04
+65,pull_request_commit_comment,1034,nilearn,nilearn,MartinPerez,2016-03-02 12:04:04,"ok. enough to clarify i am flipping in the saggital cut?
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",ok enough clarifi flip saggit cut,N,2016-03-02 12:05:01
+66,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/glass_brain.py')",Of cours sorri nois,N,2016-03-02 12:08:37
+88,pull_request_commit_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-05-19 14:16:46,"> By the way just wondering what should we do if xc == 0 (maybe that never
+> happens in practice I am not sure). Should we not show the marker on both 'l'
+> and 'r' plots?
+
+Actually, that's probably a good idea. And that way we have edges going
+to it in both plot (this needs to be documented in the docstrings of
+add_marker and plot_connectome).
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,"(None, '', u'nilearn/plotting/displays.py')",actual that probabl good idea and way edg go plot need document docstr addmark plotconnectom,N,2016-02-29 14:22:36
+89,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-02-29 14:22:36,hemisphere glass brain without connectomics,2d20dadb4865a2abec0486ce2bebc4f8a2b8e37f,,hemispher glass brain without connectom,N,2016-02-29 14:34:33
+90,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-02-29 14:34:33,updated example and debugging script,f406495fb1500643a928ca3fa1af6911a4f12305,,updat exampl debug script,N,2016-02-29 14:54:46
+91,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-02-29 14:54:46,fixed thresholding issue when copying data array,40ba4924e0e2abe1299835cd8f3ad75b88a24258,,fix threshold issu copi data array,N,2016-02-29 15:02:50
+92,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-02-29 15:02:50,added extensive example,82b04e11e2bebe2d1988f3cae7d5e4fb20502dbe,,ad extens exampl,N,2016-02-29 17:17:40
+93,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-02-29 17:17:40,background glitch fix,ae1f58627ebe5983dfbff1fc29327ddd60d43544,,background glitch fix,N,2016-02-29 18:42:19
+94,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-02-29 18:42:19,added arbitrary axes order functionality and simplified hemisphericprojector. Also addressed some comments on the docs and examples. added smoke test for glass brain with hemispheres,967eca1cc7511c793fed8ee92da80ee405f07921,,ad arbitrari axe order function simplifi hemisphericprojector also address comment doc exampl ad smoke test glass brain hemispher,N,2016-03-01 20:58:21
+95,pull_request_commit,1034,nilearn,nilearn,MartinPerez,2016-03-01 20:58:21,trying to address circle ci docs issue,c947845b91567a7b34af196fb6825a84b0094163,,tri address circl ci doc issu,N,2016-03-01 21:07:49
+1,issue_title,946,nilearn,nilearn,AlexandreAbraham,2016-01-14 00:49:30,"Solves the same problem as #880. Fix #873.
+
+Here is my version of the fix. I didn't tested it extensively but, on the toy script below, it works. The code is super ugly because of the need to switch between seed representation (triplet) and coord_transform one (3 lists of coordinates).
+
+I'm convinced that a better to do it exists but I am too tired to figure it out.
+
+Test script:
+
+``` python
+from nilearn.input_data import NiftiSpheresMasker
+import numpy as np
+import nibabel
+
+
+data = np.random.random((3, 3, 3))
+mask = np.zeros((3, 3, 3))
+mask[1, 1, 1] = 1
+affine = np.eye(4) * 1.2
+seed = (1.4, 1.4, 1.4)
+
+masker = NiftiSpheresMasker([seed], radius=0.1,
+                            mask_img=nibabel.Nifti1Image(mask, affine))
+masker.fit_transform(nibabel.Nifti1Image(data, affine))
+```
+",start issue,Fix problem of small radius,solv problem 880 fix 873 here version fix I didnt test extens toy script work the code super ugli need switch seed represent triplet coordtransform one 3 list coordin Im convinc better exist I tire figur test script,N,2016-02-04 00:30:41
+3,pull_request_title,946,nilearn,nilearn,AlexandreAbraham,2016-01-14 00:49:30,"Solves the same problem as #880. Fix #873.
+
+Here is my version of the fix. I didn't tested it extensively but, on the toy script below, it works. The code is super ugly because of the need to switch between seed representation (triplet) and coord_transform one (3 lists of coordinates).
+
+I'm convinced that a better to do it exists but I am too tired to figure it out.
+
+Test script:
+
+``` python
+from nilearn.input_data import NiftiSpheresMasker
+import numpy as np
+import nibabel
+
+
+data = np.random.random((3, 3, 3))
+mask = np.zeros((3, 3, 3))
+mask[1, 1, 1] = 1
+affine = np.eye(4) * 1.2
+seed = (1.4, 1.4, 1.4)
+
+masker = NiftiSpheresMasker([seed], radius=0.1,
+                            mask_img=nibabel.Nifti1Image(mask, affine))
+masker.fit_transform(nibabel.Nifti1Image(data, affine))
+```
+",b1d1d21c9fa17b1cd83d8090d43b2a2f2fa18ff1,Fix problem of small radius,solv problem 880 fix 873 here version fix I didnt test extens toy script work the code super ugli need switch seed represent triplet coordtransform one 3 list coordin Im convinc better exist I tire figur test script,N,2016-02-04 00:30:41
+7,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-01-28 15:34:17,"> If you can isolate the scikit-learn bug, it would be great to report it upstream. 
+
+Added on my todo list.
+
+> Did you remove the warning?
+
+Yes.
+",,,ad todo list ye,N,2016-02-02 16:21:34
+8,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-02 16:21:34,"Build triggered again.
+",,,build trigger,N,2016-02-03 14:32:16
+9,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:32:16,"Now it's becoming funny.
+
+In this build: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.577
+- build failed on Python 2.7
+- build successful on Python 3.4
+
+In this one: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.575
+- build successful on Python 2.7
+- build cancelled on Python 3.4
+
+So, the tests are not intrinsically broken but it seems to introduce some hazardous segfaults in appveyor... I don't know what to do.
+",,,now becom funni In build build fail python 27 build success python 34 In one build success python 27 build cancel python 34 So test intrins broken seem introduc hazard segfault appveyor I dont know,Y,2016-02-03 14:57:58
+10,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:57:58,"> Is it the always same test that is segfaulting?
+
+There is no segfault in the tests, it's at the end of the tests.
+
+See other people as troubled as we are:
+https://github.com/dart-lang/test/issues/356
+",,,there segfault test end test see peopl troubl,Y,2016-02-04 00:30:29
+12,issue_comment,946,nilearn,nilearn,bthirion,2016-01-17 08:26:49,"You could ass teh script as a new test. Besides this, LGTM.
+",,,you could ass teh script new test besid lgtm,Y,2016-02-03 14:35:41
+13,issue_comment,946,nilearn,nilearn,GaelVaroquaux,2016-02-03 14:35:41,"Is it the always same test that is segfaulting?
+",,,Is alway test segfault,Y,2016-02-03 14:40:30
+14,issue_comment,946,nilearn,nilearn,lesteve,2016-02-03 14:40:30,"> In this build: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.577
+> 
+>    build failed on Python 2.7
+
+The tests actually seem to run fine with the output:
+
+```
+Ran 387 tests in 228.284s
+ OK (SKIP=1)
+```
+
+I have seen that happening from time to time, but it tends to go away if you kick off another AppVeyor build.
+
+> In this one: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.575
+> 
+> build cancelled on Python 3.4
+
+No idea why the build was cancelled.
+",,,the test actual seem run fine output I seen happen time time tend go away kick anoth appveyor build No idea build cancel,Y,2016-02-03 14:51:17
+1,issue_title,736,nilearn,nilearn,AlexandreAbraham,2015-07-29 10:08:16,"Nilearn's code has growth a lot since the last time we audited it. New patterns, such as `new_img_like` that loads an img, may sometimes encourage object persistence when they are not really needed and their memory could be freed.
+
+It would be a good thing to do a pass on the code to check that.
+
+Also, it would be really awesome to have memory tests. Using `ulimit` linux command, it is easy to set a bound to memory consumption and thus check that we are not leaking.
+",start issue,"Improve nilearn memory consumption, test it",nilearn code growth lot sinc last time audit new pattern load img may sometim encourag object persist realli need memori could freed It would good thing pass code check also would realli awesom memori test use linux command easi set bound memori consumpt thu check leak,N,2016-02-04 14:54:12
+1,issue_title,916,nilearn,nilearn,GaelVaroquaux,2015-12-16 11:59:35,"https://figshare.com/articles/
+Group_multiscale_functional_template_generated_with_BASC_on_the_Cambridge_sample
+/1285615
+
+Via @pbellec, who might be able to answer questions about these parcellations.
+",start issue,Downloader for multiscale parcellations,groupmultiscalefunctionaltemplategeneratedwithbasconthecambridgesampl 1285615 via pbellec might abl answer question parcel,N,2016-02-17 14:37:42
+2,issue_closed,916,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:37:42,,closed issue,Downloader for multiscale parcellations,,N,2016-02-17 14:37:42
+1,issue_title,1003,nilearn,nilearn,GaelVaroquaux,2016-02-23 12:40:38,"I've heard rumors that anaconda on CircleCI could speed up very much run of the examples. We should give it a try. MNE-Python is trying too, maybe we can draw inspiration from there work:
+https://github.com/mne-tools/mne-python/pull/2849/files
+
+It would be interesting to see a before/after account of execution time.
+
+This would be a first step in solving https://github.com/nilearn/nilearn/issues/1000
+",start issue,Use anaconda on CircleCI,ive heard rumor anaconda circleci could speed much run exampl We give tri mnepython tri mayb draw inspir work It would interest see beforeaft account execut time thi would first step solv,N,2016-03-02 09:59:22
+2,issue_closed,1003,nilearn,nilearn,AlexandreAbraham,2016-03-02 09:59:22,,closed issue,Use anaconda on CircleCI,,N,2016-02-25 15:34:24
+3,issue_comment,1003,nilearn,nilearn,lesteve,2016-02-25 15:34:24,"At one point I toyed with the idea of using continuous_integration/install.sh on CircleCI i.e. use the same install script on both CIs. In case this is of any use:
+
+https://github.com/lesteve/nilearn/tree/use-install-sh-on-circleci
+
+I don't remember why I stopped though, probably it wasn't working perfectly ...
+",,,At one point I toy idea use continuousintegrationinstallsh circleci ie use instal script ci In case use I dont rememb I stop though probabl wasnt work perfectli,N,2016-02-26 17:29:07
+4,issue_comment,1003,nilearn,nilearn,lesteve,2016-02-26 17:29:07,"> They don't set a matplotlib version. I can try this.
+
+Actually do we want to make sure the examples run with the minimum matplotlib advertised version, namely 1.1.1? Off the top of my head 1.1.1 is the version in Ubuntu 12.04 so you shouldn't have the problems you mentioned.
+
+Side-comment: the conda env should have libpng installed so the problem you are describing is a bit surprising. Having said that from time to time conda does miss some dependency (like the libgfortran case that we saw for numpy some time ago) so it could well be the case here as well.
+",,,actual want make sure exampl run minimum matplotlib advertis version name 111 off top head 111 version ubuntu 1204 shouldnt problem mention sidecom conda env libpng instal problem describ bit surpris have said time time conda miss depend like libgfortran case saw numpi time ago could well case well,N,2016-02-26 17:42:45
+5,issue_comment,1003,nilearn,nilearn,lesteve,2016-02-26 17:42:45,"> In fact, the circle ci setup file uses matplotlib 1.3.1 but I can change this (probably later).
+
+It does in your branch. I am guessing you (or I in my original experimental branch) took it from one of the distrib in .travis.yml. Basically 1.3.1 is completely arbitrary. 
+
+All I was trying to say:
+- using 1.1.1 would make sense to test that all the examples run with the minimal matplotlib version advertised in README.md
+- potentially fix the problem you were reporting with the libpng incompatibilities.
+",,,It branch I guess I origin experiment branch took one distrib travisyml basic 131 complet arbitrari all I tri say use 111 would make sens test exampl run minim matplotlib version advertis readmemd potenti fix problem report libpng incompat,Y,2016-02-29 10:15:17
+6,issue_comment,1003,nilearn,nilearn,lesteve,2016-02-29 10:15:17,"Have you tried this?
+
+> using 1.1.1 would make sense to test that all the examples run with the minimal matplotlib version advertised in README.md
+",,,have tri,N,2016-02-29 10:37:33
+7,issue_comment,1003,nilearn,nilearn,lesteve,2016-02-29 10:37:33,"Same reason, meaning this?
+
+> The 1.1.1 version is used with python 2.6 in the travis build matrix and it's not compatible with the version of numpy we use with python 2.7 here : 1.8.2.
+
+You can find a numpy version compatible with matplotlib 1.1.1 inside conda. Just play locally with conda and you'll find one. I tried a few days ago and I am pretty sure numpy 1.6 worked.
+
+Also, before doing that and now that it works, have you looked whether the running time of the examples has decreased, since that the prime motivation of this issue.
+",,,same reason mean you find numpi version compat matplotlib 111 insid conda just play local conda youll find one I tri day ago I pretti sure numpi 16 work also work look whether run time exampl decreas sinc prime motiv issu,N,2016-02-29 11:33:50
+8,issue_comment,1003,nilearn,nilearn,lesteve,2016-02-29 11:33:50,"> At least the setup step is faster: less than 2 minutes whereas it takes more than 10 minutes when using pip.
+
+As far as I remember that was the reason why I looked originally into using conda on CircleCI but then I realised that there were some virtualenv caching on CircleCI. I seem to remember sometimes the pip install step is super quick and it says ""dependencies already satisfied"". This is probably why I dropped the whole thing.
+",,,As far I rememb reason I look origin use conda circleci I realis virtualenv cach circleci I seem rememb sometim pip instal step super quick say depend alreadi satisfi thi probabl I drop whole thing,N,2016-02-29 11:57:40
+1,issue_title,955,nilearn,nilearn,salma1601,2016-01-18 15:15:08,"somehow too large difference between computing the correlation matrix with and with standardization when using LedoitWolf. This is the snippet
+
+``` Python
+import numpy as np
+from sklearn.covariance import LedoitWolf, EmpiricalCovariance
+from nilearn import datasets, connectome
+
+timeseries = datasets.fetch_abide_pcp(n_subjects=1,
+                                      derivatives=['rois_ho']).rois_ho[0]
+for name, cov_estimator in zip(['LedoitWolf', 'Empirical'],
+                               [LedoitWolf(), EmpiricalCovariance()]):
+    cov_estimator.fit(timeseries)
+    corr1 = connectome.connectivity_matrices._cov_to_corr(
+        cov_estimator.covariance_)
+    cov_estimator.fit(timeseries / timeseries.std(axis=0))
+    corr2 = cov_estimator.covariance_
+    print(name, np.max(np.abs(corr1 - corr2)))
+```
+
+I didn't read how the shrinkage is done, but 0.3 of difference surprised me...
+
+``` Python
+('LedoitWolf', 0.3090367733625673)
+('Empirical', 1.5543122344752192e-15)
+```
+",start issue,LedoitWolf shrinkage with and without standardization,somehow larg differ comput correl matrix standard use ledoitwolf thi snippet I didnt read shrinkag done 03 differ surpris,N,2016-02-03 17:27:01
+5,issue_comment,955,nilearn,nilearn,bthirion,2016-01-21 10:03:53,"+1
+Ledoit Wolf shrinks toward the identity matrix, and not an arbitrary diagonal matrix.
+",,,1 ledoit wolf shrink toward ident matrix arbitrari diagon matrix,N,2016-02-03 17:26:59
+1,issue_title,985,nilearn,nilearn,KamalakerDadi,2016-02-09 09:19:34,"This will gives us choosing levels depending on the statistical values. See work around example results.
+
+Example:
+
+``` python
+from nilearn import plotting
+from nilearn import datasets
+
+localizer_dataset = datasets.fetch_localizer_contrasts(
+    [""left vs right button press""],
+    n_subjects=2, get_tmaps=True)
+localizer_tmap_filename = localizer_dataset.tmaps[1]
+display = plotting.plot_glass_brain(None, title='Statistical results overlayed as contour fillings',
+                                                        plot_abs=False)
+display.add_contours(localizer_tmap_filename, filled=True, levels=[-4.7, -3], colors='b', alpha=0.9)
+display.add_contours(localizer_tmap_filename, filled=True, levels=[3], colors='r', alpha=0.9)
+```
+
+![contours_enhancement](https://cloud.githubusercontent.com/assets/11410385/12912019/5955f840-cf16-11e5-9835-83f3d185c8d7.png)
+",start issue,ENH [Plotting] Accepting User defined levels in contour fillings,thi give us choos level depend statist valu see work around exampl result exampl contoursenhanc,N,2016-02-09 22:04:02
+2,issue_closed,985,nilearn,nilearn,AlexandreAbraham,2016-02-09 22:04:02,,closed issue,ENH [Plotting] Accepting User defined levels in contour fillings,,N,2016-02-09 09:19:34
+3,pull_request_title,985,nilearn,nilearn,KamalakerDadi,2016-02-09 09:19:34,"This will gives us choosing levels depending on the statistical values. See work around example results.
+
+Example:
+
+``` python
+from nilearn import plotting
+from nilearn import datasets
+
+localizer_dataset = datasets.fetch_localizer_contrasts(
+    [""left vs right button press""],
+    n_subjects=2, get_tmaps=True)
+localizer_tmap_filename = localizer_dataset.tmaps[1]
+display = plotting.plot_glass_brain(None, title='Statistical results overlayed as contour fillings',
+                                                        plot_abs=False)
+display.add_contours(localizer_tmap_filename, filled=True, levels=[-4.7, -3], colors='b', alpha=0.9)
+display.add_contours(localizer_tmap_filename, filled=True, levels=[3], colors='r', alpha=0.9)
+```
+
+![contours_enhancement](https://cloud.githubusercontent.com/assets/11410385/12912019/5955f840-cf16-11e5-9835-83f3d185c8d7.png)
+",34fd230b3b28626a9b9571aef730ae21bf5c52a1,ENH [Plotting] Accepting User defined levels in contour fillings,thi give us choos level depend statist valu see work around exampl result exampl contoursenhanc,N,2016-02-09 22:04:02
+4,pull_request_merged,985,nilearn,nilearn,AlexandreAbraham,2016-02-09 22:04:02,ENH [Plotting] Accepting User defined levels in contour fillings,32d62148e585d04fdc201e4099e46210d5980cf2,Pull request merge from KamalakerDadi/nilearn:fix_levels_contour_fillings to nilearn/nilearn:master,enh plot accept user defin level contour fill,N,2016-02-09 09:22:23
+5,issue_comment,985,nilearn,nilearn,AlexandreAbraham,2016-02-09 09:22:23,"LGTM. If no objection, I will merge it when the lights go green.
+",,,lgtm If object I merg light go green,N,2016-02-09 09:25:23
+6,issue_comment,985,nilearn,nilearn,KamalakerDadi,2016-02-09 09:25:23,"> LGTM. If no objection, I will merge it when the lights go green.
+
+Thanks for reviewing. I need it for tutorial.
+",,,thank review I need tutori,N,2016-02-09 09:27:54
+7,issue_comment,985,nilearn,nilearn,KamalakerDadi,2016-02-09 09:27:54,"I think travis failure is not related to this PR.
+",,,I think travi failur relat PR,Y,2016-02-09 09:32:41
+8,issue_comment,985,nilearn,nilearn,AlexandreAbraham,2016-02-09 09:32:41,"One small thing: if I give one value, say  [-3], the current code will add infinity and thus color everything higher than -3. In that case, we may want to preprend neginfinity instead to color all values below -3.
+
+What do other guys think?
+",,,one small thing I give one valu say 3 current code add infin thu color everyth higher 3 In case may want preprend neginfin instead color valu 3 what guy think,N,2016-02-09 09:33:39
+9,issue_comment,985,nilearn,nilearn,aabadie,2016-02-09 09:33:39,"> I think travis failure is not related to this PR.
+
+The memory profiling test function is not very stable. I'll enter an issue for this.
+",,,the memori profil test function stabl ill enter issu,Y,2016-02-09 09:39:34
+10,issue_comment,985,nilearn,nilearn,KamalakerDadi,2016-02-09 09:39:34,"> In that case, we may want to preprend neginfinity instead to color all values below -3. 
+> What do other guys think?
+
+Yes that is definitely an option. But, when negative levels are passed which means user knows exactly what he is doing. Otherwise, we warn or document separately about this keyword argument. 
+",,,ye definit option but neg level pass mean user know exactli otherwis warn document separ keyword argument,N,2016-02-09 09:56:19
+11,issue_comment,985,nilearn,nilearn,AlexandreAbraham,2016-02-09 09:56:19,"> But, when negative levels are passed which means user knows exactly what he is doing.
+
+Well, I'm not sure about that.
+
+> Otherwise, we warn or document separately about this keyword argument.
+
+This argument should have a doc anyway. But since we use a heuristic to autocomplete the input, we can decide which behavior we want.
+",,,well Im sure thi argument doc anyway but sinc use heurist autocomplet input decid behavior want,N,2016-02-09 21:56:37
+12,issue_comment,985,nilearn,nilearn,bthirion,2016-02-09 21:56:37,"But then you have to rely on some heuristic to assume that e.g. positive 
+values  for a encode the [a +\infty[, interval, while negative values 
+would encode the ]-\infty, a] interval.
+I think, I'd rather have levels=[a] to implictly [a +\infty], without 
+adding further rules.
+",,,but reli heurist assum eg posit valu encod infti interv neg valu would encod infti interv I think Id rather levelsa implictli infti without ad rule,N,2016-02-09 21:59:02
+13,issue_comment,985,nilearn,nilearn,bthirion,2016-02-09 21:59:02,"LGTM otherwise. Thx !
+",,,lgtm otherwis thx,N,2016-02-09 22:03:56
+14,issue_comment,985,nilearn,nilearn,AlexandreAbraham,2016-02-09 22:03:56,"> I think, I'd rather have levels=[a] to implictly [a +\infty], without adding further rules.
+
+Fine for me! Big button!
+",,,fine big button,N,2016-02-09 09:12:43
+1,issue_title,971,nilearn,nilearn,AlexandreAbraham,2016-02-01 09:44:08,"In order to check if `genfromtxt` failed in `csv_to_array`, we checked that the resulting array is full of nan values. This may fail even when the resulting array is OK. This PR makes this check rely on the `loose=False` option of `genfromtxt` that raises a `ValueError` in case of a problem.
+",start issue,Robustify csv_to_array,In order check fail check result array full nan valu thi may fail even result array OK thi PR make check reli option rais case problem,N,2016-02-02 08:30:14
+2,issue_closed,971,nilearn,nilearn,lesteve,2016-02-02 08:30:14,,closed issue,Robustify csv_to_array,,N,2016-02-01 09:44:08
+3,pull_request_title,971,nilearn,nilearn,AlexandreAbraham,2016-02-01 09:44:08,"In order to check if `genfromtxt` failed in `csv_to_array`, we checked that the resulting array is full of nan values. This may fail even when the resulting array is OK. This PR makes this check rely on the `loose=False` option of `genfromtxt` that raises a `ValueError` in case of a problem.
+",fe3ff1fe75e33ff03f0d07aea09419a2f910cb3a,Robustify csv_to_array,In order check fail check result array full nan valu thi may fail even result array OK thi PR make check reli option rais case problem,N,2016-02-02 08:30:14
+4,pull_request_merged,971,nilearn,nilearn,lesteve,2016-02-02 08:30:14,Robustify csv_to_array,67776a3441ae7472336f98fc0f55a674dba1bfc5,Pull request merge from AlexandreAbraham/nilearn:better_csv_to_array to nilearn/nilearn:master,robustifi csvtoarray,N,2016-02-01 10:43:28
+5,issue_comment,971,nilearn,nilearn,KamalakerDadi,2016-02-01 10:43:28,"Adding tests would be nice, given that we raise a `ValueError` when array has `nan` values or something similar.
+",,,ad test would nice given rais array valu someth similar,Y,2016-02-01 09:41:41
+1,issue_title,959,nilearn,nilearn,aabadie,2016-01-21 15:33:25,"This should fix #736 but it's not fully functional. The problem is memory_profiler cannot be really trusted when a function increase the memory less than 1MiB. I also couldn't apply it on a real test.
+
+Here is an example (but it doesn't work) with it `test_masking.py`:
+
+``` python
+
+from nilearn._utils.testing import with_memory_usage, assert_memory_less_than
+
+@with_memory_usage
+def test_memory_usage_with_multi_epi_mask():
+    # As it calls intersect_masks, we only test resampling here.
+    # Same masks as test_intersect_masks
+    mask_a = np.zeros((400, 400, 1), dtype=np.bool)
+    mask_a[200:400, 200:400] = 1
+    mask_a_img = Nifti1Image(mask_a.astype(int), np.eye(4))
+
+    mask_b = np.zeros((800, 800, 1), dtype=np.bool)
+    mask_b[200:600, 200:600] = 1
+    mask_b_img = Nifti1Image(mask_b.astype(int), np.eye(4) / 2.)
+
+    mask_ab = np.zeros((400, 400, 1), dtype=np.bool)
+    mask_ab[200, 200] = 1
+
+   # arbitrary ground truth value...
+    test_mem = 2 * (mask_b_img.get_data().nbytes +
+                    mask_b_img.get_data().nbytes +
+                    mask_a_img.get_data().nbytes) / (1024 ** 2)
+    assert_memory_less_than(test_mem, 0.1,
+                            compute_multi_epi_mask,
+                            [mask_a_img, mask_b_img], threshold=1., opening=0,
+                            target_affine=np.eye(4),
+                            target_shape=(400, 400, 1))
+```
+
+Maybe an expert such as @AlexandreAbraham will have a better idea :)
+",start issue,[MRG] Memory check based on memory profiler,thi fix 736 fulli function the problem memoryprofil cannot realli trust function increas memori less 1mib I also couldnt appli real test here exampl doesnt work mayb expert alexandreabraham better idea,N,2016-02-04 14:54:12
+3,pull_request_title,959,nilearn,nilearn,aabadie,2016-01-21 15:33:25,"This should fix #736 but it's not fully functional. The problem is memory_profiler cannot be really trusted when a function increase the memory less than 1MiB. I also couldn't apply it on a real test.
+
+Here is an example (but it doesn't work) with it `test_masking.py`:
+
+``` python
+
+from nilearn._utils.testing import with_memory_usage, assert_memory_less_than
+
+@with_memory_usage
+def test_memory_usage_with_multi_epi_mask():
+    # As it calls intersect_masks, we only test resampling here.
+    # Same masks as test_intersect_masks
+    mask_a = np.zeros((400, 400, 1), dtype=np.bool)
+    mask_a[200:400, 200:400] = 1
+    mask_a_img = Nifti1Image(mask_a.astype(int), np.eye(4))
+
+    mask_b = np.zeros((800, 800, 1), dtype=np.bool)
+    mask_b[200:600, 200:600] = 1
+    mask_b_img = Nifti1Image(mask_b.astype(int), np.eye(4) / 2.)
+
+    mask_ab = np.zeros((400, 400, 1), dtype=np.bool)
+    mask_ab[200, 200] = 1
+
+   # arbitrary ground truth value...
+    test_mem = 2 * (mask_b_img.get_data().nbytes +
+                    mask_b_img.get_data().nbytes +
+                    mask_a_img.get_data().nbytes) / (1024 ** 2)
+    assert_memory_less_than(test_mem, 0.1,
+                            compute_multi_epi_mask,
+                            [mask_a_img, mask_b_img], threshold=1., opening=0,
+                            target_affine=np.eye(4),
+                            target_shape=(400, 400, 1))
+```
+
+Maybe an expert such as @AlexandreAbraham will have a better idea :)
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,[MRG] Memory check based on memory profiler,thi fix 736 fulli function the problem memoryprofil cannot realli trust function increas memori less 1mib I also couldnt appli real test here exampl doesnt work mayb expert alexandreabraham better idea,N,2016-02-04 14:54:12
+15,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 17:13:02,"> Do you want to schedule one? (doodle?)
+
+Sure. Let's do it next wednesday afternoon or thursday.
+",,,sure let next wednesday afternoon thursday,N,2016-02-02 13:48:01
+16,issue_comment,959,nilearn,nilearn,aabadie,2016-02-02 13:48:01,"Just for the record, I think this is PR is ready for a re-review (nearly mergeable).
+",,,just record I think PR readi rereview nearli mergeabl,N,2016-02-04 14:54:09
+30,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-28 13:05:48,"I removed it.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')",I remov,N,2016-02-02 14:43:33
+31,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-02-02 14:43:33,"Is this still necessary? I seem to remember it was added when you tried to make the AppVeyor tests pass.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",Is still necessari I seem rememb ad tri make appveyor test pass,Y,2016-02-02 14:50:12
+32,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-02-02 14:50:12,"Codacy disliked the previous code, if I remove the `del` line there's a flake8 issue on travis.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",codaci dislik previou code I remov line there flake8 issu travi,Y,2016-02-02 14:51:03
+33,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-02-02 14:51:03,"This generates a flake8 issue on travis (non used variable). Replacing by `b'a' * size` makes codacy fails...
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(14, '', u'nilearn/tests/test_testing.py')",thi gener flake8 issu travi non use variabl replac make codaci fail,Y,2016-02-02 15:37:36
+34,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-02-02 15:37:36,"FWIW I don't think codacy brings much to the table. I'll probably remove it at one point. You can use `return mem_offset` if you really care about getting rid of the flake8 warning.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",fwiw I dont think codaci bring much tabl ill probabl remov one point you use realli care get rid flake8 warn,N,2016-02-02 15:39:24
+35,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-02-02 15:39:24,"Use `return mem_use`
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(14, '', u'nilearn/tests/test_testing.py')",use,N,2016-02-02 16:02:43
+39,pull_request_commit,959,nilearn,nilearn,aabadie,2016-01-28 13:59:53,activate testing with memory_profiler on travis,0bc0a870a219dbf488305571520e337b4c3e9d3e,,activ test memoryprofil travi,N,2016-02-02 08:18:40
+40,pull_request_commit,959,nilearn,nilearn,aabadie,2016-02-02 08:18:40,trying to fix codacy,36b0290f32b5b5f66e524ff3e6a7147b8dc1a64c,,tri fix codaci,N,2016-02-02 10:42:27
+41,pull_request_commit,959,nilearn,nilearn,aabadie,2016-02-02 10:42:27,trying to fix travis,d0bc2754c36c4b3ec006a9ac9fa4c4f391c98947,,tri fix travi,N,2016-02-02 15:41:29
+1,issue_title,1031,nilearn,nilearn,sahmed95,2016-02-27 16:10:06,"@GaelVaroquaux I changed the .yml for circleCI to ignore the unit tests as you pointed out in #1029 by overriding the test section with just an 'echo' statement. [link](https://github.com/sahmed95/nilearn/commit/b9dd4a69ac252bb2d07b34bfbb9e4af9a979cfec) It is passing circleCI test but failing with appveyor even though I haven't changed any setting for appveyor. Any suggestions?
+",start issue,#1029 Ignore unit tests in circleCI,gaelvaroquaux I chang yml circleci ignor unit test point 1029 overrid test section echo statement link It pass circleci test fail appveyor even though I havent chang set appveyor ani suggest,N,2016-02-29 21:52:08
+2,issue_closed,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 21:52:08,,closed issue,#1029 Ignore unit tests in circleCI,,N,2016-02-27 16:10:06
+3,pull_request_title,1031,nilearn,nilearn,sahmed95,2016-02-27 16:10:06,"@GaelVaroquaux I changed the .yml for circleCI to ignore the unit tests as you pointed out in #1029 by overriding the test section with just an 'echo' statement. [link](https://github.com/sahmed95/nilearn/commit/b9dd4a69ac252bb2d07b34bfbb9e4af9a979cfec) It is passing circleCI test but failing with appveyor even though I haven't changed any setting for appveyor. Any suggestions?
+",758672f72ed59aceebd55037ce11bd6e46325830,#1029 Ignore unit tests in circleCI,gaelvaroquaux I chang yml circleci ignor unit test point 1029 overrid test section echo statement link It pass circleci test fail appveyor even though I havent chang set appveyor ani suggest,N,2016-02-29 21:52:08
+4,pull_request_merged,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 21:52:08,#1029 Ignore unit tests in circleCI,562e1565b3da4920b81541273e08144ae8831f0a,Pull request merge from sahmed95/nilearn:circleCI to nilearn/nilearn:master,1029 ignor unit test circleci,N,2016-02-29 16:14:57
+5,issue_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:14:57,"Aside from my comment, this looks good: you did succeed to remove the tests. Judging by the other runs, you gained 4 minutes on the total cycle. This is a good thing! Thanks.
+",,,asid comment look good succeed remov test judg run gain 4 minut total cycl thi good thing thank,Y,2016-02-29 21:41:53
+6,issue_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 21:41:53,"Indeed, if this PR does the job with regards to removing the test, it's interesting to merge it to benefit directly from this, and build the conda support above.
+",,,inde PR job regard remov test interest merg benefit directli build conda support,Y,2016-02-29 21:42:10
+7,issue_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 21:42:10,"Let's wait for CircleCI to finish :)
+",,,let wait circleci finish,N,2016-02-29 21:52:03
+8,issue_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 21:52:03,"OK. This ran beautifully on CircleCI. I am thus merging. Thanks a lot!
+",,,OK thi ran beauti circleci I thu merg thank lot,N,2016-02-29 22:11:25
+9,issue_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 22:11:25,"> @GaelVaroquaux Cool. I was just going through the other discussions (conda and
+> mkl). Let me know if I can contribute.
+
+How about this one:
+https://github.com/nilearn/nilearn/issues/958
+
+> Also, do you have a gitter room for nilearn?
+
+I don't do well with chat: I run so many things, and not all software
+related. I like the issue traker, because it is not time dependent and is
+open to everybody.
+",,,how one I dont well chat I run mani thing softwar relat I like issu traker time depend open everybodi,N,2016-02-29 21:40:19
+10,issue_comment,1031,nilearn,nilearn,aabadie,2016-02-29 21:40:19,"Forget my previous comment, it should be fine if this PR is merged before (I was worrying about merge conflicts but that's fine in fact)
+",,,forget previou comment fine PR merg I worri merg conflict that fine fact,N,2016-02-29 21:42:59
+11,issue_comment,1031,nilearn,nilearn,aabadie,2016-02-29 21:42:59,"with conda and this PR, we should be 15-20 minutes faster. Then we could try MKL !
+",,,conda PR 1520 minut faster then could tri mkl,N,2016-02-29 21:44:28
+12,issue_comment,1031,nilearn,nilearn,aabadie,2016-02-29 21:44:28,"@sahmed95, about appveyor to me it's a genuine issue on their side. I can restart the build.
+",,,sahmed95 appveyor genuin issu side I restart build,N,2016-02-29 12:50:07
+13,pull_request_commit_comment,1031,nilearn,nilearn,banilo,2016-02-29 12:50:07,"replacement by an identical statement?
+",758672f72ed59aceebd55037ce11bd6e46325830,"(None, '', u'circle.yml')",replac ident statement,N,2016-02-29 16:13:17
+14,pull_request_commit_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 16:13:17,"I think that you need to keep this line, as it is used to detect if there are no tracebacks in the logs produced while building the docs.
+",758672f72ed59aceebd55037ce11bd6e46325830,"(None, '', u'circle.yml')",I think need keep line use detect traceback log produc build doc,N,2016-02-29 20:21:34
+15,pull_request_commit_comment,1031,nilearn,nilearn,sahmed95,2016-02-29 20:21:34,"Even I was thinking the same. But I was confused because this is a change in circle.yml and appveyor build was failing. I will update this. Thank you
+",758672f72ed59aceebd55037ce11bd6e46325830,"(None, '', u'circle.yml')",even I think but I confus chang circleyml appveyor build fail I updat thank,N,2016-02-29 20:25:18
+16,pull_request_commit_comment,1031,nilearn,nilearn,GaelVaroquaux,2016-02-29 20:25:18,"> Even I was thinking the same. But I was confused because this is a change in
+> circle.yml and appveyor build was failing.
+
+appveyor has a lot of spurious failures :(
+",758672f72ed59aceebd55037ce11bd6e46325830,"(None, '', u'circle.yml')",appveyor lot spuriou failur,N,2016-02-27 16:07:32
+1,issue_title,1029,nilearn,nilearn,GaelVaroquaux,2016-02-27 12:48:20,"From the logs
+https://circleci.com/gh/nilearn/nilearn/1333
+it seems that we are running the unit tests on circleCI. I think that we should skip them: they are already ran on travis, and I would really like the circleCI total time to be smaller.
+",start issue,Running tests on circleCI,from log seem run unit test circleci I think skip alreadi ran travi I would realli like circleci total time smaller,N,2016-02-29 21:52:10
+2,issue_closed,1029,nilearn,nilearn,GaelVaroquaux,2016-02-29 21:52:10,,closed issue,Running tests on circleCI,,N,2016-02-27 15:23:46
+3,issue_comment,1029,nilearn,nilearn,GaelVaroquaux,2016-02-27 15:23:46,"@sahmed95 : possibly. Do you want to do a pull request to try? CircleCI will run that PR and we should see.
+",,,sahmed95 possibl Do want pull request tri circleci run PR see,N,2016-02-27 16:08:38
+4,issue_comment,1029,nilearn,nilearn,GaelVaroquaux,2016-02-27 16:08:38,"> But I was just wondering why you have both travis and circleCI ? Isn't
+> one CI sufficient ?
+
+CircleCI has much more horse power, both in terms of storage and length
+of the runs. We use it to generate/test docs. Travis is for unit testing.
+",,,circleci much hors power term storag length run We use generatetest doc travi unit test,Y,2016-02-27 16:21:08

@@ -1,0 +1,20 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,2,aio-libs,aioredis,popravich,2014-05-26 07:43:33,"for case when `hiredis` is not available
+",start issue,implement pure-python fallback redis response parser,case avail,N
+issue_closed,2,aio-libs,aioredis,popravich,2015-03-05 09:04:35,nan,closed issue,implement pure-python fallback redis response parser,nan,N
+issue_comment,2,aio-libs,aioredis,asvetlov,2014-05-28 18:57:49,"Sounds good for me, but for you that means extra code and tests.
+Do you really want to implement the feature very soon?
+I guess to postpone one to the future.
+At least you can make translation of hiredis events into aioredis ones and do not implement pure python parser.
+",nan,nan,sound good mean extra code test Do realli want implement featur soon I guess postpon one futur At least make translat hiredi event aioredi one implement pure python parser,Y
+issue_comment,2,aio-libs,aioredis,popravich,2015-03-05 09:04:35,"Won't do. hiredis is much faster. It would sound more reasonable to improve hiredis parser.
+",nan,nan,wont hiredi much faster It would sound reason improv hiredi parser,N
+issue_comment,2,aio-libs,aioredis,kernel0,2015-03-05 12:43:15,"because hiredis package does not support windows, windows user can't use aioredis. Is there workaround?
+",nan,nan,hiredi packag support window window user cant use aioredi Is workaround,N
+issue_comment,2,aio-libs,aioredis,popravich,2015-03-05 14:16:48,"hmm...
+",nan,nan,hmm,N
+issue_comment,2,aio-libs,aioredis,popravich,2015-03-05 14:17:08,"ok. I'll consider this
+",nan,nan,ok ill consid,N
+issue_comment,2,aio-libs,aioredis,kernel0,2015-03-05 15:57:18,"thank you! :+1: 
+",nan,nan,thank 1,N

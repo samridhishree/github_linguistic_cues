@@ -1,0 +1,21 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,759,nilearn,nilearn,MartinPerez,2015-08-08 17:16:56,"@AlexandreAbraham. Regarding #756, here is what i would propose to make the doc more user friendly. what do you think?
+",start issue,doc change proposal for _fetch_files function in utils.py,alexandreabraham regard 756 would propos make doc user friendli think
+issue_closed,759,nilearn,nilearn,lesteve,2015-08-17 08:48:40,,closed issue,doc change proposal for _fetch_files function in utils.py,
+pull_request_title,759,nilearn,nilearn,MartinPerez,2015-08-08 17:16:56,"@AlexandreAbraham. Regarding #756, here is what i would propose to make the doc more user friendly. what do you think?
+",4982e325d18f9ca22a12b6f58dc82e6df244b2a5,doc change proposal for _fetch_files function in utils.py,alexandreabraham regard 756 would propos make doc user friendli think
+pull_request_merged,759,nilearn,nilearn,lesteve,2015-08-17 08:48:40,doc change proposal for _fetch_files function in utils.py,db391a7f5ee4f07e4cc65ff0667807f417be402c,Pull request merge from MartinPerez/nilearn:fetch_files_doc_proposal to nilearn/nilearn:master,doc chang propos fetchfil function utilspi
+issue_comment,759,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:18:33,"Apart from two minor comments, good to go. It is clearer indeed !
+",,,apart two minor comment good go It clearer inde
+issue_comment,759,nilearn,nilearn,MartinPerez,2015-08-11 01:10:05,"@AlexandreAbraham  I fixed accordingly to your comments
+",,,alexandreabraham I fix accordingli comment
+issue_comment,759,nilearn,nilearn,lesteve,2015-08-17 08:48:38,"Merging thanks a lot!
+",,,merg thank lot
+pull_request_commit_comment,759,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:16:34,"We use ""eg"" instead of ""ex"" as in `the files, eg (...)`. Also, I would say `file_path` instead of `file_name` ot underline the fact that `subfolder/file_name` is a valid value.
+",4982e325d18f9ca22a12b6f58dc82e6df244b2a5,"(None, '', u'nilearn/datasets/utils.py')",We use eg instead ex also I would say instead ot underlin fact valid valu
+pull_request_commit_comment,759,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:18:05,"If a filename is not found, the download is immediately cancelled (with your sentence, I have the impression that we download the rest of the files before failing). You should also state that the downloaded files are erased (I'll add an option to override this behavior later).
+",4982e325d18f9ca22a12b6f58dc82e6df244b2a5,"(None, '', u'nilearn/datasets/utils.py')",If filenam found download immedi cancel sentenc I impress download rest file fail you also state download file eras ill add option overrid behavior later
+pull_request_commit,759,nilearn,nilearn,MartinPerez,2015-08-08 17:15:08,doc change proposal for _fetch_files function in utils.py,3510d5b4f91de3ebd0b5e6323a626fe55587095e,,doc chang propos fetchfil function utilspi
+pull_request_commit,759,nilearn,nilearn,MartinPerez,2015-08-11 01:09:24,fix of minor comments,25e7c9f7e3c3aa7d50fbbe7dab01cc70f473fddd,,fix minor comment
+pull_request_commit,759,nilearn,nilearn,MartinPerez,2015-08-11 01:11:05,fix for comments 2,4982e325d18f9ca22a12b6f58dc82e6df244b2a5,,fix comment 2

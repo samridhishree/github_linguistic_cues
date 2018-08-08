@@ -1,0 +1,37 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,416,idan,oauthlib,thedrow,2016-08-28 07:28:42,,closed issue,Openid connect,,N,2016-04-20 01:22:00
+4,pull_request_merged,416,idan,oauthlib,thedrow,2016-08-28 07:28:42,Openid connect,d5315c19ccc3fdd4ba70b1c94a727e8573f3ad78,Pull request merge from joelstevenson/oauthlib:openid_connect to idan/oauthlib:master,openid connect,N,2016-04-20 08:27:19
+19,issue_comment,416,idan,oauthlib,thedrow,2016-09-03 08:58:38,"Released!
+",,,releas,N,2016-04-20 01:31:59
+20,pull_request_commit_comment,416,idan,oauthlib,clintonb,2016-04-20 01:31:59,"Why the changes to this file?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')",whi chang file,N,2016-04-20 01:43:13
+21,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-20 01:43:13,"Woops, I didn't mean to include that.  End of day mistake.
+
+> On Apr 19, 2016, at 6:32 PM, Clinton Blackburn notifications@github.com wrote:
+> 
+> In tox.ini:
+> 
+> > @@ -1,10 +1,12 @@
+> >  [tox]
+> > -envlist = py26,py27,py32,py33,py34,py35,pypy,pypy3
+> > Why the changes to this file?
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly or view it on GitHub
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')",woop I didnt mean includ end day mistak,N,2016-04-20 08:25:52
+22,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-04-20 08:25:52,"Why is this comment here?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')",whi comment,N,2016-04-20 14:16:13
+23,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:16:13,"Should this have a `#Start of OpenIDConnect` comment? Also, maybe rephrase this because it's new now, but it won't always be new.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/authorization_code.py')",should comment also mayb rephras new wont alway new,N,2016-04-20 14:20:54
+24,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:20:54,"IIRC, the [OpenIDConnect spec allows](https://openid.net/specs/openid-connect-core-1_0.html#Authentication) specifying multiple, space-separated response types.
+
+Should this line be something like:
+
+`if not set(request.response_type.split()).issubset(self.response_types):`
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/implicit.py')",iirc openidconnect spec allow specifi multipl spacesepar respons type should line someth like,N,2016-04-20 14:26:17
+25,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:26:17,"This feels a bit hacky. If I understand correctly, in this scenario, we've already generated an access token, but then we're just throwing it away and not returning it to the user? I guess that's fine, but it seems like we should be able to do better and avoid creating access tokens we don't need. Can we dispatch on response_type earlier in the flow somewhere?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/openid_connect.py')",thi feel bit hacki If I understand correctli scenario weve alreadi gener access token throw away return user I guess that fine seem like abl better avoid creat access token dont need can dispatch responsetyp earlier flow somewher,N,2016-04-20 14:30:59
+26,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:30:59,"Why is this the default on the GrantTypeBase?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(12, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')",whi default granttypebas,N,2016-04-20 14:33:09
+87,pull_request_commit,416,idan,oauthlib,joelstevenson,2016-04-19 21:59:31,More wiring to get OpenID Connect code fully integrated.,fde41caa25203f456a4650ae1e5501725622cbb7,,more wire get openid connect code fulli integr,N,2016-04-20 00:53:38

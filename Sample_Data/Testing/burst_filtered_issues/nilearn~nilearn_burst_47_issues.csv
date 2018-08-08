@@ -1,0 +1,521 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,248,nilearn,nilearn,banilo,2014-10-01 10:58:38,"Implements #246
+",start issue,[WIP] New feature: python-version of fslswapdim,implement 246,N,2014-10-06 15:34:30
+3,pull_request_title,248,nilearn,nilearn,banilo,2014-10-01 10:58:38,"Implements #246
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,[WIP] New feature: python-version of fslswapdim,implement 246,N,2014-10-06 15:34:30
+4,pull_request_merged,248,nilearn,nilearn,GaelVaroquaux,2014-10-06 15:34:30,[WIP] New feature: python-version of fslswapdim,8dd127493a3b85e577d99ac43c4e3bc726f9d6fa,Pull request merge from banilo/nilearn:addswap to nilearn/nilearn:master,wip new featur pythonvers fslswapdim,N,2014-10-06 14:37:54
+5,issue_comment,248,nilearn,nilearn,banilo,2014-10-06 14:37:54,"""fslswapdim in.nii -x y z out.nii"" doesn't change the affine!
+
+2014-10-06 16:36 GMT+02:00 Gael Varoquaux notifications@github.com:
+
+> > Also, if the axis are not ordered properly, ie the affine looks like
+> 
+> Yes, we need to use reorder_img.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/248#issuecomment-58026004.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,fslswapdim innii x z outnii doesnt chang affin 20141006 1636 gmt0200 gael varoquaux notificationsgithubcom viel grüße danilo,N,2014-10-06 15:22:06
+14,pull_request_commit_comment,248,nilearn,nilearn,dengemann,2014-10-01 16:53:59,"and here.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",,N,2014-10-06 13:48:14
+15,pull_request_commit_comment,248,nilearn,nilearn,GaelVaroquaux,2014-10-06 13:48:14,"PEP8 requires 2 empty lines between first-level functions.
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/image.py')",pep8 requir 2 empti line firstlevel function,N,2014-10-06 14:16:51
+16,pull_request_commit_comment,248,nilearn,nilearn,lesteve,2014-10-06 14:16:51,"You don't need the backslash at the end of the line
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/tests/test_image.py')",you dont need backslash end line,N,2014-10-06 14:17:36
+17,pull_request_commit_comment,248,nilearn,nilearn,lesteve,2014-10-06 14:17:36,"Same comment about the terminal backslash as above
+",cb61ae67a6951bfdf7c230daba1a30bc85930b58,"(None, '', u'nilearn/image/tests/test_image.py')",same comment termin backslash,N,2014-10-06 14:33:03
+21,pull_request_commit,248,nilearn,nilearn,banilo,2014-10-02 08:13:21,addswap,2267b2c069ece2ff56c603a83991ade51ad1de83,,addswap,N,2014-10-06 14:27:02
+22,pull_request_commit,248,nilearn,nilearn,banilo,2014-10-06 14:27:02,addswap,6193daecd6410fe95b6425864dd3295a50a3aca7,,addswap,N,2014-10-06 15:20:34
+23,pull_request_commit,248,nilearn,nilearn,banilo,2014-10-06 15:20:34,addswap,a5bd3578cc830785fc9c307eab25539d0b3a75a2,,addswap,N,2014-10-06 15:29:35
+24,pull_request_commit,248,nilearn,nilearn,banilo,2014-10-06 15:29:35,Minor change in Doc,cb61ae67a6951bfdf7c230daba1a30bc85930b58,,minor chang doc,N,2014-10-06 15:25:22
+1,issue_title,262,nilearn,nilearn,Titan-C,2014-10-14 09:25:29,"Create the nilearn_data folder if none existant to keep the default behavior.
+Simple test added.
+",start issue,Dataset download fails in a fresh install,creat nilearndata folder none exist keep default behavior simpl test ad,N,2014-10-31 12:50:38
+2,issue_closed,262,nilearn,nilearn,lesteve,2014-10-31 12:50:38,,closed issue,Dataset download fails in a fresh install,,N,2014-10-14 09:25:29
+3,pull_request_title,262,nilearn,nilearn,Titan-C,2014-10-14 09:25:29,"Create the nilearn_data folder if none existant to keep the default behavior.
+Simple test added.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,Dataset download fails in a fresh install,creat nilearndata folder none exist keep default behavior simpl test ad,N,2014-10-31 12:50:38
+4,pull_request_merged,262,nilearn,nilearn,lesteve,2014-10-31 12:50:38,Dataset download fails in a fresh install,e53c20c19579ce725e84627aa2b099160915392a,Pull request merge from Titan-C/nilearn:fetch_haxby to nilearn/nilearn:master,dataset download fail fresh instal,N,2014-10-14 09:49:24
+5,issue_comment,262,nilearn,nilearn,lesteve,2014-10-14 09:49:24,"Actually this is a duplicate of #257.
+",,,actual duplic 257,N,2014-10-14 13:26:40
+6,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-14 13:26:40,"Yes, I agree is a better place to change the code in that place.
+The try except statement will raise the problem as soon as it cannot make the directory in the first path, whereas I think it shall raise the exception if none of the given paths is writable.
+",,,ye I agre better place chang code place the tri except statement rais problem soon cannot make directori first path wherea I think shall rais except none given path writabl,N,2014-10-14 13:31:17
+7,issue_comment,262,nilearn,nilearn,lesteve,2014-10-14 13:31:17,"I haven't tested it as I said earlier, but I think if the directory can not be created, then `exc.errno == errno.EACCESS` and the exception is not reraised.
+",,,I havent test I said earlier I think directori creat except rerais,Y,2014-10-14 14:54:58
+8,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-14 14:54:58,"This is a serious matter so I pushed a temporary fix on master.
+
+I think that your ideas are good: I did not consider that one could want to store data in a path that doesn't exist. I suggest something like:
+
+``` python
+exc = None
+for path in paths:
+    path = os.path.join(path, dataset_name)
+    try:
+        if not os.path.exists(path):
+            os.path.makedirs(path)
+    except Exception as e:
+        if exc is None:
+            exc = e
+    else:
+        print 'Dataset created in', path
+        return path
+raise exc
+```
+",,,thi seriou matter I push temporari fix master I think idea good I consid one could want store data path doesnt exist I suggest someth like,N,2014-10-14 14:57:23
+9,issue_comment,262,nilearn,nilearn,GaelVaroquaux,2014-10-14 14:57:23,"> I think that your ideas are good: I did not consider that one could want to
+> store data in a path that doesn't exist. I suggest something like:
+
+Yes! Great job from everybody involved
+",,,ye great job everybodi involv,N,2014-10-14 16:05:58
+10,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-14 16:05:58,"I liked @lesteve idea better. I include the updated pull request with test.
+",,,I like lestev idea better I includ updat pull request test,Y,2014-10-14 16:33:12
+11,issue_comment,262,nilearn,nilearn,lesteve,2014-10-14 16:33:12,"FWIW, I managed to retrieve one IPython thread about the race condition when doing:
+
+``` python
+if not os.path.exists(mydir):
+    os.makedirs(mydir)
+```
+
+http://thread.gmane.org/gmane.comp.python.ipython.devel/12683
+
+Their solution to this problem is quite interesting:
+https://github.com/ipython/ipython/pull/5739/files#diff-e9abe1130c725e4d7a576d28fa2072b4R568
+",,,fwiw I manag retriev one ipython thread race condit their solut problem quit interest,N,2014-10-14 16:48:51
+12,issue_comment,262,nilearn,nilearn,GaelVaroquaux,2014-10-14 16:48:51,"> FWIW, I managed to retrieve one IPython thread about the race condition when
+> trying to do:
+
+Yes, usually the ""correct way"" of doing things is to trying creating, and
+then test if it exists in case of failure. Sounds weird, but that's
+robust :).
+",,,ye usual correct way thing tri creat test exist case failur sound weird that robust,Y,2014-10-14 16:55:09
+13,issue_comment,262,nilearn,nilearn,lesteve,2014-10-14 16:55:09,"I am going to close this issue since the main problem has been fixed in master. @Titan-C, tests would be very useful indeed to prevent similar problems from happening again. Could you please open a new PR for these?
+",,,I go close issu sinc main problem fix master titanc test would use inde prevent similar problem happen could pleas open new PR,Y,2014-10-14 17:18:03
+14,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-14 17:18:03,"I've only put a quickfix on master so that we were not in a hurry to decide what was the right way to do it. I think we should merge a PR with a clean solution (and for the sake of authorship since Titan-C raised this issue).
+
+@Titan-C : Can you make a clean PR? (rebase on master, remove unnecessary commits). If you don't have time, I'll merge your proposition directly into master.
+",,,ive put quickfix master hurri decid right way I think merg PR clean solut sake authorship sinc titanc rais issu titanc can make clean PR rebas master remov unnecessari commit If dont time ill merg proposit directli master,N,2014-10-14 17:22:35
+15,issue_comment,262,nilearn,nilearn,lesteve,2014-10-14 17:22:35,"OK, fair enough reopening then.
+",,,OK fair enough reopen,N,2014-10-14 17:24:54
+16,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-14 17:24:54,"I included the ideas of the IPython solution. I also merged this with the previous loop that searches for the existing directory.
+",,,I includ idea ipython solut I also merg previou loop search exist directori,N,2014-10-14 17:45:18
+17,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-14 17:45:18,"Since there are now several possible errors, I think we should make the error message more informative.
+Something like:
+
+```
+Nilearn tried to store the dataset in the following directories, but errors occured:
+- /path/number/1/dataset (no write permission)
+- /path/number/2/dataset (exists and is a file)
+...
+```
+
+The goal here is to output an error message that a user can copy/paste to his administrator. It should contain enought information to know what's happening.
+",,,sinc sever possibl error I think make error messag inform someth like the goal output error messag user copypast administr It contain enought inform know what happen,N,2014-10-14 20:08:11
+18,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-14 20:08:11,"Yes there are many possible errors, but the aim of this function is to output a working directory path to load the data set in.
+The clauses `if exc.errno != os.errno.EACCES` and `if exc.errno != os.errno.EEXIST:` are to continue iterating over the available paths.
+Limited by my python knowledge: How do you present a report on the multiple exceptions that happened? and is it relevant to present them if one path was able to store the dataset.
+",,,ye mani possibl error aim function output work directori path load data set the claus continu iter avail path limit python knowledg how present report multipl except happen relev present one path abl store dataset,N,2014-10-14 20:46:52
+19,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-14 20:46:52,"We should not stop in case of `os.errno.EACCES` exception. This is normal and it is going to happen often. For the EEXIST exception, we should stop if path exists and is a directory (because this is a race condition) but, if this is a file, then we should move on.
+In any case, the dataset fetcher is not robust if called several calls to the same function occur at the same time, so handling race condition is not our n°1 priority.
+
+You can catch all the exceptions and generate your error message afterward (see the snipper of code I submitted above).
+",,,We stop case except thi normal go happen often for eexist except stop path exist directori race condit file move In case dataset fetcher robust call sever call function occur time handl race condit n°1 prioriti you catch except gener error messag afterward see snipper code I submit,N,2014-10-17 23:01:18
+20,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-17 23:01:18,"Apart from minor details regarding error messages, LGTM.
+",,,apart minor detail regard error messag lgtm,N,2014-10-24 11:38:41
+21,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-24 11:38:41,"In this case the test will check for a directory getting created. In a clean environment it will be the ./nilearn_data/test000 and if environment variables where set the returned string is also checked. 
+
+On the first change I came to fail the test, by working inside the temporary folder. With the instruction `os.chdir(tmpdir)`. This causes 5 tests to fail. But I couldn't understand why?
+https://travis-ci.org/nilearn/nilearn/jobs/38905299
+
+workaround is to return to the test directory after the test.
+",,,In case test check directori get creat In clean environ nilearndatatest000 environ variabl set return string also check On first chang I came fail test work insid temporari folder with instruct thi caus 5 test fail but I couldnt understand workaround return test directori test,Y,2014-10-24 11:48:22
+22,issue_comment,262,nilearn,nilearn,lesteve,2014-10-24 11:48:22,"It seems like `os.getcwd()` raises an Exception if the current directory does not exist any more:
+
+``` python
+import os
+
+tmp_dir = '/tmp/asdf'
+os.makedirs(tmp_dir)
+os.chdir(tmp_dir)
+os.rmdir(tmp_dir)
+os.getcwd()
+```
+
+That is what was happening in your case since you cd'ed into a directory that was removed by teardown_tmpdata once the test was run.
+",,,It seem like rais except current directori exist that happen case sinc cded directori remov teardowntmpdata test run,Y,2014-10-27 23:25:34
+23,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-27 23:25:34,"extended get_dataset_dir test
+- Included error raising control under regular expressions.
+- Testing under different environment variables(it took me a very long while to notice that the proposed code mixed `NILEARN_SHARED_DATA` and `SHARED_NILEARN_DATA`)
+",,,extend getdatasetdir test includ error rais control regular express test differ environ variablesit took long notic propos code mix,Y,2014-10-28 12:41:02
+24,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-28 12:41:02,"suggestions included in testing code.
+",,,suggest includ test code,Y,2014-10-28 13:16:24
+25,issue_comment,262,nilearn,nilearn,lesteve,2014-10-28 13:16:24,"Generic comment, I see that you have done this twice in this PR but in general, meaning as long as github tells you that the PR can be automatically merged, there is no strong reason to merge master into your branch.
+",,,gener comment I see done twice PR gener mean long github tell PR automat merg strong reason merg master branch,N,2014-10-28 13:20:09
+26,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-28 13:20:09,"Also, it is not recommended to merge master into your branch. If your PR cannot be automatically merged, it is better to rebase on master to keep a clean git history.
+",,,also recommend merg master branch If PR cannot automat merg better rebas master keep clean git histori,N,2014-10-28 18:35:01
+27,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-28 18:35:01,"I learned to do the rebase on master. Is it also possible to merge/join/delete some commits?
+",,,I learn rebas master Is also possibl mergejoindelet commit,N,2014-10-28 18:38:14
+28,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-28 18:38:14,"You can manage your commits the way you want! The best is to try avoiding ""work in progress"" commits. For example when you change a bit of code somewhere and then revert your change with another commit.
+",,,you manag commit way want the best tri avoid work progress commit for exampl chang bit code somewher revert chang anoth commit,N,2014-10-31 10:35:44
+29,issue_comment,262,nilearn,nilearn,Titan-C,2014-10-31 10:35:44,"Error message string is fixed.
+PR is newly rebased to master and commits have been squashed together for a clearer commit history
+",,,error messag string fix PR newli rebas master commit squash togeth clearer commit histori,N,2014-10-31 12:50:41
+30,issue_comment,262,nilearn,nilearn,lesteve,2014-10-31 12:50:41,"Great stuff, merging!
+",,,great stuff merg,N,2014-10-31 16:50:15
+31,issue_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-31 16:50:15,"Great work @Titan-C, sorry for the nitpicking ;).
+",,,great work titanc sorri nitpick,N,2014-10-14 11:46:30
+32,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-14 11:46:30,"I don't think this is quite the right approach, the reason being that the dataset download folder can be different from ./nilearn_data (look at the docstring a few lines above for more details).
+
+What I would rather do is change the code [here](https://github.com/Titan-C/nilearn/blob/c87564faf524358b77f8452d13eadecc9d30d265/nilearn/datasets.py#L223) to use EAFP, something like (not tested and improvements welcome):
+
+``` python
+for path in paths:
+    path = os.path.join(path, dataset_name)
+    try:
+        os.path.makedirs(path)
+        print 'Dataset created in', path
+        return path
+    except IOError as exc:
+        if exc.errno != errno.EACCESS:
+            raise
+```
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",I dont think quit right approach reason dataset download folder differ nilearndata look docstr line detail what I would rather chang code use eafp someth like test improv welcom,Y,2014-10-15 10:11:13
+33,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-15 10:11:13,"You shouldn't merge the two `for path in paths` loop. Let me try to summarise the logic as I understand it @AlexandreAbraham feel free to jump in if I missed something.
+
+We are trying to return the dataset asked by the user:
+1. We are checking whether the dataset has already been downloaded in one of the dataset download folders. The possible download folders are listed [here](https://nilearn.github.io/developers/dataset_download.html#dataset-directory) in order of priority.
+2. If the dataset hasn't been downloaded yet, we are going to download it in the first download folder we can write to.
+3. If we weren't able to create a subdirectory in any of the possible download folders, we want to raise an error with a summary of why it failed in each of the folder we tried.
+
+For more details about the motivations behind all this, see this [issue](https://github.com/nilearn/nilearn/issues/160) and the issues referenced in it.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",you shouldnt merg two loop let tri summaris logic I understand alexandreabraham feel free jump I miss someth We tri return dataset ask user 1 We check whether dataset alreadi download one dataset download folder the possibl download folder list order prioriti 2 If dataset hasnt download yet go download first download folder write 3 If werent abl creat subdirectori possibl download folder want rais error summari fail folder tri for detail motiv behind see issu issu referenc,N,2014-10-15 10:16:04
+34,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-15 10:16:04,"For completeness, what your current code may do is download the dataset again even if the dataset had already been downloaded in one of the folder down the priority list.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",for complet current code may download dataset even dataset alreadi download one folder prioriti list,N,2014-10-17 22:57:34
+35,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-17 22:57:34,"You should put the path before the error message. A good result would be:
+
+```
+Nilearn bla bla:
+- /I/tried/this/path (no write permission)
+```
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",you put path error messag A good result would,N,2014-10-17 22:58:02
+36,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-17 22:58:02,"Should the string be concatenated?
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",should string concaten,N,2014-10-17 22:58:43
+37,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-17 22:58:43,"'\n -' may be better? (no strong feeling)
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",n may better strong feel,N,2014-10-18 08:37:13
+38,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-18 08:37:13,"Actually the exceptions default error string is:
+
+```
+[Error #] the particular error message: /the/tried/path
+```
+
+So I did not include the path in the error message. All the possible errors are treated equally(included in the log) and one does not need to worry about specific clauses for each error. Then at the end of the loop of tested directories, if none is usable to download the dataset the exception is raised with the summary of the error raised by each directory.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",actual except default error string So I includ path error messag all possibl error treat equallyinclud log one need worri specif claus error then end loop test directori none usabl download dataset except rais summari error rais directori,Y,2014-10-18 08:38:38
+39,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-18 08:38:38,"yes I forgot to fix this line. it's concatenated
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",ye I forgot fix line concaten,N,2014-10-18 09:24:19
+40,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-18 09:24:19,"I'm going to delete this clause. It was imported from the IPython solution. But it is aimed at building a directory only. Since our `path` variable already includes the `nilearn_data` directory and the expected data set directory. This clause is already trapped in the previous try clause.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",Im go delet claus It import ipython solut but aim build directori sinc variabl alreadi includ directori expect data set directori thi claus alreadi trap previou tri claus,N,2014-10-18 15:34:45
+41,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-18 15:34:45,"I think that it would be better to do something like: `""%s (%s)"" % (path, e.strerror)`
+It would be more significant for non technician people that may be scared by the standard error message. Also, you don't know if the path will be included in the message. In particular, on Windows, the error messages are totally non informative sometimes.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",I think would better someth like It would signific non technician peopl may scare standard error messag also dont know path includ messag In particular window error messag total non inform sometim,N,2014-10-18 15:35:27
+42,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-18 15:35:27,"I agree since this message should never pop up.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",I agre sinc messag never pop,N,2014-10-20 09:25:35
+43,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-20 09:25:35,"This is not necessarily true, for example if NILEARN_DATA is set and the user has write access to it, which is a reasonable scenario.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",thi necessarili true exampl nilearndata set user write access reason scenario,N,2014-10-20 09:36:05
+44,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-20 09:36:05,"You should spend some time setting up your environment to get warnings in your editor when you are not following PEP8. For example, [here](http://scipy-lectures.github.io/advanced/debugging/index.html#a-type-as-go-spell-checker-like-integration) are some instructions.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",you spend time set environ get warn editor follow pep8 for exampl instruct,N,2014-10-20 09:40:13
+45,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-20 09:40:13,"Not the greatest of ideas. When you want to run the examples, you need to download ~5GB of datasets which takes time. You definitely don't want to remove this folder each time you are running the tests.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",not greatest idea when want run exampl need download 5gb dataset take time you definit dont want remov folder time run test,Y,2014-10-20 09:45:44
+46,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-20 09:45:44,"Very minor niggle, not sure whether you chose `fil` to prevent shadowing the `file` builtin but I would rather have `afile`, `my_file`, `this_file`, or any other variation that tickles your fancy.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",veri minor niggl sure whether chose prevent shadow builtin I would rather variat tickl fanci,N,2014-10-23 17:49:41
+47,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-23 17:49:41,"I'm unsure then how to test for this case. I considered the fresh install and no global variables. Shall it be a test on the output string?
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",Im unsur test case I consid fresh instal global variabl shall test output string,Y,2014-10-23 18:21:23
+48,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-23 18:21:23,"If the environment is not clean, we just have to clean it. And test all possible cases. Something like that:
+
+``` Python
+import os
+
+@with_setup(setup_tmpdata, teardown_tmpdata)
+def test_get_dataset_dir():
+    os.chdir(tmpdir)
+    os.environ.pop['NILEARN_DATA']
+    os.environ.pop['NILEARN_SHARED_DATA']
+    data_dir = datasets._get_dataset_dir('test')
+    #Verify the directory gets created
+    assert(os.path.exists(data_dir))
+    os.environ['NILEARN_DATA'] = './test_nilearn_data'
+    data_dir = datasets._get_dataset_dir('test')
+    assert_equal(data_dir, os.path.abs(os.path.join('nilearn_data', 'test')))
+    assert(os.path.exists(data_dir))
+    os.environ['SHARED_NILEARN_DATA'] = './shared_nilearn_data'
+    data_dir.datasets._get_dataset_dir('test')
+    assert_equal(data_dir, os.path.abs(os.path.join('nilearn_data', 'test')))
+    assert(os.path.exists(data_dir))
+```
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",If environ clean clean and test possibl case someth like,Y,2014-10-23 18:29:27
+49,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-23 18:29:27,"I think that as you mentionned earlier, you should test both the string returned by _get_dataset_dir and that the folder has been created. I believe the folder you should check for existence is in the simplest case (no environment variables set) is 'nilearn_data/test' rather than 'nilearn_data' and that you should remove this folder after the assert to clean up and make sure that the test is always run in the same conditions.
+
+In an ideal world you would set `os.environ['NILEARN_DATA']` and `del os.environ['NILEARN_DATA']` to make sure in the test knows where the dataset folder will be created independently of the environment the test is run in.
+
+The ""fresh install + no environment variable set"" case you were referring above will actually be tested by Travis since each time we get a fresh new worker I am guessing.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",I think mention earlier test string return getdatasetdir folder creat I believ folder check exist simplest case environ variabl set nilearndatatest rather nilearndata remov folder assert clean make sure test alway run condit In ideal world would set make sure test know dataset folder creat independ environ test run the fresh instal environ variabl set case refer actual test travi sinc time get fresh new worker I guess,Y,2014-10-24 12:08:08
+50,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-24 12:08:08,"`strerror` is not an attribute for all Exception instances. Maybe you can use exc.args which is guaranteed to exist.
+
+TBH I am wondering whether we should catch only EnvironmentError here, in which case `strerror` is fine.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",attribut except instanc mayb use excarg guarante exist tbh I wonder whether catch environmenterror case fine,N,2014-10-24 12:12:14
+51,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-24 12:12:14,"I think the docstring is slightly misleading and should be removed. nilearn_data doesn't have to be created, for example if NILEARN_DATA is set.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",I think docstr slightli mislead remov nilearndata doesnt creat exampl nilearndata set,N,2014-10-24 12:14:17
+52,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-24 12:14:17,"I would use assert_raises_regexp to check that the error message is the one you are expecting.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",I would use assertraisesregexp check error messag one expect,N,2014-10-24 12:14:43
+53,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-24 12:14:43,"Same as above.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",same,N,2014-10-24 12:25:09
+54,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-24 12:25:09,"Ideally you should test the full path under different environment variables setups.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",ideal test full path differ environ variabl setup,Y,2014-10-24 17:01:04
+55,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-24 17:01:04,"Well, that's exactly what I put in another note. I put it again here:
+
+``` Python
+import os
+
+@with_setup(setup_tmpdata, teardown_tmpdata)
+def test_get_dataset_dir():
+    os.chdir(tmpdir)
+    os.environ.pop['NILEARN_DATA']
+    os.environ.pop['NILEARN_SHARED_DATA']
+    data_dir = datasets._get_dataset_dir('test')
+    #Verify the directory gets created
+    assert(os.path.exists(data_dir))
+    os.environ['NILEARN_DATA'] = './test_nilearn_data'
+    data_dir = datasets._get_dataset_dir('test')
+    assert_equal(data_dir, os.path.abs(os.path.join('nilearn_data', 'test')))
+    assert(os.path.exists(data_dir))
+    os.environ['SHARED_NILEARN_DATA'] = './shared_nilearn_data'
+    data_dir.datasets._get_dataset_dir('test')
+    assert_equal(data_dir, os.path.abs(os.path.join('shared_nilearn_data', 'test')))
+    assert(os.path.exists(data_dir))
+```
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",well that exactli I put anoth note I put,N,2014-10-24 23:02:08
+56,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-24 23:02:08,"my previous attempt was using `str(exc)`, but I was corrected into using `strerror` to enforce the formatting of the error message. Indeed here what is in general expected is an `OSError`
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",previou attempt use I correct use enforc format error messag inde gener expect,N,2014-10-25 01:17:47
+57,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-25 01:17:47,"It's true that we may encounter different error than EnvironmentalError. Maybe we should put a special case. The goal is to have the best error message possible for the user.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",it true may encount differ error environmentalerror mayb put special case the goal best error messag possibl user,N,2014-10-28 08:04:17
+58,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 08:04:17,"> It's true that we may encounter different error than EnvironmentalError
+
+@AlexandreAbraham out of curiosity do you have an example where os.makedirs raise an exception which is not an EnvironmentError?
+
+> my previous attempt was using str(exc), but I was corrected into using strerror to enforce the formatting of the error message
+
+@Titan-C Do you have an example where `str(exc)` is not good enough? In the couple of cases I could think of, it looks ok to me:
+- `""[Errno 13] Permission denied: '/asdfa'""`
+- `""[Errno 17] File exists: '/tmp/file'""`
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",alexandreabraham curios exampl osmakedir rais except environmenterror titanc Do exampl good enough In coupl case I could think look ok,N,2014-10-28 08:37:06
+59,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-28 08:37:06,"as @AlexandreAbraham wrote before
+
+> I think that it would be better to do something like: ""%s (%s)"" % (path, e.strerror)
+> It would be more significant for non technician people that may be scared by the standard error message. Also, you don't know if the path will be included in the message. In particular, on Windows, the error messages are totally non informative sometimes.
+
+I guess beyond formatting is the windows error messages.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",alexandreabraham wrote I guess beyond format window error messag,N,2014-10-28 08:42:04
+60,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 08:42:04,"Why not call it 'nilearn_data'?
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",whi call nilearndata,N,2014-10-28 08:42:08
+61,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 08:42:08,"Why not call the variable `data_dir` and the folder name 'test' like the other tests below?
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",whi call variabl folder name test like test,Y,2014-10-28 08:55:38
+62,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 08:55:38,"OK, putting the path explicitly in the error message sounds fine. If we stick to catching `Exception` rather than `EnvironmentError` we will need something like:
+
+``` python
+short_error_message = getattr(exc, 'strerror', str(exc))
+errors.append('\n -{} ({})'.format(path, short_error_message))
+```
+
+to make sure this works with all kinds of exceptions. 
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",OK put path explicitli error messag sound fine If stick catch rather need someth like make sure work kind except,N,2014-10-28 08:58:14
+63,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 08:58:14,"The next two lines can be simplified with:
+
+``` python
+os.environ.pop('NILEARN_DATA', None)
+```
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",the next two line simplifi,N,2014-10-28 08:58:51
+64,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 08:58:51,"Same remark as above
+
+``` python
+os.environ.pop('NILEARN_SHARED_DATA', None)
+```
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",same remark,N,2014-10-28 09:02:05
+65,pull_request_commit_comment,262,nilearn,nilearn,Titan-C,2014-10-28 09:02:05,"because `nilearn_data` is already defined in `datasets._get_data_dir`, need to make sure other folder is used.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",alreadi defin need make sure folder use,N,2014-10-28 09:17:21
+66,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-28 09:17:21,"Good point!
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/tests/test_datasets.py')",good point,N,2014-10-31 08:05:26
+67,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-31 08:05:26,"I believe this hasn't been fixed yet. This seems to me as the last thing to do before this PR can be merged.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",I believ hasnt fix yet thi seem last thing PR merg,N,2014-10-31 08:15:27
+68,pull_request_commit_comment,262,nilearn,nilearn,AlexandreAbraham,2014-10-31 08:15:27,"I think so. Maybe we can merge it and apply your small patch afterward?
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",I think mayb merg appli small patch afterward,N,2014-10-31 08:34:16
+69,pull_request_commit_comment,262,nilearn,nilearn,lesteve,2014-10-31 08:34:16,"OK I'll wait a bit for @Titan-C and do that if I don't hear from him in the next few days.
+",705474f4d10567e6c7bd9c9e3ec99814ee2a000e,"(None, '', u'nilearn/datasets.py')",OK ill wait bit titanc I dont hear next day,N,2014-10-14 09:11:38
+70,pull_request_commit,262,nilearn,nilearn,Titan-C,2014-10-14 09:11:38,Create nilearn_data as a working dir for _get_dataset_dir,9f2b9788ae17033c7863f9646d6728ee03616161,,creat nilearndata work dir getdatasetdir,N,2014-10-14 17:23:28
+71,pull_request_commit,262,nilearn,nilearn,Titan-C,2014-10-14 17:23:28,"Change logic for searching dataset dir
+Catching all exceptions and reporting at the end",e0d1046fe6c0572c4eb158fce2ad7b07510107e0,,chang logic search dataset dir catch except report end,N,2014-10-18 17:11:35
+72,pull_request_commit,262,nilearn,nilearn,Titan-C,2014-10-18 17:11:35,Test clause on non-directories,b0b03a3199e735f896d0be019e29c8903508155a,,test claus nondirectori,N,2014-10-24 08:53:26
+73,pull_request_commit,262,nilearn,nilearn,Titan-C,2014-10-24 08:53:26,change work inside temporary directory in get dataset dir test,91fd981e7a24b79920b039d1bd290ff9f0b9d22e,,chang work insid temporari directori get dataset dir test,N,2014-10-24 23:22:30
+74,pull_request_commit,262,nilearn,nilearn,Titan-C,2014-10-24 23:22:30,Regexp control on raised errors,d1ef510bf6625030bc3a45b479582b8eb7f83d6f,,regexp control rais error,N,2014-10-27 23:20:49
+75,pull_request_commit,262,nilearn,nilearn,Titan-C,2014-10-27 23:20:49,Different environment setup testing,a3096df06b8fac7a3617619c493d1a408c3de270,,differ environ setup test,N,2014-10-31 10:00:13
+1,issue_title,261,nilearn,nilearn,lesteve,2014-10-13 17:21:21,"closes #260.
+",start issue,[MRG] Move is_psd outside of _utils.testing,close 260,N,2014-10-15 10:16:52
+2,issue_closed,261,nilearn,nilearn,lesteve,2014-10-15 10:16:52,,closed issue,[MRG] Move is_psd outside of _utils.testing,,N,2014-10-13 17:21:21
+3,pull_request_title,261,nilearn,nilearn,lesteve,2014-10-13 17:21:21,"closes #260.
+",b0ba57e9f5045757a30b7211639b70bcb03a6b3b,[MRG] Move is_psd outside of _utils.testing,close 260,N,2014-10-15 10:16:52
+4,pull_request_merged,261,nilearn,nilearn,lesteve,2014-10-15 10:16:52,[MRG] Move is_psd outside of _utils.testing,6dd6f8fee07738fc5b56709fe83f3bb45e4adb45,Pull request merge from lesteve/nilearn:move-is-psd-out-of-utils-testing to nilearn/nilearn:master,mrg move ispsd outsid utilstest,N,2014-10-13 18:13:29
+5,issue_comment,261,nilearn,nilearn,GaelVaroquaux,2014-10-13 18:13:29,"I think that it would be good to have a small unit test.
+
+Aside from this, LGTM.
+",,,I think would good small unit test asid lgtm,Y,2014-10-14 06:42:08
+6,issue_comment,261,nilearn,nilearn,bthirion,2014-10-14 06:42:08,"Aboslute difference is good enough and simpler I think.
+
+LGTM
+",,,aboslut differ good enough simpler I think lgtm,N,2014-10-13 16:32:13
+7,pull_request_commit,261,nilearn,nilearn,lesteve,2014-10-13 16:32:13,Rename _utils.fast_maths to _utils.extmath,26d556b9d3356ff14e384acf3c794b9fefe4d533,,renam utilsfastmath utilsextmath,N,2014-10-13 17:17:38
+8,pull_request_commit,261,nilearn,nilearn,lesteve,2014-10-13 17:17:38,Move is_spd from _utils.testing to _utils.extmath,1fb2ce42ad48ff08c01f11e2855eafdd1b863972,,move isspd utilstest utilsextmath,N,2014-10-13 21:29:38
+9,pull_request_commit,261,nilearn,nilearn,lesteve,2014-10-13 21:29:38,"Add tests for is_spd.
+* test_fast_maths.py has been renamed to test_extmath.py
+* Only use relative tolerance in is_spd to check that the matrix is symmetric",b0ba57e9f5045757a30b7211639b70bcb03a6b3b,,add test isspd testfastmathspi renam testextmathpi onli use rel toler isspd check matrix symmetr,N,2014-10-13 21:35:55
+1,issue_title,272,nilearn,nilearn,banilo,2014-10-30 08:36:31,"Can be useful for less-memory-intense on-the-fly nifti preprocessing settings
+",start issue,[ENH] Generator utility for nifti sequences,can use lessmemoryintens onthefli nifti preprocess set,N,2014-11-01 11:25:41
+2,issue_closed,272,nilearn,nilearn,lesteve,2014-11-01 11:25:41,,closed issue,[ENH] Generator utility for nifti sequences,,N,2014-10-30 08:36:31
+3,pull_request_title,272,nilearn,nilearn,banilo,2014-10-30 08:36:31,"Can be useful for less-memory-intense on-the-fly nifti preprocessing settings
+",1fdbfb765b65dce902c049752bb885e7555f29f4,[ENH] Generator utility for nifti sequences,can use lessmemoryintens onthefli nifti preprocess set,N,2014-10-30 10:59:48
+4,issue_comment,272,nilearn,nilearn,banilo,2014-10-30 10:59:48,"Fixed: dataset fetcher in unit test worked fine on local machine but failed for Github/Travis. Now solved by writing random niftis in mktemp()-folder
+",,,fix dataset fetcher unit test work fine local machin fail githubtravi now solv write random nifti mktempfold,Y,2014-10-30 13:28:20
+5,issue_comment,272,nilearn,nilearn,AlexandreAbraham,2014-10-30 13:28:20,"I don't see why a generator would save memory compared to a for loop. Your generator can basically be replaced by:
+
+```
+for img in list_img:
+    img = _utils.check_niimg(img)
+    data = img.get_data()
+    affine = img.get_affine()
+```
+",,,I dont see gener would save memori compar loop your gener basic replac,N,2014-10-31 07:26:44
+6,issue_comment,272,nilearn,nilearn,banilo,2014-10-31 07:26:44,"Thanks for your point.
+
+Regarding the for-loop, the idea is not to _shorten_ code for iteration though series of niftis but to _unify_ it. This can have at least two advantages:
+a) Increase readability: using a generator (at least internally) allows for identical for loop bodies regardless of whether one is dealing with a list of paths, a list of Nifti1Image instances in 3D or a 4D NiftImage - perhaps the most recurrent forms of series of niftis.
+b) Centralize and further standardize nifti access: several aspects need/can/should be checked in a majority of situations: verify nifti properties by check_niimg(), does file exist, _get_shape instead of get_shape(), _safe_get_data instead of get_data(). These and other routine calls could be built into the generator object. This could help enforce good-practice usage and boil the for loops down to the essential operation.
+
+Regarding memory, the possibility of processing niftis one-by-one can also be realized in an easier fashion, of course, is only present for lists of paths, and is a mere side effect.
+",,,thank point regard forloop idea shorten code iter though seri nifti unifi thi least two advantag increas readabl use gener least intern allow ident loop bodi regardless whether one deal list path list nifti1imag instanc 3D 4D niftimag perhap recurr form seri nifti b central standard nifti access sever aspect needcanshould check major situat verifi nifti properti checkniimg file exist getshap instead getshap safegetdata instead getdata these routin call could built gener object thi could help enforc goodpractic usag boil loop essenti oper regard memori possibl process nifti onebyon also realiz easier fashion cours present list path mere side effect,N,2014-10-31 07:57:36
+7,issue_comment,272,nilearn,nilearn,AlexandreAbraham,2014-10-31 07:57:36,"My problem here is that you try to solve a non-existent problem. `check_niimg` already handles all the cases you describe here:
+a) `check_niimg` load any kind of image, whether it is a path, or a list of 3D nifti or a 4D nifti.
+b) Nifti1Image has been chosen as the image type in nilearn. If you have an object that exposes another interface, then you have to write a decorator of handle this particular case in `check_niimg`.
+
+I'm not saying that your code is not useful, but that it is the exact equivalent of `for img in (check_niimg(i) for i in list_img):`
+",,,My problem tri solv nonexist problem alreadi handl case describ load kind imag whether path list 3D nifti 4D nifti b nifti1imag chosen imag type nilearn If object expos anoth interfac write decor handl particular case Im say code use exact equival,N,2014-10-31 08:02:08
+8,issue_comment,272,nilearn,nilearn,lesteve,2014-10-31 08:02:08,"> I'm not saying that your code is not useful, but that it is the exact equivalent of for img in (check_niimg(i) for i in list_img):
+
+My feeling is the same. @banilo do you have some toy code example that would clearly show the benefits of your NiftiGenerator?
+",,,My feel banilo toy code exampl would clearli show benefit niftigener,N,2014-11-01 09:04:24
+9,issue_comment,272,nilearn,nilearn,banilo,2014-11-01 09:04:24,"You guys are right! There is now difference in speed or memory usage:
+
+```
+Line     Mem usage    Increment   Line Contents
+   159     80.7 MiB      0.0 MiB   @profile
+   160                             def mean_1800niis_checkniimg(list_img):
+   161     80.8 MiB      0.1 MiB       first_nii_shape = nibabel.load(list_img[0]).shape
+   162     80.8 MiB      0.0 MiB       rolling_mean = np.zeros((first_nii_shape))
+   163                             
+   164     82.6 MiB      1.8 MiB       for img in (check_niimg(i) for i in list_img):
+   165     82.6 MiB      0.0 MiB           rolling_mean += img.get_data()
+   166                             
+   167     83.8 MiB      1.2 MiB       return rolling_mean / len(list_img)
+```
+
+```
+%timeit -r1 -n1 mean_1800niis_checkniimg(stat_img)
+1 loops, best of 1: 1min 19s per loop
+```
+
+```
+Line     Mem usage    Increment   Line Contents
+   168     80.9 MiB      0.0 MiB   @profile
+   169                             def mean_1800niis_NiftiGenerator(list_img):
+   170     81.0 MiB      0.1 MiB       first_nii_shape = nibabel.load(list_img[0]).shape
+   171     81.0 MiB      0.0 MiB       rolling_mean = np.zeros((first_nii_shape))
+   172                             
+   173     82.7 MiB      1.8 MiB       for img, data, aff in NiftiGenerator(list_img):
+   174     82.7 MiB      0.0 MiB           rolling_mean += data
+   175                             
+   176     83.9 MiB      1.2 MiB       return rolling_mean / len(list_img)
+```
+
+```
+%timeit -r1 -n1 mean_1800niis_NiftiGenerator(stat_img)
+1 loops, best of 1: 1min 19s per loop
+```
+",,,you guy right there differ speed memori usag,N,2014-11-01 11:25:41
+10,issue_comment,272,nilearn,nilearn,lesteve,2014-11-01 11:25:41,"ok, closing this one then
+",,,ok close one,N,2014-10-30 08:33:52
+11,pull_request_commit,272,nilearn,nilearn,banilo,2014-10-30 08:33:52,Added generator for niftis,f36d8a4cf689164c0242a9bcc7792e691b83b6fb,,ad gener nifti,N,2014-10-30 10:57:50
+1,issue_title,267,nilearn,nilearn,banilo,2014-10-25 06:57:03,"Contrary to NiftiMasker, NiftiLabelsMasker.transform() does not currently check whether fit() of the current instance has already been called. Added exception for this case.
+",start issue,[ENH] Fit-Check added to NiftiLabelsMasker,contrari niftimask niftilabelsmaskertransform current check whether fit current instanc alreadi call ad except case,N,2014-10-29 15:35:23
+2,issue_closed,267,nilearn,nilearn,lesteve,2014-10-29 15:35:23,,closed issue,[ENH] Fit-Check added to NiftiLabelsMasker,,N,2014-10-25 06:57:03
+3,pull_request_title,267,nilearn,nilearn,banilo,2014-10-25 06:57:03,"Contrary to NiftiMasker, NiftiLabelsMasker.transform() does not currently check whether fit() of the current instance has already been called. Added exception for this case.
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,[ENH] Fit-Check added to NiftiLabelsMasker,contrari niftimask niftilabelsmaskertransform current check whether fit current instanc alreadi call ad except case,N,2014-10-29 15:35:23
+4,pull_request_merged,267,nilearn,nilearn,lesteve,2014-10-29 15:35:23,[ENH] Fit-Check added to NiftiLabelsMasker,d93b1935ce3d7abe56fdc433cdbf272e24f3e4a5,Pull request merge from banilo/nilearn:masktransf to nilearn/nilearn:master,enh fitcheck ad niftilabelsmask,N,2014-10-27 08:54:20
+5,issue_comment,267,nilearn,nilearn,lesteve,2014-10-27 08:54:20,"The tests are failing in case you have missed it. 
+
+Also I think it would be better to raise a ValueError rather than an AttributeError to be consistent with what the NiftiMasker is doing. I would even use the same error message:
+
+``` python
+raise ValueError('It seems that %s has not been fit. '
+                             'You must call fit() before calling transform().'
+                             % self.__class__.__name__)
+```
+",,,the test fail case miss also I think would better rais valueerror rather attributeerror consist niftimask I would even use error messag,Y,2014-10-27 20:49:15
+6,issue_comment,267,nilearn,nilearn,banilo,2014-10-27 20:49:15,"Ok, thanks for the advice!
+",,,Ok thank advic,N,2014-10-28 11:31:06
+7,issue_comment,267,nilearn,nilearn,bthirion,2014-10-28 11:31:06,"LGTM
+",,,lgtm,N,2014-10-29 15:26:51
+8,issue_comment,267,nilearn,nilearn,banilo,2014-10-29 15:26:51,"All comments should have been addressed now.
+",,,all comment address,N,2014-10-29 15:35:33
+9,issue_comment,267,nilearn,nilearn,lesteve,2014-10-29 15:35:33,"Merged, thanks a lot.
+",,,merg thank lot,N,2014-10-28 07:41:38
+10,pull_request_commit_comment,267,nilearn,nilearn,lesteve,2014-10-28 07:41:38,"Could you:
+- use assert_raises_regexp to check that the error message is the one you are expecting
+- add the same test for inverse_transform for completeness
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/tests/test_nifti_region.py')",could use assertraisesregexp check error messag one expect add test inversetransform complet,Y,2014-10-28 07:41:42
+11,pull_request_commit_comment,267,nilearn,nilearn,lesteve,2014-10-28 07:41:42,"It should probably be fitt_ed_ rather than fit. Could you fix it here and I'll fix the error message in BaseMasker?
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/nifti_region.py')",It probabl fit rather fit could fix ill fix error messag basemask,N,2014-10-28 11:42:36
+12,pull_request_commit_comment,267,nilearn,nilearn,banilo,2014-10-28 11:42:36,"Ok, in progress.
+
+2014-10-28 8:41 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/input_data/nifti_region.py:
+> 
+> > @@ -196,6 +196,12 @@ def fit(self, X=None, y=None):
+> >      def fit_transform(self, niimgs, confounds=None):
+> >          return self.fit().transform(niimgs, confounds=confounds)
+> > -    def _check_fitted(self):
+> > -        if not hasattr(self, ""labels_img_""):
+> > -            raise ValueError('It seems that %s has not been fit. '
+> 
+> It should probably be fitt_ed_ rather than fit. Could you fix it here and
+> I'll fix the error message in BaseMasker.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/267/files#r19456271.
+
+## 
+
+Viele Grüße,
+Danilo
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/nifti_region.py')",Ok progress 20141028 841 gmt0100 loïc estèv notificationsgithubcom viel grüße danilo,N,2014-10-29 15:18:12
+13,pull_request_commit_comment,267,nilearn,nilearn,lesteve,2014-10-29 15:18:12,"Slight niggle: you separated this comment from the line it is talking about, namely 
+
+``` python
+fmri11_img_r = masker11.inverse_transform(signals11)
+```
+",ba34bdd48f0c2da4e2d37511ce4a60057ebacdee,"(None, '', u'nilearn/input_data/tests/test_nifti_region.py')",slight niggl separ comment line talk name,N,2014-10-25 06:55:11
+14,pull_request_commit,267,nilearn,nilearn,banilo,2014-10-25 06:55:11,Fit-Check added to NiftiLabelsMasker,79b636e9618119288333469c5a40f4eb4f89726e,,fitcheck ad niftilabelsmask,N,2014-10-27 20:48:41
+15,pull_request_commit,267,nilearn,nilearn,banilo,2014-10-27 20:48:41,changed exception type + unit tests pass now,c20e283bed1c495f6e6abba420f29eb32df878ab,,chang except type unit test pass,N,2014-10-29 14:39:35
+16,pull_request_commit,267,nilearn,nilearn,banilo,2014-10-29 14:39:35,"fit-check for Nifti([Labels, Maps])Masker + type in BaseMasker corrected",9dca9a6249cf6b329e5ff2545afeaf03792359fb,,fitcheck niftilabel mapsmask type basemask correct,N,2014-10-29 15:27:58

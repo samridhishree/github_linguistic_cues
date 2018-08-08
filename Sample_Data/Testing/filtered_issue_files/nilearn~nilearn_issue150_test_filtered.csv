@@ -1,0 +1,33 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,150,nilearn,nilearn,mekman,2013-12-13 16:07:52,"addressing issue #149
+",start issue,FIX: scoring not passed on to cross_val_score ,address issu 149,N
+issue_closed,150,nilearn,nilearn,GaelVaroquaux,2013-12-15 15:34:44,nan,closed issue,FIX: scoring not passed on to cross_val_score ,nan,N
+pull_request_title,150,nilearn,nilearn,mekman,2013-12-13 16:07:52,"addressing issue #149
+",261ec19e9ffec8a87b73db93bdd51673a5b3e646,FIX: scoring not passed on to cross_val_score ,address issu 149,N
+issue_comment,150,nilearn,nilearn,mekman,2013-12-13 16:37:08,"Sorry about that! Could someone please give some advise on how to deal with that? The tests assuming a recent sklearn version where scoring can be specified as string. However the documentation states that nilearn depends on `Scikit-learn >= 0.12.1`. 
+
+Do you prefer reverting back to the deprecated sklearn `score_func` or rely on a more recent sklearn version?
+",nan,nan,sorri could someon pleas give advis deal the test assum recent sklearn version score specifi string howev document state nilearn depend Do prefer revert back deprec sklearn reli recent sklearn version,Y
+issue_comment,150,nilearn,nilearn,agramfort,2013-12-13 16:18:50,"travis failed due to old version of sklearn...
+",nan,nan,travi fail due old version sklearn,Y
+issue_comment,150,nilearn,nilearn,agramfort,2013-12-13 20:18:57,"ping @GaelVaroquaux @AlexandreAbraham
+",nan,nan,ping gaelvaroquaux alexandreabraham,N
+issue_comment,150,nilearn,nilearn,agramfort,2013-12-13 20:35:43,"how do you handle the travis issue?
+",nan,nan,handl travi issu,Y
+issue_comment,150,nilearn,nilearn,GaelVaroquaux,2013-12-13 20:34:37,"> ping @GaelVaroquaux @AlexandreAbraham
+
+This feature will work only with a recent scikit-learn. Given that
+nilearn is not even yet released, we don't want to start doing backports
+and hacks.
+",nan,nan,thi featur work recent scikitlearn given nilearn even yet releas dont want start backport hack,N
+issue_comment,150,nilearn,nilearn,GaelVaroquaux,2013-12-13 20:48:44,"> how do you handle the travis issue?
+
+Travis works fine in master. The pull request breaks Travis by adding an
+option that is unsupported in older version of scikit-learn. In master,
+this option is purposely ignored, and a warning is raised telling the
+user to update scikit-learn.
+",nan,nan,travi work fine master the pull request break travi ad option unsupport older version scikitlearn In master option purpos ignor warn rais tell user updat scikitlearn,Y
+issue_comment,150,nilearn,nilearn,GaelVaroquaux,2013-12-15 15:34:38,"Closing this guy, as I don't think that we can merge it.
+",nan,nan,close guy I dont think merg,N
+pull_request_commit,150,nilearn,nilearn,mekman,2013-12-13 16:01:09,FIX: scoring not passed on to cross_val_score resulting always in default (accuracy) scoring method,261ec19e9ffec8a87b73db93bdd51673a5b3e646,nan,fix score pass crossvalscor result alway default accuraci score method,N

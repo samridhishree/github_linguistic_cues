@@ -1,0 +1,414 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,1236,nilearn,nilearn,KamalakerDadi,2017-05-03 12:57:09,,closed issue,[MRG+1] Vectorize connectivity,,N,2016-08-11 09:08:27
+4,pull_request_merged,1236,nilearn,nilearn,KamalakerDadi,2017-05-03 12:57:09,[MRG+1] Vectorize connectivity,e0524d3cc9dfd97cca24099b01a4c0cf6eabad87,Pull request merge from salma1601/nilearn:vectorize_connectivity to nilearn/nilearn:master,mrg1 vector connect,N,2016-08-11 17:57:33
+32,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-11-22 09:35:33,">@KamalakerDadi Tests are passing !
+
+Great. Thanks.
+
+@GaelVaroquaux @AlexandreAbraham Can you give a final call ?
+",,,great thank gaelvaroquaux alexandreabraham can give final call,N,2016-08-11 11:12:14
+33,issue_comment,1236,nilearn,nilearn,salma1601,2016-08-11 11:12:14,"can I use this PR to fix also #1237 ? I don't know if this is a good practice
+",,,I use PR fix also 1237 I dont know good practic,N,2016-08-11 18:06:13
+46,issue_comment,1236,nilearn,nilearn,codecov[bot],2017-03-02 12:32:49,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=h1) Report
+> Merging [#1236](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/f1968a82b2ba80df9abae75706d1e70ac58aad0a?src=pr&el=desc) will **increase** coverage by `0.05%`.
+> The diff coverage is `99.3%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1236/graphs/tree.svg?token=KpYArSdyXv&width=650&src=pr&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1236      +/-   ##
+==========================================
++ Coverage   94.61%   94.66%   +0.05%     
+==========================================
+  Files         120      120              
+  Lines       14537    14664     +127     
+==========================================
++ Hits        13754    13882     +128     
++ Misses        783      782       -1
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/input\_data/nifti\_maps\_masker.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL25pZnRpX21hcHNfbWFza2VyLnB5) | `96.39% <ø> (ø)` | :arrow_up: |
+| [...arn/connectome/tests/test\_connectivity\_matrices.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL3Rlc3RzL3Rlc3RfY29ubmVjdGl2aXR5X21hdHJpY2VzLnB5) | `99% <100%> (+0.31%)` | :arrow_up: |
+| [nilearn/connectome/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL19faW5pdF9fLnB5) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/connectome/connectivity\_matrices.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2Nvbm5lY3Rpdml0eV9tYXRyaWNlcy5weQ==) | `95.15% <98.24%> (+2.35%)` | :arrow_up: |
+| [nilearn/tests/test\_signal.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X3NpZ25hbC5weQ==) | `100% <0%> (+0.5%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=footer). Last update [f1968a8...9de5c63](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",,,codecov report impact file tree graph impact file coverag Δ nilearninputdataniftimapsmaskerpi arrowup arnconnectometeststestconnectivitymatricespi arrowup nilearnconnectomeinitpi arrowup nilearnconnectomeconnectivitymatricespi arrowup nilearnteststestsignalpi arrowup continu review full report codecov,N,2016-08-11 10:36:11
+47,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:36:11,"typo
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",typo,N,2016-08-11 10:39:32
+48,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:39:32,"Why would there be a side effect?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",whi would side effect,N,2016-08-11 10:44:02
+49,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:44:02,"Can you put a comment saying that this line is to fill the upper triangle?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",can put comment say line fill upper triangl,N,2016-08-11 10:52:15
+50,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-08-11 10:52:15,"I thought changing the diagonal of sym may change vec but I am wrong
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",I thought chang diagon sym may chang vec I wrong,N,2016-08-11 10:52:46
+51,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:52:46,"Overly complicated.
+Simpler:
+
+``` python
+mask.fill(False)  # Avoid memory re-allocation
+np.fill_diagonal(mask, True)
+```
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",overli complic simpler,N,2016-08-11 10:53:13
+52,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-08-11 10:53:13,"OK. Does it make sense to make vec_to_sym private? I don't think it will be used apart from here
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",OK doe make sens make vectosym privat I dont think use apart,N,2016-08-11 12:06:30
+53,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 12:06:30,"> OK. Does it make sense to make vec_to_sym private? I don't think it will be used apart from here
+
+I think that people (methods developers) might use it to build their own
+algorithms. As nilearn is also for methods developers, I think that it
+makes sense to expose it publicaly.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",I think peopl method develop might use build algorithm As nilearn also method develop I think make sens expos publicali,N,2016-08-11 17:53:04
+54,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:53:04,"The name is a bit hard to understand out of context. How about ""vec_to_sym_matrix"". A bit longer, but much more explicit.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",the name bit hard understand context how vectosymmatrix A bit longer much explicit,N,2016-08-11 17:55:12
+55,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:55:12,"I'd rather have this done inside the ConnectivityMeasure object (in the transform method), rather than the function. It would minimize surprise with regards to what this function does.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')",Id rather done insid connectivitymeasur object transform method rather function It would minim surpris regard function,N,2016-08-11 17:56:30
+56,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:56:30,"Actually, this is what's done. It's just that the docstring is misleading.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')",actual what done it docstr mislead,N,2016-08-11 17:57:09
+57,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:57:09,"I would also rename sym_to_vec to sym_matrix_to_vec
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')",I would also renam symtovec symmatrixtovec,N,2016-08-11 20:25:43
+58,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-08-11 20:25:43,"you mean I should put the `vectorize` doc not in the class ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')",mean I put doc class,N,2016-08-11 20:33:30
+172,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-04-25 11:51:43,is is repeated twice. Can you also add release version we want to remove **0.4** ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')",repeat twice can also add releas version want remov 04,N,2016-08-11 08:54:12
+1,issue_title,1244,nilearn,nilearn,Stef-aap,2016-08-15 20:08:14,"hello,
+
+Probably I'm doing something wrong (different versions or so ?):
+
+I'm investigating what I can do with Jupyter notebooks and came across some very nice looking notebooks from NiLearn, As I'm both new to Jupyter en NiLearn, this combination seems to be too difficult.
+
+Already in the second code window< i ran into a bug: I had to change the last line
+
+from nilearn import datasets, plotting
+atlas_img = datasets.fetch_atlas_harvard_oxford('cort-maxprob-thr25-2mm')
+# plotting.plot_roi ( atlas_img)
+
+plotting.plot_roi ( atlas_img.maps )
+
+The third code block contains at leat 2 erros, the first (masker=..), I solved but the second I'm lost (because indeed I can't find any file ""Background"".
+
+from nilearn.input_data import NiftiLabelsMasker
+# masker = NiftiLabelsMasker(labels_img=atlas_img)
+
+masker = NiftiLabelsMasker(labels_img=atlas_img.labels )
+# Now get the ADHD data
+
+data = datasets.fetch_adhd(n_subjects=1)
+# And apply the masker to the functional data
+
+time_series = masker.fit_transform(data.func[0])
+
+---
+
+ValueError                                Traceback (most recent call last)
+<ipython-input-31-8c203e687a00> in <module>()
+      7 
+      8 # And apply the masker to the functional data
+----> 9 time_series = masker.fit_transform(data.func[0])
+     10 data.func
+
+C:\Users\StefM\AppData\Roaming\Python\Python35\site-packages\nilearn\input_data\nifti_labels_masker.py in fit_transform(self, imgs, confounds)
+    189         """""" Prepare and perform signal extraction from regions.
+    190         """"""
+--> 191         return self.fit().transform(imgs, confounds=confounds)
+    192 
+    193     def _check_fitted(self):
+
+C:\Users\StefM\AppData\Roaming\Python\Python35\site-packages\nilearn\input_data\nifti_labels_masker.py in fit(self, X, y)
+    143                    _utils._repr_niimgs(self.labels_img)[:200],
+    144                    verbose=self.verbose)
+--> 145         self.labels_img_ = _utils.check_niimg_3d(self.labels_img)
+    146         if self.mask_img is not None:
+    147             logger.log(""loading data from %s"" %
+
+C:\Users\StefM\AppData\Roaming\Python\Python35\site-packages\nilearn_utils\niimg_conversions.py in check_niimg_3d(niimg, dtype)
+    320     Its application is idempotent.
+    321     """"""
+--> 322     return check_niimg(niimg, ensure_ndim=3, dtype=dtype)
+    323 
+    324 
+
+C:\Users\StefM\AppData\Roaming\Python\Python35\site-packages\nilearn_utils\niimg_conversions.py in check_niimg(niimg, ensure_ndim, atleast_4d, dtype, return_iterator, wildcards)
+    266             return _iter_check_niimg(niimg, ensure_ndim=ensure_ndim,
+    267                                      dtype=dtype)
+--> 268         return concat_niimgs(niimg, ensure_ndim=ensure_ndim, dtype=dtype)
+    269 
+    270     # Otherwise, it should be a filename or a SpatialImage, we load it
+
+C:\Users\StefM\AppData\Roaming\Python\Python35\site-packages\nilearn_utils\niimg_conversions.py in concat_niimgs(niimgs, dtype, ensure_ndim, memory, memory_level, auto_resample, verbose)
+    426     iterator, literator = itertools.tee(iter(niimgs))
+    427     try:
+--> 428         first_niimg = check_niimg(next(literator), ensure_ndim=ndim)
+    429     except StopIteration:
+    430         raise TypeError('Cannot concatenate empty objects')
+
+C:\Users\StefM\AppData\Roaming\Python\Python35\site-packages\nilearn_utils\niimg_conversions.py in check_niimg(niimg, ensure_ndim, atleast_4d, dtype, return_iterator, wildcards)
+    257                 raise ValueError(message)
+    258             else:
+--> 259                 raise ValueError(""File not found: '%s'"" % niimg)
+    260         elif not os.path.exists(niimg):
+    261             raise ValueError(""File not found: '%s'"" % niimg)
+
+ValueError: File not found: 'Background'
+",start issue,"nilearn, 2_signal_extraction_for_connectomes, doesn't run smoothly ...",hello probabl Im someth wrong differ version Im investig I jupyt notebook came across nice look notebook nilearn As Im new jupyt en nilearn combin seem difficult alreadi second code window ran bug I chang last line nilearn import dataset plot atlasimg datasetsfetchatlasharvardoxfordcortmaxprobthr252mm plottingplotroi atlasimg plottingplotroi atlasimgmap the third code block contain leat 2 erro first masker I solv second Im lost inde I cant find file background nilearninputdata import niftilabelsmask masker niftilabelsmaskerlabelsimgatlasimg masker niftilabelsmaskerlabelsimgatlasimglabel now get adhd data data datasetsfetchadhdnsubjects1 and appli masker function data timeseri maskerfittransformdatafunc0 valueerror traceback recent call last ipythoninput318c203e687a00 7 8 and appli masker function data 10 datafunc cusersstefmappdataroamingpythonpython35sitepackagesnilearninputdataniftilabelsmaskerpi fittransformself img confound 189 prepar perform signal extract region 190 192 193 def checkfittedself cusersstefmappdataroamingpythonpython35sitepackagesnilearninputdataniftilabelsmaskerpi fitself X 143 utilsreprniimgsselflabelsimg200 144 verboseselfverbos 146 selfmaskimg none 147 loggerlogload data cusersstefmappdataroamingpythonpython35sitepackagesnilearnutilsniimgconversionspi checkniimg3dniimg dtype 320 it applic idempot 321 323 324 cusersstefmappdataroamingpythonpython35sitepackagesnilearnutilsniimgconversionspi checkniimgniimg ensurendim atleast4d dtype returniter wildcard 266 return itercheckniimgniimg ensurendimensurendim 267 dtypedtyp 269 270 otherwis filenam spatialimag load cusersstefmappdataroamingpythonpython35sitepackagesnilearnutilsniimgconversionspi concatniimgsniimg dtype ensurendim memori memorylevel autoresampl verbos 426 iter liter itertoolsteeiterniimg 427 tri 429 except stopiter 430 rais typeerrorcannot concaten empti object cusersstefmappdataroamingpythonpython35sitepackagesnilearnutilsniimgconversionspi checkniimgniimg ensurendim atleast4d dtype returniter wildcard 257 rais valueerrormessag 258 els 260 elif ospathexistsniimg 261 rais valueerrorfil found niimg valueerror file found background,N,2016-08-16 05:47:08
+2,issue_closed,1244,nilearn,nilearn,GaelVaroquaux,2016-08-16 05:47:08,,closed issue,"nilearn, 2_signal_extraction_for_connectomes, doesn't run smoothly ...",,N,2016-08-15 20:12:37
+3,issue_comment,1244,nilearn,nilearn,GaelVaroquaux,2016-08-15 20:12:37,"Where did you get these notebooks? Can you point to where you downloaded them? The official place to download them would be on the nilearn website, in the examples pages.
+",,,where get notebook can point download the offici place download would nilearn websit exampl page,N,2016-08-15 20:36:13
+4,issue_comment,1244,nilearn,nilearn,GaelVaroquaux,2016-08-15 20:36:13,"> I think it this one: https://github.com/GaelVaroquaux/nilearn_course/blob/master/notebooks/2_signal_extraction_for_connectomes.ipynb
+
+Looks like I need to delete this repo :).
+
+This is why I don't like any tutorial not in our continuous integration
+:).
+
+@Stef-aap: please use the notebooks shipped on the nilearn website. They
+are tested.
+",,,look like I need delet repo thi I dont like tutori continu integr stefaap pleas use notebook ship nilearn websit they test,Y,2016-08-16 05:47:07
+5,issue_comment,1244,nilearn,nilearn,GaelVaroquaux,2016-08-16 05:47:07,"I delete the old repo. Thanks @Stef-aap for pointing it out.
+
+I am closing this issue.
+",,,I delet old repo thank stefaap point I close issu,N,2016-08-15 20:35:11
+2,issue_closed,1227,nilearn,nilearn,GaelVaroquaux,2016-09-01 15:02:46,,closed issue,[MRG] [ENH] Haxby datasets accepting list of subjects,,N,2016-08-08 19:19:02
+4,pull_request_merged,1227,nilearn,nilearn,GaelVaroquaux,2016-09-01 15:02:46,[MRG] [ENH] Haxby datasets accepting list of subjects,ce9e69b96bb452572b2afa7549ab38e51921b2fd,Pull request merge from KamalakerDadi/nilearn:haxby_n_subjects_to_list to nilearn/nilearn:master,mrg enh haxbi dataset accept list subject,N,2016-08-11 18:23:18
+5,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:23:18,">   • Idea 1 remove n_subjects, force subjects to be a list, possibly allowing subjects='all'
+
+I don't mind having to force people to type ""subject=range(5)"" because
+it's the kind of things that is not typed by deginers: beginers only
+download one subject for example.
+
+But, I don't think that I want to break backward compatibility, so we
+should keep as a temporary solution n_subjects.
+
+>   • Idea 2: mixed api with n_subjects and subjects, defaulting to 1 and [2]. I don't like it because in many cases one argument would have to override the other and the user has to figure out the logic.
+
+We need to do this for a couple of releases, to avoid breaking people's
+code.
+",,,I dont mind forc peopl type subjectrange5 kind thing type degin begin download one subject exampl but I dont think I want break backward compat keep temporari solut nsubject We need coupl releas avoid break peopl code,N,2016-08-11 19:59:51
+6,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 19:59:51,"> To summarize, I will keep both n_subjects (int) and subjects (list).
+
+Yes
+",,,ye,N,2016-08-12 05:41:47
+7,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-12 05:41:47,"> Lot of examples I see need a bit of tweaking to adapt to results obtained with
+> default 2nd subject.
+
+Interesting. What is it? The position of the cut_coords should be
+changed?
+
+> I can change if there are any particular examples or all need to be run
+> on 2nd subject ?
+
+I'd like all to run on the 2nd subject, that way we avoid downloading
+other ones on the doc-building server and during the tutorials.
+",,,interest what the posit cutcoord chang Id like run 2nd subject way avoid download one docbuild server tutori,N,2016-08-12 13:17:55
+22,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-09-01 15:02:44,"LGTM. Merging. Thanks!
+",,,lgtm merg thank,N,2016-08-10 07:57:23
+23,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-10 07:57:23,"Addressed your comments @AlexandreAbraham @bthirion. Any more reviews ?
+",,,address comment alexandreabraham bthirion ani review,N,2016-08-10 11:27:26
+24,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-10 11:27:26,"> Well, I am still convinced that having to do fetch_haxby(subjects=[1, 2, 3, 4, 5, 6]) to get the whole dataset is counter intuitive.
+
+We should also keep n_subjects for bunch of subjects selection and not to deprecate ?
+",,,We also keep nsubject bunch subject select deprec,N,2016-08-11 19:58:08
+25,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-11 19:58:08,"Ok, I will address your comments.
+To summarize, I will keep both n_subjects (int) and subjects (list).
+",,,Ok I address comment To summar I keep nsubject int subject list,N,2016-08-11 21:37:01
+26,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-11 21:37:01,"Lot of examples I see need a bit of tweaking to adapt to results obtained with default 2nd subject. I can change if there are any particular examples or all need to be run on 2nd subject ?
+",,,lot exampl I see need bit tweak adapt result obtain default 2nd subject I chang particular exampl need run 2nd subject,N,2016-08-12 07:49:00
+40,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-25 13:48:01,"> This would completely break backward compatibility. The best option is to
+>  define a ""get_affine"" function in the compat module that will call either
+>  get_affine or affine depending on nibabel version.
+> +1. I think that that the cut-off should be nibabel version < 2.
+> 
+> And +1 for doing this in a separate PR.
+
+Ok.
+",,,Ok,N,2016-08-08 19:58:16
+41,pull_request_commit_comment,1227,nilearn,nilearn,bthirion,2016-08-08 19:58:16,"I am -1 on leaving the possibility to specify subjects as int: people will be surprised. I would leave only the possibility of a list.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",I 1 leav possibl specifi subject int peopl surpris I would leav possibl list,N,2016-08-08 20:01:26
+42,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:01:26,"You mean n_subjects should accept only int and subjects accept only list ?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",you mean nsubject accept int subject accept list,N,2016-08-08 20:13:17
+43,pull_request_commit_comment,1227,nilearn,nilearn,bthirion,2016-08-08 20:13:17,"No, n_subjects is removed, while subjects accepts lists only. 
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",No nsubject remov subject accept list,N,2016-08-08 20:26:08
+44,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:26:08,"+1 for accepting list only.
+However, n_subjects is still usefull for people that do not care about the subject ID.
+Also, in the few fetchers that allows subject selection, we usually use subject_ids or sub_ids.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",1 accept list howev nsubject still useful peopl care subject ID also fetcher allow subject select usual use subjectid subid,N,2016-08-08 20:26:46
+45,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:26:46,"So `None` means `all` but `[]` means no data?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",So mean mean data,N,2016-08-08 20:28:59
+46,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:28:59,"I didn't get your comment/question ?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",I didnt get commentquest,N,2016-08-08 20:29:08
+47,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:29:08,"Next version is 0.2.6 and deprecation will probably happen in 0.2.7.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",next version 026 deprec probabl happen 027,N,2016-08-08 20:31:03
+48,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:31:03,"If I put `subjects=None`, I will get all the subjects but, to get no data at all, I have to put `subjects=[]`.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",If I put I get subject get data I put,N,2016-08-08 20:31:21
+49,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:31:21,"You mean 0.2.5.1 -> 0.2.6 and 0.3 -> 0.2.7 ?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",you mean 0251,N,2016-08-08 20:32:12
+50,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:32:12,"You can put subjects=0
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",you put subjects0,N,2016-08-09 18:59:53
+51,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-09 18:59:53,"To clarify myself, only subjects should there ? and it should accept only list otherwise raise Error or warning and then convert to list ? ping @AlexandreAbraham @bthirion 
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",To clarifi subject accept list otherwis rais error warn convert list ping alexandreabraham bthirion,N,2016-08-09 20:28:42
+52,pull_request_commit_comment,1227,nilearn,nilearn,bthirion,2016-08-09 20:28:42,"I thinks so.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",I think,N,2016-08-11 18:29:11
+53,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:29:11,"How about we simply leave out the argument from this part of the documentation. It's an example that doesn't need that much detail.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'doc/manipulating_images/input_output.rst')",how simpli leav argument part document it exampl doesnt need much detail,N,2016-08-11 18:29:35
+54,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:29:35,"Same thing here: let's simplify this even more and leave out this argument.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'doc/manipulating_images/input_output.rst')",same thing let simplifi even leav argument,N,2016-08-11 18:30:12
+55,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:30:12,"Let's use subject 2 here (or simply use the default, and hence leave out the argument).
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')",let use subject 2 simpli use default henc leav argument,N,2016-08-11 18:30:51
+56,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:30:51,"Let's try to always use subject 2, to limit download (and probably simply always use the default, to simplify the code).
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')",let tri alway use subject 2 limit download probabl simpli alway use default simplifi code,N,2016-08-11 18:33:38
+57,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:33:38,"Maybe we should remove it in 0.3 only. I worry about breakage in our users.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')",mayb remov 03 I worri breakag user,N,2016-08-08 19:10:35
+58,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 19:10:35,[ENH] Haxby datasets accepting list of subjects,5695a610bdb38ea672441044ed212b2c1c13d4b8,,enh haxbi dataset accept list subject,N,2016-08-08 19:10:35
+59,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 19:10:35,[ENH] Haxby datasets accepting list of subjects,4533106d197a658a36c9a2d7044075285fe84ddf,,enh haxbi dataset accept list subject,N,2016-08-09 22:04:21
+60,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-09 22:04:21,"Addressed:subjects accpts only list, changed version, robust check in subjects input",222f95af663664173626b646ea869b83d2a6dd95,,addressedsubject accpt list chang version robust check subject input,N,2016-08-09 22:04:21
+61,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-09 22:04:21,"Addressed:subjects accpts only list, changed version, robust check in subjects input",19904b0ce53a90f484ff43bff5c475d2d8c85583,,addressedsubject accpt list chang version robust check subject input,N,2016-08-11 21:29:03
+62,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-11 21:29:03,n_subjects to int and removing arguments wherever required,9ba6071e94f3f9b03e0cf2d2a60a0e69e26a44a8,,nsubject int remov argument wherev requir,N,2016-08-11 21:29:03
+63,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-11 21:29:03,n_subjects to int and removing arguments wherever required,1192e2d183557d84eda529c32edf04c0ec7ee28c,,nsubject int remov argument wherev requir,N,2016-08-12 19:04:54
+64,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-12 19:04:54,Removed argument subjects to take default 2nd subject in examples,be205150e1a525e6dae7929d2333a19738a3c39f,,remov argument subject take default 2nd subject exampl,N,2016-08-12 19:04:54
+65,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-12 19:04:54,Removed argument subjects to take default 2nd subject in examples,a427bceab7bb0b7309126023aef5b2e8c563d768,,remov argument subject take default 2nd subject exampl,N,2016-08-12 19:49:03
+66,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-12 19:49:03,Added 2nd subject plot_haxby_masks example,9f99725de4f05dce8f0cbe5ebea96ba7edfc1903,,ad 2nd subject plothaxbymask exampl,N,2016-08-12 19:49:03
+67,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-12 19:49:03,Added 2nd subject plot_haxby_masks example,d582794abc69f006e2140596c473d24c86b80ec8,,ad 2nd subject plothaxbymask exampl,N,2016-08-14 19:37:52
+68,pull_request_commit,1227,nilearn,nilearn,KamalakerDadi,2016-08-14 19:37:52,doc space correction in whats_new,90d49c134e50341d7341b298df09b6fddc7a72d6,,doc space correct whatsnew,N,2016-08-14 19:37:52
+2,issue_closed,1232,nilearn,nilearn,AlexandreAbraham,2016-09-08 14:22:46,,closed issue,[MRG] SearchLight cannot handle one-voxel mask,,N,2016-08-09 07:33:14
+5,issue_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 09:57:07,"LGTM, but it would be nice to have a test on coord_transform.
+",,,lgtm would nice test coordtransform,Y,2016-08-18 15:59:00
+6,issue_comment,1232,nilearn,nilearn,KamalakerDadi,2016-08-18 15:59:00,"Is it worth to add tests for `coord_transform` ?
+",,,Is worth add test,Y,2016-08-09 09:28:33
+7,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 09:28:33,"Did you forget this print instruction ?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/searchlight.py')",did forget print instruct,N,2016-08-09 09:30:07
+8,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 09:30:07,"Should this be the default behavior ?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')",should default behavior,N,2016-08-09 09:37:44
+9,pull_request_commit_comment,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 09:37:44,"I wondered. From a developper POV, this is indeed the most wanted behavior. From a user POV, being able to transform only one point is nice.
+
+Another option I thought of is this:
+`coord_transform(1, 2, 3, np.eye(4))` returns a 3-tuple `(1, 2, 3)`
+and
+`coord_transform([1], [2], [3], np.eye(4))` returns a 3-tuple of list `([1], [2], [3])`
+
+Maybe this is more natural?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')",I wonder from developp pov inde want behavior from user pov abl transform one point nice anoth option I thought return 3tupl return 3tupl list mayb natur,N,2016-08-09 20:48:21
+10,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 20:48:21,"Sorry, I am missing the point. The scores are uniformly zero. Shouldn't we have a non-zero score at [0, 0, 0].
+Maybe I missed the logic of this update.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/tests/test_searchlight.py')",sorri I miss point the score uniformli zero shouldnt nonzero score 0 0 0 mayb I miss logic updat,N,2016-08-10 13:34:27
+14,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:30:45,"> > Should this be the default behavior ?
+> 
+> I don't think so. It's always annoying to have to deal with a number of
+> dimensions that can fluctuate.
+
+Looks like you addressed that comment :$
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')",look like address comment,N,2016-08-09 07:30:34
+15,pull_request_commit,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 07:30:34,Add a regression test for #1216,2c3586e517348aa7962d1ed4eacbbb80e546d18e,,add regress test 1216,N,2016-08-09 07:58:34
+16,pull_request_commit,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 07:58:34,Make searchlight handle one voxel masks,d8e9064a4cdca6213849303e2532284883fd5590,,make searchlight handl one voxel mask,N,2016-08-09 08:28:28
+17,pull_request_commit,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 08:28:28,Fix another coord_transform,fe8098b3f342944a649b495639ace9be8d468a8b,,fix anoth coordtransform,N,2016-08-09 09:32:55
+18,pull_request_commit,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 09:32:55,Remove debug print.,0f870e0e84c02f3cfd49d671e23b5948840455d0,,remov debug print,N,2016-08-09 09:41:12
+19,pull_request_commit,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 09:41:12,Makes coord_transform type more natural,a99aa8bf259015cce0b19a17615bf444219047d1,,make coordtransform type natur,N,2016-08-10 13:29:21
+20,pull_request_commit,1232,nilearn,nilearn,AlexandreAbraham,2016-08-10 13:29:21,Fix bug in SL again.,23805dcd4106b5a6662a52959839fb738a280778,,fix bug SL,N,2016-08-10 13:32:48
+2,issue_closed,1233,nilearn,nilearn,KamalakerDadi,2017-05-03 12:57:09,,closed issue,ConnectivityMeasure(kind='tangent') is misleading,,N,2016-08-10 16:37:29
+3,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-10 16:37:29,">   • add an attribute deviations_ that will give the actual output of
+>     fit_transform for kind='tangent'
+
+That's not a good option, because it means that the object can no longer
+be used in a pipeline, which is what I think we really want.
+",,,that good option mean object longer use pipelin I think realli want,N,2016-08-10 17:43:29
+4,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-10 17:43:29,"> Ok so may be add a covariances_ attribute ?
+
+I don't like very much the idea of putting too much state in the object.
+It is hidden to the user and not very discoverable.
+
+I'd much rather prefer having the inverse_transform reconstruct
+covariances from the corresponding displacement vectors. In addition, it
+matches the idea that inverse_transform would also undo an optional
+vectorization.
+",,,I dont like much idea put much state object It hidden user discover Id much rather prefer inversetransform reconstruct covari correspond displac vector In addit match idea inversetransform would also undo option vector,N,2016-08-11 20:47:45
+5,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-11 20:47:45,"> So again back to this: what about outputting the deviations from means for all
+> kinds of connectivities (as it is done for 'tangent', meaning just subtracting
+> the mean_ from the individual matrices for all kinds but 'tangent'. Then the
+> connectivity matrices can be computed with the inverse_transform
+
+I'd rather not. Only tangent embedding needs this, as the rest rely on a
+Euclidean space.
+
+> The benefit for it is outputting objects of the same nature for all
+> kinds. I am having a hard time with the namings in my example, as I
+> loop over all kinds
+
+Actually, I would rather that you did not loop of the kinds: it makes the
+code difficult to read for a beginner. I would rather have 3 sub
+sections, and 3 different comments on them, with, ideally, 3 dedicated
+visualizations.
+",,,Id rather onli tangent embed need rest reli euclidean space actual I would rather loop kind make code difficult read beginn I would rather 3 sub section 3 differ comment ideal 3 dedic visual,N,2016-08-11 21:09:21
+6,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-11 21:09:21,"> People have to be aware that the output of 'tangent' are not connections.
+
+Maybe it's that we should use a more explicit term for 'tangent'.
+Something that ""tangent_deviation"", or related. That way it's explicitely
+written in the code that it's a deviation.
+",,,mayb use explicit term tangent someth tangentdevi relat that way explicit written code deviat,N,2016-08-12 05:42:57
+7,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-12 05:42:57,">   • at the fit, compute connectivities_ which are the individual connectivity
+>     matrices, for tangent they are covariances -> to be plotted and watched,
+>     with a nice positive diagonal
+
+I don't like that: it is hidden from the user, only the rest of our
+pipeline which is explicite.
+",,,I dont like hidden user rest pipelin explicit,N,2016-08-12 13:19:26
+8,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-12 13:19:26,"> At least, having different objects for tangent and the rest looks like a good
+> idea to me. One class per type of covariance is fine for me, because I tend to
+> overdesign things, but I'm not sure if it's a good idea.
+
+I'd rather not. These really are two aspects of the same thing. Let's not
+make the design complex for purity reasons.
+",,,Id rather these realli two aspect thing let make design complex puriti reason,N,2016-08-10 17:34:39
+9,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-10 17:34:39,"Ok so may be add a `covariances_` attribute ?
+",,,Ok may add attribut,N,2016-08-10 18:27:48
+10,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-10 18:27:48,"Ok. I don't know if I will be able to do a PR on that. The inverse_transform looks difficult for me.
+",,,Ok I dont know I abl PR the inversetransform look difficult,N,2016-08-11 20:44:41
+11,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-11 20:44:41,"So again back to this: what about outputting the deviations from means for all kinds of connectivities (as it is done for 'tangent', meaning just subtracting the `mean_` from the individual matrices for all kinds but 'tangent'. Then the connectivity matrices can be computed with the inverse_transform
+The benefit for it is outputting objects of the same nature for all kinds. I am having a hard time with the namings in my example, as I loop over all kinds
+",,,So back output deviat mean kind connect done tangent mean subtract individu matric kind tangent then connect matric comput inversetransform the benefit output object natur kind I hard time name exampl I loop kind,N,2016-08-11 21:06:55
+12,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-11 21:06:55,"> Actually, I would rather that you did not loop of the kinds: it makes the code difficult to read for a beginner. I would rather have 3 sub sections, and 3 different comments on them, with, ideally, 3 dedicated visualizations.
+
+Ok
+But even when I don't loop I don't like that we output things of different natures by the same object. I am not talking for math, it's rather for the reality. People have to be aware that the output of 'tangent' are not connections.
+May be I am giving myself a headache, but I feel like this ConnectivityMeasure is not well done
+",,,Ok but even I dont loop I dont like output thing differ natur object I talk math rather realiti peopl awar output tangent connect may I give headach I feel like connectivitymeasur well done,N,2016-08-11 21:46:12
+13,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-11 21:46:12,"Yes but its mean_ will not be a deviation !
+I am back to the idea of adding an attribute
+- at the fit, compute `connectivities_` which are the individual connectivity matrices, for `tangent` they are covariances -> to be plotted and watched, with a nice positive diagonal
+- transform: this is transformation to vector space $R^p$, and for `tangent` this is the displacement who lives in the vector space -> to be used in statistical tests, and classification
+- inverse transform: just back from vector to matrix, without any diabolic rescaling -> useful for p-values plotting
+
+This is what seems the most natural to me, and the most easy to explain. I don't want to frighten people with deviations, I just want them to know what to input and what is their output
+",,,ye mean deviat I back idea ad attribut fit comput individu connect matric covari transform transform vector space Rp displac live vector space invers transform back vector matrix without diabol rescal thi seem natur easi explain I dont want frighten peopl deviat I want know input output,N,2016-08-12 05:56:24
+14,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 05:56:24,"I think I am not getting well your argument. When you say pipeline, are you thinking to something specific in chaining operations or something like that ?
+I don't understand why it bothers you for ConnectivityMeasure while this is the way GroupSparseCov works, isn't it ?
+Could you please be more explicit in your explanation ? 
+",,,I think I get well argument when say pipelin think someth specif chain oper someth like I dont understand bother connectivitymeasur way groupsparsecov work isnt could pleas explicit explan,N,2016-08-12 06:02:37
+15,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 06:02:37,"Ah I think I understand, you mean in the examples we are going to use directly fit_transform not fit ?
+
+Well, if we advertise ConnectivityMeasure only for multisubjects, doesn't it make sense that the visible output is the one useful for tests and classification ?
+",,,Ah I think I understand mean exampl go use directli fittransform fit well advertis connectivitymeasur multisubject doesnt make sens visibl output one use test classif,Y,2016-08-12 09:00:33
+16,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 09:00:33,"You mean having something like a BaseCovarianceEstimator, which will give the covariances, which are the base for all the connectivity kinds, and than derivate correlation, partial correlation and tangent from this base estimator with new classes inheriting from the BaseCovarianceEstimator ?
+",,,you mean someth like basecovarianceestim give covari base connect kind deriv correl partial correl tangent base estim new class inherit basecovarianceestim,N,2016-08-12 09:10:49
+17,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 09:10:49,"> At least, having different objects for tangent and the rest looks like a good idea to me
+
+I think separating tangent is a good idea, and I am in favour of really changing the design of this ConnectivityMeasure. If I am stacked so much in the examples and the namings than I think there is a problem that can not be solved just by customizing the examples.
+
+Again I am a humble user and don't know design, but I like your idea, so +1 for `BaseConnectomesEstimator` and `TangentConnectomesEstimator`
+",,,I think separ tangent good idea I favour realli chang design connectivitymeasur If I stack much exampl name I think problem solv custom exampl again I humbl user dont know design I like idea 1,N,2016-08-12 13:49:00
+18,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 13:49:00,"OK, so I understand there is no good solution to handle the tangent stuff. I am going to add to the example something like
+
+``` python
+tangent_measure = ConnectivityMeasure(kind='tangent')
+individual_deviations = tangent_measure.fit_trasnform(subjects, vectorize=True)
+individual_connectivity_matrices = tangent_measure.inverse_transform(individual_deviations)
+```
+
+to show how we can extract the individual covariances. Seems to me things are the other way round, but I want to move.
+",,,OK I understand good solut handl tangent stuff I go add exampl someth like show extract individu covari seem thing way round I want move,N,2016-08-14 12:03:39

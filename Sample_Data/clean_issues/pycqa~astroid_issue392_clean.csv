@@ -1,0 +1,45 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,392,pycqa,astroid,euresti,2017-01-28 16:03:12,"### Fixes / new features
+- Added annotations to the PY2 ast.
+- Adds a second pass of the source looking for `# type:` comments.  Adds those into the nodes.
+- Some perf improvements.
+
+Just looking for comments on my approach here.",start issue,RFC: Inject type comments ,fix new featur ad annot py2 ast add second pass sourc look comment add node some perf improv just look comment approach
+pull_request_title,392,pycqa,astroid,euresti,2017-01-28 16:03:12,"### Fixes / new features
+- Added annotations to the PY2 ast.
+- Adds a second pass of the source looking for `# type:` comments.  Adds those into the nodes.
+- Some perf improvements.
+
+Just looking for comments on my approach here.",af549696be2d252250dd0681d104c88569babe6b,RFC: Inject type comments ,fix new featur ad annot py2 ast add second pass sourc look comment add node some perf improv just look comment approach
+issue_comment,392,pycqa,astroid,coveralls,2017-01-28 16:07:31,"
+[![Coverage Status](https://coveralls.io/builds/9887994/badge)](https://coveralls.io/builds/9887994)
+
+Coverage increased (+0.07%) to 89.378% when pulling **af549696be2d252250dd0681d104c88569babe6b on euresti:type_comments** into **d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 on PyCQA:master**.
+",,,coverag statu coverag increas 007 89378 pull af549696be2d252250dd0681d104c88569babe6b eurestitypecom d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 pycqamast
+issue_comment,392,pycqa,astroid,coveralls,2017-01-28 16:07:31,"
+[![Coverage Status](https://coveralls.io/builds/9887994/badge)](https://coveralls.io/builds/9887994)
+
+Coverage increased (+0.07%) to 89.378% when pulling **af549696be2d252250dd0681d104c88569babe6b on euresti:type_comments** into **d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 on PyCQA:master**.
+",,,coverag statu coverag increas 007 89378 pull af549696be2d252250dd0681d104c88569babe6b eurestitypecom d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 pycqamast
+issue_comment,392,pycqa,astroid,coveralls,2017-01-28 16:07:31,"
+[![Coverage Status](https://coveralls.io/builds/9887994/badge)](https://coveralls.io/builds/9887994)
+
+Coverage increased (+0.07%) to 89.378% when pulling **af549696be2d252250dd0681d104c88569babe6b on euresti:type_comments** into **d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 on PyCQA:master**.
+",,,coverag statu coverag increas 007 89378 pull af549696be2d252250dd0681d104c88569babe6b eurestitypecom d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 pycqamast
+issue_comment,392,pycqa,astroid,coveralls,2017-01-28 16:07:31,"
+[![Coverage Status](https://coveralls.io/builds/9887994/badge)](https://coveralls.io/builds/9887994)
+
+Coverage increased (+0.07%) to 89.378% when pulling **af549696be2d252250dd0681d104c88569babe6b on euresti:type_comments** into **d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 on PyCQA:master**.
+",,,coverag statu coverag increas 007 89378 pull af549696be2d252250dd0681d104c88569babe6b eurestitypecom d0b5acdfebcdda5c949584c32a8cbc0f31d5cf25 pycqamast
+issue_comment,392,pycqa,astroid,ceridwen,2017-01-30 20:48:29,"Python 3.6 adds a new node to the ast, AnnAssign, and the same approach should be used here for type annotations on assignment statements, instead of adding a field to AssignNode nodes, see #394.
+
+More broadly, we don't use type comments in pylint or astroid at the moment, so this pull request should be part of a larger discussion about when or if we want to use type comments.  We have discussed in the past the possibility of making the parser pluggable, so that someone could replace a 2.7 parser that doesn't process type comments with one that does.  That approach might still be better than this one.  As it is, astroid parses the code once with the standard library's ast module, rewrites the tree using rebuilder, and pylint reparses the code using tokenizer to find pragmas.  As-is, this patch adds another tokenizer pass to this process.  Aside from the performance implications, I feel like this is too much code duplication across the two code bases.",,,python 36 add new node ast annassign approach use type annot assign statement instead ad field assignnod node see 394 more broadli dont use type comment pylint astroid moment pull request part larger discuss want use type comment We discuss past possibl make parser pluggabl someon could replac 27 parser doesnt process type comment one that approach might still better one As astroid pars code standard librari ast modul rewrit tree use rebuild pylint repars code use token find pragma asi patch add anoth token pass process asid perform implic I feel like much code duplic across two code base
+pull_request_commit,392,pycqa,astroid,david@dropbox.com,2017-01-10 02:14:56,"Type comments, take 1",857c91f59f9e3d278dba0f1bb176075771ca3d3d,,type comment take 1
+pull_request_commit,392,pycqa,astroid,david@dropbox.com,2017-01-13 20:55:24,Speed up parsing,2a125d4640fd72de17e9b0f4a8b87df7273fb418,,speed pars
+pull_request_commit,392,pycqa,astroid,david@dropbox.com,2017-01-14 22:52:08,Fix start of function comments,52955b81ac3ea7c820f4fc343126288ee806c347,,fix start function comment
+pull_request_commit,392,pycqa,astroid,david@dropbox.com,2017-01-28 01:35:01,WIP: type_comments,4b7b51a501c13fa894d7e468925e50223b2c4fbb,,wip typecom
+pull_request_commit,392,pycqa,astroid,david@dropbox.com,2017-01-28 15:48:58,WIP: type_comments,72a454d664972ecaaa56f355b78a866620b9e907,,wip typecom
+pull_request_commit,392,pycqa,astroid,david@dropbox.com,2017-01-28 15:59:02,WIP: type_comments,af549696be2d252250dd0681d104c88569babe6b,,wip typecom
+issue_closed,392,pycqa,astroid,euresti,2018-01-12 19:32:21,,closed issue,RFC: Inject type comments ,
+issue_comment,392,pycqa,astroid,euresti,2018-01-12 19:32:21,This is real old.  ,,,thi real old

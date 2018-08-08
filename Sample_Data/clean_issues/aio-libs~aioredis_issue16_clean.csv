@@ -1,0 +1,12 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,16,aio-libs,aioredis,popravich,2014-06-20 07:39:32,"1. Implement connection level optional `encoding` parameter (in `RedisConnection`) by-passed to `hiredis` parser.
+2. Implement per-command optional `encoding` parameter (basically needed if working without connection level encoding)
+
+Must check pros&cons for both points;
+",start issue,response decoding,1 implement connect level option paramet bypass parser 2 implement percommand option paramet basic need work without connect level encod must check proscon point
+issue_closed,16,aio-libs,aioredis,popravich,2014-07-31 07:45:58,,closed issue,response decoding,
+issue_comment,16,aio-libs,aioredis,asvetlov,2014-06-24 14:17:28,"I like the second option
+",,,I like second option
+issue_comment,16,aio-libs,aioredis,popravich,2014-07-25 07:35:41,"implemented in connection
+",,,implement connect

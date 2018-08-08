@@ -1,0 +1,39 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,423,nilearn,nilearn,lesteve,2015-02-12 09:37:59,"fixes #415.
+
+I removed doc/COPYING because I didn't see the point compared to COPYING and used nilearn developers everywhere else.
+
+One thing I didn't do is tackle @yarioptic's following comment:
+
+> and would be neat if at least briefly copyright/licenses of used/shipped 3rd party modules were mentioned in COPYING:
+
+the main reason being that scikit-learn doesn't do it so I don't have a good model to draw inspiration from. Suggestions more than welcome.
+",start issue,Tidy up copyrights,fix 415 I remov doccopi I didnt see point compar copi use nilearn develop everywher els one thing I didnt tackl yariopt follow comment main reason scikitlearn doesnt I dont good model draw inspir suggest welcom
+issue_closed,423,nilearn,nilearn,GaelVaroquaux,2015-02-13 08:18:07,,closed issue,Tidy up copyrights,
+pull_request_title,423,nilearn,nilearn,lesteve,2015-02-12 09:37:59,"fixes #415.
+
+I removed doc/COPYING because I didn't see the point compared to COPYING and used nilearn developers everywhere else.
+
+One thing I didn't do is tackle @yarioptic's following comment:
+
+> and would be neat if at least briefly copyright/licenses of used/shipped 3rd party modules were mentioned in COPYING:
+
+the main reason being that scikit-learn doesn't do it so I don't have a good model to draw inspiration from. Suggestions more than welcome.
+",75132213258559dd62698a39019efdad0c648ab9,Tidy up copyrights,fix 415 I remov doccopi I didnt see point compar copi use nilearn develop everywher els one thing I didnt tackl yariopt follow comment main reason scikitlearn doesnt I dont good model draw inspir suggest welcom
+pull_request_merged,423,nilearn,nilearn,GaelVaroquaux,2015-02-13 08:18:07,Tidy up copyrights,179fa199e4d4646183db5cb13f6316c0b650e203,Pull request merge from lesteve/nilearn:tidy-copyrights to nilearn/nilearn:master,tidi copyright
+issue_comment,423,nilearn,nilearn,GaelVaroquaux,2015-02-12 13:10:32,"To address @yarikoptic's comment, we should list all the code that we have included and that came from outside in the copying, with a pointer to the license. I can only see nilearn/doc/sphinxext
+",,,To address yarikopt comment list code includ came outsid copi pointer licens I see nilearndocsphinxext
+issue_comment,423,nilearn,nilearn,lesteve,2015-02-13 08:03:38,"Right I added licenses for all the incorporated software I could find via `git grep -iPl 'license|copyright'`.
+
+I drew inspiration from the Sphinx [LICENSE](https://github.com/sphinx-doc/sphinx/blob/master/LICENSE).
+
+While I was at it I rename COPYING to LICENSE.
+",,,right I ad licens incorpor softwar I could find via I drew inspir sphinx licens while I I renam copi licens
+issue_comment,423,nilearn,nilearn,bthirion,2015-02-13 08:10:03,"LGTM
+",,,lgtm
+issue_comment,423,nilearn,nilearn,GaelVaroquaux,2015-02-13 08:18:05,"Thank you! This is great. Merging!
+",,,thank thi great merg
+pull_request_commit,423,nilearn,nilearn,lesteve,2015-02-12 09:31:17,MAINT tidy up copyrights,3514642d4b17536c685c096bf5d774672a953741,,maint tidi copyright
+pull_request_commit,423,nilearn,nilearn,lesteve,2015-02-13 07:58:35,MAINT add license for incorporated software,01a41dffbea510c4476a68e3841d0d2a6ee8525c,,maint add licens incorpor softwar
+pull_request_commit,423,nilearn,nilearn,lesteve,2015-02-13 08:01:17,MAINT rename COPYING to LICENSE,75132213258559dd62698a39019efdad0c648ab9,,maint renam copi licens

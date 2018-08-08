@@ -1,0 +1,46 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,233,pycqa,astroid,pylint-bot,2015-10-28 04:43:43,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+The urlparse module in 2 was consolidated into the urllib module on Python 3.  I tried replacing urlparse with six.moves.urllib.urlparse.
+
+``` python
+result = test_utils.extract_node(""""""
+import six
+
+result = __(six.moves.urllib.parse.urlparse('gopher://'))
+"""""")
+```
+
+This seems to work for now, but it's not exactly a clean test case, we should consider replacing it.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/233
+",start issue,test_namedtuple_advanced_inference fails on Python 3 because urlparse no longer exists,origin report bitbucket ceridwenv github ceridwen the urlpars modul 2 consolid urllib modul python 3 I tri replac urlpars sixmovesurlliburlpars thi seem work exactli clean test case consid replac bitbucket,N
+issue_closed,233,pycqa,astroid,pylint-bot,2015-12-09 05:55:33,nan,closed issue,test_namedtuple_advanced_inference fails on Python 3 because urlparse no longer exists,nan,N
+issue_comment,233,pycqa,astroid,pylint-bot,2015-11-03 15:41:06,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Why should it be replaced? If it works with this change, that's great, but we shouldn't change old regression tests, unless it's absolutely necessary.
+",nan,nan,origin comment claudiu popa bitbucket pcmanticor github pcmanticor whi replac If work chang that great shouldnt chang old regress test unless absolut necessari,Y
+issue_comment,233,pycqa,astroid,pylint-bot,2015-11-03 16:39:31,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+According to the comments, this is for testing the case where a class inherits from both a namedtuple and another class.  However, that's sensitive to the underlying implementation of urllib, so it's not good for testing namedtuple.  We should manufacture a test that explicitly tests namedtuple multiple inheritance.  If we're worried about urllib breaking, we should move this test somewhere else, maybe to a collection of tests explicitly for testing the stdlib?  However, this has been broken ever since Python 3.0 and as far as I know no one's complained about it, which makes me think it's not an issue...
+",nan,nan,origin comment bitbucket ceridwenv github ceridwen accord comment test case class inherit namedtupl anoth class howev that sensit underli implement urllib good test namedtupl We manufactur test explicitli test namedtupl multipl inherit If worri urllib break move test somewher els mayb collect test explicitli test stdlib howev broken ever sinc python 30 far I know one complain make think issu,Y
+issue_comment,233,pycqa,astroid,pylint-bot,2015-11-03 17:34:02,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+It's mostly about testing that we don't broke urllib and it makes sense to be moved somewhere else. Also, the test was disabled on Python 3, so it's not a surprise that it was broken on Python 3.0.
+",nan,nan,origin comment claudiu popa bitbucket pcmanticor github pcmanticor it mostli test dont broke urllib make sens move somewher els also test disabl python 3 surpris broken python 30,Y
+issue_comment,233,pycqa,astroid,pylint-bot,2015-11-06 23:49:30,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+Changed in b68ee1186e5f.  This replaced urlparse with the appropriate six.moves module, but still depends on urllib's implementation.
+",nan,nan,origin comment bitbucket ceridwenv github ceridwen chang b68ee1186e5f thi replac urlpars appropri sixmov modul still depend urllib implement,N

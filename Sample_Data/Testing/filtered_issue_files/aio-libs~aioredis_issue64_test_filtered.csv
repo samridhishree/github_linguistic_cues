@@ -1,0 +1,26 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,64,aio-libs,aioredis,popravich,2015-06-03 09:43:01,"Redis 3.0 introduced new Cluster commands.
+Need to implement them.
+see http://redis.io/commands#cluster
+",start issue,Implement new Cluster commands,redi 30 introduc new cluster command need implement see,N
+issue_comment,64,aio-libs,aioredis,misja,2015-07-18 21:22:56,"I'll be needing cluster support soon - don't dare ask, but is there some ETA soon ... ? Else, would like to see if I can contribute, are there any thoughts yet on implementation details?
+",nan,nan,ill need cluster support soon dont dare ask eta soon els would like see I contribut thought yet implement detail,N
+issue_comment,64,aio-libs,aioredis,popravich,2015-07-21 06:37:47,"Hi, @misja,
+I'm in progress with new commands.
+Implementing them should not take long but the most complicated part is the tests.
+Anyway, I've created [branch](https://github.com/aio-libs/aioredis/tree/commands_3.0) where the work is being done and PRs are welcome.
+",nan,nan,Hi misja Im progress new command implement take long complic part test anyway ive creat branch work done pr welcom,Y
+issue_comment,64,aio-libs,aioredis,misja,2015-07-21 08:11:23,"Oh excellent, I'll be closely following developments!
+",nan,nan,Oh excel ill close follow develop,N
+issue_comment,64,aio-libs,aioredis,nasenbaer13,2016-03-07 09:31:36,"There is a [fork](https://github.com/trezorg/aioredis/commit/794f023a7f9bc6e0005516c1f2fb1232a6ad05f4) implementing  an abstraction for redis cluster. We would love to see this in aioredis. @popravich do you consider merging the fork from @trezorg? If so - we could help out with writing some tests for the redis cluster abstraction. 
+",nan,nan,there fork implement abstract redi cluster We would love see aioredi popravich consid merg fork trezorg If could help write test redi cluster abstract,Y
+issue_comment,64,aio-libs,aioredis,popravich,2016-03-07 13:19:08,"Oh, didn't see it, I will take a look
+",nan,nan,Oh didnt see I take look,N
+issue_comment,64,aio-libs,aioredis,the-panda,2016-04-05 15:59:33,"I have created a [pull request](https://github.com/aio-libs/aioredis/pull/119) to add cluster support. The [fork](https://github.com/ymap/aioredis) is based on @trezorg's fork mentioned above.
+",nan,nan,I creat pull request add cluster support the fork base trezorg fork mention,N
+issue_comment,64,aio-libs,aioredis,kxepal,2017-02-03 13:48:10,"@popravich @the-panda 
+Hey! What's the status of this issue? It's quite old and has PR with the code, but is there any else work need to be done? Do you need any help with?",nan,nan,popravich thepanda hey what statu issu it quit old PR code els work need done Do need help,N
+issue_comment,64,aio-libs,aioredis,myrfy001,2017-07-27 08:53:05,"How is it going?
+I think the cluster feature should be added ASAP.",nan,nan,how go I think cluster featur ad asap,N
+issue_comment,64,aio-libs,aioredis,the-panda,2017-07-27 09:00:09,"I'm working on merging the master branch into my PR branch. Currently, I have merged ~130 of 230 commits, including the switch to PyTest, so I guess most of the work is done. However, since the PR branch works quite well at my organization, I'm afraid that this merge has not the highest priority right now.",nan,nan,Im work merg master branch PR branch current I merg 130 230 commit includ switch pytest I guess work done howev sinc PR branch work quit well organ Im afraid merg highest prioriti right,N

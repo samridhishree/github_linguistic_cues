@@ -1,0 +1,27 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,621,nilearn,nilearn,lesteve,2015-06-29 13:00:03,"Fixes #611.
+",start issue,Fix plotting thresholding logic for uint8 images,fix 611
+issue_closed,621,nilearn,nilearn,AlexandreAbraham,2015-07-13 21:23:09,,closed issue,Fix plotting thresholding logic for uint8 images,
+pull_request_title,621,nilearn,nilearn,lesteve,2015-06-29 13:00:03,"Fixes #611.
+",881d957132644eb481550ee6191c6c7432a1a053,Fix plotting thresholding logic for uint8 images,fix 611
+issue_comment,621,nilearn,nilearn,GaelVaroquaux,2015-06-29 13:10:17,"The link between the title of the issue and the code really isn't obvious to me. Could you explicit things a bit more. My gut feeling would be to ask for a test,  but  in the plotting code, this isn't practical. 
+",,,the link titl issu code realli isnt obviou could explicit thing bit My gut feel would ask test plot code isnt practic
+issue_comment,621,nilearn,nilearn,lesteve,2015-06-29 14:30:34,"> My gut feeling would be to ask for a test, but in the plotting code, this isn't practical.
+
+There you go, test added.
+",,,there go test ad
+issue_comment,621,nilearn,nilearn,AlexandreAbraham,2015-07-13 21:23:09,"Superseded by #643.
+",,,supersed 643
+pull_request_commit_comment,621,nilearn,nilearn,GaelVaroquaux,2015-06-29 13:06:07,"Can't we have a  ""copy=False""?
+",881d957132644eb481550ee6191c6c7432a1a053,"(None, '', u'nilearn/plotting/displays.py')",cant copyfals
+pull_request_commit_comment,621,nilearn,nilearn,lesteve,2015-06-29 13:17:07,"Done
+",881d957132644eb481550ee6191c6c7432a1a053,"(None, '', u'nilearn/plotting/displays.py')",done
+pull_request_commit_comment,621,nilearn,nilearn,AlexandreAbraham,2015-06-29 14:43:54,"Small remark: the problem is not the function `masked_equal` itself but the fact that we do `-threshold` on an unisgned value. I'm afraid that this gag will happen here and there in the code (typically in the colorbar code). That's only a supposition but maybe we should try to find a solution and propagate it through the code?
+",881d957132644eb481550ee6191c6c7432a1a053,"(9, '', u'nilearn/plotting/displays.py')",small remark problem function fact unisgn valu Im afraid gag happen code typic colorbar code that supposit mayb tri find solut propag code
+pull_request_commit_comment,621,nilearn,nilearn,lesteve,2015-06-29 16:52:06,"Funny you should say that, since there is indeed a bug I bumped into while trying to tweak the test I added. The colorbar code is where it blows up but I believe the problem is more `vmin = -vmax` in plot_stat_map. There is also a `-offset` somewhere in the colorbar code to be fair.
+
+Maybe converting to float before plotting is the simpler option, after all ?
+",881d957132644eb481550ee6191c6c7432a1a053,"(9, '', u'nilearn/plotting/displays.py')",funni say sinc inde bug I bump tri tweak test I ad the colorbar code blow I believ problem plotstatmap there also somewher colorbar code fair mayb convert float plot simpler option
+pull_request_commit,621,nilearn,nilearn,lesteve,2015-06-29 13:16:17,Fix threshold mask for uint8,9fa362548e76c4ac92f7499aef56dd3d39cfd04b,,fix threshold mask uint8
+pull_request_commit,621,nilearn,nilearn,lesteve,2015-06-29 14:16:49,Add test for threshold plotting bug with uint8 data,881d957132644eb481550ee6191c6c7432a1a053,,add test threshold plot bug uint8 data

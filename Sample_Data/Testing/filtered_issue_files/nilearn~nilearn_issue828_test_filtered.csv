@@ -1,0 +1,87 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,828,nilearn,nilearn,aabadie,2015-11-06 10:28:10,"Making test_mean_img pass on 32 bits platform.
+
+Should fix #816.
+",start issue,[FIX] fixing precision issue in test,make testmeanimg pass 32 bit platform should fix 816,N
+issue_closed,828,nilearn,nilearn,lesteve,2015-11-12 14:50:57,nan,closed issue,[FIX] fixing precision issue in test,nan,N
+pull_request_title,828,nilearn,nilearn,aabadie,2015-11-06 10:28:10,"Making test_mean_img pass on 32 bits platform.
+
+Should fix #816.
+",1ef61f9523852f53b3379d6218edb845fd3a591c,[FIX] fixing precision issue in test,make testmeanimg pass 32 bit platform should fix 816,N
+pull_request_merged,828,nilearn,nilearn,lesteve,2015-11-12 14:50:57,[FIX] fixing precision issue in test,e78b5a4e24f93137436754820afa36c99436ef43,Pull request merge from aabadie/nilearn:fix_precision_issue to nilearn/nilearn:master,fix fix precis issu test,N
+issue_comment,828,nilearn,nilearn,aabadie,2015-11-06 13:16:00,"> Does that mean that writing to file lose precision somehow, does that mean we are doing the sum in a different order?
+
+I think this means that reading from file alter the precision. Note that the `mean_img` is a `np.memmap` object.
+",nan,nan,I think mean read file alter precis note object,N
+issue_comment,828,nilearn,nilearn,aabadie,2015-11-06 14:32:28,"@lesteve, @GaelVaroquaux any comment ?
+",nan,nan,lestev gaelvaroquaux comment,N
+issue_comment,828,nilearn,nilearn,aabadie,2015-11-06 16:50:38,"> @aabadie have you tried to understand a bit more where the loss of precision come from? For example for which value of imgs does it fail?
+
+The values in `mean_img` computed line 236 and the one computed line 242 are the same. I checked that the precision was of 24 digits. The issues only happens with the last imgs test : the one with mixture of 4D and 3D images.
+
+> Out of interest was this test failing on AppVeyor when we were still testing on 32bit?
+
+Yes, but not for this reason : the problem was related to tmp files that couldn't be removed in write_tmp_imgs.
+",nan,nan,the valu comput line 236 one comput line 242 I check precis 24 digit the issu happen last img test one mixtur 4D 3D imag ye reason problem relat tmp file couldnt remov writetmpimg,Y
+issue_comment,828,nilearn,nilearn,aabadie,2015-11-10 11:35:59,"> I don't really understand this but I think this needs to be investigated rather than brushed off. We should be able to reproduce the mean exactly and the fact that it only fails when reading from files looks suspicious.
+
+I agree. I'm still investigating.
+
+> Does it fail with only a single 4D image? Does it fail with a list of 4D images?
+
+Yes it fails in any cases where a 4D is involved.
+
+> Also bonus points if you rebase on master so that Travis goes green.
+
+Done
+",nan,nan,I agre Im still investig ye fail case 4D involv done,N
+issue_comment,828,nilearn,nilearn,aabadie,2015-11-10 21:35:48,"> We should be able to reproduce the mean exactly and the fact that it only fails when reading from files looks suspicious.
+
+I had a hard time trying to understand what was the problem when computing the mean on 4D images being read from a file. I appears that the mean was computed on a memmap array as I already noticed, which could make the `np.mean` function return slightly different values.
+I pushed another fix which consists in converting the memmap before passing it to `np.mean` using `np.ascontiguousarray`. This ensures the values are contiguous and the mean returns the exact same value.
+Not sure the above is clear and also if this fix is ok.
+",nan,nan,I hard time tri understand problem comput mean 4D imag read file I appear mean comput memmap array I alreadi notic could make function return slightli differ valu I push anoth fix consist convert memmap pass use thi ensur valu contigu mean return exact valu not sure clear also fix ok,N
+issue_comment,828,nilearn,nilearn,aabadie,2015-11-12 13:54:29,"@GaelVaroquaux @lesteve I pushed some changes, is it ok for you ?
+",nan,nan,gaelvaroquaux lestev I push chang ok,N
+issue_comment,828,nilearn,nilearn,GaelVaroquaux,2015-11-06 11:01:40,"I think that the general idea of the fix is fine. 
+
+But Travis is failing. 
+",nan,nan,I think gener idea fix fine but travi fail,Y
+issue_comment,828,nilearn,nilearn,lesteve,2015-11-06 11:08:24,"It's slightly weird that the mean_img fails only when you are trying to compute it from files and not directly from images. Does that mean that writing to file lose precision somehow, does that mean we are doing the sum in a different order?
+
+> But Travis is failing. 
+
+That's the known failure with scikit-learn 0.17.
+",nan,nan,it slightli weird meanimg fail tri comput file directli imag doe mean write file lose precis somehow mean sum differ order that known failur scikitlearn 017,N
+issue_comment,828,nilearn,nilearn,GaelVaroquaux,2015-11-06 16:00:35,"No time to investigate this on my side. Feel free to merge.
+",nan,nan,No time investig side feel free merg,N
+issue_comment,828,nilearn,nilearn,lesteve,2015-11-06 16:08:14,"@aabadie have you tried to understand a bit more where the loss of precision come from? For example for which value of `imgs` does it fail?
+
+Out of interest was this test failing on AppVeyor when we were still testing on 32bit?
+",nan,nan,aabadi tri understand bit loss precis come for exampl valu fail out interest test fail appveyor still test 32bit,Y
+issue_comment,828,nilearn,nilearn,lesteve,2015-11-09 09:33:30,"> The values in mean_img computed line 236 and the one computed line 242 are the same. I checked that the precision was of 24 digits. The issues only happens with the last imgs test : the one with mixture of 4D and 3D images.
+
+I don't really understand this but I think this needs to be investigated rather than brushed off. We should be able to reproduce the mean exactly and the fact that it only fails when reading from files looks suspicious.
+
+Does it fail with only a single 4D image? Does it fail with a list of 4D images?
+
+Also bonus points if you rebase on master so that Travis goes green.
+",nan,nan,I dont realli understand I think need investig rather brush We abl reproduc mean exactli fact fail read file look suspici doe fail singl 4D imag doe fail list 4D imag also bonu point rebas master travi goe green,Y
+issue_comment,828,nilearn,nilearn,lesteve,2015-11-12 07:46:13,"Super weird. To be honest I would rather fix that in the test than add a kludge like this in our package code. Not that many people are likely to use nilearn on 32bit.
+",nan,nan,super weird To honest I would rather fix test add kludg like packag code not mani peopl like use nilearn 32bit,Y
+issue_comment,828,nilearn,nilearn,GaelVaroquaux,2015-11-12 08:00:53,"> Super weird. To be honest I would rather fix that in the test than add a kludge
+> like this in our package code.
+
++1.
+
+But at least, your kludge confirms that it is numerical errors, and not
+logic fault.
+",nan,nan,1 but least kludg confirm numer error logic fault,N
+issue_comment,828,nilearn,nilearn,lesteve,2015-11-12 14:51:15,"Thanks!
+",nan,nan,thank,N
+pull_request_commit_comment,828,nilearn,nilearn,lesteve,2015-11-12 14:50:27,"I'll merge this and add a comment that we don't really understand why we have to do this for 32bit but we don't think it is a priority to investigate.
+",1ef61f9523852f53b3379d6218edb845fd3a591c,"(28, '', u'nilearn/image/tests/test_image.py')",ill merg add comment dont realli understand 32bit dont think prioriti investig,N
+pull_request_commit,828,nilearn,nilearn,aabadie,2015-11-11 14:32:47,fix precision issue in test mean image,21c48cfdd579cb1a520caa1aa868bb100e371236,nan,fix precis issu test mean imag,N
+pull_request_commit,828,nilearn,nilearn,aabadie,2015-11-12 10:25:48,testing mean_img function differently with 32 bit platform,8b9b249b0fa2e8aa6bba7489d0d15f2f896e944f,nan,test meanimg function differ 32 bit platform,N
+pull_request_commit,828,nilearn,nilearn,aabadie,2015-11-12 13:57:52,remove commented out python 32bit build on appveyor,1ef61f9523852f53b3379d6218edb845fd3a591c,nan,remov comment python 32bit build appveyor,N

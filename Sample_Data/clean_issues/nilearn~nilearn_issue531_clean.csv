@@ -1,0 +1,230 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,531,nilearn,nilearn,banilo,2015-04-04 18:31:31,"Newcommers to nilearn (not seldomly: and to python) have expressed difficulty in understanding the format in which the datasets are represented.
+
+It would therefore be helpful to
+- show in the code that bunches are minor modifications of dictionaries
+- print where the (fetched/located) files are actually located on the disk
+- show how to access the important dataset parts right after first access
+",start issue,Add explicit explications/prints for bunches in the nilearn examples,newcomm nilearn seldomli python express difficulti understand format dataset repres It would therefor help show code bunch minor modif dictionari print fetchedloc file actual locat disk show access import dataset part right first access
+issue_closed,531,nilearn,nilearn,lesteve,2015-04-24 08:38:38,,closed issue,Add explicit explications/prints for bunches in the nilearn examples,
+pull_request_title,531,nilearn,nilearn,banilo,2015-04-04 18:31:31,"Newcommers to nilearn (not seldomly: and to python) have expressed difficulty in understanding the format in which the datasets are represented.
+
+It would therefore be helpful to
+- show in the code that bunches are minor modifications of dictionaries
+- print where the (fetched/located) files are actually located on the disk
+- show how to access the important dataset parts right after first access
+",f2616623704309fc5c8728f19882834f6c0ee9f4,Add explicit explications/prints for bunches in the nilearn examples,newcomm nilearn seldomli python express difficulti understand format dataset repres It would therefor help show code bunch minor modif dictionari print fetchedloc file actual locat disk show access import dataset part right first access
+pull_request_merged,531,nilearn,nilearn,lesteve,2015-04-24 08:38:38,Add explicit explications/prints for bunches in the nilearn examples,606cde99b7fdf54e5180cd6601c5b606f5b7faca,Pull request merge from banilo/nilearn:explicit_ex_bunches to nilearn/nilearn:master,add explicit explicationsprint bunch nilearn exampl
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-08 07:51:35,"The description is rather verbose generally so I am not sure it helps printing that much information when running the example.
+
+I'd be in favour of updating the documentation [here](http://nilearn.github.io/building_blocks/manipulating_mr_images.html#datasets) to at the very least mention the ""description"" field.
+",,,the descript rather verbos gener I sure help print much inform run exampl Id favour updat document least mention descript field
+issue_comment,531,nilearn,nilearn,banilo,2015-04-08 07:58:52,"I honestly believe that (a little more) output related to the Bunches would help a lot of users Looking at the ones first examples, the Bunches (instead of an ordinary dictionary) are a major hurdle. In particular, for users that may be new to both Python and nilearn.
+
+Autobiographical note: I found the fetch/bunches mechanisms wierd myself, not long ago. Now it appears obvious.
+",,,I honestli believ littl output relat bunch would help lot user look one first exampl bunch instead ordinari dictionari major hurdl In particular user may new python nilearn autobiograph note I found fetchbunch mechan wierd long ago now appear obviou
+issue_comment,531,nilearn,nilearn,banilo,2015-04-08 07:59:53,"Compromise:
+- leave out the description print (I agree it is verbose)
+- leave in the printing of the filenames -> makes clear that there are actual files, with actual locations, that are the result of an actual download
+",,,compromis leav descript print I agre verbos leav print filenam
+issue_comment,531,nilearn,nilearn,AlexandreAbraham,2015-04-08 08:47:26,":+1:
+",,,1
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-08 08:52:46,"Why not have a separate example like ""how to use nilearn datasets fetcher"" rather than clogging existing ones?
+",,,whi separ exampl like use nilearn dataset fetcher rather clog exist one
+issue_comment,531,nilearn,nilearn,AlexandreAbraham,2015-04-08 08:54:58,"Because a lot of people asked for the specific path to the datasets after running examples. I tried to underline that in the dataset fetcher but it may not be enough.
+",,,becaus lot peopl ask specif path dataset run exampl I tri underlin dataset fetcher may enough
+issue_comment,531,nilearn,nilearn,banilo,2015-04-08 08:55:18,"..for pragmatic reasons. If a new user downloads nilearn and wants to use
+to it for example specifically to do a ""searchlight"". He/she will mostly
+likely find the example on searchlight at some point. At the first lines
+there is the bunch thing. Most likely that person will not have the hunch
+""oh, perhaps there is another example relevant to me right now, that I
+should look at first, because there is some special structure for datasets"".
+
+That's why those few lines that print the data decomplexify the first
+contact.
+
+2015-04-08 10:52 GMT+02:00 Loïc Estève notifications@github.com:
+
+> Why not have a separate example like ""how to use nilearn datasets fetcher""
+> rather than clogging existing ones?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/531#issuecomment-90847315.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,pragmat reason If new user download nilearn want use exampl specif searchlight hesh mostli like find exampl searchlight point At first line bunch thing most like person hunch oh perhap anoth exampl relev right I look first special structur dataset that line print data decomplexifi first contact 20150408 1052 gmt0200 loïc estèv notificationsgithubcom viel grüße danilo
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-08 09:07:09,"Fair enough, does that mean that we want to add these kind of lines to every single example going forward?
+",,,fair enough mean want add kind line everi singl exampl go forward
+issue_comment,531,nilearn,nilearn,banilo,2015-04-08 09:08:33,"That would be my suggestions, yes (print only the data file paths) - as now
+in the PR.
+
+We can cut the description, however, agreed.
+
+2015-04-08 11:07 GMT+02:00 Loïc Estève notifications@github.com:
+
+> Fair enough, does that mean that we want to add these kind of lines to
+> every single example going forward?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/531#issuecomment-90854965.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,that would suggest ye print data file path PR We cut descript howev agre 20150408 1107 gmt0200 loïc estèv notificationsgithubcom viel grüße danilo
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-08 09:31:21,"OK, remove the print(description) squash your commits and this is good to go.
+
+Still think it'd be great to tackle my earlier comment in a separate PR while you are on this topic:
+
+> I'd be in favour of updating the documentation [here](http://nilearn.github.io/building_blocks/manipulating_mr_images.html#datasets) to at the very least mention the ""description"" field.
+",,,OK remov printdescript squash commit good go still think itd great tackl earlier comment separ PR topic
+issue_comment,531,nilearn,nilearn,banilo,2015-04-08 09:34:00,"+1
+
+Yes, I will do both this afternoon.
+
+2015-04-08 11:31 GMT+02:00 Loïc Estève notifications@github.com:
+
+> OK, remove the print(description) squash your commits and this is good to
+> go.
+> 
+> Still think it'd be great to tackle my earlier comment in a separate PR
+> while you are on this topic:
+> 
+> I'd be in favour of updating the documentation here
+> http://nilearn.github.io/building_blocks/manipulating_mr_images.html#datasets
+> to at the very least mention the ""description"" field.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/531#issuecomment-90860673.
+
+## 
+
+Viele Grüße,
+Danilo
+",,,1 ye I afternoon 20150408 1131 gmt0200 loïc estèv notificationsgithubcom viel grüße danilo
+issue_comment,531,nilearn,nilearn,banilo,2015-04-08 13:46:24,"Cleaned + squashed!
+",,,clean squash
+issue_comment,531,nilearn,nilearn,banilo,2015-04-09 12:09:05,"Updated this one. I tried to put more pedagogic emphasis on the difference between a) number of nifti images and b) whether those contain one or more images.
+
+I imagine this is particularly confusing (on top of the bunches).
+",,,updat one I tri put pedagog emphasi differ number nifti imag b whether contain one imag I imagin particularli confus top bunch
+issue_comment,531,nilearn,nilearn,banilo,2015-04-15 05:19:14,"Ok, how about now?
+",,,Ok
+issue_comment,531,nilearn,nilearn,banilo,2015-04-15 10:12:03,"datasets.fetch_haxby() appears to be broken for some reason (.anat is empty and .func also). Ideas?
+",,,datasetsfetchhaxbi appear broken reason anat empti func also idea
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-15 11:32:55,"> datasets.fetch_haxby() appears to be broken for some reason (.anat is empty and .func also). Ideas?
+
+Hmmm seems to work fine for me. I even tried deleting ~/nilearn_data/haxby2001{,_simple} to make sure that wasn't one of the usual problems that you only get when you haven't downloaded the dataset yet.
+",,,hmmm seem work fine I even tri delet nilearndatahaxby2001simpl make sure wasnt one usual problem get havent download dataset yet
+issue_comment,531,nilearn,nilearn,banilo,2015-04-15 14:11:19,"> seems to work fine for me
+
+Ok, I think I found the culprit. The Bunches does not appear to be filled out correctly if the fetch_simuli option is used
+
+`haxby_dataset = datasets.fetch_haxby(n_subjects=1, fetch_stimuli=True)`
+",,,Ok I think I found culprit the bunch appear fill correctli fetchsimuli option use
+issue_comment,531,nilearn,nilearn,banilo,2015-04-15 14:57:57,".func is actually overwritten, if fetch_stimuli is used, and the imaging data is not in the output bunch anymore:
+
+https://github.com/nilearn/nilearn/blob/master/nilearn/datasets.py#L1226
+
+Is this the expected behavior?
+",,,func actual overwritten fetchstimuli use imag data output bunch anymor Is expect behavior
+issue_comment,531,nilearn,nilearn,AlexandreAbraham,2015-04-15 15:17:25,"No. Good catch !
+",,,No good catch
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-15 19:03:39,"> No. Good catch !
+
+created https://github.com/nilearn/nilearn/issues/544
+",,,creat
+issue_comment,531,nilearn,nilearn,lesteve,2015-04-24 08:38:34,"Looks fine, consistency in messages could be improved but let's leave that for another PR.
+",,,look fine consist messag could improv let leav anoth PR
+issue_comment,531,nilearn,nilearn,banilo,2015-04-20 12:56:35,"Ok, this PR should be good now, too.
+",,,Ok PR good
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-08 14:10:22,"I would use ""First functional nifti image is at: "" otherwise this is a bit misleading.
+
+Other examples would need to be harmonised in a similar fashion.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_canica_resting_state.py')",I would use first function nifti imag otherwis bit mislead other exampl would need harmonis similar fashion
+pull_request_commit_comment,531,nilearn,nilearn,bthirion,2015-04-08 21:21:29,"Indeed, this would give a more accurate information. 
+LGTM otherwise.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_canica_resting_state.py')",inde would give accur inform lgtm otherwis
+pull_request_commit_comment,531,nilearn,nilearn,banilo,2015-04-08 22:13:27,"+1
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_canica_resting_state.py')",1
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-13 08:05:34,"I don't think it should say first here since the list is of size 1, maybe something like 'Functional 4D image is at: '
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(6, '', u'examples/connectivity/plot_canica_resting_state.py')",I dont think say first sinc list size 1 mayb someth like function 4D imag
+pull_request_commit_comment,531,nilearn,nilearn,banilo,2015-04-13 08:22:31,"I hate to disagree, yet `datasets.fetch_adhd()` returns a list if 40 niftis in the 'func' dictionary entry on my machine.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(6, '', u'examples/connectivity/plot_canica_resting_state.py')",I hate disagre yet return list 40 nifti func dictionari entri machin
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-13 08:35:55,"You are right indeed this comment does apply to nyu_dataset below though.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(6, '', u'examples/connectivity/plot_canica_resting_state.py')",you right inde comment appli nyudataset though
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-13 08:36:43,"> I don't think it should say first here since the list is of size 1, maybe something like 'Functional 4D image is at: '
+
+This is where my earlier comment was supposed to end up.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_ica_resting_state.py')",thi earlier comment suppos end
+pull_request_commit_comment,531,nilearn,nilearn,banilo,2015-04-13 08:46:47,"You are right, but it depends on 'n_subjects' argument above. To also make
+the datasets clearer I would therefore suggest to leave the printings as
+they are and increase the #subjects to 2 instead. The aim is educational.
+
+2015-04-13 10:36 GMT+02:00 Loïc Estève notifications@github.com:
+
+> In examples/connectivity/plot_ica_resting_state.py
+> https://github.com/nilearn/nilearn/pull/531#discussion_r28221872:
+> 
+> > @@ -13,6 +13,11 @@
+> >  nyu_dataset = datasets.fetch_nyu_rest(n_subjects=1)
+> >  func_filename = nyu_dataset.func[0]
+> > 
+> > +# print basic information on the dataset
+> > +print('First anatomical nifti image (3D) is at: %s' % nyu_dataset.anat_anon[0])
+> > +print('First functional nifti image (4D) is at: %s' %
+> > -      nyu_dataset.func[0])  # 4D data
+> 
+>  I don't think it should say first here since the list is of size 1,
+> maybe something like 'Functional 4D image is at: '
+> 
+> This is where my earlier comment was supposed to end up.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/531/files#r28221872.
+
+## 
+
+Viele Grüße,
+Danilo
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_ica_resting_state.py')",you right depend nsubject argument To also make dataset clearer I would therefor suggest leav print increas subject 2 instead the aim educ 20150413 1036 gmt0200 loïc estèv notificationsgithubcom viel grüße danilo
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-13 09:13:58,"Just write something like 'First subject functional nifti image (4D) is at: '
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_ica_resting_state.py')",just write someth like first subject function nifti imag 4D
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-13 09:16:27,"Downloading the 2nd subject dataset if you are not using it doesn't qualify as educational to me, unless you think waiting for 15 minutes without any good reason is an educational experience ;-).
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/connectivity/plot_ica_resting_state.py')",download 2nd subject dataset use doesnt qualifi educ unless think wait 15 minut without good reason educ experi
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-15 06:26:22,"Any good reason why this was changed to 2 ?
+
+I guess you want to be consistent and use something like ""First subject functional ..."" in your print statement below and all the other haxby examples.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_haxby_different_estimators.py')",ani good reason chang 2 I guess want consist use someth like first subject function print statement haxbi exampl
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-15 06:45:48,"For fetch_haxby_simple, `haxby_dataset.func` is a string. Can you make sure all the examples run fine to get rid for other mistakes like this ?
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_haxby_grid_search.py')",for fetchhaxbysimpl string can make sure exampl run fine get rid mistak like
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-16 07:26:31,"No good reason to use 2 subjects I reckon.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/plot_nifti_simple.py')",No good reason use 2 subject I reckon
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-20 14:08:30,"why this change?
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_oasis_vbm.py')",chang
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-20 14:13:48,"This example only uses the stimuli data, I don't think there is any point downloading the data for one subject.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_haxby_stimuli.py')",thi exampl use stimuli data I dont think point download data one subject
+pull_request_commit_comment,531,nilearn,nilearn,lesteve,2015-04-20 14:32:34,"Given that this example is broken, it'd be nice if you could fix it and make sure that all the other examples run.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_haxby_stimuli.py')",given exampl broken itd nice could fix make sure exampl run
+pull_request_commit_comment,531,nilearn,nilearn,banilo,2015-04-20 17:12:17,"> Given that this example is broken, it'd be nice if you could fix it
+
+You are the one who fixed it - it was the fetch_stimulus-issue.
+
+> that all the other examples run.
+
+All work until printing the new descriptions.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_haxby_stimuli.py')",you one fix fetchstimulusissu all work print new descript
+pull_request_commit_comment,531,nilearn,nilearn,banilo,2015-04-22 13:34:35,"Ok, changed it back.
+",f2616623704309fc5c8728f19882834f6c0ee9f4,"(None, '', u'examples/decoding/plot_oasis_vbm.py')",Ok chang back
+pull_request_commit,531,nilearn,nilearn,banilo,2015-04-08 13:45:56,make bunches explicit in examples,8191eb1c8914eabe60911c8ef9c5579400b128b3,,make bunch explicit exampl
+pull_request_commit,531,nilearn,nilearn,banilo,2015-04-20 12:55:10,distinguish 3d/4d dataset files,6d33de90a5d3816a642f95ad25696ab215c62329,,distinguish 3d4d dataset file
+pull_request_commit,531,nilearn,nilearn,banilo,2015-04-22 13:53:35,change back to original,f2616623704309fc5c8728f19882834f6c0ee9f4,,chang back origin

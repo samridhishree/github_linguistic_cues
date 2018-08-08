@@ -1,0 +1,27 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,616,nilearn,nilearn,salma1601,2015-06-24 13:39:46,"displays.add_edges used to plot edges of the same image sometimes gives an error
+Cannot reorder the axes: the image affine contains rotations 
+",start issue,displays.add_edges error : Cannot reorder the axes,displaysaddedg use plot edg imag sometim give error cannot reorder axe imag affin contain rotat
+issue_closed,616,nilearn,nilearn,lesteve,2015-07-02 11:05:45,,closed issue,displays.add_edges error : Cannot reorder the axes,
+issue_comment,616,nilearn,nilearn,banilo,2015-06-24 13:43:36,"See also #368 
+",,,see also 368
+issue_comment,616,nilearn,nilearn,lesteve,2015-06-24 13:45:20,"As discussed with @salma1601 it looks like we need to add a resample_interpolation in the reorder_img call in add_edges.
+
+The only question is whether resample_interpolation='continuous' makes sense for all cases, e.g. how likely is it to call add_edges with a label img (in which case resample_interpolation='nearest' would make sense)?
+",,,As discuss salma1601 look like need add resampleinterpol reorderimg call addedg the question whether resampleinterpolationcontinu make sens case eg like call addedg label img case resampleinterpolationnearest would make sens
+issue_comment,616,nilearn,nilearn,GaelVaroquaux,2015-07-02 09:56:07,"Agreed with @lesteve : we can safely assume that resample interpolation will always be continuous.
+",,,agre lestev safe assum resampl interpol alway continu
+issue_comment,616,nilearn,nilearn,lesteve,2015-07-02 11:05:45,"Fixed in ab6689a.
+",,,fix ab6689a
+issue_comment,616,nilearn,nilearn,GaelVaroquaux,2015-07-02 12:57:51,"Stop closing all the issues! Or the only thing left to do for the sprint
+will be drinking beers :).
+
+OK, we'll find things.
+",,,stop close issu Or thing left sprint drink beer OK well find thing
+issue_comment,616,nilearn,nilearn,AlexandreAbraham,2015-07-02 13:02:13,"I have plenty of issues to open if you want!
+",,,I plenti issu open want
+issue_comment,616,nilearn,nilearn,GaelVaroquaux,2015-07-02 13:08:34,"> I have plenty of issues to open if you want!
+
+If they are easy, go for it!
+",,,If easi go

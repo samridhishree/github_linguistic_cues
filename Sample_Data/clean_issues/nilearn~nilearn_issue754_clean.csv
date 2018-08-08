@@ -1,0 +1,45 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,754,nilearn,nilearn,AlexandreAbraham,2015-08-06 08:45:28,"People tried to use NiftiMapsMasker and, as a test, put the same ROI several times. The results is that the signal is divided by the number of overlapping ROIs, which is logic because we use a least square. However, the user expected to have the mean signal for each map.
+",start issue,NiftiMapsMasker behavior is strange for some people,peopl tri use niftimapsmask test put roi sever time the result signal divid number overlap roi logic use least squar howev user expect mean signal map
+issue_comment,754,nilearn,nilearn,eickenberg,2015-08-06 08:57:44,"Shouldnt the least-squares part then just be moved to the inverse_transform
+(provided there is one)?
+
+On Thu, Aug 6, 2015 at 10:45 AM, Alexandre Abraham <notifications@github.com
+
+> wrote:
+> 
+> People tried to use NiftiMapsMasker and, as a test, put the same ROI
+> several times. The results is that the signal is divided by the number of
+> overlapping ROIs, which is logic because we use a least square. However,
+> the user expected to have the mean signal for each map.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/754.
+",,,shouldnt leastsquar part move inversetransform provid one On thu aug 6 2015 1045 AM alexandr abraham notificationsgithubcom
+issue_comment,754,nilearn,nilearn,eickenberg,2015-08-07 20:57:14,"Then maybe it is not applicable.
+
+I understood that the transformer uses least squares to assign signal to
+each ROI and that overlapping ROIs then have to share energy.
+
+But one can also simply extract, and give the mean value. In that case, the
+scaling, which was induced by the current transformer, would have to move
+to the inverse transform.
+
+I couldn't make sense of the code, so this remains the idea in my head.
+Maybe I am wrong about how this works.
+
+On Fri, Aug 7, 2015 at 10:45 PM, Alexandre Abraham <notifications@github.com
+
+> wrote:
+> 
+> I don't get your comment. In any case, we have to decide on the strategy
+> used to extract the signals.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/754#issuecomment-128830576.
+",,,then mayb applic I understood transform use least squar assign signal roi overlap roi share energi but one also simpli extract give mean valu In case scale induc current transform would move invers transform I couldnt make sens code remain idea head mayb I wrong work On fri aug 7 2015 1045 PM alexandr abraham notificationsgithubcom
+issue_comment,754,nilearn,nilearn,AlexandreAbraham,2015-08-07 20:45:21,"I don't get your comment. In any case, we have to decide on the strategy used to extract the signals.
+",,,I dont get comment In case decid strategi use extract signal

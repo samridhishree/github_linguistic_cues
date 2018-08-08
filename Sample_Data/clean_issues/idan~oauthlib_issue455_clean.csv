@@ -1,0 +1,18 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,455,idan,oauthlib,bjmc,2016-12-20 22:02:28,"This changeset fixes a bug with the OpenIDConnect `prompt=` parameter that occurs in the second invocation of the `openid_authorization_validator()` during a POST to the authorization endpoint. If `credentials['prompt']` is already a list, then calling `split()` triggers an `AttributeError`
+
+This is a deliberately conservative fix that just avoids trying to `split()` twice. It's possible that this bug points to a deeper problem with this approach (are we sure we should be splitting `prompt` when returning the `request_info`?) in the OIDC parameter handling.  
+
+Is this same bug likely to occur with the `ui_locales` parameter?",start issue,Fixes bug with 'prompt' parameter,thi changeset fix bug openidconnect paramet occur second invoc post author endpoint If alreadi list call trigger thi deliber conserv fix avoid tri twice it possibl bug point deeper problem approach sure split return oidc paramet handl Is bug like occur paramet
+issue_closed,455,idan,oauthlib,thedrow,2017-03-19 12:40:48,,closed issue,Fixes bug with 'prompt' parameter,
+pull_request_title,455,idan,oauthlib,bjmc,2016-12-20 22:02:28,"This changeset fixes a bug with the OpenIDConnect `prompt=` parameter that occurs in the second invocation of the `openid_authorization_validator()` during a POST to the authorization endpoint. If `credentials['prompt']` is already a list, then calling `split()` triggers an `AttributeError`
+
+This is a deliberately conservative fix that just avoids trying to `split()` twice. It's possible that this bug points to a deeper problem with this approach (are we sure we should be splitting `prompt` when returning the `request_info`?) in the OIDC parameter handling.  
+
+Is this same bug likely to occur with the `ui_locales` parameter?",8d217d0b1f3ec3772e20c8847050278eccaa10b1,Fixes bug with 'prompt' parameter,thi changeset fix bug openidconnect paramet occur second invoc post author endpoint If alreadi list call trigger thi deliber conserv fix avoid tri twice it possibl bug point deeper problem approach sure split return oidc paramet handl Is bug like occur paramet
+pull_request_merged,455,idan,oauthlib,thedrow,2017-03-19 12:40:48,Fixes bug with 'prompt' parameter,30cbfa46e17840b438de848a0b9f9b6b6cd035af,Pull request merge from bjmc/oauthlib:prompt_bug to idan/oauthlib:master,fix bug prompt paramet
+issue_comment,455,idan,oauthlib,bjmc,2017-01-08 19:24:06,"@thedrow Thoughts on this? This is an actual bug we've encountered. I could work around it on our end, but it seems like it might warrant fixing upstream.",,,thedrow thought thi actual bug weve encount I could work around end seem like might warrant fix upstream
+issue_comment,455,idan,oauthlib,thedrow,2017-03-19 12:41:38,Sorry this took so long. I'm releasing this as a new version.,,,sorri took long Im releas new version
+pull_request_commit,455,idan,oauthlib,bjmc,2016-12-20 20:01:49,Adds failing test,d37f361aa0efd7565ac3eebb31cb38f25be70abc,,add fail test
+pull_request_commit,455,idan,oauthlib,bjmc,2016-12-20 21:37:13,Do not split() request.prompt value if already a list,8d217d0b1f3ec3772e20c8847050278eccaa10b1,,Do split requestprompt valu alreadi list

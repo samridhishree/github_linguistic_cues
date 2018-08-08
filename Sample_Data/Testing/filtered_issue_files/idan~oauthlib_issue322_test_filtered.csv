@@ -1,0 +1,79 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,322,idan,oauthlib,josephtate,2015-02-27 06:49:18,"Newer versions of pyjwt subsume a bunch of the PEM decoding stuff.
+
+This fixes tests with all latest deps.
+
+I also reformatted the PEM key strings so that they could be copied/pasted easier. PEP-8 doesn't forbid multi-line strings.
+
+Note that the Private Keys were retrieved by running RSA.importKey(private_pem).publickey.exportKey().
+",start issue,This patch fixes PyJWT support when pyjwt >= 0.4.0,newer version pyjwt subsum bunch pem decod stuff thi fix test latest dep I also reformat pem key string could copiedpast easier pep8 doesnt forbid multilin string note privat key retriev run rsaimportkeyprivatepempublickeyexportkey,N
+issue_closed,322,idan,oauthlib,ib-lundgren,2015-04-19 14:29:32,nan,closed issue,This patch fixes PyJWT support when pyjwt >= 0.4.0,nan,N
+pull_request_title,322,idan,oauthlib,josephtate,2015-02-27 06:49:18,"Newer versions of pyjwt subsume a bunch of the PEM decoding stuff.
+
+This fixes tests with all latest deps.
+
+I also reformatted the PEM key strings so that they could be copied/pasted easier. PEP-8 doesn't forbid multi-line strings.
+
+Note that the Private Keys were retrieved by running RSA.importKey(private_pem).publickey.exportKey().
+",fc2d1218e015adcf65ba01965884430c47895cd0,This patch fixes PyJWT support when pyjwt >= 0.4.0,newer version pyjwt subsum bunch pem decod stuff thi fix test latest dep I also reformat pem key string could copiedpast easier pep8 doesnt forbid multilin string note privat key retriev run rsaimportkeyprivatepempublickeyexportkey,N
+pull_request_merged,322,idan,oauthlib,ib-lundgren,2015-04-19 14:29:32,This patch fixes PyJWT support when pyjwt >= 0.4.0,52e2447beb42cdba37d1f71c51397b1eabd66711,Pull request merge from josephtate/oauthlib:fix-pyjwt-gte-0.4.0 to idan/oauthlib:master,thi patch fix pyjwt support pyjwt,N
+issue_comment,322,idan,oauthlib,josephtate,2015-02-27 07:13:37,"The CI build failed because tox.ini isn't being respected. PyJWT now requires ""cryptography"" vs. PyCrypto.
+",nan,nan,the CI build fail toxini isnt respect pyjwt requir cryptographi vs pycrypto,N
+issue_comment,322,idan,oauthlib,lepture,2015-03-04 05:41:06,"ping @ib-lundgren 
+",nan,nan,ping iblundgren,N
+issue_comment,322,idan,oauthlib,tilgovi,2015-03-17 20:41:35,"LGTM
+",nan,nan,lgtm,N
+issue_comment,322,idan,oauthlib,wiliamsouza,2015-03-18 12:45:43,":+1:  LGTM
+",nan,nan,1 lgtm,N
+issue_comment,322,idan,oauthlib,jpadilla,2015-03-19 14:31:25,"Yesterday we released PyJWT [v1.0.0](https://github.com/jpadilla/pyjwt/releases/tag/1.0.0) which fixes some reported security vulnerabilities. Although this project doesn't seem to be affected, it would still be good idea to require >= 1.0.0 instead.
+",nan,nan,yesterday releas pyjwt v100 fix report secur vulner although project doesnt seem affect would still good idea requir,N
+issue_comment,322,idan,oauthlib,josephtate,2015-03-23 00:45:19,"@jpadilla Thanks for the heads up
+",nan,nan,jpadilla thank head,N
+issue_comment,322,idan,oauthlib,ib-lundgren,2015-04-02 11:35:02,"Sorry for not having looked at this earlier. I just merged #310 which changed the travis/tox setup a bit, can you please sync and set requirements for pyjwt as needed? 
+
+I see cryptography being installed but never imported / explicitly used. I'm guessing pyjwt does not install this implicitly and we have do it?
+",nan,nan,sorri look earlier I merg 310 chang travistox setup bit pleas sync set requir pyjwt need I see cryptographi instal never import explicitli use Im guess pyjwt instal implicitli,N
+issue_comment,322,idan,oauthlib,tilgovi,2015-04-02 16:17:07,"Only if we need to test the asymmetric ciphers.
+
+On Thu, Apr 2, 2015, 04:35 Ib Lundgren notifications@github.com wrote:
+
+> Sorry for not having looked at this earlier. I just merged #310
+> https://github.com/idan/oauthlib/pull/310 which changed the travis/tox
+> setup a bit, can you please sync and set requirements for pyjwt as needed?
+> 
+> I see cryptography being installed but never imported / explicitly used.
+> I'm guessing pyjwt does not install this implicitly and we have do it?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/idan/oauthlib/pull/322#issuecomment-88871381.
+",nan,nan,onli need test asymmetr cipher On thu apr 2 2015 0435 Ib lundgren notificationsgithubcom wrote,Y
+issue_comment,322,idan,oauthlib,jpadilla,2015-04-02 16:20:44,"PyJWT now allows you to either use pycrypto or cryptography(recommended) for asymmetric ciphers, which this project does use (RS256) to be exact. None of them are installed by default.
+",nan,nan,pyjwt allow either use pycrypto cryptographyrecommend asymmetr cipher project use rs256 exact none instal default,N
+issue_comment,322,idan,oauthlib,josephtate,2015-04-02 16:24:06,"I'm working on re-merging. I'm also realizing that pycrypto could possibly be removed, and that there are docs that need to be fixed up.
+",nan,nan,Im work remerg Im also realiz pycrypto could possibl remov doc need fix,N
+issue_comment,322,idan,oauthlib,ib-lundgren,2015-04-02 16:32:44,"OAuth1 uses pycrypto as well. I begun a CL to change to cryptography / use either but cryptography was not quite ready at the time. Since then I've not been able to finish it up. Feel free to resume it #226 :)
+",nan,nan,oauth1 use pycrypto well I begun CL chang cryptographi use either cryptographi quit readi time sinc ive abl finish feel free resum 226,N
+issue_comment,322,idan,oauthlib,josephtate,2015-04-03 19:05:26,"@jpadilla @ib-lundgren Can I get a review of this? I don't know that I like the way that I'm handling oauth1 signatures sans pycrypto, but cryptography doesn't seem to have its low level signing routines polished very well.
+
+I'll work on updating docs.
+",nan,nan,jpadilla iblundgren can I get review I dont know I like way Im handl oauth1 signatur san pycrypto cryptographi doesnt seem low level sign routin polish well ill work updat doc,N
+issue_comment,322,idan,oauthlib,josephtate,2015-04-06 16:57:30,"I think I'm all done with this @ib-lundgren.
+",nan,nan,I think Im done iblundgren,N
+issue_comment,322,idan,oauthlib,lepture,2015-04-14 11:12:09,"@josephtate maybe you should rebase your commits, make it clear.
+",nan,nan,josepht mayb rebas commit make clear,N
+issue_comment,322,idan,oauthlib,josephtate,2015-04-14 16:42:43,"Welp, That was fun. I rebased, but that broke, so I re-patched master and force pushed the branch.
+
+Summary:
+This current version happens to replace #226, and accidentally includes #336 (which is minor).
+",nan,nan,welp that fun I rebas broke I repatch master forc push branch summari thi current version happen replac 226 accident includ 336 minor,N
+issue_comment,322,idan,oauthlib,ib-lundgren,2015-04-19 14:29:29,"Amazing :) Well done and thanks for the help reviewing this all!
+",nan,nan,amaz well done thank help review,N
+pull_request_commit_comment,322,idan,oauthlib,jpadilla,2015-04-04 13:12:30,"I'd suggest specifying the allowed algorithms for decoding, in this case it'd be something like:
+
+``` python
+return jwt.decode(token, public_pem, algorithms=['RS256'])
+```
+",fc2d1218e015adcf65ba01965884430c47895cd0,"(None, '', u'oauthlib/common.py')",Id suggest specifi allow algorithm decod case itd someth like,N
+pull_request_commit,322,idan,oauthlib,josephtate,2015-04-14 16:30:44,Support newer PyJWT (1.0.0). remove PyCrypto completely for cryptography and PyJWT helpers. Reformat some test certificates to be easier to maintain. Update documentation to match use of cryptography instead of PyCrypto,fc2d1218e015adcf65ba01965884430c47895cd0,nan,support newer pyjwt 100 remov pycrypto complet cryptographi pyjwt helper reformat test certif easier maintain updat document match use cryptographi instead pycrypto,N

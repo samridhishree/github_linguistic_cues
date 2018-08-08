@@ -1,0 +1,23 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,244,nilearn,nilearn,lesteve,2014-09-24 11:23:05,"Copied and pasted from different emails with minor tweaks.
+# The problem
+
+People often complain about nilearn data storage policy: by default datasets are stored in a ""nilearn_data"" folder created in the current directory. People are sometimes puzzled by the fact that, when they change directory, some examples download an already-downloaded dataset.
+# Caveats
+1. The number one problem is of disk space running out. In the home, it can have horrible consequences, because it tends to freeze many things. For example you may have a quota on your home folder that is easily overwhelmed by the size, roughly 5-10 GB, of the datasets.
+2. Warnings, configuration options, ... are mostly useless, because the non-advanced users don't read/use them
+# Proposed solution
+- Use $HOME/nilearn_data by default
+- In all the data downloaders:
+  - capture the I/O errors that pop up when writing a file and that
+      the disk is full
+  - erase a bit of that half-written file (or all of it) to avoid
+      leaving the disk full
+  - raise an error clearly identifying the problem (disk full or
+      quota blown) and suggesting solutions (the NILEARN_DATA
+      variable + talk to your sysadmin).
+",start issue,Change default dataset download directory ,copi past differ email minor tweak the problem peopl often complain nilearn data storag polici default dataset store nilearndata folder creat current directori peopl sometim puzzl fact chang directori exampl download alreadydownload dataset caveat 1 the number one problem disk space run In home horribl consequ tend freez mani thing for exampl may quota home folder easili overwhelm size roughli 510 GB dataset 2 warn configur option mostli useless nonadvanc user dont readus propos solut use homenilearndata default In data download captur IO error pop write file disk full eras bit halfwritten file avoid leav disk full rais error clearli identifi problem disk full quota blown suggest solut nilearndata variabl talk sysadmin
+issue_closed,244,nilearn,nilearn,lesteve,2014-11-12 17:37:38,,closed issue,Change default dataset download directory ,
+issue_comment,244,nilearn,nilearn,lesteve,2014-11-12 10:35:29,"The error message part of this has been tackled in #262.
+",,,the error messag part tackl 262

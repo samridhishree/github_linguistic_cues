@@ -1,0 +1,10 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1181,nilearn,nilearn,AlexandreAbraham,2016-07-19 12:40:51,"Most of the fetchers, when they return string phenotypic data, return byte strings (in Python3). This is confusing for users that do not understand why a simple string comparison does not work. We should probably decode them before returning.
+",start issue,Fetchers return byte strings,most fetcher return string phenotyp data return byte string python3 thi confus user understand simpl string comparison work We probabl decod return
+issue_comment,1181,nilearn,nilearn,souravsingh,2016-10-07 16:42:20,"I would like to work on the issue. Which functions need editing?
+",,,I would like work issu which function need edit
+issue_comment,1181,nilearn,nilearn,KamalakerDadi,2016-10-10 13:12:33,"> Which functions need editing?
+
+Mostly, functions which returns phenotypic information are located in nilearn/datasets/func.py. You may have to look at those functions.
+",,,mostli function return phenotyp inform locat nilearndatasetsfuncpi you may look function

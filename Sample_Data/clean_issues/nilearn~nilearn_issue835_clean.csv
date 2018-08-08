@@ -1,0 +1,21 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,835,nilearn,nilearn,KamalakerDadi,2015-11-08 12:17:33,"problem when trying to port code from `RegionExtractor` to `nilearn.image.image`. Because of this ""global imports"" problem, I have imported internally whichever necessary. It worked.
+
+But, I think we should fix this problem. To not to get the same problem to others. 
+Discussions and ideas are welcome.
+
+This is out of box but if anybody wants why I am doing this. please have a look at my `RegionExtractor` PR to-do list.
+",start issue,circular importing errors,problem tri port code becaus global import problem I import intern whichev necessari It work but I think fix problem To get problem other discuss idea welcom thi box anybodi want I pleas look PR todo list
+issue_comment,835,nilearn,nilearn,lesteve,2015-12-01 17:50:59,"This would be great to fix that. This just needs a bit of thought about which direction the dependency should flow between packages/modules and probably some moving around.
+
+Maybe something to do after the release so that we have more time to catch bugs.
+",,,thi would great fix thi need bit thought direct depend flow packagesmodul probabl move around mayb someth releas time catch bug
+issue_comment,835,nilearn,nilearn,KamalakerDadi,2015-12-03 14:48:53,"Should we target this for 0.2.1 release ?
+",,,should target 021 releas
+issue_comment,835,nilearn,nilearn,lesteve,2015-12-02 14:01:05,"> > Maybe something to do after the release so that we have more time to catch bugs.
+> 
+> Let's move on and fix that later.
+
+Looks like we agree ...
+",,,look like agre

@@ -1,0 +1,30 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,343,nilearn,nilearn,bcipolli,2015-01-09 05:54:49,"**To reproduce:**
+
+```
+cd examples/manipulating_visualizing  
+python plot_demo_more_plotting.py
+git status
+```
+
+**Expected:**
+This will plot some things, even save some files, but not indicate anything changed in the source tree
+
+**Current behavior:**
+![image](https://cloud.githubusercontent.com/assets/4072455/5675963/b7eda1c4-9780-11e4-8e8f-b417b8bf7fe9.png)
+
+**Suggested Fix:**
+Add these to an `examples/.gitignore` file.  This happens for other file types as well (`*.nii`, `*.nii.gz`)
+
+I have this fix on my machine now.
+",start issue,Examples create output files in source directories that aren't .gitignore'd,To reproduc expect thi plot thing even save file indic anyth chang sourc tree current behavior imag suggest fix add file thi happen file type well I fix machin
+issue_closed,343,nilearn,nilearn,lesteve,2015-01-13 12:21:31,,closed issue,Examples create output files in source directories that aren't .gitignore'd,
+issue_comment,343,nilearn,nilearn,GaelVaroquaux,2015-01-09 06:03:46,"> Suggested Fix:
+> Add these to an examples/.gitignore file. This happens for other file types as
+> well (*.nii, *.nii.gz)
+
+Absolutely. A pull request would be most welcomed!
+
+Thanks
+",,,absolut A pull request would welcom thank

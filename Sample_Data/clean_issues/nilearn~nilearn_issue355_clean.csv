@@ -1,0 +1,86 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,355,nilearn,nilearn,banilo,2015-01-17 23:43:01,"Perhaps the docstrings for the following classes could be improved:
+
+```
+- NiftiMasker
+- NiftiLabelsMasker
+- NiftiMapsMasker
+- MultiNiftiMasker
+```
+
+More specifically, at the top of the respective class docstrings, one might add
+- a more generous explanation of the purpose of the class
+- its commonalities and differences comparing to the respective other masker classes
+- provide one simple use case when this is typically useful
+
+Apart from that, a new nilearn example might be useful that uses the various masker and, thus, gives an overview of this part of the API.
+
+Edited by @AlexandreAbraham:
+
+Here is the list of remarks made on _Nifti_Masker doc across issues:
+- [ ] Specify which data is detrended (#418)
+- [ ] Add intersect_masks to NiftiMasker's ""related functions"" (#436)
+- [ ] Specify that only `mask_args` and `mask_strategy` are used for fitting. It's specified in the class docstring, but not on the fit function docstring (#436). Gael suggested to add it in the Notes section.
+- [ ] Add in transform (#436):
+  - Parameters (detrend, standardize) are computed from the images passed to transform (i.e. not computed and stored from fit)
+  - Whether the inverse of these parameters is applied when inverse_transform is called (not sure if they are, for detrend, standardize, and confounds).
+- [ ] NiftiMapsMasker and NiftiLabelsMasker don't have docstring for fit_transforms (#603).
+",start issue,Improve Documentation of masker family,perhap docstr follow class could improv more specif top respect class docstr one might add gener explan purpos class common differ compar respect masker class provid one simpl use case typic use apart new nilearn exampl might use use variou masker thu give overview part api edit alexandreabraham here list remark made niftimask doc across issu specifi data detrend 418 add intersectmask niftimask relat function 436 specifi use fit it specifi class docstr fit function docstr 436 gael suggest add note section add transform 436 paramet detrend standard comput imag pass transform ie comput store fit whether invers paramet appli inversetransform call sure detrend standard confound niftimapsmask niftilabelsmask dont docstr fittransform 603
+issue_comment,355,nilearn,nilearn,GaelVaroquaux,2015-01-19 09:00:11,"Actually, it's less about expanding and more about making it easy to find. Right now, a problem of the documentation is that it lack a big picture organization. I think that we should rework that during the next sprint. How about beginning of February? 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Jan 18, 2015, 13:03, at 13:03, ""Loïc Estève"" notifications@github.com wrote:
+
+> There is something like this in the online doc:
+> http://nilearn.github.io/building_blocks/data_preparation.html.
+> 
+> Maybe it could be expanded upon?
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/issues/355#issuecomment-70405558
+",,,actual less expand make easi find right problem document lack big pictur organ I think rework next sprint how begin februari sent phone pleas forgiv breviti mi spell On jan 18 2015 1303 1303 loïc estèv notificationsgithubcom wrote
+issue_comment,355,nilearn,nilearn,GaelVaroquaux,2015-02-17 21:24:57,"> 1. I suggest adding to the docstring of fit, to reminds users that only
+>    mask_args and mask_strategy are used for fitting. It's specified in the
+>    class docstring, but not on the fit function docstring.
+
+In the 'notes' section.
+
+> ```
+> I think very clear documentation about the use of these maskers
+> could help avoid confusion for people like me coming from other
+> fields as to the intended use of these maskers.
+> ```
+
+I wonder if this should not be in the narrative documentation of the
+maskers, rather than in the docstring. One of the reasons is that I am
+afraid of duplication of the information.
+",,,In note section I wonder narr document masker rather docstr one reason I afraid duplic inform
+issue_comment,355,nilearn,nilearn,GaelVaroquaux,2016-01-12 22:47:06,"> We still do not have an example that does in-your-face-teach the commonalities
+> and differences of the sociology of the nifti masker clan, or do we?
+
+Nope. It might be good to have a notebook-like example on that.
+",,,nope It might good notebooklik exampl
+issue_comment,355,nilearn,nilearn,lesteve,2015-01-18 12:03:00,"There is something like this in the online doc: http://nilearn.github.io/building_blocks/data_preparation.html.
+
+Maybe it could be expanded upon?
+",,,there someth like onlin doc mayb could expand upon
+issue_comment,355,nilearn,nilearn,AlexandreAbraham,2015-01-19 10:24:47,"> How about beginning of February?
+> :+1: for a cosmit sprint to make the whole package homogeneous and well documented before the release.
+",,,
+issue_comment,355,nilearn,nilearn,AlexandreAbraham,2015-02-10 13:22:36,"According to #418, we should specify exactly which data is detrended.
+",,,accord 418 specifi exactli data detrend
+issue_comment,355,nilearn,nilearn,AlexandreAbraham,2015-02-17 21:20:51,"@bcipolli's comments from #436 
+1. Please add `intersect_masks` to `NiftiMasker`'s ""related functions"" would be appreciated.
+2. I suggest adding to the docstring of fit, to reminds users that only `mask_args` and `mask_strategy` are used for fitting.  It's specified in the class docstring, but not on the `fit` function docstring.
+3. Lastly, I would find it helpful to specify (here or in transform) that:
+   - Parameters (detrend, standardize) are computed from the images passed to transform (i.e. not computed and stored from fit)
+   - Whether the inverse of these parameters is applied when inverse_transform is called (not sure if they are, for detrend, standardize, and confounds).
+   
+   My reasoning for this: my lab does computer vision, and the setup here differs from how our lab (and I believe others in this area) preprocess our datasets.  We compute and store whitening transforms for our training set, then apply them to test and validation sets (which are assumed to come from the same distribution of images as the training set).  I think very clear documentation about the use of these maskers could help avoid confusion for people like me coming from other fields as to the intended use of these maskers.
+",,,bcipolli comment 436 1 pleas add relat function would appreci 2 I suggest ad docstr fit remind user use fit it specifi class docstr function docstr 3 lastli I would find help specifi transform paramet detrend standard comput imag pass transform ie comput store fit whether invers paramet appli inversetransform call sure detrend standard confound My reason lab comput vision setup differ lab I believ other area preprocess dataset We comput store whiten transform train set appli test valid set assum come distribut imag train set I think clear document use masker could help avoid confus peopl like come field intend use masker
+issue_comment,355,nilearn,nilearn,banilo,2016-01-12 22:45:35,"We still do not have an example that does in-your-face-teach the commonalities and differences of the sociology of the nifti masker clan, or do we?
+",,,We still exampl inyourfaceteach common differ sociolog nifti masker clan

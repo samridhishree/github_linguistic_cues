@@ -1,0 +1,26 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,437,idan,oauthlib,jandd,2016-09-17 09:42:54,"This pull request fixes the ""TypeError: argument of type 'NoneType' is not iterable"" that was caused by calling the openid_connect validate_authorization method with a request where request.scopes was
+set to None (fixes #436).
+",start issue,Fix TypeError in openid_connect,thi pull request fix typeerror argument type nonetyp iter caus call openidconnect validateauthor method request requestscop set none fix 436
+issue_closed,437,idan,oauthlib,thedrow,2016-11-24 16:00:10,,closed issue,Fix TypeError in openid_connect,
+pull_request_title,437,idan,oauthlib,jandd,2016-09-17 09:42:54,"This pull request fixes the ""TypeError: argument of type 'NoneType' is not iterable"" that was caused by calling the openid_connect validate_authorization method with a request where request.scopes was
+set to None (fixes #436).
+",d8ba5858a024efebc3e918ad6b9134d11a1c2120,Fix TypeError in openid_connect,thi pull request fix typeerror argument type nonetyp iter caus call openidconnect validateauthor method request requestscop set none fix 436
+issue_comment,437,idan,oauthlib,jandd,2016-09-17 09:50:56,"The tox run for py32 in the Travis build fails for reasons not related to the code change.
+",,,the tox run py32 travi build fail reason relat code chang
+issue_comment,437,idan,oauthlib,jandd,2016-09-17 10:21:43,"The build fails for the cloned master branch as well (see https://travis-ci.org/jandd/oauthlib/jobs/160642978)
+",,,the build fail clone master branch well see
+issue_comment,437,idan,oauthlib,yon2004,2016-09-22 13:17:34,"Can confirm that this fixes the issue. Thanks @jandd 
+",,,can confirm fix issu thank jandd
+issue_comment,437,idan,oauthlib,Sumukh,2016-10-07 04:06:44,"If you merge master back in - tests should pass again. 
+
+I'm not sure who is responsible for merging/reviewing - but the change in here is really small and can only fix errors (which is impacting a lot of users of downstream libraries). 
+",,,If merg master back test pass Im sure respons mergingreview chang realli small fix error impact lot user downstream librari
+issue_comment,437,idan,oauthlib,thedrow,2016-11-24 16:00:10,#450 Should fix this,,,450 should fix
+pull_request_commit,437,idan,oauthlib,jandd,2016-09-17 09:38:50,"Fix TypeError in openid_connect
+
+This commit fixes the ""TypeError: argument of type 'NoneType' is not
+iterable"" that was caused by calling the openid_connect
+validate_authorization method with a request where request.scopes was
+set to None.",d8ba5858a024efebc3e918ad6b9134d11a1c2120,,fix typeerror openidconnect thi commit fix typeerror argument type nonetyp iter caus call openidconnect validateauthor method request requestscop set none

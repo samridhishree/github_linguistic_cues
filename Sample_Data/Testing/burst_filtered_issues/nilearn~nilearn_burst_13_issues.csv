@@ -1,0 +1,17 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,59,nilearn,nilearn,pgervais,2013-05-22 08:42:50,"Resampling has been integrated into NiftiMapsMasker, and an example demonstrating this new feature has been added (plot_msdl_covariance_advanced.py). 
+
+Before integrating resampling into NiftiLabelsMasker, I'd like to get some feedback on the API.
+",start issue,Regions resampling,resampl integr niftimapsmask exampl demonstr new featur ad plotmsdlcovarianceadvancedpi befor integr resampl niftilabelsmask Id like get feedback api,N,2013-05-27 15:55:05
+3,pull_request_title,59,nilearn,nilearn,pgervais,2013-05-22 08:42:50,"Resampling has been integrated into NiftiMapsMasker, and an example demonstrating this new feature has been added (plot_msdl_covariance_advanced.py). 
+
+Before integrating resampling into NiftiLabelsMasker, I'd like to get some feedback on the API.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,Regions resampling,resampl integr niftimapsmask exampl demonstr new featur ad plotmsdlcovarianceadvancedpi befor integr resampl niftilabelsmask Id like get feedback api,N,2013-05-27 15:55:05
+12,issue_comment,59,nilearn,nilearn,pgervais,2013-05-23 16:25:22,"Some more changes.
+
+The img_to_signals_*() functions now always output as many signals as regions. Having a array size known in advance will make downstream code simpler to write.
+
+I added some debugging messages to both Nifti(Maps|Labels)Masker object, putting at least something behind the ""verbose"" option. I created a mixin just for this, comments welcome, as usual. 
+
+I still didn't change the default for resampling_target, because I still think that setting ""labels"" or ""maps"" as a default will be harmful in most cases, because the voxel number in labels or maps images may be much higher than in images (in fMRI at least), and it will fill the memory very quickly. Imho, the safest choice would be to use fMRI images as target, but this option is still not implemented.
+",,,some chang the imgtosign function alway output mani signal region have array size known advanc make downstream code simpler write i ad debug messag niftimapslabelsmask object put least someth behind verbos option I creat mixin comment welcom usual I still didnt chang default resamplingtarget I still think set label map default harm case voxel number label map imag may much higher imag fmri least fill memori quickli imho safest choic would use fmri imag target option still implement,N,2013-05-27 09:37:11

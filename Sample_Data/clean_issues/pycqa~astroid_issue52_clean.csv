@@ -1,0 +1,23 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,52,pycqa,astroid,pylint-bot,2014-10-30 09:05:23,"Originally reported by: **Denis Laxalde (BitBucket: [dlax](http://bitbucket.org/dlax), GitHub: @dlax?)**
+
+---
+
+See https://www.logilab.org/ticket/269083
+astroid's version of modutils needs a similar fix.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/52
+",start issue,pylint crash in modutils,origin report deni laxald bitbucket dlax github dlax see astroid version modutil need similar fix bitbucket
+issue_closed,52,pycqa,astroid,pylint-bot,2015-12-09 05:52:30,,closed issue,pylint crash in modutils,
+issue_comment,52,pycqa,astroid,pylint-bot,2014-10-30 13:28:00,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+[modutils] Ensure module is actually in sys.modules in pkg_resources support
+
+Wrap the long line along the way.
+
+Closes #52.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor modutil ensur modul actual sysmodul pkgresourc support wrap long line along way close 52

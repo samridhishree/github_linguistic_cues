@@ -1,0 +1,304 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1141,nilearn,nilearn,sahmed95,2016-06-20 20:43:42,"Removed redundant fetcher.
+",start issue,Fixes #1127. Removed haxby_simple,remov redund fetcher,N,2016-07-03 10:54:09
+4,issue_comment,1141,nilearn,nilearn,AlexandreAbraham,2016-06-20 20:58:50,"Thanks for the PR. 3 remarks though (with points to discuss):
+- examples relying on haxby_simple must be updated
+- we should probably discuss if we remove it bluntly or if we ""deprecate it"" (and make it rely on fetch_haxby)
+- the test of haxby_simple is the only one to actually ""download"" a file (it is a dummy file from the repo itself) and therefor to test the full dataset fetching process. We have to replace it by another one (can be done in a separate PR).
+",,,thank PR 3 remark though point discuss exampl reli haxbysimpl must updat probabl discuss remov bluntli deprec make reli fetchhaxbi test haxbysimpl one actual download file dummi file repo therefor test full dataset fetch process We replac anoth one done separ PR,Y,2016-07-02 10:36:22
+1,issue_title,1164,nilearn,nilearn,salma1601,2016-07-05 08:22:53,"fix #1163 
+",start issue,[MRG+1] raise explicit TR error,fix 1163,N,2016-07-05 13:43:07
+2,issue_closed,1164,nilearn,nilearn,GaelVaroquaux,2016-07-05 13:43:07,,closed issue,[MRG+1] raise explicit TR error,,N,2016-07-05 08:22:53
+3,pull_request_title,1164,nilearn,nilearn,salma1601,2016-07-05 08:22:53,"fix #1163 
+",68bf8d12c7eaea247ed06cd6384d16a847556049,[MRG+1] raise explicit TR error,fix 1163,N,2016-07-05 13:43:07
+4,pull_request_merged,1164,nilearn,nilearn,GaelVaroquaux,2016-07-05 13:43:07,[MRG+1] raise explicit TR error,8088a7614b362f93369e4713a732e36f57926508,Pull request merge from salma1601/nilearn:tr_filtering to nilearn/nilearn:master,mrg1 rais explicit TR error,N,2016-07-05 09:25:19
+5,issue_comment,1164,nilearn,nilearn,salma1601,2016-07-05 09:25:19,"> Does it sounds meaningful to suggest repetition time from image header ?
+> Some hints I followed from this already existing PR #1036
+
+I would rather let the user search himself for this information, to encourage one to know basic information about the data he is working on.
+just a personal point of view ;)
+",,,I would rather let user search inform encourag one know basic inform data work person point view,N,2016-07-05 08:40:47
+6,issue_comment,1164,nilearn,nilearn,KamalakerDadi,2016-07-05 08:40:47,"Can you add simple test please ?
+",,,can add simpl test pleas,Y,2016-07-05 08:47:58
+7,issue_comment,1164,nilearn,nilearn,KamalakerDadi,2016-07-05 08:47:58,"Does it sounds meaningful to suggest repetition time from image header ?
+
+Some hints I followed from this already existing PR #1036 
+",,,doe sound meaning suggest repetit time imag header some hint I follow alreadi exist PR 1036,N,2016-07-05 08:24:15
+8,pull_request_commit_comment,1164,nilearn,nilearn,GaelVaroquaux,2016-07-05 08:24:15,"Maybe I would say ""Repetition time (t_r) must be specified..."" to make it more explicit what the user must change.
+",68bf8d12c7eaea247ed06cd6384d16a847556049,"(None, '', u'nilearn/signal.py')",mayb I would say repetit time tr must specifi make explicit user must chang,N,2016-07-05 08:20:41
+9,pull_request_commit,1164,nilearn,nilearn,salma1601,2016-07-05 08:20:41,raise explicit TR error,0a2f7e8c6ed61e57e620630c635f0fc1ddebc975,,rais explicit TR error,N,2016-07-05 08:32:13
+10,pull_request_commit,1164,nilearn,nilearn,salma1601,2016-07-05 08:32:13,write down repetition time variable name,14f2ce9cba8b371c0a4feafadb9f8e3268a425fb,,write repetit time variabl name,N,2016-07-05 08:55:05
+1,issue_title,1143,nilearn,nilearn,MartinPerez,2016-06-21 16:57:22,"As explained in #1118 all maskers had the option of passing False in the documentation for high pass and low pass, but this would create an error in signal.py under some circumstances. So updated documentation and raised a typeerror in signal.py to avoid future problems. Moreover in signal.py is clearly stated that high pass and low pass should be float or None.
+",start issue,"fixed doc in all maskers, changed False possibility for None. Moreove…",As explain 1118 masker option pass fals document high pass low pass would creat error signalpi circumst So updat document rais typeerror signalpi avoid futur problem moreov signalpi clearli state high pass low pass float none,N,2016-07-05 08:22:35
+3,pull_request_title,1143,nilearn,nilearn,MartinPerez,2016-06-21 16:57:22,"As explained in #1118 all maskers had the option of passing False in the documentation for high pass and low pass, but this would create an error in signal.py under some circumstances. So updated documentation and raised a typeerror in signal.py to avoid future problems. Moreover in signal.py is clearly stated that high pass and low pass should be float or None.
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"fixed doc in all maskers, changed False possibility for None. Moreove…",As explain 1118 masker option pass fals document high pass low pass would creat error signalpi circumst So updat document rais typeerror signalpi avoid futur problem moreov signalpi clearli state high pass low pass float none,N,2016-07-05 08:22:35
+7,issue_comment,1143,nilearn,nilearn,MartinPerez,2016-06-22 19:33:00,"memory failure in one build? could this be due to adding assert_raises errors with signal.clean? I dont understand why this would be the case.
+",,,memori failur one build could due ad assertrais error signalclean I dont understand would case,N,2016-07-01 23:01:40
+8,issue_comment,1143,nilearn,nilearn,MartinPerez,2016-07-01 23:01:40,"space net done. Sorry I missed it.
+",,,space net done sorri I miss,N,2016-07-01 18:30:28
+9,issue_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-01 18:30:28,"Small remark on error message. Otherwise, LGTM.
+",,,small remark error messag otherwis lgtm,N,2016-07-01 19:55:27
+12,pull_request_commit_comment,1143,nilearn,nilearn,lesteve,2016-06-22 08:27:34,"Best practice: always include the value provided by the user in the error message, something like:
+
+``` py
+raise TypeError(""High pass must be float or None but you provided high_pass='{0}'"".format(high_pass))
+```
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(None, '', u'nilearn/signal.py')",best practic alway includ valu provid user error messag someth like,N,2016-07-01 18:28:08
+13,pull_request_commit_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-01 18:28:08,"error message for wrong input has single quotes which I don't think it is necessary. May be we can remove single quotes ? What do you think ?
+
+``` python
+TypeError: low pass must be float or None but you provided low_pass='False'
+```
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(6, '', u'nilearn/signal.py')",error messag wrong input singl quot I dont think necessari may remov singl quot what think,N,2016-07-01 23:00:41
+14,pull_request_commit_comment,1143,nilearn,nilearn,MartinPerez,2016-07-01 23:00:41,"@KamalakerDadi I just corrected the message as @lesteve suggested. Look at his outdated comment above with single quotes. I don't have a preference on this. which one is better practice? If you want I will change it again.
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(6, '', u'nilearn/signal.py')",kamalakerdadi I correct messag lestev suggest look outdat comment singl quot I dont prefer one better practic If want I chang,N,2016-07-02 09:46:01
+18,pull_request_commit,1143,nilearn,nilearn,MartinPerez,2016-06-22 19:16:12,test fix,00443f2d7e8210349a8c5b7193d1a2dab8fe79f4,,test fix,N,2016-07-01 10:49:17
+19,pull_request_commit,1143,nilearn,nilearn,MartinPerez,2016-07-01 10:49:17,changed docs also for multipca and base,1392a2c21f3ae3d88aa0183199fd1a85e7d0db86,,chang doc also multipca base,N,2016-07-01 22:58:12
+5,issue_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-21 10:49:44,"Thanks!
+",,,thank,N,2016-07-01 10:19:02
+6,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-01 10:19:02,"> can someone among you look this PR up?
+
+Sure, this is my top priority to look into. I might take some time to comment since I am new to look how backporting works in nilearn.
+
+You may have to change title because your PR majorly addresses scikit-learn back ports.
+",,,sure top prioriti look I might take time comment sinc I new look backport work nilearn you may chang titl PR majorli address scikitlearn back port,N,2016-07-07 12:44:34
+7,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-07 12:44:34,"Now that PR #1169 is merged. You can clean your PR a bit to remove dependencies related to < 0.14 (if I am not wrong).
+
+Hopefully, this can also help us to solve coverage problem too.
+",,,now PR 1169 merg you clean PR bit remov depend relat 014 I wrong hope also help us solv coverag problem,N,2016-07-18 08:17:21
+8,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 08:17:21,"can you add tests to space net failure ?
+",,,add test space net failur,Y,2016-07-18 20:45:07
+9,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 20:45:07,"There are still some comments hanging. The comments which are made regarding extra spaces. Otherwise LGTM.
+",,,there still comment hang the comment made regard extra space otherwis lgtm,N,2016-07-19 18:24:59
+10,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-19 18:24:59,"Any reviews ? @AlexandreAbraham @lesteve @aabadie @GaelVaroquaux 
+",,,ani review alexandreabraham lestev aabadi gaelvaroquaux,N,2016-07-12 20:32:39
+11,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:32:39,"I think this extra space is not necessary
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(4, '', u'nilearn/_utils/fixes/__init__.py')",I think extra space necessari,N,2016-07-12 20:32:53
+12,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:32:53,"same here
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",,N,2016-07-12 20:32:59
+13,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:32:59,"same here
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",,N,2016-07-12 20:33:54
+14,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:33:54,"Do you think we should first `try` higher version and then except `ImportError` lesser versions ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",Do think first higher version except lesser version,N,2016-07-12 20:35:26
+15,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:35:26,"Sorry, I didnt get this. Aren't you using this file for versions lesser than 0.17 ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",sorri I didnt get arent use file version lesser 017,N,2016-07-12 20:36:32
+16,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:36:32,"Can you add a small description about this file ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",can add small descript file,N,2016-07-12 20:40:20
+17,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:40:20,"Do you think this can be integrated in or used from `nilearn._utils.exceptions.py` ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",Do think integr use,N,2016-07-12 20:46:05
+18,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:46:05,"For lesser versions nilearn already has `check_array` imported as `atleast2d_or_csr`. Do you think it can be used here ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",for lesser version nilearn alreadi import Do think use,N,2016-07-12 21:33:09
+19,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 21:33:09,"May be we should rename `scikit_learn_validation` to more appropriate naming depending upon usage of `check_X_y` and `check_is_fitted`. So that it can be used for other purposes wherever necessary. Any comments on this ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",may renam appropri name depend upon usag So use purpos wherev necessari ani comment,N,2016-07-13 12:25:07
+20,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 12:25:07,"+1
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",1,N,2016-07-13 12:42:51
+21,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 12:42:51,"use prefix `sklearn`
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",use prefix,N,2016-07-13 13:52:00
+22,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 13:52:00,"This is exactly the purpose of this file: bring a feature available in sklearn 0.17 to previous versions. For me, this is self-explanatory. Maybe just say that this file is from sklearn.utils.validation.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",thi exactli purpos file bring featur avail sklearn 017 previou version for selfexplanatori mayb say file sklearnutilsvalid,N,2016-07-13 13:54:45
+23,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 13:54:45,"No, this is imported from another software. Backports must be left as untouched as possible. Otherwise updating them (say with code from sklearn 0.18 for example when it will be released) can be tedious.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",No import anoth softwar backport must left untouch possibl otherwis updat say code sklearn 018 exampl releas tediou,N,2016-07-13 14:01:46
+24,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 14:01:46,"Good catch. Isn't it the opposite? Isn't `check_x_y` supposed to replace `check_array`?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",good catch isnt opposit isnt suppos replac,N,2016-07-15 22:25:15
+25,pull_request_commit_comment,1148,nilearn,nilearn,ahoyosid,2016-07-15 22:25:15,"atleast2d_or_csr => check_array 
+Basically, check_X_y combines check_array (for X and y), and checks if their lengths are consistent 
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')",atleast2dorcsr basic checkxi combin checkarray X check length consist,N,2016-07-18 08:15:35
+26,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 08:15:35,"Any reason why you are raising `ImportError` like you have did for others ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')",ani reason rais like other,N,2016-07-18 08:51:46
+27,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 08:51:46,"Can it be replaced by `atleast2d_or_csr` ? Is it the same or not ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(16, '', u'nilearn/_utils/fixes/sklearn_validation.py')",can replac Is,N,2016-07-18 08:54:18
+28,pull_request_commit_comment,1148,nilearn,nilearn,GaelVaroquaux,2016-07-18 08:54:18,"> > +def check_array(array, accept_sparse=None, dtype=""numeric"", order=None,
+> 
+> Can it be replaced by atleast2d_or_csr ? Is it the same or not ?
+
+If the question is whether check_array is the same as atleast2d_or_csr,
+the answer is no: it does additional checks and should be prefered in
+general.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(16, '', u'nilearn/_utils/fixes/sklearn_validation.py')",If question whether checkarray atleast2dorcsr answer addit check prefer gener,N,2016-07-18 09:19:00
+32,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-06-23 12:53:39,adding check_X_y,401a18cf260eaaef4e329573540b4254f46bdb50,,ad checkxi,N,2016-07-07 22:58:34
+33,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-07 22:58:34,removing some files after supporting >= 0.14,fd730e88953e8ea5e845d55fc39f4c9930143c3f,,remov file support,N,2016-07-07 22:58:52
+34,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-07 22:58:52,"Merge branch 'master' of github.com:nilearn/nilearn into check_inputs
+
+Not longer supporting v0.13",b5a8c486f1f3b650b9ff109b8241390daa4e18ae,,merg branch master githubcomnilearnnilearn checkinput not longer support v013,N,2016-07-07 23:41:58
+35,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-07 23:41:58,minor flake8,2b5db39c3b3c35754a923096bccdfbe8202f0438,,minor flake8,N,2016-07-15 22:27:56
+36,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-15 22:27:56,changing the name of the validation's file,99871717fb75693da887221d9205450bafb075b2,,chang name valid file,N,2016-07-15 23:16:10
+37,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-15 23:16:10,changing name,1c622965b42e91070a3ad3a707e407e3cc8ee5a3,,chang name,N,2016-07-18 09:41:37
+38,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-18 09:41:37,adding test,42e35cf22d61e404f62194d7140be4ad1d6714d2,,ad test,N,2016-07-18 12:03:40
+39,pull_request_commit,1148,nilearn,nilearn,ahoyosid,2016-07-18 12:03:40,testing check_length for regressor and classifier,f386ce0cec0a7f4f4c97a29e0490b9e527e1e93d,,test checklength regressor classifi,N,2016-07-19 04:05:04
+1,issue_title,1158,nilearn,nilearn,Joaoloula,2016-07-02 10:31:45,"Small PR to deprecate the fetcher `fetch_haxby_simple` and make it call `fetch_haxby` instead. Examples were updated accordingly (and became slightly less simple due to differences between the fetchers, but I don't see an obvious better way to do it), and a test `test_fail_fetch_haxby` for the dummy file download was added (which is just the ancient `test_fail_fetch_haxby_simple` with directories changed accordingly).
+",start issue,"[MRG] Fixes #1127, deprecates fetch_haxby_simple, adds test_fail_fetch_haxby",small PR deprec fetcher make call instead exampl updat accordingli becam slightli less simpl due differ fetcher I dont see obviou better way test dummi file download ad ancient directori chang accordingli,N,2016-07-03 21:24:49
+2,issue_closed,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 21:24:49,,closed issue,"[MRG] Fixes #1127, deprecates fetch_haxby_simple, adds test_fail_fetch_haxby",,N,2016-07-02 10:31:45
+3,pull_request_title,1158,nilearn,nilearn,Joaoloula,2016-07-02 10:31:45,"Small PR to deprecate the fetcher `fetch_haxby_simple` and make it call `fetch_haxby` instead. Examples were updated accordingly (and became slightly less simple due to differences between the fetchers, but I don't see an obvious better way to do it), and a test `test_fail_fetch_haxby` for the dummy file download was added (which is just the ancient `test_fail_fetch_haxby_simple` with directories changed accordingly).
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"[MRG] Fixes #1127, deprecates fetch_haxby_simple, adds test_fail_fetch_haxby",small PR deprec fetcher make call instead exampl updat accordingli becam slightli less simpl due differ fetcher I dont see obviou better way test dummi file download ad ancient directori chang accordingli,N,2016-07-03 21:24:49
+4,pull_request_merged,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 21:24:49,"[MRG] Fixes #1127, deprecates fetch_haxby_simple, adds test_fail_fetch_haxby",dbd93863df7f7d72a57159c532fb6ee4bfd25d7f,Pull request merge from Joaoloula/nilearn:master to nilearn/nilearn:master,mrg fix 1127 deprec fetchhaxbysimpl add testfailfetchhaxbi,N,2016-07-03 21:36:48
+5,issue_comment,1158,nilearn,nilearn,AlexandreAbraham,2016-07-03 21:36:48,"Same comment as previous PR: one has to write a new test to test the whole downloading code. Should we open a new issue ? 
+",,,same comment previou PR one write new test test whole download code should open new issu,Y,2016-07-04 05:58:50
+6,issue_comment,1158,nilearn,nilearn,AlexandreAbraham,2016-07-04 05:58:50,"The size of the dataset does not matter since it is mocked.
+",,,the size dataset matter sinc mock,N,2016-07-04 12:04:26
+7,issue_comment,1158,nilearn,nilearn,AlexandreAbraham,2016-07-04 12:04:26,"No, this is not the same. Don't worry, I'll take care of it and add a detailed documentation for this particular test.
+",,,No dont worri ill take care add detail document particular test,Y,2016-07-04 06:27:44
+8,issue_comment,1158,nilearn,nilearn,Joaoloula,2016-07-04 06:27:44,"@AlexandreAbraham I had created `test_fail_fetch_haxby` with this in mind, is it not sufficient? Or was it actually `test_fetch_haxby_simple` that tested the download process?
+",,,alexandreabraham I creat mind suffici Or actual test download process,Y,2016-07-04 12:07:01
+9,issue_comment,1158,nilearn,nilearn,Joaoloula,2016-07-04 12:07:01,"Ok, great!
+",,,Ok great,N,2016-07-03 06:53:51
+10,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 06:53:51,"Are you sure that ""y"" needs to be numerical? I think that you could take ""conditions"" and use it as the ""y"" vector, which would simplify the example.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')",are sure need numer I think could take condit use vector would simplifi exampl,N,2016-07-03 07:45:27
+11,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 07:45:27,"Same remark: I don't think that we need the y vector.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_grid_search.py')",same remark I dont think need vector,N,2016-07-03 08:53:26
+12,pull_request_commit_comment,1158,nilearn,nilearn,bthirion,2016-07-03 08:53:26,"Indeed, as we're not running regression, we can live with non-numerical y.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')",inde run regress live nonnumer,N,2016-07-03 09:04:35
+13,pull_request_commit_comment,1158,nilearn,nilearn,Joaoloula,2016-07-03 09:04:35,"You're right: I was so focused on getting the y vector the way it was on the simple fetcher, I forgot I could just take the conditions. 
+
+I just commited the simplifications, except for `plot_haxby_mass_univariate`, that (at least the way it's coded now) requires both an unmasked conditions vector and a masked int-encoded one. Perhaps it's less problematic to keep it that way since it's supposed to be an advanced example. What do you think?
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')",your right I focus get vector way simpl fetcher I forgot I could take condit I commit simplif except least way code requir unmask condit vector mask intencod one perhap less problemat keep way sinc suppos advanc exampl what think,N,2016-07-03 10:49:00
+14,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 10:49:00,"I am a bit worried that the signatures of fetch_haxby and fetch_haxby_simple are different (both input signature and return values).
+
+We should probably keep the old fetch_haxby_simple function for a little while, but flag it as deprecated, and remove it from the documentation.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')",I bit worri signatur fetchhaxbi fetchhaxbysimpl differ input signatur return valu We probabl keep old fetchhaxbysimpl function littl flag deprec remov document,N,2016-07-03 11:16:12
+15,pull_request_commit_comment,1158,nilearn,nilearn,Joaoloula,2016-07-03 11:16:12,"Makes sense. I restored the old function and put a note in the deprecated flag saying the user should use `fetch_haxby` instead.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')",make sens I restor old function put note deprec flag say user use instead,N,2016-07-03 11:18:28
+16,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 11:18:28,"Could you also please remove it from doc/modules/reference.rst.
+
+Aside from that, +1 for merge from my side, once CI has run.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')",could also pleas remov docmodulesreferencerst asid 1 merg side CI run,N,2016-07-03 11:25:41
+17,pull_request_commit_comment,1158,nilearn,nilearn,Joaoloula,2016-07-03 11:25:41,"Done.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')",done,N,2016-07-02 10:12:31
+18,pull_request_commit,1158,nilearn,nilearn,Joaoloula,2016-07-02 10:12:31,"Fixed #1127, updated examples and tests and deprecated haxby_fetch_simple",125282dfbe865c9cc47611443cf0ae23080d9233,,fix 1127 updat exampl test deprec haxbyfetchsimpl,N,2016-07-02 10:16:47
+19,pull_request_commit,1158,nilearn,nilearn,Joaoloula,2016-07-02 10:16:47,"readded deprecated fetch_haxby_simple to reference, few tweaks",6a51cee6e3bb1c9ca21185f58392f01de9054af5,,read deprec fetchhaxbysimpl refer tweak,N,2016-07-03 08:59:42
+20,pull_request_commit,1158,nilearn,nilearn,Joaoloula,2016-07-03 08:59:42,simplified examples,0d5443de9ad014c82ba4dfc228160a34b385165a,,simplifi exampl,N,2016-07-03 09:16:57
+21,pull_request_commit,1158,nilearn,nilearn,Joaoloula,2016-07-03 09:16:57,readded int encoding for plot_haxby_mass_univariate,ca4f17f1e9b8a8e35509fba06f9fc4a8002446e7,,read int encod plothaxbymassunivari,N,2016-07-03 11:16:28
+22,pull_request_commit,1158,nilearn,nilearn,Joaoloula,2016-07-03 11:16:28,restored fetch_haxby_simple flagging it as deprecated,4465d2a0719becdff259e1524be1300a782d908e,,restor fetchhaxbysimpl flag deprec,N,2016-07-03 11:27:34
+2,issue_closed,1182,nilearn,nilearn,KamalakerDadi,2017-04-20 14:58:53,,closed issue,Add a Neurovault fetcher.,,N,2016-07-20 08:58:52
+1,issue_title,1152,nilearn,nilearn,AlexandreAbraham,2016-06-24 08:55:28,"Fix #1151
+
+Problem: ATM, you need to import nilearn.plotting.cm for them to be registered. It would be nice to register them directly when nilearn is imported but that implies loading the whole plotting module, which is a but heavy.
+
+What should we do?
+",start issue,[MRG] Register colormaps in matplotlib,fix 1151 problem atm need import nilearnplottingcm regist It would nice regist directli nilearn import impli load whole plot modul heavi what,N,2016-07-13 09:27:01
+3,pull_request_title,1152,nilearn,nilearn,AlexandreAbraham,2016-06-24 08:55:28,"Fix #1151
+
+Problem: ATM, you need to import nilearn.plotting.cm for them to be registered. It would be nice to register them directly when nilearn is imported but that implies loading the whole plotting module, which is a but heavy.
+
+What should we do?
+",46cb1d5b27824b122ea4eb2f5bd38219dc157f78,[MRG] Register colormaps in matplotlib,fix 1151 problem atm need import nilearnplottingcm regist It would nice regist directli nilearn import impli load whole plot modul heavi what,N,2016-07-13 09:27:01
+4,pull_request_merged,1152,nilearn,nilearn,AlexandreAbraham,2016-07-13 09:27:01,[MRG] Register colormaps in matplotlib,9754ee4b450ae01320b3c71335cef20ab526c099,Pull request merge from AlexandreAbraham/nilearn:preload_cmaps to nilearn/nilearn:master,mrg regist colormap matplotlib,N,2016-07-05 07:28:10
+5,issue_comment,1152,nilearn,nilearn,AlexandreAbraham,2016-07-05 07:28:10,"@GaelVaroquaux @aabadie @lesteve @KamalakerDadi : Here are the three options:
+- we register the colormaps when importing nilearn.plotting.cm
+- we register the colormaps when importing nilearn, which implies always importing the plotting module
+- we register the colormaps when importing nilearn, but we change the code so that the full plotting module is not imported.
+
+Can I have your opinion?
+",,,gaelvaroquaux aabadi lestev kamalakerdadi here three option regist colormap import nilearnplottingcm regist colormap import nilearn impli alway import plot modul regist colormap import nilearn chang code full plot modul import can I opinion,N,2016-07-05 07:39:19
+7,pull_request_commit,1152,nilearn,nilearn,AlexandreAbraham,2016-06-24 08:53:03,Register colormaps in matplotlib,571dd8b211f7c5e9b8bdd0f0208bc6b04ebe4575,,regist colormap matplotlib,N,2016-07-07 12:44:49
+1,issue_title,832,nilearn,nilearn,bcipolli,2015-11-06 23:00:16,"This is an enhancement for #640. Not quite done, but far enough along to talk about the API I've implemented.
+
+To do:
+- [x] Implement an API for downloading selected images from http://neurovault.org/
+- [x] Create dataset documentation
+- [x] Create a basic example for downloading a subset of files.
+- [x] Create a more complex ICA-based example.
+- [x] Create tests
+- [x] Remove dependency on `requests` - use `urllib`
+- [x] Read from disk when offline.
+- [ ] Detect outdated cached collection or image metadata or data.
+
+Neurovault contains images in collections. Collections can be filtered via a few querystring arguments. Images to download and return should be limited by filters on collection and image metadata.
+
+To do this, I've included `collection_filters` and `image_filters` arguments.
+- If `isinstance(collection_filters, dict)`, the filters are used as querystring argument filters.
+- If `isinstance(*_filters, collections.Iterable)` (i.e. a list), the filters are assumed to be functions that receive a collection or image metadata, and returns `True` if the collection's images should be queried, or if the image should be downloaded.
+
+The function returns a `Bunch` of three:
+- `collections`: a dict (key: collection_id) of collection metadata for matched collections.
+- `images`: a list of image metadata (including local file paths) for matched & downloaded images.
+- `func_files`: a list of paths to downloaded files. Could be removed, but I kept it as many other functions return a list of paths to images.
+
+The example I've begun with is a `stop-go` task meta-analysis, ported from:
+https://github.com/NeuroVault/neurovault_analysis/blob/master/Stop%20vs.%20Go%20metaanalysis.ipynb
+
+Note that I avoided trying to convert things to a `pandas` dataframe. The previous examples downloaded all images and filtered using `pandas`; however, all `nilearn` dataset fetchers filter before returning to the user. It was simple enough to allow lambda functions as filters to make very powerful pre-fetch filtering available to the user, so I went that route.
+
+Looking for feedback on the overall API design to start. @chrisfilo and anyone else around! 
+",start issue,Add a NeuroVault fetcher,thi enhanc 640 not quit done far enough along talk api ive implement To x implement api download select imag x creat dataset document x creat basic exampl download subset file x creat complex icabas exampl x creat test x remov depend use x read disk offlin detect outdat cach collect imag metadata data neurovault contain imag collect collect filter via querystr argument imag download return limit filter collect imag metadata To ive includ argument If filter use querystr argument filter If ie list filter assum function receiv collect imag metadata return collect imag queri imag download the function return three dict key collectionid collect metadata match collect list imag metadata includ local file path match download imag list path download file could remov I kept mani function return list path imag the exampl ive begun task metaanalysi port note I avoid tri convert thing datafram the previou exampl download imag filter use howev dataset fetcher filter return user It simpl enough allow lambda function filter make power prefetch filter avail user I went rout look feedback overal api design start chrisfilo anyon els around,N,2016-07-20 13:51:48
+1,issue_title,1175,nilearn,nilearn,banilo,2016-07-09 12:17:45,"It appears tricky to download the full ABIDE datasets as it stands today. There may be 3 different problems:
+1) the download freezed several times with different Wifi connections
+2) already downloaded parts of previously failed fetch attemps are not resumed
+3) Operation timed out error occurs every once in a while
+
+``` python
+
+<ipython-input-4-565d7d34308f> in <module>()
+----> 1 ds.fetch_abide_pcp()
+
+/Users/admin/anaconda/lib/python2.7/site-packages/nilearn/datasets/func.pyc in fetch_abide_pcp(data_dir, n_subjects, pipeline, band_pass_filtering, global_signal_regression, derivatives, quality_checked, url, verbose, **kwargs)
+   1248                   '/'.join([url, derivative, file_id + '_' + derivative + ext]),
+   1249                   {}) for file_id in file_ids]
+-> 1250         files = _fetch_files(data_dir, files, verbose=verbose)
+   1251         # Load derivatives if needed
+   1252         if ext == '.1D':
+
+/Users/admin/anaconda/lib/python2.7/site-packages/nilearn/datasets/utils.pyc in _fetch_files(data_dir, files, resume, mock, verbose)
+    730                                   password=opts.get('password', None),
+    731                                   handlers=opts.get('handlers', []),
+--> 732                                   overwrite=overwrite)
+    733             if 'move' in opts:
+    734                 # XXX: here, move is supposed to be a dir, it can be a name
+
+/Users/admin/anaconda/lib/python2.7/site-packages/nilearn/datasets/utils.pyc in _fetch_file(url, data_dir, resume, overwrite, md5sum, username, password, handlers, verbose)
+    560             local_file = open(temp_full_name, ""wb"")
+    561         _chunk_read_(data, local_file, report_hook=(verbose > 0),
+--> 562                      initial_size=initial_size, verbose=verbose)
+    563         # temp file must be closed prior to the move
+    564         if not local_file.closed:
+
+/Users/admin/anaconda/lib/python2.7/site-packages/nilearn/datasets/utils.pyc in _chunk_read_(response, local_file, chunk_size, report_hook, initial_size, total_size, verbose)
+    153     t0 = time_last_display = time.time()
+    154     while True:
+--> 155         chunk = response.read(chunk_size)
+    156         bytes_so_far += len(chunk)
+    157         time_last_read = time.time()
+
+/Users/admin/anaconda/lib/python2.7/socket.pyc in read(self, size)
+    382                 # fragmentation issues on many platforms.
+    383                 try:
+--> 384                     data = self._sock.recv(left)
+    385                 except error, e:
+    386                     if e.args[0] == EINTR:
+
+/Users/admin/anaconda/lib/python2.7/httplib.pyc in read(self, amt)
+    610         # connection, and the user is reading more bytes than will be provided
+    611         # (for example, reading in 1k chunks)
+--> 612         s = self.fp.read(amt)
+    613         if not s and amt:
+    614             # Ideally, we would raise IncompleteRead if the content-length
+
+/Users/admin/anaconda/lib/python2.7/socket.pyc in read(self, size)
+    382                 # fragmentation issues on many platforms.
+    383                 try:
+--> 384                     data = self._sock.recv(left)
+    385                 except error, e:
+    386                     if e.args[0] == EINTR:
+
+/Users/admin/anaconda/lib/python2.7/ssl.pyc in recv(self, buflen, flags)
+    732                     ""non-zero flags not allowed in calls to recv() on %s"" %
+    733                     self.__class__)
+--> 734             return self.read(buflen)
+    735         else:
+    736             return self._sock.recv(buflen, flags)
+
+/Users/admin/anaconda/lib/python2.7/ssl.pyc in read(self, len, buffer)
+    619                 v = self._sslobj.read(len, buffer)
+    620             else:
+--> 621                 v = self._sslobj.read(len or 1024)
+    622             return v
+    623         except SSLError as x:
+
+error: [Errno 60] Operation timed out
+
+```
+",start issue,"""Operation timed out"" during fetch_abide_pcp()",It appear tricki download full abid dataset stand today there may 3 differ problem 1 download freez sever time differ wifi connect 2 alreadi download part previous fail fetch attemp resum 3 oper time error occur everi,N,2016-07-11 07:39:05
+2,issue_closed,1175,nilearn,nilearn,AlexandreAbraham,2016-07-11 07:39:05,,closed issue,"""Operation timed out"" during fetch_abide_pcp()",,N,2016-07-09 14:07:48
+3,issue_comment,1175,nilearn,nilearn,AlexandreAbraham,2016-07-09 14:07:48,"True, I noticed this problem recently. Gimme 5 minutes tu prepare a fix.
+",,,true I notic problem recent gimm 5 minut tu prepar fix,N,2016-07-09 14:16:24
+4,issue_comment,1175,nilearn,nilearn,AlexandreAbraham,2016-07-09 14:16:24,"PR on the way ;). You can take my branch directly, the modification should be safe. I have a beta fetcher for anatomical data of ABIDE (cortical thickness...) if you want to test.
+",,,PR way you take branch directli modif safe I beta fetcher anatom data abid cortic thick want test,Y,2016-07-09 17:12:31

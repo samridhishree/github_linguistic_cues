@@ -1,0 +1,30 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,454,nilearn,nilearn,banilo,2015-02-22 20:38:14,"tries to fix #379 
+
+It's a quick fix for now that handles 0 to positive valued colorbars. Do we want more than that?
+",start issue,glass_brain: fix colorbar,tri fix 379 it quick fix handl 0 posit valu colorbar Do want,N
+issue_closed,454,nilearn,nilearn,lesteve,2015-02-27 13:18:20,nan,closed issue,glass_brain: fix colorbar,nan,N
+pull_request_title,454,nilearn,nilearn,banilo,2015-02-22 20:38:14,"tries to fix #379 
+
+It's a quick fix for now that handles 0 to positive valued colorbars. Do we want more than that?
+",a1b651f0082510b19b8b301339a2308fce34cfde,glass_brain: fix colorbar,tri fix 379 it quick fix handl 0 posit valu colorbar Do want,N
+pull_request_merged,454,nilearn,nilearn,lesteve,2015-02-27 13:18:20,glass_brain: fix colorbar,8c0a7cd0747b17ce5304f81b9ccd084099778fba,Pull request merge from banilo/nilearn:cb_fix to nilearn/nilearn:master,glassbrain fix colorbar,N
+issue_comment,454,nilearn,nilearn,banilo,2015-02-23 10:22:40,"Cleanups done!
+",nan,nan,cleanup done,N
+issue_comment,454,nilearn,nilearn,lesteve,2015-02-24 12:45:07,"@banilo you have some tests failures that seem genuine.
+",nan,nan,banilo test failur seem genuin,Y
+issue_comment,454,nilearn,nilearn,lesteve,2015-02-27 09:05:39,"Add a test for plot_glass_brain with colorbar=True and squash your commits and this will be good to go. 
+",nan,nan,add test plotglassbrain colorbartru squash commit good go,Y
+issue_comment,454,nilearn,nilearn,banilo,2015-02-27 12:13:23,"> Add a test for plot_glass_brain with colorbar=True and squash your commits and this will be good to go.
+
+done.
+",nan,nan,done,N
+issue_comment,454,nilearn,nilearn,lesteve,2015-02-27 13:18:22,"Thanks!
+",nan,nan,thank,N
+pull_request_commit_comment,454,nilearn,nilearn,AlexandreAbraham,2015-02-22 20:49:54,":-1: 
+",a1b651f0082510b19b8b301339a2308fce34cfde,"(None, '', u'nilearn/plotting/displays.py')",1,N
+pull_request_commit_comment,454,nilearn,nilearn,AlexandreAbraham,2015-02-22 20:54:50,"If it's just for computing the max, you don't need to unmask. If you really want to get the non-masked values, use `stat_map_data.compressed()`
+",a1b651f0082510b19b8b301339a2308fce34cfde,"(None, '', u'nilearn/plotting/img_plotting.py')",If comput max dont need unmask If realli want get nonmask valu use,N
+pull_request_commit,454,nilearn,nilearn,banilo,2015-02-27 11:34:55,glass_brain: colorbar-fix,0356a7e71c5a6c84c12b0d9ec7a1e74f1a1dfbce,nan,glassbrain colorbarfix,N
+pull_request_commit,454,nilearn,nilearn,banilo,2015-02-27 12:57:02,added test for glassbrain+cb,a1b651f0082510b19b8b301339a2308fce34cfde,nan,ad test glassbraincb,N

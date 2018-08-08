@@ -1,0 +1,7 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,1541,nilearn,nilearn,banilo,2017-11-07 12:16:26,This PR hopes to solve #1537 ,start issue,maskers: avoid NaN/0 default confusion,thi PR hope solv 1537,N
+pull_request_title,1541,nilearn,nilearn,banilo,2017-11-07 12:16:26,This PR hopes to solve #1537 ,376dcd1ce426ef99ee7ca8a8210d3b9155bb4356,maskers: avoid NaN/0 default confusion,thi PR hope solv 1537,N
+issue_comment,1541,nilearn,nilearn,KamalakerDadi,2017-11-07 18:54:30,"There are genuine test failures just in case if you may have not noticed them.
+Also, we need tests for this patch.",nan,nan,there genuin test failur case may notic also need test patch,Y
+pull_request_commit,1541,nilearn,nilearn,banilo,2017-11-07 12:12:58,maskers: avoid NaN/0 default confusion,376dcd1ce426ef99ee7ca8a8210d3b9155bb4356,nan,masker avoid nan0 default confus,N

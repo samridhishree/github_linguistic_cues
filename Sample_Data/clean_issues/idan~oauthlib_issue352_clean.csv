@@ -1,0 +1,15 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,352,idan,oauthlib,ib-lundgren,2015-07-01 10:42:27,"Per http://docs.travis-ci.com/user/deployment/pypi/ using travis setup pypi.
+
+The indentation got clobbered by the travis tool. I don't have strong feelings either way.
+",start issue,"Travis deploy to PyPI on github tag. #333, #346.",per use travi setup pypi the indent got clobber travi tool I dont strong feel either way
+issue_closed,352,idan,oauthlib,thedrow,2015-07-01 11:29:21,,closed issue,"Travis deploy to PyPI on github tag. #333, #346.",
+pull_request_title,352,idan,oauthlib,ib-lundgren,2015-07-01 10:42:27,"Per http://docs.travis-ci.com/user/deployment/pypi/ using travis setup pypi.
+
+The indentation got clobbered by the travis tool. I don't have strong feelings either way.
+",4149010e856fcd03ae7833d66953c130898122cc,"Travis deploy to PyPI on github tag. #333, #346.",per use travi setup pypi the indent got clobber travi tool I dont strong feel either way
+pull_request_merged,352,idan,oauthlib,thedrow,2015-07-01 11:29:21,"Travis deploy to PyPI on github tag. #333, #346.",2e21c454621d773b92552304a83fe040e9a93c4d,Pull request merge from idan/oauthlib:travis_deploy to idan/oauthlib:master,travi deploy pypi github tag 333 346
+issue_comment,352,idan,oauthlib,thedrow,2015-07-01 11:29:29,"Wonderful. Thank you.
+",,,wonder thank
+pull_request_commit,352,idan,oauthlib,ib-lundgren,2015-07-01 10:36:51,"Travis deploy to PyPI on github tag. #333, #346.",4149010e856fcd03ae7833d66953c130898122cc,,travi deploy pypi github tag 333 346

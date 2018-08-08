@@ -1,0 +1,98 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,11,pycqa,astroid,pylint-bot,2014-01-14 12:38:04,"Originally reported by: **Anonymous**
+
+---
+
+OS: Windows XP
+Python 3.3.2
+astroid 1.0.1
+pylint 1.0.0
+
+pylint --rcfile=pylint.ini src
+
+Traceback (most recent call last):
+  File ""C:\python33\lib\site-packages\astroid\scoped_nodes.py"", line 284, in getattr
+    return [self.import_module(name, relative_only=True)]
+  File ""C:\python33\lib\site-packages\astroid\brain\py2gi.py"", line 113, in _new_import_module
+    return _orig_import_module(self, modname, relative_only, level)
+  File ""C:\python33\lib\site-packages\astroid\scoped_nodes.py"", line 339, in import_module
+    return MANAGER.ast_from_module_name(absmodname)
+  File ""C:\python33\lib\site-packages\astroid\manager.py"", line 133, in ast_from_module_name
+    return self.ast_from_file(filepath, modname, fallback=False)
+  File ""C:\python33\lib\site-packages\astroid\manager.py"", line 104, in ast_from_file
+    return AstroidBuilder(self).file_build(filepath, modname)
+  File ""C:\python33\lib\site-packages\astroid\builder.py"", line 127, in file_build
+    node = self.string_build(data, modname, path)
+  File ""C:\python33\lib\site-packages\astroid\builder.py"", line 140, in string_build
+    self.delayed_assattr(delayed)
+  File ""C:\python33\lib\site-packages\astroid\builder.py"", line 190, in delayed_assattr
+    for infered in node.expr.infer():
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 311, in wrapped
+    for res in _func(node, context, *_kwargs):
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 115, in _infer_stmts
+    for infered in stmt.infer(context):
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 311, in wrapped
+    for res in _func(node, context, *_kwargs):
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 115, in _infer_stmts
+    for infered in stmt.infer(context):
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 311, in wrapped
+    for res in _func(node, context, *_kwargs):
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 335, in wrapper
+    for node in func(_args, **kwargs):
+  File ""C:\python33\lib\site-packages\astroid\inference.py"", line 162, in infer_callfunc
+    for infered in callee.infer_call_result(self, callcontext):
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 277, in infer_call_result
+    return self._proxied.infer_call_result(caller, context)
+  File ""C:\python33\lib\site-packages\astroid\bases.py"", line 261, in infer_call_result
+    return (x is YES and x or Instance(x) for x in caller.args[0].infer())
+IndexError: list index out of range
+
+Pylint continues:
+
+Report
+82 statements analysed.
+
+Note that I have added diagnostics in 'bases.py', so the line number 261 may not be accurate:
+260:  print(caller,caller.args)
+this prints: CallFunc() []
+before the traceback
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/11
+",start issue,Pylint crashes in astroid IndexError: list index out of range,origin report anonym OS window XP python 332 astroid 101 pylint 100 pylint rcfilepylintini src traceback recent call last file cpython33libsitepackagesastroidscopednodespi line 284 getattr return selfimportmodulenam relativeonlytru file cpython33libsitepackagesastroidbrainpy2gipi line 113 newimportmodul return origimportmoduleself modnam relativeonli level file cpython33libsitepackagesastroidscopednodespi line 339 importmodul return managerastfrommodulenameabsmodnam file cpython33libsitepackagesastroidmanagerpi line 133 astfrommodulenam return selfastfromfilefilepath modnam fallbackfals file cpython33libsitepackagesastroidmanagerpi line 104 astfromfil return astroidbuilderselffilebuildfilepath modnam file cpython33libsitepackagesastroidbuilderpi line 127 filebuild node selfstringbuilddata modnam path file cpython33libsitepackagesastroidbuilderpi line 140 stringbuild selfdelayedassattrdelay file cpython33libsitepackagesastroidbuilderpi line 190 delayedassattr infer nodeexprinf file cpython33libsitepackagesastroidbasespi line 311 wrap re funcnod context kwarg file cpython33libsitepackagesastroidbasespi line 115 inferstmt infer stmtinfercontext file cpython33libsitepackagesastroidbasespi line 311 wrap re funcnod context kwarg file cpython33libsitepackagesastroidbasespi line 115 inferstmt infer stmtinfercontext file cpython33libsitepackagesastroidbasespi line 311 wrap re funcnod context kwarg file cpython33libsitepackagesastroidbasespi line 335 wrapper node funcarg kwarg file cpython33libsitepackagesastroidinferencepi line 162 infercallfunc infer calleeinfercallresultself callcontext file cpython33libsitepackagesastroidbasespi line 277 infercallresult return selfproxiedinfercallresultcal context file cpython33libsitepackagesastroidbasespi line 261 infercallresult return x ye x instancex x callerargs0inf indexerror list index rang pylint continu report 82 statement analys note I ad diagnost basespi line number 261 may accur 260 printcallercallerarg print callfunc traceback bitbucket
+issue_closed,11,pycqa,astroid,pylint-bot,2015-12-09 05:51:41,,closed issue,Pylint crashes in astroid IndexError: list index out of range,
+issue_comment,11,pycqa,astroid,pylint-bot,2014-01-14 11:52:03,"_Original comment by_ **Andrew Wall (BitBucket: [quamrana](http://bitbucket.org/quamrana))**:
+
+---
+
+Just signed up to bitbucket.
+
+Let me know if you want additional details.
+",,,origin comment andrew wall bitbucket quamrana just sign bitbucket let know want addit detail
+issue_comment,11,pycqa,astroid,pylint-bot,2014-01-14 12:30:07,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+we would need the smallest possible code snippet that reproduce the
+problem. Also you may want to try pylint 1.1 (but I don't think it will fix
+your pb)/
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault would need smallest possibl code snippet reproduc problem also may want tri pylint 11 I dont think fix pb
+issue_comment,11,pycqa,astroid,pylint-bot,2014-04-08 12:18:36,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+@quamrana up?
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault quamrana
+issue_comment,11,pycqa,astroid,pylint-bot,2014-08-20 21:29:37,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Don't crash when trying to infer unbound object.**new** call. Closes issue #11.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor dont crash tri infer unbound objectnew call close issu 11
+issue_comment,11,pycqa,astroid,pylint-bot,2014-08-20 21:30:19,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Should be fixed.
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor should fix

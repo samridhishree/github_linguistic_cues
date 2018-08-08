@@ -1,0 +1,8 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,379,idan,oauthlib,uggedal,2015-08-12 06:56:03,"I'm maintaining `oauthlib` for Void Linux and it would be great if you could publish a sdist tarball for the 1.0.2 release.
+",start issue,Missing sdist tarball on pypi,Im maintain void linux would great could publish sdist tarbal 102 releas,N
+issue_closed,379,idan,oauthlib,thedrow,2015-08-16 12:15:11,nan,closed issue,Missing sdist tarball on pypi,nan,N
+issue_comment,379,idan,oauthlib,thedrow,2015-08-16 12:15:11,"1.0.2 was released today. Travis has some problems with deploying to PyPi at the moment so I released manually.
+Sorry about that.
+",nan,nan,102 releas today travi problem deploy pypi moment I releas manual sorri,Y

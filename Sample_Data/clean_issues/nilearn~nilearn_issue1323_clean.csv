@@ -1,0 +1,42 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1323,nilearn,nilearn,dawnsong,2016-11-05 04:05:29,"Dear Dr. Gaël and Arthur, 
+
+The reference given in the help and code of diction learning is:
+Gaël Varoquaux, Gramfort, A., Pedregosa, F., Michel, V., Thirion, B., 2011. Multi-subject dictionary learning to segment an atlas of brain spontaneous activity, in: Information Processing in Medical Imaging. Springer, pp. 562–573.
+
+
+But after reading the code, it looks like the reference should be:
+Mensch, A., Varoquaux, G., Thirion, B., 2016. Compressed online dictionary learning for fast resting-state fMRI decomposition, in: 2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI). Presented at the 2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI), pp. 1282–1285. doi:10.1109/ ISBI.2016.7493501
+
+Am I correct? If I am correct, will you also include MSDL method into nilearn in future?
+
+Best,
+Xiaowei
+
+Reference:
+
+- [nilearn dictionary learning help](http://nilearn.github.io/auto_examples/03_connectivity/plot_compare_resting_state_decomposition.html)
+
+- [nilearn dictionary learning code](https://github.com/nilearn/nilearn/blob/master/nilearn/decomposition/dict_learning.py)",start issue,Wrong reference for dictionary learning in current nilearn?,dear Dr gaël arthur the refer given help code diction learn gaël varoquaux gramfort A pedregosa F michel V thirion B 2011 multisubject dictionari learn segment atla brain spontan activ inform process medic imag springer pp 562–573 but read code look like refer mensch A varoquaux G thirion B 2016 compress onlin dictionari learn fast restingst fmri decomposit 2016 ieee 13th intern symposium biomed imag isbi present 2016 ieee 13th intern symposium biomed imag isbi pp 1282–1285 doi101109 isbi20167493501 Am I correct If I correct also includ msdl method nilearn futur best xiaowei refer nilearn dictionari learn help nilearn dictionari learn code
+issue_closed,1323,nilearn,nilearn,KamalakerDadi,2017-03-03 15:57:10,,closed issue,Wrong reference for dictionary learning in current nilearn?,
+issue_comment,1323,nilearn,nilearn,GaelVaroquaux,2016-11-07 06:12:46,"Xiaowei is right, and the code that we use is actually pretty much the
+paper by Arthur in ISBI.
+
+The MSDL is much more complicated to code, and is still in the pipeline
+:(. It's also much slower.
+",,,xiaowei right code use actual pretti much paper arthur isbi the msdl much complic code still pipelin it also much slower
+issue_comment,1323,nilearn,nilearn,bthirion,2016-11-06 22:07:01,"You probably mean that the Varoquaux method in 2011 wans not an online version. I'm not sure that the implementation here uses the tricks of the ISBI paper though. 
+@arthurmensch can you confirm ?
+",,,you probabl mean varoquaux method 2011 wan onlin version Im sure implement use trick isbi paper though arthurmensch confirm
+issue_comment,1323,nilearn,nilearn,dawnsong,2016-11-07 00:58:27,"Thanks for your response, Prof. Thirion, @bthirion .
+I guess batch/online might be also one difference, as you pointed out, but I don't know where to download and try MSDL.
+In the current ""dict_learning.py"", the penalty is only L-1 norm (from sklearn's Dictionary Learning), not like Varoquax's MSDL, which used smooth-Lasso. 
+And the current ""dict_learning.py"" feed DL  with PCA reduced in subject-level and temporal-concatenated to group level. While MSDL's cost fucntion directly modeled subject's data, does not use PCA to reduce subject's data. I guess it is very similar and should be Arthur's 2016 ISBI paper.
+
+Best,
+Xiaowei
+",,,thank respons prof thirion bthirion I guess batchonlin might also one differ point I dont know download tri msdl In current dictlearningpi penalti L1 norm sklearn dictionari learn like varoquax msdl use smoothlasso and current dictlearningpi feed DL pca reduc subjectlevel temporalconcaten group level while msdl cost fucntion directli model subject data use pca reduc subject data I guess similar arthur 2016 isbi paper best xiaowei
+issue_comment,1323,nilearn,nilearn,dawnsong,2016-11-07 06:31:18,"Dear Dr. Varoquaux, @GaelVaroquaux , thanks a lot for confirmation :)
+The current Arthur's online DL version is lightning fast for my test data!
+",,,dear Dr varoquaux gaelvaroquaux thank lot confirm the current arthur onlin DL version lightn fast test data

@@ -1,0 +1,235 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1047,nilearn,nilearn,dohmatob,2016-03-04 04:50:59,"![contours](https://cloud.githubusercontent.com/assets/634068/13518308/9161d8bc-e1cc-11e5-946a-98a062539589.png)
+![filled_contours](https://cloud.githubusercontent.com/assets/634068/13518311/94a8de3a-e1cc-11e5-9fb3-c30504044aff.png)
+![continuous](https://cloud.githubusercontent.com/assets/634068/13518313/97cccb30-e1cc-11e5-8d57-d9a020924f84.png)
+
+Ideally, the top 2 plots should be contours of the the bottom-most one, but it looks like the implementations we have use completely different heuristics (disclaimer: i haven't yet looked at the code).
+",start issue,plot_prob_atlas: Different view_types tell very different stories,contour filledcontour continu ideal top 2 plot contour bottommost one look like implement use complet differ heurist disclaim havent yet look code,N,2016-06-09 12:47:03
+1,issue_title,1026,nilearn,nilearn,arthurmensch,2016-02-26 16:26:43,"Issue #1018. I put the colorbar by default for consistency with `plot_stat_map`
+
+Screenshot
+![screenshot from 2016-02-26 17-29-29](https://cloud.githubusercontent.com/assets/4078691/13358236/87f945da-dcae-11e5-874e-33f7704fed25.png)
+",start issue,[MRG] Plot prob atlas colorbar,issu 1018 I put colorbar default consist screenshot screenshot 20160226 172929,N,2016-06-07 15:27:00
+3,pull_request_title,1026,nilearn,nilearn,arthurmensch,2016-02-26 16:26:43,"Issue #1018. I put the colorbar by default for consistency with `plot_stat_map`
+
+Screenshot
+![screenshot from 2016-02-26 17-29-29](https://cloud.githubusercontent.com/assets/4078691/13358236/87f945da-dcae-11e5-874e-33f7704fed25.png)
+",8b932584bba05404d90a5025e73cf0502569e859,[MRG] Plot prob atlas colorbar,issu 1018 I put colorbar default consist screenshot screenshot 20160226 172929,N,2016-06-07 15:27:00
+1,issue_title,1034,nilearn,nilearn,MartinPerez,2016-02-29 16:08:21,"Glass brain hemispheres implementation to address #942.
+
+tests, doc update and examples update included.
+
+Here result images from the plot_demo_glass_brain_extensive example.
+
+![figure_6](https://cloud.githubusercontent.com/assets/8766915/13400201/fce52e18-df06-11e5-9a84-4d4774788c0f.png)
+![figure_7](https://cloud.githubusercontent.com/assets/8766915/13400202/fe471686-df06-11e5-95d7-eb4a92dbd866.png)
+![figure_8](https://cloud.githubusercontent.com/assets/8766915/13400204/ffd9be68-df06-11e5-9f7b-682390d902a6.png)
+![figure_9](https://cloud.githubusercontent.com/assets/8766915/13400205/01917494-df07-11e5-95e4-1ab45945a46b.png)
+![figure_10](https://cloud.githubusercontent.com/assets/8766915/13400207/029bc1e6-df07-11e5-91d8-020fb114fb5c.png)
+",start issue,Glass brain hemispheres,glass brain hemispher implement address 942 test doc updat exampl updat includ here result imag plotdemoglassbrainextens exampl figure6 figure7 figure8 figure9 figure10,N,2016-06-07 15:05:47
+3,pull_request_title,1034,nilearn,nilearn,MartinPerez,2016-02-29 16:08:21,"Glass brain hemispheres implementation to address #942.
+
+tests, doc update and examples update included.
+
+Here result images from the plot_demo_glass_brain_extensive example.
+
+![figure_6](https://cloud.githubusercontent.com/assets/8766915/13400201/fce52e18-df06-11e5-9a84-4d4774788c0f.png)
+![figure_7](https://cloud.githubusercontent.com/assets/8766915/13400202/fe471686-df06-11e5-95d7-eb4a92dbd866.png)
+![figure_8](https://cloud.githubusercontent.com/assets/8766915/13400204/ffd9be68-df06-11e5-9f7b-682390d902a6.png)
+![figure_9](https://cloud.githubusercontent.com/assets/8766915/13400205/01917494-df07-11e5-95e4-1ab45945a46b.png)
+![figure_10](https://cloud.githubusercontent.com/assets/8766915/13400207/029bc1e6-df07-11e5-91d8-020fb114fb5c.png)
+",51518558cc84f9105ac0c051eb0b8916b5dfadf5,Glass brain hemispheres,glass brain hemispher implement address 942 test doc updat exampl updat includ here result imag plotdemoglassbrainextens exampl figure6 figure7 figure8 figure9 figure10,N,2016-06-07 15:05:47
+10,issue_comment,1034,nilearn,nilearn,GaelVaroquaux,2016-05-19 11:55:45,"Indeed, very nice!
+
+We would need a tiny example demoing it.
+
+Maybe you can do a new example in the plotting section that demos plot connectome and replace the image in https://circle-artifacts.com/gh/nilearn/nilearn/1495/artifacts/0/home/ubuntu/nilearn/doc/_build/html/plotting/index.html#different-plotting-functions by the image it generates (and link to that example).
+
+I think that, for now, we could use a hard-coded set of coordinates and connectivity matrix, for instance inspired by: https://circle-artifacts.com/gh/nilearn/nilearn/1495/artifacts/0/home/ubuntu/nilearn/doc/_build/html/auto_examples/03_connectivity/plot_adhd_spheres.html#sphx-glr-auto-examples-03-connectivity-plot-adhd-spheres-py
+
+It would enable us to demo the hemisphere plotting for connectomes.
+",,,inde nice We would need tini exampl demo mayb new exampl plot section demo plot connectom replac imag imag gener link exampl I think could use hardcod set coordin connect matrix instanc inspir It would enabl us demo hemispher plot connectom,N,2016-06-07 15:11:21
+20,issue_comment,1034,nilearn,nilearn,bthirion,2016-05-25 21:49:58,"LGTM.
+",,,lgtm,N,2016-06-07 15:05:42
+21,issue_comment,1034,nilearn,nilearn,AlexandreAbraham,2016-06-07 15:05:42,"LGTM too. Merging. Thanks a lot!
+",,,lgtm merg thank lot,N,2016-06-07 16:08:23
+1,issue_title,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 09:19:06,"- documentation improvements accordingly in `plot_prob_atlas` plotting function
+- tests added for threshold=None `plot_prob_atlas`
+
+Trying to Fix #1047 
+",start issue,[MRG+1] threshold=None implies keeping data as it is to be visualized in plot_prob_atlas function,document improv accordingli plot function test ad thresholdnon tri fix 1047,N,2016-06-09 12:47:03
+3,pull_request_title,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 09:19:06,"- documentation improvements accordingly in `plot_prob_atlas` plotting function
+- tests added for threshold=None `plot_prob_atlas`
+
+Trying to Fix #1047 
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,[MRG+1] threshold=None implies keeping data as it is to be visualized in plot_prob_atlas function,document improv accordingli plot function test ad thresholdnon tri fix 1047,N,2016-06-09 12:47:03
+4,pull_request_merged,1100,nilearn,nilearn,lesteve,2016-06-09 12:47:03,[MRG+1] threshold=None implies keeping data as it is to be visualized in plot_prob_atlas function,35d6c7bd71eb8e29930af6b0cfd05c41d631bf26,Pull request merge from KamalakerDadi/nilearn:doc_improvements_plot_prob_atlas to nilearn/nilearn:master,mrg1 thresholdnon impli keep data visual plotprobatla function,N,2016-06-09 12:40:42
+10,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 14:48:39,"> Apart from that, +1 for merging.
+
+Ok cool. I will address them soon.
+",,,Ok cool I address soon,N,2016-06-08 08:43:51
+11,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-06-08 08:43:51,"Any more reviews on this ?
+",,,ani review,N,2016-06-09 09:57:08
+12,issue_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:57:08,"LGTM, will wait for the tests to be green and merge.
+",,,lgtm wait test green merg,Y,2016-06-09 12:45:22
+13,issue_comment,1100,nilearn,nilearn,lesteve,2016-06-09 12:45:22,"The previous commit was all green, and the latest one is a simple change so I'll merge this one, thanks!
+",,,the previou commit green latest one simpl chang ill merg one thank,N,2016-06-09 08:33:59
+14,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-06-09 08:33:59,"I am done with recent comments.
+",,,I done recent comment,N,2016-06-09 09:36:48
+31,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 14:47:29,"I will change. I thought description for argument will be so long.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",I chang I thought descript argument long,N,2016-06-08 21:27:17
+32,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-06-08 21:27:17,"automized -> automatically selected
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",autom,N,2016-06-08 21:27:44
+33,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-06-08 21:27:44,"""which lies above"" -> ""above""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",lie,N,2016-06-08 21:29:53
+34,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-06-08 21:29:53,"should match the (no ""with"")
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",match,N,2016-06-09 09:11:16
+35,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:11:16,"I would remove 'auto' since it is a str and I don't see the point of singling out this value in the type information of the parameter.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",I would remov auto sinc str I dont see point singl valu type inform paramet,N,2016-06-09 09:15:41
+36,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:15:41,"It's not completely true, right? You are setting the threshold to a small value, maybe you could say that you are removing the background without mentioning the precise value of the threshold you are using.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",it complet true right you set threshold small valu mayb could say remov background without mention precis valu threshold use,N,2016-06-09 09:15:55
+37,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:15:55,"Remove this comment, not informative.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",remov comment inform,N,2016-06-09 09:16:20
+38,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:16:20,"ping @AlexandreAbraham.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')",ping alexandreabraham,N,2016-06-09 12:33:04
+39,pull_request_commit_comment,1100,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:33:04,"It would be good to have a plt.close after that.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')",It would good pltclose,N,2016-06-09 12:35:52
+40,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 12:35:52,"Nice catch
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')",nice catch,N,2016-06-09 12:43:38
+41,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-06-09 12:43:38,"BTW, I have added `plt.close` everywhere to save testing time and it was efficient. Do you think that we should configure nose to close all figures after each test?
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')",btw I ad everywher save test time effici Do think configur nose close figur test,Y,2016-06-09 12:46:29
+42,pull_request_commit_comment,1100,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:46:29,"> BTW, I have added plt.close everywhere to save testing time and it was
+> efficient. Do you think that we should configure nose to close all figures
+> after each test?
+
+I am worried that I will create more infrastructure that is opaque to non
+expert contributors. I prefer simple solutions like this.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')",I worri I creat infrastructur opaqu non expert contributor I prefer simpl solut like,N,2016-06-09 12:47:24
+47,pull_request_commit,1100,nilearn,nilearn,KamalakerDadi,2016-05-28 10:15:59,Addressed more comments on wording details by Alex and self improvements,4c82c52a2d3da449cf3a8adb7b06515597aea60b,,address comment word detail alex self improv,N,2016-06-09 08:30:13
+48,pull_request_commit,1100,nilearn,nilearn,KamalakerDadi,2016-06-09 08:30:13,Addressed documentation details commented by Bertrand,7c9d35638eca7dc9db73990845acdcbc0745e088,,address document detail comment bertrand,N,2016-06-09 09:37:53
+49,pull_request_commit,1100,nilearn,nilearn,KamalakerDadi,2016-06-09 09:37:53,Addressed improvements in the documentation by Loic,638b6b0af528f6f02470e27be7db6e821551a4b3,,address improv document loic,N,2016-06-09 12:40:07
+1,issue_title,449,nilearn,nilearn,bcipolli,2015-02-20 07:17:03,"I expected the background color to be white (or, in the worst case, for the background to be transparent/grey for both the image and text labels).
+
+I only found one example using subplots, and it specifies a background image... so not 100% sure my expectation / usage is proper.
+
+![screen shot 2015-02-19 at 11 08 18 pm](https://cloud.githubusercontent.com/assets/4072455/6282611/a012cd5e-b88c-11e4-9eb1-ff81ee5b0e81.png)
+
+``` python
+import matplotlib.pyplot as plt
+
+from nilearn import datasets
+from nilearn.plotting import plot_glass_brain
+from nilearn.image import index_img, iter_img
+
+n_maps = 3
+msdl_atlas_dataset = datasets.fetch_msdl_atlas()
+maps_img = msdl_atlas_dataset.maps
+fh = plt.figure()
+for ii, img in enumerate(iter_img(index_img(maps_img, range(n_maps)))):
+    ax = fh.add_subplot(n_maps, 1, ii)
+    plot_glass_brain(img, axes=ax)
+plt.show()
+```
+",start issue,Background color not painted when using subplot.,I expect background color white worst case background transparentgrey imag text label I found one exampl use subplot specifi background imag 100 sure expect usag proper screen shot 20150219 11 08 18 pm,N,2016-06-07 22:03:04
+1,issue_title,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 07:19:01,"First attempt to solve #1116.
+",start issue,Add function clean_img,first attempt solv 1116,N,2016-06-10 13:00:53
+2,issue_closed,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 13:00:53,,closed issue,Add function clean_img,,N,2016-06-10 07:19:01
+3,pull_request_title,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 07:19:01,"First attempt to solve #1116.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,Add function clean_img,first attempt solv 1116,N,2016-06-10 13:00:53
+4,pull_request_merged,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 13:00:53,Add function clean_img,86d3eb88a96b31ec069e7d511132c1c848cb3652,Pull request merge from AlexandreAbraham/nilearn:img_functions to nilearn/nilearn:master,add function cleanimg,N,2016-06-10 11:53:37
+5,issue_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:53:37,"LGTM apart from some minor details.
+",,,lgtm apart minor detail,N,2016-06-10 11:55:09
+6,issue_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:55:09,"Also, doc/whats_new and version added
+",,,also docwhatsnew version ad,N,2016-06-10 10:46:13
+7,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:46:13,"I would remove from this signature ""atleast_4d"" and ""ensure_ndim"", and move one step forward ""wildcards"" which is more important to the end use than the control on the dtype.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I would remov signatur atleast4d ensurendim move one step forward wildcard import end use control dtype,N,2016-06-10 10:47:05
+8,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:47:05,"This note is relevant to nilearn developers, but not to end users, I would remove it.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",thi note relev nilearn develop end user I would remov,N,2016-06-10 10:47:53
+9,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:47:53,"Nitpick: orthodox pep8 would like you to align this line with the opening parenthesis above.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",nitpick orthodox pep8 would like align line open parenthesi,N,2016-06-10 10:48:42
+10,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:48:42,"Shouldn't this function be in nilearn.image? This is where I would look for it.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",shouldnt function nilearnimag thi I would look,N,2016-06-10 10:51:53
+11,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 10:51:53,"You should create a local rng, and not sample from the global one, using something like:
+
+rng = np.random.RandomState(0)
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/tests/test_signal.py')",you creat local rng sampl global one use someth like rng nprandomrandomstate0,N,2016-06-10 11:20:22
+12,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:20:22,"I would say Nifti-like, parameter implies the same.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I would say niftilik paramet impli,N,2016-06-10 11:22:15
+13,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:22:15,"missing doc, ensure_ndim if it is not going to removed
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(103, '', u'nilearn/image/image.py')",miss doc ensurendim go remov,N,2016-06-10 11:22:42
+14,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 11:22:42,"> I would say Nifti-like, parameter implies the same.
+
+I am not sure that I agree. Niimg-like comes with a specific definition
+in the nilearn context.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I sure I agre niimglik come specif definit nilearn context,N,2016-06-10 11:24:52
+15,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:24:52,"I saw a lot documentation describing like this.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",I saw lot document describ like,N,2016-06-10 11:33:34
+16,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:33:34,"A bit explicit may be dtype -> data-type ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",A bit explicit may dtype,N,2016-06-10 11:35:05
+17,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:35:05,"bool ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",bool,N,2016-06-10 11:36:07
+18,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:36:07,"May be `nilearn.image.clean_img` if this tends to be in nilearn.image
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",may tend nilearnimag,N,2016-06-10 11:36:46
+19,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:36:46,"avoid
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",avoid,N,2016-06-10 11:41:25
+20,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:41:25,"parameter is named as niimg, above.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",paramet name niimg,N,2016-06-10 11:42:54
+21,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:42:54,"filtered -> cleaned ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",filter,N,2016-06-10 11:47:14
+22,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:47:14,"optional, missing
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",option miss,N,2016-06-10 11:49:13
+23,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:49:13,"Are we not expect to return image here ?
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",are expect return imag,N,2016-06-10 11:51:11
+24,pull_request_commit_comment,1119,nilearn,nilearn,KamalakerDadi,2016-06-10 11:51:11,"Minor detail: it would be nice if doc too follows the same order as described above.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",minor detail would nice doc follow order describ,N,2016-06-10 12:03:50
+25,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:03:50,"Any special reason to do that? We don't need strong repeatbility on this one. Also, we never use this in the rest of the tests.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/tests/test_signal.py')",ani special reason We dont need strong repeatbl one also never use rest test,Y,2016-06-10 12:05:20
+26,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:05:20,"In all the docs, we have ""Niimg-like"" (in the docstrings).
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",In doc niimglik docstr,N,2016-06-10 12:05:27
+27,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:05:27,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(103, '', u'nilearn/image/image.py')",fix,N,2016-06-10 12:05:52
+28,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:05:52,"We use dtype to be consistent with numpy.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",We use dtype consist numpi,N,2016-06-10 12:06:13
+29,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:06:13,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",fix,N,2016-06-10 12:06:21
+30,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:06:21,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",fix,N,2016-06-10 12:06:28
+31,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:06:28,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",fix,N,2016-06-10 12:08:37
+32,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:08:37,"Fixed. I used img to be consistent with the other functions.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",fix I use img consist function,N,2016-06-10 12:09:06
+33,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:09:06,"`clean` is a bit general. I would keep `filtered`
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",bit gener I would keep,N,2016-06-10 12:09:27
+34,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:09:27,"Fixed.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",fix,N,2016-06-10 12:09:34
+35,pull_request_commit_comment,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:09:34,"of course !
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/signal.py')",cours,N,2016-06-10 12:25:36
+36,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 12:25:36,"Indentation seems wrong here.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/image/image.py')",indent seem wrong,N,2016-06-10 12:26:36
+37,pull_request_commit_comment,1119,nilearn,nilearn,GaelVaroquaux,2016-06-10 12:26:36,"We should always do that, because people copy-paste code to write their own test, and we want them to use this pattern.
+",47e9010c467b5e80e190eb07a5e93a73630f008e,"(None, '', u'nilearn/tests/test_signal.py')",We alway peopl copypast code write test want use pattern,Y,2016-06-10 07:06:11
+38,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 07:06:11,Add function clean_img,72033b20576abe5f02677825fd2eff1371a13008,,add function cleanimg,N,2016-06-10 08:37:25
+39,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 08:37:25,Expose load_niimg,4497e293ebab5ad302fb9eee4c20e3c37db09837,,expos loadniimg,N,2016-06-10 09:36:16
+40,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 09:36:16,Remove ensure_ndim,d372d9d17f587354aaa8fa5ad5c0957bbfd96aef,,remov ensurendim,N,2016-06-10 12:10:27
+41,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:10:27,Address comments,d6e92cac818a4497cd343b68269d144e77e92ea8,,address comment,N,2016-06-10 12:18:15
+42,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:18:15,Address comments,8405e53b55291c325e2ea46aaa04a2ac31747d71,,address comment,N,2016-06-10 12:20:30
+43,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:20:30,Fix doc,9e6e7c1d82bdc975c8f35bf2b6e5abb01daf4a59,,fix doc,N,2016-06-10 12:29:43
+44,pull_request_commit,1119,nilearn,nilearn,AlexandreAbraham,2016-06-10 12:29:43,Fix test and indent,58ead6ea4bb059193d777b3f19777e834a964618,,fix test indent,N,2016-06-10 12:31:52
+1,issue_title,774,nilearn,nilearn,GaelVaroquaux,2015-09-03 21:44:00,"Careful timing / profiling shows that the dual-gap of the proximal
+operator is sometimes decreased too far. As a result, the proximal
+operator spends a lot of time trying to reach this dual gap, for no good
+increase in overall energy. Profiling the code shows that this is the
+number one loss of time.
+
+Given that with warm-restart well implemented, decreasing on the fly the
+tolerance of the proximal isn't very costly, we can rely fully on the
+adaptative strategy, rather than on the paper of Schmidt et al (ie
+implement FAASTA as in the paper). I have done this here. Printing values
+of energies on the Haxby dataset shows that energy is decreased as well.
+
+The code seems to be around 1.5 times faster.
+
+I am sending a PR to see how this behaves on Travis / Circle
+
+Cc @dohmatob , @eickenberg : please have a look
+",start issue,[WIP] ENH: faster faasta (for TV-l1),care time profil show dualgap proxim oper sometim decreas far As result proxim oper spend lot time tri reach dual gap good increas overal energi profil code show number one loss time given warmrestart well implement decreas fli toler proxim isnt costli reli fulli adapt strategi rather paper schmidt et al ie implement faasta paper I done print valu energi haxbi dataset show energi decreas well the code seem around 15 time faster I send PR see behav travi circl Cc dohmatob eickenberg pleas look,N,2016-06-12 14:48:04

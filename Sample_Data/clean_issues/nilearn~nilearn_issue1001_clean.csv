@@ -1,0 +1,37 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1001,nilearn,nilearn,arthurmensch,2016-02-19 15:02:53,"Indeed, the use of MultiNiftiMasker is recommended in this case, as we can use `n_jobs`. Moreover, the behavior of NiftiMasker.transform on list of 3D/4D images is different from the one of MultiNiftiMasker : one returns a concatenated array, the other returns a list.
+
+This is visible in `space_net.py` for example, where MultiNiftiMasker should be used.
+
+Moreover, the documentation of check_niimg is uncomplete: 
+
+```
+def check_niimg(niimg, ensure_ndim=None, atleast_4d=False, dtype=None,
+                return_iterator=False,
+                wildcards=True):
+    """"""Check that niimg is a proper 3D/4D niimg. Turn filenames into objects.
+
+    Parameters
+    ----------
+    niimg: Niimg-like object
+        See http://nilearn.github.io/manipulating_visualizing/manipulating_images.html#niimg.
+        If niimg is a string, consider it as a path to Nifti image and
+        call nibabel.load on it. The '~' symbol is expanded to the user home
+        folder.
+        If it is an object, check if get_data()
+        and get_affine() methods are present, raise TypeError otherwise.
+```
+
+makes no mention of the automatic concatenation is performs on niimg when it is a list.
+",start issue,NiftiMasker should not be used for unmasking list of niimg,inde use multiniftimask recommend case use moreov behavior niftimaskertransform list 3d4d imag differ one multiniftimask one return concaten array return list thi visibl exampl multiniftimask use moreov document checkniimg uncomplet make mention automat concaten perform niimg list
+issue_comment,1001,nilearn,nilearn,banilo,2016-02-22 16:38:19,"This is a great addition to my litany on a general example on the difference between the nifti masker family members :-D
+",,,thi great addit litani gener exampl differ nifti masker famili member D
+issue_comment,1001,nilearn,nilearn,AlexandreAbraham,2016-02-23 12:00:41,"> This is a great addition to my litany on a general example on the difference between the nifti masker family members :-D 
+
+We're still waiting for your PR :P
+",,,were still wait PR P
+issue_comment,1001,nilearn,nilearn,banilo,2016-02-23 15:44:23,"> We're still waiting for your PR :P
+
+I will try to think about something.
+",,,I tri think someth

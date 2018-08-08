@@ -1,0 +1,15 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,38,aio-libs,aioredis,jettify,2014-07-29 20:04:03,"Please review.
+",start issue,"tests for scan, zrevrange,  zscore commands",pleas review,N
+issue_closed,38,aio-libs,aioredis,popravich,2014-07-31 07:32:22,nan,closed issue,"tests for scan, zrevrange,  zscore commands",nan,N
+pull_request_title,38,aio-libs,aioredis,jettify,2014-07-29 20:04:03,"Please review.
+",5cc153f72cd0aa94e6425338fda8a4bdaa12edbb,"tests for scan, zrevrange,  zscore commands",pleas review,N
+pull_request_merged,38,aio-libs,aioredis,popravich,2014-07-31 07:32:22,"tests for scan, zrevrange,  zscore commands",c355b35ff673e38d905ffe99e87ac7dc5af6b086,Pull request merge from jettify/aioredis:feature-sorted-sets14 to aio-libs/aioredis:master,test scan zrevrang zscore command,N
+issue_comment,38,aio-libs,aioredis,jettify,2014-07-29 21:06:30,"something wrong with scan test... I'll try to fix this tomorrow.
+",nan,nan,someth wrong scan test ill tri fix tomorrow,Y
+issue_comment,38,aio-libs,aioredis,jettify,2014-07-30 20:06:58,"fixed
+",nan,nan,fix,N
+pull_request_commit,38,aio-libs,aioredis,jettify,2014-07-29 20:02:37,"scan, zrevrange,  zscore commands",63f2de99ec1a55d4914ca3b607fb40edea011b35,nan,scan zrevrang zscore command,N
+pull_request_commit,38,aio-libs,aioredis,jettify,2014-07-29 20:49:55,fix scan test,4714347dd3482fc37508cee664c25058056a6d0d,nan,fix scan test,N
+pull_request_commit,38,aio-libs,aioredis,jettify,2014-07-30 20:02:35,fix scan command test,5cc153f72cd0aa94e6425338fda8a4bdaa12edbb,nan,fix scan command test,N

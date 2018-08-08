@@ -1,0 +1,70 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,175,nilearn,nilearn,eickenberg,2014-03-19 18:13:15,"Addressing issue https://github.com/nilearn/nilearn/issues/174
+
+Proposed is a test to show that resample_img doesn't do what one would expect it to do when a 4D affine is given and no target shape specified. It keeps the old shape, leading to potentially a total loss of the relevant data from field of view.
+
+Remedy to follow
+",start issue,nilearn.image.resample_img given 4D affine but not target_shape behaviour to be changed,address issu propos test show resampleimg doesnt one would expect 4D affin given target shape specifi It keep old shape lead potenti total loss relev data field view remedi follow,N,2014-04-22 09:39:26
+11,issue_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-10 09:44:12,"> I am very bad at Gimp/inkscape etc, so I'll try to code one :)
+
+That's the spirit!
+",,,that spirit,N,2014-04-21 12:46:31
+12,issue_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 12:46:31,"My comments before merge are the following:
+- Add your name to the author list of the resampling.py file
+- Investigate to see if you can use the np.pad function in the tests
+- A couple of sentences of description of the example.
+- Restyle the function definition of test_resampling_result_axis_permutation
+
+Optional but desired: integrate the example in the user documentation: building_blocks/data_preparation.html#resampling
+
+This is great work. Thanks a lot!
+",,,My comment merg follow add name author list resamplingpi file investig see use nppad function test A coupl sentenc descript exampl restyl function definit testresamplingresultaxispermut option desir integr exampl user document buildingblocksdatapreparationhtmlresampl thi great work thank lot,Y,2014-04-22 09:39:26
+20,issue_comment,175,nilearn,nilearn,VirgileFritsch,2014-04-18 12:35:22,":+1: for merging.
+",,,1 merg,N,2014-04-21 16:33:08
+21,issue_comment,175,nilearn,nilearn,eickenberg,2014-04-21 16:33:08,"all points addressed. Thanks @GaelVaroquaux for the review.
+",,,point address thank gaelvaroquaux review,N,2014-04-22 16:26:53
+90,pull_request_commit_comment,175,nilearn,nilearn,eickenberg,2014-04-17 15:08:44,"Except in flatworld
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(105, '', u'nilearn/image/resampling.py')",except flatworld,N,2014-04-21 11:43:34
+91,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 11:43:34,"How much of this function boils down to np.resize?
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(26, '', u'nilearn/image/tests/test_resampling.py')",how much function boil npresiz,N,2014-04-21 11:45:03
+92,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 11:45:03,"There should not be an empty line here. Also, I believe that the comment that you put above the function definition should be put right after it. (Python style conventions).
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'nilearn/image/tests/test_resampling.py')",there empti line also I believ comment put function definit put right python style convent,N,2014-04-21 11:45:43
+93,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 11:45:43,"Please comment a bit more and tell us what we should learn from the example in the docstring.
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'plot_affine_transformation.py')",pleas comment bit tell us learn exampl docstr,N,2014-04-21 11:48:27
+94,pull_request_commit_comment,175,nilearn,nilearn,eickenberg,2014-04-21 11:48:27,"This function does _zero-padding_ of an `np.ndarray`. As far as I can tell, `np.resize` just makes a new array of desired size and fills it with the ravelled original data, repeating if necessary. Not sure how I could use it for this.
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(26, '', u'nilearn/image/tests/test_resampling.py')",thi function zeropad As far I tell make new array desir size fill ravel origin data repeat necessari not sure I could use,N,2014-04-21 11:49:22
+95,pull_request_commit_comment,175,nilearn,nilearn,eickenberg,2014-04-21 11:49:22,"as a comment or as a doc string?
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'nilearn/image/tests/test_resampling.py')",comment doc string,N,2014-04-21 11:52:41
+96,pull_request_commit_comment,175,nilearn,nilearn,eickenberg,2014-04-21 11:52:41,"This is where it becomes tricky. Describing the images I can definitely underline exactly what the function is supposed to do, but maybe the example is too simple: I chose mm space to be represented by `np.eye(4)`. The data are described by a different affine, from which I then transform to millimeter space using 3 different techniques. Can this cause a potential confusion between the target space of the transformation and millimeter space? This is my worry, but I am not entirely sure how to do this better.
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'plot_affine_transformation.py')",thi becom tricki describ imag I definit underlin exactli function suppos mayb exampl simpl I chose mm space repres the data describ differ affin I transform millimet space use 3 differ techniqu can caus potenti confus target space transform millimet space thi worri I entir sure better,N,2014-04-21 12:29:20
+97,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 12:29:20,"> This function does zero-padding of an np.ndarray. As far as I can tell,
+> np.resize just makes a new array of desired size and fills it with the
+> ravelled original data, repeating if necessary. Not sure how I could
+> use it for this.
+
+Good point. How about np.pad?
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(26, '', u'nilearn/image/tests/test_resampling.py')",good point how nppad,N,2014-04-21 12:30:12
+98,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 12:30:12,"> as a comment or as a doc string?
+
+As you whish. If it were not a test, I would say a docstring, but in
+tests, docstrings are printed by nosetest, so they may be
+counterproductive.
+
+G
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'nilearn/image/tests/test_resampling.py')",As whish If test I would say docstr test docstr print nosetest may counterproduct G,Y,2014-04-21 12:42:13
+99,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 12:42:13,"I think that your example is good. I think that you just need one or two more lines in the header describing what it does. Maybe you could put a voxel size of 1.5 if you want to avoid having 1mm = 1voxel. But in general I think that it is good. Actually I think that it should be linked to in the documentation, in building_blocks/data_preparation.html#resampling and the images should be included.
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'plot_affine_transformation.py')",I think exampl good I think need one two line header describ mayb could put voxel size 15 want avoid 1mm 1voxel but gener I think good actual I think link document buildingblocksdatapreparationhtmlresampl imag includ,N,2014-04-21 15:31:19
+100,pull_request_commit_comment,175,nilearn,nilearn,eickenberg,2014-04-21 15:31:19,"I checked in IPython and I don't have `np.pad` :) -- it is a new feature in 1.7. What are the backwards compatibility requirements with regards to numpy?
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(26, '', u'nilearn/image/tests/test_resampling.py')",I check ipython I dont new featur 17 what backward compat requir regard numpi,N,2014-04-21 15:33:39
+101,pull_request_commit_comment,175,nilearn,nilearn,eickenberg,2014-04-21 15:33:39,"addressed
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(None, '', u'nilearn/image/tests/test_resampling.py')",address,N,2014-04-21 15:34:33
+102,pull_request_commit_comment,175,nilearn,nilearn,GaelVaroquaux,2014-04-21 15:34:33,"> I checked in IPython and I don't have np.pad :) -- it is a new feature in 1.7.
+> What are the backwards compatibility requirements with regards to numpy?
+
+OK, that answers my question. No need to look further.
+",5dc268c263a105ee66e02a8cbd0fe948e2e0b765,"(26, '', u'nilearn/image/tests/test_resampling.py')",OK answer question No need look,N,2014-04-21 16:30:36
+130,pull_request_commit,175,nilearn,nilearn,eickenberg,2014-04-17 17:27:45,added vmax in plots to fix colors,20066175f089bb6f85f21e3b5a2ac76601f910c6,,ad vmax plot fix color,N,2014-04-21 15:33:17
+131,pull_request_commit,175,nilearn,nilearn,eickenberg,2014-04-21 15:33:17,transferred comment before test into test,89929f5789c53f574634868fc1ab44b272c9f30a,,transfer comment test test,N,2014-04-21 16:07:57
+132,pull_request_commit,175,nilearn,nilearn,eickenberg,2014-04-21 16:07:57,Separated mm space affine from first transformation affine to avoid confusion,91cf308070c2296ecb452187b07a0cd38a1830a7,,separ mm space affin first transform affin avoid confus,N,2014-04-21 16:27:12
+133,pull_request_commit,175,nilearn,nilearn,eickenberg,2014-04-21 16:27:12,Added explanation to example,d9fd0408071fbb7a9a51279254de07e6418fe45a,,ad explan exampl,N,2014-04-21 16:30:14
+134,pull_request_commit,175,nilearn,nilearn,eickenberg,2014-04-21 16:30:14,added reference to example in docs,d8fae6f1fd24bff56bcd6cf8f04505ea811f7704,,ad refer exampl doc,N,2014-04-21 16:32:19

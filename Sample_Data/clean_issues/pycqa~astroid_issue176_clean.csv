@@ -1,0 +1,44 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,176,pycqa,astroid,pylint-bot,2015-08-20 16:42:17,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+In debugging, I noticed that on Python 2 in certain circumstances it's possible for exceptions in the inference mechanisms to end up losing the traceback up to the point they're raised.  (Python3 always chains exceptions that are raised while processing another exception, I think.)  The best way I know of to do this is probably with six.reraise, but I'm open to other suggestions.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/176
+",start issue,Preserve tracebacks on Python 2,origin report bitbucket ceridwenv github ceridwen In debug I notic python 2 certain circumst possibl except infer mechan end lose traceback point theyr rais python3 alway chain except rais process anoth except I think the best way I know probabl sixrerais Im open suggest bitbucket
+issue_closed,176,pycqa,astroid,pylint-bot,2015-12-09 05:54:33,,closed issue,Preserve tracebacks on Python 2,
+issue_comment,176,pycqa,astroid,pylint-bot,2015-08-20 14:43:22,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+That sounds good, there are a lot of places where exceptions are reraised, without considering the loss of the traceback. 
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor that sound good lot place except rerais without consid loss traceback
+issue_comment,176,pycqa,astroid,pylint-bot,2015-08-20 14:50:46,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+I'm aware of `raise
+ObjectNotFound(name).with_traceback(sys.exc_info()[-1])` (py3) or `raise
+ObjectNotFound(name), None, sys.exc_info()[-1]` (py2)
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault Im awar py3 py2
+issue_comment,176,pycqa,astroid,pylint-bot,2015-09-05 14:31:56,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+My problem when attempting this has turned out to be that I don't understand the code paths well enough to know where exceptions can be raised ultimately within an `except` block.  I can simply try to change all the places where exceptions are being raised, or if anyone has more understanding of the code paths, I could try to focus on those.
+",,,origin comment bitbucket ceridwenv github ceridwen My problem attempt turn I dont understand code path well enough know except rais ultim within block I simpli tri chang place except rais anyon understand code path I could tri focu
+issue_comment,176,pycqa,astroid,pylint-bot,2015-09-05 15:02:17,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+We could focus only on the places where exceptions are being raised, since otherwise we might have tracebacks from the entire inference chain and I'm not sure how useful that would be. In that case, something as oslo.excutils.save_and_reraise_exception could be used: http://docs.openstack.org/developer/oslo.utils/api/excutils.html#oslo_utils.excutils.save_and_reraise_exception
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor We could focu place except rais sinc otherwis might traceback entir infer chain Im sure use would In case someth osloexcutilssaveandreraiseexcept could use
+issue_comment,176,pycqa,astroid,pylint-bot,2015-09-26 12:36:05,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Fixed by https://bitbucket.org/logilab/astroid/pull-requests/88/use-sixreraise-to-avoid-losing-tracebacks
+",,,origin comment claudiu popa bitbucket pcmanticor github pcmanticor fix

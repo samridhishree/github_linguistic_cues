@@ -1,0 +1,22 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,108,aio-libs,aioredis,hotsyk,2016-02-28 20:13:32,"Currently, RediscConnection.execute asserting live connection: https://github.com/aio-libs/aioredis/blob/master/aioredis/connection.py#L211 
+
+As a result, if the connection to server lost (server restarted, or network lost), AssertionError will be raised. 
+This leads to requirement to catch AssertionError if client would like to reconnect to server, and this is not correct way to catch this - more appropriate way would be to raise custom exception here and catch this specific exception in the client.
+",start issue,RedisConnection.execute should raise custom exception when server is unreachable.,current rediscconnectionexecut assert live connect As result connect server lost server restart network lost assertionerror rais thi lead requir catch assertionerror client would like reconnect server correct way catch appropri way would rais custom except catch specif except client,N
+issue_closed,108,aio-libs,aioredis,popravich,2016-03-29 15:01:08,nan,closed issue,RedisConnection.execute should raise custom exception when server is unreachable.,nan,N
+issue_comment,108,aio-libs,aioredis,jettify,2016-02-28 20:17:45,"Good point, also worth mention that asserts does not work if `python` run with `-O` or `-OO` flags
+",nan,nan,good point also worth mention assert work run flag,N
+issue_comment,108,aio-libs,aioredis,asvetlov,2016-02-28 22:00:47,"@hotsyk would you provide a PR for replacement `AssertionError` with custom exception class inherited from `RedisError`?
+
+A test is required, it may use mocks though. Redis server stopping is not needed, just simulate the case by mocking.
+",nan,nan,hotsyk would provid PR replac custom except class inherit A test requir may use mock though redi server stop need simul case mock,Y
+issue_comment,108,aio-libs,aioredis,popravich,2016-03-01 12:39:45,"It looks like `execute_pubsub` is missing even assertion, need to fix this too.
+",nan,nan,It look like miss even assert need fix,N
+issue_comment,108,aio-libs,aioredis,hotsyk,2016-03-01 16:45:30,"Will do in a few days
+",nan,nan,will day,N
+issue_comment,108,aio-libs,aioredis,popravich,2016-03-02 08:52:11,"Great, thanks
+",nan,nan,great thank,N
+issue_comment,108,aio-libs,aioredis,popravich,2016-03-29 15:01:08,"`execute_pubsub` fixed
+",nan,nan,fix,N

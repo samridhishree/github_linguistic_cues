@@ -1,0 +1,46 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,31,pycqa,astroid,pylint-bot,2014-05-23 20:48:42,"Originally reported by: **David Jackson (BitBucket: [ForSpareParts](http://bitbucket.org/ForSpareParts), GitHub: @ForSpareParts?)**
+
+---
+
+If my source has:
+
+```
+#!python
+
+MULTILINE_VARIABLE = [
+    'foo',
+    'bar',
+    'baz'
+]
+```
+
+I would expect tolineno to indicate the line containing the solitary ']' character. Instead, it indicates the line containing 'baz'. If I insert blank lines, a la:
+
+```
+#!python
+
+MULTILINE_VARIABLE = [
+    'foo',
+    'bar',
+    'baz'
+
+
+
+
+
+]
+```
+
+I see the same behavior -- the 'baz' line is still the .tolineno.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/31
+",start issue,"Astroid sometimes reports the wrong .tolineno for multiline Dicts, Lists, and Tuples",origin report david jackson bitbucket forsparepart github forsparepart If sourc I would expect tolineno indic line contain solitari charact instead indic line contain baz If I insert blank line la I see behavior baz line still tolineno bitbucket
+issue_comment,31,pycqa,astroid,pylint-bot,2014-06-02 06:16:43,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+IIRC this has to do with the underlying python parser which returns erroneous line information. I think Torsten did take a look at this and that his conclusion was that we should use 2to3's parser which does'nt suffer from this problem. But I'll let him confirm that.
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault iirc underli python parser return erron line inform I think torsten take look conclus use 2to3 parser doesnt suffer problem but ill let confirm

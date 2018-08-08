@@ -1,0 +1,16 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,235,idan,oauthlib,whitechris969,2014-02-28 08:15:35,"In the spec (http://tools.ietf.org/html/rfc6750#section-2.2) it says that when you access the protected resource by including the token in the body (rather than the headers) you should only be able to do this through a PUT request, not GET. Also, there's a few other things. I'm able to do this:
+
+```
+response = requests.get(token_url,params={'grant_type':'client_credentials','client_id': client_id, 'client_secret': client_secret})
+token = json.loads(response.text)
+response = requests.get(api_url,params=token,headers={})
+```
+
+The important part being that I am putting the token in the body and issuing a GET request. Isn't this against the spec and shouldn't it fail?
+",start issue,Accessing protected resources,In spec say access protect resourc includ token bodi rather header abl put request get also there thing Im abl the import part I put token bodi issu get request isnt spec shouldnt fail
+issue_comment,235,idan,oauthlib,ib-lundgren,2014-03-20 18:34:35,"Yes it is against the spec and should fail or at least raise a warning. I don't think it is a security issue as much as GET requests should not have request bodies as they are usually ignored. Should still be fixed tho.
+
+Thanks for reporting and investigating!
+",,,ye spec fail least rais warn I dont think secur issu much get request request bodi usual ignor should still fix tho thank report investig

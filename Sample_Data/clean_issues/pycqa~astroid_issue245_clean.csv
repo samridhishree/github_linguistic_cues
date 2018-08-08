@@ -1,0 +1,18 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,245,pycqa,astroid,pylint-bot,2015-11-05 03:16:11,"Originally reported by: **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**
+
+---
+
+For example, astroid contains a wide variety of different misspellings for ""class.""  The preferred misspelling, according to PEP8, is ""cls.""  For other keywords/builtin names, it suggests appending a trailing underscore.  I've started using in these the new code I'm writing, but it would be nice to be consistent throughout.  Another example is how the code variously uses ""e,"" ""ex,"" ""exc,"" and probably some others for the name in the as part of an `except` clause.  I'd prefer to use ""error,"" but we should establish a consistent spelling for common variable names like this.
+
+---
+- Bitbucket: https://bitbucket.org/logilab/astroid/issue/245
+",start issue,Consistent names for certain common variables and conform to PEP8.,origin report bitbucket ceridwenv github ceridwen for exampl astroid contain wide varieti differ misspel class the prefer misspel accord pep8 cl for keywordsbuiltin name suggest append trail underscor ive start use new code Im write would nice consist throughout anoth exampl code various use e ex exc probabl other name part claus Id prefer use error establish consist spell common variabl name like bitbucket
+issue_comment,245,pycqa,astroid,pylint-bot,2015-11-05 06:20:16,"_Original comment by_ **Sylvain Thénault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:
+
+---
+
+Regarding exceptions my preference goes to exc and it's probable already
+spawned over the code so it may ne a pragmatic choice :)
+",,,origin comment sylvain thénault bitbucket sthenault github sthenault regard except prefer goe exc probabl alreadi spawn code may ne pragmat choic

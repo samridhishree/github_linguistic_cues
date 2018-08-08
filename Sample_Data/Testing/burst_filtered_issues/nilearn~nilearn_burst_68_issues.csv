@@ -1,0 +1,272 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+2,issue_closed,804,nilearn,nilearn,lesteve,2015-11-04 13:44:07,,closed issue,Set up appveyor to test on windows,,N,2015-10-22 13:35:43
+3,issue_comment,804,nilearn,nilearn,aabadie,2015-10-22 13:35:43,"@GaelVaroquaux sure !
+",,,gaelvaroquaux sure,N,2015-10-22 13:44:54
+1,issue_title,795,nilearn,nilearn,aabadie,2015-10-14 16:29:32,"This is the PR related to #792.
+",start issue,[MRG] Use capital letters + other small changes related to PEP8,thi PR relat 792,N,2015-10-15 15:01:33
+2,issue_closed,795,nilearn,nilearn,GaelVaroquaux,2015-10-15 15:01:33,,closed issue,[MRG] Use capital letters + other small changes related to PEP8,,N,2015-10-14 16:29:32
+3,pull_request_title,795,nilearn,nilearn,aabadie,2015-10-14 16:29:32,"This is the PR related to #792.
+",c6bbf97a852fc161667e2304d9dcf6bbfc05d477,[MRG] Use capital letters + other small changes related to PEP8,thi PR relat 792,N,2015-10-15 15:01:33
+4,pull_request_merged,795,nilearn,nilearn,GaelVaroquaux,2015-10-15 15:01:33,[MRG] Use capital letters + other small changes related to PEP8,a25bbf9cf27ed89ec75f12575e8f5b5481f06117,Pull request merge from aabadie/nilearn:master to nilearn/nilearn:master,mrg use capit letter small chang relat pep8,N,2015-10-15 12:40:55
+5,issue_comment,795,nilearn,nilearn,aabadie,2015-10-15 12:40:55,"> Failing tests in case you missed it.
+
+@lesteve  I forgot one replacement in the tests. It's all ok now. (Circle CI is temporarily broken apparently).
+",,,lestev I forgot one replac test it ok circl CI temporarili broken appar,Y,2015-10-15 15:10:59
+6,issue_comment,795,nilearn,nilearn,aabadie,2015-10-15 15:10:59,"> You need to write this in a commit message for the issue to be closed (it can be anywhere in the commit message).
+
+Yes I misunderstood one of @lesteve tips about how to achieve this. Need to read more about these useful features.
+",,,ye I misunderstood one lestev tip achiev need read use featur,N,2015-10-15 07:17:55
+7,issue_comment,795,nilearn,nilearn,lesteve,2015-10-15 07:17:55,"Failing tests in case you missed it.
+",,,fail test case miss,Y,2015-10-15 15:01:30
+8,issue_comment,795,nilearn,nilearn,GaelVaroquaux,2015-10-15 15:01:30,"All tests are green, and the change look good to me. Merging. Thanks
+",,,all test green chang look good merg thank,Y,2015-10-15 15:09:05
+9,issue_comment,795,nilearn,nilearn,GaelVaroquaux,2015-10-15 15:09:05,"You need to write this in a commit message for the issue to be closed (it can be anywhere in the commit message).
+",,,you need write commit messag issu close anywher commit messag,N,2015-10-16 06:32:40
+10,issue_comment,795,nilearn,nilearn,lesteve,2015-10-16 06:32:40,"> > You need to write this in a commit message for the issue to be closed (it can be anywhere in the commit message).
+> 
+> Yes I misunderstood one of @lesteve tips about how to achieve this. Need to read more about these useful features.
+
+You need to put it in the description of the PR (and IIRC you have to do it when you create the PR you can not edit the PR description later to add it).
+
+The github [doc](https://github.com/blog/1506-closing-issues-via-pull-requests) about closing issue from PR and the list of [magical keywords](https://help.github.com/articles/closing-issues-via-commit-messages/) you can use.
+",,,you need put descript PR iirc creat PR edit PR descript later add the github doc close issu PR list magic keyword use,N,2015-10-14 16:24:51
+11,pull_request_commit,795,nilearn,nilearn,aabadie,2015-10-14 16:24:51,use capital letter for global variables nilearn/nilearn#792,2ef67d214571679c04920bf6237040f7d6cd7d4b,,use capit letter global variabl nilearnnilearn792,N,2015-10-15 12:30:38
+2,issue_closed,798,nilearn,nilearn,lesteve,2015-10-23 12:05:21,,closed issue,[MRG] use glob with check_niimg,,N,2015-10-19 12:48:17
+4,pull_request_merged,798,nilearn,nilearn,lesteve,2015-10-23 12:05:21,[MRG] use glob with check_niimg,f753c394f85701326cbabc50c7958e6324182f5c,Pull request merge from aabadie/nilearn:763_niimgs_globbing to nilearn/nilearn:master,mrg use glob checkniimg,N,2015-10-21 12:50:39
+5,issue_comment,798,nilearn,nilearn,aabadie,2015-10-21 12:50:39,"> Indeed, we need to do 'import nilearn as ni'
+
+I pushed this change in commit 01b479b.
+",,,I push chang commit 01b479b,N,2015-10-21 15:24:36
+6,issue_comment,798,nilearn,nilearn,aabadie,2015-10-21 15:24:36,"> You need a test that fails before this commit and works after, that way we are convinced that it works.
+
++1
+I pushed 3115ba7 which contains a tests covering more use cases related to globbing. I'm waiting for the tests to fail and will push the fix later.
+",,,1 I push 3115ba7 contain test cover use case relat glob Im wait test fail push fix later,Y,2015-10-21 15:34:12
+7,issue_comment,798,nilearn,nilearn,aabadie,2015-10-21 15:34:12,"Ok, so tests are now completely failing... (but not for the initial reason). @GaelVaroquaux maybe you prefer to validate the tests first or is it ok if I push my solution now ?
+",,,Ok test complet fail initi reason gaelvaroquaux mayb prefer valid test first ok I push solut,Y,2015-10-22 14:01:39
+12,issue_comment,798,nilearn,nilearn,aabadie,2015-10-23 12:09:24,"Thanks, this will make my day !
+",,,thank make day,N,2015-10-20 19:00:20
+13,issue_comment,798,nilearn,nilearn,bthirion,2015-10-20 19:00:20,"Looks rather good, but documentation should be added to illustrate the behavior.
+",,,look rather good document ad illustr behavior,N,2015-10-21 12:24:29
+14,issue_comment,798,nilearn,nilearn,lesteve,2015-10-21 12:24:29,"First of all, there is a problem that `nilearn.EXPAND_PATH_WILDCARDS` and `nilearn._utils.niimg_conversions.EXPAND_PATH_WILDCARDS` are two different variables, so setting one has no effect on the other. As an illustration:
+
+``` python
+from nilearn._utils import niimg_conversions
+niimg_conversions.check_niimg('this_file_does_not_exist')  # error with please set global constants EXPAND_PATH_WILDCARDS to False
+
+import nilearn
+nilearn.EXPAND_PATH_WILDCARDS = False
+niimg_conversions.check_niimg('this_file_does_not_exist')  # still the same error as previously
+```
+
+Also I am a bit confused about EXPAND_PATH_WILDCARDS functionality. Why don't we want to always use `EXPAND_PATH_WILDCARDS = True` ? 
+
+Is it because we worry about files which contains the following characters: `*`, `[` or `?` ?
+",,,first problem two differ variabl set one effect As illustr also I bit confus expandpathwildcard function whi dont want alway use Is worri file contain follow charact,N,2015-10-21 12:34:46
+15,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 12:34:46,"> First of all, there is a problem that nilearn.EXPAND_PATH_WILDCARDS and
+> nilearn._utils.niimg_conversions.EXPAND_PATH_WILDCARDS
+
+Indeed, we need to do 'import nilearn as ni' in
+nilearn._utils.niimg_conversions and then access EXPAND_PATH_WILDCARDS as
+""ni.EXPAND_PATH_WILDCARDS""
+",,,inde need import nilearn ni nilearnutilsniimgconvers access expandpathwildcard niexpandpathwildcard,N,2015-10-21 12:52:41
+16,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 12:52:41,"> I pushed this change in commit 01b479b.
+
+You need a test that fails before this commit and works after, that way
+we are convinced that it works.
+",,,you need test fail commit work way convinc work,Y,2015-10-21 12:57:02
+17,issue_comment,798,nilearn,nilearn,lesteve,2015-10-21 12:57:02,"> Indeed, we need to do 'import nilearn as ni' in nilearn._utils.niimg_conversions and then access EXPAND_PATH_WILDCARDS as ""ni.EXPAND_PATH_WILDCARDS""
+
+Note that I couldn't figure out a way to do the same thing with a relative import. Not sure how likely this is to create a problem in the real world.
+
+> You need a test that fails before this commit and works after, that way we are convinced that it works.
+
+:+1:
+",,,note I couldnt figur way thing rel import not sure like creat problem real world 1,N,2015-10-21 15:27:13
+18,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 15:27:13,"> Note that I couldn't figure out a way to do the same thing with a relative
+> import.
+
+Good point.
+
+> Not sure how likely this is to create a problem in the real world.
+
+Let's not loose sleep on this and move on.
+",,,good point let loos sleep move,N,2015-10-21 15:27:44
+19,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 15:27:44,"> ```
+> I pushed 3115ba7 which contains a tests covering more use cases related to
+> globbing. I'm waiting for the tests to fail and will push the fix later.
+> ```
+
+Test driven development! Yey
+",,,test driven develop yey,Y,2015-10-22 08:11:59
+23,issue_comment,798,nilearn,nilearn,lesteve,2015-10-23 12:05:13,"Merging this one, thanks!
+
+Still a few regexp rather than glob remaining but I'll fix them up in master directly.
+",,,merg one thank still regexp rather glob remain ill fix master directli,N,2015-10-20 18:56:33
+24,pull_request_commit_comment,798,nilearn,nilearn,bthirion,2015-10-20 18:56:33,"'match'
+return_iterator
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",match returniter,N,2015-10-20 18:58:29
+25,pull_request_commit_comment,798,nilearn,nilearn,bthirion,2015-10-20 18:58:29,"I find this ('return the first object of the list') a strange default behavior. maybe I did not understand.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I find return first object list strang default behavior mayb I understand,N,2015-10-21 11:31:11
+26,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-21 11:31:11,"Not really necessary to import glob conditionally.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",not realli necessari import glob condit,N,2015-10-21 12:05:29
+27,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-21 12:05:29,"Ok ! I removed it in 810643a
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",Ok I remov 810643a,N,2015-10-21 12:32:40
+28,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-21 12:32:40,"Missing % niimg or something to put the user input in the error message.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",miss niimg someth put user input error messag,N,2015-10-22 08:04:02
+29,pull_request_commit_comment,798,nilearn,nilearn,AlexandreAbraham,2015-10-22 08:04:02,"Same remark as before: in nilearn, a list of one file may not be an error nor a single file. This case is hard to handle. Maybe at least a warning would be enough ?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",same remark nilearn list one file may error singl file thi case hard handl mayb least warn would enough,N,2015-10-22 08:10:33
+30,pull_request_commit_comment,798,nilearn,nilearn,AlexandreAbraham,2015-10-22 08:10:33,"Just a guess: can't we raise a warning and automatically retry by setting wildcards to False?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",just guess cant rais warn automat retri set wildcard fals,N,2015-10-22 08:45:51
+31,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 08:45:51,"It would be nice if you refer some where giving reference to small code snippet to here. If you think its good, it is located in `doc/manipulating_visualizing/manipulating_images.rst` file. It would be more clear enough.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(47, '', u'nilearn/_utils/niimg_conversions.py')",It would nice refer give refer small code snippet If think good locat file It would clear enough,N,2015-10-22 08:47:33
+32,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 08:47:33,"Do you think is it also worth to explain a bit what is returns as output if you use `wild_cards=True` ?
+@GaelVaroquaux 
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(54, '', u'nilearn/_utils/niimg_conversions.py')",Do think also worth explain bit return output use gaelvaroquaux,N,2015-10-22 09:53:16
+33,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-22 09:53:16,"@KamalakerDadi: added online documentation in  243f789
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(47, '', u'nilearn/_utils/niimg_conversions.py')",kamalakerdadi ad onlin document 243f789,N,2015-10-22 13:07:01
+34,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:07:01,"You should probably be more explicit and say `nilearn.EXPAND_PATH_WILDCARDS`
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",you probabl explicit say,N,2015-10-22 13:12:28
+35,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:12:28,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+I should have done the original comment here.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",I done origin comment,N,2015-10-22 13:15:18
+36,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:15:18,"This is really overkill isn't it?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",thi realli overkil isnt,N,2015-10-22 13:16:54
+37,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:16:54,"Same comment, a bit overkill...
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/tests/test_niimg_conversions.py')",same comment bit overkil,N,2015-10-22 13:19:49
+38,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 13:19:49,"Will it be not easy to mention only about `wildcards=False` ?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",will easi mention,N,2015-10-22 13:41:11
+39,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-22 13:41:11,"As this message could be raised in the user console and wildcards=False is used internally (check_niimg should not be called directly by users), I would stick to the global constant in the message.
+
+This makes me think that the wildcards option is useless... and should be removed from the function signature.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",As messag could rais user consol wildcardsfals use intern checkniimg call directli user I would stick global constant messag thi make think wildcard option useless remov function signatur,N,2015-10-22 13:41:50
+40,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-22 13:41:50,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+ok
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",ok,N,2015-10-22 13:44:50
+41,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:44:50,"Maybe we should do: `elif [niimg] == filenames` to differentiate the case where niimg is just a filename vs the one where the glob only matches one file.  In the latter I think it should be considered as a list with a single file.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",mayb differenti case niimg filenam vs one glob match one file In latter I think consid list singl file,N,2015-10-22 14:19:05
+42,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 14:19:05,"> I would stick to the global constant in the message.
+
+Its upto you but my point is user should not look to change global constants to set to False. That's my intuition. Correct me if I am wrong.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')",it upto point user look chang global constant set fals that intuit correct I wrong,N,2015-10-15 14:24:20
+43,pull_request_commit,798,nilearn,nilearn,aabadie,2015-10-15 14:24:20,"use glob in check_niimg, nilearn/nilearn#763",8ca723bedbbe8f756b3121d96331755edb5be6cf,,use glob checkniimg nilearnnilearn763,N,2015-10-19 12:01:31
+44,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-19 12:01:31,improving usage of wildcards,351892ae67b654c382559fc765ac750a2ad48597,,improv usag wildcard,N,2015-10-19 12:45:16
+45,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-19 12:45:16,Adding test,61fb1f3bf6e305609970ca7f82723fa485e3e6e4,,ad test,N,2015-10-20 09:17:28
+46,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-20 09:17:28,fixing typo,81eedf390a3df9bff43b0c8769241b40761f770f,,fix typo,N,2015-10-21 11:28:32
+47,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-21 11:28:32,"improving doctring of check_niimg function:
+- fixing typo on option name 'wirldcards'
+- improving the description of the 'wirldcards' option",9aff4553f6dca97ff3e3e54db0c9a0276b44617f,,improv doctr checkniimg function fix typo option name wirldcard improv descript wirldcard option,N,2015-10-21 12:04:51
+48,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-21 12:04:51,removing conditionnal import of glob module,81a34474910116728f9653e06b115d19b39377e0,,remov conditionn import glob modul,N,2015-10-21 12:47:13
+49,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-21 12:47:13,fixing bug with EXPAND_PATH_WILDCARDS global constant,01b479bfbd065b0153b67eab8e2469d0c09d9609,,fix bug expandpathwildcard global constant,N,2015-10-21 15:22:20
+50,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-21 15:22:20,adding extended globbing feature test,3115ba797dade8b89dcebe9dd32e8798e3ee0cc8,,ad extend glob featur test,N,2015-10-21 15:22:58
+51,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-21 15:22:58,fixing nilearn globbing test,0e14e1dcba996997cdb20327d314276879f2c5a1,,fix nilearn glob test,N,2015-10-22 08:18:30
+52,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 08:18:30,display filename in raised exception 'file not found',a81a6c81aa4fa8f62a9a9f0e782bd37bd65fa608,,display filenam rais except file found,N,2015-10-22 08:44:10
+53,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 08:44:10,improving glob use case and raised error messages,36589601b9f89b523d82d0f8265f382c71112515,,improv glob use case rais error messag,N,2015-10-22 09:47:19
+54,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 09:47:19,adding documentation for filenames with wildcards,243f789fc5ddb4a152f5b9cee6e30dbe8b1692e0,,ad document filenam wildcard,N,2015-10-22 10:06:19
+55,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 10:06:19,typo,447a6e78e4a2c3d937b33f4633f66b91b39a17df,,typo,N,2015-10-22 11:09:38
+56,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 11:09:38,fixing failing doctest,67ce2cdabf1398de28270993b7e65afbb1778e24,,fix fail doctest,N,2015-10-22 13:58:51
+57,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 13:58:51,addressing comment,810e0b653b3cdcd06f2a80dbd5ff04996b769a86,,address comment,N,2015-10-22 13:59:11
+58,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 13:59:11,addressing comment,9093b1da0a3693a503b89aa41682a512e5eec387,,address comment,N,2015-10-22 14:00:52
+59,pull_request_commit,798,nilearn,nilearn,alexandre.abadie@therapixel.com,2015-10-22 14:00:52,addressing another comment,ebb702a374d27f778c771980cae0fd69e662857d,,address anoth comment,N,2015-10-22 15:41:47
+2,issue_closed,763,nilearn,nilearn,lesteve,2015-10-23 12:05:21,,closed issue,Have the niimgs checking function optionally convert globbing,,N,2015-10-15 14:29:40
+4,issue_comment,763,nilearn,nilearn,dohmatob,2015-08-21 08:57:31,"I think it's YAGNI, and we'll bring us more trouble than the anticipated good it might do for users. Let them expand their paths themselves. Also, `nilearn.plotting` is not supposed to be a unix shell environment ;)
+",,,I think yagni well bring us troubl anticip good might user let expand path also suppos unix shell environ,N,2015-10-13 18:49:00
+5,issue_comment,763,nilearn,nilearn,GaelVaroquaux,2015-10-13 18:49:00,"To sum up the work to be done:
+- Have check_niimg optionally use glob (and sort if using glob) (with the default being true)
+- Have a constant at the level of `nilearn.__init__` to control this behavior
+- Have a very clear error message if a glob returns an empty list, that explains what is going on, and assumes that the user might have made a glob by mistake (thus points out the above constant).
+",,,To sum work done have checkniimg option use glob sort use glob default true have constant level control behavior have clear error messag glob return empti list explain go assum user might made glob mistak thu point constant,N,2015-10-13 20:03:41
+6,issue_comment,763,nilearn,nilearn,AlexandreAbraham,2015-10-13 20:03:41,"Maybe this behavior should be restricted to `check_niimg_4d`?
+",,,mayb behavior restrict,N,2015-10-13 20:07:15
+7,issue_comment,763,nilearn,nilearn,GaelVaroquaux,2015-10-13 20:07:15,"> Maybe this behavior should be restricted to check_niimg_4d?
+
+Well, if we want to expand '~' we can do it in check_niimg. But for the
+rest, I agree.
+",,,well want expand checkniimg but rest I agre,N,2015-10-13 20:37:00
+8,issue_comment,763,nilearn,nilearn,banilo,2015-10-13 20:37:00,"I agree with Gael that glob-integration could increase comfort of nilearn users. After all, we do glob.glob before loading anyways.
+",,,I agre gael globintegr could increas comfort nilearn user after globglob load anyway,N,2015-10-15 19:59:51
+9,issue_comment,763,nilearn,nilearn,KamalakerDadi,2015-10-15 19:59:51,"@aabadie  It would be nice if you do PR tagged as **[WIP]** and ping somebody if you need help.
+",,,aabadi It would nice PR tag wip ping somebodi need help,N,2015-10-15 20:09:12
+2,issue_closed,802,nilearn,nilearn,lesteve,2015-10-27 12:03:05,,closed issue,Rename fetch_atlas_aal_spm_12 to fetch_atlas_aal,,N,2015-10-22 09:46:54
+6,issue_comment,802,nilearn,nilearn,aabadie,2015-10-27 09:30:54,"Thanks for fixing the remaining failing test @AlexandreAbraham. To me all is ok with this PR now (LGTM as you all say ;) ). So I guess it can be merged now : @lesteve @GaelVaroquaux  ?
+",,,thank fix remain fail test alexandreabraham To ok PR lgtm say So I guess merg lestev gaelvaroquaux,Y,2015-10-22 11:02:28
+12,pull_request_commit_comment,802,nilearn,nilearn,lesteve,2015-10-27 12:02:54,"Me neither so let's keep it like this for now.
+",ccda428752b2f45b3140c13cfe181abae09665a5,"(46, '', u'nilearn/datasets/atlas.py')",Me neither let keep like,N,2015-10-22 09:45:51
+13,pull_request_commit,802,nilearn,nilearn,AlexandreAbraham,2015-10-22 09:45:51,"Rename fetch_atlas_aal_spm_12 to fetch_atlas_aal
+Fix #764",0f62e3163744458395c0b12ffc5f42adcab2748b,,renam fetchatlasaalspm12 fetchatlasa fix 764,N,2015-10-22 11:35:25
+2,issue_closed,803,nilearn,nilearn,AlexandreAbraham,2016-01-20 14:25:47,,closed issue,"For tests purposes, adds a memory limiter under the form of a decorator.",,N,2015-10-22 12:18:24
+3,pull_request_title,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:18:24,"It is not used for the moment but was requested in #736.
+",c033fefe76a807290e29be5f96d65be658b438da,"For tests purposes, adds a memory limiter under the form of a decorator.",It use moment request 736,N,2015-10-22 14:30:44
+17,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 08:26:48,"On top of that it looks like it only fails for a few distributions but not for the other, weird.
+
+Here is the error you get:
+
+```
+======================================================================
+
+FAIL: nilearn.tests.test_testing.test_memory_limit_raise
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+
+    self.test(*self.arg)
+
+  File ""/home/travis/build/nilearn/nilearn/testvenv/local/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/_utils/testing.py"", line 690, in wrapper_func
+
+    retval = func(*args, **kwargs)
+
+  File ""/home/travis/build/nilearn/nilearn/testvenv/local/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/tests/test_testing.py"", line 58, in test_memory_limit_raise
+
+    MemoryError, '', np.zeros, (500, 100, 60), dtype=np.float32)
+
+AssertionError: MemoryError not raised
+```
+",,,On top look like fail distribut weird here error get,N,2015-10-22 12:26:11
+18,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:26:11,"CamelCase for a function. Blah!
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')",camelcas function blah,N,2015-10-22 12:27:08
+19,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:27:08,"Are you sure that this is in the standard library?
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')",are sure standard librari,N,2015-10-22 12:27:19
+20,pull_request_commit_comment,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:27:19,"I use it as a decorator afterward. But I can change it to `snake_case` since nose does that with `with_setup`.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')",I use decor afterward but I chang sinc nose,N,2015-10-22 12:28:41
+21,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:28:41,"> I use it as a decorator afterward.
+
+Decorators aRe nOt CamelCase. It's uGlY. :) 
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')",decor are not camelcas it ugli,N,2015-10-22 12:38:39
+22,pull_request_commit_comment,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:38:39,"It is for Unix systems. I probably should skip tests if not available / setrlimit or getrlimit raise a resource.error.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')",It unix system I probabl skip test avail setrlimit getrlimit rais resourceerror,Y,2015-10-22 12:46:50
+23,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:46:50,"> It is for Unix systems. I probably should skip tests if not available /
+> setrlimit or getrlimit raise a resource.error.
+
+More than skip tests, you cannot import it at all windows, I suspect.
+Which means that importing scikit-learn on windows would crash.
+
+We need CI for Windows. I created an issue: #804.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')",more skip test cannot import window I suspect which mean import scikitlearn window would crash We need CI window I creat issu 804,Y,2015-10-22 12:15:53
+24,pull_request_commit,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:15:53,Add a memory limiter.,2689d886feb8b291af1b03db882039dd40a65967,,add memori limit,N,2015-10-22 12:29:52
+25,pull_request_commit,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:29:52,Address comments,3a105fc9570b66d4ae4266a94bb6115434758c9b,,address comment,N,2015-10-22 13:20:45
+1,issue_title,790,nilearn,nilearn,aabadie,2015-10-12 15:47:39,"This is the PR corresponding to issue #789.
+",start issue,[MRG] Improving nilearn package docstring,thi PR correspond issu 789,N,2015-10-13 09:27:56
+3,pull_request_title,790,nilearn,nilearn,aabadie,2015-10-12 15:47:39,"This is the PR corresponding to issue #789.
+",b94dadd5cd739462a00a2b99ade2281b32a1f729,[MRG] Improving nilearn package docstring,thi PR correspond issu 789,N,2015-10-13 09:27:56
+4,pull_request_merged,790,nilearn,nilearn,lesteve,2015-10-13 09:27:56,[MRG] Improving nilearn package docstring,971c523eaed596d5ec71c55a84c3f67c678fb452,Pull request merge from aabadie/nilearn:789_nilearn_docstring to nilearn/nilearn:master,mrg improv nilearn packag docstr,N,2015-10-13 07:54:24
+6,issue_comment,790,nilearn,nilearn,lesteve,2015-10-12 16:37:41,"The test failure is related to numpy 1.10. I can reproduce it locally.
+",,,the test failur relat numpi 110 I reproduc local,Y,2015-10-13 06:58:28
+7,issue_comment,790,nilearn,nilearn,lesteve,2015-10-13 06:58:28,"> The test failure is related to numpy 1.10. I can reproduce it locally.
+
+I push a fix in master https://github.com/nilearn/nilearn/commit/aa4ba03ff334e4ba11904d57db87b64bb4714f1e. @aabadie if you rebase on top of master it should make the test pass.
+",,,I push fix master aabadi rebas top master make test pass,Y,2015-10-13 09:27:53
+8,issue_comment,790,nilearn,nilearn,lesteve,2015-10-13 09:27:53,"LGTM merging, thanks !
+",,,lgtm merg thank,N,2015-10-13 06:59:33
+10,pull_request_commit,790,nilearn,nilearn,aabadie,2015-10-12 15:34:24,improving nilearn package docstring nilearn/nilearn#789,5e397f283befa8a14a61313664fb587174569644,,improv nilearn packag docstr nilearnnilearn789,N,2015-10-13 07:51:06
+2,issue_closed,793,nilearn,nilearn,GaelVaroquaux,2015-12-02 19:14:16,,closed issue,copy_img has a side effect on image,,N,2015-10-14 08:58:21
+3,issue_comment,793,nilearn,nilearn,GaelVaroquaux,2015-10-14 08:58:21,"Good catch!
+
+A PR to fix this would be great.
+",,,good catch A PR fix would great,N,2015-10-14 08:59:49
+4,issue_comment,793,nilearn,nilearn,arthurmensch,2015-10-14 08:59:49,"Fix is straightforward, I just need to write a test and I will push it
+",,,fix straightforward I need write test I push,Y,2015-10-14 09:01:36

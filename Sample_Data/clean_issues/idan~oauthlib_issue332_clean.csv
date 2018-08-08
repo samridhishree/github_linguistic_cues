@@ -1,0 +1,25 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,332,idan,oauthlib,tilgovi,2015-03-17 13:56:40,"Disclosure: I am the author of pyramid-oauthlib
+",start issue,Add link to pyramid-oauthlib,disclosur I author pyramidoauthlib
+issue_closed,332,idan,oauthlib,ib-lundgren,2015-05-23 17:38:12,,closed issue,Add link to pyramid-oauthlib,
+pull_request_title,332,idan,oauthlib,tilgovi,2015-03-17 13:56:40,"Disclosure: I am the author of pyramid-oauthlib
+",2235b9732929acc2212ae55b9ac7eaeed161941c,Add link to pyramid-oauthlib,disclosur I author pyramidoauthlib
+pull_request_merged,332,idan,oauthlib,ib-lundgren,2015-05-23 17:38:12,Add link to pyramid-oauthlib,7ad14223eb6f5295b5f205be9b059e4c9d4734ea,Pull request merge from tilgovi/oauthlib:patch-1 to idan/oauthlib:master,add link pyramidoauthlib
+issue_comment,332,idan,oauthlib,tilgovi,2015-03-17 18:48:03,"Fixed! Thanks.
+",,,fix thank
+issue_comment,332,idan,oauthlib,wiliamsouza,2015-03-17 20:16:50,":+1: LGTM PR #333 
+",,,1 lgtm PR 333
+issue_comment,332,idan,oauthlib,tilgovi,2015-03-17 20:39:10,"I think Travis might be failing because #322 needs to be merged (pyjwt is not pinned to any particular version).
+",,,I think travi might fail 322 need merg pyjwt pin particular version
+issue_comment,332,idan,oauthlib,tilgovi,2015-04-02 20:34:04,"<sigh> ... syntax.
+
+Fixed!
+",,,sigh fix
+pull_request_commit_comment,332,idan,oauthlib,wiliamsouza,2015-03-17 18:17:01,"Missing one `_` after `pyramid-oauthlib`.
+",2235b9732929acc2212ae55b9ac7eaeed161941c,"(None, '', u'README.rst')",miss one
+pull_request_commit_comment,332,idan,oauthlib,ib-lundgren,2015-04-02 11:17:37,"`pyramid-oauthlib_` should be `pyramid-oauthlib`_ :)
+",2235b9732929acc2212ae55b9ac7eaeed161941c,"(None, '', u'README.rst')",
+pull_request_commit,332,idan,oauthlib,tilgovi,2015-03-17 13:56:35,"Add link to pyramid-oauthlib
+
+Disclosure: I am the author of pyramid-oauthlib",2235b9732929acc2212ae55b9ac7eaeed161941c,,add link pyramidoauthlib disclosur I author pyramidoauthlib

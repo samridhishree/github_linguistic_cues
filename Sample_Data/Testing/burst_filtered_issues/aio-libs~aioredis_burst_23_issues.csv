@@ -1,0 +1,75 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+5,issue_comment,177,aio-libs,aioredis,codecov-io,2017-01-03 19:16:12,"## [Current coverage](https://codecov.io/gh/aio-libs/aioredis/pull/177?src=pr) is 97.03% (diff: 100%)
+> Merging [#177](https://codecov.io/gh/aio-libs/aioredis/pull/177?src=pr) into [master](https://codecov.io/gh/aio-libs/aioredis/branch/master?src=pr) will increase coverage by **0.09%**
+
+```diff
+@@             master       #177   diff @@
+==========================================
+  Files            49         51     +2   
+  Lines          5933       6131   +198   
+  Methods           0          0          
+  Messages          0          0          
+  Branches        445        462    +17   
+==========================================
++ Hits           5751       5949   +198   
+  Misses          139        139          
+  Partials         43         43          
+```
+
+> Powered by [Codecov](https://codecov.io?src=pr). Last update [6941cee...8a70c32](https://codecov.io/gh/aio-libs/aioredis/compare/6941ceef391ae523a374f9232d048364d0225d03...8a70c3252eb0b26ded966bf9bc954fa4a05aa496?src=pr)",,,current coverag 9703 diff 100,N,2017-01-04 16:23:43
+9,issue_comment,177,aio-libs,aioredis,polyn0m,2017-01-05 13:27:58,You are welcome,,,you welcom,N,2017-01-04 08:33:21
+10,pull_request_commit_comment,177,aio-libs,aioredis,popravich,2017-01-04 08:33:21,"No need in such `encoding` parsing, it will be extracted from `kwargs` in `execute` method.",8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",No need pars extract method,N,2017-01-04 08:51:36
+11,pull_request_commit_comment,177,aio-libs,aioredis,popravich,2017-01-04 08:51:36,"This looks overcomplicated. Lets make it simple.
+
+First of all I think it would be nice to have these results wrapped in `namedtuple`
+so users would not have to remember meaning of each index in a row:
+```python
+GeoCoord = namedtuple('GeoCoord', 'longtitude latitude')
+GeoRadius = namedtuple('GeoRadius', 'name distance hash coord')
+
+def make_geo_radius(name, distance=None, hash=None, coord=None):
+    if distance is not None:
+        distance = float(distance)
+    if hash is not None:
+        hash = int(hash)
+    if coord is not None:
+        hash = GeoCoord(*map(float, coord))
+    return GeoRadius(name, distance, hash, coord)
+```
+So `geo_data_row` can look like this:
+```python
+...
+for row in value:
+    if isinstance(row, list):
+        res_rows.append(make_geo_radius(*row))
+    else:
+        res_rows.append(row)
+...
+```",8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",thi look overcompl let make simpl first I think would nice result wrap user would rememb mean index row So look like,N,2017-01-04 08:52:50
+12,pull_request_commit_comment,177,aio-libs,aioredis,popravich,2017-01-04 08:52:50,"No need in separate function, just add `**kwargs` or `**opts` to `wait_convert`",8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/util.py')",No need separ function add,N,2017-01-04 12:05:36
+13,pull_request_commit_comment,177,aio-libs,aioredis,polyn0m,2017-01-04 12:05:36,Removed,8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",remov,N,2017-01-04 12:05:45
+14,pull_request_commit_comment,177,aio-libs,aioredis,polyn0m,2017-01-04 12:05:45,Fixed,8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/util.py')",fix,N,2017-01-04 12:06:15
+15,pull_request_commit_comment,177,aio-libs,aioredis,polyn0m,2017-01-04 12:06:15,Added types and rewrite function,8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",ad type rewrit function,N,2017-01-04 12:12:31
+16,pull_request_commit_comment,177,aio-libs,aioredis,popravich,2017-01-04 12:12:31,names should match,8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",name match,N,2017-01-04 12:23:59
+17,pull_request_commit_comment,177,aio-libs,aioredis,popravich,2017-01-04 12:23:59,"Ok, my previous example was incorrect.
+But I realy don't like this long if-elif noodles.
+How about this:
+```python
+if isinstance(row, list):
+    name = row.pop(0)
+    dist = hash = coord = None
+    if with_dist:
+        dist = float(row.pop(0))
+    if with_hash:
+        hash = int(row.pop(0))
+    if with_coord:
+        coord = GeoCoord(*map(float, row.pop(0)))
+    return GeoMember(name, dist, hash, coord)
+```",8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",Ok previou exampl incorrect but I reali dont like long ifelif noodl how,N,2017-01-04 12:27:38
+18,pull_request_commit_comment,177,aio-libs,aioredis,popravich,2017-01-04 12:27:38,"I think `georadius*` commands without `with_*` flags must behave same as Redis — return list of strings,
+not list of lists of strings or namedtuples.",8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'tests/geo_commands_test.py')",I think command without flag must behav redi — return list string list list string namedtupl,N,2017-01-04 12:53:08
+19,pull_request_commit_comment,177,aio-libs,aioredis,polyn0m,2017-01-04 12:53:08,@popravich what kind names must match? GeoMember -> GeoRadius?,8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'aioredis/commands/geo.py')",popravich kind name must match geomemb,N,2017-01-04 12:55:27
+20,pull_request_commit_comment,177,aio-libs,aioredis,polyn0m,2017-01-04 12:55:27,"i think command must return same result - list of namedtuples, because no reason for return list of strings, it's same record without additional data. And now command always return list of GeoMember.",8a70c3252eb0b26ded966bf9bc954fa4a05aa496,"(None, '', u'tests/geo_commands_test.py')",think command must return result list namedtupl reason return list string record without addit data and command alway return list geomemb,N,2017-01-04 13:08:31
+32,pull_request_commit,177,aio-libs,aioredis,polyn0m,2017-01-03 20:00:30,Enhance tests and fixes errors,97059073232dc1b2573dbc990a1107e5d246711b,,enhanc test fix error,N,2017-01-04 12:04:08
+33,pull_request_commit,177,aio-libs,aioredis,polyn0m,2017-01-04 12:04:08,Fix reviews notes,7b66eb524bfddee653a919f106cbcfbc0216c0b7,,fix review note,N,2017-01-04 13:19:51
+34,pull_request_commit,177,aio-libs,aioredis,polyn0m,2017-01-04 13:19:51,Refactoring geo_memeber creation,6dda4aa60dff821830c56b9b589eacd9bc10f7c8,,refactor geomemeb creation,N,2017-01-04 22:43:53

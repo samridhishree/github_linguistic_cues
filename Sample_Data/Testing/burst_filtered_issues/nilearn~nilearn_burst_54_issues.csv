@@ -1,0 +1,816 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,575,nilearn,nilearn,dohmatob,2015-05-08 14:26:17,"Fuzzing the plotting code, I find the following testcase fails
+
+```
+    for axis, direction in enumerate(""xyz""):
+        shape = [5, 6, 7]
+        shape[axis] = 1
+        img = nibabel.Nifti1Image(np.ones(shape), np.eye(4))
+        plot_stat_map(img, None, display_mode=direction)
+```
+
+`ValueError: Too many cuts requested for the data: n_cuts=7, data size=1`
+
+The culprit is the find_cut_slices function.
+
+A fix would be to return all the slices along the axis if there are at least as many requested n_slices as there are slices.
+",start issue,plot_stat_map (and probably plot_*) fails when display_mode axis has singleton dimension,fuzz plot code I find follow testcas fail the culprit findcutslic function A fix would return slice along axi least mani request nslice slice,N,2015-05-11 07:51:49
+2,issue_closed,575,nilearn,nilearn,AlexandreAbraham,2015-05-11 07:51:49,,closed issue,plot_stat_map (and probably plot_*) fails when display_mode axis has singleton dimension,,N,2015-05-09 08:35:51
+3,issue_comment,575,nilearn,nilearn,GaelVaroquaux,2015-05-09 08:35:51,"> Before I look into the code changes in more details. What do you exactly want
+> to happen when the number of cuts is too high compared to the size of the data
+> in the relevant axis ?
+
+I think that we should shoot a warning and display one cut per slice.
+",,,I think shoot warn display one cut per slice,N,2015-05-09 00:50:48
+4,issue_comment,575,nilearn,nilearn,lesteve,2015-05-09 00:50:48,"A more self explanatory snippet:
+
+``` python
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+import nibabel as nib
+
+from nilearn import plotting
+
+img = nib.Nifti1Image(np.ones((5, 6, 7)), np.eye(4))
+
+plotting.plot_stat_map(img, None, display_mode='z', cut_coords=12)
+
+plt.show()
+```
+
+Before I look into the code changes in more details. What do you exactly want to happen when the number of cuts is too high compared to the size of the data in the relevant axis ?
+
+Out of interest, why is that a problem in your case? Do you have some data that is that really that small along an axis (can't remember the default number of cuts for sure but it's something like 7 or 12 I think)?
+",,,A self explanatori snippet befor I look code chang detail what exactli want happen number cut high compar size data relev axi out interest problem case Do data realli small along axi cant rememb default number cut sure someth like 7 12 I think,N,2015-05-09 07:45:22
+1,issue_title,542,nilearn,nilearn,AlexandreAbraham,2015-04-15 08:34:17,"Supersedes #536.
+
+@banilo: This is still WIP but I have fixed some stuff. You can take over the branch again if you want ;)
+",start issue,Rely on a common iterator for check_niimg* and concat_niimg.,supersed 536 banilo thi still wip I fix stuff you take branch want,N,2015-04-30 08:20:08
+3,pull_request_title,542,nilearn,nilearn,AlexandreAbraham,2015-04-15 08:34:17,"Supersedes #536.
+
+@banilo: This is still WIP but I have fixed some stuff. You can take over the branch again if you want ;)
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,Rely on a common iterator for check_niimg* and concat_niimg.,supersed 536 banilo thi still wip I fix stuff you take branch want,N,2015-04-30 08:20:08
+9,issue_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-27 08:54:23,"Yeah, good catch! It is fixed, I'm adding a test. I must admit that I did not improve check_niimg tests, I just added some related to new features.
+",,,yeah good catch It fix Im ad test I must admit I improv checkniimg test I ad relat new featur,Y,2015-04-30 09:02:32
+12,issue_comment,542,nilearn,nilearn,lesteve,2015-04-27 08:46:43,"> Something unintutive I bumped into, check_niimg_3d accepts a list of 3d images and concatenates them.
+
+That kind of shows the coverage of check_niimg\* is not great at the moment. Given this is one of the nilearn cornerstones for input checking, it'd be great if that could be improved. Maybe not in this PR though.
+",,,that kind show coverag checkniimg great moment given one nilearn cornerston input check itd great could improv mayb PR though,N,2015-04-30 08:20:04
+13,issue_comment,542,nilearn,nilearn,lesteve,2015-04-30 08:20:04,"All right let's do this, merging. Thanks a lot for the refactoring effort!
+",,,all right let merg thank lot refactor effort,N,2015-04-30 09:00:46
+52,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-24 09:05:19,"I would be more in favor of ""ensure_ndim"". And no specific objection for ""coerce_4d"".
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(104, '', u'nilearn/_utils/niimg_conversions.py')",I would favor ensurendim and specif object coerce4d,N,2015-04-30 08:42:47
+53,pull_request_commit_comment,542,nilearn,nilearn,banilo,2015-04-30 08:42:47,"a little convoluted
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(51, '', u'nilearn/_utils/niimg_conversions.py')",littl convolut,N,2015-04-30 08:48:11
+54,pull_request_commit_comment,542,nilearn,nilearn,banilo,2015-04-30 08:48:11,"I still think a Is4D() function might be useful. We do this test a number of times across the code.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(126, '', u'nilearn/_utils/niimg_conversions.py')",I still think is4d function might use We test number time across code,Y,2015-04-30 08:50:09
+55,pull_request_commit_comment,542,nilearn,nilearn,banilo,2015-04-30 08:50:09,"perhaps return niimgs argument in the error message?
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(238, '', u'nilearn/_utils/niimg_conversions.py')",perhap return niimg argument error messag,N,2015-04-30 08:57:29
+56,pull_request_commit_comment,542,nilearn,nilearn,banilo,2015-04-30 08:57:29,"`nifti_generator()` for consistency?
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(90, '', u'nilearn/tests/test_niimg_conversions.py')",consist,N,2015-04-30 09:06:50
+57,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-30 09:06:50,"Feel free to propose something else! When I put a 2-line condition, people tell that it's a one-liner ;)
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(51, '', u'nilearn/_utils/niimg_conversions.py')",feel free propos someth els when I put 2line condit peopl tell onelin,N,2015-04-30 09:08:28
+58,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-30 09:08:28,"I tried to grep it and got only one occurence.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(126, '', u'nilearn/_utils/niimg_conversions.py')",I tri grep got one occur,N,2015-04-30 09:11:08
+59,pull_request_commit_comment,542,nilearn,nilearn,AlexandreAbraham,2015-04-30 09:11:08,"I'm not sure. We do not displayed it because it would be either ""[]"" or nothing (in the case of a functional iterator). So I don't think that it is very useful.
+",bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,"(238, '', u'nilearn/_utils/niimg_conversions.py')",Im sure We display would either noth case function iter So I dont think use,N,2015-04-30 09:12:06
+82,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-27 09:12:17,Fix bug and add test,b079c0bc9976cfa6bc62216ee617092a71a5eefe,,fix bug add test,N,2015-04-29 12:41:48
+83,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-29 12:41:48,Fix error message,6dd6fa2a022458aa495fc89c7203a63793775907,,fix error messag,N,2015-04-29 13:56:40
+84,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-29 13:56:40,Lesteve.,d643f9f4bf90799b0beb288e610ef175a326af10,,lestev,N,2015-04-29 14:25:37
+85,pull_request_commit,542,nilearn,nilearn,AlexandreAbraham,2015-04-29 14:25:37,Better error message thanks to the wonderful lesteve.,bf94ae7612bdb3a140c8e3d74b90fe0d0e0064ac,,better error messag thank wonder lestev,N,2015-04-29 14:01:22
+86,pull_request_commit_comment,542,nilearn,nilearn,lesteve,2015-04-29 14:01:22,"a list -> an iterable
+
+Maybe put the type of the argument for a better error message if we deem that the average user might be confused by the 'iterable' wording.
+",6dd6fa2a022458aa495fc89c7203a63793775907,"(6, 142, u'nilearn/_utils/niimg_conversions.py')",list mayb put type argument better error messag deem averag user might confus iter word,N,2015-04-29 14:01:29
+1,issue_title,570,nilearn,nilearn,GaelVaroquaux,2015-05-04 12:23:36,"We should have a heuristic that flips the sign of components in CanICA to have more positive values than negative values, for instance by making sure that the largest value is positive.
+",start issue,Flip signs of components in CanICA,We heurist flip sign compon canica posit valu neg valu instanc make sure largest valu posit,N,2015-05-11 08:28:35
+2,issue_closed,570,nilearn,nilearn,AlexandreAbraham,2015-05-11 08:28:35,,closed issue,Flip signs of components in CanICA,,N,2015-05-04 12:34:33
+3,issue_comment,570,nilearn,nilearn,GaelVaroquaux,2015-05-04 12:34:33,"> This issue was brought to my attention by jennifer (and so she has test data).
+> I can roll a quick heuristic fix.
+
+It would be awesome. It's a question of doing something like:
+
+<pre>
+for component in self.components_:
+   if component.max() < -component.min():
+      component *= -1
+</pre>
+
+With an associated test
+",,,It would awesom it question someth like prefor compon selfcompon componentmax componentmin compon 1 pre with associ test,Y,2015-05-07 13:34:04
+4,issue_comment,570,nilearn,nilearn,GaelVaroquaux,2015-05-07 13:34:04,"Forgive me for being stubborn, but the fact that it works for the DMN is not a strong argument.
+
+I would really like to stress that the interpretation of the max heuristic is more clear than that of the sum. In particular, take a network with only one small blob, the sum will be fragile: the background will be contributing more to the decision than the blob. This argument is based on a long experience of running ICA and related algorithms on fMRI.
+
+I'd really like the max heuristic, as mentioned in the description of the issue, rather than the sum heuristic.
+",,,forgiv stubborn fact work dmn strong argument I would realli like stress interpret max heurist clear sum In particular take network one small blob sum fragil background contribut decis blob thi argument base long experi run ica relat algorithm fmri Id realli like max heurist mention descript issu rather sum heurist,N,2015-05-07 13:39:22
+5,issue_comment,570,nilearn,nilearn,GaelVaroquaux,2015-05-07 13:39:22,"Oops! Please forgive me.
+",,,oop pleas forgiv,N,2015-05-07 14:02:19
+6,issue_comment,570,nilearn,nilearn,GaelVaroquaux,2015-05-07 14:02:19,"> Yes, indeed the change from sum to max has already been made, a few days ago
+> (with appropriate commit messages)
+
+Yes, my infinit apologies. This was a complete brain fart.
+",,,ye infinit apolog thi complet brain fart,N,2015-05-12 09:48:31
+7,issue_comment,570,nilearn,nilearn,GaelVaroquaux,2015-05-12 09:48:31,"Hey @dohmatob :
+
+Thanks a lot, the CanICA example now looks much better:
+http://nilearn.github.io/auto_examples/connectivity/plot_canica_resting_state.html
+",,,hey dohmatob thank lot canica exampl look much better,N,2015-05-04 13:18:32
+8,issue_comment,570,nilearn,nilearn,eickenberg,2015-05-04 13:18:32,"I have no opinion. It was just fyi
+
+On Mon, May 4, 2015 at 3:17 PM, dohmatob elvis dopgima <
+notifications@github.com> wrote:
+
+> Seems to me the manual solution proposed by @GaelVaroquaux
+> https://github.com/GaelVaroquaux is more transparent. Note also that
+> the values of the components are not (and should not be) open to
+> interpretation, and the issue raise here is just for visualization purposes.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/570#issuecomment-98702516.
+",,,I opinion It fyi On mon may 4 2015 317 PM dohmatob elvi dopgima notificationsgithubcom,N,2015-05-07 13:21:57
+9,issue_comment,570,nilearn,nilearn,dohmatob,2015-05-07 13:21:57,"OK, I've just checked with @jennifer and the PR produces the expected outcome.
+
+![comp_2](https://cloud.githubusercontent.com/assets/634068/7516029/76d6f0a6-f4cc-11e4-8bb3-85b0f8f89c5a.png)
+
+Without the PR, the signs were flipped and the DMN appeared de-activated.
+",,,OK ive check jennif PR produc expect outcom comp2 without PR sign flip dmn appear deactiv,N,2015-05-07 13:37:42
+10,issue_comment,570,nilearn,nilearn,eickenberg,2015-05-07 13:37:42,"https://github.com/nilearn/nilearn/pull/571/files#diff-02bccf8e53c6acb92641f710373ebf63R191
+
+this looks like `max` to me
+",,,look like,N,2015-05-07 13:41:49
+11,issue_comment,570,nilearn,nilearn,dohmatob,2015-05-07 13:41:49,"Yes, indeed the change from `sum` to `max` has already been made, a few days ago (with appropriate commit messages)
+
+@GaelVaroquaux: The update about the DMN was just meant to show that the PR solves the problem which triggered the issue in the first place...
+",,,ye inde chang alreadi made day ago appropri commit messag gaelvaroquaux the updat dmn meant show PR solv problem trigger issu first place,N,2015-05-07 16:03:33
+12,issue_comment,570,nilearn,nilearn,dohmatob,2015-05-07 16:03:33,"No offence taken :)
+",,,No offenc taken,N,2015-05-11 08:28:35
+13,issue_comment,570,nilearn,nilearn,AlexandreAbraham,2015-05-11 08:28:35,"Fixed by #571 
+",,,fix 571,N,2015-05-12 11:05:47
+14,issue_comment,570,nilearn,nilearn,dohmatob,2015-05-12 11:05:47,"Nice :)
+
+On Tue, May 12, 2015 at 11:48 AM, Gael Varoquaux notifications@github.com
+wrote:
+
+> Hey @dohmatob https://github.com/dohmatob :
+> 
+> Thanks a lot, the CanICA example now looks much better:
+> 
+> http://nilearn.github.io/auto_examples/connectivity/plot_canica_resting_state.html
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/570#issuecomment-101217292.
+
+## 
+
+DED
+",,,nice On tue may 12 2015 1148 AM gael varoquaux notificationsgithubcom wrote ded,N,2015-05-04 12:45:31
+15,issue_comment,570,nilearn,nilearn,eickenberg,2015-05-04 12:45:31,"Isn't there a generic fix for this in scikit-learn? I remember Kyle having
+some issues with that for incrementalPCA
+
+On Mon, May 4, 2015 at 2:34 PM, Gael Varoquaux notifications@github.com
+wrote:
+
+> > This issue was brought to my attention by jennifer (and so she has test
+> > data).
+> > I can roll a quick heuristic fix.
+> 
+> It would be awesome. It's a question of doing something like:
+> 
+> <pre>
+> for component in self.components_:
+> if component.max() < -component.min():
+> component *= -1
+> </pre>
+> 
+> With an associated test
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/570#issuecomment-98694377.
+",,,isnt gener fix scikitlearn I rememb kyle issu incrementalpca On mon may 4 2015 234 PM gael varoquaux notificationsgithubcom wrote,N,2015-05-04 12:48:01
+16,issue_comment,570,nilearn,nilearn,eickenberg,2015-05-04 12:48:01,"sklearn.utils.extmath.svd_flip
+
+used here
+https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/decomposition/incremental_pca.py#L219
+
+The question is whether it gives the right results with respect to what
+Gael proposes, which looks like it is neuro-imaging-informed.
+
+On Mon, May 4, 2015 at 2:45 PM, Michael Eickenberg <
+michael.eickenberg@gmail.com> wrote:
+
+> Isn't there a generic fix for this in scikit-learn? I remember Kyle having
+> some issues with that for incrementalPCA
+> 
+> On Mon, May 4, 2015 at 2:34 PM, Gael Varoquaux notifications@github.com
+> wrote:
+> 
+> > > This issue was brought to my attention by jennifer (and so she has test
+> > > data).
+> > > I can roll a quick heuristic fix.
+> > 
+> > It would be awesome. It's a question of doing something like:
+> > 
+> > <pre>
+> > for component in self.components_:
+> > if component.max() < -component.min():
+> > component *= -1
+> > </pre>
+> > 
+> > With an associated test
+> > 
+> > —
+> > Reply to this email directly or view it on GitHub
+> > https://github.com/nilearn/nilearn/issues/570#issuecomment-98694377.
+",,,sklearnutilsextmathsvdflip use the question whether give right result respect gael propos look like neuroimaginginform On mon may 4 2015 245 PM michael eickenberg michaeleickenberggmailcom,N,2015-05-04 12:51:44
+1,issue_title,553,nilearn,nilearn,GaelVaroquaux,2015-04-20 16:16:22,"Fixes #549
+
+The signals were normlized when confounds were used, for little good
+reason
+",start issue,[MRG] BUG: don't normalize when confounds,fix 549 the signal normliz confound use littl good reason,N,2015-05-11 09:26:00
+3,pull_request_title,553,nilearn,nilearn,GaelVaroquaux,2015-04-20 16:16:22,"Fixes #549
+
+The signals were normlized when confounds were used, for little good
+reason
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,[MRG] BUG: don't normalize when confounds,fix 549 the signal normliz confound use littl good reason,N,2015-05-11 09:26:00
+5,issue_comment,553,nilearn,nilearn,GaelVaroquaux,2015-04-24 15:40:18,"Comments addressed. Thanks for the review.
+",,,comment address thank review,N,2015-05-07 14:07:35
+6,issue_comment,553,nilearn,nilearn,GaelVaroquaux,2015-05-07 14:07:35,"By looking at the discussion, I think that they is nothing to do on this PR, and that it is mergeable.
+
+Can I haz reviews? To haz merge?
+",,,By look discuss I think noth PR mergeabl can I haz review To haz merg,N,2015-05-11 09:25:48
+7,issue_comment,553,nilearn,nilearn,GaelVaroquaux,2015-05-11 09:25:48,"Okay! Alors je merge ce tantôt. 
+",,,okay alor je merg ce tantôt,N,2015-05-11 09:23:58
+8,issue_comment,553,nilearn,nilearn,AlexandreAbraham,2015-05-11 09:23:58,"Pouce vers le haut !
+",,,pouc ver le haut,N,2015-05-11 09:25:50
+21,pull_request_commit_comment,553,nilearn,nilearn,salma1601,2015-04-26 08:14:57,"I added a new issue for the confounds removal, because I think it is unrelated to standardization.
+https://github.com/nilearn/nilearn/issues/561
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(13, '', u'nilearn/signal.py')",I ad new issu confound remov I think unrel standard,N,2015-05-09 00:26:02
+22,pull_request_commit_comment,553,nilearn,nilearn,lesteve,2015-05-09 00:26:02,"I feel this has been discussed but I couldn't find it anywhere. How come we need to relax this condition, i.e. somehow that the cleaned_signals and confounds are less orthogonal ?
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(5, '', u'nilearn/tests/test_signal.py')",I feel discuss I couldnt find anywher how come need relax condit ie somehow cleanedsign confound less orthogon,N,2015-05-09 00:26:48
+23,pull_request_commit_comment,553,nilearn,nilearn,lesteve,2015-05-09 00:26:48,"Same question as above, do we understand why we need to relax this condition?
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(14, '', u'nilearn/tests/test_signal.py')",same question understand need relax condit,N,2015-05-09 08:54:41
+24,pull_request_commit_comment,553,nilearn,nilearn,GaelVaroquaux,2015-05-09 08:54:41,"I am not sure. I couldn't get this to work.
+
+There are two possible explanations: either the normalizing does indeed improve the numerics, and the results are less orthogonal. I think that it would not be the end of the world given that the precision is still very good.
+
+Or options: the norm of residuals is really related to the norm of what goes in. Relative errors are what it meaningful, not absolute. Thus, it is normal that it goes up.
+
+Anyhow, I couldn't decide which one was true, and chose to move forward: I don't think that this is too bad.
+",7dc04275022925c2f8a16e9c5f215890b43c0fa8,"(5, '', u'nilearn/tests/test_signal.py')",I sure I couldnt get work there two possibl explan either normal inde improv numer result less orthogon I think would end world given precis still good Or option norm residu realli relat norm goe rel error meaning absolut thu normal goe anyhow I couldnt decid one true chose move forward I dont think bad,N,2015-05-09 22:41:23
+1,issue_title,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 10:56:26,"Rebased version of https://github.com/nilearn/nilearn/pull/563 by @salma1601 
+
+Fixes #561
+",start issue,[MRG+1] Pr 563 rebased: Deal with non-full rank confounds,rebas version salma1601 fix 561,N,2015-05-11 15:20:34
+2,issue_closed,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 15:20:34,,closed issue,[MRG+1] Pr 563 rebased: Deal with non-full rank confounds,,N,2015-05-11 10:56:26
+3,pull_request_title,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 10:56:26,"Rebased version of https://github.com/nilearn/nilearn/pull/563 by @salma1601 
+
+Fixes #561
+",2df12d7a2d295d14288d825f25977cd353db9c3e,[MRG+1] Pr 563 rebased: Deal with non-full rank confounds,rebas version salma1601 fix 561,N,2015-05-11 15:20:34
+4,pull_request_merged,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 15:20:34,[MRG+1] Pr 563 rebased: Deal with non-full rank confounds,4e6b60f0018d7371b94649c812c7e4464f7164c2,Pull request merge from GaelVaroquaux/nilearn:pr_563_rebase to nilearn/nilearn:master,mrg1 Pr 563 rebas deal nonful rank confound,N,2015-05-11 12:45:49
+5,issue_comment,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 12:45:49,"This is ready to go, as far as I am concerned.
+
+Somebody, a review? @AlexandreAbraham ?
+",,,thi readi go far I concern somebodi review alexandreabraham,N,2015-05-11 13:31:58
+6,issue_comment,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:31:58,"I'll wait for travis to finish before merging.
+",,,ill wait travi finish merg,Y,2015-05-11 15:20:28
+7,issue_comment,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 15:20:28,"Travis finished. I am merging.
+",,,travi finish I merg,Y,2015-05-11 11:01:32
+8,pull_request_commit_comment,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 11:01:32,"Oops: you are modifying in place the output here. I'll fix ths.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(None, '', u'nilearn/signal.py')",oop modifi place output ill fix th,N,2015-05-11 13:03:42
+9,pull_request_commit_comment,580,nilearn,nilearn,AlexandreAbraham,2015-05-11 13:03:42,"I got an headache trying to find out if a copy is done in all the call tree. I would either:
+- do an explicit copy at the beginning of the function, and the rest inplace
+- do everything inplace and make an explicit copy above
+
+For the moment, there is a bug since the code expects _standardize to do a copy of signals and the copy is not done if no treratment is requested.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(None, '', u'nilearn/signal.py')",I got headach tri find copi done call tree I would either explicit copi begin function rest inplac everyth inplac make explicit copi for moment bug sinc code expect standard copi signal copi done trerat request,N,2015-05-11 13:04:07
+10,pull_request_commit_comment,580,nilearn,nilearn,AlexandreAbraham,2015-05-11 13:04:07,"I trust you on this one.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(41, '', u'nilearn/signal.py')",I trust one,N,2015-05-11 13:07:59
+11,pull_request_commit_comment,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:07:59,"Good point. This copy wasn't necessary. I got confused by the merge mess.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(None, '', u'nilearn/signal.py')",good point thi copi wasnt necessari I got confus merg mess,N,2015-05-11 13:10:59
+12,pull_request_commit_comment,580,nilearn,nilearn,eickenberg,2015-05-11 13:10:59,"that part is fine: What we want is the projector `confounds.dot(np.linalg.pinv(confounds)).dot(signals)`, which is `confounds.dot(pinv(confounds.T.dot(confounds))).dot(confounds.T).dot(signals)`, which amounts to what is written, because `confounds = Q.dot(R)` and `confounds.T.dot(confounds) = R.T.dot(Q.T).dot(Q).dot(R)` and `Q` disappears because it is orthogonal.
+
+But as mentioned in an outside comment, this would have been handled by `confounds.dot(pinv(confounds).dot(signal))` also. The only question is where `pinv` cuts off singular values. AFAIK this is at `1e-15`.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(41, '', u'nilearn/signal.py')",part fine what want projector amount written disappear orthogon but mention outsid comment would handl also the question cut singular valu afaik,N,2015-05-11 13:14:08
+13,pull_request_commit_comment,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:14:08,"How about we cut our losses here and stop discussing minute details to
+focus on the big picture: the problem is solved, and we want to release
+0.1.3 to get bug fixes out to our users.
+
+You may perfectly be right. I would welcome a PR with corresponding
+timings showing that it is possible to simplify the code with the same
+numerical stability and speed. But in the mean time, I really want to get
+0.1.3 out.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(41, '', u'nilearn/signal.py')",how cut loss stop discuss minut detail focu big pictur problem solv want releas 013 get bug fix user you may perfectli right I would welcom PR correspond time show possibl simplifi code numer stabil speed but mean time I realli want get 013,N,2015-05-11 13:22:35
+14,pull_request_commit_comment,580,nilearn,nilearn,AlexandreAbraham,2015-05-11 13:22:35,"Yeah, I think that writing down the equations in a comment would be easier to read than the code and would allow us to double check  the logic more easily. We can create a PR in that sense. In the meantime, let's merge it.
+",2df12d7a2d295d14288d825f25977cd353db9c3e,"(41, '', u'nilearn/signal.py')",yeah I think write equat comment would easier read code would allow us doubl check logic easili We creat PR sens In meantim let merg,N,2015-05-11 13:28:53
+16,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-27 12:14:22,demo with synthetic data of confounds regression,7dc0a92f82534b1c70bfd9e47f3da9d94daf962e,,demo synthet data confound regress,N,2015-04-28 12:29:53
+17,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 12:29:53,fix non-full rank confounds regression,92eeed8bec6caa20dc6d366178b8cff9dab68ca0,,fix nonful rank confound regress,N,2015-04-28 12:31:29
+18,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 12:31:29,suppressed demo,7422fe99649ac8576b9bdea19065913e7645d8b3,,suppress demo,N,2015-04-28 13:39:45
+19,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:39:45,null eigenvalue threshold from float precision,618237a851584d6e7acc0a9eeccf47f22fd6e2d3,,null eigenvalu threshold float precis,N,2015-04-28 13:48:08
+20,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:48:08,added demo,b3a6577f9bba62a474237a737423786bc55b7c9a,,ad demo,N,2015-04-28 13:57:02
+21,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:57:02,removed demo,ac751e5b766a4fa8ac5b861a34aa0ca37a0f4627,,remov demo,N,2015-04-28 13:59:12
+22,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:59:12,updated threshold for zero,43d9b8c11d1c7cd3724d1b953a236db00936713d,,updat threshold zero,N,2015-05-09 07:36:53
+23,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-09 07:36:53,softned precision in test confounds,35d12dce5080902b9e2aa80fdf809ed04a96d9e1,,softn precis test confound,N,2015-05-11 09:43:36
+24,pull_request_commit,580,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-11 09:43:36,"non-full rank regression for scipy 0.9, added test",79c6992228a6490fc10f0be1bfc9b57c439f2d34,,nonful rank regress scipi 09 ad test,N,2015-05-11 11:18:38
+25,pull_request_commit,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 11:18:38,MISC: avoid a side effect,03f29e31f4998ea64f8558ce3ca128c5009e59fc,,misc avoid side effect,N,2015-05-11 11:33:29
+26,pull_request_commit,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 11:33:29,"MISC: undo unnecessary changes
+
+After discussion with @salma1601, these changes were probably introduced
+by a struggle with rebase.",f8b7a34c0c91e46a431fa400fccba49a6e32dc76,,misc undo unnecessari chang after discuss salma1601 chang probabl introduc struggl rebas,N,2015-05-11 11:51:29
+27,pull_request_commit,580,nilearn,nilearn,GaelVaroquaux,2015-05-11 11:51:29,MISC: cleaning more merge problems,fa5a3f70f7ddbaf9b0418a62e3dbb1efe47eeb70,,misc clean merg problem,N,2015-05-11 13:07:48
+1,issue_title,578,nilearn,nilearn,agramfort,2015-05-09 20:02:54,"closes #577
+",start issue,[MRG] FIX : plot_stat_map with MGZ anat,close 577,N,2015-05-11 09:24:43
+2,issue_closed,578,nilearn,nilearn,GaelVaroquaux,2015-05-11 09:24:43,,closed issue,[MRG] FIX : plot_stat_map with MGZ anat,,N,2015-05-09 20:02:54
+3,pull_request_title,578,nilearn,nilearn,agramfort,2015-05-09 20:02:54,"closes #577
+",a64736c47b67bf97f60ce9f9b2af4be74fe69836,[MRG] FIX : plot_stat_map with MGZ anat,close 577,N,2015-05-11 09:24:43
+4,pull_request_merged,578,nilearn,nilearn,GaelVaroquaux,2015-05-11 09:24:43,[MRG] FIX : plot_stat_map with MGZ anat,a2c80516a011eeae152a8914cb7bd25595b60c99,Pull request merge from agramfort/nilearn:fix_mgh_stat_map to nilearn/nilearn:master,mrg fix plotstatmap mgz anat,N,2015-05-09 20:03:52
+5,issue_comment,578,nilearn,nilearn,agramfort,2015-05-09 20:03:52,"not sure how to add a test for this... just test new_img_like with an MGZ image? is it worth adding an mgz image to the repo for this?
+",,,sure add test test newimglik mgz imag worth ad mgz imag repo,Y,2015-05-10 08:34:16
+6,issue_comment,578,nilearn,nilearn,agramfort,2015-05-10 08:34:16,"let's see if travis is happy...
+",,,let see travi happi,Y,2015-05-10 11:32:46
+7,issue_comment,578,nilearn,nilearn,agramfort,2015-05-10 11:32:46,"travis is happy
+",,,travi happi,Y,2015-05-10 16:14:10
+8,issue_comment,578,nilearn,nilearn,agramfort,2015-05-10 16:14:10,"ping @GaelVaroquaux 
+",,,ping gaelvaroquaux,N,2015-05-11 07:52:47
+9,issue_comment,578,nilearn,nilearn,agramfort,2015-05-11 07:52:47,"this avoids adding a file to the repo. Do you want to take over my PR?
+",,,avoid ad file repo Do want take PR,N,2015-05-11 08:12:33
+10,issue_comment,578,nilearn,nilearn,agramfort,2015-05-11 08:12:33,"fine with me
+
+@GaelVaroquaux any objection?
+",,,fine gaelvaroquaux object,N,2015-05-11 09:36:28
+11,issue_comment,578,nilearn,nilearn,agramfort,2015-05-11 09:36:28,"thanks !
+",,,thank,N,2015-05-09 21:29:46
+12,issue_comment,578,nilearn,nilearn,GaelVaroquaux,2015-05-09 21:29:46,"It's worth adding a small mgz to the repo to test this. Just make it small.
+",,,it worth ad small mgz repo test just make small,Y,2015-05-09 22:43:10
+13,issue_comment,578,nilearn,nilearn,larsoner,2015-05-09 22:43:10,"Travis complains on the `NIBABEL_VERSION=""1.1.0""` run:
+
+```
+line 83, in new_img_like
+    if isinstance(ref_img, nibabel.freesurfer.mghformat.MGHImage):
+AttributeError: 'module' object has no attribute 'freesurfer'
+```
+
+So I guess you'll have to also modify for old `nibabel`.
+",,,travi complain run So I guess youll also modifi old,Y,2015-05-11 07:50:29
+14,issue_comment,578,nilearn,nilearn,AlexandreAbraham,2015-05-11 07:50:29,"For the record, here is a small code to test accepted types in nibabel:
+
+``` python
+import nibabel
+import numpy as np
+
+
+def _nibabel_image_types():
+    for i in nibabel.__dict__:
+        if i.endswith('Image'):
+            yield nibabel.__dict__[i]
+
+
+types_to_test = [
+        np.int8,
+        np.uint8,
+        np.bool,
+        np.float64,
+]
+
+for image in _nibabel_image_types():
+    supp = []
+    unsupp = []
+    for t in types_to_test:
+        try:
+            image(np.zeros((10, 10, 10), dtype=t), np.eye(4))
+            supp.append(t)
+        except:
+            unsupp.append(t)
+    print('Type', image)
+    print('\tSupported:', supp)
+    print('\tUnsupported:', unsupp)
+```
+
+And here are the results:
+
+```
+Type <class 'nibabel.nifti1.Nifti1Image'>
+        Supported: [<class 'numpy.int8'>, <class 'numpy.uint8'>, <class 'numpy.float64'>]
+        Unsupported: [<class 'bool'>]
+Type <class 'nibabel.minc2.Minc2Image'>
+        Supported: [<class 'numpy.int8'>, <class 'numpy.uint8'>, <class 'bool'>, <class 'numpy.float64'>]
+        Unsupported: []
+Type <class 'nibabel.spm99analyze.Spm99AnalyzeImage'>
+        Supported: [<class 'numpy.uint8'>, <class 'numpy.float64'>]
+        Unsupported: [<class 'numpy.int8'>, <class 'bool'>]
+Type <class 'nibabel.spm2analyze.Spm2AnalyzeImage'>
+        Supported: [<class 'numpy.uint8'>, <class 'numpy.float64'>]
+        Unsupported: [<class 'numpy.int8'>, <class 'bool'>]
+Type <class 'nibabel.freesurfer.mghformat.MGHImage'>
+        Supported: [<class 'numpy.uint8'>]
+        Unsupported: [<class 'numpy.int8'>, <class 'bool'>, <class 'numpy.float64'>]
+Type <class 'nibabel.minc1.MincImage'>
+        Supported: [<class 'numpy.int8'>, <class 'numpy.uint8'>, <class 'bool'>, <class 'numpy.float64'>]
+        Unsupported: []
+Type <class 'nibabel.minc1.Minc1Image'>
+        Supported: [<class 'numpy.int8'>, <class 'numpy.uint8'>, <class 'bool'>, <class 'numpy.float64'>]
+        Unsupported: []
+Type <class 'nibabel.analyze.AnalyzeImage'>
+        Supported: [<class 'numpy.uint8'>, <class 'numpy.float64'>]
+        Unsupported: [<class 'numpy.int8'>, <class 'bool'>]
+Type <class 'nibabel.nifti2.Nifti2Image'>
+        Supported: [<class 'numpy.int8'>, <class 'numpy.uint8'>, <class 'numpy.float64'>]
+        Unsupported: [<class 'bool'>]
+```
+
+So, 2 remarks:
+- we should extend the condition to Spm*AnalyzeImage because they don't support int8 either
+- when we use internal masks (90% of usecases if masks) we could rely on MincImage format since it supports bool. This would be easier than passing the data and affine separately in all the functions.
+",,,for record small code test accept type nibabel and result So 2 remark extend condit spmanalyzeimag dont support int8 either use intern mask 90 usecas mask could reli mincimag format sinc support bool thi would easier pass data affin separ function,Y,2015-05-11 08:00:26
+15,issue_comment,578,nilearn,nilearn,AlexandreAbraham,2015-05-11 08:00:26,"No, I think that your PR should be merged to solve your problem. Supporting all other image types is a bigger task and would take more time. I just wanted to raise this since you're talking about image types.
+
+:+1: for merge and creating an issue about other image types.
+",,,No I think PR merg solv problem support imag type bigger task would take time I want rais sinc your talk imag type 1 merg creat issu imag type,N,2015-05-11 09:24:38
+16,issue_comment,578,nilearn,nilearn,GaelVaroquaux,2015-05-11 09:24:38,"Thank you. Merging
+",,,thank merg,N,2015-05-11 08:53:49
+17,pull_request_commit_comment,578,nilearn,nilearn,GaelVaroquaux,2015-05-11 08:53:49,"Please don't rename nibabel. It's not worth saving those 4 letters.
+",a64736c47b67bf97f60ce9f9b2af4be74fe69836,"(None, '', u'nilearn/tests/test_niimg.py')",pleas dont renam nibabel it worth save 4 letter,N,2015-05-11 08:57:47
+18,pull_request_commit_comment,578,nilearn,nilearn,agramfort,2015-05-11 08:57:47,"done
+",a64736c47b67bf97f60ce9f9b2af4be74fe69836,"(None, '', u'nilearn/tests/test_niimg.py')",done,N,2015-05-11 08:59:08
+19,pull_request_commit_comment,578,nilearn,nilearn,GaelVaroquaux,2015-05-11 08:59:08,"Please tell us (in a one-line comment) why this test is useful.
+",a64736c47b67bf97f60ce9f9b2af4be74fe69836,"(20, '', u'nilearn/tests/test_niimg.py')",pleas tell us onelin comment test use,Y,2015-05-09 20:01:03
+20,pull_request_commit,578,nilearn,nilearn,agramfort,2015-05-09 20:01:03,FIX : plot_stat_map with MGZ anat,10ec5d6a4324a0546659c29c2e6a1a8673b99580,,fix plotstatmap mgz anat,N,2015-05-10 08:30:38
+21,pull_request_commit,578,nilearn,nilearn,agramfort,2015-05-10 08:30:38,add test with mgz file,d74d394094a71ac1b61c5c1591116d0d5efa0064,,add test mgz file,N,2015-05-10 08:33:40
+22,pull_request_commit,578,nilearn,nilearn,agramfort,2015-05-10 08:33:40,FIX for old nibabel,57fcc8e6c6661dff7b7716189c87547c728b5af5,,fix old nibabel,N,2015-05-10 08:33:49
+23,pull_request_commit,578,nilearn,nilearn,agramfort,2015-05-10 08:33:49,pep8,e7c70dab275110c1b5f69cc86bf5cbbaf4416537,,pep8,N,2015-05-10 09:48:56
+24,pull_request_commit,578,nilearn,nilearn,agramfort,2015-05-10 09:48:56,FIX v2 for old nibabel,076d52fc7421bead1342cfbe5e339519c7cdc342,,fix v2 old nibabel,N,2015-05-11 08:57:04
+25,pull_request_commit,578,nilearn,nilearn,agramfort,2015-05-11 08:57:04,nib -> nibabel,4e26f6114286a755bec2cbf12036bafe245d393b,,nib,N,2015-05-11 09:12:35
+1,issue_title,562,nilearn,nilearn,lesteve,2015-04-27 06:56:44,"rather than relying on kwargs. Fixes #524.
+
+Better suggestions for vmin/vmax docstring documentation more than welcome. At the moment this is a bit cryptic:
+
+```
+vmin: float
+    vmin passed to plt.imshow
+vmax: float
+    vmax passed to plt.imshow
+```
+",start issue,Add explicit vmin and vmax parameters to plotting functions,rather reli kwarg fix 524 better suggest vminvmax docstr document welcom At moment bit cryptic,N,2015-05-11 05:10:06
+3,pull_request_title,562,nilearn,nilearn,lesteve,2015-04-27 06:56:44,"rather than relying on kwargs. Fixes #524.
+
+Better suggestions for vmin/vmax docstring documentation more than welcome. At the moment this is a bit cryptic:
+
+```
+vmin: float
+    vmin passed to plt.imshow
+vmax: float
+    vmax passed to plt.imshow
+```
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,Add explicit vmin and vmax parameters to plotting functions,rather reli kwarg fix 524 better suggest vminvmax docstr document welcom At moment bit cryptic,N,2015-05-11 05:10:06
+4,pull_request_merged,562,nilearn,nilearn,GaelVaroquaux,2015-05-11 05:10:06,Add explicit vmin and vmax parameters to plotting functions,bf3089e9df9626bb39a44426de7b529b66cf5833,Pull request merge from lesteve/nilearn:add-explicit-vmin-vmax-to-plot-functions to nilearn/nilearn:master,add explicit vmin vmax paramet plot function,N,2015-05-11 05:10:04
+5,issue_comment,562,nilearn,nilearn,GaelVaroquaux,2015-05-11 05:10:04,"Thank you. Merging!
+",,,thank merg,N,2015-05-09 00:10:28
+6,issue_comment,562,nilearn,nilearn,lesteve,2015-05-09 00:10:28,"I tweaked the documentation of vmin/vmax parameters and feel this is ready to merge. Comments welcome!
+",,,I tweak document vminvmax paramet feel readi merg comment welcom,N,2015-05-10 19:08:51
+7,issue_comment,562,nilearn,nilearn,bthirion,2015-05-10 19:08:51,"besides making 'plt' more explicit with 'matplotlib.pyplot', I have no objection.
+",,,besid make plt explicit matplotlibpyplot I object,N,2015-05-10 22:08:48
+8,issue_comment,562,nilearn,nilearn,lesteve,2015-05-10 22:08:48,"Replaced plt by matplotlib.pyplot and fixed the fragile vmin/vmax assignment.
+",,,replac plt matplotlibpyplot fix fragil vminvmax assign,N,2015-04-30 08:42:21
+9,issue_comment,562,nilearn,nilearn,lesteve,2015-04-30 08:42:21,"> Should there be a new test for this?
+
+Not necessary vmin and vmax could already be passed through the kwargs. This PR is mostly documenting this fact.
+",,,not necessari vmin vmax could alreadi pass kwarg thi PR mostli document fact,N,2015-04-28 13:12:01
+10,issue_comment,562,nilearn,nilearn,banilo,2015-04-28 13:12:01,"looks good.
+
+Should there be a new test for this?
+",,,look good should new test,Y,2015-04-28 13:04:57
+11,pull_request_commit_comment,562,nilearn,nilearn,banilo,2015-04-28 13:04:57,"A possible alternative explanation for vmin/vmax would be:
+
+`A lower/bigger bound filter that pushes any map value up/down smaller/bigger than vmin/max towards vmin/vmax.`
+
+mention the analogy to np.clip()?
+
+""Given an interval, values outside the interval are clipped to
+the interval edges.  For example, if an interval of `[0, 1]`
+is specified, values smaller than 0 become 0, and values larger
+than 1 become 1.""
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",A possibl altern explan vminvmax would mention analog npclip given interv valu outsid interv clip interv edg for exampl interv specifi valu smaller 0 becom 0 valu larger 1 becom 1,N,2015-04-28 14:03:45
+12,pull_request_commit_comment,562,nilearn,nilearn,GaelVaroquaux,2015-04-28 14:03:45,"lower/upper bound is probably a better phrasing.
+
+Analogy to np.clip is probably not usable for our non-advanced users. The advanced one should understand vmin, vmax as it is standard.
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",lowerupp bound probabl better phrase analog npclip probabl usabl nonadvanc user the advanc one understand vmin vmax standard,N,2015-04-30 09:03:03
+13,pull_request_commit_comment,562,nilearn,nilearn,banilo,2015-04-30 09:03:03,"Somebody likes the Huttinger slides :-P
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(16, '', u'nilearn/plotting/displays.py')",somebodi like hutting slide P,N,2015-04-30 09:06:31
+14,pull_request_commit_comment,562,nilearn,nilearn,banilo,2015-04-30 09:06:31,"Since glass brain does not currently support negative values, do we need some additional test, not required for the other plot_*?
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(274, '', u'nilearn/plotting/img_plotting.py')",sinc glass brain current support neg valu need addit test requir plot,Y,2015-04-30 09:08:06
+15,pull_request_commit_comment,562,nilearn,nilearn,banilo,2015-04-30 09:08:06,"There appears to be a grammatical error here.
+
+""function argument passed to"" -> 231.000 hits on google
+""function argument passed on to"" -> 120.000.000 hits on google
+
+Should we correct this in the entire nilearn code?
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",there appear grammat error function argument pass function argument pass should correct entir nilearn code,N,2015-04-30 09:14:20
+16,pull_request_commit_comment,562,nilearn,nilearn,AlexandreAbraham,2015-04-30 09:14:20,"PR welcome ;)
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",PR welcom,N,2015-04-30 11:27:43
+17,pull_request_commit_comment,562,nilearn,nilearn,lesteve,2015-04-30 11:27:43,"You are aware than ""function argument passed on to"" gets the quote removed, right? The ratio is way too good to be true.
+
+Not sure how robust these kind of comparisons in general are but I get:
+
+""passed on to"" python
+167 000 results
+
+""passed to"" python
+470 000 results
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",you awar function argument pass get quot remov right the ratio way good true not sure robust kind comparison gener I get pass python 167 000 result pass python 470 000 result,N,2015-04-30 11:32:48
+18,pull_request_commit_comment,562,nilearn,nilearn,lesteve,2015-04-30 11:32:48,"Actually it took me a little while to remember why I did that but this is supposed to catch these two cases:
+- vmin has not be passed into the kwargs
+- vmin=None has been passed into the kwargs
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(16, '', u'nilearn/plotting/displays.py')",actual took littl rememb I suppos catch two case vmin pass kwarg vminnon pass kwarg,N,2015-04-30 11:33:50
+19,pull_request_commit_comment,562,nilearn,nilearn,lesteve,2015-04-30 11:33:50,"basically equivalent for `'vmin' not in kwargs or kwargs['vmin'] is None`
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(16, '', u'nilearn/plotting/displays.py')",basic equival,N,2015-05-09 09:35:31
+20,pull_request_commit_comment,562,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:35:31,"If you want to change this, I would rather go for matplotlib.pyplot.imshow, for things to be googleable by someone who is not versed in the shorthands of Python devs.
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",If want chang I would rather go matplotlibpyplotimshow thing googleabl someon vers shorthand python dev,N,2015-05-09 09:35:46
+21,pull_request_commit_comment,562,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:35:46,"Same remarks: maptlotlib.pyplot
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",same remark maptlotlibpyplot,N,2015-05-09 09:36:15
+22,pull_request_commit_comment,562,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:36:15,"matplotlib.pyplot
+",92421158ee561cce8c36c16724c6c9b1bbac2e22,"(None, '', u'nilearn/plotting/img_plotting.py')",matplotlibpyplot,N,2015-05-09 09:37:32
+25,pull_request_commit,562,nilearn,nilearn,lesteve,2015-04-27 08:27:10,Make sure that vmin and vmax are the same for each cut,41dd2a6a5a6054ee12a171f771185d4e0fdb60e0,,make sure vmin vmax cut,N,2015-05-09 00:08:33
+26,pull_request_commit,562,nilearn,nilearn,lesteve,2015-05-09 00:08:33,Improve documentation of vmin/vmax,3bad9807523b9d2b5094f1faa3eb58f3f3cfae67,,improv document vminvmax,N,2015-05-10 22:01:05
+27,pull_request_commit,562,nilearn,nilearn,lesteve,2015-05-10 22:01:05,"Use matplotlib.pyplot instead of plt
+
+for clarity",415f691f23e031ec5ef18ff4897f22ab692c27ea,,use matplotlibpyplot instead plt clariti,N,2015-05-10 22:01:36
+28,pull_request_commit,562,nilearn,nilearn,lesteve,2015-05-10 22:01:36,Replace lingering pylab by matplotlib.pyplot,1c62682cf2e0877f0ca6fb2f54b2b8681c1c5bd0,,replac linger pylab matplotlibpyplot,N,2015-05-10 22:08:06
+2,issue_closed,585,nilearn,nilearn,GaelVaroquaux,2015-07-13 12:40:52,,closed issue,Fix logic flaws in caching system (was Fix 457),,N,2015-05-13 08:51:23
+65,pull_request_commit_comment,585,nilearn,nilearn,AlexandreAbraham,2015-07-13 10:28:38,"Fixed.
+",07366be1a0638c957e3b56dcc930d2909c4c505b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')",fix,N,2015-05-13 08:34:27
+66,pull_request_commit,585,nilearn,nilearn,AlexandreAbraham,2015-05-13 08:34:27,Mask func_memory_level mandatory. Fix cache logic.,1185ba104fa30497f41c6e080ae74f2efdd3c629,,mask funcmemorylevel mandatori fix cach logic,N,2015-05-13 08:40:30
+67,pull_request_commit,585,nilearn,nilearn,AlexandreAbraham,2015-05-13 08:40:30,Add cache tests,710f2b010aafe2e7eb98c4255afc59858e9540ca,,add cach test,N,2015-05-13 08:49:02
+1,issue_title,582,nilearn,nilearn,KamalakerDadi,2015-05-11 14:09:19,"tested like this by including few arguments in plot_anat as viewed in files changed
+
+``` python
+from nilearn import plotting
+display = plotting.plot_anat()
+display = plotting.plot_anat(threshold=0)
+display = plotting.plot_anat(threshold=None)
+```
+
+worked well without error. Any suggestions or comments if it cannot be included that way or to be included in a better way.
+",start issue,"Regarding issue 557, included optional argument threshold and set default as None",test like includ argument plotanat view file chang work well without error ani suggest comment cannot includ way includ better way,N,2015-05-11 20:18:08
+2,issue_closed,582,nilearn,nilearn,GaelVaroquaux,2015-05-11 20:18:08,,closed issue,"Regarding issue 557, included optional argument threshold and set default as None",,N,2015-05-11 14:09:19
+3,pull_request_title,582,nilearn,nilearn,KamalakerDadi,2015-05-11 14:09:19,"tested like this by including few arguments in plot_anat as viewed in files changed
+
+``` python
+from nilearn import plotting
+display = plotting.plot_anat()
+display = plotting.plot_anat(threshold=0)
+display = plotting.plot_anat(threshold=None)
+```
+
+worked well without error. Any suggestions or comments if it cannot be included that way or to be included in a better way.
+",5a1a21d66b085e653ef46791685ca33550bd515a,"Regarding issue 557, included optional argument threshold and set default as None",test like includ argument plotanat view file chang work well without error ani suggest comment cannot includ way includ better way,N,2015-05-11 20:18:08
+4,pull_request_merged,582,nilearn,nilearn,GaelVaroquaux,2015-05-11 20:18:08,"Regarding issue 557, included optional argument threshold and set default as None",917e0dc00bcf23a70cf3fc2932cb3e96113da43d,Pull request merge from KamalakerDadi/nilearn:fix_557 to nilearn/nilearn:master,regard issu 557 includ option argument threshold set default none,N,2015-05-11 14:09:37
+5,issue_comment,582,nilearn,nilearn,KamalakerDadi,2015-05-11 14:09:37,"issue #557 
+",,,issu 557,N,2015-05-11 16:47:42
+6,issue_comment,582,nilearn,nilearn,GaelVaroquaux,2015-05-11 16:47:42,"This looks good. I'll merge once the travis built has run.
+",,,thi look good ill merg travi built run,Y,2015-05-11 16:49:26
+7,issue_comment,582,nilearn,nilearn,KamalakerDadi,2015-05-11 16:49:26,"Ok cool. Thanks
+",,,Ok cool thank,N,2015-05-11 14:00:59
+1,issue_title,576,nilearn,nilearn,dohmatob,2015-05-08 14:42:23,"Fixes #575.
+",start issue,[MRG+1] Fix issue575,fix 575,N,2015-05-11 07:51:49
+2,issue_closed,576,nilearn,nilearn,AlexandreAbraham,2015-05-11 07:51:49,,closed issue,[MRG+1] Fix issue575,,N,2015-05-08 14:42:23
+3,pull_request_title,576,nilearn,nilearn,dohmatob,2015-05-08 14:42:23,"Fixes #575.
+",3686a8da936884fea429d5c16ceb05b031009072,[MRG+1] Fix issue575,fix 575,N,2015-05-11 07:51:49
+4,pull_request_merged,576,nilearn,nilearn,AlexandreAbraham,2015-05-11 07:51:49,[MRG+1] Fix issue575,7f2e59b28ac9cea6bb173753114a828b9fade111,Pull request merge from dohmatob/nilearn:fix-issue575 to nilearn/nilearn:master,mrg1 fix issue575,N,2015-05-09 09:57:03
+5,issue_comment,576,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:57:03,"Aside from the two minor comments, this seems good to go to me. Thanks heaps.
+",,,asid two minor comment seem good go thank heap,N,2015-05-09 14:04:00
+6,issue_comment,576,nilearn,nilearn,GaelVaroquaux,2015-05-09 14:04:00,":+1: for merge!
+",,,1 merg,N,2015-05-09 09:51:58
+7,pull_request_commit_comment,576,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:51:58,"Could you move this as a top-level function, rather than an embedded function. It makes it easier for reuse and testing.
+",3686a8da936884fea429d5c16ceb05b031009072,"(None, '', u'nilearn/plotting/find_cuts.py')",could move toplevel function rather embed function It make easier reus test,Y,2015-05-09 09:56:31
+8,pull_request_commit_comment,576,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:56:31,"How much time is this adding to the tests?
+
+Unfortunately our plotting tests are a bit long, given that they involve a lot of matplotlib machinery. Thus we need to be careful here, and sometimes we will not test the full plotting function, but only the internal cutting one, if the cost in time is too much. Indeed, if the tests start taking too long to run, people won't run them anymore.
+",3686a8da936884fea429d5c16ceb05b031009072,"(11, '', u'nilearn/plotting/tests/test_img_plotting.py')",how much time ad test unfortun plot test bit long given involv lot matplotlib machineri thu need care sometim test full plot function intern cut one cost time much inde test start take long run peopl wont run anymor,Y,2015-05-09 10:48:09
+9,pull_request_commit_comment,576,nilearn,nilearn,dohmatob,2015-05-09 10:48:09,"OK, i did include a test for the cutting function. So i guess i can just remove this one, since it's not very DRY.
+",3686a8da936884fea429d5c16ceb05b031009072,"(11, '', u'nilearn/plotting/tests/test_img_plotting.py')",OK includ test cut function So guess remov one sinc dri,Y,2015-05-09 10:48:18
+10,pull_request_commit_comment,576,nilearn,nilearn,dohmatob,2015-05-09 10:48:18,"sure
+",3686a8da936884fea429d5c16ceb05b031009072,"(None, '', u'nilearn/plotting/find_cuts.py')",sure,N,2015-05-09 10:50:36
+11,pull_request_commit_comment,576,nilearn,nilearn,GaelVaroquaux,2015-05-09 10:50:36,"> OK, i did include a test for the cutting function. So i guess i can
+> just remove this one, since it's not very DRY.
+
+I am just asking an estimation of time, to know whether or not to include
+it.
+",3686a8da936884fea429d5c16ceb05b031009072,"(11, '', u'nilearn/plotting/tests/test_img_plotting.py')",I ask estim time know whether includ,N,2015-05-09 10:54:43
+12,pull_request_commit_comment,576,nilearn,nilearn,dohmatob,2015-05-09 10:54:43,"10 loops, best of 3: 234 ms per loop
+
+On Sat, May 9, 2015 at 12:50 PM, Gael Varoquaux notifications@github.com
+wrote:
+
+> In nilearn/plotting/tests/test_img_plotting.py
+> https://github.com/nilearn/nilearn/pull/576#discussion_r29991782:
+> 
+> > @@ -379,3 +379,11 @@ def test_plot_connectome_exceptions():
+> >                          adjacency_matrix, node_coords,
+> >                          node_kwargs={'c': 'blue'},
+> >                          **kwargs)
+> > +
+> > +
+> > +def test_singleton_ax_dim():
+> > -    for axis, direction in enumerate(""xyz""):
+> > -        shape = [5, 6, 7]
+> > -        shape[axis] = 1
+> > -        img = nibabel.Nifti1Image(np.ones(shape), np.eye(4))
+> > -        plot_stat_map(img, None, display_mode=direction)
+> 
+>  OK, i did include a test for the cutting function. So i guess i can just
+> remove this one, since it's not very DRY.
+> I am just asking an estimation of time, to know whether or not to include
+> it.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/576/files#r29991782.
+
+## 
+
+DED
+",3686a8da936884fea429d5c16ceb05b031009072,"(11, '', u'nilearn/plotting/tests/test_img_plotting.py')",10 loop best 3 234 ms per loop On sat may 9 2015 1250 PM gael varoquaux notificationsgithubcom wrote ded,N,2015-05-09 12:44:03
+13,pull_request_commit_comment,576,nilearn,nilearn,GaelVaroquaux,2015-05-09 12:44:03,"> 10 loops, best of 3: 234 ms per loop
+
+Let's keep it then!
+
+Thanks
+",3686a8da936884fea429d5c16ceb05b031009072,"(11, '', u'nilearn/plotting/tests/test_img_plotting.py')",let keep thank,N,2015-05-09 13:00:02
+14,pull_request_commit_comment,576,nilearn,nilearn,dohmatob,2015-05-09 13:00:02,"Done.
+",3686a8da936884fea429d5c16ceb05b031009072,"(11, '', u'nilearn/plotting/tests/test_img_plotting.py')",done,N,2015-05-08 12:38:19
+15,pull_request_commit,576,nilearn,nilearn,dohmatob,2015-05-08 12:38:19,BF: issue #575 (returning all slices if too many n_cuts demanded),23687655135cb737e174f6f909940cbbfe3a97d5,,BF issu 575 return slice mani ncut demand,N,2015-05-08 12:38:44
+16,pull_request_commit,576,nilearn,nilearn,dohmatob,2015-05-08 12:38:44,BF: issue #575: new test cases,599d1a78698a480111514026dc6fff97a0e340f6,,BF issu 575 new test case,N,2015-05-08 12:40:13
+17,pull_request_commit,576,nilearn,nilearn,dohmatob,2015-05-08 12:40:13,ENH: assert ==> raise,425b96f06f2208cd68367e3a4ba75dc0e034b06b,,enh assert,N,2015-05-08 12:42:44
+18,pull_request_commit,576,nilearn,nilearn,dohmatob,2015-05-08 12:42:44,typo,ee07b43d143fad1e34406b5c62066cfec66dbec7,,typo,N,2015-05-09 08:48:36
+19,pull_request_commit,576,nilearn,nilearn,dohmatob,2015-05-09 08:48:36,still addressing comments on PR #576 and issue #575,9a60dd2a545d87ecfb0f665ac58543192025fa4d,,still address comment PR 576 issu 575,N,2015-05-09 09:41:49
+1,issue_title,463,nilearn,nilearn,bcipolli,2015-02-25 16:25:32,"```
+from nilearn import datasets
+from nilearn.image import iter_img, index_img
+from nilearn._utils.niimg_conversions import check_niimgs
+
+haxby_dataset = datasets.fetch_haxby_simple()
+func_img_1 = index_img(haxby_dataset.func, 0)
+
+# This works
+print list(check_niimgs([func_img_1], return_iterator=True))
+
+# This incorrectly returns an empty iterator
+print list(check_niimgs(iter_img([func_img_1]), return_iterator=True))
+
+# This throws an error
+try:
+    print check_niimgs(iter_img([func_img_1]))
+except Exception as e:
+    print e.__class__
+```
+
+**Expected behavior:**
+`check_niimgs` called on an iterator of 3D images to return all images.
+
+**Current behavior:**
+`check_niimgs` returns a list, or iterator, with the first image missing.  The output from the above:
+
+```
+[<nibabel.nifti1.Nifti1Image object at 0x10b3eaf10>]
+[]
+<type 'exceptions.StopIteration'>
+```
+
+**Notes:**
+- I'm not sure what use-cases this would hit.  I expected `mean_img` to call `check_niimgs`, but it does not, nor am I clear when an iterator would be passed to `check_niimgs`.
+- When `check_niimgs` runs, it grabs the first image to examine image information.  In the case of an iterator, however, it simply returns the remaining iterator (not a new one that contains the first image that's been popped off.
+- I'm not sure the best way to fix this.  Issue #462 was an accidental product of me trying to find a solution to this issue.
+",start issue,concat_niimgs is not iterator friendly (was: check_niimgs eliminates the first 3D image from an iterator),expect behavior call iter 3D imag return imag current behavior return list iter first imag miss the output note Im sure usecas would hit I expect call I clear iter would pass when run grab first imag examin imag inform In case iter howev simpli return remain iter new one contain first imag that pop Im sure best way fix issu 462 accident product tri find solut issu,N,2015-04-30 08:25:00
+1,issue_title,563,nilearn,nilearn,salma1601,2015-04-28 14:07:01,"Fixes #561
+It remains to add a test to check that output from regessing out confounds equals residue obtained with scipy least squares. May be it will be better to add it after PR #553 is merged, because this PR will affect the way the regression is done.
+",start issue,Deal with non-full rank confounds,fix 561 It remain add test check output regess confound equal residu obtain scipi least squar may better add PR 553 merg PR affect way regress done,N,2015-05-11 13:30:27
+2,issue_closed,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:30:27,,closed issue,Deal with non-full rank confounds,,N,2015-04-28 14:07:01
+3,pull_request_title,563,nilearn,nilearn,salma1601,2015-04-28 14:07:01,"Fixes #561
+It remains to add a test to check that output from regessing out confounds equals residue obtained with scipy least squares. May be it will be better to add it after PR #553 is merged, because this PR will affect the way the regression is done.
+",40f7495a399fb62271efa57432a50923716b9164,Deal with non-full rank confounds,fix 561 It remain add test check output regess confound equal residu obtain scipi least squar may better add PR 553 merg PR affect way regress done,N,2015-05-07 14:39:55
+4,issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-07 14:39:55,"@salma1601 : thanks a lot.
+
+The tests are not passing on scipy 0.9.0, which we must support as it is the standard version in one of the ubuntu distributions that we support.
+
+The reason is trivial: the 'pivoting' argument to scipy.linalg.qr was added in version 0.10.1.
+
+The solution is to test for the version of scipy, and use the 'pivoting' only if the version is greater. One example of such code to do this can be found on 
+https://github.com/nilearn/nilearn/blob/master/nilearn/decomposition/canica.py#L153
+
+Thanks!
+",,,salma1601 thank lot the test pass scipi 090 must support standard version one ubuntu distribut support the reason trivial pivot argument scipylinalgqr ad version 0101 the solut test version scipi use pivot version greater one exampl code found thank,Y,2015-05-11 12:59:24
+5,issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 12:59:24,"Yes, but the QR is significantly faster. The Leipzig people were impressed at how fast this was.
+",,,ye QR significantli faster the leipzig peopl impress fast,N,2015-05-11 13:03:13
+6,issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:03:13,"OK, maybe not faster. I just know that it is the recommended way of doing it.
+",,,OK mayb faster I know recommend way,N,2015-05-11 13:30:26
+7,issue_comment,563,nilearn,nilearn,GaelVaroquaux,2015-05-11 13:30:26,"Closing this PR as superseeded by #580 
+",,,close PR superseed 580,N,2015-05-11 12:57:54
+8,issue_comment,563,nilearn,nilearn,eickenberg,2015-05-11 12:57:54,"I may be completely mistaken, but the problem may not have crept up if `signal -= confounds.dot(np.linalg.lstsq(confounds, signal)[0])` or `signal -= confounds.dot(np.linalg.pinv(confounds).dot(signal))` had been used instead of the lower-level QR decomp technique.
+",,,I may complet mistaken problem may crept use instead lowerlevel QR decomp techniqu,N,2015-05-11 13:01:33
+10,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-27 12:14:22,demo with synthetic data of confounds regression,96f2d5fb79fa9a4c4a1b5a3a89047d4d754c0e98,,demo synthet data confound regress,N,2015-04-28 12:29:53
+11,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 12:29:53,fix non-full rank confounds regression,c423ad871753257e0ad4244acff623ade854db5b,,fix nonful rank confound regress,N,2015-04-28 12:31:29
+12,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 12:31:29,suppressed demo,1d1d461ba9caaba27a0bc01d36f0603c77086956,,suppress demo,N,2015-04-28 13:39:45
+13,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:39:45,null eigenvalue threshold from float precision,99484c3bc1d3164f520d5ecad6ea85ef6a1cbd4f,,null eigenvalu threshold float precis,N,2015-04-28 13:48:08
+14,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:48:08,added demo,f7677717aab01d355d7209dc2afa68e4654a421d,,ad demo,N,2015-04-28 13:57:02
+15,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:57:02,removed demo,b8d867841a41fd2d72b7880a97c9db49158dc411,,remov demo,N,2015-04-28 13:59:12
+16,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-04-28 13:59:12,updated threshold for zero,675dd7e2ca43fd893c322c7a4afa0dd5882544ea,,updat threshold zero,N,2015-05-09 07:36:53
+17,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-09 07:36:53,softned precision in test confounds,581c063c8215c977e430b75724a247e2e11ef2f8,,softn precis test confound,N,2015-05-11 09:43:36
+18,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-11 09:43:36,"non-full rank regression for scipy 0.9, added test",0a838b69f1df2f953ddd5f81220220fd02037c94,,nonful rank regress scipi 09 ad test,N,2015-05-11 10:01:09
+19,pull_request_commit,563,nilearn,nilearn,sb238920@is223297.intra.cea.fr,2015-05-11 10:01:09,updated with last changes in master,59eba16c131d31d6ce584b8bd3867f23710fe4b3,,updat last chang master,N,2015-05-11 10:29:04
+1,issue_title,571,nilearn,nilearn,dohmatob,2015-05-04 14:30:09,,start issue,[MRG+1] BF: issue #570 (including tests),,N,2015-05-11 07:56:18
+2,issue_closed,571,nilearn,nilearn,AlexandreAbraham,2015-05-11 07:56:18,,closed issue,[MRG+1] BF: issue #570 (including tests),,N,2015-05-04 14:30:09
+3,pull_request_title,571,nilearn,nilearn,dohmatob,2015-05-04 14:30:09,,56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,[MRG+1] BF: issue #570 (including tests),,N,2015-05-11 07:56:18
+4,pull_request_merged,571,nilearn,nilearn,AlexandreAbraham,2015-05-11 07:56:18,[MRG+1] BF: issue #570 (including tests),a73a4d675b5807073fde3ec195b53dcd515cf05c,Pull request merge from dohmatob/nilearn:fix-ica-sign to nilearn/nilearn:master,mrg1 BF issu 570 includ test,N,2015-05-09 09:30:35
+5,issue_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:30:35,"No further comments from me: should be mergeable once the above comments are addressed.
+",,,No comment mergeabl comment address,N,2015-05-09 12:46:31
+6,issue_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 12:46:31,"Don't worry about the coverage report. 
+",,,dont worri coverag report,N,2015-05-09 13:55:06
+7,issue_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 13:55:06,":+1: for merge.
+",,,1 merg,N,2015-05-05 08:49:10
+8,issue_comment,571,nilearn,nilearn,dohmatob,2015-05-05 08:49:10,"3 ==> 2 subjects in test.
+",,,3,N,2015-05-05 08:49:56
+9,issue_comment,571,nilearn,nilearn,dohmatob,2015-05-05 08:49:56,"sum ==> max heuristic
+",,,sum,N,2015-05-09 11:14:59
+10,issue_comment,571,nilearn,nilearn,dohmatob,2015-05-09 11:14:59,"OK, I've completed my end of the deal.
+",,,OK ive complet end deal,N,2015-05-09 11:35:32
+11,issue_comment,571,nilearn,nilearn,dohmatob,2015-05-09 11:35:32,"OK, the coveralls threshold (for acceptable % coverage decrease) seems crazy :)  Is 0.01 not simply too tiny ?
+
+Also it seems to me about have of the open / half-closed PRs are affected same way. Any thoughts ?
+",,,OK coveral threshold accept coverag decreas seem crazi Is 001 simpli tini also seem open halfclos pr affect way ani thought,Y,2015-05-07 14:01:00
+12,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-07 14:01:00,"I don't understand the few lines above: what are they there for? It seems that they are not used.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",I dont understand line It seem use,N,2015-05-08 14:07:47
+13,pull_request_commit_comment,571,nilearn,nilearn,dohmatob,2015-05-08 14:07:47,"Yes the code snippet is useless as it stands. Thanks for spotting. I'm pushing the full test-case (where the above snippet is used).
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",ye code snippet useless stand thank spot Im push full testcas snippet use,N,2015-05-08 21:55:43
+14,pull_request_commit_comment,571,nilearn,nilearn,lesteve,2015-05-08 21:55:43,"Just use assert_true I would say. If we care about providing an assert_less, it should be done somewhere in _utils rather than in one test file.
+
+Two comments:
+- assert_less_than does not exist it seems (it is called assert_less AFAICT)
+- what you implemented is actually assert_less_equal
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",just use asserttru I would say If care provid assertless done somewher util rather one test file two comment assertlessthan exist seem call assertless afaict implement actual assertlessequ,Y,2015-05-08 21:59:26
+15,pull_request_commit_comment,571,nilearn,nilearn,lesteve,2015-05-08 21:59:26,"I don't think this comment is accurate anymore now that we use the max heuristics.
+
+Also I'd rather have a comment that explain that it is a heuristics for reproducible maps rather than mentioning the GH issue.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/canica.py')",I dont think comment accur anymor use max heurist also Id rather comment explain heurist reproduc map rather mention GH issu,N,2015-05-08 23:00:03
+16,pull_request_commit_comment,571,nilearn,nilearn,lesteve,2015-05-08 23:00:03,"Is that not the exact same thing as l. 107-108?
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",Is exact thing l 107108,N,2015-05-08 23:01:04
+17,pull_request_commit_comment,571,nilearn,nilearn,lesteve,2015-05-08 23:01:04,"This comment is not accurate anymore since we are using a max heuristic.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",thi comment accur anymor sinc use max heurist,N,2015-05-08 23:26:19
+18,pull_request_commit_comment,571,nilearn,nilearn,lesteve,2015-05-08 23:26:19,"In your example you have actually mp.max() == 1 == -mp.min() so the maps don't get the sign flip. If you are wondering, the reason your test pass is that your test is less or equal and it hits the  equal case in both directions.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",In exampl actual mpmax 1 mpmin map dont get sign flip If wonder reason test pass test less equal hit equal case direct,Y,2015-05-08 23:28:50
+19,pull_request_commit_comment,571,nilearn,nilearn,lesteve,2015-05-08 23:28:50,"This comment is not far from useless. Even if I knew what you were trying to test it took me a while to make sense of it.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",thi comment far useless even I knew tri test took make sens,Y,2015-05-09 07:59:53
+20,pull_request_commit_comment,571,nilearn,nilearn,dohmatob,2015-05-09 07:59:53,"yep, there was typo in the function name/
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",yep typo function name,N,2015-05-09 08:33:49
+21,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 08:33:49,"Could you please move this to a new file in nilearn/_utils/fixes/testings and mention in a comment that when we support scikit-learn 0.14 we can remove it.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",could pleas move new file nilearnutilsfixestest mention comment support scikitlearn 014 remov,N,2015-05-09 09:21:05
+22,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:21:05,"For PEP8 there should be 2 empty lines between first-level entries, thus 2 empty lines here.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",for pep8 2 empti line firstlevel entri thu 2 empti line,N,2015-05-09 09:30:06
+23,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 09:30:06,"It would be cooler / more readable if you used iter_img on the img rather than rollaxis on the data.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",It would cooler readabl use iterimg img rather rollaxi data,N,2015-05-09 10:34:01
+24,pull_request_commit_comment,571,nilearn,nilearn,banilo,2015-05-09 10:34:01,"cf. `assert_raises_regex` appears to be similar case and is located in nilearn/_utils/testing.py
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",cf appear similar case locat nilearnutilstestingpi,N,2015-05-09 10:35:50
+25,pull_request_commit_comment,571,nilearn,nilearn,banilo,2015-05-09 10:35:50,"Function name, even if private, could be more explicit, particularly with respect to the format of the output.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",function name even privat could explicit particularli respect format output,N,2015-05-09 10:46:39
+26,pull_request_commit_comment,571,nilearn,nilearn,banilo,2015-05-09 10:46:39,"Mention ""regression test"" at this point? ...perhaps instead of ""BF"".
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",mention regress test point perhap instead BF,Y,2015-05-09 10:50:00
+27,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 10:50:00,"> > +def test_component_sign():
+> > -    # BF for issue #570
+> 
+> Mention ""regression test"" at this point? ...perhaps instead of ""BF"".
+
+Good point. And don't put a number, which doesn't mean much to the
+reader, but a short description of the issue.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",good point and dont put number doesnt mean much reader short descript issu,N,2015-05-09 11:09:51
+28,pull_request_commit_comment,571,nilearn,nilearn,dohmatob,2015-05-09 11:09:51,"This recommendation is strange. My PEP8 checker dislikes it. Also, does it really matter here ? :)
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",thi recommend strang My pep8 checker dislik also realli matter,N,2015-05-09 12:47:56
+29,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-09 12:47:56,"Please move the above to nilearn._utils.testing
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",pleas move nilearnutilstest,N,2015-05-09 11:00:53
+30,pull_request_commit_comment,571,nilearn,nilearn,dohmatob,2015-05-09 11:00:53,"Please could you create a separate issue ? This is not related to / was not introduced by, the PR.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",pleas could creat separ issu thi relat introduc PR,N,2015-05-09 13:01:47
+31,pull_request_commit_comment,571,nilearn,nilearn,dohmatob,2015-05-09 13:01:47,"Done.
+",56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,"(None, '', u'nilearn/decomposition/tests/test_canica.py')",done,N,2015-05-04 12:25:05
+32,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-04 12:25:05,BF: issue #570 (including tests),5d68e77b21d77d812fe34cad99f32b2547d295d1,,BF issu 570 includ test,N,2015-05-04 12:30:16
+33,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-04 12:30:16,squash,b8cc6d4b08d5efad373ca3bd64687b2f4e30a9a7,,squash,N,2015-05-04 15:59:57
+34,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-04 15:59:57,still adressing issue #570: better comment,068749ad3e1ca128b817434b9d8a40a6a7b01d30,,still adress issu 570 better comment,N,2015-05-04 16:04:37
+35,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-04 16:04:37,squash,fcb5f395c9ded409df887d032e0dcb692bb90bed,,squash,N,2015-05-05 06:46:32
+36,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-05 06:46:32,using: 'max' heuristic instead of 'sum' (blobs are the grail),5b0f83fbfaea00d5c68cb11ba5543f51fc98f73b,,use max heurist instead sum blob grail,N,2015-05-05 06:59:17
+37,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-05 06:59:17,BF (py3 troubles): xrange ==> range,f9d7827158cb4712401278fbb870d612421a6920,,BF py3 troubl xrang,N,2015-05-08 12:07:21
+38,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-08 12:07:21,FIXUPS: test_component_sign in canica (issue #570),1872ec1a1359fc4486f244b7e6e561cbbba10882,,fixup testcomponentsign canica issu 570,N,2015-05-09 05:59:47
+39,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 05:59:47,address @lesteve's comments,2e47c50fb73bf5dc178bedec8add0ca076cfeb38,,address lestev comment,N,2015-05-09 06:01:47
+40,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 06:01:47,typo,dd2c791d5374d9c0bc3c94456cc94e21c99bcb81,,typo,N,2015-05-09 06:02:51
+41,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 06:02:51,FIX: double-pasted code,cd96caf07ab07927772dac5df671139d16aa82e5,,fix doublepast code,N,2015-05-09 06:03:58
+42,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 06:03:58,better comments,03a136505fe9b4bf5db91a66b45a66e9a6de4654,,better comment,N,2015-05-09 08:57:59
+43,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 08:57:59,still addressing comments (cosmetic stuff),769fc21e3a47e748e046e1e1979e6e9a9d87122b,,still address comment cosmet stuff,N,2015-05-09 09:12:28
+44,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 09:12:28,ENH: rollaxis ==> iter_img,34f627a7f6c97e842314f557fee3f1e1cc996f46,,enh rollaxi,N,2015-05-09 10:57:07
+45,pull_request_commit,571,nilearn,nilearn,dohmatob,2015-05-09 10:57:07,REFACTOR: moved assert_less_equal to nilearn._utils.testing.py,56b4ca29e1d4815064dff2e1b1cb4bdff8deab00,,refactor move assertlessequ nilearnutilstestingpi,N,2015-05-05 07:27:27
+46,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-05 07:27:27,"I'd rather have the heuristic that I proposed, using the max, rather that the heuristic using the sum. Indeed, the max is really what people look at in neuroimaging, it's the ""blob"" sticking out.
+",5d68e77b21d77d812fe34cad99f32b2547d295d1,"(None, None, None)",Id rather heurist I propos use max rather heurist use sum inde max realli peopl look neuroimag blob stick,N,2015-05-05 07:29:37
+47,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-05 07:29:37,"I don't understand the goal of these lines: I don't see what they test at the level of CanICA
+",5d68e77b21d77d812fe34cad99f32b2547d295d1,"(63, 92, u'nilearn/decomposition/tests/test_canica.py')",I dont understand goal line I dont see test level canica,Y,2015-05-05 07:30:47
+48,pull_request_commit_comment,571,nilearn,nilearn,GaelVaroquaux,2015-05-05 07:30:47,"Good thinking with regards to decreasing the number of subjects to speed up tests. How about having only 2 subjects?
+",5d68e77b21d77d812fe34cad99f32b2547d295d1,"(53, 82, u'nilearn/decomposition/tests/test_canica.py')",good think regard decreas number subject speed test how 2 subject,Y,2015-05-05 08:23:44

@@ -1,0 +1,670 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,163,nilearn,nilearn,dohmatob,2014-02-10 20:39:23,"OK this should do the trick.
+",start issue,BF: closes issue #162,OK trick,N,2014-02-14 09:26:09
+3,pull_request_title,163,nilearn,nilearn,dohmatob,2014-02-10 20:39:23,"OK this should do the trick.
+",97c25525813ec3ce38b5ae5be4e5d8b70b925cae,BF: closes issue #162,OK trick,N,2014-02-14 09:26:09
+4,pull_request_merged,163,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:26:09,BF: closes issue #162,0b75f282c82db9007d83035047f0c229e9dcb197,Pull request merge from dohmatob/nilearn:fix-issue-162 to nilearn/nilearn:master,BF close issu 162,N,2014-02-11 07:13:36
+5,issue_comment,163,nilearn,nilearn,GaelVaroquaux,2014-02-11 07:13:36,"Thanks! Mostly good. A few minor remarks.
+
+Also, your test fails: https://travis-ci.org/nilearn/nilearn/jobs/18607084
+",,,thank mostli good A minor remark also test fail,Y,2014-02-13 12:59:39
+6,issue_comment,163,nilearn,nilearn,dohmatob,2014-02-13 12:59:39,"Good for closing ?
+",,,good close,N,2014-02-13 13:01:45
+7,issue_comment,163,nilearn,nilearn,GaelVaroquaux,2014-02-13 13:01:45,"I will have a look this afternoon.
+",,,I look afternoon,N,2014-02-13 13:02:20
+8,issue_comment,163,nilearn,nilearn,bthirion,2014-02-13 13:02:20,"LGTM
+",,,lgtm,N,2014-02-14 09:26:07
+9,issue_comment,163,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:26:07,"OK, merging, I'll fix the remaining issues (non explicit names) after merging.
+",,,OK merg ill fix remain issu non explicit name merg,N,2014-02-11 07:10:49
+10,pull_request_commit_comment,163,nilearn,nilearn,GaelVaroquaux,2014-02-11 07:10:49,"I think that we can find a name that is more explicit. Something like ""test warning shape""
+",97c25525813ec3ce38b5ae5be4e5d8b70b925cae,"(6, '', u'nilearn/tests/test_masking.py')",I think find name explicit someth like test warn shape,Y,2014-02-11 07:11:25
+11,pull_request_commit_comment,163,nilearn,nilearn,GaelVaroquaux,2014-02-11 07:11:25,"You should use a nose.tools.assert_raises here.
+",97c25525813ec3ce38b5ae5be4e5d8b70b925cae,"(None, '', u'nilearn/tests/test_masking.py')",you use nosetoolsassertrais,N,2014-02-11 07:12:36
+14,pull_request_commit,163,nilearn,nilearn,dohmatob,2014-02-10 21:41:30,ENH: cosmetic changes to testcase,d14394c7f7062a5614dc6efbbee65b7556ceb201,,enh cosmet chang testcas,N,2014-02-11 08:18:42
+16,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-10 16:04:02,"The PR is ready for a new review step while I am working on adding documentation.
+Running the haxby example is now cool :)
+",,,the PR readi new review step I work ad document run haxbi exampl cool,N,2014-02-11 09:30:20
+17,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 09:30:20,"Travis build failed because the tests require that my last bug fix in scikit-learn is effective. The PR was merged but not released yet.
+",,,travi build fail test requir last bug fix scikitlearn effect the PR merg releas yet,Y,2014-02-11 11:02:05
+18,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-11 11:02:05,"You should do a back port in nilearn. Create a nilearn._utils.fixes with a copy of the corrected f score.  Use it if scikit-learn version is below 0.15.
+
+<div>-------- Original message --------</div><div>From: Virgile Fritsch notifications@github.com </div><div>Date:11/02/2014  10:30  (GMT+01:00) </div><div>To: nilearn/nilearn nilearn@noreply.github.com </div><div>Cc: Gael Varoquaux gael.varoquaux@normalesup.org </div><div>Subject: Re: [nilearn] ENH: Add Massively Univariate Linear Model with
+  permuted OLS. (#157) </div><div>
+</div>Travis build failed because the tests require that my last bug fix in scikit-learn is effective. The PR was merged but not released yet.
+
+—
+Reply to this email directly or view it on GitHub.
+",,,you back port nilearn creat nilearnutilsfix copi correct f score  use scikitlearn version 015 div permut ol 157 divdiv — repli email directli view github,N,2014-02-11 16:24:10
+19,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-11 16:24:10,"I am getting the following test failures on my laptop:
+
+<pre>
+======================================================================
+FAIL: test_permuted_least_squares.test_permuted_ols_sklearn_nocovar
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/varoquau/dev/nilearn/nilearn/mass_univariate/tests/test_permuted_least_squares.py"", line 65, in test_permuted_ols_sklearn_nocovar
+    assert_array_almost_equal(fvals, all_scores['score'], decimal=6)
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 811, in assert_array_almost_equal
+    header=('Arrays are not almost equal to %d decimals' % decimal))
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 644, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 6 decimals
+(mismatch 100.0%)
+ x: array([ 0.18342682])
+ y: array([ 0.18724822], dtype=float32)
+>>  raise AssertionError('\nArrays are not almost equal to 6 decimals\n\n(mismatch 100.0%)\n x: array([ 0.18342682])\n y: array([ 0.18724822], dtype=float32)')
+    
+======================================================================
+FAIL: test_permuted_least_squares.test_permuted_ols_sklearn_nocovar_multivariate
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/varoquau/dev/nilearn/nilearn/mass_univariate/tests/test_permuted_least_squares.py"", line 144, in test_permuted_ols_sklearn_nocovar_multivariate
+    assert_array_almost_equal(fvals, all_scores['score'], decimal=6)
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 811, in assert_array_almost_equal
+    header=('Arrays are not almost equal to %d decimals' % decimal))
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 644, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 6 decimals
+(mismatch 100.0%)
+ x: array([ 2.88999935,  0.75080315,  1.18127564,  0.37511541,  2.06470533,
+        0.36413897,  1.89887937,  1.11954367,  0.09557632,  0.79859857])
+ y: array([ 2.95020771,  0.76644486,  1.20588553,  0.38293031,  2.10772014,
+        0.3717252 ,  1.93843937,  1.14286745,  0.09756749,  0.81523603], dtype=float32)
+>>  raise AssertionError('\nArrays are not almost equal to 6 decimals\n\n(mismatch 100.0%)\n x: array([ 2.88999935,  0.75080315,  1.18127564,  0.37511541,  2.06470533,\n        0.36413897,  1.89887937,  1.11954367,  0.09557632,  0.79859857])\n y: array([ 2.95020771,  0.76644486,  1.20588553,  0.38293031,  2.10772014,\n        0.3717252 ,  1.93843937,  1.14286745,  0.09756749,  0.81523603], dtype=float32)')
+    
+======================================================================
+FAIL: test_permuted_least_squares.test_permuted_ols_intercept_sklearn_nocovar
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/varoquau/dev/nilearn/nilearn/mass_univariate/tests/test_permuted_least_squares.py"", line 267, in test_permuted_ols_intercept_sklearn_nocovar
+    assert_array_almost_equal(fvals, all_scores['score'], decimal=6)
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 811, in assert_array_almost_equal
+    header=('Arrays are not almost equal to %d decimals' % decimal))
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 644, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 6 decimals
+(mismatch 100.0%)
+ x: array([ 0.74860298])
+ y: array([ 0.7641989], dtype=float32)
+>>  raise AssertionError('\nArrays are not almost equal to 6 decimals\n\n(mismatch 100.0%)\n x: array([ 0.74860298])\n y: array([ 0.7641989], dtype=float32)')
+    
+======================================================================
+FAIL: test_permuted_least_squares.test_permuted_ols_intercept_sklearn_nocovar_multivariate
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/varoquau/dev/nilearn/nilearn/mass_univariate/tests/test_permuted_least_squares.py"", line 328, in test_permuted_ols_intercept_sklearn_nocovar_multivariate
+    assert_array_almost_equal(fvals, all_scores['score'], decimal=6)
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 811, in assert_array_almost_equal
+    header=('Arrays are not almost equal to %d decimals' % decimal))
+  File ""/home/varoquau/dev/numpy/numpy/testing/utils.py"", line 644, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 6 decimals
+(mismatch 100.0%)
+ x: array([  3.82827568e+00,   1.48810633e-01,   2.66426443e-02,
+         1.28254104e+00,   4.04252202e-03,   2.55700391e-01,
+         2.53190044e-02,   8.66401831e-01,   2.11325509e-02,
+         7.44595532e+00])
+ y: array([  3.90803146e+00,   1.51910856e-01,   2.71977000e-02,
+         1.30926061e+00,   4.12674109e-03,   2.61027485e-01,
+         2.58464832e-02,   8.84451866e-01,   2.15728115e-02,
+         7.60107946e+00], dtype=float32)
+>>  raise AssertionError('\nArrays are not almost equal to 6 decimals\n\n(mismatch 100.0%)\n x: array([  3.82827568e+00,   1.48810633e-01,   2.66426443e-02,\n         1.28254104e+00,   4.04252202e-03,   2.55700391e-01,\n         2.53190044e-02,   8.66401831e-01,   2.11325509e-02,\n         7.44595532e+00])\n y: array([  3.90803146e+00,   1.51910856e-01,   2.71977000e-02,\n         1.30926061e+00,   4.12674109e-03,   2.61027485e-01,\n         2.58464832e-02,   8.84451866e-01,   2.15728115e-02,\n         7.60107946e+00], dtype=float32)')
+</pre>
+",,,I get follow test failur laptop pre fail testpermutedleastsquarestestpermutedolssklearnnocovar traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homevaroquaudevnilearnnilearnmassunivariateteststestpermutedleastsquarespi line 65 testpermutedolssklearnnocovar assertarrayalmostequalfv allscoresscor decimal6 file homevaroquaudevnumpynumpytestingutilspi line 811 assertarrayalmostequ headerarray almost equal decim decim file homevaroquaudevnumpynumpytestingutilspi line 644 assertarraycompar rais assertionerrormsg assertionerror array almost equal 6 decim mismatch 1000 x array 018342682 array 018724822 dtypefloat32 fail testpermutedleastsquarestestpermutedolssklearnnocovarmultivari traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homevaroquaudevnilearnnilearnmassunivariateteststestpermutedleastsquarespi line 144 testpermutedolssklearnnocovarmultivari assertarrayalmostequalfv allscoresscor decimal6 file homevaroquaudevnumpynumpytestingutilspi line 811 assertarrayalmostequ headerarray almost equal decim decim file homevaroquaudevnumpynumpytestingutilspi line 644 assertarraycompar rais assertionerrormsg assertionerror array almost equal 6 decim mismatch 1000 x array 288999935 075080315 118127564 037511541 206470533 036413897 189887937 111954367 009557632 079859857 array 295020771 076644486 120588553 038293031 210772014 03717252 193843937 114286745 009756749 081523603 dtypefloat32 fail testpermutedleastsquarestestpermutedolsinterceptsklearnnocovar traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homevaroquaudevnilearnnilearnmassunivariateteststestpermutedleastsquarespi line 267 testpermutedolsinterceptsklearnnocovar assertarrayalmostequalfv allscoresscor decimal6 file homevaroquaudevnumpynumpytestingutilspi line 811 assertarrayalmostequ headerarray almost equal decim decim file homevaroquaudevnumpynumpytestingutilspi line 644 assertarraycompar rais assertionerrormsg assertionerror array almost equal 6 decim mismatch 1000 x array 074860298 array 07641989 dtypefloat32 fail testpermutedleastsquarestestpermutedolsinterceptsklearnnocovarmultivari traceback recent call last file usrlibpython27distpackagesnosecasepi line 197 runtest selftestselfarg file homevaroquaudevnilearnnilearnmassunivariateteststestpermutedleastsquarespi line 328 testpermutedolsinterceptsklearnnocovarmultivari assertarrayalmostequalfv allscoresscor decimal6 file homevaroquaudevnumpynumpytestingutilspi line 811 assertarrayalmostequ headerarray almost equal decim decim file homevaroquaudevnumpynumpytestingutilspi line 644 assertarraycompar rais assertionerrormsg assertionerror array almost equal 6 decim mismatch 1000 x array 382827568e00 148810633e01 266426443e02 128254104e00 404252202e03 255700391e01 253190044e02 866401831e01 211325509e02 744595532e00 array 390803146e00 151910856e01 271977000e02 130926061e00 412674109e03 261027485e01 258464832e02 884451866e01 215728115e02 760107946e00 dtypefloat32 pre,Y,2014-02-11 16:29:57
+20,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:29:57,"Maybe you are using the 0.15-git version which is not up-to-date. Should we handle this specific case?
+",,,mayb use 015git version uptod should handl specif case,N,2014-02-11 16:32:00
+21,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:32:00,"I mean you should 'git pull' scikit-learn origin\master.
+",,,I mean git pull scikitlearn originmast,N,2014-02-11 16:34:21
+22,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-11 16:34:21,"> Maybe you are using the 0.15-git version which is not up-to-date. Should we
+> handle this specific case?
+
+Yes, we should. We need to use our code, unless we have a released 0.15
+version of sklearn.
+
+The right way to compare versions in Python is:
+
+<pre>
+import sklearn
+from distutils.version import LooseVersion
+if LooseVersion(sklearn.__version__) >= LooseVersion('0.15'):
+    #...
+</pre>
+
+Unfortunately, this will be true for '0.15-git', which is the version
+string of the git version of sklearn. Therefore we will need to
+special-case it :(.
+",,,ye We need use code unless releas 015 version sklearn the right way compar version python preimport sklearn distutilsvers import loosevers looseversionsklearnvers pre unfortun true 015git version string git version sklearn therefor need specialcas,N,2014-02-11 16:37:14
+23,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",,,make avail version,N,2014-02-11 17:08:49
+24,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 17:08:49,"I did the change regarding the version, but now that I did it, I do not see why someone would work with sklearn 0.15-git version that is not up-to-date. Someone relying on the git/dev version of a project is aware that everything might break at any moment. Now that I think of it, I find it weird that I should put efforts on code robustness in a case were it is not supposed to be robust.
+
+Actually the main problem is not my efforts, but the fact that nilearn's code has been made more complex in order to handle a use case that does not match the rules. Then, we violate the rule that says that we should keep our code the clearest possible. The latter rule looks more important to me.
+
+But all this are details I guess.
+",,,I chang regard version I I see someon would work sklearn 015git version uptod someon reli gitdev version project awar everyth might break moment now I think I find weird I put effort code robust case suppos robust actual main problem effort fact nilearn code made complex order handl use case match rule then violat rule say keep code clearest possibl the latter rule look import but detail I guess,N,2014-02-14 09:42:40
+25,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:42:40,"@VirgileFritsch : what's the status on getting a localizer dataset example? You might need to activate colleagues to get the download URL.
+",,,virgilefritsch what statu get local dataset exampl you might need activ colleagu get download url,N,2014-02-14 10:06:34
+26,issue_comment,157,nilearn,nilearn,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",,,shouldnt part later PR,N,2014-02-14 10:08:55
+27,issue_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 10:08:55,"> Shouldn't this be part of later PR ?
+
+Possibly, but my hunch is that it will help having better APIs (example
+driven development).
+",,,possibl hunch help better api exampl driven develop,N,2014-02-14 10:09:18
+28,issue_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-14 10:09:18,"I would like to provide the localizer example in another PR. The reasons are:
+1. I need to create a downloader, which is something independent from permuted OLS, and I do not want to spoil this PR.
+2. It might take time before the dataset is actually available under the conditions that would make it a good candidate for nilearn integration
+3. One example is enough as a starter.
+4. I would like this PR to be merged quickly since the RPBI PR is almost ready now :)
+",,,I would like provid local exampl anoth PR the reason 1 I need creat download someth independ permut ol I want spoil PR 2 It might take time dataset actual avail condit would make good candid nilearn integr 3 one exampl enough starter 4 I would like PR merg quickli sinc rpbi PR almost readi,N,2014-02-14 12:24:23
+83,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-04 13:00:50,"Actually, the call to copy() ensures that we have C-contiguousity. I cannot explain why, but a call to np.ascontiguousarray does not work, but a copy() does.
+Instead of rely on a keyword argument, I make the copy everytime now.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/group_analysis/permuted_least_squares_aux.py')",actual call copi ensur ccontiguous I cannot explain call npascontiguousarray work copi instead reli keyword argument I make copi everytim,N,2014-02-11 16:35:29
+84,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-11 16:35:29,"I find that slice 27 looks much better, because it highlights the FFA.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",I find slice 27 look much better highlight ffa,N,2014-02-11 16:41:43
+85,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:41:43,"But slice 37 is convenient for the doc, since it matches the searchlight example. We can set picked_slice=27 everywhere as an alternative.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",but slice 37 conveni doc sinc match searchlight exampl We set pickedslice27 everywher altern,N,2014-02-11 16:48:39
+86,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-11 16:48:39,"> But slice 37 is convenient for the doc, since it matches the searchlight
+> example. We can set picked_slice=27 everywhere as an alternative.
+
+I think that that might indeed be a good idea.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",I think might inde good idea,N,2014-02-11 16:54:59
+87,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",done,N,2014-02-12 13:56:26
+88,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 13:56:26,"This function is not meant to be used by the end user, right? It should probably be private.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",thi function meant use end user right It probabl privat,N,2014-02-12 13:57:47
+89,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 13:57:47,"For consistency in names, I think that I'd like this to be called gs_array.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",for consist name I think Id like call gsarray,N,2014-02-12 14:20:11
+90,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 14:20:11,"Why is this method called 'append_iter_data'? Is there a reason why 'append' is not a good method name.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",whi method call appenditerdata Is reason append good method name,N,2014-02-12 14:24:07
+91,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",njobs0 sensibl default I believ 1,N,2014-02-12 14:26:56
+92,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 14:26:56,"We should never set the default to all CPUs. In addition, your docstring is false by joblib standards: -2 means all CPUs but 1, etc. 
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",We never set default cpu In addit docstr fals joblib standard 2 mean cpu 1 etc,N,2014-02-12 14:42:24
+93,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 14:42:24,"I don't understand the magic formula 'max(2, min(n_descriptors, n_jobs)'. If I put n_job=1, I want to have only one chunk, don't I?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I dont understand magic formula max2 minndescriptor njob If I put njob1 I want one chunk dont I,N,2014-02-12 14:48:38
+94,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 14:48:38,"You cannot do that: you have changed a global state: the way numpy deals with invalid division. Thus you have a big side effect.
+
+You should write:
+
+<pre>
+with np.errstate(divide='ignore'):
+     pvals_mat = ...
+</pre>
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",you cannot chang global state way numpi deal invalid divis thu big side effect you write prewith nperrstatedivideignor pvalsmat pre,N,2014-02-12 14:51:04
+95,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 14:51:04,"Creating a sparse matrix to densify it is very inefficient. You should do something like:
+
+<pre>
+pvals_mat = np.zeros(shape=(n_regressors, n_descriptors))
+pvals_mat[score_orig_data['x_id'], score_orig_data['y_id']] = -np.log10(pvals)
+</pre>
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",creat spars matrix densifi ineffici you someth like prepvalsmat npzerosshapenregressor ndescriptor pvalsmatscoreorigdataxid scoreorigdatayid nplog10pval pre,N,2014-02-12 17:09:51
+96,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-12 17:09:51,"Because ""append"" is not explicit and the function only afford appending the data for one iteration. ""_data"" could be removed though.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",becaus append explicit function afford append data one iter data could remov though,N,2014-02-12 17:13:31
+97,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-12 17:13:31,"> Because ""append"" is not explicit and the function only afford appending the data for one iteration.
+
+append in Python is for only one item. For multiple items, it is 'extend'
+(see methods of a list).
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",append python one item for multipl item extend see method list,N,2014-02-12 17:40:06
+98,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-12 17:40:06,"That's a bug, indeed. Yet, I remember testing the `gen_even_slices` method. I probably made a mistake.
+This is corrected anyhow.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",that bug inde yet I rememb test method I probabl made mistak thi correct anyhow,Y,2014-02-12 17:42:06
+99,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-12 17:42:06,"Nice suggestion, thanks!
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",nice suggest thank,N,2014-02-12 17:43:37
+100,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-12 17:43:37,"Ok. Your next comment has solved the problem anyway.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",Ok your next comment solv problem anyway,N,2014-02-14 09:46:09
+101,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:46:09,"I think that 'swap' instead of 'exchange' would be more idiomatic English.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",I think swap instead exchang would idiomat english,N,2014-02-14 09:48:24
+102,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:48:24,"I think that I would use the word 'permutation' instead of 'shuffling'.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",I think I would use word permut instead shuffl,N,2014-02-14 09:57:26
+103,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:57:26,"Using the full process_mask (ie commenting out the 2 lines above) takes 12s on my box. This is a completely acceptable run time for an example.
+
+I suggest using the full mask, as in practice this is what people will want to do. Also, it illustrates the quality of your implementation: it can do a full-brain analysis in 12s.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",use full processmask ie comment 2 line take 12 box thi complet accept run time exampl I suggest use full mask practic peopl want also illustr qualiti implement fullbrain analysi 12,N,2014-02-14 09:58:04
+104,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:58:04,"With my suggestion you can make the example much simpler and here just give the name of the mask file.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",with suggest make exampl much simpler give name mask file,N,2014-02-14 09:59:30
+105,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:59:30,"Wouldn't it be easier to mask time points in the the numpy array that comes out of the NiftiMasker? That way you don't have to create an intermediate Nifti1Image object.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(35, '', u'plot_haxby_mass_univariate.py')",wouldnt easier mask time point numpi array come niftimask that way dont creat intermedi nifti1imag object,N,2014-02-14 10:04:25
+106,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 10:04:25,"Never use all the CPUs in an example: on windows boxes it gives problems. In examples we always want to have 'n_jobs=1' and a comment next to it saying that this parameter can be changed to use more CPUs.
+
+The good news is that with n_jobs=1, a full brain mask, and 5000 permutations, which is closer to realistic settings, the example takes 120 seconds on my box (that has a 4-year old CPU). That's completely acceptable.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",never use cpu exampl window box give problem In exampl alway want njobs1 comment next say paramet chang use cpu the good news njobs1 full brain mask 5000 permut closer realist set exampl take 120 second box 4year old cpu that complet accept,N,2014-02-14 10:14:24
+107,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 10:14:24,"I would use 5000 permutations, as it isn't that costly, and it is realistic settings.
+
+You must realize that people are going to copy your code and run it without thinking about the parameters that you have chosen.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",I would use 5000 permut isnt costli realist set you must realiz peopl go copi code run without think paramet chosen,N,2014-02-14 11:09:29
+108,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-14 11:09:29,"So in that case, what about setting 10,000 permutations (the standard) and still targeting only one brain slice? The example would remain a bit complex regarding data masking but a copy-paste of the code would be correct. Also, the example would be faster, which is something appreciable. What do you think?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",So case set 10000 permut standard still target one brain slice the exampl would remain bit complex regard data mask copypast code would correct also exampl would faster someth appreci what think,N,2014-02-14 11:48:45
+109,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 11:48:45,"> So in that case, what about setting 10,000 permutations (the standard)
+> and still targeting only one brain slice? The example would remain a
+> bit complex regarding data masking but a copy-paste of the code would
+> be correct. Also, the example would be faster, which is something
+> appreciable. What do you think?
+
+The mask makes the example hard to follow. Also, in nilearn, a run-time
+of 2min is not a problem.
+
+On my old box, 10,000 permutations with full brain takes 232s. On my new
+box (that's 2 years old) is takes 150s. Let's go with 10,000
+permutations, full brain.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",the mask make exampl hard follow also nilearn runtim 2min problem On old box 10000 permut full brain take 232 On new box that 2 year old take 150 let go 10000 permut full brain,N,2014-02-14 12:27:28
+110,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:27:28,"I would reverse the sentence: permutations yield results that are less conservative than Bonferroni. Just to put the focus of the sentence on permutations.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",I would revers sentenc permut yield result less conserv bonferroni just put focu sentenc permut,N,2014-02-14 12:31:20
+111,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:31:20,"Raising a ValueError would be more explicit than an Exception. Also, having the shape of the array represented in the error message is very helpful. Something like:
+
+<pre>
+ 'This function only accepts 2D arrays. An array of shape %r was passed.' % m.shape
+</pre>
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",rais valueerror would explicit except also shape array repres error messag help someth like pre thi function accept 2D array An array shape r pass mshape pre,N,2014-02-14 12:32:39
+112,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:32:39,"This matrix is not orthonormal: the norm of the last vector is 0.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",thi matrix orthonorm norm last vector 0,N,2014-02-14 12:33:57
+113,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",No need return return anyth,N,2014-02-14 12:36:06
+114,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:36:06,"I am a bit surprised that the shape of this matrix has n_samples last. This is contrary to conventions, both in scikit-learn and in your code.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I bit surpris shape matrix nsampl last thi contrari convent scikitlearn code,N,2014-02-14 12:43:28
+115,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:43:28,"I don't think that the term 'imaging_vars' should appear here, as it is specific to an application, where as the concept of permuted-ols is not.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I dont think term imagingvar appear specif applic concept permutedol,N,2014-02-14 12:45:55
+116,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:45:55,"To give more details, it perfectly makes sens to invert the order of imaging variables and behavioral variables in the use of an OLS in NeuroImaging.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",To give detail perfectli make sen invert order imag variabl behavior variabl use ol neuroimag,N,2014-02-14 12:48:22
+117,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 12:48:22,"This is incompatible with joblib: in joblib it's negative values that give all the CPUs. -1 is all CPUs. -2 is all the CPUs but one... In recent versions of joblib, it actually raises an error for n_jobs=0, because it is meaningless.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",thi incompat joblib joblib neg valu give cpu 1 cpu 2 cpu one In recent version joblib actual rais error njobs0 meaningless,N,2014-02-14 13:01:10
+118,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 13:01:10,"There should be an exact correspondence between the filename of where a class or function is defined and the filename of where I can find the tests. In other words this file should be called test_permuted_least_squares.py
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_gsarray.py')",there exact correspond filenam class function defin filenam I find test In word file call testpermutedleastsquarespi,Y,2014-02-14 13:01:51
+119,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 13:01:51,"I would call this 'empty' array, rather than 'void'.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_gsarray.py')",I would call empti array rather void,N,2014-02-14 15:26:49
+120,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:26:49,"Cosmetic: it would be better to split this as follows:
+
+<pre>
+assert_array_equal(gsarray.get_data()['iter_id'],
+                                  gsarray2.get_data()['iter_id'])
+</pre>
+
+
+Also for the lines below.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_gsarray.py')",cosmet would better split follow preassertarrayequalgsarraygetdataiterid gsarray2getdataiterid pre also line,N,2014-02-14 15:28:57
+121,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:28:57,"Same thing here: you should raise a ValueError. Exception is too general (it is the base class of all Exceptions). Also, you should give the axis passed in the error message: ('Invalid axis in normalization: %r' % axis).
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",same thing rais valueerror except gener base class except also give axi pass error messag invalid axi normal r axi,N,2014-02-14 15:30:06
+122,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:30:06,"Please write this as:
+
+<pre>
+U, s, _ = linalg.svd(m, full_matrices=False)
+</pre>
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",pleas write preu linalgsvdm fullmatricesfals pre,N,2014-02-14 15:30:46
+123,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:30:46,"Please raise a specific Exception. Maybe TypeError, here.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",pleas rais specif except mayb typeerror,N,2014-02-14 15:31:21
+124,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:31:21,"Once you have been more explicit on the type of Exception raised, please capture it here in a more specific way.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_gsarray.py')",onc explicit type except rais pleas captur specif way,N,2014-02-14 15:32:08
+125,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_gsarray.py')",pleas use sklearnutilstestingassertwarn,N,2014-02-14 15:33:27
+126,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:33:27,"I really don't like this test that runs a comparison against an array stored on disk. We want all least the code to regenerate the npz (say in comments).
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",I realli dont like test run comparison array store disk We want least code regener npz say comment,Y,2014-02-14 15:34:27
+127,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",where come I believ true,N,2014-02-14 15:36:52
+128,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",you dont need specifi njob default valu 1,N,2014-02-14 15:37:04
+129,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",you dont need specifi njob default valu 1,N,2014-02-14 15:37:26
+130,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",you dont need specifi njob default valu 1,N,2014-02-14 15:39:06
+131,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 15:39:06,"In this test, n_perms is always 0. This is a bit surprising to me. I have the impression that the permutations are not tested.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",In test nperm alway 0 thi bit surpris I impress permut test,Y,2014-02-14 16:20:34
+132,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 16:20:34,"I think that this print is spurious. It should be removed.
+
+If the information printed is of general interest, that information should be added to the warning below.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I think print spuriou It remov If inform print gener interest inform ad warn,N,2014-02-14 16:22:16
+133,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-14 16:22:16,"_Although this is certainly not the case here_ I believe that we will 
+need to resort to this kind of ugly trick in future PRs because the 
+results may be produced by a branch of statsmodel that is not merged yet 
+and perhaps won't be merged, and that a fixes would be a big mess; of 
+course, this should be at least documented. But we are not in this case 
+here AFAIK.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",although certainli case I believ need resort kind ugli trick futur pr result may produc branch statsmodel merg yet perhap wont merg fix would big mess cours least document but case afaik,N,2014-02-14 16:25:57
+134,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 16:25:57,"> _Although this is certainly not the case here_ I believe that we will
+> need to resort to this kind of ugly trick in future PRs because the
+> results may be produced by a branch of statsmodel that is not merged
+> yet and perhaps won't be merged, and that a fixes would be a big mess;
+> of course, this should be at least documented. But we are not in this
+> case here AFAIK.
+
+But that's really a problem. Unless the data comes from a verified
+source (eg the NIST statistical tables), what tells me I can trust it.
+
+This is not a rhetoric question: in scipy people have worked in improving
+the numerical stability of things like special functions. Tests like this
+broke, but it was because the code was _more accurate_, not less
+accurate.
+
+We cannot just test against numbers that we don't know where they come
+from and that we cannot reproduce. These are tests that will raise
+problems in the long run.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",but that realli problem unless data come verifi sourc eg nist statist tabl tell I trust thi rhetor question scipi peopl work improv numer stabil thing like special function test like broke code accur less accur We cannot test number dont know come cannot reproduc these test rais problem long run,Y,2014-02-14 16:27:58
+135,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-14 16:27:58,"You don't need the draw before the show.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",you dont need draw show,N,2014-02-17 13:44:14
+136,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-17 13:44:14,"The permutations are tested in the test that compares the results to those of a .npz file, the one that you do not like.
+I admit that the permutations are not intensively tested and that it is a problem. But I doubt there is a simple way to reproduce the permutations values without copying the code that we actually want to test: I do not know any Python implementation of the permutation scheme that we use in the standard packages. Although way the data are permuted can be determined from the value of `random_state`, we actually work with orthonormalized residuals of two initial OLS fits. Such a state is hard to obtain with a code that it not at least as complex as the code we want to actually test.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",the permut test test compar result npz file one like I admit permut intens test problem but I doubt simpl way reproduc permut valu without copi code actual want test I know python implement permut scheme use standard packag although way data permut determin valu actual work orthonorm residu two initi ol fit such state hard obtain code least complex code want actual test,Y,2014-02-17 13:47:06
+137,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-17 13:47:06,"> But that's really a problem. Unless the data comes from a verified source (eg the NIST statistical tables), what tells me I can trust it.
+
+Nothing that you would reasonably accept.
+
+I have no clue regarding that test right now.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",noth would reason accept I clue regard test right,Y,2014-02-17 13:51:27
+138,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-17 13:51:27,"It comes from the first implementation Benoit performed. We used it on many cases, carefully looking at the h0 distribution, but I do not think it was compared with a reference implementation that can be easily reproduced.
+
+What do you think of a test performed on Normal and unrelated data, with a few targets, many (>= 10,000) permutations, and verifying that h0 is symetric, centered at 0, or even that it is a Gaussian?
+I agree this would not test the actual values in h0, but at least we would be more confident with them.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",It come first implement benoit perform We use mani case care look h0 distribut I think compar refer implement easili reproduc what think test perform normal unrel data target mani I agre would test actual valu h0 least would confid,Y,2014-02-17 13:54:08
+139,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-17 13:54:08,"FYI: ~ 6 min on my Dell Precision M4400 laptop (fullbrain, 10,000 permutations).
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'plot_haxby_mass_univariate.py')",fyi 6 min dell precis m4400 laptop fullbrain 10000 permut,N,2014-02-17 14:15:51
+140,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-17 14:15:51,"> I admit that the permutations are not intensively tested and that it is
+> a problem. But I doubt there is a simple way to reproduce the
+> permutations values without copying the code that we actually want to
+> test:
+
+That means that you shouldn't test the values, but properties of the
+permutation scheme, such as invariance to certain data transformations or
+or behavior under the null.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",that mean shouldnt test valu properti permut scheme invari certain data transform behavior null,Y,2014-02-17 16:19:49
+141,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-17 16:19:49,"Virgile, you can always set up a test in which you expect a non-significant p-value, and another one where you anticipate a very significant one. I think that running those would be a reasonable proxy for the permutation code. Or did I miss something ? 
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",virgil alway set test expect nonsignific pvalu anoth one anticip signific one I think run would reason proxi permut code Or I miss someth,Y,2014-02-17 16:26:36
+142,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-17 16:26:36,"> ```
+> But that's really a problem. Unless the data comes from a verified source
+> (eg the NIST statistical tables), what tells me I can trust it.
+> ```
+> 
+> Nothing that you would reasonably accept.
+
+Then we cannot have it in. It will lead to more problems than solutions
+in the long run.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",then cannot It lead problem solut long run,N,2014-02-17 17:16:43
+143,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-17 17:16:43,"There is a detail here: in general, permutation tests consist in resampling the residuals of a model by permutation (as the name rightly says). Sign swap is a peculiar case (relatively frequent in functional neuroimaging, where on aims at detecting some signals of interest), that is limited to one-sample tests: in that case, there is not much you can shuffle, but you can still create a a shuffled distribution by assuming symmetry about some reference value, hence the sign swap. 
+Could you clarify the explanation here ?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",there detail gener permut test consist resampl residu model permut name rightli say sign swap peculiar case rel frequent function neuroimag aim detect signal interest limit onesampl test case much shuffl still creat shuffl distribut assum symmetri refer valu henc sign swap could clarifi explan,Y,2014-02-17 17:50:47
+144,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-17 17:50:47,"I implemented Bertrand's solution. One other option would be to add a keyword argument to permuted_ols, in order to return the scores for all permutations. Then, we could compare h0 to the theoretical F distribution.
+With the current version of the score, h0 is the distribution of ""max(score)"" and we (at least I) do not know its theoretical distribution, and so it is difficult to check.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",I implement bertrand solut one option would add keyword argument permutedol order return score permut then could compar h0 theoret F distribut with current version score h0 distribut maxscor least I know theoret distribut difficult check,N,2014-02-17 20:10:14
+145,pull_request_commit_comment,157,nilearn,nilearn,agramfort,2014-02-17 20:10:14,"you can have a look at the permutation test test in MNE. It is for a t-test
+but you can write the t-test as a GLM
+
+https://github.com/mne-tools/mne-python/blob/master/mne/stats/tests/test_permutations.py
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",look permut test test mne It ttest write ttest glm,Y,2014-02-18 08:33:20
+146,pull_request_commit_comment,157,nilearn,nilearn,bthirion,2014-02-18 08:33:20,"Note that the distribution of the max of n iid variables is well known ! If their common distribution if f (f = F'), then the distribution of the max is n.f.F^{n-1}, i.e. the derivative of F^n.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",note distribut max n iid variabl well known If common distribut f f F distribut max nffn1 ie deriv Fn,N,2014-02-18 15:27:46
+147,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-18 15:27:46,"@agramfort Ok. Thanks for the link. It is similar to Bertrand's suggestion: checking that we obtain significant or non-significant p-values according to controlled designs.
+
+@bthirion Thanks for this result that I was not aware of. Actually I found no simple and concise way to compute the values corresponding to n.f.F^{n-1}'s cumulative density function so I relied on the fact that the max is equal to the single available score when n_targets == 1.
+
+I added a test about the improvement of h0's estimation when n_perm increases (i.e. consistency of the algorithm).
+
+Thanks @rphlypo for very helpful suggestions. Does it look like what you had in mind?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",agramfort Ok thank link It similar bertrand suggest check obtain signific nonsignific pvalu accord control design bthirion thank result I awar actual I found simpl concis way comput valu correspond nffn1 cumul densiti function I reli fact max equal singl avail score ntarget 1 I ad test improv h0 estim nperm increas ie consist algorithm thank rphlypo help suggest doe look like mind,Y,2014-02-18 15:50:22
+148,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-18 15:50:22,"I updated the function docstring: Matrix is orthonormalized, and filled with zeros in order to preserve initial shape.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I updat function docstr matrix orthonorm fill zero order preserv initi shape,N,2014-02-18 16:47:25
+149,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-18 16:47:25,"With regards to the F cumulative distribution function will the cdf method of the scipy.stats.f object do the trick? 
+
+<div>-------- Original message --------</div><div>From: Virgile Fritsch notifications@github.com </div><div>Date:18/02/2014  16:27  (GMT+01:00) </div><div>To: nilearn/nilearn nilearn@noreply.github.com </div><div>Cc: Gael Varoquaux gael.varoquaux@normalesup.org </div><div>Subject: Re: [nilearn] ENH: Add Massively Univariate Linear Model with
+  permuted OLS. (#157) </div><div>
+</div>In nilearn/mass_univariate/tests/test_permuted_least_squares.py:
+
+> +from numpy.testing import (assert_almost_equal, assert_array_almost_equal,
+> -                           assert_equal)
+>   +
+>   +from nilearn.mass_univariate import permuted_ols
+>   +
+>   +from nilearn._utils.fixes import f_regression
+>   +
+>   +
+>   +### Tests for labels swapping permutation scheme ##############################
+>   +def test_permuted_ols_gstat():
+> -    """"""Compare the results to a former implementation.
+>   +
+> -    """"""
+> -    # Load input data
+> -    cur_dir = os.path.dirname(os.path.abspath(**file**))
+> -    data = np.load(os.path.join(cur_dir, 'testing_data.npz'))
+>   @agramfort Ok. Thanks for the link. It is similar to Bertrand's suggestion: checking that we obtain significant or non-significant p-values according to controlled designs.
+
+@bthirion Thanks for this result that I was not aware of. Actually I found no simple and concise way to compute the values corresponding to n.f.F^{n-1}'s cumulative density function so I relied on the fact that the max is equal to the single available score when n_targets == 1.
+
+I added a test about the improvement of h0's estimation when n_perm increases (i.e. consistency of the algorithm).
+
+Thanks @rphlypo for very helpful suggestions. Does it look like what you had in mind?
+
+—
+Reply to this email directly or view it on GitHub.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",with regard F cumul distribut function cdf method scipystatsf object trick  div permut ol 157 divdiv bthirion thank result I awar actual I found simpl concis way comput valu correspond nffn1 cumul densiti function I reli fact max equal singl avail score ntarget 1 I ad test improv h0 estim nperm increas ie consist algorithm thank rphlypo help suggest doe look like mind — repli email directli view github,Y,2014-02-18 16:57:54
+150,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-18 16:57:54,"Issue opened : #165
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(35, '', u'plot_haxby_mass_univariate.py')",issu open 165,N,2014-02-19 08:43:35
+151,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 08:43:35,"proportional or nonlinear relation? I would suppose that this is a monotonically decreasing map, not a proportionality.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",proport nonlinear relat I would suppos monoton decreas map proportion,N,2014-02-19 09:07:03
+152,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:07:03,"a scalar (if it were a constant, not much testing to do)
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",scalar constant much test,Y,2014-02-19 09:07:15
+153,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:07:15,"one can create
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",one creat,N,2014-02-19 09:08:37
+154,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:08:37,"""shuffled distribution"", maybe rather ""distribution under shuffling of the samples"" (the distribution itself is not shuffled)
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",shuffl distribut mayb rather distribut shuffl sampl distribut shuffl,N,2014-02-19 09:09:00
+155,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:09:00,"one can
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",one,N,2014-02-19 09:09:28
+156,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:09:28,"_sign permutation_?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'doc/building_blocks/searchlight.rst')",sign permut,N,2014-02-19 09:12:40
+157,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:12:40,"I prefer to report ""numpy.ndarray"" rather than the loose notion of ""array""
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(35, '', u'nilearn/_utils/fixes/sklearn_f_regression.py')",I prefer report numpyndarray rather loos notion array,N,2014-02-19 09:49:25
+158,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:49:25,"Agree with @GaelVaroquaux , but would say that the example is really badly chosen. the [0, 0] vector is a singular point and is _orthogonal_ to any other vector, but---due to the absence of the notion of length,---cannot be normalized. My opinion is to choose a better example.
+
+Also, why would you not choose straightforward linear algebra methods such as a `qr` decomposition or a Lödwin orthogonalisation (based on a polar decomposition), i.e., for X = USV.T the SVD of X, an orthonormal projection of X is UV.T 
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",agre gaelvaroquaux would say exampl realli badli chosen 0 0 vector singular point orthogon vector butdu absenc notion lengthcannot normal My opinion choos better exampl also would choos straightforward linear algebra method decomposit lödwin orthogonalis base polar decomposit ie X usvt svd X orthonorm project X uvt,N,2014-02-19 09:59:37
+159,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 09:59:37,"Is this not just giving `U[:, :n_eig]`?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",Is give,N,2014-02-19 10:01:46
+160,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:01:46,"I prefer to allocate memory to a zero matrix, say `Z=np.zeros(X.shape)`, and then fill Z as `Z[:, :n_eig] = U[:, :n_eig]`, no need to keep track of the dimensionality of the dimension of the null space.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I prefer alloc memori zero matrix say fill Z need keep track dimension dimens null space,N,2014-02-19 10:24:10
+161,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:24:10,"Motivate why this could not be addressed by out-of-the-box `scipy.sparse` methods as in a list of sparse matrices and hence a different object class is needed.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",motiv could address outofthebox method list spars matric henc differ object class need,N,2014-02-19 10:30:35
+162,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:30:35,"This case is never met, since covars has no initial value in the function definition, and users generally do not want to specify `None` as the value of the parameter.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",thi case never met sinc covar initi valu function definit user gener want specifi valu paramet,N,2014-02-19 10:31:11
+163,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:31:11,"No default values?
+
+`def f_score(vars1, vars2, covars=None, lost_dof=0)` should probably do in a wide variety of applications
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",No default valu probabl wide varieti applic,N,2014-02-19 10:31:52
+164,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:31:52,"unsigned int
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",unsign int,N,2014-02-19 10:35:51
+165,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-19 10:35:51,"This case is met if you explicitely pass None as covars. However, I agree that there should be default values.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",thi case met explicit pass none covar howev I agre default valu,N,2014-02-19 10:35:57
+166,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:35:57,"this is not Pythonic, the default value is given in the function definition, not in the documentation
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",python default valu given function definit document,N,2014-02-19 10:40:06
+167,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-19 10:40:06,"It is, because it may happen that `covars` is passed as `None`.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",It may happen pass,N,2014-02-19 10:42:30
+168,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:42:30,"agree, even if you need to permute the axes inside this function it is not natural to give one as a covariant and the other as a contravariant.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",agre even need permut axe insid function natur give one covari contravari,N,2014-02-19 10:43:40
+169,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-19 10:43:40,"I do not think it is especially useful to have them. The user better has to be aware of what is does since this function is not meant to be called outside the module anyway. We could have it private (if someone were to use a function that computes a F-score, scipy is better since the f_score function above has to be used in the particular case where the data have been (ortho)normalized, and to take account optional covars).
+I will add this in the documentation.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I think especi use the user better awar sinc function meant call outsid modul anyway We could privat someon use function comput fscore scipi better sinc fscore function use particular case data orthonorm take account option covar I add document,N,2014-02-19 10:47:46
+170,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:47:46,"enforcing `random_state=0` upon the user is not the best thing to do. Either give `None`, or take a random generator (possibly in a given state) as an argument, rather than a state.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",enforc upon user best thing either give take random gener possibl given state argument rather state,N,2014-02-19 10:53:21
+171,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 10:53:21,"Explain why you would bother to reimplement the f-score evaluation available in other packages
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",explain would bother reimplement fscore evalu avail packag,N,2014-02-19 11:55:51
+172,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-19 11:55:51,"> enforcing random_state=0 upon the user is not the best thing to do. Either give
+> None,
+
+Give None. This is the standard behavior.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",give none thi standard behavior,N,2014-02-19 12:40:27
+173,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-19 12:40:27,"It should never be used with `None` in the scope of the permuted OLS algorithm, and the _permuted_ols_on_chunk function should never be used out of that scope (this is why it is private). The seed has to be fixed and shared amongst all calls to _permuted_ols_on_chunk.
+I suggest making `random_state` a regular argument (and rename it back to `seed` so it cannot be told that it does not meet standards), because running a permuted OLS on a chunk without a predetermined, ""shared-amongst-paralell-calls"" seed would be a non-sense.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",It never use scope permut ol algorithm permutedolsonchunk function never use scope privat the seed fix share amongst call permutedolsonchunk I suggest make regular argument renam back cannot told meet standard run permut ol chunk without predetermin sharedamongstparalellcal seed would nonsens,N,2014-02-19 12:44:11
+174,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-19 12:44:11,"You mean we should never repeat the default value in the doc because it is already obvious from the function signature?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",you mean never repeat default valu doc alreadi obviou function signatur,N,2014-02-19 12:48:16
+175,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-19 12:48:16,"> I suggest making random_state a regular argument (and rename it back to
+> seed so it cannot be told that it does not meet standards),
+
+Why? What's the gain? Writing code that doesn't follow conventions is
+seldom a good idea.
+
+To quote Titus Brown:
+
+Yes, I know you're brilliant and idiosyncratic and your personal naming
+conventions, or spacing choice, or homegrown test framework, are a
+important signs of your individuality and creativity. I don't care. I
+just want to use your software. Don't try to surprise me, because if you
+do surprise me I will probably be so shocked and dismayed that I'll
+forget all about your software and instead write a blogrant. Do you
+really want me to waste that much time!?
+
+http://ivory.idyll.org/blog/not-sucking.html
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",whi what gain write code doesnt follow convent seldom good idea To quot titu brown ye I know your brilliant idiosyncrat person name convent space choic homegrown test framework import sign individu creativ I dont care I want use softwar dont tri surpris surpris I probabl shock dismay ill forget softwar instead write blogrant Do realli want wast much time,Y,2014-02-19 12:48:31
+176,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-19 12:48:31,"> You mean we should never repeat the default value in the doc because it is
+> already obvious from the function signature?
+
+That's usually the convention.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",that usual convent,N,2014-02-19 12:57:01
+177,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-19 12:57:01,"Making `random_state` a non optional argument seems the right thing to do to me, as putting `None` would break the algorithm.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",make non option argument seem right thing put would break algorithm,N,2014-02-19 12:59:01
+178,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-19 12:59:01,"> Making random_state a non optional argument seems the right thing to do to me,
+> as putting None would break the algorithm.
+
+Why would it break the algorithm?
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",whi would break algorithm,N,2014-02-19 12:59:56
+179,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-19 12:59:56,"> > -    # Load data to compare to
+> > -    ar = np.load(os.path.join(cur_dir, 'res_gstat_test_MULM_OLS.npz'))
+> 
+> It comes from the first implementation Benoit performed.
+
+That doesn't mean I know I can trust it.
+
+> What do you think of a test performed on Normal and unrelated data, with a few
+> targets, many (>= 10,000) permutations, and verifying that h0 is symetric,
+> centered at 0, or even that it is a Gaussian?
+
+Sounds like a good thing to me.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",that doesnt mean I know I trust sound like good thing,N,2014-02-19 13:13:06
+180,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-19 13:13:06,"`permuted_ols` calls `_permuted_ols_on_chunk` on different chunks and, as far as I understand, the `random_state` has to be the same for all chunks, because you have to do the exact same permutations each time.
+
+Putting it to None won't raise an Error but if somebody is trying to use this function in another context, then I think that pointing out the importance of particular parameter is a good thing.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",call differ chunk far I understand chunk exact permut time put none wont rais error somebodi tri use function anoth context I think point import particular paramet good thing,N,2014-02-19 13:14:01
+181,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-19 13:14:01,"I prefer `'axis(=%d) out of bounds' % axis` which is the standard numpy message.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I prefer standard numpi messag,N,2014-02-19 13:19:11
+182,pull_request_commit_comment,157,nilearn,nilearn,GaelVaroquaux,2014-02-19 13:19:11,"> permuted_ols calls _permuted_ols_on_chunk on different chunks and, as far as I
+> understand, the random_state has to be the same for all chunks, because you
+> have to do the exact same permutations each time.
+
+OK, but then you do not want to implement it this way: it is too fragile.
+Suppose you have numerical instabilities in the random number generator,
+you'll get different streams. One should never rely on the fact that a
+random number generator gives you a constant stream for the validity of
+an algorithm.
+
+Solution: pass the permutation as an argument to your function, instead
+of the seed.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",OK want implement way fragil suppos numer instabl random number gener youll get differ stream one never reli fact random number gener give constant stream valid algorithm solut pass permut argument function instead seed,N,2014-02-19 13:39:20
+183,pull_request_commit_comment,157,nilearn,nilearn,VirgileFritsch,2014-02-19 13:39:20,"Please stop making me look like a pretentious newcomer that want to impress by its skills and self-pretending revolutionary ideas. If this is what you think, please immediately close this PR so we will stop trying to make quality code together.
+You seem so attached to recognizing your favorite conventions, and so eager to find it in my code that it completely blurred your understanding of what my code was actually doing.
+All I wish is to respect conventions the best I can and I am not responsible if you spend your day fighting people that do not have this wish. So please remind that we are working in the same direction.
+
+I am trying to tell you that `random_seed` has been set up to control the state of a routine which is supposed to rely on random numbers, especially for the sake of debugging, testing, and examples generation.
+Here, the algorithm _requires_ that we _always_ have the control of the random numbers because they should be the same in simultaneous calls to the routine that uses them. It is not something I do for my pleasure, it is permutation tests theory that states that the F-max correction implies all the targets are permuted in the exact same fashion to enable comparison between them (finding the max).
+
+I can put `random_state=None` by default, but then I would immediately assign it a fixed value in the first function instruction (yielding a fake impression to the code reviewer).
+
+So:
+
+> why? [renaming `random_state` to `seed`]
+
+To avoid conventional people --that recognize a familiar name-- think that I did not follow the conventions whereas I was actually doing something different.
+
+> what is the gain?
+
+It becomes a compulsory argument, so that nobody uses the code without controlling the seed, and avoid making the mistake which whould consist of permuting chunks differently.
+
+The big picture of what the permuted_ols code would become:
+1. `permuted_ols` has a `random_state` argument that is defaulted to `None`
+2. `rng = check_random_state(random_state)`
+3. `seed = rng.randint(sys.maxint)  # the common seed itself is random, or controlled by `random_state` in examples and tests`
+4. parallel calls to `_permuted_ols_on_chunk(seed, ...)`  (all chunks have the same seed, they cannot have a different one)
+
+Now, if you have a better option...
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",pleas stop make look like pretenti newcom want impress skill selfpretend revolutionari idea If think pleas immedi close PR stop tri make qualiti code togeth you seem attach recogn favorit convent eager find code complet blur understand code actual all I wish respect convent best I I respons spend day fight peopl wish So pleas remind work direct I tri tell set control state routin suppos reli random number especi sake debug test exampl gener here algorithm requir alway control random number simultan call routin use It someth I pleasur permut test theori state fmax correct impli target permut exact fashion enabl comparison find max I put default I would immedi assign fix valu first function instruct yield fake impress code review So To avoid convent peopl recogn familiar name think I follow convent wherea I actual someth differ It becom compulsori argument nobodi use code without control seed avoid make mistak whould consist permut chunk differ the big pictur permutedol code would becom 1 argument default 2 3 randomst 4 parallel call chunk seed cannot differ one now better option,Y,2014-02-19 13:39:47
+184,pull_request_commit_comment,157,nilearn,nilearn,AlexandreAbraham,2014-02-19 13:39:47,"> Solution: pass the permutation as an argument to your function, instead of the seed.
+
+I agree with you on that point but then the problem is that it can take a significant amount of memory (its size is n_samples \* n_perm).
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",I agre point problem take signific amount memori size nsampl nperm,N,2014-02-19 14:39:40
+185,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 14:39:40,"As discussed offline, I do not think that the strategy should be to put this function private, but rather to augment this function with the parameter `normalized`. If `normalized`==`True`, then you could run the code you have now. When `False`, you'd call `orthonormalize_matrix` on both vars1 and vars2, and then call your function with `normalized`=`True`. Setting the default value to `True` should not change your code much.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",As discuss offlin I think strategi put function privat rather augment function paramet If could run code when youd call vars1 vars2 call function set default valu chang code much,N,2014-02-19 14:41:30
+186,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 14:41:30,"Agree with @AlexandreAbraham that this case may be met, though it is very unlikely to have a user passing `None` as a value. If the parameter should not be set, then do not require the user to be explicit about that, but assume it implicitely (by having the default set to `None`)
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",agre alexandreabraham case may met though unlik user pass valu If paramet set requir user explicit assum implicit default set,N,2014-02-19 15:02:02
+187,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 15:02:02,"> I can put random_state=None by default, but then I would immediately assign it a fixed value in the first function instruction (yielding a fake impression to the code reviewer).
+
+Agree on that, although I would rather see a true random generation if `random_state` is `None`
+
+> `permuted_ols` calls `_permuted_ols_on_chunk` on different chunks and, as far as I understand, the `random_state` has to be the same for all chunks, because you have to do the exact same permutations each time.
+
+Would still prefer to see `None` as the default and see the caller using a fixed parameter value upon the function call, since it is `permuted_ols` that is requiring the same argument to be passed over and over, not the function `_permuted_ols_on_chunk`. But then again, the discussion might become too philosophical.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",agre although I would rather see true random gener would still prefer see default see caller use fix paramet valu upon function call sinc requir argument pass function but discuss might becom philosoph,N,2014-02-19 15:44:59
+188,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-19 15:44:59,"> An array with %d dimension was passed
+
+typo: An array with %d dimensions was passed
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/permuted_least_squares.py')",typo An array dimens pass,N,2014-02-20 08:32:21
+189,pull_request_commit_comment,157,nilearn,nilearn,rphlypo,2014-02-20 08:32:21,"As discussed: 
+- when verifying whether samples are drawn from your distribution _p = dF_, you could transform your samples through the desired cdf _F_, which -- if samples are drawn from that distribution -- should result in a uniform distribution on the interval [0, 1]. You may then run any tests for uniformity.
+- If you'd prefer to keep the current settings, then your test statistic is Cramér--Von Mises (up to a multiplication by the number of samples), or if you weigh your samples by _1 / F(1-F)_ -- weighing your tails more -- you'd get the Anderson--Darling statistic (again up to that multiplicative factor).
+
+Hope this helps.
+",c8f334f8635478ca43876d740527aaea570c1eb4,"(None, '', u'nilearn/mass_univariate/tests/test_permuted_least_squares.py')",As discuss verifi whether sampl drawn distribut p dF could transform sampl desir cdf F sampl drawn distribut result uniform distribut interv 0 1 you may run test uniform If youd prefer keep current set test statist cramérvon mise multipl number sampl weigh sampl 1 f1f weigh tail youd get andersondarl statist multipl factor hope help,Y,2014-02-20 13:36:00
+199,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-10 15:59:21,permuted OLS: add intercept by default + unit tests + code robustness.,409c6e46860e8f600c3e7927a28de93eb32ee9c9,,permut ol add intercept default unit test code robust,N,2014-02-11 12:22:22
+200,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 12:22:22,permuted OLS: backport for sklearn f_regression.,50e772b5ed7ef89a05d34ce13f7450e9016e9226,,permut ol backport sklearn fregress,N,2014-02-11 12:26:05
+201,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 12:26:05,permuted OLS: commit forgotten files (_utils/fixes directory).,b792740c3a441ada48f483844366fcb615ab2b89,,permut ol commit forgotten file utilsfix directori,N,2014-02-11 12:43:48
+202,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 12:43:48,permuted OLS: add support for sklearn < 0.12 (no sparse matrix support),b7728d5b71ae5aca9ad06f0a4298b19db8b74f0d,,permut ol add support sklearn 012 spars matrix support,N,2014-02-11 14:02:36
+203,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 14:02:36,permuted OLS: Add documentation + commit forgotten test_gsarray.py,e063acab7a328898b23cbed8c998140a2f23d878,,permut ol add document commit forgotten testgsarraypi,N,2014-02-11 14:13:20
+204,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 14:13:20,permuted OLS: fix gsarray tests for Travis (raises *several* warnings),ffd7e2abd6a8c52482e838d3a3062ece8f60b061,,permut ol fix gsarray test travi rais sever warn,N,2014-02-11 14:16:40
+205,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 14:16:40,permuted OLS: fix test again for Travis.,6b3ed64427afda135345f553ad063f455c256cb4,,permut ol fix test travi,N,2014-02-11 15:47:25
+206,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 15:47:25,permuted OLS: Magnify doc.,70d0a60d47ae3c24ba216aff62d1c71ff5889065,,permut ol magnifi doc,N,2014-02-11 16:12:40
+207,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:12:40,permuted OLS: typos + cosmit.,bd52c2cea842868fb5f7100f3890a36aeac2d076,,permut ol typo cosmit,N,2014-02-11 16:50:24
+208,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-11 16:50:24,BF: Being more precise in checking sklearn version in _utils/fixes.,c937bb149b7a44b864fe760ed75f334797639579,,BF be precis check sklearn version utilsfix,N,2014-02-12 17:45:35
+209,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-12 17:45:35,"Integrate GaelVaroquaux""s comments on PR.",915c955afbe746f00ca9f1fec5ed08ebc0a11e5f,,integr gaelvaroquaux comment PR,N,2014-02-12 17:49:30
+210,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-12 17:49:30,"Cosmit: rename ""append_iter_data"" in ""append"".",39f18fb9fbbe44ff3a0a5c2c7e976f823d51d0a7,,cosmit renam appenditerdata append,N,2014-02-17 14:57:00
+211,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-17 14:57:00,Addressing more PR comments.,9223931ed397589ce58178461634313012e16e60,,address PR comment,N,2014-02-17 15:00:17
+212,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-17 15:00:17,Deal with number of CPUs according to joblib's conventions.,77e231f58b66a1700172b97700269593fe609188,,deal number cpu accord joblib convent,N,2014-02-17 17:46:13
+213,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-17 17:46:13,Test of h0 values.,bc90711e3648de2af1ab3847f1189e525b1da813,,test h0 valu,N,2014-02-18 15:27:03
+214,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-18 15:27:03,Add tests for h0 distribution.,aa1724445ba6bb8a12603fb1017691520b61b240,,add test h0 distribut,N,2014-02-18 15:45:29
+215,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-18 15:45:29,DOC: details about shuffling strategy + remove spurious test and .npz,b2e3a5f0896bf742acebb4179eb1e6c2364034d2,,doc detail shuffl strategi remov spuriou test npz,N,2014-02-18 16:51:17
+216,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-18 16:51:17,Typo.,3fefed06dff95a8d21508a634f72394f1e148c18,,typo,N,2014-02-20 13:31:12
+217,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-20 13:31:12,More general _f_score function + comments by rphlypo.,57447a51c963cf82622d991bbf4c97bc4c276219,,more gener fscore function comment rphlypo,N,2014-02-20 13:33:13
+223,pull_request_commit,157,nilearn,nilearn,VirgileFritsch,2014-02-21 14:38:48,DOC: cosmit.,c8f334f8635478ca43876d740527aaea570c1eb4,,doc cosmit,N,2014-02-20 13:43:25
+1,issue_title,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 18:04:59,"Most often, the compute_epi_mask is not a good strategy to implement a masking heuristic on the data that people use in nilearn, as it is not raw EPI data, but things like beta maps.
+
+This implements a new strategy that uses the border of the image to compute a masking value.
+",start issue,New masking strategy: Background mask,most often computeepimask good strategi implement mask heurist data peopl use nilearn raw epi data thing like beta map thi implement new strategi use border imag comput mask valu,N,2014-02-14 09:37:50
+3,pull_request_title,161,nilearn,nilearn,GaelVaroquaux,2014-02-03 18:04:59,"Most often, the compute_epi_mask is not a good strategy to implement a masking heuristic on the data that people use in nilearn, as it is not raw EPI data, but things like beta maps.
+
+This implements a new strategy that uses the border of the image to compute a masking value.
+",f6b27800d343ee1c07339e5e2363525cd4f02b6f,New masking strategy: Background mask,most often computeepimask good strategi implement mask heurist data peopl use nilearn raw epi data thing like beta map thi implement new strategi use border imag comput mask valu,N,2014-02-14 09:37:50
+4,pull_request_merged,161,nilearn,nilearn,GaelVaroquaux,2014-02-14 09:37:50,New masking strategy: Background mask,b2cb97e3ead879a0fa925065326cb5025f936b1b,Pull request merge from GaelVaroquaux/nilearn:background_mask to nilearn/nilearn:master,new mask strategi background mask,N,2014-02-14 09:37:47
+107,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-10 15:59:21,permuted OLS: add intercept by default + unit tests + code robustness.,409c6e46860e8f600c3e7927a28de93eb32ee9c9,,permut ol add intercept default unit test code robust,N,2014-02-11 12:22:22
+108,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 12:22:22,permuted OLS: backport for sklearn f_regression.,50e772b5ed7ef89a05d34ce13f7450e9016e9226,,permut ol backport sklearn fregress,N,2014-02-11 12:26:05
+109,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 12:26:05,permuted OLS: commit forgotten files (_utils/fixes directory).,b792740c3a441ada48f483844366fcb615ab2b89,,permut ol commit forgotten file utilsfix directori,N,2014-02-11 12:43:48
+110,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 12:43:48,permuted OLS: add support for sklearn < 0.12 (no sparse matrix support),b7728d5b71ae5aca9ad06f0a4298b19db8b74f0d,,permut ol add support sklearn 012 spars matrix support,N,2014-02-11 14:02:36
+111,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 14:02:36,permuted OLS: Add documentation + commit forgotten test_gsarray.py,e063acab7a328898b23cbed8c998140a2f23d878,,permut ol add document commit forgotten testgsarraypi,N,2014-02-11 14:13:20
+112,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 14:13:20,permuted OLS: fix gsarray tests for Travis (raises *several* warnings),ffd7e2abd6a8c52482e838d3a3062ece8f60b061,,permut ol fix gsarray test travi rais sever warn,N,2014-02-11 14:16:40
+113,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 14:16:40,permuted OLS: fix test again for Travis.,6b3ed64427afda135345f553ad063f455c256cb4,,permut ol fix test travi,N,2014-02-11 15:47:25
+114,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 15:47:25,permuted OLS: Magnify doc.,70d0a60d47ae3c24ba216aff62d1c71ff5889065,,permut ol magnifi doc,N,2014-02-11 16:12:40
+115,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 16:12:40,permuted OLS: typos + cosmit.,bd52c2cea842868fb5f7100f3890a36aeac2d076,,permut ol typo cosmit,N,2014-02-11 16:50:24
+116,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-11 16:50:24,BF: Being more precise in checking sklearn version in _utils/fixes.,c937bb149b7a44b864fe760ed75f334797639579,,BF be precis check sklearn version utilsfix,N,2014-02-12 17:45:35
+117,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-12 17:45:35,"Integrate GaelVaroquaux""s comments on PR.",915c955afbe746f00ca9f1fec5ed08ebc0a11e5f,,integr gaelvaroquaux comment PR,N,2014-02-12 17:49:30
+118,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-12 17:49:30,"Cosmit: rename ""append_iter_data"" in ""append"".",39f18fb9fbbe44ff3a0a5c2c7e976f823d51d0a7,,cosmit renam appenditerdata append,N,2014-02-17 14:57:00
+119,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-17 14:57:00,Addressing more PR comments.,9223931ed397589ce58178461634313012e16e60,,address PR comment,N,2014-02-17 15:00:17
+120,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-17 15:00:17,Deal with number of CPUs according to joblib's conventions.,77e231f58b66a1700172b97700269593fe609188,,deal number cpu accord joblib convent,N,2014-02-17 17:46:13
+121,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-17 17:46:13,Test of h0 values.,bc90711e3648de2af1ab3847f1189e525b1da813,,test h0 valu,N,2014-02-18 15:27:03
+122,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-18 15:27:03,Add tests for h0 distribution.,aa1724445ba6bb8a12603fb1017691520b61b240,,add test h0 distribut,N,2014-02-18 15:45:29
+123,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-18 15:45:29,DOC: details about shuffling strategy + remove spurious test and .npz,b2e3a5f0896bf742acebb4179eb1e6c2364034d2,,doc detail shuffl strategi remov spuriou test npz,N,2014-02-18 16:51:17
+124,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-18 16:51:17,Typo.,3fefed06dff95a8d21508a634f72394f1e148c18,,typo,N,2014-02-20 13:31:12
+125,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-02-20 13:31:12,More general _f_score function + comments by rphlypo.,57447a51c963cf82622d991bbf4c97bc4c276219,,more gener fscore function comment rphlypo,N,2014-02-20 13:33:13
+147,pull_request_commit,167,nilearn,nilearn,VirgileFritsch,2014-03-13 10:06:04,More references in the docstring of the permuted_ols function.,87c6738b197d5b64cbddb239e6784cbfcab4fbaf,,more refer docstr permutedol function,N,2014-02-20 13:43:25

@@ -1,0 +1,44 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,49,nilearn,nilearn,pgervais,2013-04-23 13:25:45,"The ""detrend"" boolean argument in clean() is an easy way to add a trend as another confound to remove. Thus, it must be exactly equivalent to adding a trend in the ""confounds"" array. This was not the case before this commit. 
+
+The fix was easy: it was just a matter of detrending the confounds as well as the signals.
+
+A similar concern could exist with filtering: if a low-pass or high-pass filter is specified, the output result must not contain unfiltered frequencies, even if some confounds do contain those frequencies. This is not the case with the present implementation, because filtering is performed after everything else.
+",start issue,Fixed a bug in signals.clean(),the detrend boolean argument clean easi way add trend anoth confound remov thu must exactli equival ad trend confound array thi case commit the fix easi matter detrend confound well signal A similar concern could exist filter lowpass highpass filter specifi output result must contain unfilt frequenc even confound contain frequenc thi case present implement filter perform everyth els,N
+issue_closed,49,nilearn,nilearn,pgervais,2013-04-23 13:53:58,nan,closed issue,Fixed a bug in signals.clean(),nan,N
+pull_request_title,49,nilearn,nilearn,pgervais,2013-04-23 13:25:45,"The ""detrend"" boolean argument in clean() is an easy way to add a trend as another confound to remove. Thus, it must be exactly equivalent to adding a trend in the ""confounds"" array. This was not the case before this commit. 
+
+The fix was easy: it was just a matter of detrending the confounds as well as the signals.
+
+A similar concern could exist with filtering: if a low-pass or high-pass filter is specified, the output result must not contain unfiltered frequencies, even if some confounds do contain those frequencies. This is not the case with the present implementation, because filtering is performed after everything else.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,Fixed a bug in signals.clean(),the detrend boolean argument clean easi way add trend anoth confound remov thu must exactli equival ad trend confound array thi case commit the fix easi matter detrend confound well signal A similar concern could exist filter lowpass highpass filter specifi output result must contain unfilt frequenc even confound contain frequenc thi case present implement filter perform everyth els,N
+pull_request_merged,49,nilearn,nilearn,pgervais,2013-04-23 13:53:58,Fixed a bug in signals.clean(),81374b399b89bbedf186d7ccc88cfef0c322d908,Pull request merge from pgervais/nilearn:clean_confounds_fix to nilearn/nilearn:master,fix bug signalsclean,N
+issue_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:34:48,"> The fix was easy: it was just a matter of detrending the confounds as well as
+> the signals.
+
+Excellent!
+
+:+1: for merge.
+",nan,nan,excel 1 merg,N
+pull_request_commit,49,nilearn,nilearn,pgervais,2013-04-23 13:16:05,"Fixed a bug in signals.clean()
+
+The ""detrend"" boolean argument in clean() is an easy way to add a trend
+as another confound to remove. It must be exactly equivalent to adding
+a trend in the ""confounds"" array. This was not the case before this
+commit.",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,nan,fix bug signalsclean the detrend boolean argument clean easi way add trend anoth confound remov It must exactli equival ad trend confound array thi case commit,N
+pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:33:15,"I hadn't seen this so far, even though it is not new in your PR: 'nisignals'. I'd rather avoid 'import as'. You can do 'from nisl.signals import clean'.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')",I hadnt seen far even though new PR nisign Id rather avoid import you nislsign import clean,N
+pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:34:15,"Good test! Thanks
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(20, 227, u'nisl/tests/test_signals.py')",good test thank,Y
+pull_request_commit_comment,49,nilearn,nilearn,pgervais,2013-04-23 13:53:05,"I find it much easier to read code where functions are prefixed with their respective package, or a shortcut for it (like np for numpy), than having to scroll all the time to the top of the file to known where it comes from. And I don't like writing ""import"" anywhere in the file either.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')",I find much easier read code function prefix respect packag shortcut like np numpi scroll time top file known come and I dont like write import anywher file either,N
+pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:56:21,"> I find it much easier to read code where functions are prefixed with their
+> respective package, or a shortcut for it (like np for numpy), than having to
+> scroll all the time to the top of the file to known where it comes from. And I
+> don't like writing ""import"" anywhere in the file either.
+
+OK, but then please use 'nisl.signal.clean'. 'import as' is strongly
+frowned upon in general because it creates a vocabulary that is
+coder-specific.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')",OK pleas use nislsignalclean import strongli frown upon gener creat vocabulari coderspecif,N

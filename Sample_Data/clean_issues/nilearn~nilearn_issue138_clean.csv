@@ -1,0 +1,6 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,138,nilearn,nilearn,GaelVaroquaux,2013-11-21 15:39:48,,start issue,Add git clone in install docs,
+issue_closed,138,nilearn,nilearn,GaelVaroquaux,2013-11-22 16:52:47,,closed issue,Add git clone in install docs,
+issue_comment,138,nilearn,nilearn,GaelVaroquaux,2013-11-22 16:52:47,"Done!
+",,,done

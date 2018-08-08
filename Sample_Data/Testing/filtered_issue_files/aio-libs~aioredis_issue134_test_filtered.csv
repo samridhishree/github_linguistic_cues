@@ -1,0 +1,18 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text,N
+issue_title,134,aio-libs,aioredis,p1otr,2016-07-30 20:28:23,"Please include tests, docs and examples in the tarball released on PyPI
+",start issue,"please include tests, docs and examples in the tarball",pleas includ test doc exampl tarbal releas pypi,N
+issue_closed,134,aio-libs,aioredis,popravich,2016-10-24 13:58:05,nan,closed issue,"please include tests, docs and examples in the tarball",nan,N
+issue_comment,134,aio-libs,aioredis,popravich,2016-07-31 19:47:07,"Why?
+",nan,nan,whi,N
+issue_comment,134,aio-libs,aioredis,p1otr,2016-07-31 20:00:29,"because I want to use them in my Debian package (tests during build and docs/examples as a documentation for those who don't want to use online docs)
+",nan,nan,I want use debian packag test build docsexampl document dont want use onlin doc,Y
+issue_comment,134,aio-libs,aioredis,popravich,2016-08-01 07:33:58,"You can use tag releases on github they include everything
+",nan,nan,you use tag releas github includ everyth,N
+issue_comment,134,aio-libs,aioredis,asvetlov,2016-08-01 10:34:40,"@popravich you may pus everything into tarball.
+Wheel builder strips everything but code and metainformation.
+All modern pip versions try to download wheel first if present.
+So most likely user will download tiny wheel file but in tar.gz he will get everything related to the project.
+",nan,nan,popravich may pu everyth tarbal wheel builder strip everyth code metainform all modern pip version tri download wheel first present So like user download tini wheel file targz get everyth relat project,N
+issue_comment,134,aio-libs,aioredis,popravich,2016-10-24 13:58:05,"fixed in v0.2.9
+",nan,nan,fix v029,N

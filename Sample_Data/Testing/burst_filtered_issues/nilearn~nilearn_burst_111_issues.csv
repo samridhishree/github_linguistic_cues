@@ -1,0 +1,3 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+6,issue_comment,1456,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:49:46,Thanks for the tests. Merging.,,,thank test merg,Y,2017-06-12 21:43:02
+10,issue_comment,1456,nilearn,nilearn,KamalakerDadi,2017-06-08 12:10:55,Apparently this PR should close issue #1248 ,,,appar PR close issu 1248,N,2017-06-12 09:02:20

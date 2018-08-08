@@ -1,0 +1,13 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,1295,nilearn,nilearn,alexsavio,2016-09-27 15:41:41,,start issue,[MRG+1] Add Allen RSN templates fetcher v0.2,,N,2016-12-06 14:48:43
+4,issue_comment,1295,nilearn,nilearn,GaelVaroquaux,2016-10-25 18:31:34,"> ```
+> I can't do a proper rebase.
+> ```
+> 
+> Me neither.
+
+OK, don't bother with rebase. Merge is OK.
+",,,OK dont bother rebas merg OK,N,2016-12-04 17:35:54
+7,issue_comment,1295,nilearn,nilearn,alexsavio,2016-10-25 12:05:17,"@KamalakerDadi my alternative is always pull everything, merge the changes manually and do another PR.
+",,,kamalakerdadi altern alway pull everyth merg chang manual anoth PR,N,2016-12-05 14:00:43
+8,issue_comment,1295,nilearn,nilearn,alexsavio,2016-12-05 14:00:43,"I will, soon.",,,I soon,N,2016-12-06 14:48:43

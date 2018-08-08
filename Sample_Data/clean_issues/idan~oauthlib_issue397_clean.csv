@@ -1,0 +1,16 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,397,idan,oauthlib,prasteli2015,2015-10-06 13:02:01,"We are working to build a web api in a .net framework. So which is more secure between OAuth 1 or OAuth 2 for authentication and authorization, Kindly suggest
+",start issue,Which is Secure for Web Api OAuth 1 or OAuth 2,We work build web api net framework So secur oauth 1 oauth 2 authent author kindli suggest
+issue_closed,397,idan,oauthlib,thedrow,2016-04-07 15:45:01,,closed issue,Which is Secure for Web Api OAuth 1 or OAuth 2,
+issue_comment,397,idan,oauthlib,bjmc,2015-11-06 20:47:27,"Both are secure if implemented correctly. 
+
+OAuth2 doesn't specify its own encryption and instead relies on SSL security over HTTPS to protect authorization codes and tokens from interception. From that perspective, you could say that OAuth1 is ""more secure"", but OAuth 2 is secure as long as you are careful to always require SSL connections.
+
+If for some reason your application is unable to use HTTPS, you will need to use OAuth 1. However, OAuth 1 is significantly more complicated to implement, and the general trend in the industry seems to be toward OAuth 2.
+
+My suggestion is to use OAuth 2 unless you have a strict requirement to support unsecured HTTP connections.
+",,,both secur implement correctli oauth2 doesnt specifi encrypt instead reli ssl secur http protect author code token intercept from perspect could say oauth1 secur oauth 2 secur long care alway requir ssl connect If reason applic unabl use http need use oauth 1 howev oauth 1 significantli complic implement gener trend industri seem toward oauth 2 My suggest use oauth 2 unless strict requir support unsecur http connect
+issue_comment,397,idan,oauthlib,thedrow,2016-04-07 15:45:01,"Is there anything specific to oauthlib you wanted to ask?
+Feel free to reopen if you did.
+",,,Is anyth specif oauthlib want ask feel free reopen

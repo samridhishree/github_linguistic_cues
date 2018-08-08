@@ -1,0 +1,26 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,31,idan,oauthlib,dstufft,2012-05-01 13:35:59,"After digging into the quote/unquote function I couldn't determine an actual reason for all the advanced logic. It appears that simply encoding/decoding achieves the desired result.
+
+All the tests pass and such. Would probably be good to check with @dgouldin to see if there was a reason for the original method over this way. If there are edge cases where this way doesn't work it'd likely be good to set them down in tests. Additionally there was a test that the quote function returns unicode, which this PR adds, but i question wether it should return unicode since unicode characters are not valid in a URI anyways.
+
+If this way does work it's likely there are other functions in here that could use a similar technique.
+
+If this way doesn't work, the root cause of the problem was that keys to the dictionary are bytestrings ""\xf8"" instead of unicode characters u""\xf8"" and ""\xf8"" != u""\xf8"" so a KeyError occurs.
+",start issue,Simplify the quote and unquote function,after dig quoteunquot function I couldnt determin actual reason advanc logic It appear simpli encodingdecod achiev desir result all test pass would probabl good check dgouldin see reason origin method way If edg case way doesnt work itd like good set test addit test quot function return unicod PR add question wether return unicod sinc unicod charact valid uri anyway If way work like function could use similar techniqu If way doesnt work root caus problem key dictionari bytestr xf8 instead unicod charact uxf8 xf8 uxf8 keyerror occur
+issue_closed,31,idan,oauthlib,ib-lundgren,2012-06-13 11:31:21,,closed issue,Simplify the quote and unquote function,
+pull_request_title,31,idan,oauthlib,dstufft,2012-05-01 13:35:59,"After digging into the quote/unquote function I couldn't determine an actual reason for all the advanced logic. It appears that simply encoding/decoding achieves the desired result.
+
+All the tests pass and such. Would probably be good to check with @dgouldin to see if there was a reason for the original method over this way. If there are edge cases where this way doesn't work it'd likely be good to set them down in tests. Additionally there was a test that the quote function returns unicode, which this PR adds, but i question wether it should return unicode since unicode characters are not valid in a URI anyways.
+
+If this way does work it's likely there are other functions in here that could use a similar technique.
+
+If this way doesn't work, the root cause of the problem was that keys to the dictionary are bytestrings ""\xf8"" instead of unicode characters u""\xf8"" and ""\xf8"" != u""\xf8"" so a KeyError occurs.
+",0761483f88fdd41f1b51f43bf69d91bd703df37e,Simplify the quote and unquote function,after dig quoteunquot function I couldnt determin actual reason advanc logic It appear simpli encodingdecod achiev desir result all test pass would probabl good check dgouldin see reason origin method way If edg case way doesnt work itd like good set test addit test quot function return unicod PR add question wether return unicod sinc unicod charact valid uri anyway If way work like function could use similar techniqu If way doesnt work root caus problem key dictionari bytestr xf8 instead unicod charact uxf8 xf8 uxf8 keyerror occur
+issue_comment,31,idan,oauthlib,dgouldin,2012-05-01 15:27:14,"Yeah, a week or two ago I found all the stdlib functions that don't return unicode, pulled them into our code base, and modified them to work with unicode.  If you look at python 2.7's implementation of quote and unquote you'll see they're almost identical.  I didn't write these from scratch.
+
+I'm open to the idea of utf-8 encoding and then decoding (explicitly calling .decode('utf-8'), not unicode()) if the consensus is it's cleaner that way.
+",,,yeah week two ago I found stdlib function dont return unicod pull code base modifi work unicod If look python 27 implement quot unquot youll see theyr almost ident I didnt write scratch Im open idea utf8 encod decod explicitli call decodeutf8 unicod consensu cleaner way
+issue_comment,31,idan,oauthlib,ib-lundgren,2012-06-13 11:31:21,"Closing as this was fixed quite some time ago with explicit encoding/decoding.
+",,,close fix quit time ago explicit encodingdecod
+pull_request_commit,31,idan,oauthlib,dstufft,2012-05-01 13:27:47,Simplify the quote and unquote function,0761483f88fdd41f1b51f43bf69d91bd703df37e,,simplifi quot unquot function

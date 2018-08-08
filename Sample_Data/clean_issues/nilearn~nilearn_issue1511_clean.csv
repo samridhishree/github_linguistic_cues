@@ -1,0 +1,3 @@
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text
+rectype,issueid,project_owner,project_name,actor,time,text,action,title,text
+issue_title,1511,nilearn,nilearn,GaelVaroquaux,2017-09-14 12:19:57,And update it.,start issue,Add affiliation to author list,and updat

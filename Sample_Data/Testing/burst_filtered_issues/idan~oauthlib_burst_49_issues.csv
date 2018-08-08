@@ -1,0 +1,7 @@
+,rectype,issueid,project_owner,project_name,actor,time,text,action,title,clean_text,Test,formatted_time
+1,issue_title,432,idan,oauthlib,adamn,2016-08-22 20:31:59,"It seems like you can safely drop 2.6 and 3.3 from the tests:
+
+[Google's client dropped them](https://github.com/google/oauth2client/commit/49d565d2deb47bfc51416654c33dbc391b8c06e9)
+
+[Django dropped them](https://docs.djangoproject.com/en/1.10/faq/install/#what-python-version-can-i-use-with-django)
+",start issue,Drop Python 2.6 and Python 3.3,It seem like safe drop 26 33 test googl client drop django drop,N,2016-12-06 13:23:36
