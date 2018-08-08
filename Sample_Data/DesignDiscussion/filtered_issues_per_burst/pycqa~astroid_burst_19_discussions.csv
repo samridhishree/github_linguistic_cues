@@ -1,0 +1,33 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,319,pycqa,astroid,PCManticore,2016-02-18 00:26:34,"PR updated to support some rudimentary descriptor binding (func.**get**(X, Y)). It works only partially, because I had to rebuild the function which got bound for changing the parent to the class which gets bound to when the BoundMethod is created, but I need to do the same for the Arguments node and probably for the components from the body, which quickly gets into a slippery slope of rebuilding ASTs. I'll revisit this when we'll have the zipper, since it's probably going to be easier to make a subpart of the tree to depend on a new parent.
+",nan,nan
+5,issue_comment,319,pycqa,astroid,ceridwen,2016-02-18 19:37:46,"My general comment so far is that some more high-level documentation would be useful.  I see what you're doing but not how the pieces are going to fit together.  How finished is this?  I'll offer other comments when I have a better understanding of where you're going.
+",nan,nan
+6,issue_comment,319,pycqa,astroid,PCManticore,2016-02-18 19:43:36,"Sure, I'll add a description. I think it's fairly finished, there are some unimplemented special objects, but I'm not planning to implement them any time soon (**closure** for instance). 
+",nan,nan
+7,issue_comment,319,pycqa,astroid,PCManticore,2016-02-18 21:37:14,"I added a short description to the objectmodel.py's docstring. Let me know if this seems enough. 
+",nan,nan
+8,issue_comment,319,pycqa,astroid,PCManticore,2016-02-23 15:14:25,"@ceridwen Any comment on this PR? I'd like to merge it in the following days and some feedback would be appreciated (it's a big change and hopefully I didn't miss anything, so it's better to have two pairs of eyes than one)
+",nan,nan
+9,issue_comment,319,pycqa,astroid,ceridwen,2016-02-23 21:06:12,"The docstring description did help me to understand what was going on, yes.  One early top-level comment: if the object model is part of the lookup mechanism, should it be lookup/ rather than interpreter/?  Are lookup/ and interpreter/ well-enough distinguished to be separate directories?
+",nan,nan
+10,issue_comment,319,pycqa,astroid,PCManticore,2016-02-23 21:08:25,"No, the lookup will be part of the interpreter namespace. We might have in
+the future something as interpreter/lookup, but I am not sure if we need to
+add it now.
+On Feb 23, 2016 9:06 PM, ""ceridwen"" notifications@github.com wrote:
+
+> The docstring description did help me to understand what was going on,
+> yes. One early top-level comment: if the object model is part of the lookup
+> mechanism, should it be lookup/ rather than interpreter/? Are lookup/ and
+> interpreter/ well-enough distinguished to be separate directories?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/PyCQA/astroid/pull/319#issuecomment-187904952.
+",nan,nan
+11,issue_comment,319,pycqa,astroid,ceridwen,2016-02-23 21:37:18,"Beyond my inline comments, this looks good to me, and an improvement on what we have now.
+",nan,nan
+12,issue_comment,319,pycqa,astroid,PCManticore,2016-02-23 22:53:59,"Thanks for the review @ceridwen 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

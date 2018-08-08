@@ -1,0 +1,15 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,1504,nilearn,nilearn,bthirion,2017-09-02 19:38:59,"What kind of numerical noise are you thinking of ? On this data, the estimation noise is large (it has basically variance=1), so we know that thee maps do not give very precise information.
+Sorry if I misunderstood your point.",nan,nan
+5,issue_comment,1504,nilearn,nilearn,KamalakerDadi,2017-09-03 06:41:43,">What kind of numerical noise are you thinking of ?
+
+Noise which represents background. See for instance the doc [at line 660](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/img_plotting.py#L660)
+plotting will look like this.
+![figure_1](https://user-images.githubusercontent.com/11410385/30001088-8649dd64-9083-11e7-806f-0557716d0876.png)
+
+
+This issue is concerned to any map. I have my own maps which looks like this.",nan,nan
+4,issue_comment,1504,nilearn,nilearn,bthirion,2017-09-03 20:55:18,"Yes, but adding a very small threshold will not improve the display.You significantly change the aspect of the map only when you take a threshold significantly above 0. 
+So, I don't see the reason to change the behavior of the function.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

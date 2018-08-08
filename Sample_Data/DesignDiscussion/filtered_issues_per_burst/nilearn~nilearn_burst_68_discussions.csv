@@ -1,0 +1,749 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,797,nilearn,nilearn,AlexandreAbraham,2015-10-19 09:58:07,"> Would it not be more intuitive (and perhaps make the plotting function modules more readily recognisable as such) to package them as ""niplot"" or something of the sort?
+
+This has been discussed and the code is not mature enough to be separated from the core.
+
+> Is there any (more-or-less) easy way to plot some rodent data with the functions currently offered by nilearn?
+
+You can customize the background image used for regular plotting functions. For `plot_glass_brain`, the background template can be customized but it is not trivial for the moment.
+
+What do you need exactly ?
+",nan,nan
+6,issue_comment,797,nilearn,nilearn,TheChymera,2015-10-19 10:13:11,"Something like this would be really nice:
+
+![mouse_fMRI](https://cloud.githubusercontent.com/assets/950524/10575113/abbf6ee6-765a-11e5-8c42-63c338b6c70a.jpg)
+",nan,nan
+7,issue_comment,797,nilearn,nilearn,GaelVaroquaux,2015-10-19 11:31:52,"If you have a mouse anatomy and statistical maps as nifti files, you can use plot_stats_maps to do what you want.
+",nan,nan
+8,issue_comment,797,nilearn,nilearn,TheChymera,2015-10-19 11:47:32,"what about the glass brain? Is drawing a set of contours myself the best way to go about it? any advice on how to do that?
+",nan,nan
+9,issue_comment,797,nilearn,nilearn,GaelVaroquaux,2015-10-19 11:49:18,"The glass brain is going to be specific to realigned humain brain.
+
+Sorry, there is no ways outlines can be automatized.
+",nan,nan
+3,issue_comment,797,nilearn,nilearn,eickenberg,2015-10-19 11:55:28,"> what about the glass brain? Is drawing a set of contours myself the best
+> way to go about it? any advice on how to do that?
+
+Glass Brain was made by hand. Take a look at
+
+nilearn/nilearn/plotting/glass_brain_files/*.svg
+
+You will see that there are three vector drawings. If you can create these
+for the main gyri/sulci of the mouse brain, you can have a mouse glass
+brain.
+
+So it depends on how much effort you want to put into it.
+
+Michael
+
+On Mon, Oct 19, 2015 at 1:49 PM, Gael Varoquaux notifications@github.com
+wrote:
+
+> The glass brain is going to be specific to realigned humain brain.
+> 
+> Sorry, there is no ways outlines can be automatized.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/797#issuecomment-149192237.
+",nan,nan
+10,issue_comment,797,nilearn,nilearn,AlexandreAbraham,2015-10-19 12:03:59,"I have met people that would like to substitute the SVG file by freesurfer images. Maybe we should allow that.
+",nan,nan
+11,issue_comment,797,nilearn,nilearn,GaelVaroquaux,2015-10-19 12:05:54,"> I have met people that would like to substitute the SVG file by freesurfer
+> images. Maybe we should allow that.
+
+With what king of input format?
+",nan,nan
+12,issue_comment,797,nilearn,nilearn,AlexandreAbraham,2015-10-19 12:13:21,"Replacing it with a PNG should be fairly easy. The user just has to be sure that the image is aligned with the original SVG (which is difficult in the case of a rodent... I agree).
+",nan,nan
+13,issue_comment,797,nilearn,nilearn,TheChymera,2015-10-19 12:14:39,"I am here partly because I want to get away from freesurfer - which almost all modern plotting functionalities seem to depend on. For what it's worth I would recommend against depending on it, freesurfer itself depends on very outdated versions of minc, and upstream is very non-responsive - even by scientific software standards...
+",nan,nan
+14,issue_comment,797,nilearn,nilearn,GaelVaroquaux,2015-10-19 12:16:54,"In theory, I would be +1 for input of background as a PNG.
+
+However, I worry a lot about people not realigning their backgrounds
+well, and publishing plots that are incorrect.
+
+Also, I am afraid that this feature is going to generate a lot of user
+support problems (my brain is not well aligned, please help).
+
+I am a bit unsure whether it is wise to open this pandora box.
+",nan,nan
+15,issue_comment,797,nilearn,nilearn,AlexandreAbraham,2015-10-19 12:19:24,"> However, I worry a lot about people not realigning their backgrounds well, and publishing plots that are incorrect. 
+
+This is already the case with the current background: we have no guarantee that the data provided is aligned with it.
+
+Maybe we can give a choice at least between the SVG and a 3D image?
+",nan,nan
+16,issue_comment,797,nilearn,nilearn,TheChymera,2015-10-19 12:20:26,"So if I want a rodent glass brain, ""all"" I have to do is take one outer and one inner structural  slice for each axis, import it into inkscape, draw some contours on top of it, delete the imported bitmap objects, and save the documents? Is there anything I am missing about this which would make it particularly non-trivial?
+
+What would the advantage of a PNG over a SVG be here? why would aligning to a PNG be more difficult than aligning to a SVG?
+",nan,nan
+4,issue_comment,797,nilearn,nilearn,eickenberg,2015-10-19 12:23:54,"On Mon, Oct 19, 2015 at 2:20 PM, Horea Christian notifications@github.com
+wrote:
+
+> So if I want a rodent glass brain, ""all"" I have to do is take one outer
+> and one inner structural slice for each axis, import it into inkscape, draw
+> some contours on top of it, delete the imported bitmap objects, and save
+> teh documents? Is there anything I am missing about this which would make
+> it particularly non-trivial?
+> 
+> Yes, you choose a slice of your normalized rodent brain (if this exists)
+> and use inkscape to draw the contours of relevance. For your purposes you
+> may just replace the human glass brain with yours. Otherwise the code needs
+> to be changed to allow different options.
+> 
+> What would the advantage of a PNG over a SVG be here? why would aligning
+> to a PNG be more difficult than aligning to a SVG?
+> 
+> I don't see a difference. It would just be to support more background
+> images. There is no realignment: The image is considered to be in MNI space
+> for human brains. It is then resampled if necessary to the right resolution
+> and plotted.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/797#issuecomment-149198662.
+",nan,nan
+17,issue_comment,797,nilearn,nilearn,GaelVaroquaux,2015-10-19 12:26:35,"> Maybe we can give a choice at least between the SVG and a 3D image?
+
+Maybe just a 3D mask image and we compute the online of it (easy, just
+compute the max along the direction and do a contour in matplotlib?
+
+This would be open for contributions, but I don't see my team investing
+in it in the short term, though, given how overcommitted we are.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,796,nilearn,nilearn,GaelVaroquaux,2015-10-15 16:15:20,"For reference: the corresponding sphinx-gallery docs: http://sphinx-gallery.readthedocs.org/en/latest/tutorials/index.html#notebook-styled-examples
+",nan,nan
+4,issue_comment,796,nilearn,nilearn,lesteve,2015-10-15 16:51:33,"Should we not do a sphinx-gallery release, revive #592 and merge it before we can think about using notebook-style examples in nilearn ?
+",nan,nan
+5,issue_comment,796,nilearn,nilearn,GaelVaroquaux,2015-10-15 16:53:06,"> Should we not do a sphinx-gallery release, revive #592 and merge it before we
+> can think about using notebook-style examples in nilearn ?
+
+I don't know. I lost track :$
+",nan,nan
+6,issue_comment,796,nilearn,nilearn,lesteve,2015-10-15 18:07:00,"Let's ask @Titan-C what he remembers !
+",nan,nan
+7,issue_comment,796,nilearn,nilearn,Titan-C,2015-10-15 22:03:51,"yes we are missing a PyPI realease of sphinx-gallery with the notebook examples.
+The we can rebase #592 to correctly adopt the images and references naming convention that meanwhile got adopted when the notebook examples pull request passed.
+",nan,nan
+8,issue_comment,796,nilearn,nilearn,lesteve,2015-10-15 22:12:34,"It's probably worth looking at the issues (and me at my notes if I can find them) to see whether there were still things to iterate on before the next sphinx-gallery release. I seem to remember the naming conventions still weren't that consistent but I could be wrong.
+",nan,nan
+9,issue_comment,796,nilearn,nilearn,GaelVaroquaux,2015-12-02 08:09:36,"I did this over the week end. Closing.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,issue_comment,795,nilearn,nilearn,lesteve,2015-10-15 07:17:55,"Failing tests in case you missed it.
+",nan,nan
+5,issue_comment,795,nilearn,nilearn,aabadie,2015-10-15 12:40:55,"> Failing tests in case you missed it.
+
+@lesteve  I forgot one replacement in the tests. It's all ok now. (Circle CI is temporarily broken apparently).
+",nan,nan
+8,issue_comment,795,nilearn,nilearn,GaelVaroquaux,2015-10-15 15:01:30,"All tests are green, and the change look good to me. Merging. Thanks
+",nan,nan
+9,issue_comment,795,nilearn,nilearn,GaelVaroquaux,2015-10-15 15:09:05,"You need to write this in a commit message for the issue to be closed (it can be anywhere in the commit message).
+",nan,nan
+6,issue_comment,795,nilearn,nilearn,aabadie,2015-10-15 15:10:59,"> You need to write this in a commit message for the issue to be closed (it can be anywhere in the commit message).
+
+Yes I misunderstood one of @lesteve tips about how to achieve this. Need to read more about these useful features.
+",nan,nan
+10,issue_comment,795,nilearn,nilearn,lesteve,2015-10-16 06:32:40,"> > You need to write this in a commit message for the issue to be closed (it can be anywhere in the commit message).
+> 
+> Yes I misunderstood one of @lesteve tips about how to achieve this. Need to read more about these useful features.
+
+You need to put it in the description of the PR (and IIRC you have to do it when you create the PR you can not edit the PR description later to add it).
+
+The github [doc](https://github.com/blog/1506-closing-issues-via-pull-requests) about closing issue from PR and the list of [magical keywords](https://help.github.com/articles/closing-issues-via-commit-messages/) you can use.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-14 13:17:53,"a strictly positive integer
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+8,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-14 13:19:37,"Use `round(n_cuts) < 1.` for clarity
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+5,issue_comment,794,nilearn,nilearn,bthirion,2015-10-14 20:57:44,"Lgtm overall.
+",nan,nan
+9,pull_request_commit_comment,794,nilearn,nilearn,bthirion,2015-10-14 20:59:38,"Not related to this pr, but for n_cuts I would take a default value of,say, 5. 12 is huge.
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(19, '', u'nilearn/plotting/find_cuts.py')"
+10,pull_request_commit_comment,794,nilearn,nilearn,GaelVaroquaux,2015-10-14 21:00:58,"> but for n_cuts I would take a default value of,say, 5. 12 is huge.
+
++1. And I don't mind breaking backward compat at this stage of the
+package.
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(19, '', u'nilearn/plotting/find_cuts.py')"
+11,pull_request_commit_comment,794,nilearn,nilearn,KamalakerDadi,2015-10-14 21:06:32,"Ok. So, I change the default to 5 
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(19, '', u'nilearn/plotting/find_cuts.py')"
+12,pull_request_commit_comment,794,nilearn,nilearn,GaelVaroquaux,2015-10-14 21:07:29,"> So, I change the default to 5
+
+Make sure you add this in doc/whats_new.rst
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(19, '', u'nilearn/plotting/find_cuts.py')"
+13,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-15 07:22:06,"although equivalent for integers maybe ""greater than or equal to 1"" is more clear than ""greater than 0""
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+14,pull_request_commit_comment,794,nilearn,nilearn,AlexandreAbraham,2015-10-15 08:50:58,"I would go for a more straightforward message.
+`'Image has %d slices in direction %s. Therefore the number of cuts must be between 1 and %d. You provided n_cuts=%d' % (this_shape, direction, this_shape, n_cuts)`
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+15,pull_request_commit_comment,794,nilearn,nilearn,AlexandreAbraham,2015-10-15 08:54:35,"The error message does not match the condition: Here you are interested in the type. ""should"" is not strong enough, this is a hard constraints. Maybe something like:
+`The number of cuts (n_cuts) must be an integer greater or equal than 1. You provided a value of type %s.`
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+16,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-15 09:12:17,"Sounds good to me.
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+17,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-15 09:13:25,":+1:
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+18,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-15 09:17:44,"Maybe use this opportunity to set its default to the same value than in displays (looks like it's 7 from [here](https://github.com/nilearn/nilearn/blob/de38fe03a535b79b4250794833fe4049730e7ce7/nilearn/plotting/displays.py#L939)).
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(19, '', u'nilearn/plotting/find_cuts.py')"
+19,pull_request_commit_comment,794,nilearn,nilearn,lesteve,2015-10-15 09:32:22,"Tiny comment it looks like the fully correct version is ""greater **than** or equal **to** 1"" and the alternative winning the google battle is ""greater or equal **to** 1"". See http://english.stackexchange.com/questions/38287/do-we-say-is-greater-or-equal-to-or-is-greater-or-equal-than for more details.
+",9b517fc192e5321018befc2936d8bcd4a4746c7c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+6,issue_comment,794,nilearn,nilearn,lesteve,2015-10-22 11:24:37,"Merging thanks..
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,793,nilearn,nilearn,GaelVaroquaux,2015-10-14 08:58:21,"Good catch!
+
+A PR to fix this would be great.
+",nan,nan
+4,issue_comment,793,nilearn,nilearn,arthurmensch,2015-10-14 08:59:49,"Fix is straightforward, I just need to write a test and I will push it
+",nan,nan
+5,issue_comment,793,nilearn,nilearn,GaelVaroquaux,2015-10-14 09:01:36,"> Fix is straight forward,
+
+It is indeed, because you understand the package :)
+",nan,nan
+6,issue_comment,793,nilearn,nilearn,GaelVaroquaux,2015-12-02 07:59:27,"@arthurmensch : can you either do this today, or help Aina do it
+",nan,nan
+7,issue_comment,793,nilearn,nilearn,GaelVaroquaux,2015-12-02 08:12:24,"Cc @ainafp : I think that this is something that you could work on.
+
+The idea is to use nilearn._utils.niimg._safe_get_data instead of the get_data method.
+",nan,nan
+9,issue_comment,793,nilearn,nilearn,ainafp,2015-12-02 13:58:07,"@GaelVaroquaux @arthurmensch :
+
+I changed it but it still creates a new image because it uses new_img_like() from nilearn.image.image
+I can substitute the whole line and return just _safe_get_data(img). 
+Is this fine? In this case, instead of 
+`new_img_like(img, img.get_data().copy(), img.get_affine().copy(),  copy_header=True)`
+it just makes a deep copy
+`img = copy.deepcopy(img)`
+if it is not cached inside _safe_get_data. 
+
+If you agree I change it. I wrote the test based on what Arthur did. 
+",nan,nan
+10,issue_comment,793,nilearn,nilearn,ainafp,2015-12-02 14:36:00,"@GaelVaroquaux 
+In new_img_like() in from nilearn.image.image, when copy_header is set to true, changing  header['scl_slope'], header['scl_inter'],  header['cal_max'] or header['cal_max'] change the value of the hash. 
+
+```
+img = Nifti1Image(np.ones((2, 2, 2, 2)), affine=np.eye(4))
+joblib.hash(img)
+img2 = new_img_like(img, np.ones((2, 2, 2, 2)), img.get_affine().copy(), copy_header=True)
+joblib.hash(img)  
+```
+",nan,nan
+11,issue_comment,793,nilearn,nilearn,ainafp,2015-12-02 15:03:55,"Nevermind. It was just a copy.copy of the header inside new_img_like(). I changed it to copy.deepcopy()
+",nan,nan
+8,issue_comment,793,nilearn,nilearn,lesteve,2015-12-02 15:21:01,"Have you opened a PR? This is the easiest way to comment on your changes.
+",nan,nan
+12,issue_comment,793,nilearn,nilearn,ainafp,2015-12-02 15:25:56,"Done! 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,791,nilearn,nilearn,GaelVaroquaux,2015-10-13 08:44:37,"+1. For merge. Thanks for the PR. Let's wait for circleci to finish.
+",nan,nan
+6,issue_comment,791,nilearn,nilearn,lesteve,2015-10-13 09:27:06,"CircleCI is green, merging.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,790,nilearn,nilearn,lesteve,2015-10-12 16:37:41,"The test failure is related to numpy 1.10. I can reproduce it locally.
+",nan,nan
+7,issue_comment,790,nilearn,nilearn,lesteve,2015-10-13 06:58:28,"> The test failure is related to numpy 1.10. I can reproduce it locally.
+
+I push a fix in master https://github.com/nilearn/nilearn/commit/aa4ba03ff334e4ba11904d57db87b64bb4714f1e. @aabadie if you rebase on top of master it should make the test pass.
+",nan,nan
+9,pull_request_commit_comment,790,nilearn,nilearn,lesteve,2015-10-13 06:59:33,"I would remove this section alltogether, including the two lines below. In the scipy docstring case, the test they mention is scipy.test and we don't have the equivalent in nilearn since we just use nosetets.
+",b94dadd5cd739462a00a2b99ade2281b32a1f729,"(None, '', u'nilearn/__init__.py')"
+5,issue_comment,790,nilearn,nilearn,aabadie,2015-10-13 07:54:24,"@lesteve, I rebased the branch on master, waiting for tests results. The ""Utilities"" section has been removed in commit b94dadd.
+",nan,nan
+8,issue_comment,790,nilearn,nilearn,lesteve,2015-10-13 09:27:53,"LGTM merging, thanks !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,763,nilearn,nilearn,dohmatob,2015-08-21 08:57:31,"I think it's YAGNI, and we'll bring us more trouble than the anticipated good it might do for users. Let them expand their paths themselves. Also, `nilearn.plotting` is not supposed to be a unix shell environment ;)
+",nan,nan
+5,issue_comment,763,nilearn,nilearn,GaelVaroquaux,2015-10-13 18:49:00,"To sum up the work to be done:
+- Have check_niimg optionally use glob (and sort if using glob) (with the default being true)
+- Have a constant at the level of `nilearn.__init__` to control this behavior
+- Have a very clear error message if a glob returns an empty list, that explains what is going on, and assumes that the user might have made a glob by mistake (thus points out the above constant).
+",nan,nan
+6,issue_comment,763,nilearn,nilearn,AlexandreAbraham,2015-10-13 20:03:41,"Maybe this behavior should be restricted to `check_niimg_4d`?
+",nan,nan
+7,issue_comment,763,nilearn,nilearn,GaelVaroquaux,2015-10-13 20:07:15,"> Maybe this behavior should be restricted to check_niimg_4d?
+
+Well, if we want to expand '~' we can do it in check_niimg. But for the
+rest, I agree.
+",nan,nan
+8,issue_comment,763,nilearn,nilearn,banilo,2015-10-13 20:37:00,"I agree with Gael that glob-integration could increase comfort of nilearn users. After all, we do glob.glob before loading anyways.
+",nan,nan
+3,issue_comment,763,nilearn,nilearn,aabadie,2015-10-15 14:29:40,"> To sum up the work to be done:
+> - Have check_niimg optionally use glob (and sort if using glob) (with the default being true)
+> - Have a constant at the level of nilearn.init to control this behavior
+> - Have a very clear error message if a glob returns an empty list, that explains what is going on, and > assumes that the user might have made a glob by mistake (thus points out the above constant).
+
+@GaelVaroquaux, I pushed 419019a that should address this feature. A test is missing though.
+",nan,nan
+9,issue_comment,763,nilearn,nilearn,KamalakerDadi,2015-10-15 19:59:51,"@aabadie  It would be nice if you do PR tagged as **[WIP]** and ping somebody if you need help.
+",nan,nan
+10,issue_comment,763,nilearn,nilearn,lesteve,2015-10-15 20:09:12,"> @aabadie It would be nice if you do PR tagged as [WIP] and ping somebody if you need help.
+
+:+1: in general commenting on commits is not a really good idea, because comments tend to be completely lost if there is a rebase. It is a lot better to start a PR so that the discussion happens all in one place.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,784,nilearn,nilearn,dohmatob,2015-09-27 02:55:54,"Russ,
+
+cut_coords : None, a tuple of floats, or an integer
+            The MNI coordinates of the point where the cut is performed
+            If display_mode is 'ortho', this should be a 3-tuple: (x, y, z)
+            For display_mode == 'x', 'y', or 'z', then these are the
+            coordinates of each cut in the corresponding direction.
+            If None is given, the cuts is calculated automaticaly.
+            If display_mode is 'x', 'y' or 'z', cut_coords can be an integer,
+            in which case it specifies the number of cuts to perform
+
+If _cut_coords_ is a scalar (as in your example), then it's expected to be
+and integer representing the number of cuts you want. We can't do the
+coercing automatically, as this would run into conflicts with the rest of
+the logic. The error you're getting is because the 0 you passed for
+_cut_coords_ is being interpreted as number of slices (_n_cuts_ in your
+traceback), leading to a zero-division. The latter tells us there is a
+stealth bug in the _find_cuts_ function: it should sanitize the value
+_n_cuts_ param and throw a meaningful error in case invalid (for example,
+in case it's _0_).
+",nan,nan
+4,issue_comment,784,nilearn,nilearn,poldrack,2015-09-27 15:11:09,"thanks - yes, better error reporting sounds like a good solution.
+
+> On Sep 26, 2015, at 7:55 PM, DOHMATOB Elvis notifications@github.com wrote:
+> 
+> Russ,
+> 
+> _cut_coords : None, a tuple of floats, or an integer_
+> - The MNI coordinates of the point where the cut is performed*
+> - If display_mode is 'ortho', this should be a 3-tuple: (x, y,
+>   z)*
+> - For display_mode == 'x', 'y', or 'z', then these are the*
+> - coordinates of each cut in the corresponding direction.*
+> - If None is given, the cuts is calculated automaticaly.*
+> - If display_mode is 'x', 'y' or 'z', cut_coords can be an
+>   integer,*
+> - in which case it specifies the number of cuts to perform*
+> 
+> If _cut_coords_ is a scalar (as in your example), then it's expected to be
+> and integer representing the number of cuts you want. We can't do the
+> coercing automatically, as this would run into conflicts with the rest of
+> the logic. The error you're getting is because the 0 you passed for
+> _cut_coords_ is being interpreted as number of slices (_n_cuts_ in your
+> traceback), leading to a zero-division. The latter tells us there is a
+> stealth bug in the _find_cuts_ function: it should sanitize the value
+> _n_cuts_ param and throw a meaningful error in case invalid (for example,
+> in case it's _0_).
+> 
+> On Sat, Sep 26, 2015 at 6:55 PM, Russ Poldrack notifications@github.com
+> wrote:
+> 
+> > currently plot_stat_map will crash if a scalar is passed to cut_coords in
+> > single-axis display mode:
+> > 
+> > Traceback (most recent call last):
+> > File ""mk_tsne_figure.py"", line 57, in
+> > draw_cross=False,display_mode='z',colorbar=False,cut_coords=0.)
+> > File
+> > ""/Users/poldrack/anaconda/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/plotting/img_plotting.py"",
+> > line 891, in plot_stat_map
+> > **kwargs)
+> > File
+> > ""/Users/poldrack/anaconda/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/plotting/img_plotting.py"",
+> > line 163, in _plot_img_with_bg
+> > colorbar=colorbar)
+> > File
+> > ""/Users/poldrack/anaconda/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/plotting/displays.py"",
+> > line 400, in init_with_figure
+> > cut_coords = cls.find_cut_coords(img, threshold, cut_coords)
+> > File
+> > ""/Users/poldrack/anaconda/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/plotting/displays.py"",
+> > line 950, in find_cut_coords
+> > n_cuts=cut_coords)
+> > File
+> > ""/Users/poldrack/anaconda/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/plotting/find_cuts.py"",
+> > line 213, in find_cut_slices
+> > spacing = max(int(.5 / n_cuts \* data.shape[axis]), 1)
+> > ZeroDivisionError: float division by zero
+> > 
+> > should check to see if the arguments to cut_coords are a list, and coerce
+> > single coord into a list if passed as a scalar.
+> > 
+> > —
+> > Reply to this email directly or view it on GitHub
+> > https://github.com/nilearn/nilearn/issues/784.
+> 
+> ## 
+> 
+> DED
+> —
+> Reply to this email directly or view it on GitHub https://github.com/nilearn/nilearn/issues/784#issuecomment-143514209.
+
+---
+
+Russell A. Poldrack
+Professor of Psychology
+Bldg. 420, Jordan Hall
+Stanford University
+Stanford, CA 94305
+
+poldrack@stanford.edu
+http://www.poldracklab.org/
+",nan,nan
+5,issue_comment,784,nilearn,nilearn,lesteve,2015-09-28 14:07:10,"It looks like we should check that n_cuts is an integer > 0 in nilearn.plotting.find_cuts.find_cut_slices indeed and raise a meaningful error message if not.
+
+@KamalakerDadi, if you have some spare time, that shouldn't be too hard to do.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+24,pull_request_commit_comment,798,nilearn,nilearn,bthirion,2015-10-20 18:56:33,"'match'
+return_iterator
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+25,pull_request_commit_comment,798,nilearn,nilearn,bthirion,2015-10-20 18:58:29,"I find this ('return the first object of the list') a strange default behavior. maybe I did not understand.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+13,issue_comment,798,nilearn,nilearn,bthirion,2015-10-20 19:00:20,"Looks rather good, but documentation should be added to illustrate the behavior.
+",nan,nan
+26,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-21 11:31:11,"Not really necessary to import glob conditionally.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+27,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-21 12:05:29,"Ok ! I removed it in 810643a
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+14,issue_comment,798,nilearn,nilearn,lesteve,2015-10-21 12:24:29,"First of all, there is a problem that `nilearn.EXPAND_PATH_WILDCARDS` and `nilearn._utils.niimg_conversions.EXPAND_PATH_WILDCARDS` are two different variables, so setting one has no effect on the other. As an illustration:
+
+``` python
+from nilearn._utils import niimg_conversions
+niimg_conversions.check_niimg('this_file_does_not_exist')  # error with please set global constants EXPAND_PATH_WILDCARDS to False
+
+import nilearn
+nilearn.EXPAND_PATH_WILDCARDS = False
+niimg_conversions.check_niimg('this_file_does_not_exist')  # still the same error as previously
+```
+
+Also I am a bit confused about EXPAND_PATH_WILDCARDS functionality. Why don't we want to always use `EXPAND_PATH_WILDCARDS = True` ? 
+
+Is it because we worry about files which contains the following characters: `*`, `[` or `?` ?
+",nan,nan
+28,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-21 12:32:40,"Missing % niimg or something to put the user input in the error message.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+15,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 12:34:46,"> First of all, there is a problem that nilearn.EXPAND_PATH_WILDCARDS and
+> nilearn._utils.niimg_conversions.EXPAND_PATH_WILDCARDS
+
+Indeed, we need to do 'import nilearn as ni' in
+nilearn._utils.niimg_conversions and then access EXPAND_PATH_WILDCARDS as
+""ni.EXPAND_PATH_WILDCARDS""
+",nan,nan
+5,issue_comment,798,nilearn,nilearn,aabadie,2015-10-21 12:50:39,"> Indeed, we need to do 'import nilearn as ni'
+
+I pushed this change in commit 01b479b.
+",nan,nan
+16,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 12:52:41,"> I pushed this change in commit 01b479b.
+
+You need a test that fails before this commit and works after, that way
+we are convinced that it works.
+",nan,nan
+17,issue_comment,798,nilearn,nilearn,lesteve,2015-10-21 12:57:02,"> Indeed, we need to do 'import nilearn as ni' in nilearn._utils.niimg_conversions and then access EXPAND_PATH_WILDCARDS as ""ni.EXPAND_PATH_WILDCARDS""
+
+Note that I couldn't figure out a way to do the same thing with a relative import. Not sure how likely this is to create a problem in the real world.
+
+> You need a test that fails before this commit and works after, that way we are convinced that it works.
+
+:+1:
+",nan,nan
+6,issue_comment,798,nilearn,nilearn,aabadie,2015-10-21 15:24:36,"> You need a test that fails before this commit and works after, that way we are convinced that it works.
+
++1
+I pushed 3115ba7 which contains a tests covering more use cases related to globbing. I'm waiting for the tests to fail and will push the fix later.
+",nan,nan
+18,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 15:27:13,"> Note that I couldn't figure out a way to do the same thing with a relative
+> import.
+
+Good point.
+
+> Not sure how likely this is to create a problem in the real world.
+
+Let's not loose sleep on this and move on.
+",nan,nan
+19,issue_comment,798,nilearn,nilearn,GaelVaroquaux,2015-10-21 15:27:44,"> ```
+> I pushed 3115ba7 which contains a tests covering more use cases related to
+> globbing. I'm waiting for the tests to fail and will push the fix later.
+> ```
+
+Test driven development! Yey
+",nan,nan
+7,issue_comment,798,nilearn,nilearn,aabadie,2015-10-21 15:34:12,"Ok, so tests are now completely failing... (but not for the initial reason). @GaelVaroquaux maybe you prefer to validate the tests first or is it ok if I push my solution now ?
+",nan,nan
+29,pull_request_commit_comment,798,nilearn,nilearn,AlexandreAbraham,2015-10-22 08:04:02,"Same remark as before: in nilearn, a list of one file may not be an error nor a single file. This case is hard to handle. Maybe at least a warning would be enough ?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+30,pull_request_commit_comment,798,nilearn,nilearn,AlexandreAbraham,2015-10-22 08:10:33,"Just a guess: can't we raise a warning and automatically retry by setting wildcards to False?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+20,issue_comment,798,nilearn,nilearn,AlexandreAbraham,2015-10-22 08:11:59,"Apart from some usability questions, :+1: 
+",nan,nan
+31,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 08:45:51,"It would be nice if you refer some where giving reference to small code snippet to here. If you think its good, it is located in `doc/manipulating_visualizing/manipulating_images.rst` file. It would be more clear enough.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(47, '', u'nilearn/_utils/niimg_conversions.py')"
+32,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 08:47:33,"Do you think is it also worth to explain a bit what is returns as output if you use `wild_cards=True` ?
+@GaelVaroquaux 
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(54, '', u'nilearn/_utils/niimg_conversions.py')"
+33,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-22 09:53:16,"@KamalakerDadi: added online documentation in  243f789
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(47, '', u'nilearn/_utils/niimg_conversions.py')"
+34,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:07:01,"You should probably be more explicit and say `nilearn.EXPAND_PATH_WILDCARDS`
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+35,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:12:28,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+I should have done the original comment here.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+36,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:15:18,"This is really overkill isn't it?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+37,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:16:54,"Same comment, a bit overkill...
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+38,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 13:19:49,"Will it be not easy to mention only about `wildcards=False` ?
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+39,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-22 13:41:11,"As this message could be raised in the user console and wildcards=False is used internally (check_niimg should not be called directly by users), I would stick to the global constant in the message.
+
+This makes me think that the wildcards option is useless... and should be removed from the function signature.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+40,pull_request_commit_comment,798,nilearn,nilearn,aabadie,2015-10-22 13:41:50,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+ok
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+41,pull_request_commit_comment,798,nilearn,nilearn,lesteve,2015-10-22 13:44:50,"Maybe we should do: `elif [niimg] == filenames` to differentiate the case where niimg is just a filename vs the one where the glob only matches one file.  In the latter I think it should be considered as a list with a single file.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+8,issue_comment,798,nilearn,nilearn,aabadie,2015-10-22 14:01:39,"@lesteve @KamalakerDadi your recent comments have been adressed ;)
+",nan,nan
+42,pull_request_commit_comment,798,nilearn,nilearn,KamalakerDadi,2015-10-22 14:19:05,"> I would stick to the global constant in the message.
+
+Its upto you but my point is user should not look to change global constants to set to False. That's my intuition. Correct me if I am wrong.
+",7c82802d6142b3757a9065deabd93741eb0d1bda,"(None, '', u'nilearn/_utils/niimg_conversions.py')"
+9,issue_comment,798,nilearn,nilearn,aabadie,2015-10-23 08:13:31,"@KamalakerDadi, @GaelVaroquaux @lesteve @AlexandreAbraham, is this ok to merge ?
+",nan,nan
+21,issue_comment,798,nilearn,nilearn,lesteve,2015-10-23 08:56:39,"Maybe an additional test for the edge case where a real glob (i.e. containing `*`, `[`, or `?`) matches only one file?
+",nan,nan
+10,issue_comment,798,nilearn,nilearn,aabadie,2015-10-23 09:00:40,"> Maybe an additional test for the edge case where a real glob (i.e. containing *, [, or ?) matches only one file?
+
+It's already there I think : see line 235 in test_niimg_conversions.py
+",nan,nan
+22,issue_comment,798,nilearn,nilearn,lesteve,2015-10-23 09:22:10,"> It's already there I think : see line 235 in test_niimg_conversions.py
+
+Good point I missed that. Looking at your tests a little bit more I think we should be testing 3d data too.
+
+If you only have test.nii which is a 3d image in the current working directory, you expect.
+
+``` python
+ # 3d image
+check_niimg('test.nii')
+ # 4d image with last dimension 1 i.e. it is equivalent to check_niimg(['test.nii'])
+check_niimg('test*.nii')
+```
+",nan,nan
+11,issue_comment,798,nilearn,nilearn,aabadie,2015-10-23 10:47:57,"Thanks for your comment @lesteve : I pushed 2 commits that should address those use cases.
+",nan,nan
+23,issue_comment,798,nilearn,nilearn,lesteve,2015-10-23 12:05:13,"Merging this one, thanks!
+
+Still a few regexp rather than glob remaining but I'll fix them up in master directly.
+",nan,nan
+12,issue_comment,798,nilearn,nilearn,aabadie,2015-10-23 12:09:24,"Thanks, this will make my day !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,792,nilearn,nilearn,banilo,2015-10-13 20:40:21,"I brought the same C-motivated argument a while ago. But last time, we decided against having all constant in capital letters because that is not Python-like, if I remember correctly.
+",nan,nan
+6,issue_comment,792,nilearn,nilearn,GaelVaroquaux,2015-10-13 20:41:51,"> I brought the same C-motivated argument a while ago. But last time, we
+> decided against having all constant in capital letters because that is
+> not Python-like, if I remember correctly.
+
+Quite the contrary: PEP8 agrees with me:
+https://www.python.org/dev/peps/pep-0008/#constants
+",nan,nan
+7,issue_comment,792,nilearn,nilearn,banilo,2015-10-13 20:44:42,"Great, I like big-lettered constants!
+
+2015-10-13 22:41 GMT+02:00 Gael Varoquaux notifications@github.com:
+
+> > I brought the same C-motivated argument a while ago. But last time, we
+> > decided against having all constant in capital letters because that is
+> > not Python-like, if I remember correctly.
+> 
+> Quite the contrary: PEP8 agrees with me:
+> https://www.python.org/dev/peps/pep-0008/#constants
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/792#issuecomment-147846414.
+",nan,nan
+3,issue_comment,792,nilearn,nilearn,aabadie,2015-10-14 15:46:06,"@GaelVaroquaux This one sounds (very) easy, I can work on it !
+",nan,nan
+4,issue_comment,792,nilearn,nilearn,aabadie,2015-10-14 16:27:50,"2ef67d2 is small contribution to this issue.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,789,nilearn,nilearn,aabadie,2015-10-12 15:45:54,"I took the docstring of scipy as an example for documentating the top level **__init__.py** file. As mentionned here (https://docs.python.org/3.4/tutorial/modules.html#importing-from-a-package), I also defined and filled the **__all__** attribute with the ""public"" submodules of nilearn.
+
+We could also go further by writing the all docstring in all submodules.
+",nan,nan
+4,issue_comment,789,nilearn,nilearn,lesteve,2015-10-13 11:52:32,"> We could also go further by writing the all docstring in all submodules.
+
+I think it's probably overkill for now.
+
+A couple of tips:
+- double underscore does emphasis (aka bold) in markdown so you want to use backquotes to escape them, see this [link](https://guides.github.com/features/mastering-markdown/) for more details.
+- using Fix #number in a PR description does automatically close the issue #number once the PR is merged
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+18,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:26:11,"CamelCase for a function. Blah!
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+19,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:27:08,"Are you sure that this is in the standard library?
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+20,pull_request_commit_comment,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:27:19,"I use it as a decorator afterward. But I can change it to `snake_case` since nose does that with `with_setup`.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+21,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:28:41,"> I use it as a decorator afterward.
+
+Decorators aRe nOt CamelCase. It's uGlY. :) 
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+22,pull_request_commit_comment,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:38:39,"It is for Unix systems. I probably should skip tests if not available / setrlimit or getrlimit raise a resource.error.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+23,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:46:50,"> It is for Unix systems. I probably should skip tests if not available /
+> setrlimit or getrlimit raise a resource.error.
+
+More than skip tests, you cannot import it at all windows, I suspect.
+Which means that importing scikit-learn on windows would crash.
+
+We need CI for Windows. I created an issue: #804.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+4,issue_comment,803,nilearn,nilearn,aabadie,2015-10-22 14:30:44,"> Ping @aabadie, apparently I stole your job. But I've done the easy part, the hardest part is to set it cleverly when needed :P.
+
+No problem @AlexandreAbraham, your change is a nice contribution.
+",nan,nan
+5,issue_comment,803,nilearn,nilearn,aabadie,2015-10-23 12:52:36,"@AlexandreAbraham,  in case you missed it, the test is failing on circle ci. Probably an issue when setting memory limit on the VM.
+",nan,nan
+15,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 07:51:33,"> @aabadie, setting the limit of memory is protected. The error seems to be that a segfault is triggered when I allocate too much memory instead of a memory error. I'll try to put a smaller object in the test.
+
+You put a smaller object but didn't change the memory_limit. I would guess that's why the Travis tests are now failing.
+",nan,nan
+16,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 08:25:10,"> I don't get your comment. The error should be triggered when the allocated object size is higher than the limit, which is the case. Or maybe I have my memory usage estimation wrong?
+
+I haven't double-checked the memory usage computation but it looks like the Travis failure is due to the fact that the memory usage doesn't go over the memory_limit threshold.
+",nan,nan
+17,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 08:26:48,"On top of that it looks like it only fails for a few distributions but not for the other, weird.
+
+Here is the error you get:
+
+```
+======================================================================
+
+FAIL: nilearn.tests.test_testing.test_memory_limit_raise
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+
+    self.test(*self.arg)
+
+  File ""/home/travis/build/nilearn/nilearn/testvenv/local/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/_utils/testing.py"", line 690, in wrapper_func
+
+    retval = func(*args, **kwargs)
+
+  File ""/home/travis/build/nilearn/nilearn/testvenv/local/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/tests/test_testing.py"", line 58, in test_memory_limit_raise
+
+    MemoryError, '', np.zeros, (500, 100, 60), dtype=np.float32)
+
+AssertionError: MemoryError not raised
+```
+",nan,nan
+8,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-18 11:54:42,"The problem seems that the code segfaults instead of raising a memory error... Maybe I asked for too much memory?
+",nan,nan
+6,issue_comment,803,nilearn,nilearn,aabadie,2016-01-18 13:02:02,"> The problem seems that the code segfaults instead of raising a memory error... Maybe I asked for too much memory?
+
+This is a possibility but I would be surprised as the maximum memory is set to 10000000 (10MB) and the size of the array is 12MB which is not that much.
+
+Maybe using a strategy based on MemoryProfiler would help.
+",nan,nan
+9,issue_comment,803,nilearn,nilearn,GaelVaroquaux,2016-01-18 15:06:00,"> The problem seems that the code segfaults instead of raising a memory error...
+> Maybe I asked for too much memory?
+
+Indeed, under old versions of Python, there were segfaults when you asked
+for too much memory.
+",nan,nan
+10,issue_comment,803,nilearn,nilearn,lesteve,2016-01-19 12:56:11,"FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler, which is part of https://github.com/joblib/joblib/pull/260.
+
+I am not entirely sure it is worth investigating more time making this PR work.
+",nan,nan
+7,issue_comment,803,nilearn,nilearn,aabadie,2016-01-19 13:00:25,"> FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler
+
+ @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+",nan,nan
+11,issue_comment,803,nilearn,nilearn,lesteve,2016-01-19 13:22:53,"> @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+
+This is fine with me. It would be great to find a few tests to add in order to test functions in nilearn where  memory consumption actually matters. @AlexandreAbraham, @GaelVaroquaux any suggestions ?
+",nan,nan
+12,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:31:59,"> Indeed, under old versions of Python, there were segfaults when you asked
+> for too much memory.
+
+But we don't use older versions of Python. This is why this seems strange to me.
+
+> FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler, which is part of joblib/joblib#260.
+
+Yes, I know how to do it with `memory_profiler`. The goal of this PR was to rely on the system and avoid a dependency.
+",nan,nan
+13,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:41:06,"> @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+
+I won't say no :P 
+
+>  It would be great to find a few tests to add in order to test functions in nilearn where memory consumption actually matters. @AlexandreAbraham, @GaelVaroquaux any suggestions ?
+
+Any function that is supposed to treat data iteratively such as `compute_multi_epi_mask` (or `multi_compute_epi_mask` or `compute_epi_multi_mask`).
+",nan,nan
+14,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-20 14:25:47,"Handing it over to @aabadie !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,issue_comment,802,nilearn,nilearn,GaelVaroquaux,2015-10-22 11:02:28,"@aabadi : do you want to review this?
+",nan,nan
+8,issue_comment,802,nilearn,nilearn,lesteve,2015-10-23 12:34:06,"You need to change the description rst in nilearn/datasets/description/aal_spm_12.rst.
+
+Side remark: it would be nice if we had a way to tests that dataset descriptions were correctly loaded ...
+",nan,nan
+5,issue_comment,802,nilearn,nilearn,aabadie,2015-10-26 08:17:48,"Sorry @GaelVaroquaux, you mispelled my id so I wasn't notified.
+",nan,nan
+6,issue_comment,802,nilearn,nilearn,aabadie,2015-10-27 09:30:54,"Thanks for fixing the remaining failing test @AlexandreAbraham. To me all is ok with this PR now (LGTM as you all say ;) ). So I guess it can be merged now : @lesteve @GaelVaroquaux  ?
+",nan,nan
+10,pull_request_commit_comment,802,nilearn,nilearn,lesteve,2015-10-27 10:11:41,"Stupid question: would the description not be useful irrespective of the SPM version ?
+",ccda428752b2f45b3140c13cfe181abae09665a5,"(46, '', u'nilearn/datasets/atlas.py')"
+11,pull_request_commit_comment,802,nilearn,nilearn,AlexandreAbraham,2015-10-27 11:53:17,"I wonder. The actual file can fit any SPM AAL version but if one day we decide to add an atlas from another source, we may need another file. I have no strong feeling about this ATM.
+",ccda428752b2f45b3140c13cfe181abae09665a5,"(46, '', u'nilearn/datasets/atlas.py')"
+12,pull_request_commit_comment,802,nilearn,nilearn,lesteve,2015-10-27 12:02:54,"Me neither so let's keep it like this for now.
+",ccda428752b2f45b3140c13cfe181abae09665a5,"(46, '', u'nilearn/datasets/atlas.py')"
+9,issue_comment,802,nilearn,nilearn,lesteve,2015-10-27 12:03:02,"Thanks a lot merging.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,801,nilearn,nilearn,rschmaelzle,2016-02-08 16:45:59,"Hi, that is indeed something I would find handy. Is there perhaps an interim solution? I tried playing with gca.invert_xaxis() but did not succeed. Best, Ralf.
+",nan,nan
+4,issue_comment,801,nilearn,nilearn,lesteve,2016-02-08 22:50:37,"This is a duplicate of #942, right ?
+",nan,nan
+5,issue_comment,801,nilearn,nilearn,GaelVaroquaux,2016-02-08 22:54:53,"Indeed, it's a duplicate.
+
+Also,  @rschmaelzle : there is no quick workaround
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,805,nilearn,nilearn,lesteve,2015-10-23 12:28:45,"oasis1 should probably be called oasis1.rst. Double check by using nilearn.dataset.fetch_oasis_vbm() and checking that the returned bunch has a non empty .description field.
+",nan,nan
+5,issue_comment,805,nilearn,nilearn,aabadie,2015-10-23 12:48:35,"@lesteve the description was indeed empty. Renaming to oasis.rst fixed the issue.
+",nan,nan
+7,issue_comment,805,nilearn,nilearn,lesteve,2015-10-27 10:18:22,"Can you add a test for oasis similary to what @AlexandreAbraham has done in #802?
+",nan,nan
+8,issue_comment,805,nilearn,nilearn,lesteve,2015-10-28 14:10:48,"I'll add the test myself directly in master.
+",nan,nan
+9,issue_comment,805,nilearn,nilearn,lesteve,2015-10-28 14:34:32,"> I will add it anyway I am adding to megatrawls
+
+No need to worry about that, I have already done it in 8270851.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

@@ -1,0 +1,39 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+11,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:06:48,"for easy visualization
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+12,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:07:21,"Nifti-like images, such as
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+13,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:08:19,"the t-map image
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+14,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:09:11,"Compute the mean functional imager
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+8,issue_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-19 06:35:52,"Thanks for reviewing. Comments addressed.
+",nan,nan
+9,issue_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-23 16:52:24,"Can I have reviews on this ?
+",nan,nan
+15,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:37:53,"`projected on glass brain structure` ?
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+16,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:38:54,"The line of code is self-explanatory, I would not add a comment.
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+17,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:39:24,"I would say projected again
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+5,issue_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:39:55,"Apart from some nitpicking, +1
+",nan,nan
+18,pull_request_commit_comment,1085,nilearn,nilearn,banilo,2016-04-25 14:51:22,"alternative: ""mapped onto glass brain representation""
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+19,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 14:52:18,"Yeah, that's better!
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+20,pull_request_commit_comment,1085,nilearn,nilearn,banilo,2016-04-25 14:53:02,"the data does not exactly belong to nilearn. perhaps ""retrieve from nilearn-provided (general-purpose) datasets""
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+21,pull_request_commit_comment,1085,nilearn,nilearn,banilo,2016-04-25 14:55:08,"Alternative: ""Compute the voxel-wise mean of activity maps across the time-series of maps""
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(88, '', u'examples/01_plotting/plot_demo_plotting.py')"
+10,issue_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-26 08:20:14,"@AlexandreAbraham @banilo comments addressed. Thanks
+",nan,nan
+6,issue_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-26 08:58:04,"Still one hanging.
+",nan,nan
+22,pull_request_commit_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-26 09:19:19,"activity maps ?
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(88, '', u'examples/01_plotting/plot_demo_plotting.py')"
+7,issue_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-26 11:00:43,"I addressed the last one in master. Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

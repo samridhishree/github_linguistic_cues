@@ -1,0 +1,19 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,224,idan,oauthlib,ib-lundgren,2013-11-10 22:54:58,"@wrr excellent work :cake:! Sorry for taking so long to review it :(
+",nan,nan
+5,issue_comment,224,idan,oauthlib,wrr,2013-11-11 14:22:52,"Thank you @ib-lundgren! Good cake :)
+",nan,nan
+6,pull_request_commit_comment,224,idan,oauthlib,clintecker,2013-11-11 15:33:39,"s/withing/within
+",7d4f5ce783206bce5eade09c45cca81c75b34cf1,"(11, '', u'oauthlib/oauth2/rfc6749/request_validator.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,220,idan,oauthlib,ib-lundgren,2013-11-01 09:25:09,"Good point. There is no easy way to do this but a PR would be very welcome. 
+
+I can see a slight inefficiency with `is_subscope` being called naively on all scopes/requested scope permutations. A better approach might be to hand all checking over to the implementer with a `is_within_original_scope(request.scopes, request.refresh_token, request)` method on the validator. Then the code could do the normal checking first and fall back on this method if that fails (with a default implementation returning False).
+
+@wrr what do you think?
+",nan,nan
+3,issue_comment,220,idan,oauthlib,wrr,2013-11-02 09:06:59,"This sounds good. I'll work on it and send a PR so we can see how it looks in practice. 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

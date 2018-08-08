@@ -1,0 +1,23 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,298,idan,oauthlib,lepture,2014-11-18 10:23:32,"@techtonik rebuild it https://travis-ci.org/idan/oauthlib/jobs/41279481
+",nan,nan
+5,issue_comment,298,idan,oauthlib,techtonik,2014-11-18 21:44:29,"Why? The change is text only. It also looks good from here - https://travis-ci.org/idan/oauthlib/builds/41279478
+",nan,nan
+6,issue_comment,298,idan,oauthlib,ib-lundgren,2015-04-02 11:38:16,"Cheers!
+",nan,nan
+7,issue_comment,298,idan,oauthlib,techtonik,2015-04-07 04:54:03,":+1: 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,302,idan,oauthlib,svetlyak40wt,2014-12-08 15:09:49,"Please, merge this small pull request.
+",nan,nan
+5,issue_comment,302,idan,oauthlib,svetlyak40wt,2015-02-12 10:58:23,"Well, nobody cares!
+",nan,nan
+6,issue_comment,302,idan,oauthlib,pypingou,2015-02-12 11:08:44,"Looking at https://github.com/idan/oauthlib/graphs/contributors the activity is clearly up and down, so just wait there is no hurry and there was no new release so..
+",nan,nan
+7,issue_comment,302,idan,oauthlib,ib-lundgren,2015-04-02 11:37:38,"@svetlyak40wt sorry for merging this so late :( Contributions like this are awesome but I've not been able to find any time whatsoever for oauthlib for absolute ages now. Sorry about this!
+",nan,nan
+8,issue_comment,302,idan,oauthlib,svetlyak40wt,2015-04-02 11:38:50,"Thank you, @ib-lundgren . Better later than never :)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

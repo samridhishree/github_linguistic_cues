@@ -1,0 +1,1364 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+41,pull_request_commit_comment,1227,nilearn,nilearn,bthirion,2016-08-08 19:58:16,"I am -1 on leaving the possibility to specify subjects as int: people will be surprised. I would leave only the possibility of a list.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+42,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:01:26,"You mean n_subjects should accept only int and subjects accept only list ?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+43,pull_request_commit_comment,1227,nilearn,nilearn,bthirion,2016-08-08 20:13:17,"No, n_subjects is removed, while subjects accepts lists only. 
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+44,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:26:08,"+1 for accepting list only.
+However, n_subjects is still usefull for people that do not care about the subject ID.
+Also, in the few fetchers that allows subject selection, we usually use subject_ids or sub_ids.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+45,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:26:46,"So `None` means `all` but `[]` means no data?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+46,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:28:59,"I didn't get your comment/question ?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+47,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:29:08,"Next version is 0.2.6 and deprecation will probably happen in 0.2.7.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+48,pull_request_commit_comment,1227,nilearn,nilearn,AlexandreAbraham,2016-08-08 20:31:03,"If I put `subjects=None`, I will get all the subjects but, to get no data at all, I have to put `subjects=[]`.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+49,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:31:21,"You mean 0.2.5.1 -> 0.2.6 and 0.3 -> 0.2.7 ?
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+50,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-08 20:32:12,"You can put subjects=0
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+51,pull_request_commit_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-09 18:59:53,"To clarify myself, only subjects should there ? and it should accept only list otherwise raise Error or warning and then convert to list ? ping @AlexandreAbraham @bthirion 
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+52,pull_request_commit_comment,1227,nilearn,nilearn,bthirion,2016-08-09 20:28:42,"I thinks so.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+23,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-10 07:57:23,"Addressed your comments @AlexandreAbraham @bthirion. Any more reviews ?
+",nan,nan
+24,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-10 11:27:26,"> Well, I am still convinced that having to do fetch_haxby(subjects=[1, 2, 3, 4, 5, 6]) to get the whole dataset is counter intuitive.
+
+We should also keep n_subjects for bunch of subjects selection and not to deprecate ?
+",nan,nan
+5,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:23:18,">   • Idea 1 remove n_subjects, force subjects to be a list, possibly allowing subjects='all'
+
+I don't mind having to force people to type ""subject=range(5)"" because
+it's the kind of things that is not typed by deginers: beginers only
+download one subject for example.
+
+But, I don't think that I want to break backward compatibility, so we
+should keep as a temporary solution n_subjects.
+
+>   • Idea 2: mixed api with n_subjects and subjects, defaulting to 1 and [2]. I don't like it because in many cases one argument would have to override the other and the user has to figure out the logic.
+
+We need to do this for a couple of releases, to avoid breaking people's
+code.
+",nan,nan
+53,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:29:11,"How about we simply leave out the argument from this part of the documentation. It's an example that doesn't need that much detail.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'doc/manipulating_images/input_output.rst')"
+54,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:29:35,"Same thing here: let's simplify this even more and leave out this argument.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'doc/manipulating_images/input_output.rst')"
+55,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:30:12,"Let's use subject 2 here (or simply use the default, and hence leave out the argument).
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+56,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:30:51,"Let's try to always use subject 2, to limit download (and probably simply always use the default, to simplify the code).
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+57,pull_request_commit_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 18:33:38,"Maybe we should remove it in 0.3 only. I worry about breakage in our users.
+",eaabc6629e3f07a054a1ced74ed2caad2e4922aa,"(None, '', u'nilearn/datasets/func.py')"
+25,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-11 19:58:08,"Ok, I will address your comments.
+To summarize, I will keep both n_subjects (int) and subjects (list).
+",nan,nan
+6,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-11 19:59:51,"> To summarize, I will keep both n_subjects (int) and subjects (list).
+
+Yes
+",nan,nan
+26,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-11 21:37:01,"Lot of examples I see need a bit of tweaking to adapt to results obtained with default 2nd subject. I can change if there are any particular examples or all need to be run on 2nd subject ?
+",nan,nan
+7,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-12 05:41:47,"> Lot of examples I see need a bit of tweaking to adapt to results obtained with
+> default 2nd subject.
+
+Interesting. What is it? The position of the cut_coords should be
+changed?
+
+> I can change if there are any particular examples or all need to be run
+> on 2nd subject ?
+
+I'd like all to run on the 2nd subject, that way we avoid downloading
+other ones on the doc-building server and during the tutorials.
+",nan,nan
+27,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-12 07:49:00,"> Interesting. What is it? The position of the cut_coords should be changed?
+
+Mostly and also spacenet examples if I remember correctly. Some results may vary of what we currently have now for example, plot_haxby_different_estimators.
+",nan,nan
+8,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-12 13:17:55,"> Some results may vary of what we currently have now for example,
+> plot_haxby_different_estimators.
+
+Well, that's life. Those examples weren't to be trusted too much anyhow.
+",nan,nan
+28,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 08:39:04,"Is it good to merge ?
+",nan,nan
+9,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 08:56:59,"Looks good in general.
+
+With regards to the examples, maybe some still need to be updated.
+
+In particular in https://1990-1235740-gh.circle-artifacts.com/0//home/ubuntu/nilearn/doc/_build/html/auto_examples/02_decoding/plot_haxby_searchlight.html#sphx-glr-auto-examples-02-decoding-plot-haxby-searchlight-py
+I think that you need to change the cut coordinate, to cut in a place where it makes more sense. It might be that cutting at z=-5 is the right option: https://1990-1235740-gh.circle-artifacts.com/0//home/ubuntu/nilearn/doc/_build/html/auto_examples/02_decoding/plot_haxby_space_net.html#sphx-glr-auto-examples-02-decoding-plot-haxby-space-net-py
+
+Also, I have the impression that at least one example is still using subject 1:
+https://1990-1235740-gh.circle-artifacts.com/0//home/ubuntu/nilearn/doc/_build/html/auto_examples/02_decoding/plot_haxby_searchlight.html#sphx-glr-auto-examples-02-decoding-plot-haxby-searchlight-py
+",nan,nan
+29,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 09:18:57,"> I think that you need to change the cut coordinate, to cut in a place where it makes more sense. It might be that cutting at z=-5 is the right option
+
+In `plot_haxby_space_net` or `plot_haxby_searchlight` ? I found z=-18 is the only slice to show some meaningful results in `plot_haxby_searchlight`. 
+
+> Also, I have the impression that at least one example is still using subject 1
+
+`examples/05_advanced/plot_haxby_mass_univariate.py` since I hardly found voxels activated with 2nd subject. Do you have any suggestions to tweak any of the steps or parameters ?
+",nan,nan
+10,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 09:33:25,"> ```
+> Also, I have the impression that at least one example is still using
+> subject 1
+> ```
+> 
+> examples/05_advanced/plot_haxby_mass_univariate.py since I hardly found voxels
+> activated with 2nd subject.
+
+Hum. But we can't do that: it increases our download, which is a major
+problem on the continuous integration.
+
+> Do you have any suggestions to tweak any of the steps or parameters ?
+
+How about smoothing a little bit (say 4mm?) in the NiftiMasker?
+",nan,nan
+30,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 09:36:54,"> How about smoothing a little bit (say 4mm?) in the NiftiMasker?
+
+Thank you. Will let you know.
+
+Can you see example `plot_haxby_space_net.py` is good to keep same cut_coords or should I change ?
+",nan,nan
+31,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 09:51:17,"> How about smoothing a little bit (say 4mm?) in the NiftiMasker?
+
+Nope, zero detections again. May be threshold ?
+",nan,nan
+11,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 10:25:25,"> Can you see example plot_haxby_space_net.py is good to keep same cut_coords or should I change ?
+
+Yes, plot_haxby_space_net looks good.
+
+For plot_haxby_searchlight, the problem is that we use a ""process_mask"",
+which is hand-tuned on the ""right"" region. That region has changed when
+we changed subject. I've played with the example, and I am sending you a
+PR with changes to it.
+",nan,nan
+32,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 11:17:30,"Ok. As expected :) I think I messed up again.
+",nan,nan
+12,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 11:44:09,"Why do you say that? The diff looks OK to me at a cursory glance.
+",nan,nan
+33,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 11:47:03,"By seeing the number of commits and number of files changed. They are not related to my PR. That's why I said. Am I wrong ?
+",nan,nan
+13,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 11:52:04,"Indeed.
+
+Do you want to attempt a rebase on master?
+",nan,nan
+34,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 11:53:22,"> Do you want to attempt a rebase on master?
+
+Yes, What is the simplest way to remove those ? Should I make new PR ?
+",nan,nan
+14,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 11:54:22,"> Yes, What is the simplest way to remove those ? Should I make new PR ?
+
+How about first you rebase. If that helps, I can call you, but I have a
+meeting in 5mn.
+",nan,nan
+35,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 11:55:14,"> If that helps, I can call you, but I have a meeting in 5mn.
+
+No problem. I will see it.
+",nan,nan
+15,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-19 11:58:12,"> No problem. I will see it.
+
+I would try (on the branch of your PR): ""git rebase master"" followed by
+""git push your_fork_on_github -f""
+",nan,nan
+36,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 12:57:39,"Thank you @GaelVaroquaux I hope it is fine now.
+
+In whats_new doc there appears two times my new changes. I will address that.
+`plot_haxby_mass_univariate` needs to be addressed.
+",nan,nan
+37,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-19 16:36:37,"I still didn't find a way to make plot_haxby_mass_univariate example happy with 2nd subject.
+",nan,nan
+16,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-25 11:04:26,"I addressed this in
+https://github.com/KamalakerDadi/nilearn/pull/4
+
+I think that it should finish up this PR and make it mergeable.
+",nan,nan
+38,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-25 12:36:05,"Travis fails because of excessive warnings ?
+",nan,nan
+17,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-25 13:31:45,"OK, that's because the new nibabel has been released, and it deprecates ""get_affine()"". Let me see if I can address this in a PR to master.
+",nan,nan
+39,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-25 13:35:49,"> OK, that's because the new nibabel has been released, and it deprecates ""get_affine()"". Let me see if I can address this in a PR to master.
+
+Ok, I am right then. Do you want me to do new PR replacing img.get_affine() with img.affine() 
+",nan,nan
+18,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-25 13:44:16,"> This would completely break backward compatibility. The best option is to
+> define a ""get_affine"" function in the compat module that will call either
+> get_affine or affine depending on nibabel version.
+
++1. I think that that the cut-off should be nibabel version < 2.
+
+And +1 for doing this in a separate PR.
+",nan,nan
+40,issue_comment,1227,nilearn,nilearn,KamalakerDadi,2016-08-25 13:48:01,"> This would completely break backward compatibility. The best option is to
+>  define a ""get_affine"" function in the compat module that will call either
+>  get_affine or affine depending on nibabel version.
+> +1. I think that that the cut-off should be nibabel version < 2.
+> 
+> And +1 for doing this in a separate PR.
+
+Ok.
+",nan,nan
+19,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-25 13:57:08,"In the docs and examples, thought, directly use ""affine"", and not
+""get_affine"", and put a note in
+""doc/manipulating_images/input_output.rst"" about older versions of
+nibabel.
+",nan,nan
+20,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-08-25 14:00:46,"With regards to this PR, ie changing the Haxby dataset, it however seems
+that we are now set: all the examples look right.
+",nan,nan
+21,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-09-01 11:04:12,"Can you merge or rebase with master so that we have integration tests that run, and we merge?
+",nan,nan
+22,issue_comment,1227,nilearn,nilearn,GaelVaroquaux,2016-09-01 15:02:44,"LGTM. Merging. Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+13,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-08 21:30:58,"OK.
+",nan,nan
+14,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-09 11:31:37,"So may be I can do the ordering in the example just before plotting the matrix.
+
+> Note that the ordering problem is more related to display and concerns any possible atlas / decomposition
+
+Yes, but Dosenbach already provides networks and subgroups of regions with the same name in the csv, and it would be nice to benefit from this, no?
+",nan,nan
+15,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-09 21:33:09,"It's more visible on average correlation matrix. For instance ADHD with 30 subjects gives
+<img src=""https://cloud.githubusercontent.com/assets/7080143/17534433/7ac71178-5e89-11e6-8532-c6ecb7d6c803.png"" width=""200"" height=""200"" /> vs <img src=""https://cloud.githubusercontent.com/assets/7080143/17534255/95fe1c4e-5e88-11e6-8b3e-be4bfa917ff9.png"" width=""200"" height=""200"" />
+",nan,nan
+5,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-09 21:37:21,"I'd rather avoid code to reorder: we already have so much to teach to users that try to learn nilearn.
+
+To me, it's either reordering in the loader, or no reordering.
+
+I am slightly leaning on the reordering, as it does make the matrices more structured, and that's useful for the examples and for teaching.
+",nan,nan
+16,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-09 21:43:48,"> To me, it's either reordering in the loader, or no reordering.
+
+You mean in the fetching function ?
+",nan,nan
+6,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-09 21:46:38,"> You mean in the fetching function ?
+
+Yes, as you did.
+",nan,nan
+17,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-11 12:32:39,"@GaelVaroquaux Could you please take a look at the changes I made in the example ?
+I tried to rewrite it in the style of the seed to voxels example (`plot_seed_based_correlations`), because I liked it a lot, it was written as a story. I learned a lot from this single example like the transformation from signals to images I was not aware of. But I don't know if other people feel the same.
+
+I want to know if you agree with such changes, because I can rewrite that way connectivity examples I am working on.
+",nan,nan
+22,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:16:01,"I don't really understand what ""atlas-based spheres"" means.
+
+I would suggest the following title: ""Extract signals from spheres and plot a connectome""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+23,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:16:44,"I would remove ""preprocessed""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+24,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:19:25,"I'd rather ""transpose"" this code: do all the code for one atlas, with a lot of comments, and then add a section at the end that does the same thing for the dosenbach atlas.
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+25,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:20:35,"Actually, I think that the word atlas should be in the title. How about ""Extract signals on spheres from an atlas and plot a connectome""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+26,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:21:24,"And don't hesitate to rename the example: ""plot_sphere_based_connectome"", I would say.
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+27,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:24:25,"The word ""preprocessed"" is quite heavily connoted in fMRI. It's means things like spatial realignment. I would rather avoid using it. I would write something like:
+
+""Voxel-wise time-series within each sphere are **averaged**. The resulting signal is then prepared by the masker object: detrended and band-pass filtered.""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+28,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:27:11,"If we're looking at a correlation matrix, using a GraphLasso rather than a LedoitWolf won't be a huge change. In the spirit of keeping this example simple, I suggest that we just stick to the default.
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+7,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:33:59,"@bthirion : I think that the figures of this example speak in the favor of reordering the regions:
+https://1957-1235740-gh.circle-artifacts.com/0//home/ubuntu/nilearn/doc/_build/html/auto_examples/03_connectivity/plot_seed_based_connectome.html
+",nan,nan
+8,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 16:39:13,"> This is nice, but I don't fully understand: This means that Dosenbach and re-ordered Power are supposed to be consistently ordered ?
+
+No, it just means that the example is much more readable when reordered
+regions are used. It's important, both to sell nilearn, but also for the
+science that people will do with it.
+",nan,nan
+18,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-11 17:03:48,"Thanks for the review !
+",nan,nan
+9,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:13:03,"Ok. I would suggest that we put it on by default. 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Aug 11, 2016, 19:07, at 19:07, bthirion notifications@github.com wrote:
+
+> OK, I'm fine with the reordering -- I was initially afraid of
+> over-customizing the presentation of this atlas, but it is actually not
+> the case.
+> 
+> ## 
+> 
+> You are receiving this because you were mentioned.
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/1224#issuecomment-239225315
+",nan,nan
+29,pull_request_commit_comment,1224,nilearn,nilearn,salma1601,2016-08-12 07:08:13,"Ok. Just for our curiosity here is the difference between GraphLasso and LedoitWolf. What do you prefer ?
+<img src=""https://cloud.githubusercontent.com/assets/7080143/17615073/d084377e-606b-11e6-9659-f87031985b80.png"" width=""200""  /> or <img src=""https://cloud.githubusercontent.com/assets/7080143/17615077/da8a884a-606b-11e6-867e-5cb8c2d66dd7.png"" width=""200""  />
+
+If you still think we should use LedoitWolf, then I will do it
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+30,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 07:35:33,"I agree: I had checked before, and the GraphLassoCV does look better.
+
+You know what: if we stick to the principle that we'll use the covariance
+estimators and not ConnectivityMeasure for single-subject analysis, than
+we should use the GraphLassoCV and not ConnectivityMeasure. It is not
+more complex to use the GraphLassoCV than to use LedoitWolf.
+
+And there is a nice thing here, which is that for group studies, I would
+recommend the LedoitWolf, as GraphLassoCV has instabilities that will
+vary from subject to subject, however, for
+single-subject, this clearly ilustrates that we should prefer
+GraphLassoCV. So, if we teach people to use ConnectivityMeasure for group
+analysis, and do things manually in the single subject case, it makes
+sense.
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_seed_based_connectome.py')"
+10,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:48:42,"Shouldn't we remove the plot_power_connectome.py example now?
+",nan,nan
+31,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:49:22,"I think that this title would be more readable if it was written as ""Load fMRI data and Power atlas""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+19,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-12 14:50:55,"Power example has already been removed in merged PR #1225
+",nan,nan
+11,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:51:53,"> Power example has already been removed in merged PR #1225
+
+OK :). Maybe a rebase on master, then?
+",nan,nan
+32,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:53:54,"I think that it's more readable if the sentences are at the active tense: ""Plotting matrix and graph"", or ""Plot matrix and graph""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+20,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-12 14:53:58,"I don't see power example in my diff, may be I am tired
+",nan,nan
+33,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:54:49,"Maybe you don't have to write code for this (more code is more stuff to understand for the beginner user), and simple comment on the figure showing the matrix.
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+34,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:55:27,"I would call this ""Connectome extracted from Dosenbach's atlas""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+35,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:56:13,"I am not sure that this fill_diagonal is useful.
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+36,pull_request_commit_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-12 14:56:48,"""Correlation matrix on Dosenbach's atlas""
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+37,pull_request_commit_comment,1224,nilearn,nilearn,salma1601,2016-08-13 07:01:27,"You can see the difference. Just tell me what you prefer
+",d388a5e73a47f0bac72c0b1b538ed899a797f3f8,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+21,issue_comment,1224,nilearn,nilearn,salma1601,2016-08-13 07:02:20,"rebased and addressed comments
+",nan,nan
+12,issue_comment,1224,nilearn,nilearn,GaelVaroquaux,2016-08-14 15:08:18,"LGTM. Merging. Thank you!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1206,nilearn,nilearn,GaelVaroquaux,2016-08-08 06:13:29,"> I have a version of dosenbach ROIs reoredered. It shows nice connectivity
+> blocks.
+
+I'd rather reorder them in them CSV.
+
+However, I think that changing this silently is a bit dangerous.
+
+We could add an option to the loader, and warn that in 1 release the
+default will change and the non reordered version will disappear.
+
+That said, I don't find the reordered matrix much more structured. If you
+add more subjects/data does it become more structured?
+",nan,nan
+4,issue_comment,1206,nilearn,nilearn,salma1601,2016-08-08 07:47:23,">  I would be in favor of adding an index in the bunch and let the user reorder things if he wants to do it
+
+I also prefer this way
+
+> If you add more subjects/data does it become more structured?
+
+Yes
+<img src=""https://cloud.githubusercontent.com/assets/7080143/17534433/7ac71178-5e89-11e6-8532-c6ecb7d6c803.png"" width=""200"" height=""200"" /> vs <img src=""https://cloud.githubusercontent.com/assets/7080143/17534255/95fe1c4e-5e88-11e6-8b3e-be4bfa917ff9.png"" width=""200"" height=""200"" />
+Generally speaking, dosenbach connectivity matrices are well structured. The first matrix does not even respect the networks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,1168,nilearn,nilearn,GaelVaroquaux,2016-07-05 15:20:55,"Shouldn't auto be mentioned here?
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+8,pull_request_commit_comment,1168,nilearn,nilearn,GaelVaroquaux,2016-07-05 15:21:14,"Shouldn't auto be mentioned here?
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+9,pull_request_commit_comment,1168,nilearn,nilearn,KamalakerDadi,2016-07-05 15:24:59,"I am focussing on user specified inputs here. 'auto' is by default anyway doesn't require to say user to give 'auto' again. If you think its necessary I can add it.
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+10,pull_request_commit_comment,1168,nilearn,nilearn,GaelVaroquaux,2016-07-05 15:27:23,"> I am focussing on user specified inputs here. 'auto' is by default
+> anyway doesn't require to say user to give 'auto' again. If you think
+> its necessary I can add it.
+
+Yes, it's necessary to add it and to describe what it does. Elsewhere the
+user cannot interpret what he/she reads in the function signature, and
+hence the default behavior.
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+5,issue_comment,1168,nilearn,nilearn,AlexandreAbraham,2016-07-19 12:24:44,"LGTM
+",nan,nan
+6,issue_comment,1168,nilearn,nilearn,AlexandreAbraham,2016-07-21 10:52:57,"I think we can merge it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1237,nilearn,nilearn,GaelVaroquaux,2016-08-11 10:49:02,"> Does it make sense to define the mean_ for all kinds and not only
+> 'tangent' ? This allows to get the mean connectivity matrix when the
+> outputs are vectorized as requested in #1236, without refitting of the
+> estimator.
+
+Yes, I would think so. I stumbled on this when teaching on Monday.
+",nan,nan
+4,issue_comment,1237,nilearn,nilearn,KamalakerDadi,2017-05-05 12:45:20,"Closing this one as the request is been addressed in PR #1236.
+
+To know how to use ```mean_``` attribute for various kinds. Please see in a very good example examples/03_connectivity/plot_group_level_connectivity.py showing how to do this.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1222,nilearn,nilearn,GaelVaroquaux,2016-08-08 05:08:25,"LGTM. :+1: for merge.
+",nan,nan
+6,issue_comment,1222,nilearn,nilearn,GaelVaroquaux,2016-08-08 06:45:36,"When I mentionned creating issues, it was for bigger changes, like
+merging several examples.
+",nan,nan
+7,issue_comment,1222,nilearn,nilearn,salma1601,2016-08-08 07:39:01,"> if possible, try not to create one issue for each 2 line patch ;)
+
+OK :D
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1199,nilearn,nilearn,GaelVaroquaux,2016-08-04 19:00:09,"Yey!!! I can trigger the bug with scipy 0.18! Now on to fixing it.
+",nan,nan
+6,issue_comment,1199,nilearn,nilearn,GaelVaroquaux,2016-08-04 22:39:04,"Woot! This fixes circleCI.
+
+So, this was indeed the bug. Can I haz merge?
+",nan,nan
+8,pull_request_commit_comment,1199,nilearn,nilearn,AlexandreAbraham,2016-08-04 23:00:04,"If I got it right, here we do `b'=Ab` and, afterward, in _resample_one_img (line 249), we call affine_transform with `offset = A_inv b' = A_inv A b`. Isn't that a bit inefficient?
+",8deda0474e5a9ab80356048a6f31dd4c44ca6995,"(7, '', u'nilearn/image/resampling.py')"
+7,issue_comment,1199,nilearn,nilearn,GaelVaroquaux,2016-08-05 15:40:49,"> I merge because we need it. Ca you still take a look at my comment afterward?
+
+Yes, I agree with the comment and I want to take care of it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+16,issue_comment,1198,nilearn,nilearn,KamalakerDadi,2016-08-04 11:47:40,"I often see this CircleCI failure in my PR's as well in other PR's. Still I don't know the reason for that failure.
+",nan,nan
+5,issue_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-04 14:35:18,"> Then the error why the image is missing is still a mystery to me.
+
+Yes, I plan to try to debug this today. It's been failing lately in
+master. I can't reproduce it localy :/
+",nan,nan
+11,issue_comment,1198,nilearn,nilearn,lesteve,2016-08-04 15:28:14,"> >  Then the error why the image is missing is still a mystery to me.
+> 
+> Yes, I plan to try to debug this today. It's been failing lately in
+> master. I can't reproduce it localy :/
+
+Missing images generally are a symptom of an error in an example. Looking at the first failure in master (https://circleci.com/gh/nilearn/nilearn/1880), the root problem seems to be:
+
+```
+../examples/03_connectivity/plot_connectivity_measures.py is not compiling:
+Traceback (most recent call last):
+  File ""/home/ubuntu/nilearn/doc/sphinxext/sphinx_gallery/gen_rst.py"", line 467, in execute_script
+    exec(code_block, example_globals)
+  File ""<string>"", line 8, in <module>
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/site-packages/sklearn/base.py"", line 455, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+  File ""/home/ubuntu/nilearn/nilearn/connectome/connectivity_matrices.py"", line 348, in fit
+    self.mean_ = _geometric_mean(covariances, max_iter=30, tol=1e-7)
+  File ""/home/ubuntu/nilearn/nilearn/connectome/connectivity_matrices.py"", line 141, in _geometric_mean
+    _check_spd(matrix)
+  File ""/home/ubuntu/nilearn/nilearn/connectome/connectivity_matrices.py"", line 36, in _check_spd
+    raise ValueError('Expected a symmetric positive definite matrix.')
+ValueError: Expected a symmetric positive definite matrix.
+```
+",nan,nan
+12,issue_comment,1198,nilearn,nilearn,lesteve,2016-08-04 20:04:33,"> I have no failed example on my box :-/
+
+Same for me, I tried doing a `make clean` and `make html-strict` earlier today and it worked fine ...
+",nan,nan
+13,issue_comment,1198,nilearn,nilearn,lesteve,2016-08-04 20:21:14,"Actually I think @GaelVaroquaux has spotted it and this is related to scipy 0.18. Upgrading scipy to 0.18 I get the same error as in CircleCI.
+",nan,nan
+6,issue_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-04 20:21:33,"> Same for me, I tried doing a make clean and make html-strict earlier
+> today and it worked fine ...
+
+It's a change in scipy 0.18 (I am a bit unhappy about that):
+https://github.com/nilearn/nilearn/pull/1199
+
+Working on fixing that. Give me another hour.
+",nan,nan
+7,issue_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-05 19:44:19,"@Titan-C : do you mind rebasing this PR on master, to benefit from the fix that I made for circleCI to run.
+",nan,nan
+14,issue_comment,1198,nilearn,nilearn,lesteve,2016-08-08 09:18:44,"> Because of the html-strict you use to build nilearn I could not test the case of a failing example that still finished the complete build but exited with error to CircleCI. I'll commit a test to that later if this build does not fail.
+
+Sorry I don't understand what you mean.
+",nan,nan
+15,issue_comment,1198,nilearn,nilearn,lesteve,2016-08-08 09:43:23,"> If that test prove to give a good reliability to inform that examples failed I'll remove the current grep test on the current .circle.yml file
+
+This would be good indeed to remove the `grep Traceback` as a way to make sure that no examples has failed.
+",nan,nan
+8,issue_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-14 15:15:04,"@Titan-C : I'd love to merge this, but the continuous integration (specifically circle-ci) is failing, and it seems like a genuine problem with sphinx-gallery. Could you have a look please? Thanks!
+",nan,nan
+9,issue_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-15 15:10:58,"@Titan-C: this is good to go, as far as I am concerned.
+
+One last question: how easy is it for you to embed the dev version of
+Sphinx-Gallery, in order to have the latest CSS?
+",nan,nan
+17,pull_request_commit_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-15 20:23:31,"Strange, the changes to gen_rst.py are missing from this commit, which implies that the download buttons don't render right. I'll merge and add them manually. Thanks
+",ef0e11907d75792917f9a31fff93cab75e9b02e0,"(None, '', u'doc/sphinxext/sphinx_gallery/__init__.py')"
+10,issue_comment,1198,nilearn,nilearn,GaelVaroquaux,2016-08-15 20:24:19,"Looks good. I am merging. Thanks heaps.
+
+It seems to me that gen_rst.py got out of sync with sphinx-gallery master. I'll fix that.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1074,nilearn,nilearn,bthirion,2016-04-07 21:03:53,"Would `().any()` work ?
+",nan,nan
+5,issue_comment,1074,nilearn,nilearn,jeromedockes,2016-04-08 11:13:49,"yes `np.any(new_masker_params[param_key] != estimator_params[param_key])` should work
+",nan,nan
+6,issue_comment,1074,nilearn,nilearn,bthirion,2016-04-08 11:23:39,"Can you issue a PR ?
+",nan,nan
+7,issue_comment,1074,nilearn,nilearn,KamalakerDadi,2016-08-02 09:12:24,"Can I close this issue ? as it is solved by PR #1075 
+",nan,nan
+3,issue_comment,1074,nilearn,nilearn,AlexandreAbraham,2016-08-02 09:16:02,"Of course ! I let you click the button. When you are sure that the problem is solved, you can close it directly and one can reopen it if necessary.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-10 16:37:29,">   • add an attribute deviations_ that will give the actual output of
+>     fit_transform for kind='tangent'
+
+That's not a good option, because it means that the object can no longer
+be used in a pipeline, which is what I think we really want.
+",nan,nan
+9,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-10 17:34:39,"Ok so may be add a `covariances_` attribute ?
+",nan,nan
+4,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-10 17:43:29,"> Ok so may be add a covariances_ attribute ?
+
+I don't like very much the idea of putting too much state in the object.
+It is hidden to the user and not very discoverable.
+
+I'd much rather prefer having the inverse_transform reconstruct
+covariances from the corresponding displacement vectors. In addition, it
+matches the idea that inverse_transform would also undo an optional
+vectorization.
+",nan,nan
+10,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-10 18:27:48,"Ok. I don't know if I will be able to do a PR on that. The inverse_transform looks difficult for me.
+",nan,nan
+11,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-11 20:44:41,"So again back to this: what about outputting the deviations from means for all kinds of connectivities (as it is done for 'tangent', meaning just subtracting the `mean_` from the individual matrices for all kinds but 'tangent'. Then the connectivity matrices can be computed with the inverse_transform
+The benefit for it is outputting objects of the same nature for all kinds. I am having a hard time with the namings in my example, as I loop over all kinds
+",nan,nan
+5,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-11 20:47:45,"> So again back to this: what about outputting the deviations from means for all
+> kinds of connectivities (as it is done for 'tangent', meaning just subtracting
+> the mean_ from the individual matrices for all kinds but 'tangent'. Then the
+> connectivity matrices can be computed with the inverse_transform
+
+I'd rather not. Only tangent embedding needs this, as the rest rely on a
+Euclidean space.
+
+> The benefit for it is outputting objects of the same nature for all
+> kinds. I am having a hard time with the namings in my example, as I
+> loop over all kinds
+
+Actually, I would rather that you did not loop of the kinds: it makes the
+code difficult to read for a beginner. I would rather have 3 sub
+sections, and 3 different comments on them, with, ideally, 3 dedicated
+visualizations.
+",nan,nan
+12,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-11 21:06:55,"> Actually, I would rather that you did not loop of the kinds: it makes the code difficult to read for a beginner. I would rather have 3 sub sections, and 3 different comments on them, with, ideally, 3 dedicated visualizations.
+
+Ok
+But even when I don't loop I don't like that we output things of different natures by the same object. I am not talking for math, it's rather for the reality. People have to be aware that the output of 'tangent' are not connections.
+May be I am giving myself a headache, but I feel like this ConnectivityMeasure is not well done
+",nan,nan
+6,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-11 21:09:21,"> People have to be aware that the output of 'tangent' are not connections.
+
+Maybe it's that we should use a more explicit term for 'tangent'.
+Something that ""tangent_deviation"", or related. That way it's explicitely
+written in the code that it's a deviation.
+",nan,nan
+13,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-11 21:46:12,"Yes but its mean_ will not be a deviation !
+I am back to the idea of adding an attribute
+- at the fit, compute `connectivities_` which are the individual connectivity matrices, for `tangent` they are covariances -> to be plotted and watched, with a nice positive diagonal
+- transform: this is transformation to vector space $R^p$, and for `tangent` this is the displacement who lives in the vector space -> to be used in statistical tests, and classification
+- inverse transform: just back from vector to matrix, without any diabolic rescaling -> useful for p-values plotting
+
+This is what seems the most natural to me, and the most easy to explain. I don't want to frighten people with deviations, I just want them to know what to input and what is their output
+",nan,nan
+7,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-12 05:42:57,">   • at the fit, compute connectivities_ which are the individual connectivity
+>     matrices, for tangent they are covariances -> to be plotted and watched,
+>     with a nice positive diagonal
+
+I don't like that: it is hidden from the user, only the rest of our
+pipeline which is explicite.
+",nan,nan
+14,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 05:56:24,"I think I am not getting well your argument. When you say pipeline, are you thinking to something specific in chaining operations or something like that ?
+I don't understand why it bothers you for ConnectivityMeasure while this is the way GroupSparseCov works, isn't it ?
+Could you please be more explicit in your explanation ? 
+",nan,nan
+15,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 06:02:37,"Ah I think I understand, you mean in the examples we are going to use directly fit_transform not fit ?
+
+Well, if we advertise ConnectivityMeasure only for multisubjects, doesn't it make sense that the visible output is the one useful for tests and classification ?
+",nan,nan
+16,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 09:00:33,"You mean having something like a BaseCovarianceEstimator, which will give the covariances, which are the base for all the connectivity kinds, and than derivate correlation, partial correlation and tangent from this base estimator with new classes inheriting from the BaseCovarianceEstimator ?
+",nan,nan
+17,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 09:10:49,"> At least, having different objects for tangent and the rest looks like a good idea to me
+
+I think separating tangent is a good idea, and I am in favour of really changing the design of this ConnectivityMeasure. If I am stacked so much in the examples and the namings than I think there is a problem that can not be solved just by customizing the examples.
+
+Again I am a humble user and don't know design, but I like your idea, so +1 for `BaseConnectomesEstimator` and `TangentConnectomesEstimator`
+",nan,nan
+8,issue_comment,1233,nilearn,nilearn,GaelVaroquaux,2016-08-12 13:19:26,"> At least, having different objects for tangent and the rest looks like a good
+> idea to me. One class per type of covariance is fine for me, because I tend to
+> overdesign things, but I'm not sure if it's a good idea.
+
+I'd rather not. These really are two aspects of the same thing. Let's not
+make the design complex for purity reasons.
+",nan,nan
+18,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-12 13:49:00,"OK, so I understand there is no good solution to handle the tangent stuff. I am going to add to the example something like
+
+``` python
+tangent_measure = ConnectivityMeasure(kind='tangent')
+individual_deviations = tangent_measure.fit_trasnform(subjects, vectorize=True)
+individual_connectivity_matrices = tangent_measure.inverse_transform(individual_deviations)
+```
+
+to show how we can extract the individual covariances. Seems to me things are the other way round, but I want to move.
+",nan,nan
+19,issue_comment,1233,nilearn,nilearn,salma1601,2016-08-14 12:03:39,"I was thinking of a compromise: putting `vectorize` to True by default. This is useful for second-level analyses, which is compatible with the strategy of teaching `ConnectivityMeasure` for multi-subjects. If they want to recover individual matrices, they do the `inverse_transform`. This way, the complexity of the tangent model is completely hidden, and outputs are homogeneous across kinds.
+While we are on it, I was also thinking of adding `discard_diagonal` to `ConnectivityMeasure`, for practical reasons :
+- Fisher Z-transform gives nan on the diagonal 1.,
+- t-tests  display an ugly Runtime warning when one coefficient is the same across all subjects
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1250,nilearn,nilearn,salma1601,2016-08-20 11:58:16,"It would be useful e.g. to form spheres binary masks, because for the moment I couldn't find a straightforward way to do that with `NiftiSpheresMasker`.
+I think it is useful to be able to visualize the spheres, to check things were correctly done (e.g. resampling, see #1246)
+",nan,nan
+4,issue_comment,1250,nilearn,nilearn,KamalakerDadi,2017-11-06 19:50:28,Closing with #1538 ,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1235,nilearn,nilearn,ffyring,2016-08-23 19:36:16,"An emerge -u sklearn does not install the updated ebuild. I guess that the new version should be named sci-libs/scikits_learn/scikits_learn-0.17.**2**.ebuild?
+",nan,nan
+3,issue_comment,1235,nilearn,nilearn,GaelVaroquaux,2016-08-23 19:38:02,"> An emerge -u sklearn does not install the updated ebuild. I guess that the new
+> version should be named sci-libs/scikits_learn/scikits_learn-0.17.2.ebuild?
+
+I have no idea. I don't use gentoo. Looks plausible, though.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+47,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:36:11,"typo
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+48,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:39:32,"Why would there be a side effect?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+49,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:44:02,"Can you put a comment saying that this line is to fill the upper triangle?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+50,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-08-11 10:52:15,"I thought changing the diagonal of sym may change vec but I am wrong
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+51,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-11 10:52:46,"Overly complicated.
+Simpler:
+
+``` python
+mask.fill(False)  # Avoid memory re-allocation
+np.fill_diagonal(mask, True)
+```
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+52,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-08-11 10:53:13,"OK. Does it make sense to make vec_to_sym private? I don't think it will be used apart from here
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+33,issue_comment,1236,nilearn,nilearn,salma1601,2016-08-11 11:12:14,"can I use this PR to fix also #1237 ? I don't know if this is a good practice
+",nan,nan
+53,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 12:06:30,"> OK. Does it make sense to make vec_to_sym private? I don't think it will be used apart from here
+
+I think that people (methods developers) might use it to build their own
+algorithms. As nilearn is also for methods developers, I think that it
+makes sense to expose it publicaly.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+54,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:53:04,"The name is a bit hard to understand out of context. How about ""vec_to_sym_matrix"". A bit longer, but much more explicit.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+55,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:55:12,"I'd rather have this done inside the ConnectivityMeasure object (in the transform method), rather than the function. It would minimize surprise with regards to what this function does.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')"
+56,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:56:30,"Actually, this is what's done. It's just that the docstring is misleading.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')"
+57,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:57:09,"I would also rename sym_to_vec to sym_matrix_to_vec
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+5,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 17:57:33,"The example should be updated.
+",nan,nan
+34,issue_comment,1236,nilearn,nilearn,salma1601,2016-08-11 18:06:13,"> The example should be updated.
+
+That's what I was doing!
+
+> sym_matrix_to_vec
+
+Ok
+",nan,nan
+58,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-08-11 20:25:43,"you mean I should put the `vectorize` doc not in the class ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')"
+59,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-08-11 20:33:30,"I mean that I didn't read the diff properly :$. Sorry.
+
+The description of the argument could be a tiny bit longer, that said, explaining what you mean by vectorizing.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(175, '', u'nilearn/connectome/connectivity_matrices.py')"
+60,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-25 08:33:43,"you may need to revert it the same `sym_to_vec` and instead add in section 0.2.6 about these API changes `sym_to_vec` to `sym_matrix_to_vec` and new features `vectorize` and `inverse_transform` and example renaming with this PR. Whatever might be interesting to know about this PR can be added in 0.2.6
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+61,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-25 08:56:41,"You can keep it if you are comfortable with saying 'kind' but 'coefficients' might be more relevant I guess ?
+
+For example, 'compares different measures/estimations of functional connectivity coefficients between .....' ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+62,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-25 11:54:00,"people doesn't sounds good to me. Can we write people -> subjects ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+63,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-25 11:55:55,"What it means by total connectivity ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+64,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-25 12:01:36,"typo discaring -> discarding
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+65,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-08-25 13:39:27,"Individuels or participant is better than subject.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+42,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:30:23,"In the example: May be I missed something ? Why aren't we displaying statistically tested mean connectivity matrices for partial and tangent. Why only for correlation one ?
+",nan,nan
+66,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:31:28,"typo additionnal -> additional
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+67,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:34:50,"Correct me if I am wrong ? inverse_transform is basically useful to invert vectors to matrices. Isn't it ? But, here we are inverting again to matrices -> matrices but not vectorized one.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+68,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:41:31,"seperatly -> separately
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+69,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:42:52,"May be array to matrix ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+70,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:44:53,"seperately -> separately
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+71,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-08-30 19:46:05,"Can you add See Also section to `sym_matrix_to_vec` ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+16,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-15 11:41:40,"Hi @salma1601, Any progress on this ? Thanks
+",nan,nan
+17,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-15 11:51:36,"Hi @KamalakerDadi ,
+Sorry, but I didn't finish yet because I didn't have time to work on the statistical tests for the `tangent` kind.
+I am not sure that student t-test is well suited to the vectors output of `tangent`, I think it will be a chisquare test. I want to work on that to be sure, and I don't have time right now.
+Do you think it would be better if I remove the test part, address the other comments, and do another PR to add the tests when I am ready ?
+",nan,nan
+6,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-09-15 11:54:18,"> I am not sure that student t-test is well suited to the vectors output of
+> tangent,
+
+Why? They should be normaly-distributed under the null (see eg my paper).
+",nan,nan
+18,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-15 12:08:36,"> Do you think it would be better if I remove the test part, address the other comments, and do another PR to add the tests when I am ready ?
+
+Quickly looking at your files, you already have tests included. Doesn't that looks good ?
+
+Let me also go through once the complete PR thoroughly.
+",nan,nan
+19,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-15 12:24:28,"> Quickly looking at your files, you already have tests included
+
+I didn't mean testing the API, I meant statistical tests in the example, when I am using `scipy.stats.ttest_1samp` to extract significant connections.
+We can do these statistical tests on the Z-Fisher transformed `correlation` or `partial correlation` coefficients, because there is some theory behind. But for the `tangent` kind the theory is not the same, and the statistical tests would _rather_ be `scipy.stats.chisquare`. I say _rather_ because you see I am not sure, and I need to look into this but I have no time for the moment.
+",nan,nan
+20,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-15 20:25:19,"> Why? They should be normaly-distributed under the null (see eg my paper)
+
+In your paper I think the subject displacements are _assumed_ to follow a normal distribution. From what I understand, to  do the testing we need to have a Central Limit Theorem that proves the asymptotic normality. Actually such theorem exist for the `tangent` mean, but those theoretical papers point to chi square tests.
+
+Sorry for not being more accurate, I really need to work on that and write things down to be sure ... 
+",nan,nan
+72,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-19 12:54:28,"Now that 0.2.6 is released. Can you please update ?
+ping @GaelVaroquaux @AlexandreAbraham next going to be 0.2.6.1 or 0.2.7 ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+21,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-21 08:19:46,"I am going to remove the statistical tests and address the remaining issues.
+The statistical tests require additional work for `tangent` coef that is out of scope of this PR
+",nan,nan
+73,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-21 10:46:29,"I meant total connectivity as opposed to partial connectivity
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+7,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-09-21 10:49:15,"> I meant total connectivity as opposed to partial connectivity
+
+The technical word is ""marginal"". I would say ""full (marginal)
+connectivity"", as to make it understandable for non-technical people.
+
+Note that marginal has been used in neuroimaging publications.
+",nan,nan
+74,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-21 10:56:41,"Yes. In all cases `inverse_transform` gives individual connectivity matrices, whether or not vectorization happened. So if it was not asked for vectorization, `inverse_transform` does nothing for `correlation` and `partial correlation`. However for `tangent`, what I am calling `tangent_matrices` are not true connectivity matrices because for instance they can have negative values on the diagonal. The only way to recover the `connectivity_matrices` is to inverse transform.
+I can't figure out a way to be more pedagogic on this mess, so if you have suggestions... 
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+75,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-21 10:58:55,"I prefer array because it works also for dimension more than 2
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+8,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-09-21 10:59:20,"I disagree with you that tangent matrices cannot and shouldn't be
+interpreted. I think that they very much should. They are the natural
+parametrization of variability on the covariance matrices.
+",nan,nan
+9,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-09-21 10:59:51,"> I prefer array because it works also for dimension more than 2
+
+I still prefer matrices: it's the vocabulary that people will have in
+mind.
+",nan,nan
+22,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-21 11:06:26,"> I still prefer matrices: it's the vocabulary that people will have in mind
+
+OK
+
+> I disagree with you that tangent matrices cannot and shouldn't be interpreted. I think that they very much should. They are the natural parametrization of variability on the covariance matrices.
+
+Do you mean I should plot them and interpret them in the example, rather than the individual covariances ?
+",nan,nan
+10,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2016-09-21 11:07:35,"> Do you mean I should plot them and interpret them in the example, rather than
+> the individual covariances ?
+
+I think so. Just like in my old stroke paper.
+",nan,nan
+23,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-21 11:09:11,"> I think so. Just like in my old stroke paper.
+
+Ok, I though it will be too much technical, but Ok, happy to do it !
+",nan,nan
+76,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-21 12:35:40,"You mean I add a new section 0.2.6.1 and put the changes in it ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+77,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 11:57:38,"Yes, because changes you made in a section is released. New section should be added and included in what ever might be useful to users to refer.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+78,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 19:54:12,"all subjects -> adhd subjects. Since you are fitting on adhd subjects not on pooled subjects ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+24,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 19:56:42,"@salma1601 I am unable to run the example ? receiving a `TypeError`. Are you able to run example ?
+",nan,nan
+79,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:03:47,"can you be explicit in title=""mean correlation over 13 ADHD subjects"" ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+80,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:06:54,"same comment as above more explicit title ""mean partial correlation over 13 ADHD subjects"" ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+81,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:08:43,"Same here more explicit title ""mean tangent matrices over 13 ADHD subjects""?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+82,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:25:40,"May be we need LinearSVC(random_state=0) ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+83,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:38:02,"Shouldn't it be given adhd_labels instead of classes ? Correct me if I am wrong ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(189, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+84,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:56:45,"What is p ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+85,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:57:20,"symmetric ""matrix"" ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+86,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 20:59:09,"are these commented (#) calculations necessary ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+87,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:09:05,"diagonal should be given and should be same as length of features or samples ?
+
+I didn't understand the condition here, `diagonal.shape[-1] != p + 1`
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+88,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:19:42,"What do you change to n_subjects ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+89,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:24:47,"Can you write description a bit longer ? May be adding few important lines from function to here.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+90,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:26:26,"So which means you are not returning mean_ for kind='tangent' ? May be you could be explicit here ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+91,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:30:54,"May be we should decide to be consistent with n_samples or n_subjects ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+92,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:36:23,"I didn't understand why converting to symmetric matrices is linked to `self.vectorize` ? May be I am missing some logic here ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(292, '', u'nilearn/connectome/connectivity_matrices.py')"
+93,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-22 21:41:50,"May be this `_check_fitted` is also essential at `transform` level too ? What do you think ?
+
+At this `inverse_transform` level, I am not sure whether we are checking right attributes ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+25,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-23 05:57:21,"> @salma1601 I am unable to run the example ? receiving a TypeError. Are you able to run example ?
+
+I run it without problem
+",nan,nan
+94,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 06:07:21,"I am giving both `adhd_labels` and `site_names` to constraint also by sites the splitting of data, no ? For instance I don't want ADHD patients to be exclusively from NYU site in one fold, and no NYU patients in others, because the matrices vary a lot between sites (actually they vary more across sites than between ADHD and controls ! that's why I think it is important to conserve the same sites proportion in each fold)
+Do you mean I should rename `classes` to something like `subjects_labels` ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(189, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+95,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 06:11:45,"I think they help explaining what's done, because otherwise the value of `p` comes from nowhere.
+You disagree ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+96,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 06:28:00,"> diagonal should be given
+
+`vec_to_sym_matrix` is meant to be the reverse to `sym_matrix_to_vec`. So if you have discarded the diagonal in `sym_matrix_to_vec`, you need to provide it separately to reconstruct the symmetric matrix. For instance this can be useful for correlation matrices for which we know the diagonal is 1.
+
+> should be same as length of features or samples 
+> if you provide it, it should have the right shape, that is for n-dimensional array: same as `vec` until n-1, and matching the matrix shape on the last dimension 
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+97,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 06:57:41,"> I didn't understand the condition here, `diagonal.shape[-1] != p + 1`
+
+I have to correct the doc, but `p + 1` is correct here.
+Your questions tell me my code is unclear and I have to rework it. May be I can add a little function that computes the shape of the symmetric matrix from the given vector, and also add a section example to illustrate how it works: if you enter a vector that does not include the diagonal in it, the computed shape from the equation is less than the true matrix shape
+
+``` Python
+sym = np.array([[1., .3, .1], [.3, 1., .5], [.1, .5, 1.]])
+vec = sym_matrix_to_vec(sym, discard_diagonal=True)
+# Recover the matrix shape
+n = np.shape(vec)[-1]
+p = (sqrt(8 * n + 1) - 1.) / 2
+n_columns = int(p) + 1
+print n_columns
+```
+
+3
+
+``` Python
+diagonal = np.ones(n_columns,) / sqrt(2)
+sym2 = vec_to_sym_matrix(vec, diagonal)
+print sym2
+```
+
+outs
+
+``` Python
+[[ 1.   0.3  0.1]
+ [ 0.3  1.   0.5]
+ [ 0.1  0.5  1. ]]
+```
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+98,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 06:58:24,"Ok
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+99,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 06:59:37,"because there is the number of the timeseries scans, which is n_samples, and the number of subjects
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+100,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 07:01:37,"Ok I add it to `transform`
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+101,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 07:05:46,"> I didn't understand why converting to symmetric matrices is linked to `self.vectorize`
+
+because we only vectorize if `self.vectorize=True`, otherwise we already have matrices, no ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(292, '', u'nilearn/connectome/connectivity_matrices.py')"
+102,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-23 07:42:22,"I agree, may be we could add this in documentation. What do you think ? 
+Or
+ We could leave as it is.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+103,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-23 07:46:53,"I don't think on the code basis but documentation. You are explaining quite well and I felt some important points are missing in the doc. 
+
+For example, ""So if you have discarded the diagonal in sym_matrix_to_vec, you need to provide it separately to reconstruct the symmetric matrix. For instance this can be useful for correlation matrices for which we know the diagonal is 1.""
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+104,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-23 07:51:42,"Ok I missed this logic. Thanks.
+
+What would happen if I haven't selected `vectorize=True` and then trying to `inverse_transform` here ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(292, '', u'nilearn/connectome/connectivity_matrices.py')"
+105,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-23 07:55:38,"May be need to shift this tests to `vec_to_sym_matrix` because you are testing in `sym_matrix_to_vec` ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+106,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 08:46:37,"> What would happen if I haven't selected vectorize=True and then trying to inverse_transform here ?
+
+for `kind=""correlation""` or `kind=""partial correlation""`, nothing happens
+for `kind=""tangent""`, the covariance matrices are reconstructed. The output of `transform` for tangent are not connectivity matrices, but deviations from a group connectivity matrix. They have a different _nature_ than the usual connectivity matrices, for instance they can have negative values on their diagonal, while this never happen in covariance, correlation, partial correlation matrices
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(292, '', u'nilearn/connectome/connectivity_matrices.py')"
+107,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 08:48:51,"I feel like I also have to be more explicit in the `ConnectivityMeasure` doc  ;)
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(292, '', u'nilearn/connectome/connectivity_matrices.py')"
+108,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-09-23 11:02:20,"I think it would be better add a function `_compute_matrix_shape` and document it correctly
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+26,issue_comment,1236,nilearn,nilearn,salma1601,2016-09-24 07:59:37,"@KamalakerDadi I tried addressing all your comments, thank you very much for the thorough review.
+I changed a little bit the `vec_to_sym_matrix` code to make it more intuitive.
+I add a version added 0.2.6.1 for this function or not ?
+",nan,nan
+27,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-24 09:10:01,"> I add a version added 0.2.6.1 for this function or not ?
+
+Yes, please.
+",nan,nan
+28,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-09-30 13:11:23,"CircleCI failure seems a genuine one. Some where you missed the indendation which made sphinx unhappy. May be I guess in whats_new ?
+",nan,nan
+109,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:10:06,"Can you check typos in this warning message ? discared -> discarded unkown-> unknown
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+110,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:10:19,"unkown-> unknown
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+111,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:13:09,"You are filling discarded diagonal with Nan if user hasn't provided diagonal explicitly. Do you think it is Ok ?
+Why not we raise an error here ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+112,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:16:42,"Is there any option here to submit my diagonal explicitly like in `vec_to_symmetric_matrix` ? 
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+113,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:26:18,"This test also tests with input as list. Isnt't it ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+114,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:26:49,"same here, tests with lists too, right ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+115,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:35:41,"can you add few more details here ? I understood that you are returning the same connectivities with vectorize=False. 
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+116,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:37:21,"do you think these blocks are necessary ? Basically same blocks are repeated below, I guess. Is it not ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+29,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-06 20:40:12,"Few more comments again from my side. Otherwise, LGTM.
+
+Can somebody has second review please ?
+",nan,nan
+117,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-10-17 22:29:35,"Ok, I changed this.
+Originally I raised error only for tangent because if diagonal is unknown we can not reconstruct any element of the covariance matrices, while for 'covariance' or 'precision' kind we loose only the diagonal. But it's complicating things with no profit, so I am raising error for all
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+118,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-10-17 22:30:01,"yes, I am adding a comment
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+119,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-10-17 22:30:10,"yes
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+120,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-10-17 22:30:34,"done
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+121,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-10-17 22:31:41,"you mean I do a for loop ? the problem is I need the values of connectivities without vectorization for my second check. I am not sure I get your idea
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/tests/test_connectivity_matrices.py')"
+122,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-18 11:00:40,"Isn't this already there in master ? Have you rebased ? Can you check PR #1277 
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/__init__.py')"
+123,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-10-18 11:03:00,"Yes I rebased but when using mergetool to fix conflicts I skipped accidentally this one
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/__init__.py')"
+43,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-18 11:10:59,"I think CircleCI failure is not related to your PR. We are trying to address that in PR #1312 
+",nan,nan
+44,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-10-26 08:56:53,"Any second round of reviews on this ?
+",nan,nan
+124,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:24:51,"> ping @GaelVaroquaux @AlexandreAbraham next going to be 0.2.6.1 or 0.2.7 ?
+
+You can put either of these or even 2.X.X. The ""size"" of the revision is decided at release time depending if backward compatibility is broken or not.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+125,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:33:05,"``` python
+np.tril(np.ones((n_columns, n_columns), dtype=bool))
+```
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+126,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:33:25,"Lower.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+127,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:33:33,"Upper
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+128,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:37:31,"... or you can transpose the mask ;).
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+129,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:38:59,"My opinion is that most people will want to be able to feed this function lower triangular parts of matrices and one value (0) for the diagonal. Don't you think?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+130,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:40:20,"Reallocating the whole data just to fill one diagonal? This is not necessary and can be done further.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+131,pull_request_commit_comment,1236,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:42:29,"Here you should be able to put k=(diagonal is not None) (or minus this) and fill the diagonal at line 307. This allows you to get rid of the ugly part of this function that copy all the data.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+132,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-11-03 17:43:52,"Yes, but do you suggest I put it to zero by default ?
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+133,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-11-03 17:44:04,"Ok
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+134,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2016-11-03 17:51:01,"This didn't give me exactly what I wanted
+
+``` Python
+mask = np.tril(np.ones((3, 3), dtype=bool))
+sym = np.array([[4, 0, 0], [3, 5, 0], [2, 7, 1]])
+print sym[mask.T], sym.T[mask]
+```
+
+gives [4 0 5 0 0 1] [4 0 0 5 0 1]
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+30,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-11-21 11:03:51,Travis failure seems like a genuine one. Can you please have a look at it ?,nan,nan
+31,issue_comment,1236,nilearn,nilearn,salma1601,2016-11-22 09:28:23,@KamalakerDadi Tests are passing !,nan,nan
+32,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2016-11-22 09:35:33,">@KamalakerDadi Tests are passing !
+
+Great. Thanks.
+
+@GaelVaroquaux @AlexandreAbraham Can you give a final call ?
+",nan,nan
+135,pull_request_commit_comment,1236,nilearn,nilearn,mrahim,2017-03-02 11:11:02,I'm wondering if it's okay to remove  `sym_to_vec` completely. Could we put  a deprecation instead ?  ,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+38,issue_comment,1236,nilearn,nilearn,mrahim,2017-03-02 11:12:40,Could you squash your commits a bit please ? :),nan,nan
+45,issue_comment,1236,nilearn,nilearn,codecov[bot],2017-03-02 12:32:48,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=h1) Report
+> Merging [#1236](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/dffd5ec58041aea19f5b89d8a600f95768431c28?src=pr&el=desc) will **decrease** coverage by `-1.7%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff            @@
+##           master    #1236     +/-   ##
+=========================================
+- Coverage   94.39%   92.69%   -1.7%     
+=========================================
+  Files         118      118             
+  Lines       13388    13511    +123     
+=========================================
+- Hits        12637    12524    -113     
+- Misses        751      987    +236
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/connectome/connectivity_matrices.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2Nvbm5lY3Rpdml0eV9tYXRyaWNlcy5weQ==) | `95.65% <100%> (+2.85%)` | :white_check_mark: |
+| [nilearn/connectome/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL19faW5pdF9fLnB5) | `100% <100%> (ø)` | :white_check_mark: |
+| [...arn/connectome/tests/test_connectivity_matrices.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL3Rlc3RzL3Rlc3RfY29ubmVjdGl2aXR5X21hdHJpY2VzLnB5) | `99% <100%> (+0.31%)` | :white_check_mark: |
+| [nilearn/plotting/surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9zdXJmX3Bsb3R0aW5nLnB5) | `29.13% <0%> (-62.26%)` | :x: |
+| [nilearn/plotting/tests/test_surf_plotting.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X3N1cmZfcGxvdHRpbmcucHk=) | `56.06% <0%> (-43.94%)` | :x: |
+| [nilearn/_utils/compat.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvY29tcGF0LnB5) | `67.85% <0%> (-30.36%)` | :x: |
+| [nilearn/_utils/fixes/matplotlib_backports.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvZml4ZXMvbWF0cGxvdGxpYl9iYWNrcG9ydHMucHk=) | `77.77% <0%> (-22.23%)` | :x: |
+| [nilearn/_utils/fixes/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvZml4ZXMvX19pbml0X18ucHk=) | `73.33% <0%> (-13.34%)` | :x: |
+| [nilearn/plotting/__init__.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9fX2luaXRfXy5weQ==) | `75% <0%> (-8.34%)` | :x: |
+| [nilearn/datasets/atlas.py](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...e2686244295c81d2aaab300d230bd230849332aa?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9hdGxhcy5weQ==) | `89.69% <0%> (-6.44%)` | :x: |
+| ... and [9 more](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree-more) | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=footer). Last update [dffd5ec...76b85c2](https://codecov.io/gh/nilearn/nilearn/compare/dffd5ec58041aea19f5b89d8a600f95768431c28...76b85c284db628493e3b7221918d3fdf4a81934d?src=pr&el=footer&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+46,issue_comment,1236,nilearn,nilearn,codecov[bot],2017-03-02 12:32:49,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=h1) Report
+> Merging [#1236](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/f1968a82b2ba80df9abae75706d1e70ac58aad0a?src=pr&el=desc) will **increase** coverage by `0.05%`.
+> The diff coverage is `99.3%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1236/graphs/tree.svg?token=KpYArSdyXv&width=650&src=pr&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1236      +/-   ##
+==========================================
++ Coverage   94.61%   94.66%   +0.05%     
+==========================================
+  Files         120      120              
+  Lines       14537    14664     +127     
+==========================================
++ Hits        13754    13882     +128     
++ Misses        783      782       -1
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/input\_data/nifti\_maps\_masker.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL25pZnRpX21hcHNfbWFza2VyLnB5) | `96.39% <ø> (ø)` | :arrow_up: |
+| [...arn/connectome/tests/test\_connectivity\_matrices.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL3Rlc3RzL3Rlc3RfY29ubmVjdGl2aXR5X21hdHJpY2VzLnB5) | `99% <100%> (+0.31%)` | :arrow_up: |
+| [nilearn/connectome/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL19faW5pdF9fLnB5) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/connectome/connectivity\_matrices.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2Nvbm5lY3Rpdml0eV9tYXRyaWNlcy5weQ==) | `95.15% <98.24%> (+2.35%)` | :arrow_up: |
+| [nilearn/tests/test\_signal.py](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X3NpZ25hbC5weQ==) | `100% <0%> (+0.5%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=footer). Last update [f1968a8...9de5c63](https://codecov.io/gh/nilearn/nilearn/pull/1236?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+136,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-02 14:11:29,Done,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+35,issue_comment,1236,nilearn,nilearn,salma1601,2017-03-02 15:09:27,squashing done,nan,nan
+137,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:20:47,If I merge this today (which is probable) we should have this as 0.3.0 beta2,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+138,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:21:58,"I would replace ""kind"" by ""matrices"".",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+139,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:22:40,"I would say ""This example compares different types of functional connectivity matrices ...",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+140,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:43:01,We could merge the two comment blocks above,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+141,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:43:20,Missing space here,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+142,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:43:42,Could you merge the 2 comment blocks,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+143,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:44:21,Is there a reason that we are not using the default for resampling_target?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+144,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:46:53,"As a title here, I would suggest ""What kind of connectivity is most powerful for classification?""",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+145,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:47:07,Could you merge the comment blocks,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+146,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:48:18,"This is great.
+
+I think that you should expand a bit your comment so that people understand better what you are doing.",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(189, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+147,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:48:59,Now it's 0.3 :),9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+148,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:50:58,"It's unclear to me what is done if diagonal is not given: it is assumed to be included in ""vec""? Could you specify this?",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+149,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:52:53,Bad indentation in the docstring.,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+150,pull_request_commit_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 11:54:05,"I cannot understand the end of the sentence: ""from vectorized or not connectivities."" Do you mean ""from connectivities, vectorized or not""?",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+151,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:15:23,"double ""is"" in this line.",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+152,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 13:20:30,"Ok, I think we should also fix the doc
+https://github.com/nilearn/nilearn/blob/master/nilearn/input_data/nifti_maps_masker.py#L87",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+153,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 13:26:54,"Yes if the diagonal is not given it is extracted from `vec`
+Ok I will explicit",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+11,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 13:29:17,"> Ok, I think we should also fix the doc
+> https://github.com/nilearn/nilearn/blob/master/nilearn/input_data/
+> nifti_maps_masker.py#L87
+
+Yes. Could you please do that. Thanks!
+",nan,nan
+154,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:29:57,"May be we could say just ""`sym_to_vec` from connectome module is deprecated ............."" ?
+
+Since you are referring a function as `nilearn.connectome.sym_to_vec` which is not included in doc/modules/reference.rst , you will see documentation build error with CircleCI.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+12,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 13:32:03,"> May be we could say just ""sym_to_vec from connectome module is deprecated
+
+> Since you are referring a function as nilearn.connectome.sym_to_vec which is
+> not included in doc/modules/reference.rst , you will see documentation build
+> error with CircleCI.
+
+Indeed
+",nan,nan
+155,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:36:01,Optional: renaming of connectivity measures example to plot_group_level_connectivity ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+156,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:40:28,For me title looks misleading. It said 13 subjects but we plot only 4. Could we change it to 4 ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(108, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+157,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 13:43:30,yes,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+158,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:46:01,I think you should put back sym_to_vec to initialize from nilearn.connectome. Since you are deprecating the function and user cannot initialize function directly from nilearn.connectome rather it should be imported from nilearn.connectome.connectivity_matrices. Am I right ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/__init__.py')"
+13,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 13:47:44,"> I think you should put back sym_to_vec to initialize from nilearn.connectome.
+> Since you are deprecating the function and user cannot initialize function
+> directly from nilearn.connectome rather it should be imported from
+> nilearn.connectome.connectivity_matrices. Am I right ?
+
+You are right
+",nan,nan
+159,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:48:27,"Can we use function directly here ? Here, we two codes doing the same thing.
+```python
+return sym_matrix_to_vec(symmetric=symmetric, discard_diagonal=discard_diagonal)
+```",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+160,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:50:11,May be we need empty line spaces here ,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+161,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:50:19,same here emtpy line,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+162,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 13:50:34,same here empty line,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+163,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 13:59:26,yes but the average is indeed computed across the 13 subjects,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(108, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+164,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 14:00:13,Ok,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/__init__.py')"
+165,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 14:08:57,what do you mean ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+166,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 14:20:01,"removed + ""in future releases"".",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+167,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 14:50:25,"If I understood correctly from tests, this function will accept list of numpy.ndarray ? May be we should update our doc too ? ",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+168,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 14:50:54,Same here if it accepts list of numpy arrays ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+169,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-03-03 15:07:33,Ok.,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(108, '', u'examples/03_connectivity/plot_group_level_connectivity.py')"
+170,pull_request_commit_comment,1236,nilearn,nilearn,salma1601,2017-03-03 16:50:34,"well it accepts lists but also numpy arrays of shape nD
+Do you think I should reformulate the doc? because actually in practice people will use this for a list of 2D matrices (or the equivalent 3D array) ",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+14,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-03-03 16:56:05,"> well it accepts lists but also numpy arrays of shape nD
+> Do you think I should reformulate the doc? because actually in practice people
+> will use this for a list of 2D matrices (or the equivalent 3D array)
+
+Just say that it will also accept a numpy array, or list of numpy arrays.
+",nan,nan
+39,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2017-04-21 11:35:22,"Sorry for being late.
+
+Can you please update your changes into release section **0.3.1** in ```doc/whats_new.rst``` ?
+Thanks",nan,nan
+36,issue_comment,1236,nilearn,nilearn,salma1601,2017-04-24 13:04:02,"@KamalakerDadi I don't know what to do with the old reference to `sym_to_vec` in whats_new 0.2
+It makes circle ci fail. Do I add `sym_to_vec` to the module doc ?",nan,nan
+171,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-04-25 11:51:02,"I would suggest to put it back.
+
+The reason being that, this function deprecated but not removed yet. So, if user is still using it (in their pipelines for example) he would understand that this function is renamed and will be removed.
+
+I would stress more on keeping warning message clear and mentioning release name too **0.4**.
+",9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/modules/reference.rst')"
+172,pull_request_commit_comment,1236,nilearn,nilearn,KamalakerDadi,2017-04-25 11:51:43,is is repeated twice. Can you also add release version we want to remove **0.4** ?,9de5c63a9c9837bc1081db160e40b070b73d9ec7,"(None, '', u'doc/whats_new.rst')"
+40,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2017-04-27 12:24:24,@AlexandreAbraham Can you give a call on this ? merge ?,nan,nan
+41,issue_comment,1236,nilearn,nilearn,KamalakerDadi,2017-05-03 12:57:12,Great work @salma1601 . Merging this one.,nan,nan
+15,issue_comment,1236,nilearn,nilearn,GaelVaroquaux,2017-05-03 15:45:33,"> Great work @salma1601 . Merging this one.
+
+Hurray. Congratulations to everyone involved.
+",nan,nan
+37,issue_comment,1236,nilearn,nilearn,salma1601,2017-05-03 19:21:29,Hurrah !,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 09:28:33,"Did you forget this print instruction ?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/searchlight.py')"
+8,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 09:30:07,"Should this be the default behavior ?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+9,pull_request_commit_comment,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 09:37:44,"I wondered. From a developper POV, this is indeed the most wanted behavior. From a user POV, being able to transform only one point is nice.
+
+Another option I thought of is this:
+`coord_transform(1, 2, 3, np.eye(4))` returns a 3-tuple `(1, 2, 3)`
+and
+`coord_transform([1], [2], [3], np.eye(4))` returns a 3-tuple of list `([1], [2], [3])`
+
+Maybe this is more natural?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+10,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 20:48:21,"Sorry, I am missing the point. The scores are uniformly zero. Shouldn't we have a non-zero score at [0, 0, 0].
+Maybe I missed the logic of this update.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/tests/test_searchlight.py')"
+11,pull_request_commit_comment,1232,nilearn,nilearn,AlexandreAbraham,2016-08-10 13:34:27,"Answer is in the conversation. For your question in particular, no, the score is 0 because the sphere is too small to grab the voxel containing the signal.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/tests/test_searchlight.py')"
+6,issue_comment,1232,nilearn,nilearn,KamalakerDadi,2016-08-18 15:59:00,"Is it worth to add tests for `coord_transform` ?
+",nan,nan
+12,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:22:59,"> > -def coord_transform(x, y, z, affine):
+> > +def coord_transform(x, y, z, affine, squeeze=True):
+> 
+> Should this be the default behavior ?
+
+I don't think so. It's always annoying to have to deal with a number of
+dimensions that can fluctuate.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+13,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:30:24,"It might be good to have a test, testing that input shape == output shape.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(13, '', u'nilearn/image/resampling.py')"
+14,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:30:45,"> > Should this be the default behavior ?
+> 
+> I don't think so. It's always annoying to have to deal with a number of
+> dimensions that can fluctuate.
+
+Looks like you addressed that comment :$
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+5,issue_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 09:57:07,"LGTM, but it would be nice to have a test on coord_transform.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1215,nilearn,nilearn,GaelVaroquaux,2016-08-08 06:43:35,"> an returns a list of matrices. I am in favour of allowing a 2D array single
+> subject timeseries as an input of ConnectivityMeasure fit_transform method and
+> returning one matrix in this case.
+
+Such flexibility means that error capture and managment becomes very
+hard. In scikit-learn, we have actually gone the other way, and
+explicitely made such flexibility impossible.
+",nan,nan
+4,issue_comment,1215,nilearn,nilearn,salma1601,2016-08-08 08:01:58,"OK !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,1219,nilearn,nilearn,bthirion,2016-08-07 17:38:17,"Is it actually using the LW estimator ? It is at least not explicit.
+",043113bd5d04b079445475c3dc4490be0f9cc57a,"(None, '', u'examples/03_connectivity/plot_adhd_spheres.py')"
+7,pull_request_commit_comment,1219,nilearn,nilearn,salma1601,2016-08-07 18:02:06,"Yes, `ConnectivityMeasure` default covariance estimator is LW.
+May be I can add a comment on that or explicit `cov_estimator` ?
+",043113bd5d04b079445475c3dc4490be0f9cc57a,"(None, '', u'examples/03_connectivity/plot_adhd_spheres.py')"
+8,pull_request_commit_comment,1219,nilearn,nilearn,bthirion,2016-08-07 20:58:09,"Yes, mark it through an explicit argument or a comment.
+",043113bd5d04b079445475c3dc4490be0f9cc57a,"(None, '', u'examples/03_connectivity/plot_adhd_spheres.py')"
+5,issue_comment,1219,nilearn,nilearn,GaelVaroquaux,2016-08-08 05:14:10,"Thanks! :+1: for merge.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-08-02 21:00:03,"I am not sure if I should consider as bug or images should be in 4D space as (x, y, z, 1) ? It works like this.
+
+``` python
+from nilearn import datasets
+from nilearn._utils import check_niimg
+from nilearn import plotting
+
+icbm = datasets.fetch_icbm152_2009()
+gm = check_niimg(icbm.gm, atleast_4d=True)
+print(gm.shape)
+plotting.plot_roi(gm)
+```
+",nan,nan
+5,issue_comment,1187,nilearn,nilearn,salma1601,2016-08-03 11:17:25,"Ok thanks
+",nan,nan
+7,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-08-17 13:55:23,"Here for this issue, if I reorder_img before plotting. It is good to visualize.
+
+On the other side, if I plot as it is w/o reorder_img. I see variations deep inside the code. It breaks at line 171 in displays.py
+_Breaking is due to this: `y_map` has more length calculated 250 which is more than actual data length 233 in 'y' direction._
+What's going wrong here ? How does `self.coord` is given ?
+
+Some information related to that:
+
+``` python
+self.coord = 116.5 (may be half of affine in 'y' direction)
+data.shape
+(197, 233, 189)
+ affine
+array([[   1.,    0.,    0.,  -98.],
+       [   0.,    1.,    0., -134.],
+       [   0.,    0.,    1.,  -72.],
+       [   0.,    0.,    0.,    1.]])
+```
+",nan,nan
+8,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-08-18 12:39:26,"data type at some point is converted to `int32` with `check_niimg_3d(img, dtype='auto')` leading `find_xyz_cut_coords` to find wrong coordinates. I guess.
+",nan,nan
+3,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-09-29 12:35:00,"May be it is bad idea. Can we give parameter option `dtype` to plotting functions to control ? Any other ideas/hints ? Given that we have `dtype` plotting issues with some images.
+For your record, plot_prob_atlas is broken particularly with icbm templates.
+",nan,nan
+4,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-09-30 13:04:31,"FYI: This is been reported in nibabel https://github.com/nipy/nibabel/issues/490
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1244,nilearn,nilearn,GaelVaroquaux,2016-08-15 20:12:37,"Where did you get these notebooks? Can you point to where you downloaded them? The official place to download them would be on the nilearn website, in the examples pages.
+",nan,nan
+6,issue_comment,1244,nilearn,nilearn,Stef-aap,2016-08-15 20:35:11,"thanks for the fast response Gael.
+
+it took me some time to find the source:
+https://github.com/GaelVaroquaux/nilearn_course/blob/master/notebooks/2_signal_extraction_for_connectomes.ipynb
+
+And I found that through:
+https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
+
+ok, I now found:
+http://nilearn.github.io/auto_examples/index.html
+those examples seems to work.
+
+thanks,
+Stef
+
+On 15-Aug-16 22:12, Gael Varoquaux wrote:
+
+> Where did you get these notebooks? Can you point to where you 
+> downloaded them? The official place to download them would be on the 
+> nilearn website, in the examples pages.
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly, view it on GitHub 
+> https://github.com/nilearn/nilearn/issues/1244#issuecomment-239914710, 
+> or mute the thread 
+> https://github.com/notifications/unsubscribe-auth/AHMXrRlEt--VoCY249woSxmBVeNJZuR4ks5qgMg3gaJpZM4JkuPQ.
+",nan,nan
+4,issue_comment,1244,nilearn,nilearn,GaelVaroquaux,2016-08-15 20:36:13,"> I think it this one: https://github.com/GaelVaroquaux/nilearn_course/blob/master/notebooks/2_signal_extraction_for_connectomes.ipynb
+
+Looks like I need to delete this repo :).
+
+This is why I don't like any tutorial not in our continuous integration
+:).
+
+@Stef-aap: please use the notebooks shipped on the nilearn website. They
+are tested.
+",nan,nan
+5,issue_comment,1244,nilearn,nilearn,GaelVaroquaux,2016-08-16 05:47:07,"I delete the old repo. Thanks @Stef-aap for pointing it out.
+
+I am closing this issue.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1193,nilearn,nilearn,GaelVaroquaux,2016-08-02 20:40:12,"> Unlike all img functions that takes all input as niimg, this one force
+> the mask to be a numpy array, which is a bit odd.
+
++1
+",nan,nan
+7,issue_comment,1193,nilearn,nilearn,shoshber,2016-11-28 04:31:23,"+1. Same for `find_cut_slices()`. I can call them with the input as a Nifti1Image, but not as a niimg, which is a lot less convenient!",nan,nan
+4,issue_comment,1193,nilearn,nilearn,GaelVaroquaux,2016-11-28 06:35:58,"+1 @shoshber 
+
+Do you want to have a go at it?",nan,nan
+8,issue_comment,1193,nilearn,nilearn,shoshber,2016-11-29 00:37:23,"I don't have time at the moment (looming deadlines), unfortunately. I know it's annoying when someone keeps suggesting changes without contributing, sorry!",nan,nan
+5,issue_comment,1193,nilearn,nilearn,GaelVaroquaux,2016-11-29 06:32:16,"> I know it's annoying when someone keeps suggesting changes without contributing, sorry!
+
+Don't worry, I've been in open source too long to be annoyed :). It's
+just that things would get done, and that's cool. We'll probably get
+along to doing this, but right now we are busy with other things.
+",nan,nan
+6,issue_comment,1193,nilearn,nilearn,GaelVaroquaux,2017-11-16 19:56:52,Fixed in #1430,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1170,nilearn,nilearn,MartinPerez,2016-07-07 10:41:18,"And effectively is wrong in the public example in the webpage :S. Even though the initial examples in the PR are correct.
+http://nilearn.github.io/auto_examples/01_plotting/plot_demo_glass_brain.html#sphx-glr-auto-examples-01-plotting-plot-demo-glass-brain-py
+",nan,nan
+7,issue_comment,1170,nilearn,nilearn,MartinPerez,2016-07-08 12:51:31,"There is another bug. Sometimes the image at the left is not inverted, giving the left and right looking in the same direction, this two maps come from exactly the same code with a different contrast image. Altnough the statistics are correct. This is only a lack of inversion of the plot image during plot construction.
+
+![pseudo_-_letter_glass](https://cloud.githubusercontent.com/assets/8766915/16687859/3f4a1230-451b-11e6-8f6b-c81d1cb81247.png)
+
+![pseudo_glass](https://cloud.githubusercontent.com/assets/8766915/16687871/54af310a-451b-11e6-996b-8c558b3c5ec7.png)
+",nan,nan
+3,issue_comment,1170,nilearn,nilearn,AlexandreAbraham,2016-07-22 14:04:23,"Thanks to the help of Martin, I am now getting very close to the bug. First, let me tell you that it is a problem of display and not of data. So, apart from the left/right inversion that has been corrected, the things that are displayed are right.
+",nan,nan
+5,issue_comment,1170,nilearn,nilearn,rschmaelzle,2016-08-12 16:04:19,"Hi, not entirely sure this is related, but when I try to create an animation with a glassbrain that has display_mode='l', and then grab the figure via mplfig_to_npimage(f), this flips the glassbrain and I am seeing a jittering brain flipping between left and right orientation. 
+",nan,nan
+4,issue_comment,1170,nilearn,nilearn,AlexandreAbraham,2016-08-15 20:40:18,"@rschmaelzle, could you:
+- check that you are using the latest version of nilearn (the last release, no need to have the latest dev version)
+- open another issue with a minimal working example?
+
+The present issue should have been resolved so I will close it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

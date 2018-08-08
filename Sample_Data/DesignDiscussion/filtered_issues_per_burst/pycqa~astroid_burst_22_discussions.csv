@@ -1,0 +1,20 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+6,pull_request_commit_comment,352,pycqa,astroid,rogalski,2016-07-23 22:12:45,"First issue: currently instance attributes are added explicitly. All of tests refers to these `instance_attrs`, while they should be inferred via property decorators.
+",7dbb34cb108bfd3fd4842625f8b2d9b1ad2eade5,"(16, '', u'astroid/brain/brain_namedtuple_enum.py')"
+7,pull_request_commit_comment,352,pycqa,astroid,rogalski,2016-07-23 22:16:09,"this test regresses, since two attributes are inferred, including fake EmptyNode. I'm not sure yet why other tests did not regressed.
+",7dbb34cb108bfd3fd4842625f8b2d9b1ad2eade5,"(5, '', u'astroid/tests/unittest_brain.py')"
+3,issue_comment,352,pycqa,astroid,coveralls,2016-07-23 22:21:43,"[![Coverage Status](https://coveralls.io/builds/7134401/badge)](https://coveralls.io/builds/7134401)
+
+Coverage decreased (-1.8%) to 87.305% when pulling **7dbb34cb108bfd3fd4842625f8b2d9b1ad2eade5 on rogalski:named-tuple-properties** into **1207e112bbe14f01e78204f20cbe27c499e3c383 on PyCQA:master**.
+",nan,nan
+4,issue_comment,352,pycqa,astroid,rogalski,2016-07-26 17:52:57,"I'll close it for now, it's not ready and a rush to put it out was unneeded. I'll reopen soon.
+",nan,nan
+5,issue_comment,352,pycqa,astroid,PCManticore,2016-07-26 18:21:05,"Okay!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,351,pycqa,astroid,PCManticore,2016-07-26 17:45:06,"Yes, we could support this field as well. Will look into your pull request soon (probably I won't have time today)
+",nan,nan
+3,issue_comment,351,pycqa,astroid,rogalski,2017-03-27 20:22:25,#415 contain a fix.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

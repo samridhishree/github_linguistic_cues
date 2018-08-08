@@ -1,0 +1,153 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,98,idan,oauthlib,ib-lundgren,2013-02-03 16:52:47,"This requirements file was added when Idan experimented with pycco but have not seen much love since. I believe users of oauthlib are better of installing with pip install oauthlib as there are no dependencies for normal use. The few people using RSA as a signature method can use pip install oauthlib[rsa].
+
+That said, a dev specific requirements.txt could be useful. Please also add nose and mock (#99) then I'll merge =)
+",nan,nan
+5,issue_comment,98,idan,oauthlib,ondrowan,2013-02-03 17:46:29,"Done. I haven't realised in haste there's setup.py with ""real"" dependencies.
+",nan,nan
+6,issue_comment,98,idan,oauthlib,ib-lundgren,2013-02-03 17:48:39,"Cheers =)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,100,idan,oauthlib,ib-lundgren,2013-02-04 22:59:26,"Looks good to me. Cheers!
+",nan,nan
+5,issue_comment,100,idan,oauthlib,ondrowan,2013-02-14 23:15:14,"I think something happened and this got overridden. It links to image again.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,53,idan,oauthlib,travisbot,2012-08-27 00:27:07,"This pull request [fails](http://travis-ci.org/idan/oauthlib/builds/2245773) (merged b0eb331c into dcbc028f).
+",nan,nan
+4,issue_comment,53,idan,oauthlib,travisbot,2012-08-27 00:42:00,"This pull request [passes](http://travis-ci.org/idan/oauthlib/builds/2245867) (merged d36595f8 into dcbc028f).
+",nan,nan
+5,issue_comment,53,idan,oauthlib,travisbot,2012-08-27 01:09:33,"This pull request [passes](http://travis-ci.org/idan/oauthlib/builds/2246027) (merged a3c7c4c4 into dcbc028f).
+",nan,nan
+6,issue_comment,53,idan,oauthlib,idan,2012-08-27 07:04:57,"Hey, thanks for the PR.
+
+I remember chewing on this a while back. Basically, we have two choices:
+- Guess the encoding of any strings passed to oauthlib
+- Require that all strings passed to oauthlib be unicode
+
+> In the face of ambiguity, refuse the temptation to guess.
+> [PEP 20](http://www.python.org/dev/peps/pep-0020/)
+
+I agree that it's inconvenient to have to supply all your data, even dict members, as unicode strings—however the alternative is some poor developer tearing their hair out because they're passing in strings with an encoding other than UTF-8.
+
+Down the road maybe we should be using chardet for this.
+
+It's worth noting that `urllib.quote()/unquote()` doesn't properly handle unicode data, nor is it completely safe to simply encode to UTF-8:
+1. http://bugs.python.org/issue1712522
+2. http://mail.python.org/pipermail/python-dev/2006-July/067335.html
+
+So even code like this can apparently have edge cases:
+
+``` python
+urllib.quote(foo.encode('UTF-8'))
+```
+
+I haven't looked at the code you're touching in months, and I remember that it was a source of pain when we originally wrote it—so you'll have to be a bit patient while I load it back into my brain and figure out what to do with this patch. Thanks!
+",nan,nan
+7,issue_comment,53,idan,oauthlib,idan,2012-08-27 07:06:53,"Meta: this PR references kennethreitz/requests#816
+",nan,nan
+8,issue_comment,53,idan,oauthlib,travisbot,2012-08-27 10:58:13,"This pull request [fails](http://travis-ci.org/idan/oauthlib/builds/2248928) (merged 6bfd90fe into dcbc028f).
+",nan,nan
+9,issue_comment,53,idan,oauthlib,ayanamist,2012-08-27 11:00:28,"@idan I understand what you worried. I modify the code so that it will try to convert and check the type first, raise an exception if failed.
+Also i add another commit replace some direct callings of logging to logger object.
+I don't modify the unit test code and oauth2 because i don't catch your design purpose. So travisbot failed.
+",nan,nan
+10,issue_comment,53,idan,oauthlib,ayanamist,2012-08-28 07:30:29,"@idan So what about this PR?
+",nan,nan
+11,issue_comment,53,idan,oauthlib,travisbot,2012-08-28 07:30:36,"This pull request [fails](http://travis-ci.org/idan/oauthlib/builds/2258741) (merged 61a416bc into dcbc028f).
+",nan,nan
+12,issue_comment,53,idan,oauthlib,idan,2012-08-28 08:07:04,"Haven't had time to review it yet—only so much time I can spend on github during work…
+",nan,nan
+13,issue_comment,53,idan,oauthlib,kennethreitz,2012-08-28 16:22:02,"@ayanamist please stop being so pushy. I appreciate your enthusiasm, but we're all very busy. :)
+",nan,nan
+14,issue_comment,53,idan,oauthlib,ayanamist,2012-08-29 01:35:32,"Sorry, i'm hurrying to finish something.
+
+## 
+
+Ich liebe Ayanami Rei für immer
+",nan,nan
+15,issue_comment,53,idan,oauthlib,ib-lundgren,2012-09-06 20:01:01,"Will try and find time to look into this in more detail this weekend but after a first glance I'm wondering if it would not be a better idea to tackle the unicode conversion/checking in client.sign, ie the entry point, and keep the oauthlib internals all unicode.
+",nan,nan
+16,issue_comment,53,idan,oauthlib,ib-lundgren,2013-02-03 17:03:24,"Default unicode (utf-8) conversion is included in oauthlib 0.3.5 for Clients. I believe its better to have conversion at the API rather than deep inside the library. It makes it easier to debug issues and allows for conversion from non utf-8 encodings. However, I'll keep the escape unicode check around until all data entry points have been accounted for.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,68,idan,oauthlib,ib-lundgren,2012-11-12 22:56:50,"It is a bit awkward at the moment I agree. Details on why we don't simply decode can be found in #53. One way to address this could be adding a keyword flag to _Client.sign_ in the lines of _attempt_unicode_conversion_ that would either naively try to _decode('utf-8')_ or with the help of chardet guess the encoding.
+
+Unfortunately, I've remained ignorant of most encoding issues so can't provide much insight into the best way to solve this, @idan - what do you think?
+",nan,nan
+3,issue_comment,68,idan,oauthlib,warsaw,2012-11-13 00:12:59,"On Nov 12, 2012, at 02:56 PM, Ib Lundgren wrote:
+
+> It is a bit awkward at the moment I agree. Details on why we don't simply
+> decode can be found in #53. One way to address this could be adding a keyword
+> flag to _Client.sign_ in the lines of _attempt_unicode_conversion_ that would
+> either naively try to _decode('utf-8')_ or with the help of chardet guess the
+> encoding.
+> 
+> Unfortunately, I've remained ignorant of most encoding issues so can't
+> provide much insight into the best way to solve this, @idan - what do you
+> think?
+
+Thanks for the reference to issue #53.  I only briefly skimmed RFC 5849, but I
+saw no indication as to the required character set for the keys/secrets.
+That's a bit surprising, but maybe I missed it.  If not, well, I guess being
+strict about the inputs makes the most sense, despite it being inconvenient.
+
+Of course, if the keys/secrets are not unicodes or utf-8 encoded bytes
+already, you could just let the .decode('utf-8') failure percolate up to the
+caller.  That way, the most obvious choice would be covered, and any corner
+cases would raise errors by Python itself.  I personally think it's crazy to
+use anything other than utf-8 here, but maybe there's a good use case I'm
+missing (frankly, it seems like all keys/secrets are ascii anyway, but that's
+probably being too strict).
+",nan,nan
+4,issue_comment,68,idan,oauthlib,warsaw,2012-11-19 21:01:10,"I just noticed that if you use a string for Client(..., signature_method='PLAINTEXT'), you'll get this error too.  That at least could probably be fixed without controversy.
+",nan,nan
+5,issue_comment,68,idan,oauthlib,ib-lundgren,2012-11-19 22:28:28,"I've added some very basic conversion support (in Client init & sign) that will crash horribly if you don't supply the correct encoding. It is off by default and almost entirely untested. Fancy trying it out and see if it meets your needs somewhat? If not please let me know where it's lacking. 
+
+I tried chardet out quickly but it seem to struggle with short strings so not that keen on adding another dependency if it can be avoided.
+",nan,nan
+6,issue_comment,68,idan,oauthlib,warsaw,2012-11-21 18:46:08,"One small typo discovered by pyflakes:
+
+s/resource_owner/resource_owner_key/
+
+Of course, it's possible the various components aren't of the same encoding, but then I think that would be just as insane as using something other than utf-8 ;).  FWIW, below is a merge proposal which shows how I did this in in a package I just converted from oauth to oauthlib.
+
+I had another thought.  Given that unicodes are required, perhaps it would be better to validate the parameters as early as possible, such that the ValueError was raised in the Client.**init**() instead of later during signing.  IOW, if you're going to throw the exception, throw it as early as possible, as close to the source of error as possible.
+
+https://code.launchpad.net/~barry/piston-mini-client/lp1077083/+merge/135449
+
+I also think you could collapse convert_to_unicode and encoding into a single encoding parameter.  If it were None, no conversion would be done.  (But I understand this is mostly for experimental purposes.)
+",nan,nan
+7,issue_comment,68,idan,oauthlib,ib-lundgren,2012-11-21 19:43:24,"Only one typo, not bad considering. Good idea to collapse the params, will do that. And yea if they have mutliple encodings for various params the responsibility to convert sure falls on them from my pov. I agree with the exception being thrown early but when that check was written there was no such thing as Client and since then it's just not happened. Will take a look at maybe integrating that into where i now attempt conversion.
+
+Will have a look at your merge proposal, should be a good source of examples for the docs when they feel like being written =)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,61,idan,oauthlib,ib-lundgren,2012-10-03 14:22:07,"Thanks for pushing towards OAuth 2 Server support! 
+
+We now have 3 versions spread out with @sontek starting on some (#58), my local one which is close to complete authorization grant code and implicit grant code support and this one. This is my fault since after doing the initial work way back this summer I wanted to reorganize it a bit and broke all the tests, which is the state it has remained in since, and because of this I never pushed it.
+
+I will try and get around to cleaning it up and merging it in here this week and if I can't find time for that I'll just push the slightly messy code I have now and whoever feel like it can tear it apart in search for useful bits.
+",nan,nan
+4,issue_comment,61,idan,oauthlib,mvantellingen,2012-10-03 14:34:49,"Good to hear. It would be great if you could push your code, we can clean it up afterwards. I currently have a few days to work on getting a good oauth2 provider. 
+",nan,nan
+5,issue_comment,61,idan,oauthlib,ib-lundgren,2012-10-03 14:38:20,"Sure I'll push it tonight when I get back with some notes about my general
+idea for what I've been meaning to do but never found time to.
+
+On Wed, Oct 3, 2012 at 4:34 PM, Michael notifications@github.com wrote:
+
+> Good to hear. It would be great if you could push your code, we can clean
+> it up afterwards. I currently have a few days to work on getting a good
+> oauth2 provider.
+> 
+> —
+> Reply to this email directly or view it on GitHubhttps://github.com/idan/oauthlib/pull/61#issuecomment-9108273.
+",nan,nan
+6,issue_comment,61,idan,oauthlib,ib-lundgren,2013-02-03 16:57:21,"Thanks again for this PR. I'm closing as I've manually merged pieces of this code during the unification of all three oauth 2 branches =)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

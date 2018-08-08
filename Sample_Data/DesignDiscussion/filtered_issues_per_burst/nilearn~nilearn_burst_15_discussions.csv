@@ -1,0 +1,11 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,pull_request_commit_comment,88,nilearn,nilearn,agramfort,2013-07-16 12:23:24,":)
+",a3bbe2516c3c0a4288a26ca54bf8109b3b315584,"(None, '', u'nilearn/proximal/operators.py')"
+6,pull_request_commit_comment,88,nilearn,nilearn,agramfort,2013-07-16 12:25:07,"glad to see my fmin_prox function become public :)
+",a3bbe2516c3c0a4288a26ca54bf8109b3b315584,"(None, '', u'nilearn/proximal/operators.py')"
+7,pull_request_commit_comment,88,nilearn,nilearn,GaelVaroquaux,2013-07-18 06:18:23,"This should probably be directly integrated into master, and not in this PR.
+",a3bbe2516c3c0a4288a26ca54bf8109b3b315584,"(None, '', u'nilearn/io/multi_nifti_masker.py')"
+4,issue_comment,88,nilearn,nilearn,AlexandreAbraham,2013-09-10 08:50:09,"This is too early for this PR. I will make a new one later.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

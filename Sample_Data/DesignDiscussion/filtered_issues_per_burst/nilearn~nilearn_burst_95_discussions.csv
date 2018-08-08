@@ -1,0 +1,275 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,1337,nilearn,nilearn,AlexandreAbraham,2016-12-07 12:01:33,Looks like an error.,nan,nan
+4,issue_comment,1337,nilearn,nilearn,GaelVaroquaux,2016-12-07 19:26:38,"> Looks like an error.
+
+Let's kill it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1343,nilearn,nilearn,bthirion,2016-12-09 22:27:13,"Could you provide a snippet of code to reproduce the issue ?
+Thx,",nan,nan
+4,issue_comment,1343,nilearn,nilearn,jnecus,2016-12-09 22:59:48,"I first tried using this function to resample my nifti image:
+
+`nilearn.image.resample_to_img(source,target)`
+
+which gave the following warning, and the output file was empty:
+
+> UserWarning: The behaviour of affine_transform with a one-dimensional array supplied for the matrix parameter has changed in scipy 0.18.0.
+
+I then downgraded Scipy to version 0.15 and it worked fine. 
+
+",nan,nan
+5,issue_comment,1343,nilearn,nilearn,GaelVaroquaux,2016-12-09 23:09:07,">     UserWarning: The behaviour of affine_transform with a one-dimensional array
+>     supplied for the matrix parameter has changed in scipy 0.18.0.
+
+> I then downgraded Scipy to version 0.15 and it worked fine.
+
+This is just a warning.
+
+The latest nilearn are compatible with scipy 0.18.
+
+
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1330,nilearn,nilearn,AlexandreAbraham,2016-11-19 22:52:47,"LGTM
+",nan,nan
+6,issue_comment,1330,nilearn,nilearn,Titan-C,2016-11-20 22:21:11,"This is very strange. Circle CI did not even run. 
+",nan,nan
+7,issue_comment,1330,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:04:12,LGTM. Merging,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 05:45:54,"Do you think you can share/attach your nifti files ?
+
+You error message looks like there are spurious images to me.",nan,nan
+4,issue_comment,1345,nilearn,nilearn,sprak0323,2016-12-11 06:34:39,"
+[atlas+stats.zip](https://github.com/nilearn/nilearn/files/644261/atlas.stats.zip)
+Thank you very much 
+
+",nan,nan
+5,issue_comment,1345,nilearn,nilearn,sprak0323,2016-12-11 06:55:15,"Just like this:
+>>> A = image.load_img('/Volumes/LA_Fun/Allen/MRI/rs_reorder_T1_donor9861.nii')
+>>> B = image.load_img('/Volumes/LA_Fun/atlas/BN_Atlas_246_1mm.nii.gz')
+>>> B.shape
+(182, 218, 182)
+>>> A.shape
+(197, 233, 189)
+>>> C = image.resample_to_img(A, B)",nan,nan
+6,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 07:05:10,"This one '/Volumes/LA_Fun/Allen/MRI/rs_reorder_T1_donor9861.nii' doesn't seems like in MNI space.
+Can you check by specifying coordinates to [0, 0, 0]. If image is in MNI space then you see cursor at AC-PC line (Please google it if you don't know what AC-PC is)
+
+Let me know after aligning to MNI space, if it worked or not ?",nan,nan
+7,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 07:07:48,"Can you try this ?
+```python
+plotting.plot_stat_map('/Volumes/LA_Fun/Allen/MRI/rs_reorder_T1_donor9861.nii', cut_coords=[0, 0, 0])
+```",nan,nan
+8,issue_comment,1345,nilearn,nilearn,sprak0323,2016-12-11 07:10:54,"![figure_1](https://cloud.githubusercontent.com/assets/18514015/21078718/f8e5fa66-bfb3-11e6-93f6-0f780208e3d2.png)
+This is what I got",nan,nan
+9,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 07:23:34,"Have you tried visualizing this image with other softwares ? How does it look like ?
+To make sure if there is problem with data or package.",nan,nan
+10,issue_comment,1345,nilearn,nilearn,sprak0323,2016-12-11 07:25:46,"Sure, the image is an atlas and a samples ,I can open it by MRIcro software.",nan,nan
+11,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 07:37:14,"I can view atlas properly. I cannot view samples image properly which is a reordered image I suppose. I am not sure what's going on. It may time to debug it. Sorry. May be somebody will pitch in to have another solution.
+",nan,nan
+12,issue_comment,1345,nilearn,nilearn,sprak0323,2016-12-11 07:42:01,"I see, thanks a lot, I think I should try some another way.",nan,nan
+13,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 07:42:41,"Just curious, What are these samples represent ?",nan,nan
+14,issue_comment,1345,nilearn,nilearn,sprak0323,2016-12-11 07:48:58,"They are the allen gene expressions data, each sample represents a probe to measure all the gene expression there(we have MNI coordinates).
+And I think I should use the MNI coordinates to create my own image rather than resampling other's.
+
+For more information: http://human.brain-map.org",nan,nan
+15,issue_comment,1345,nilearn,nilearn,KamalakerDadi,2016-12-11 07:54:04," >And I think I should use the MNI coordinates to create my own image rather than resampling other's.
+
+Yes, may be that would help.",nan,nan
+16,issue_comment,1345,nilearn,nilearn,GaelVaroquaux,2016-12-11 09:11:05,"This error message is trying to tell you there is no data where you are
+targeting the resample, ie no overlap between the source and the target
+image.
+
+I suspect that your image is not in MNI space.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1335,nilearn,nilearn,alexsavio,2016-12-07 10:38:01,Could you please merge this? I have copied the code from previous PRs and fixed docstring style for Sphinx. It's the same material as before but with cleaner history.,nan,nan
+7,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 05:07:03,"Sorry, if I miss this earlier. You can do only ```:func:nilearn.datasets.fetch_atlas_allen_2001```
+
+Since you already have initialized in atlas.py",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'doc/whats_new.rst')"
+8,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 05:09:03,"Either we stick to ```string``` or ```str```. Some are specified as ```bool``` rather than ```boolean```.
+
+I will prefer shortcuts ```str```",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+9,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 05:16:52,"May be we ""indent"" these return lines so that it appears like in the snapshot when we build the documentation.
+
+![allen_return](https://cloud.githubusercontent.com/assets/11410385/21071427/30916b40-bea0-11e6-90e1-8f9485a63699.png)
+
+",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+10,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 06:19:59,"Also, ""aggregate_ic_comps"" and ""all_unthresh_tmaps"" has both of 75 components.
+What is the difference ?",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+11,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 06:21:11,"It looks like labels are not ordered. Isn't it ?
+
+Are these collected from data resource ?",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+12,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 06:23:04,content name looks wrong. What we want is 'rsn_unthresh_tmaps'. Isn't it?,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/description/allen_rsn_2011.rst')"
+13,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 11:13:25,"no, the indices are for the `all_unthresh_tmaps` file. in the `rsn_unthresh_tmaps` file these have a different order and explained in the cited paper. rsn_unthresh_tmaps is a subset of all_unthresh_tmaps. I see the confusion, however this is how the information and files are available from the source.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/description/allen_rsn_2011.rst')"
+14,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 11:15:48,"I could order the label lists, this is how they are ordered in the paper:
+http://mialab.mrn.org/data/hcp/2011_Allen_FN_RestingBaseline.pdf",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+15,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 11:19:50,"I am not sure. The maps are very similar, but the values are different. The description page does not help: http://mialab.mrn.org/data/index.html",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+16,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 14:45:25,"Agreed, I will fix this.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+17,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 14:45:28,"Agreed, I will fix this.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'doc/whats_new.rst')"
+18,pull_request_commit_comment,1335,nilearn,nilearn,GaelVaroquaux,2017-01-19 10:10:55,"@alexsavio : sorry for the long turn around. I am doing too many things, and as a result I become a bottleneck.
+
+It would be good if we could try to be as close as possible to the structure of the other atlases that we are downloading. In particular, it would be good if the maps that are most likely to be used would be in a key called ""maps"", as in the other atlases, and the labels in a list given the corresponding labels in the order of the maps. You would have to give names to maps, rather than networks, but that should be easy, for instance ""Default-Mode_50"", .... You would need to add a list of networks labels too. The names of the other maps could then use a similar terminology, such as ""unthresh_maps"""", and ""networks_maps"".
+
+The msdl atlas, for instance, exposes this structure. In the beginning, we weren't very good at imposing this structure, but while teaching we saw that it led to unneeded conceptual difficulties for the users.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+19,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2017-01-19 16:11:12,@GaelVaroquaux thanks for your comments.,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+6,issue_comment,1335,nilearn,nilearn,alexsavio,2017-01-21 12:34:25,"I will look into this later today.
+
+On Sat, 21 Jan 2017, 12:03 Gael Varoquaux, <notifications@github.com> wrote:
+
+> @alexsavio <https://github.com/alexsavio> : you do have a legit test
+> failure that needs to be fixed.
+>
+> After that: +1 for merge.
+>
+> —
+> You are receiving this because you were mentioned.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/nilearn/nilearn/pull/1335#issuecomment-274254790>, or mute
+> the thread
+> <https://github.com/notifications/unsubscribe-auth/ACW4jEs8L-j-jZ3KlcXvL1YF-55g7kBuks5rUeXwgaJpZM4LFfH4>
+> .
+>
+-- 
+
+Sent from my phone, sorry for brevity or typos.
+",nan,nan
+20,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2017-01-21 16:32:16,components -> comps or vice-versa. In Returns documentation you have written as comps.,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+21,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2017-01-21 16:33:20,description doc is missing in Returns section.,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(32, '', u'nilearn/datasets/atlas.py')"
+22,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2017-01-21 16:36:21,"You missed to change here to ""maps"", ""rsn28"", ""comps"", I guess. Can you please have a look ?",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/tests/test_atlas.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+14,pull_request_commit_comment,1295,nilearn,nilearn,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/tests/test_atlas.py')"
+15,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 20:56:47,"Any reason why it is not started with `fetch_atlas_` ? All other functionalities has the same namings almost.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+10,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 20:57:54,"Can you add in `nilearn/datasets/__init__.py` ?
+",nan,nan
+11,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:06:27,"Can you add in `doc/whats_new.rst` about this new fetcher ?
+",nan,nan
+12,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:09:41,"Can you please also refer your fetcher in doc/modules/reference.rst ?
+",nan,nan
+16,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:17:55,"May be this sounds good `fetch_atlas_allen_2011` ?
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+13,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:19:23,"Some minor comments from my side.
+",nan,nan
+17,pull_request_commit_comment,1295,nilearn,nilearn,alexsavio,2016-10-07 10:54:12,"Would you call this an atlas? I'm not sure. What about `fetch_rsn_template_allen_2011` ? If you want to keep the `atlas`...I would say: `fetch_atlas_rsn_allen_2011` ?
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+18,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-07 11:31:28,"> Would you call this an atlas? 
+
+Group of RSNs can be called as an atlas.
+
+> If you want to keep the atlas
+
+That is how rest of the functions are kept as. I have no strong opinions on the names. My intention is just to keep them easy to call and consistent with other functionalities.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+19,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-07 11:32:27,"@GaelVaroquaux Any suggestions on the name ?
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+20,pull_request_commit_comment,1295,nilearn,nilearn,alexsavio,2016-10-07 15:47:44,"I just saw that the fetch_atlas_smith_2009 is also for a RSN template. So your suggestion sounds good.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+6,issue_comment,1295,nilearn,nilearn,alexsavio,2016-10-11 12:54:09,"There is an error coming from `fetch_atlas_smith_2009`, do you want me to fix that for this PR?
+",nan,nan
+7,issue_comment,1295,nilearn,nilearn,alexsavio,2016-10-25 12:05:17,"@KamalakerDadi my alternative is always pull everything, merge the changes manually and do another PR.
+",nan,nan
+4,issue_comment,1295,nilearn,nilearn,GaelVaroquaux,2016-10-25 18:31:34,"> ```
+> I can't do a proper rebase.
+> ```
+> 
+> Me neither.
+
+OK, don't bother with rebase. Merge is OK.
+",nan,nan
+5,issue_comment,1295,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:35:54,"Tests are all failing here, and it doesn't look spurious to me. @alexsavio : could you please have a look?",nan,nan
+8,issue_comment,1295,nilearn,nilearn,alexsavio,2016-12-05 14:00:43,"I will, soon.",nan,nan
+9,issue_comment,1295,nilearn,nilearn,alexsavio,2016-12-06 14:48:43,For the sake of a clean history I am doing a different PR.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1342,nilearn,nilearn,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",nan,nan
+9,pull_request_commit_comment,1342,nilearn,nilearn,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+6,issue_comment,1342,nilearn,nilearn,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,nan,nan
+10,pull_request_commit_comment,1342,nilearn,nilearn,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+11,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+12,pull_request_commit_comment,1342,nilearn,nilearn,KamalakerDadi,2016-12-11 09:27:30,+1,378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+13,pull_request_commit_comment,1342,nilearn,nilearn,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+7,issue_comment,1342,nilearn,nilearn,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",nan,nan
+8,issue_comment,1342,nilearn,nilearn,codecov[bot],2017-02-14 12:20:17,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=h1) Report
+> Merging [#1342](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5b70bd456226082b9b9bb4501e603bbcfb402e98?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1342      +/-   ##
+==========================================
++ Coverage   94.29%   94.31%   +0.01%     
+==========================================
+  Files         116      116              
+  Lines       12870    12906      +36     
+==========================================
++ Hits        12136    12172      +36     
+  Misses        734      734
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/connectome/group_sparse_cov.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2dyb3VwX3NwYXJzZV9jb3YucHk=) | `85.71% <100%> (+0.23%)` | :white_check_mark: |
+| [nilearn/decoding/space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zcGFjZV9uZXQucHk=) | `93.12% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/plotting/find_cuts.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.29% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3V0aWxzLnB5) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy91dGlscy5weQ==) | `80.11% <ø> (+0.11%)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.13% <ø> (+0.21%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=footer). Last update [5b70bd4...378ed73](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+14,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2017-02-15 12:28:43,"Why is this file added?
+
+Are you sure that it's not the result of an operation error with git?",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/funcsigs.py')"
+15,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2017-02-23 11:09:01,Why this change?,378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+16,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2017-02-23 11:09:52,"Is this function used?
+
+It seems to me that it is not any longer.",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/_utils/fixes/sklearn_validation.py')"
+17,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2017-02-23 11:10:21,This import should be put next to the other imports of sklearn.,378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/connectome/group_sparse_cov.py')"
+18,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2017-02-23 11:18:13,Wouldn't it be a better strategy to do this copy in the loop below? Also using the tee maybe?,378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/connectome/group_sparse_cov.py')"
+19,pull_request_commit_comment,1342,nilearn,nilearn,GaelVaroquaux,2017-02-23 14:13:44,"Just this comment to address before the merge. To be clear, what I have in mind is something like:
+
+<pre>
+n_refinements = 3
+
+cv = (i**2 for i in range(5))
+
+import itertools
+
+# Use itertools.tee to duplicate multiple times the cv iterator
+for this_cv in itertools.tee(cv, n_refinements):
+    print(list(this_cv))
+</pre>
+
+And then you can use the cv object just as before.",378ed738ead5b965be2fe5b9c1e166fb5d4708bf,"(None, '', u'nilearn/connectome/group_sparse_cov.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 

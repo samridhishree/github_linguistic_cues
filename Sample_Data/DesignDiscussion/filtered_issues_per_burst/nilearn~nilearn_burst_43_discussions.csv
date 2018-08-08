@@ -1,0 +1,45 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+8,pull_request_commit_comment,221,nilearn,nilearn,AlexandreAbraham,2014-07-01 08:22:10,"Is it really necessary for a single image? I have the impression that we have some complicated code here to win a bunch of milliseconds.
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+9,pull_request_commit_comment,221,nilearn,nilearn,AlexandreAbraham,2014-07-01 08:23:32,"Is this really reliable? If so, I would like, as a user, a function that can find all point of interest in the image, not only one.
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+10,pull_request_commit_comment,221,nilearn,nilearn,AlexandreAbraham,2014-07-01 08:27:12,"This should be in `check_niimg`.
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/slicers.py')"
+11,pull_request_commit_comment,221,nilearn,nilearn,GaelVaroquaux,2014-07-03 10:11:29,"> This should be in check_niimg.
+
+That's a very good remark. Thanks for raising this point. I implemented
+your suggestion.
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/slicers.py')"
+12,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 20:40:48,"connected component.
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+13,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 20:42:39,"Please be clearer on this heuristic on the docstring
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/find_cuts.py')"
+14,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 20:48:05,"I did not know (or did not remember) about that one. A robust version would actually be great.
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(110, '', u'nilearn/plotting/find_cuts.py')"
+15,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 21:49:52,"pep8 (missing spaces above and below)
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(200, '', u'nilearn/plotting/slicers.py')"
+16,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 21:51:12,"spaces around operators
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/slicers.py')"
+17,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 21:51:44,"... idem...
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'nilearn/plotting/slicers.py')"
+18,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-03 21:54:31,"At some point, we should revise example organization and naming...
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(1, '', u'plot_demo_plotting.py')"
+5,issue_comment,221,nilearn,nilearn,bthirion,2014-07-03 21:57:43,"The coverage increased and the plotting code is simplified: this is great. I'll give more feedback after running the examples.
+",nan,nan
+19,pull_request_commit_comment,221,nilearn,nilearn,bthirion,2014-07-04 13:55:58,"This line currently dowload 2.5 G of data !
+Please add the option n_subjects=4 
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(None, '', u'plot_demo_plotting.py')"
+6,issue_comment,221,nilearn,nilearn,GaelVaroquaux,2014-08-24 16:42:45,"I have addressed all the comments (finally!). I am merging this. Hurray! Thanks for all the comments and reviews, and thanks to @chrisfilo for the great work.
+",nan,nan
+20,pull_request_commit_comment,221,nilearn,nilearn,agramfort,2014-08-24 16:48:52,"I guess it is a mistake
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(5, '', u'plot_haxby_searchlight.py')"
+21,pull_request_commit_comment,221,nilearn,nilearn,GaelVaroquaux,2014-08-24 16:49:23,"> I guess it is a mistake
+
+Yes. Fixing that!
+",465beddc6efc54894178f6fe17dd9e609a1f9b1c,"(5, '', u'plot_haxby_searchlight.py')"
+7,issue_comment,221,nilearn,nilearn,bthirion,2014-08-24 19:58:50,"Thanks, this is really useful
+Just one little issue: nosetests now spits out a large number of 
+matplotlib figues. It would be great if we can avoid it ?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

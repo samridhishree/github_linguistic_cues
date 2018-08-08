@@ -1,0 +1,286 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+11,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:06:48,"for easy visualization
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+12,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:07:21,"Nifti-like images, such as
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+13,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:08:19,"the t-map image
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+14,pull_request_commit_comment,1085,nilearn,nilearn,bthirion,2016-04-18 22:09:11,"Compute the mean functional imager
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+8,issue_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-19 06:35:52,"Thanks for reviewing. Comments addressed.
+",nan,nan
+9,issue_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-23 16:52:24,"Can I have reviews on this ?
+",nan,nan
+15,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:37:53,"`projected on glass brain structure` ?
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+16,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:38:54,"The line of code is self-explanatory, I would not add a comment.
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+17,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:39:24,"I would say projected again
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+5,issue_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 12:39:55,"Apart from some nitpicking, +1
+",nan,nan
+18,pull_request_commit_comment,1085,nilearn,nilearn,banilo,2016-04-25 14:51:22,"alternative: ""mapped onto glass brain representation""
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+19,pull_request_commit_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-25 14:52:18,"Yeah, that's better!
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+20,pull_request_commit_comment,1085,nilearn,nilearn,banilo,2016-04-25 14:53:02,"the data does not exactly belong to nilearn. perhaps ""retrieve from nilearn-provided (general-purpose) datasets""
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(None, '', u'examples/01_plotting/plot_demo_plotting.py')"
+21,pull_request_commit_comment,1085,nilearn,nilearn,banilo,2016-04-25 14:55:08,"Alternative: ""Compute the voxel-wise mean of activity maps across the time-series of maps""
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(88, '', u'examples/01_plotting/plot_demo_plotting.py')"
+10,issue_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-26 08:20:14,"@AlexandreAbraham @banilo comments addressed. Thanks
+",nan,nan
+6,issue_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-26 08:58:04,"Still one hanging.
+",nan,nan
+22,pull_request_commit_comment,1085,nilearn,nilearn,KamalakerDadi,2016-04-26 09:19:19,"activity maps ?
+",90d528fc99f1426b216abbfd9e57a08830c27f63,"(88, '', u'examples/01_plotting/plot_demo_plotting.py')"
+7,issue_comment,1085,nilearn,nilearn,AlexandreAbraham,2016-04-26 11:00:43,"I addressed the last one in master. Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+10,pull_request_commit_comment,1083,nilearn,nilearn,GaelVaroquaux,2016-04-14 14:00:38,"I would indent here (and maybe put the whole expression in parenthesis).
+",4940b75ee085e2c7d0af97518fc96117273f595a,"(None, '', u'doc/conf.py')"
+5,issue_comment,1083,nilearn,nilearn,GaelVaroquaux,2016-04-14 14:25:18,"+1 for merge (maybe after addressing cosmetics)
+",nan,nan
+11,pull_request_commit_comment,1083,nilearn,nilearn,aabadie,2016-04-14 14:28:49,"Comment addressed using parenthesis.
+",4940b75ee085e2c7d0af97518fc96117273f595a,"(None, '', u'doc/conf.py')"
+6,issue_comment,1083,nilearn,nilearn,aabadie,2016-04-14 16:17:29,"The [generated doc](https://circle-artifacts.com/gh/aabadie/nilearn/338/artifacts/0/home/ubuntu/nilearn/doc/_build/html/index.html) seems ok to me.
+",nan,nan
+8,issue_comment,1083,nilearn,nilearn,KamalakerDadi,2016-04-14 17:52:54,"How can I see the PR effect in circle CI ?
+",nan,nan
+9,issue_comment,1083,nilearn,nilearn,KamalakerDadi,2016-04-14 18:00:34,"Ok got it. LGTM too.
+",nan,nan
+7,issue_comment,1083,nilearn,nilearn,lesteve,2016-04-15 06:34:54,"Merging, thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1078,nilearn,nilearn,GaelVaroquaux,2016-04-12 14:42:57,"> While having a look at #1071, I found text that overlaps the sidebar in
+> section 6.1.1.1
+> 
+> Using the doctest NORMALIZE_WHITESPACE option fixes this issue.
+
+The CSS in scipy-lectures would also fix that :) (I know, cause I have
+done it).
+",nan,nan
+5,issue_comment,1078,nilearn,nilearn,aabadie,2016-04-13 17:02:07,"Indeed, #1082 should fix that. Closing.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,pull_request_commit_comment,1076,nilearn,nilearn,AlexandreAbraham,2016-04-12 12:18:21,"dimension
+",f53b459115cd9736242d87dce4c1a092b2d3f705,"(None, '', u'nilearn/_utils/exceptions.py')"
+9,pull_request_commit_comment,1076,nilearn,nilearn,aabadie,2016-04-12 12:20:49,"oh nooo ! (the issue is repeated in so many places)
+",f53b459115cd9736242d87dce4c1a092b2d3f705,"(None, '', u'nilearn/_utils/exceptions.py')"
+10,pull_request_commit_comment,1076,nilearn,nilearn,aabadie,2016-04-12 12:57:50,"I pushed an update.
+",f53b459115cd9736242d87dce4c1a092b2d3f705,"(None, '', u'nilearn/_utils/exceptions.py')"
+7,issue_comment,1076,nilearn,nilearn,banilo,2016-04-14 11:30:38,"LGTM
+",nan,nan
+5,issue_comment,1076,nilearn,nilearn,aabadie,2016-05-18 15:57:04,"I found I had this one pending for a moment. Once CI are green, could someone have a look ?  (@AlexandreAbraham, @banilo)
+",nan,nan
+6,issue_comment,1076,nilearn,nilearn,AlexandreAbraham,2016-05-23 08:31:57,"Good to go, thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1077,nilearn,nilearn,GaelVaroquaux,2016-04-12 13:03:53,"> I was thus wondering whether you had faced and resolved a similar issue
+
+We haven't.
+
+> [The need for such pipeline object stems from the increasing need to apply
+> search light (and generalization of search light) algorithms to mine the data.]
+
+I don't like searchlight.
+",nan,nan
+9,issue_comment,1077,nilearn,nilearn,kingjr,2016-04-12 13:12:59,"> We haven't.
+
+Ok. I'll wait for ~ day to close the issue in case anyone else has any advice.
+
+> I don't like searchlight.I don't like searchlight.
+
+I know you don't :)
+",nan,nan
+6,issue_comment,1077,nilearn,nilearn,eickenberg,2016-04-12 13:29:43,"> We haven't.
+
+Well one could imagine putting the NiftiMasker in a pipeline (I will also
+explicitly state that I don't suggest to do this at all). Then the problem
+arises.
+
+Couldn't this simply be solved by avoiding being too strict about shape and
+only relying on the first axis containing `n_samples` always?
+
+Or by having some non-compulsory shape verifications as static methods
+inside the classes which do non-standard stuff?
+
+On Tue, Apr 12, 2016 at 3:13 PM, Jean-Rémi KING notifications@github.com
+wrote:
+
+> We haven't.
+> 
+> Ok. I'll wait for ~ day to close the issue in case anyone else has any
+> advice.
+> 
+> I don't like searchlight.I don't like searchlight.
+> 
+> I know you don't :)
+> 
+> —
+> You are receiving this because you are subscribed to this thread.
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/1077#issuecomment-208898240
+",nan,nan
+4,issue_comment,1077,nilearn,nilearn,GaelVaroquaux,2016-04-12 14:41:42,"> Well one could imagine putting the NiftiMasker in a pipeline (I will also
+> explicitly state that I don't suggest to do this at all). Then the problem
+> arises.
+> 
+> Couldn't this simply be solved by avoiding being too strict about shape and
+> only relying on the first axis containing `n_samples` always?
+
+I might agree with this, but it's probably a discussion to be had at the
+scikit-learn level.
+
+That said, doesn't what you suggest currently works?
+",nan,nan
+10,issue_comment,1077,nilearn,nilearn,kingjr,2016-04-12 14:53:28,"> Couldn't this simply be solved by avoiding being too strict about shape and only relying on the first axis containing `n_samples` always?
+
+Do you mean using the sklearn pipeline and forcing all X do be n_samples \* n_features? But then you can't easily pipe transformers specific to MRI / MEG data, where the dimensionality needs to be tracked.
+
+> I might agree with this, but it's probably a discussion to be had at the scikit-learn level. 
+
+I hesitated, but sklearn needs to keep a very simple and generic API, so I thought this was more relevant to the neuroimaging communities.
+",nan,nan
+7,issue_comment,1077,nilearn,nilearn,eickenberg,2016-04-12 14:56:40,"I was thinking more along the lines of verifying that
+
+X.shape[0] == n_samples
+
+and that the rest can be whatever it needs to be.
+
+Or, [optionally | if it gets even more general than that], have shape
+verification information bound to the transformers.
+
+On Tue, Apr 12, 2016 at 4:53 PM, Jean-Rémi KING notifications@github.com
+wrote:
+
+> Couldn't this simply be solved by avoiding being too strict about shape
+> and only relying on the first axis containing n_samples always?
+> 
+> Do you mean using the sklearn pipeline and forcing all X do be n_samples *
+> n_features? But then you can't easily pipe transformers specific to MRI /
+> MEG data, where the dimensionality needs to be tracked.
+> 
+> I might agree with this, but it's probably a discussion to be had at the
+> scikit-learn level.
+> 
+> I hesitated, but sklearn needs to keep a very simple and generic API, so I
+> thought this was more relevant to the neuroimaging communities.
+> 
+> —
+> You are receiving this because you commented.
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/1077#issuecomment-208946999
+",nan,nan
+5,issue_comment,1077,nilearn,nilearn,GaelVaroquaux,2016-04-12 15:07:06,"> ```
+> and only relying on the first axis containing n_samples always?
+> ```
+> 
+> Do you mean using the sklearn pipeline and forcing all X do be n_samples *
+> n_features? But then you can't easily pipe transformers specific to MRI / MEG
+> data, where the dimensionality needs to be tracked.
+
+The first axis is n_samples. That's the contract at the scikit-learn
+level.
+
+> ```
+> I might agree with this, but it's probably a discussion to be had at the
+> scikit-learn level.
+> ```
+> 
+> I hesitated, but sklearn needs to keep a very simple and generic API, so I
+> thought this was more relevant to the neuroimaging communities.
+
+I don't want to be implementing our own version of pipeline. I just think
+that this is too dangerous.
+",nan,nan
+8,issue_comment,1077,nilearn,nilearn,AlexandreAbraham,2016-04-12 15:17:02,"I think that I don't get your problem. You want a pipeline structure able to process a wide range of data types. In scikit learn, the data format is fixed. In nilearn, it is also the case but we have several data types (the sklearn representation and the niimgs).
+
+So, in your case:
+- either you can explore the whole space of possible datatypes and you create special objects / processing for them
+- or you want something generic. In that case you problably want to label the dimensions of your numpy array and put some glue between the different steps of the pipeline to transform the outputed data into a format compatible with the input of the next step.
+
+So if you just want to keep track of the meaning of the dimensions it should be possible to extend the numpy array to associate a name to each dimension.
+",nan,nan
+11,issue_comment,1077,nilearn,nilearn,kingjr,2016-04-13 13:38:36,"ok, thank you all for your feedback. I think you're right and the safest approach is probably to keep the sklearn pipeline, and just initializing our neuroimaging transformers with all metadata, e.g.
+
+```
+pipeline = make_pipeline(
+    StandardScaler(),
+    IntervoxelCorrelation(info=niifti.info),
+    SVC())
+```
+
+This won't allow some usecases where the metadata changes across steps e.g.
+
+```
+pipeline = make_pipeline(
+    StandardScaler(),
+    Subsampler(info=nifti.info),
+    IntervoxelCorrelation(info=nifti.info),  # XXX this info is not up to date after subsampling
+    SVC())
+```
+
+But it's probably a more robust approach than building our own pipeline to handle metadata.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+15,pull_request_commit_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-04-19 10:51:37,"I'm a bit afraid of this change as we don't really have control on the input. For example, with imgs=""test.nii"", this will not work as strings are iterable. And I'm sure that we can find other weird cases. This is why NiftiStuffMasker are declined in Single and Multi flavors: accepting any dimensionality of data was too messy.
+
+Plus documentation is not updated.
+
+I would go for feeding ['test.nii'] to canica for single subject and postponing this behavior for later when we will have time to think it through. Apart from that, +1 for merge.
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(None, '', u'nilearn/decomposition/base.py')"
+5,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-04-19 17:30:11,"To reply to @AlexandreAbraham 's comment: in a sense, yes, it's a bit of a quick hack. However, it's a very light modification and it makes the code work like the user expects it: asking the user to do fit(['fmri.nii']) is not good. In addition, the current error
+
+In the long run, maybe we should think about this in the same time as when we do the globbiing.
+
+I have made sure that strings are well handle (as per @AlexandreAbraham 's remark).
+",nan,nan
+10,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-04-26 11:17:50,"This should work if rebased.
+",nan,nan
+16,pull_request_commit_comment,1089,nilearn,nilearn,banilo,2016-04-26 12:17:22,"merge conflicts?
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(23, '', u'nilearn/decomposition/base.py')"
+17,pull_request_commit_comment,1089,nilearn,nilearn,banilo,2016-04-26 12:26:46,"- regression test that verifies one-subject compat?
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(68, '', u'nilearn/decomposition/tests/test_canica.py')"
+6,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 11:20:40,"Rebased branch. Waiting for tests to finish.
+",nan,nan
+7,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 13:43:34,"Can I haz merge?
+",nan,nan
+18,pull_request_commit_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 13:51:19,"Please use:
+
+``` python
+from .._utils.compat import _basestring
+```
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(None, '', u'nilearn/decomposition/base.py')"
+11,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 13:54:04,"I can merge and fix the small stuff directly into master or you can fix it now.
+",nan,nan
+8,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 14:00:14,"Fixed. Thanks
+",nan,nan
+13,issue_comment,1089,nilearn,nilearn,bthirion,2016-05-19 14:10:42,"LGTM
+",nan,nan
+12,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 14:13:33,"I'll just wait for CI to go green, just to be sure, and I'll merge!
+",nan,nan
+14,issue_comment,1089,nilearn,nilearn,banilo,2016-05-19 15:46:55,"Looks good.
+",nan,nan
+9,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 16:04:42,"CI is green. Merging
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1088,nilearn,nilearn,GaelVaroquaux,2016-04-22 08:08:58,"No opposition on this, but it should be clearly said the natural way of using nilearn is via its Python API. Nipype is useful for combining multiple tools, but it comes with inherent clunckiness due to that. Nilearn strives to make things simpler via its API.
+",nan,nan
+6,issue_comment,1088,nilearn,nilearn,alexsavio,2016-04-22 09:37:14,"I agree with you. I think the most valuable contribution would be adding the plotting sub-module to plot internal pipeline results, for me they are quite handy.
+",nan,nan
+4,issue_comment,1088,nilearn,nilearn,GaelVaroquaux,2016-04-22 11:19:15,"> I think the most valuable contribution would be adding the plotting
+> sub-module to plot internal pipeline results,
+
+Agreed. When I was using nipype heavily, I was mixing it a lot with
+plotting (a bit like what's currently in pypreprocess)
+",nan,nan
+5,issue_comment,1088,nilearn,nilearn,GaelVaroquaux,2016-06-13 14:14:47,"Closing this issue, as closing the issue does not prevent discussion.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

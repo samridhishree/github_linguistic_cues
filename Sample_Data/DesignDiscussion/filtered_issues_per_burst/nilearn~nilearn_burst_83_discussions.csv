@@ -1,0 +1,1416 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+8,pull_request_commit_comment,1164,nilearn,nilearn,GaelVaroquaux,2016-07-05 08:24:15,"Maybe I would say ""Repetition time (t_r) must be specified..."" to make it more explicit what the user must change.
+",68bf8d12c7eaea247ed06cd6384d16a847556049,"(None, '', u'nilearn/signal.py')"
+6,issue_comment,1164,nilearn,nilearn,KamalakerDadi,2016-07-05 08:40:47,"Can you add simple test please ?
+",nan,nan
+7,issue_comment,1164,nilearn,nilearn,KamalakerDadi,2016-07-05 08:47:58,"Does it sounds meaningful to suggest repetition time from image header ?
+
+Some hints I followed from this already existing PR #1036 
+",nan,nan
+5,issue_comment,1164,nilearn,nilearn,salma1601,2016-07-05 09:25:19,"> Does it sounds meaningful to suggest repetition time from image header ?
+> Some hints I followed from this already existing PR #1036
+
+I would rather let the user search himself for this information, to encourage one to know basic information about the data he is working on.
+just a personal point of view ;)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1143,nilearn,nilearn,MartinPerez,2016-06-21 19:20:29,"@AlexandreAbraham this is what I told you about, sorry I took some time to make the PR.
+",nan,nan
+11,pull_request_commit_comment,1143,nilearn,nilearn,bthirion,2016-06-21 20:46:23,"Could you add a test for that ?
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(None, '', u'nilearn/signal.py')"
+12,pull_request_commit_comment,1143,nilearn,nilearn,lesteve,2016-06-22 08:27:34,"Best practice: always include the value provided by the user in the error message, something like:
+
+``` py
+raise TypeError(""High pass must be float or None but you provided high_pass='{0}'"".format(high_pass))
+```
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(None, '', u'nilearn/signal.py')"
+7,issue_comment,1143,nilearn,nilearn,MartinPerez,2016-06-22 19:33:00,"memory failure in one build? could this be due to adding assert_raises errors with signal.clean? I dont understand why this would be the case.
+",nan,nan
+5,issue_comment,1143,nilearn,nilearn,lesteve,2016-06-23 06:00:16,"> memory failure in one build?
+
+Ignore this one, it is failing intermittently and unfortunately @aabadie did not find a way to make it more reliable.
+",nan,nan
+13,pull_request_commit_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-01 18:28:08,"error message for wrong input has single quotes which I don't think it is necessary. May be we can remove single quotes ? What do you think ?
+
+``` python
+TypeError: low pass must be float or None but you provided low_pass='False'
+```
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(6, '', u'nilearn/signal.py')"
+9,issue_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-01 18:30:28,"Small remark on error message. Otherwise, LGTM.
+",nan,nan
+10,issue_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-01 19:55:27,"Can you also have a look at `nilearn/decoding/space_net.py` ?
+",nan,nan
+14,pull_request_commit_comment,1143,nilearn,nilearn,MartinPerez,2016-07-01 23:00:41,"@KamalakerDadi I just corrected the message as @lesteve suggested. Look at his outdated comment above with single quotes. I don't have a preference on this. which one is better practice? If you want I will change it again.
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(6, '', u'nilearn/signal.py')"
+8,issue_comment,1143,nilearn,nilearn,MartinPerez,2016-07-01 23:01:40,"space net done. Sorry I missed it.
+",nan,nan
+15,pull_request_commit_comment,1143,nilearn,nilearn,KamalakerDadi,2016-07-02 09:46:01,"string is expressed in quotes actually.
+
+We will wait for final reviews from @lesteve @AlexandreAbraham 
+",e8e6969f6eda3c6e5d4bb298598c93fafffc13a6,"(6, '', u'nilearn/signal.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1160,nilearn,nilearn,AlexandreAbraham,2016-07-04 13:38:23,"0.14.1 is very old. This seems like a safe move to me.
+
++1.
+",nan,nan
+4,issue_comment,1160,nilearn,nilearn,KamalakerDadi,2016-07-05 15:54:41,"OK, I am assigning myself to address this issue.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,1162,nilearn,nilearn,GaelVaroquaux,2016-07-04 21:20:32,"Maybe a check_niimg_3d rather? So that if the user gives a 4D image we get a meaningful error message.
+",64a57487d577213e7e94f85b7413544abaf42596,"(None, '', u'nilearn/image/image.py')"
+6,pull_request_commit_comment,1162,nilearn,nilearn,AlexandreAbraham,2016-07-04 21:22:13,"`masking._load_mask_img` loads and does all the appropriate checks.
+",64a57487d577213e7e94f85b7413544abaf42596,"(None, '', u'nilearn/image/image.py')"
+7,pull_request_commit_comment,1162,nilearn,nilearn,KamalakerDadi,2016-07-04 21:31:54,"> Maybe a check_niimg_3d rather? 
+
+It is for both 3D/4D.
+",64a57487d577213e7e94f85b7413544abaf42596,"(None, '', u'nilearn/image/image.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-01 10:19:02,"> can someone among you look this PR up?
+
+Sure, this is my top priority to look into. I might take some time to comment since I am new to look how backporting works in nilearn.
+
+You may have to change title because your PR majorly addresses scikit-learn back ports.
+",nan,nan
+7,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-07 12:44:34,"Now that PR #1169 is merged. You can clean your PR a bit to remove dependencies related to < 0.14 (if I am not wrong).
+
+Hopefully, this can also help us to solve coverage problem too.
+",nan,nan
+11,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:32:39,"I think this extra space is not necessary
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(4, '', u'nilearn/_utils/fixes/__init__.py')"
+12,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:32:53,"same here
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+13,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:32:59,"same here
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+14,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:33:54,"Do you think we should first `try` higher version and then except `ImportError` lesser versions ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+15,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:35:26,"Sorry, I didnt get this. Aren't you using this file for versions lesser than 0.17 ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+16,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:36:32,"Can you add a small description about this file ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+17,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:40:20,"Do you think this can be integrated in or used from `nilearn._utils.exceptions.py` ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+18,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 20:46:05,"For lesser versions nilearn already has `check_array` imported as `atleast2d_or_csr`. Do you think it can be used here ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+19,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-12 21:33:09,"May be we should rename `scikit_learn_validation` to more appropriate naming depending upon usage of `check_X_y` and `check_is_fitted`. So that it can be used for other purposes wherever necessary. Any comments on this ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+20,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 12:25:07,"+1
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+21,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 12:42:51,"use prefix `sklearn`
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+22,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 13:52:00,"This is exactly the purpose of this file: bring a feature available in sklearn 0.17 to previous versions. For me, this is self-explanatory. Maybe just say that this file is from sklearn.utils.validation.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+23,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 13:54:45,"No, this is imported from another software. Backports must be left as untouched as possible. Otherwise updating them (say with code from sklearn 0.18 for example when it will be released) can be tedious.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+24,pull_request_commit_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-13 14:01:46,"Good catch. Isn't it the opposite? Isn't `check_x_y` supposed to replace `check_array`?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+25,pull_request_commit_comment,1148,nilearn,nilearn,ahoyosid,2016-07-15 22:25:15,"atleast2d_or_csr => check_array 
+Basically, check_X_y combines check_array (for X and y), and checks if their lengths are consistent 
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/scikit_learn_validation.py')"
+26,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 08:15:35,"Any reason why you are raising `ImportError` like you have did for others ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+8,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 08:17:21,"can you add tests to space net failure ?
+",nan,nan
+27,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 08:51:46,"Can it be replaced by `atleast2d_or_csr` ? Is it the same or not ?
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(16, '', u'nilearn/_utils/fixes/sklearn_validation.py')"
+28,pull_request_commit_comment,1148,nilearn,nilearn,GaelVaroquaux,2016-07-18 08:54:18,"> > +def check_array(array, accept_sparse=None, dtype=""numeric"", order=None,
+> 
+> Can it be replaced by atleast2d_or_csr ? Is it the same or not ?
+
+If the question is whether check_array is the same as atleast2d_or_csr,
+the answer is no: it does additional checks and should be prefered in
+general.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(16, '', u'nilearn/_utils/fixes/sklearn_validation.py')"
+29,pull_request_commit_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 09:19:00,"Ok.
+",6e38eda6c3ba6e600a3cd4c779f7735c70576bb5,"(16, '', u'nilearn/_utils/fixes/sklearn_validation.py')"
+9,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-18 20:45:07,"There are still some comments hanging. The comments which are made regarding extra spaces. Otherwise LGTM.
+",nan,nan
+10,issue_comment,1148,nilearn,nilearn,KamalakerDadi,2016-07-19 18:24:59,"Any reviews ? @AlexandreAbraham @lesteve @aabadie @GaelVaroquaux 
+",nan,nan
+5,issue_comment,1148,nilearn,nilearn,AlexandreAbraham,2016-07-21 10:49:44,"Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,1168,nilearn,nilearn,GaelVaroquaux,2016-07-05 15:20:55,"Shouldn't auto be mentioned here?
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+8,pull_request_commit_comment,1168,nilearn,nilearn,GaelVaroquaux,2016-07-05 15:21:14,"Shouldn't auto be mentioned here?
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+9,pull_request_commit_comment,1168,nilearn,nilearn,KamalakerDadi,2016-07-05 15:24:59,"I am focussing on user specified inputs here. 'auto' is by default anyway doesn't require to say user to give 'auto' again. If you think its necessary I can add it.
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+10,pull_request_commit_comment,1168,nilearn,nilearn,GaelVaroquaux,2016-07-05 15:27:23,"> I am focussing on user specified inputs here. 'auto' is by default
+> anyway doesn't require to say user to give 'auto' again. If you think
+> its necessary I can add it.
+
+Yes, it's necessary to add it and to describe what it does. Elsewhere the
+user cannot interpret what he/she reads in the function signature, and
+hence the default behavior.
+",8a03ca628f54e2052243e9132406d2f61004152a,"(None, '', u'nilearn/plotting/img_plotting.py')"
+5,issue_comment,1168,nilearn,nilearn,AlexandreAbraham,2016-07-19 12:24:44,"LGTM
+",nan,nan
+6,issue_comment,1168,nilearn,nilearn,AlexandreAbraham,2016-07-21 10:52:57,"I think we can merge it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1169,nilearn,nilearn,KamalakerDadi,2016-07-07 07:58:20,"Can I have reviews please ?
+",nan,nan
+5,issue_comment,1169,nilearn,nilearn,AlexandreAbraham,2016-07-07 08:11:09,"+1 for me.
+Should we do a release soon?
+",nan,nan
+7,issue_comment,1169,nilearn,nilearn,KamalakerDadi,2016-07-07 08:16:05,"> Should we do a release soon?
+
+For me merged with decoder object ?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1141,nilearn,nilearn,AlexandreAbraham,2016-06-20 20:58:50,"Thanks for the PR. 3 remarks though (with points to discuss):
+- examples relying on haxby_simple must be updated
+- we should probably discuss if we remove it bluntly or if we ""deprecate it"" (and make it rely on fetch_haxby)
+- the test of haxby_simple is the only one to actually ""download"" a file (it is a dummy file from the repo itself) and therefor to test the full dataset fetching process. We have to replace it by another one (can be done in a separate PR).
+",nan,nan
+5,issue_comment,1141,nilearn,nilearn,Joaoloula,2016-07-02 10:36:22,"Actually, just substituting the function breaks most examples, seeing as the simple fetcher can be loaded with `np.loadtxt` and returns an int-coded target, which `fetch_haxby` does not. I was actually working on this as well and made another PR fixing the examples, deprecating the function and adding a new test for the dummy file: hope that's alright!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,990,nilearn,nilearn,GaelVaroquaux,2016-02-17 09:37:17,"Agreed on the general idea. I think that @AlexandreAbraham uses this in
+his MSDL code.
+
+Wether it should be a new method or a class parameter, I don't know. Any
+opinions?
+
+G
+",nan,nan
+4,issue_comment,990,nilearn,nilearn,bthirion,2016-02-17 19:00:24,"As suggested by Arthur, a class parameter sounds more natural imho.
+",nan,nan
+5,issue_comment,990,nilearn,nilearn,AlexandreAbraham,2016-02-18 09:50:47,"> Agreed on the general idea. I think that @AlexandreAbraham uses this in his MSDL code.
+
+Yes I do, I also already have a branch that adds it to the maskers.
+
+Actually, the issue already exists #203 and some code to fix it also already exists #278. The problem is that if we enable it, we have to propagate everywhere. Meaning `compute_multi_epi_mask` should use it, `CanICA` should use it, etc.
+
++1 for the class parameter.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+23,pull_request_commit_comment,832,nilearn,nilearn,AlexandreAbraham,2015-11-08 08:30:28,"Why don't you use the file fetching functions of datasets here? I guess that we will have a problem of update with neurovault: a given request may return different results if the neurovault base has been updated. We should maybe use a flag to work online / offline.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+4,issue_comment,832,nilearn,nilearn,AlexandreAbraham,2015-11-08 08:38:33,"> Not quite done, but far enough along to talk about the API I've implemented.
+
+I think that the macanism of filters is too complicated for most of our users. We can keep it for advanced users but at some point we should provide simpler pre-made filters. For example, I think that a user should be able to specify the id of a collection or a list of ids (I know that it's possible through collection_filter). But we'll see that later.
+
+> The example I've begun with is a stop-go task meta-analysis
+
+Reproducing an example provided by neurovault is indeed the way to go.
+
+> Note that I avoided trying to convert things to a pandas dataframe. 
+
+So far, we have avoided this dependency but we may have to include it at some point. Is there a real benefit to use pandas here?
+
+The PR so far looks like really good work to me ;).
+",nan,nan
+24,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-11-08 14:08:06,"Yep, should definitely try to migrate this. If it requires tweaks to the fetching functions, will submit those as a separate PR.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+5,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-08 14:14:23,"> We should maybe use a flag to work online / offline.
+
+Regardless of online or offline, there is an updating problem. When online, the code assumes that a cached copy of a particular collection or image metadata, or image data is correct / up-to-date. I have the `refresh` flag for controlling that behavior. A more automated mechanism is possible.
+
+Separate from that, the code needs to work in offline mode; currently it does not. I have added that to the WIP item list.
+
+> I think that the macanism of filters is too complicated for most of our users. We can keep it for advanced users but at some point we should provide simpler pre-made filters. For example, I think that a user should be able to specify the id of a collection or a list of ids (I know that it's possible through collection_filter). But we'll see that later.
+
+Right; glad to add more simple filters. It's very easy to map from the simple filters to the more complex ones. The complex filters were needed to mirror the logic of the example I ported, but I could also change it to use specific collections and images (and tell users they were determined by searches on the website).
+
+> So far, we have avoided this dependency but we may have to include it at some point. Is there a real benefit to use pandas here?
+
+In the previous examples, the benefit was using Pandas' filtering mechanisms, which tend to lead to simpler code. But I just don't see it as an option here, unless we limit users to very simple filters (which I think would be a shame).
+
+> The PR so far looks like really good work to me ;).
+
+:D
+",nan,nan
+6,issue_comment,832,nilearn,nilearn,chrisfilo,2015-11-10 03:11:42,"Looks good to me so far! Let me know if you have any questions about the API (we can make improvements!)
+",nan,nan
+7,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-10 17:02:36,"Thanks @chrisfilo! One thing that might help is if the API endpoint could return headers indicating the response size; `nilearn` doesn't like not getting a `Content-Length` header, I believe.
+
+To reduce the number of requests made, it could also be helpful to be able to get image metadata for a specified set of collection IDs, rather than one at a time.
+",nan,nan
+8,issue_comment,832,nilearn,nilearn,chrisfilo,2015-11-10 17:04:52,"On Tue, Nov 10, 2015 at 9:02 AM, Ben Cipollini notifications@github.com
+wrote:
+
+> Thanks @chrisfilo https://github.com/chrisfilo! One thing that might
+> help is if the API endpoint could return headers indicating the response
+> size; nilearn doesn't like not getting a Content-Length header, I believe.
+> 
+> That's for a single file download or part of JSON?
+> 
+> To reduce the number of requests made, it could also be helpful to be able
+> to get image metadata for a specified set of collection IDs, rather than
+> one at a time.
+> 
+> Hmm - we can work on adding this.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/832#issuecomment-155487633.
+",nan,nan
+9,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-10 17:05:00,"@AlexandreAbraham in order to remove the `requests` dependency, I needed to make changes to `_fetch_files` (#838 and #839; add overwrite option, modify output). Not sure this is a net positive; the code was simpler all around when using `requests`. Glad to get feedback!
+",nan,nan
+10,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-10 17:06:32,"> That's for a single file download or part of JSON?
+
+JSON. Downloading actual images works perfectly.
+",nan,nan
+11,issue_comment,832,nilearn,nilearn,AlexandreAbraham,2015-11-10 21:52:55,"> nilearn doesn't like not getting a Content-Length header, I believe.
+
+This case should be handled properly.
+
+> the code was simpler all around when using requests
+
+I am not against adding requests as a dependency but you should ask to the big boss :P.
+",nan,nan
+12,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-16 04:27:00,"@chrisfilo Another issue I'm having with the NeuroVault API is that collection ID returned seems unordered. This means that, when I'm offline, I can't order collections as I get them when I'm online. This causes problems.
+
+Is it possible to get collection IDs returned in order?
+
+Here's what I see for collection IDs:
+
+```
+Downloading data from http://neurovault.org/api/collections  ...
+ [10, 862, 38, 55, 72, 75, 81, 82, 84, 554, 14, 71, 816, 723, 440, 556, 35, 67, 17, 66, 471, 92, 751, 4, 923, 496, 70, 921, 79, 93, 863, 89, 609, 542, 497, 784, 57, 109, 102, 114, 117, 119, 610, 103, 465, 612, 118, 115, 443, 494, 215, 882, 787, 795, 790, 105, 140, 796, 800, 794, 804, 865, 506, 495, 33, 308, 473, 500, 927, 510, 907, 809, 588, 625, 508, 190, 631, 572, 812, 573, 628, 231, 574, 295, 298, 292, 276, 294, 305, 408, 285, 287, 885, 319, 821, 356, 409, 323, 324, 329]
+
+Downloading data from http://neurovault.org/api/collections/?offset=100 ...
+[586, 331, 320, 340, 367, 335, 336, 886, 585, 337, 344, 360, 365, 376, 377, 929, 379, 814, 46, 391, 555, 822, 559, 576, 931, 887, 581, 486, 589, 594, 297, 597, 592, 598, 932, 934, 591, 903, 942, 601, 599, 596, 562, 448, 825, 889, 43, 398, 912, 551, 933, 563, 59, 187, 179, 94, 552, 451, 460, 826, 890, 648, 913, 203, 7, 418, 419, 550, 307, 650, 646, 461, 34, 640, 227, 641, 639, 915, 684, 553, 687, 655, 545, 681, 683, 315, 686, 893, 3, 527, 434, 526, 806, 515, 697, 700, 708, 709, 831, 519]
+```
+",nan,nan
+13,issue_comment,832,nilearn,nilearn,chrisfilo,2015-11-16 04:41:29,"Hmm. I can add this, but it will slow down the API (not sure how much). Why
+is the order necessary?
+
+On Sun, Nov 15, 2015 at 8:27 PM, Ben Cipollini notifications@github.com
+wrote:
+
+> @chrisfilo https://github.com/chrisfilo Another issue I'm having with
+> the NeuroVault API is that collection ID returned seems unordered. This
+> means that, when I'm offline, I can't order collections as I get them when
+> I'm online. This causes problems.
+> 
+> Is it possible to get collection IDs returned in order?
+> 
+> Here's what I see for collection IDs:
+> 
+> Downloading data from http://neurovault.org/api/collections  ...
+>  [10, 862, 38, 55, 72, 75, 81, 82, 84, 554, 14, 71, 816, 723, 440, 556, 35, 67, 17, 66, 471, 92, 751, 4, 923, 496, 70, 921, 79, 93, 863, 89, 609, 542, 497, 784, 57, 109, 102, 114, 117, 119, 610, 103, 465, 612, 118, 115, 443, 494, 215, 882, 787, 795, 790, 105, 140, 796, 800, 794, 804, 865, 506, 495, 33, 308, 473, 500, 927, 510, 907, 809, 588, 625, 508, 190, 631, 572, 812, 573, 628, 231, 574, 295, 298, 292, 276, 294, 305, 408, 285, 287, 885, 319, 821, 356, 409, 323, 324, 329]
+> 
+> Downloading data from http://neurovault.org/api/collections/?offset=100 ...
+> [586, 331, 320, 340, 367, 335, 336, 886, 585, 337, 344, 360, 365, 376, 377, 929, 379, 814, 46, 391, 555, 822, 559, 576, 931, 887, 581, 486, 589, 594, 297, 597, 592, 598, 932, 934, 591, 903, 942, 601, 599, 596, 562, 448, 825, 889, 43, 398, 912, 551, 933, 563, 59, 187, 179, 94, 552, 451, 460, 826, 890, 648, 913, 203, 7, 418, 419, 550, 307, 650, 646, 461, 34, 640, 227, 641, 639, 915, 684, 553, 687, 655, 545, 681, 683, 315, 686, 893, 3, 527, 434, 526, 806, 515, 697, 700, 708, 709, 831, 519]
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/832#issuecomment-156911793.
+",nan,nan
+14,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-16 04:44:47,"I have a parameter to limit the number of images returned. If I iterate through collections differently online and offline, the image set will be different between the two.
+",nan,nan
+25,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-16 05:58:34,"nitpick, but I think that I would rather avoid having calls to 'show' in the middle.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+26,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-16 06:39:09,"I find that it is generally better to move these function outside of the enclosing scope, so that they can tested, debugged, and maybe one day reused more easily.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+22,issue_comment,832,nilearn,nilearn,lesteve,2015-11-16 10:08:22,"> I am not sure why tests are failing. 
+
+The Travis one fails for the Python 2.6 distrib. I am guessing the .header property doesn't exist for nibabel 1.1.0. You will need to stick with get_header instead.
+",nan,nan
+27,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:27:54,"`force` is not used if you may have missed it.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+28,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:28:44,"May be it is not necessary since you have already explained above ?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+29,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:29:47,"May be cutshorting ""="".
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+30,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:31:25,"May be its not necessary `# print(......`
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+31,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:33:39,"Taking into account reviews on my PR's, I think `src_nii` should be denoted as `src_img` same to `target_nii`.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+32,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:34:05,"typo ""make""
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+33,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2015-11-17 21:40:57,"""thresholded""
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/description/neurovault.rst')"
+15,issue_comment,832,nilearn,nilearn,lesteve,2015-11-24 12:15:37,"It looks like this needs a rebase on master.
+",nan,nan
+16,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-24 12:20:44,"Yep, a different version of the print/output changes were contained here. Just rebased to use the updated version of that code--thanks for merging!
+",nan,nan
+17,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-30 21:33:39,"Rebased to master.
+",nan,nan
+34,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:01:28,"The notebook-style examples have been merged.
+
+Once rebased on master (which I think you have just done), and you turn all these '-' into '#', you should get pretty notebook-like rendering in the docs:
+https://circle-artifacts.com/gh/nilearn/nilearn/757/artifacts/0/home/ubuntu/nilearn/doc/_build/html/auto_examples/connectivity/plot_adhd_spheres.html
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+35,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:06:44,"I think that I would prefer this as a default in the function signature.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+36,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:07:33,"Could we have this as a default empty tuple (not list) in the function signature? To make things more explicit.
+
+The good thing about a tuple is that it is not mutable.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+37,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:07:44,"Same remark about the tuple.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+38,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:09:38,"@AlexandreAbraham : can you comment on this change. This is code that you wrote originally, and you probably have a good feeling of where it is useful.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(50, '', u'nilearn/datasets/utils.py')"
+18,issue_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:12:21,"Hey, @bcipolli , sorry for taking so long to look at this.
+
+My main comment is that the examples are a bit scary. The fact that we come up with such examples suggests that we don't fully have the right abstractions. This is probably mostly unrelated with this PR (and something like https://github.com/nilearn/nilearn/issues/847 might help). However, the current examples are going against the will of nilearn to reassure users that things are simple and will be alright.
+",nan,nan
+39,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:13:04,"We don't need to cache this, do we?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+40,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:17:07,"I have a hunch that this function could be simplified using nilearn.image.iter_img. 
+
+I am not sure quite how at a quick glance, but when I look at the function from a big picture, I have this feeling.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+41,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:19:02,"This could probably use new_img_like?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+42,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:20:30,"I believe that all the above (including the 'squeeze') should be possible to implement with iter_img. If it's not the case, we have gotten something wrong in the design of iter_img, and we need to fix that.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+43,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:21:18,"If we remove this file saving from the example, I am not sure that we loose a lot of functionality, and we do remove a lot of lines. What do you think?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+44,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:23:45,"Maybe we should special-case this filter in the fetch_neurovault function, if you think that it is very useful (it does seem so).
+
+What do you think?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+45,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:27:45,"I think that if you used here 'check_niimg(..., ensure_ndim=3) you could pass in paths (which would simplify other parts of the example), and you would not need to squeeze.
+
+It would indeed mean that you are importing from a private module, _'utils', which feels wrong, but we can expose a public path for this function if it is useful.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+46,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:29:22,"Start comment (content of the comment below, sorry, I don't see a better way of doing this)
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+47,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:31:42,"End comment:
+
+I think that all the lines between the start of the comment, and the end of the comment (and the line getting rid of nans that was before) could be put in a public function companion of _extrapolate_out_mask. Maybe 'extropolate_thresholded_img'. It feels like a function that would be of general use.
+
+What do you think?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+48,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:33:42,"I think that this is a fairly universal brain mask that is obtained by thresholding the SPM tissue probability maps. We should either put it in the nilearn datasets, or (better) have downloaders for the SPM TPMs. @AlexandreAbraham : what do you think?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+49,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:34:34,"I am wondering: maybe we can do the resampling using the NiftiMasker's resampling functionality? If that's possible, it would simplify the example.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+19,issue_comment,832,nilearn,nilearn,GaelVaroquaux,2015-11-30 22:36:10,"I must now go to bed, and I won't be able to work on this before tomorrow afternoon. I have made many small comments on the example. I don't know if they make any sense. I was trying to figure out ways of simplifying it.
+",nan,nan
+20,issue_comment,832,nilearn,nilearn,bcipolli,2015-11-30 22:46:00,"Thanks @GaelVaroquaux ! It will be great to simplify the example and make good use of the `nilearn` tools. I've obviously been out of the `nilearn` loop too long, so my chops have diminished. Looking forward to beefing them up over the next couple of days.
+
+Thanks for the detailed comments, and looking forward to getting pretty--and simple--examples done. :+1: 
+
+P.S. @AlexandreAbraham congrats ;)
+",nan,nan
+50,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-12-07 22:24:44,"Actually, it's expected that `collection_filters` is mutable, as some default arguments get converted into `collection_filters`. Which means, if someone passes in a tuple, things will break.
+
+I would prefer say `collection_filters = list(collection_filters)` to begin... is there a better way to handle this?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+51,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-12-07 22:29:06,"Agreed, good idea. With `mem.cache`, there's really no reason to additionally re-save the images, and most of the complexity of the function is in the save.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+52,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-12-07 22:49:37,"Perhaps a `exclude_known_bad_images` flag that adds all of the filters above your comment. (edited to change the parameter name)
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+53,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-12-07 22:54:26,"One downside of `iter_img` is that it fails on a 3D image, rather than giving me an iterator for the one image. So I'll have to load the image and check if it's 4D before calling `iter_img`... that seems clunky to me.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+54,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-12-07 23:04:20,"Looks like `itertools.chain()` is the preferred method. I will convert these to tuples, in this case.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'nilearn/datasets/func.py')"
+55,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2015-12-07 23:32:08,"Oh, that's perfect--this makes memory caching easy too.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(None, '', u'examples/connectivity/plot_ica_neurovault.py')"
+21,issue_comment,832,nilearn,nilearn,bcipolli,2015-12-23 15:09:01,"@GaelVaroquaux I've updated the `plot_ica_neurovault` example to use more of the `nilearn` architecture, simplify the interface, and to push useful code into the fetcher function (useful filters, getting neurosynth terms). The example looks shorter and simpler to me now.
+
+There are a few changes to core nilearn code that do need comments (including one small new one, to avoid a warning I was getting). I could pull those out and submit those separately, if it helps.
+",nan,nan
+56,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:32:30,"Could you change these separators to use seperators like in the other examples of nilearn (one line of ""#"" and then the text below). That way sphinx-gallery knows how to split the example in a notebook-like example.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(15, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+57,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:35:00,"Using the ' or """" ', are you trying to use the pattern '.get(key, default)' ?
+
+I would prefer to rely on that, because it is a standard Python pattern.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+58,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:36:21,"Maybe it's also tell us that im (which is defined in the neurovault downloader) should be a defaultdict, with a default value of """".
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+59,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:36:48,"Scrap that. It would probably make debugging hard.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+60,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:39:50,"I'd rather not add this to all the downloaders. It's going to lead to subtle bugs in what people are doing. I'd rather have the download just crash if there is no internet.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(44, '', u'nilearn/datasets/func.py')"
+61,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2016-01-13 17:41:06,"Just for some quick feedback: this is the JSON dict from neurovault. It can return blank or `None`, or sometimes the value isn't present at all. The idiom above is how I typically handle such cases.
+
+To simplify the example, I could try to normalize things inside the `fetch` function. Because I'm not sure what to expect from Neurovault (no documentation to that level) and after talking with @chrisfilo about the differences in metadata provided from different data sources, returning the raw JSON from `fetch` and letting users handle what they see, seemed like the safest thing.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+62,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:42:37,"I think that ""bad_collects"" and 'bad_image_ids"" should be module-level constants under the name ""BAD_NEUROVAULT_COLLECTIONS and ""BAD_NEUROVAULT_IMAGE_IDS""
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(940, '', u'nilearn/datasets/func.py')"
+63,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:44:11,"OK. I don't know what to conclude. I just find that the downloader is a
+bit difficult to use because of these pecularities.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+64,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2016-01-13 17:47:31,"The choices are: try to normalize, and risk that we'll get things wrong, be agnostic and let the data be peculiar to work with, or convince @chrisfilo to normalize things more easily across the board. I have a couple of issues open on it: https://github.com/NeuroVault/NeuroVault/issues/395 https://github.com/NeuroVault/NeuroVault/issues/396
+
+I'm glad to go in whatever direction. I chose the direction that seemed seemed most flexible to me.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+65,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:48:58,"> The choices are: try to normalize, and risk that we'll get things
+> wrong, be agnostic and let the data be peculiar to work with, or
+> convince @chrisfilo to normalize things more easily across the board. I
+> have a couple of issues open on it: NeuroVault/NeuroVault#395
+> NeuroVault/NeuroVault#396
+
+The best option would be convincing @chrisfilo.
+
+Please, pretty please with a cherry on top, @chrisfilo.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(17, '', u'examples/manipulating_visualizing/plot_neurovault_meta_analysis.py')"
+66,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:52:47,"I am not sure how this is tied to your PR. Can you comment on where it is used?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(27, '', u'nilearn/image/image.py')"
+67,pull_request_commit_comment,832,nilearn,nilearn,bcipolli,2016-01-13 17:58:03,"Indeed, I no longer use `iter_img` in `plot_ica_neurovault.py` after previous changes, so this is no longer needed. Will pull this and close the PR.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(27, '', u'nilearn/image/image.py')"
+68,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:58:20,"We need a canonical brain mask added to nilearn. (issue created: #945)
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(69, '', u'examples/connectivity/plot_ica_neurovault.py')"
+69,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 17:59:42,"In terms of variable name, I'd prefer 'transformable'. It's unclear to a non native English speaker what this means.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(80, '', u'examples/connectivity/plot_ica_neurovault.py')"
+70,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 18:00:42,"Maybe for the sake of simplicity you could merge clean_img and cast_img.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(45, '', u'examples/connectivity/plot_ica_neurovault.py')"
+71,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 18:01:41,"We prefer to use nilearn.plotting.show, because we are trying not to have to teach matplotlib to users if we don't have to.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(121, '', u'examples/connectivity/plot_ica_neurovault.py')"
+72,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 18:02:06,"Is there a reason that you are not using the 'title' argument of plot_stat_map.
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(118, '', u'examples/connectivity/plot_ica_neurovault.py')"
+73,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-13 18:02:23,"The control of the size, maybe?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(118, '', u'examples/connectivity/plot_ica_neurovault.py')"
+74,pull_request_commit_comment,832,nilearn,nilearn,GaelVaroquaux,2016-01-25 13:11:46,"Maybe we should use the sphinx syntax "":func:`nilearn.datasets.neurovault`""
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(8, '', u'doc/whats_new.rst')"
+75,pull_request_commit_comment,832,nilearn,nilearn,jeromedockes,2016-05-13 15:14:38,"constructing arrays like this from dict.keys() and dict.values() doesn't seem to work for me in python 3, because these functions don't return lists anymore but dict_keys and dict_values objects. Maybe we should turn them into lists first, or access them in another way?
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(58, '', u'examples/connectivity/plot_ica_neurovault.py')"
+76,pull_request_commit_comment,832,nilearn,nilearn,jeromedockes,2016-06-08 15:26:38,"passing a dictionary as image_filters or collections_filters will not work because it is always used as if it were a tuple of callables (the other possibility for filtering) anyway. 
+e.g.
+`fetch_neurovault(max_images=10, collection_filters={'DOI': '10.1016/j.neurobiolaging.2012.11.002'})`
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(943, '', u'nilearn/datasets/func.py')"
+77,pull_request_commit_comment,832,nilearn,nilearn,KamalakerDadi,2016-06-10 07:57:41,"FYI: mask is now available in nilearn, `datasets.load_mni152_brain_mask()`
+",67c3cc7321e033e44a73c20abcefaf5d0adc64a6,"(69, '', u'examples/connectivity/plot_ica_neurovault.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1053,nilearn,nilearn,banilo,2016-03-10 12:13:57,"Good catch. We should probably get that fixed.
+",nan,nan
+6,issue_comment,1053,nilearn,nilearn,KamalakerDadi,2016-07-06 12:27:29,"I am trying to figure out how to change csv file corrected for white spaces. How can I ?
+",nan,nan
+3,issue_comment,1053,nilearn,nilearn,GaelVaroquaux,2016-07-06 12:29:19,"> I am trying to figure out how to change csv file corrected for white
+> spaces. How can I ?
+
+What is the question: do you want to change the file that is hosted on
+the website?
+",nan,nan
+7,issue_comment,1053,nilearn,nilearn,KamalakerDadi,2016-07-06 12:31:02,"In general, How can I solve this issue ?
+
+> What is the question: do you want to change the file that is hosted on the website?
+
+Yes, Can I ?
+",nan,nan
+4,issue_comment,1053,nilearn,nilearn,GaelVaroquaux,2016-07-06 12:33:04,"> ```
+> What is the question: do you want to change the file that is hosted
+> on the website?
+> ```
+> 
+> Yes, Can I ?
+
+No, you can upload a new one, but not override the present one.
+",nan,nan
+8,issue_comment,1053,nilearn,nilearn,KamalakerDadi,2016-07-08 12:01:04,"> No, you can upload a new one
+
+Ok. I have managed to upload in nitrc. PR ?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+10,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:31:31,"Say that it's a joblib MemorizedResult, so that people who don't know what it is can Google.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+11,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:39:25,"Same remark
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+12,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:43:07,"While I agree that all these cosmetic changes make the code abide better to standards, they make reviewing the PR hard. :(
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+13,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:44:57,"Looking at this, it seems that the signature of the method has changed. Is that the case?
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+14,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:49:21,"Why this change? It add an argument that may trigger recomputation and doesn't add much to the function.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+15,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-06-09 08:57:05,"Done.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+16,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-06-09 08:57:13,"Done.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+17,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:58:26,"Why the two methods above. They are on-liners. They should be removed, IMHO.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+18,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 08:58:45,"I am not really that this method is useful either.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+19,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-06-09 08:59:58,"No because `return_affine=False`. See below.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+20,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 09:00:39,"> No because return_affine=False. See below.
+
+I saw that after, but I don't like it :)
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+21,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-06-09 09:04:48,"The thing is that `filter_and_mask` returns the affine because we need it to do sanity checks (reminder, for performance reasons, the `check_niimg` is called in `filter_and_mask`). So, if we directly shelve the result of `filter_and_mask`, the affine will be stored together, which is not useful. Plus, if we need the affine, we will have to unshelve the object.
+
+One solution may be to add a `shelving` parameter to `filter_and_mask` and directly use the shelving inside.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+22,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-06-09 09:06:05,"I agree. We only need a `_set_shelving` one.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+23,pull_request_commit_comment,1114,nilearn,nilearn,GaelVaroquaux,2016-06-09 09:17:30,"> I agree. We only need a _set_shelving one.
+
+We don't need a setter. This is not java. We just change the value of the
+attribute directly. The methods do nothing else.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+24,pull_request_commit_comment,1114,nilearn,nilearn,lesteve,2016-06-09 09:51:38,"No comma needed I think. Also I tend to prefer Python types in general so bool rather than boolean.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+25,pull_request_commit_comment,1114,nilearn,nilearn,lesteve,2016-06-09 09:53:07,"_ShelvedFunc would abide by the usual naming conventions for classes.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+26,pull_request_commit_comment,1114,nilearn,nilearn,lesteve,2016-06-09 09:53:27,"Same comment as above.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+27,pull_request_commit_comment,1114,nilearn,nilearn,lesteve,2016-06-09 10:12:23,"We should use relative imports everywhere ...
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+28,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-07-11 14:18:59,"Fixed it by removing the kwarg.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+5,issue_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-07-12 08:08:18,"I addressed all the comments so this should be ready to go? @GaelVaroquaux 
+",nan,nan
+29,pull_request_commit_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-12 09:04:18,"May be we should forget about `MemorizedResult` since it is not exposed to user and also it is not officially documented yet.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+30,pull_request_commit_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-12 09:12:05,"Do we required to say in documentation what it returns if it is shelved ? 
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(66, '', u'nilearn/_utils/cache_mixin.py')"
+31,pull_request_commit_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-12 09:12:55,"same comment here as above ?
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(111, '', u'nilearn/_utils/cache_mixin.py')"
+7,issue_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-12 10:38:24,"Some minor comments from my side.
+",nan,nan
+32,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-07-13 09:29:45,"You mean the hack regarding _ShelvedFunc?
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(66, '', u'nilearn/_utils/cache_mixin.py')"
+33,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-07-13 09:31:28,"Indeed.
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+34,pull_request_commit_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-13 09:32:52,"Yes. Is it not required ?
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(66, '', u'nilearn/_utils/cache_mixin.py')"
+35,pull_request_commit_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-07-13 09:41:32,"I modified the doc!
+",e1fb38872a6ce19f8536ac480823ccf62890f2df,"(66, '', u'nilearn/_utils/cache_mixin.py')"
+8,issue_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-13 12:06:16,"LGTM
+",nan,nan
+9,issue_comment,1114,nilearn,nilearn,KamalakerDadi,2016-07-13 13:13:04,"Actually, confused with `memory_level` and `func_memory_level` in `_cache()` function ?
+
+Isn't that should be called as `memory_level` ?
+",nan,nan
+6,issue_comment,1114,nilearn,nilearn,AlexandreAbraham,2016-07-13 13:36:42,"> Actually, confused with memory_level and func_memory_level in _cache() function ?
+
+Oh, this... You must know about memory_level, right? Well, this function will decide if the caching is activated or not.
+
+`func_memory_level` is the `threshold` from which the caching must be activated. `memory_level` is the level selected by the used. If `memory_level` is above `func_memory_level` (or the opposite, I always mix it up), then caching is activated, otherwise it is not.
+
+I think that we should remove that but, for the moment, this is how it works.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1118,nilearn,nilearn,AlexandreAbraham,2016-06-10 00:25:52,"I have not checked but I believe you. PR welcome.
+",nan,nan
+6,issue_comment,1118,nilearn,nilearn,KamalakerDadi,2016-06-23 13:43:30,"There exists this documentation problem in many places for example: MultiPCA and soon. Shall we take opportunity to change them accordingly ?
+",nan,nan
+4,issue_comment,1118,nilearn,nilearn,MartinPerez,2016-06-23 14:05:44,"I am happy to do it. Could you point me to all relevant places?
+",nan,nan
+7,issue_comment,1118,nilearn,nilearn,KamalakerDadi,2016-07-01 10:07:17,"> Could you point me to all relevant places?
+
+For example, I would do `git grep` masker family and then see if there is anything to be changed. Let me know if your not clear.
+",nan,nan
+5,issue_comment,1118,nilearn,nilearn,MartinPerez,2016-07-01 10:50:19,"@KamalakerDadi following your instructions, there were only two more places. multipca.py and base.py. I made the corresponding changes.
+",nan,nan
+8,issue_comment,1118,nilearn,nilearn,KamalakerDadi,2016-07-01 10:53:11,"> @KamalakerDadi following your instructions, there were only two more places. multipca.py and base.py. I made the corresponding changes.
+
+Thank you. I will have a look.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,812,nilearn,nilearn,lesteve,2015-11-03 07:53:51,"I thought what @AlexandreAbraham had in mind was to allow to pass cut_coords as list of 3d coordinates irrespective of the display_mode. This way you can change the display_mode without having to worry about changing cut_coords.
+",nan,nan
+4,issue_comment,812,nilearn,nilearn,alexsavio,2016-01-13 16:09:41,"Related to this, is there any way to plot in a grid instead of a row?
+I mean, if I use cut_coords=40, I wouldn't like to plot 40 slices in a row, but maybe a grid of 5x8 slices.
+I was thinking that an argument, e.g., `plot_grid=(5, 8)`, would help, if there is no other way to do this.
+I have been trying to implement something like this for a while, if you indicate me what should be changed, I could do it.
+
+P.S.: I know that I have another open issue, but this is more urgent for me, I will arrive to the other one one day.
+",nan,nan
+5,issue_comment,812,nilearn,nilearn,alexsavio,2016-01-14 10:43:58,"Do you think this will overcomplicate the code base? This is a feature I feel like doing, I will have a look through the code to have an estimate.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1175,nilearn,nilearn,AlexandreAbraham,2016-07-09 14:07:48,"True, I noticed this problem recently. Gimme 5 minutes tu prepare a fix.
+",nan,nan
+4,issue_comment,1175,nilearn,nilearn,AlexandreAbraham,2016-07-09 14:16:24,"PR on the way ;). You can take my branch directly, the modification should be safe. I have a beta fetcher for anatomical data of ABIDE (cortical thickness...) if you want to test.
+",nan,nan
+5,issue_comment,1175,nilearn,nilearn,banilo,2016-07-09 17:12:31,"The speed of the response is impressive! :-D
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1174,nilearn,nilearn,AlexandreAbraham,2016-07-13 09:41:06,"Any opinion on this one? @KamalakerDadi @aabadie @GaelVaroquaux 
+",nan,nan
+6,issue_comment,1174,nilearn,nilearn,KamalakerDadi,2016-07-13 09:44:36,"> Questions:
+
+But you already changed to remove spurious spaces. Does that not solves the issue ?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+10,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 06:53:51,"Are you sure that ""y"" needs to be numerical? I think that you could take ""conditions"" and use it as the ""y"" vector, which would simplify the example.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')"
+11,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 07:45:27,"Same remark: I don't think that we need the y vector.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_grid_search.py')"
+12,pull_request_commit_comment,1158,nilearn,nilearn,bthirion,2016-07-03 08:53:26,"Indeed, as we're not running regression, we can live with non-numerical y.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')"
+13,pull_request_commit_comment,1158,nilearn,nilearn,Joaoloula,2016-07-03 09:04:35,"You're right: I was so focused on getting the y vector the way it was on the simple fetcher, I forgot I could just take the conditions. 
+
+I just commited the simplifications, except for `plot_haxby_mass_univariate`, that (at least the way it's coded now) requires both an unmasked conditions vector and a masked int-encoded one. Perhaps it's less problematic to keep it that way since it's supposed to be an advanced example. What do you think?
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')"
+14,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 10:49:00,"I am a bit worried that the signatures of fetch_haxby and fetch_haxby_simple are different (both input signature and return values).
+
+We should probably keep the old fetch_haxby_simple function for a little while, but flag it as deprecated, and remove it from the documentation.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')"
+15,pull_request_commit_comment,1158,nilearn,nilearn,Joaoloula,2016-07-03 11:16:12,"Makes sense. I restored the old function and put a note in the deprecated flag saying the user should use `fetch_haxby` instead.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')"
+16,pull_request_commit_comment,1158,nilearn,nilearn,GaelVaroquaux,2016-07-03 11:18:28,"Could you also please remove it from doc/modules/reference.rst.
+
+Aside from that, +1 for merge from my side, once CI has run.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')"
+17,pull_request_commit_comment,1158,nilearn,nilearn,Joaoloula,2016-07-03 11:25:41,"Done.
+",11a675f46ec30e721c0eb34048ee588bd60e107b,"(None, '', u'nilearn/datasets/func.py')"
+5,issue_comment,1158,nilearn,nilearn,AlexandreAbraham,2016-07-03 21:36:48,"Same comment as previous PR: one has to write a new test to test the whole downloading code. Should we open a new issue ? 
+",nan,nan
+6,issue_comment,1158,nilearn,nilearn,AlexandreAbraham,2016-07-04 05:58:50,"The size of the dataset does not matter since it is mocked.
+",nan,nan
+8,issue_comment,1158,nilearn,nilearn,Joaoloula,2016-07-04 06:27:44,"@AlexandreAbraham I had created `test_fail_fetch_haxby` with this in mind, is it not sufficient? Or was it actually `test_fetch_haxby_simple` that tested the download process?
+",nan,nan
+7,issue_comment,1158,nilearn,nilearn,AlexandreAbraham,2016-07-04 12:04:26,"No, this is not the same. Don't worry, I'll take care of it and add a detailed documentation for this particular test.
+",nan,nan
+9,issue_comment,1158,nilearn,nilearn,Joaoloula,2016-07-04 12:07:01,"Ok, great!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1170,nilearn,nilearn,MartinPerez,2016-07-07 10:41:18,"And effectively is wrong in the public example in the webpage :S. Even though the initial examples in the PR are correct.
+http://nilearn.github.io/auto_examples/01_plotting/plot_demo_glass_brain.html#sphx-glr-auto-examples-01-plotting-plot-demo-glass-brain-py
+",nan,nan
+7,issue_comment,1170,nilearn,nilearn,MartinPerez,2016-07-08 12:51:31,"There is another bug. Sometimes the image at the left is not inverted, giving the left and right looking in the same direction, this two maps come from exactly the same code with a different contrast image. Altnough the statistics are correct. This is only a lack of inversion of the plot image during plot construction.
+
+![pseudo_-_letter_glass](https://cloud.githubusercontent.com/assets/8766915/16687859/3f4a1230-451b-11e6-8f6b-c81d1cb81247.png)
+
+![pseudo_glass](https://cloud.githubusercontent.com/assets/8766915/16687871/54af310a-451b-11e6-996b-8c558b3c5ec7.png)
+",nan,nan
+3,issue_comment,1170,nilearn,nilearn,AlexandreAbraham,2016-07-22 14:04:23,"Thanks to the help of Martin, I am now getting very close to the bug. First, let me tell you that it is a problem of display and not of data. So, apart from the left/right inversion that has been corrected, the things that are displayed are right.
+",nan,nan
+5,issue_comment,1170,nilearn,nilearn,rschmaelzle,2016-08-12 16:04:19,"Hi, not entirely sure this is related, but when I try to create an animation with a glassbrain that has display_mode='l', and then grab the figure via mplfig_to_npimage(f), this flips the glassbrain and I am seeing a jittering brain flipping between left and right orientation. 
+",nan,nan
+4,issue_comment,1170,nilearn,nilearn,AlexandreAbraham,2016-08-15 20:40:18,"@rschmaelzle, could you:
+- check that you are using the latest version of nilearn (the last release, no need to have the latest dev version)
+- open another issue with a minimal working example?
+
+The present issue should have been resolved so I will close it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1133,nilearn,nilearn,KamalakerDadi,2016-06-23 08:54:43,"Any reviews please ?
+",nan,nan
+5,issue_comment,1133,nilearn,nilearn,AlexandreAbraham,2016-06-23 09:01:01,"The code is OK. I am just wondering if it is worth making a new example or if we should integrate this in an existing one.
+",nan,nan
+7,issue_comment,1133,nilearn,nilearn,KamalakerDadi,2016-06-23 09:52:33,"> +1 on integrating to the tutorial.
+
+Into which one ?
+",nan,nan
+8,issue_comment,1133,nilearn,nilearn,KamalakerDadi,2016-06-23 10:00:43,"We have demo based `plot_demo_glass_brain` and all options based.
+",nan,nan
+9,issue_comment,1133,nilearn,nilearn,KamalakerDadi,2016-06-28 10:37:35,"@AlexandreAbraham @GaelVaroquaux Addressed comment about integrating into existing example.
+",nan,nan
+10,pull_request_commit_comment,1133,nilearn,nilearn,GaelVaroquaux,2016-07-04 05:03:18,"I think that it would be nice to have the text ""Section 4.3."" to be a link to that section.
+",d5a12d2de76079f5dd40708d0e44a167d3367508,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+11,pull_request_commit_comment,1133,nilearn,nilearn,GaelVaroquaux,2016-07-04 05:04:41,"Maybe you can merge this 2 comment blocks, with a line return to separate them.
+",d5a12d2de76079f5dd40708d0e44a167d3367508,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+12,pull_request_commit_comment,1133,nilearn,nilearn,GaelVaroquaux,2016-07-04 05:06:42,"I would say here ""since we want an empty glass brain to plotting the statistical maps with ""add_contours"""".
+",d5a12d2de76079f5dd40708d0e44a167d3367508,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1151,nilearn,nilearn,AlexandreAbraham,2016-06-24 05:58:45,"When proposing new colormaps, it is a good practice to register them in matplotlib so that it is automatically available using string identifiers.
+",nan,nan
+4,issue_comment,1151,nilearn,nilearn,KirstieJane,2016-06-24 08:02:55,"Thank you @AlexandreAbraham for explaining the problem more clearly! And to @GaelVaroquaux for all the support :grinning:
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,1179,nilearn,nilearn,KamalakerDadi,2016-07-13 09:05:14,"May be we should adapt well to the same conventions as was before. You now know better what to write following from issue. :)
+
+""The 3D map to be plotted. If it is a masked array, only the non-masked part will be plotted""
+",2d3bf089d27bbe8b9bfe09d1ff28aa26f5f59993,"(None, '', u'nilearn/plotting/displays.py')"
+5,issue_comment,1179,nilearn,nilearn,KamalakerDadi,2016-07-13 09:05:39,"Small comment from my side.
+",nan,nan
+7,pull_request_commit_comment,1179,nilearn,nilearn,KamalakerDadi,2016-07-13 09:15:40,"Sorry for not being clear. I expected something like this,
+
+""The 3D image to be plotted. If it is masked, only the non-masked part will be plotted/projected.""
+",2d3bf089d27bbe8b9bfe09d1ff28aa26f5f59993,"(13, '', u'nilearn/plotting/displays.py')"
+8,pull_request_commit_comment,1179,nilearn,nilearn,KamalakerDadi,2016-07-13 09:24:17,"Also, I will take doc to top and See link to bottom.
+",2d3bf089d27bbe8b9bfe09d1ff28aa26f5f59993,"(13, '', u'nilearn/plotting/displays.py')"
+9,pull_request_commit_comment,1179,nilearn,nilearn,AlexandreAbraham,2016-07-21 08:40:01,"> Also, I will take doc to top and See link to bottom.
+
+In all the nilearn docstrings, the link comes first.
+",2d3bf089d27bbe8b9bfe09d1ff28aa26f5f59993,"(13, '', u'nilearn/plotting/displays.py')"
+10,pull_request_commit_comment,1179,nilearn,nilearn,KamalakerDadi,2016-07-21 08:41:53,"> In all the nilearn docstrings, the link comes first.
+
+Yes, I noticed that.
+",2d3bf089d27bbe8b9bfe09d1ff28aa26f5f59993,"(13, '', u'nilearn/plotting/displays.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+11,pull_request_commit_comment,1153,nilearn,nilearn,bthirion,2016-06-27 21:36:07,"I proprose to remove this scaling, which is horribly counter-intuitive. 
+It might be available under an 'isometric' option if there is any reason to keep it, but I don't  see any use case.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+12,pull_request_commit_comment,1153,nilearn,nilearn,GaelVaroquaux,2016-06-28 09:17:07,"> > -        scaling = sqrt(2) \* np.ones(symmetric.shape[-2:])
+> 
+> I proprose to remove this scaling, which is horribly counter-intuitive.
+> It might be available under an 'isometric' option if there is any reason to
+> keep it, but I don't see any use case.
+
+I seem to remember that it is fairly important to have the metric to
+really be the Cramer-Rao metric.
+
+That said, we could do it the other way around, and apply 1/sqrt(2) on
+the diagonal, which would be probably more intuitive.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+13,pull_request_commit_comment,1153,nilearn,nilearn,bthirion,2016-06-28 15:23:17,"On 28/06/2016 11:17, Gael Varoquaux wrote:
+
+> In nilearn/connectome/connectivity_matrices.py 
+> https://github.com/nilearn/nilearn/pull/1153#discussion_r68723710:
+> 
+> > ```
+> >  """"""
+> > ```
+> > -    scaling = sqrt(2) \* np.ones(symmetric.shape[-2:])
+> > -    np.fill_diagonal(scaling, 1.)
+> > -    tril_mask = np.tril(np.ones(symmetric.shape[-2:])).astype(np.bool)
+> > -    return symmetric[..., tril_mask] \* scaling[tril_mask]
+> > -    if keep_diagonal:
+> > -        scaling = sqrt(2) \* np.ones(symmetric.shape[-2:])
+> > - scaling = sqrt(2) \* np.ones(symmetric.shape[-2:]) I proprose to 
+> >   remove this scaling, which is horribly counter-intuitive. It might be 
+> >   available under an 'isometric' option if there is any reason to keep 
+> >   it, but I don't see any use case.
+> >   I seem to remember that it is fairly important to have the metric to 
+> >   really be the Cramer-Rao metric. That said, we could do it the other 
+> >   way around, and apply 1/sqrt(2) on the diagonal, which would be 
+> >   probably more intuitive.
+> 
+> —
+> You are receiving this because you commented.
+> Reply to this email directly, view it on GitHub 
+> https://github.com/nilearn/nilearn/pull/1153/files/c79280449fff7c06e0fc5cdb645ad7f5d309ad92#r68723710, 
+> or mute the thread 
+> https://github.com/notifications/unsubscribe/AAOT1hZNtyTwjMeWvz1Sxo1DhMuyUE-Nks5qQOaTgaJpZM4I9wJA.
+> 
+> Sounds like a reasonable compromise.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+5,issue_comment,1153,nilearn,nilearn,AlexandreAbraham,2016-07-07 12:24:44,"Ready for review. Appveyor crash is spurious.
+",nan,nan
+14,pull_request_commit_comment,1153,nilearn,nilearn,bthirion,2016-07-07 20:32:34,"I thought we had agreed on a different behavior: when the diagonal is kept, it is scaled by 1. / sqrt(2). This might be less confusing to users.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+15,pull_request_commit_comment,1153,nilearn,nilearn,KamalakerDadi,2016-07-07 20:34:32,"What is the use case of isometric here ?
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+16,pull_request_commit_comment,1153,nilearn,nilearn,KamalakerDadi,2016-07-07 20:35:52,"You may have to change the default.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+17,pull_request_commit_comment,1153,nilearn,nilearn,AlexandreAbraham,2016-07-08 13:58:33,"Sorry, I fixed the code but not the doc.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+18,pull_request_commit_comment,1153,nilearn,nilearn,AlexandreAbraham,2016-07-08 14:00:23,"I must admit that now that only diagonal elements are modified, I don't see the usage. Anybody in favor of keeping this option?
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+19,pull_request_commit_comment,1153,nilearn,nilearn,AlexandreAbraham,2016-07-08 14:00:29,"Thanks, changed.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+8,issue_comment,1153,nilearn,nilearn,KamalakerDadi,2016-07-08 14:28:37,"General comment: What do we expect in results scaling these diagonal or off-diagonal elements ? Can you point me any reference if you have ? Thanks.
+",nan,nan
+20,pull_request_commit_comment,1153,nilearn,nilearn,KamalakerDadi,2016-07-10 18:14:14,"> I don't see the usage
+
+Yes think so.
+",94e830b22c3804ee6e61c24a6da01884279402c1,"(None, '', u'nilearn/connectome/connectivity_matrices.py')"
+9,issue_comment,1153,nilearn,nilearn,KamalakerDadi,2016-07-10 18:14:38,"Could you add in whats_new ?
+",nan,nan
+6,issue_comment,1153,nilearn,nilearn,AlexandreAbraham,2016-07-19 12:34:03,"> General comment: What do we expect in results scaling these diagonal or off-diagonal elements ? Can you point me any reference if you have ? Thanks.
+
+I don't have a reference, sorry.
+
+> Could you add in whats_new ?
+
+Done.
+",nan,nan
+10,issue_comment,1153,nilearn,nilearn,KamalakerDadi,2016-07-19 17:44:14,"I have no further comments. LG from my side.
+",nan,nan
+7,issue_comment,1153,nilearn,nilearn,AlexandreAbraham,2016-07-19 17:52:56,"Let's go then !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+36,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-07-24 15:21:41,"> I wonder if it makes sense to limit the results only to collections
+>  that have DOI value set. 
+
+It may be interesting to consider only these collections, but it would mean ignoring a lot of data:
+if we consider all images which match the other filters:
+
+| filter | # collections | # images |
+| --- | --- | --- |
+| all | 276 | 6803 |
+| with DOI only | 109 | 5000 |
+
+Moreover, I'm not sure having a DOI is such a good criterion: Out of 191 (non-empty) collections which have a DOI, 82 don't contain any image which passes the other default filters.
+
+> Excluding parcellations and atlases might also make sense by default.
+
+I have changed from keeping only T, Z and F maps to excluding images when:
+- 'map_type' is one of 'ROI/mask', 'anatomical', 'parcellation'
+- 'image_type' is 'atlas'
+
+Just to remind us of what the 'map_type' and 'image_type' are
+
+| map_type | image_type | n_images |
+| --- | --- | --- |
+| None | atlas | 18 |
+| Chi squared map | statistic_map | 1 |
+| F map | NIDM results statistic map | 2 |
+| F map | statistic_map | 48 |
+| P map (given null hypothesis) | statistic_map | 169 |
+| ROI/mask | statistic_map | 286 |
+| T map | NIDM results statistic map | 367 |
+| T map | statistic_map | 1431 |
+| Z map | NIDM results statistic map | 224 |
+| Z map | statistic_map | 927 |
+| anatomical | statistic_map | 22 |
+| multivariate-beta map | statistic_map | 61 |
+| other | statistic_map | 2822 |
+| parcellation | statistic_map | 150 |
+| univariate-beta map | statistic_map | 4288 |
+
+> > Probably not by default, but we should make it really easy to perform
+> > such selections.
+
+For example, selecting only those with DOI can be done:
+
+using `fetch_neurovault`:
+
+```
+>>> fetch_neurovault(collection_terms={'DOI': NotNull()})
+```
+
+using SQL:
+
+```
+>>> read_sql_query(""SELECT * FROM collections WHERE DOI IS NOT NULL"")
+```
+",nan,nan
+37,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-07-24 17:30:56,"> You convinced me :) It would be good to add the ""only DOI"" query to examples/documentation.
+
+Noted; for now I have added it to the `fetch_neurovault` docstring, I don't know in which example it would be most interesting to add it.
+",nan,nan
+60,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+61,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:07:05,"A bit of details about the example would be more informative.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+53,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:12:24,"Are you sure examples should be placed in functional connectivity or a new one ?
+",nan,nan
+62,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+63,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+64,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:23:18,"You never used `nii_z` anywhere ?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+65,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:29:36,"Looks like it needs place in nistats. :)
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+54,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-25 19:57:09,"May be some functions from `neurovault.py` can be moved to utils or neurovault_utils ? What do you all think ?
+",nan,nan
+66,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+67,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-26 07:53:57,"Used `load_img` and removed nibabel import.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+68,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_neurovault_meta_analysis.py')"
+38,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-07-26 07:56:39,"> Are you sure examples should be placed in functional connectivity or a new one ?
+
+No, not sure at all - I didn't know where to put them; they were in a folder called ""connectivity"" in the original PR so I put them there. Where would you suggest placing them?
+",nan,nan
+55,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-27 08:30:12,"> Where would you suggest placing them?
+
+I believe more great examples will come in future using Neurovault analysis. I suggest to keep right naming such as `05_neurovault_analysis` ? @GaelVaroquaux @AlexandreAbraham @bcipolli 
+",nan,nan
+56,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-27 08:37:01,"Two examples looks good to me.
+",nan,nan
+69,pull_request_commit_comment,1182,nilearn,nilearn,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+70,pull_request_commit_comment,1182,nilearn,nilearn,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+57,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-27 08:41:30,"In fetcher file, description is missing from a Bunch of returns and documentation. `_get_dataset_descr` could help to do that. Other fetchers can be good to look for hints.
+",nan,nan
+71,pull_request_commit_comment,1182,nilearn,nilearn,AlexandreAbraham,2016-07-27 08:42:29,"I would remove this. This is far too advanced. I would prefer a more elaborated figure with subplots rather than 40 plots.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+72,pull_request_commit_comment,1182,nilearn,nilearn,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+73,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-27 08:43:44,"> I think memory_level is not necessary and may be confusing?
+
+Here, we received warnings if `memory_level=0` hence I suggested. Why is it confusing ? 
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+74,pull_request_commit_comment,1182,nilearn,nilearn,AlexandreAbraham,2016-07-27 08:48:56,"Because people do not know what is `memory_level`, so they will look up the documentation, which is not very clear, and then they may end up thinking that this is too complicated.
+
+Is a memory object is provided we should set memory level to 1 and not raise a warning.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+75,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-27 08:54:40,"> Is that really necessary? It adds complexity for no reason.
+
+If I can answer you. Examples has a pretty printing statements which are actually vanished by bunch of warnings.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+76,pull_request_commit_comment,1182,nilearn,nilearn,AlexandreAbraham,2016-07-27 09:39:35,"I know why it is used. But is really a context necessary here? Why not adding `warnings.simplefilter('ignore', DeprecationWarning)` on top of the file, just after the warning import?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+77,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-27 14:19:14,"So should I remove ""`memory_level=1`""? As Kamalaker pointed out, nilearn expects `memory_level` to be set if `memory` is specified. grep ""memory_level"" on the examples directory shows that many examples use it.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+78,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-27 14:21:13,"Then, we would have to remove the filter we add explicitly at the end of the example - do you think it will be better?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+79,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-27 14:22:37,"Done.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+80,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2016-07-27 14:22:49,"Done.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/03_connectivity/plot_ica_neurovault.py')"
+39,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",nan,nan
+40,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-07-27 14:44:59,"When I run coverage locally it gives me different results, and I can't seem to access the details of which statements were missed online. Have you faced a similar problem before? Some other people seem to have experienced this (https://github.com/lemurheavy/coveralls-public/issues/364, https://github.com/statsmodels/statsmodels/issues/1502/, https://github.com/lemurheavy/coveralls-public/issues/263) but these discussions don't seem to solve the problem
+",nan,nan
+58,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2016-07-28 09:00:15,"My question stills holds: May be some functions from neurovault.py can be moved to utils or neurovault_utils ? What do you all think ?
+",nan,nan
+41,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-07-28 09:29:51,"> One very blocking thing to me is that you squashed the commits, and thus history and authorship of @bcipolli on the code is lost, which is very bad. Once you're done, you should take back the original PR, diff the last state with your code, and do one commit in your name to apply your changes.
+
+Actually I forked the branch directly from master, so the history wouldn't show any commits from @bcipolli (I wasn't clear in this PR's description, and should not have written 'this is based on...'). I have a branch in which I kept the full history, I can push it to github if you want to look at it. The examples were taken from PR #832 but the rest is completely different. Do you think it makes sense to rebase this branch on the one from PR #832? Or maybe if it's OK with @bcipolli we could just add him as an author of `neurovault.py` (he is already listed as the author of the examples)?
+",nan,nan
+81,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/tests/test_neurovault.py')"
+82,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-08-03 23:02:09,"You should use the backport in scikit-learn: sklearn.utils.testing.assert_warns.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/tests/test_neurovault.py')"
+83,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-08-03 23:07:50,"I think that I prefer the name ""fetch_neurovault"": what ""_filtered"" means isn't very clear unless you read the docstring.
+
+Other option: ""fetch_neurovault_query""?
+
+Anyhow, you need to update docs/module/references.rst, which points to the old name (and misses a link to the second function), hence leads to failures in circleCI.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+42,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-08-04 11:13:17,"> General remark: the neurovault fetcher file is 4000 lines long. It feels wrong. There are probably features that we can live without. I need more time to inspect and find tradeoffs, but we should start thinking about that.
+
+Yes, I haven't forgotten that we said we would remove all the sql stuff. I have been working on something else this week but I will try to do that soon, it will shorten the file and then we can talk about further simplification.
+",nan,nan
+5,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-09-22 05:33:41,"We could make this PR fast using the new feature of neurovault: downloading all maps of a collection at once:
+https://twitter.com/VaultNeuro/status/778801007434211333
+",nan,nan
+15,issue_comment,1182,nilearn,nilearn,chrisfilo,2016-09-22 05:41:06,"Let us know if there is anything in the current implementation that needs to be optimized or changed. @erramuzpe
+",nan,nan
+84,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+85,pull_request_commit_comment,1182,nilearn,nilearn,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+86,pull_request_commit_comment,1182,nilearn,nilearn,bcipolli,2016-10-03 01:17:33,"Function name should be updated
+",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_neurovault_meta_analysis.py')"
+16,issue_comment,1182,nilearn,nilearn,bcipolli,2016-10-03 01:24:28,"Thanks @jeromedockes for pushing this forward. 
+
+I tried using this tonight. Perhaps I'm not using it appropriately, or missed an issue in the original fetcher that is solved here, but ... with over 1400 images cached locally, after 20 minutes the fetcher has only verified that I have 450 images cached locally. At this rate, it will take over an hour to complete... even if there are no new images.
+
+The previous fetcher only fetched the paginated collection metadata; this one seems to be fetching that one-at-a-time and perhaps not caching the image metadata?
+
+Any advice on this issue would be helpful. As it stands, I'm going to switch my research code back to the previous neurovault fetcher code I have, as it only requires ~10-20 seconds to validate the 1400 existing images and check for new ones.
+",nan,nan
+17,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-10-03 12:09:48,"> Thanks @jeromedockes for pushing this forward.
+> 
+> I tried using this tonight. Perhaps I'm not using it appropriately, or missed an issue in the original fetcher that is solved here, but ... with over 1400 images cached locally, after 20 minutes the fetcher has only verified that I have 450 images cached locally. At this rate, it will take over an hour to complete... even if there are no new images.
+> 
+> The previous fetcher only fetched the paginated collection metadata; this one seems to be fetching that one-at-a-time and perhaps not caching the image metadata?
+> 
+> Any advice on this issue would be helpful. As it stands, I'm going to switch my research code back to the previous neurovault fetcher code I have, as it only requires ~10-20 seconds to validate the 1400 existing images and check for new ones.
+
+Thank you for this feedback! Could you send me the detail of the commands you typed when you had this problem?
+
+I tried to reproduce it but for me, it took a couple of seconds to load the metadata for all images on disk, and half a minute to check for new images and update metadata:
+
+Load metadata for all images on disk:
+
+```
+>>> %time data = nv.fetch_neurovault(mode='offline', max_images=None, image_terms={})
+CPU times: user 1.15 s, sys: 174 ms, total: 1.32 s
+Wall time: 1.32 s
+>>> len(data['images'])
+13522
+```
+
+update metadata and download images not yet on disk(in this case I already had them all, so no new image was downloaded):
+
+```
+>>> %time data = nv.fetch_neurovault(mode='download_new', max_images=None, image_terms={})
+CPU times: user 5.84 s, sys: 1.12 s, total: 6.96 s
+Wall time: 30.9 s
+```
+",nan,nan
+18,issue_comment,1182,nilearn,nilearn,bcipolli,2016-10-04 13:52:57,"```
+    ss_all = datasets.fetch_neurovault(
+        mode='download_new',
+        max_images=5000, image_filter=image_filter,
+        fetch_neurosynth_words=True)
+```
+
+It's almost 1 second per image. When I remove the `image_filter` arg, it seems to get higher faster, but still over ten minutes before I quit waiting.  Same if I set `fetch_neurosynth_words=False`.
+
+Offline is quick.
+",nan,nan
+19,issue_comment,1182,nilearn,nilearn,bcipolli,2016-10-04 16:14:01,"A bit more: 
+- When downloading new files, I don't see the progress info that used to be there. In fact, it's not clear to me from the output when any file is being downloaded. As best I can guess, `INFO: Already fetched 2034 images.` indicates a file was fetched. Did nilearn change the downloader output, or is this just for this branch? 
+- Filenames changed, so between that and the output confusion above, files were being downloaded without me realizing it. Sorry!
+- Still, even with retesting, I get > 10 min wait times before my script loads, using `mode='download_new'`.
+",nan,nan
+20,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-10-05 14:22:48,"> A bit more:
+> 
+> ```
+> When downloading new files, I don't see the progress info that used to be there. In fact, it's not clear to me from the output when any file is being downloaded. As best I can guess, INFO: Already fetched 2034 images. indicates a file was fetched. Did nilearn change the downloader output, or is this just for this branch?
+> ```
+
+More detailed info is displayed if the logging level is set to a lower value,
+
+```
+neurovault.set_logging_level(neurovault.logging.DEBUG)
+```
+
+I can make DEBUG the default logging level. I will add a `verbose` parameter in the function to control that as in the other nilearn functions.
+
+The progress from `_chunk_report_` (the one with the 'seconds remaining' and the carriage return) is not displayed because the images have to be downloaded one by one and each takes around a second, so there wouldn't be much time to look at it anyway. If we want to have it, I can change the verbose parameter when calling `fetch_file` so that this report appears.
+
+It will be more useful when we add a function that uses the new 'download_all' button from neurovault, but this hasn't been implemented yet.
+
+> ```
+> Filenames changed, so between that and the output confusion above, files were being downloaded without me realizing it. Sorry!
+> 
+> Still, even with retesting, I get > 10 min wait times before my script loads, using mode='download_new'.
+> ```
+
+Could you please provide the part of your script that loads the images? On my laptop it takes 7 seconds to load 7000 images and check metadata is up-to-date, using `mode='download_new'`. Maybe seeing what you did differently can help me find the performance bug in the new fetcher.
+",nan,nan
+6,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-10-05 15:02:27,"> I can make DEBUG the default logging level. I will add a verbose parameter in
+> the function to control that as in the other nilearn functions.
+
+It would be good. I have no love for the logging framework in Python, as
+it is quite poor to give user information (such as progress), which is
+really what we want to do when we use ""print"".
+
+> If we want to have it, I can change the verbose parameter when calling
+> fetch_file so that this report appears.
+
+Maybe we need an internal data-download function that downloads multiple
+files and gives progress (possibly using fetch_file).
+",nan,nan
+21,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-10-05 16:24:20,"> It would be good. I have no love for the logging framework in Python, as
+> it is quite poor to give user information (such as progress), which is
+> really what we want to do when we use ""print"".
+
+I'm not sure I have understood. by default logging output is dumped on stderr, so the user sees it on the console. Is the problem that log records will be printed on separate lines (and that we can't use carriage return as is done in `_chunk_report_`)?
+
+>  If we want to have it, I can change the verbose parameter when calling
+>  fetch_file so that this report appears.
+> Maybe we need an internal data-download function that downloads multiple
+> files and gives progress (possibly using fetch_file).
+
+The current behaviour is to use fetch_file to download each file and print how many images have been downloaded so far; what other information should we add?
+",nan,nan
+7,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-10-05 16:31:04,"> I'm not sure I have understood. by default logging output is dumped on stderr,
+> so the user sees it on the console. Is the problem that log records will be
+> printed on separate lines (and that we can't use carriage return as is done in
+> _chunk_report_)?
+
+First it prints thing that are incomprehensible to the user (like the
+module name and the warning type). That tends to clutter the display and
+scare people. Second, indeed, it is not great for displaying progress.
+
+> ```
+> If we want to have it, I can change the verbose parameter when calling
+> fetch_file so that this report appears.
+> Maybe we need an internal data-download function that downloads multiple
+> files and gives progress (possibly using fetch_file).
+> ```
+> 
+> The current behaviour is to use fetch_file to download each file and print how
+> many images have been downloaded so far; what other information should we add?
+
+Maybe an optional progress bar, with estimation of the time. Ideally, we
+should factorize this as much as possible with the existing progress bar.
+",nan,nan
+22,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-10-05 16:44:21,"> First it prints thing that are incomprehensible to the user (like the
+> module name and the warning type). That tends to clutter the display and
+> scare people. 
+
+I can set the formatter to print whatever we want; for now I have set it to print only the logging level  (but I agree it's not useful) and the message, I can change it to print only the message itself, or maybe also the time?
+
+> Second, indeed, it is not great for displaying progress.
+> Maybe an optional progress bar, with estimation of the time. Ideally, we
+> should factorize this as much as possible with the existing progress bar.
+
+Then the best solution may be to replace all calls to the logging module by calls to print or `_chunk_report_`, does this seem better?
+",nan,nan
+23,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-11-14 14:37:40,"> @jeromedockes I believe the issue for me is that with download_new, existing collections are updated, one-by-one, with an API call, to look for new images. That is very slow, and different from the previous design.
+> 
+> Is that a correct understanding? Sounds like that may not be happening for you? I debugged to verify that that's what I'm seeing.
+
+@bcipolli Sorry for the delay. This was indeed the behaviour, the motivation was this scenario:
+- I download some images with a strict filter, which dowloads image 1 from collection 1 but filters out image 2 in collection 1
+- later, I launch a download with a less restrictive filter, which would accept image 2. If the fetcher simply sees that we already have collection 1 and doesn't check that extra images are available by querying the server, collection_1/image_2 will be missing from the fetched images.
+
+I have changed it to restore the faster behaviour you were expecting, so now it only checks for new collections. We could also try to update only the collections for which the number of images on disk is different from the number of images announced in the collection metadata
+",nan,nan
+24,issue_comment,1182,nilearn,nilearn,bcipolli,2016-11-14 15:24:34,"@jeromedockes Cool, thanks for the clarification.
+
+In the old code, Scenario 2 would actually still fetch the image, It would use the locally cached collection metadata to list out the needed images (including image2), and the fetcher would determine that it's not cached locally, and so go fetch it. This is because the collection metadata was complete; no filtering within the metadata itself was done before caching locally.
+
+The scenario where the old behavior would not get a new image is if an image is added to a collection remotely, after the metadata has been cached locally. I figured, since speed is such a factor, that scenario could be taken care of with an `--update-metadata` flag, outside the default behavior.
+
+Perhaps I'm just misunderstanding your scenario 2, and it's just the scenario I described. :) Either way, thank you! I'll try re-integrating this latest code into our project, so we can help QA it.
+
+And thanks for all your work!
+",nan,nan
+25,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-11-14 16:12:04,"> I'll try re-integrating this latest code into our project, so we can help QA it
+
+Cheers! Please let me know if the speed problem persists. I will change the status/progress printing on the console as we said a while ago and push it tomorrow
+",nan,nan
+26,issue_comment,1182,nilearn,nilearn,bcipolli,2016-11-14 22:05:41,"The metadata fetching does seem faster, though it's hard to tell what's going on as I receive no output.
+
+I also noticed that there's no output during the neurosynth term fetching. So, I've had things running for about 5 mins with no output.
+
+Just wanted to make sure that's on the map of output verbiage to tweak. Thanks!
+",nan,nan
+27,issue_comment,1182,nilearn,nilearn,bcipolli,2016-11-19 02:31:39,"Are the neurosynth results being cached? I haven't successfully completed a download. I've restarted... nothing. I've enabled the verbose output.. and still no completion.
+
+Some help would be great, otherwise I'll need to revert so I can continue my research.
+",nan,nan
+28,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-11-21 09:40:02,"> Are the neurosynth results being cached? I haven't successfully completed a download. I've restarted... nothing. I've enabled the verbose output.. and still no completion.
+> 
+> Some help would be great, otherwise I'll need to revert so I can continue my research.
+
+Yes, the neurosynth results are saved on disk, but in the same folder as the image they describe rather than a separate neurosynth directory. Here is an example output I get for five images (the first time, the neurosynth words had to be downloaded, and the second time, they were read from the disk)
+
+    >>> data = nv.fetch_neurovault(max_images=5, fetch_neurosynth_words=True)
+    DEBUG: Reading local neurovault data.
+    DEBUG: Downloading file: http://neurosynth.org/api/v2/decode/?neurovault=14329
+    DEBUG: Download succeeded, downloaded to: /home/jerome/nilearn_data/neurovault/collection_1066/neurosynth_words_for_image_14329.json
+    DEBUG: Downloading file: http://neurosynth.org/api/v2/decode/?neurovault=14330
+    DEBUG: Download succeeded, downloaded to: /home/jerome/nilearn_data/neurovault/collection_1066/neurosynth_words_for_image_14330.json
+    DEBUG: Downloading file: http://neurosynth.org/api/v2/decode/?neurovault=14328
+    DEBUG: Download succeeded, downloaded to: /home/jerome/nilearn_data/neurovault/collection_1066/neurosynth_words_for_image_14328.json
+    DEBUG: Downloading file: http://neurosynth.org/api/v2/decode/?neurovault=14331
+    DEBUG: Download succeeded, downloaded to: /home/jerome/nilearn_data/neurovault/collection_1066/neurosynth_words_for_image_14331.json
+    DEBUG: Downloading file: http://neurosynth.org/api/v2/decode/?neurovault=19101
+    DEBUG: Download succeeded, downloaded to: /home/jerome/nilearn_data/neurovault/collection_1373/neurosynth_words_for_image_19101.json
+    DEBUG: 5 images found on local disk.
+    INFO: Computing word features.
+    INFO: Computing word features done; vocabulary size: 2911
+    >>> data = nv.fetch_neurovault(max_images=5, fetch_neurosynth_words=True)
+    DEBUG: Reading local neurovault data.
+    DEBUG: 5 images found on local disk.
+    INFO: Computing word features.
+    INFO: Computing word features done; vocabulary size: 2911
+    >>> ",nan,nan
+8,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-11-21 09:42:18,"The fact that there is no output may be due to a bad interaction between
+the logger and the environment in which things are executing.
+
+Ben: what environment are you running this in?
+
+Jerome: how hard would it be to get rid of the log and just use printing
+to stderr?
+",nan,nan
+29,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-11-21 09:46:49,"> Jerome: how hard would it be to get rid of the log and just use printing to stderr?
+
+not hard, I will do it now
+
+in the meantime the logging level can be set with 
+
+    neurovault.set_logging_level(<e.g. neurovault.logging.DEBUG>)",nan,nan
+9,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-11-21 09:52:09,"> in the meantime the logging level can be set with
+> 
+> neurovault.set_logging_level(<e.g. neurovault.logging.DEBUG>)
+
+Yes, but some execution environement intercept logging.
+",nan,nan
+30,issue_comment,1182,nilearn,nilearn,bcipolli,2016-11-22 15:43:44,"@GaelVaroquaux I'm just running locally (with `ipython` on my macbook pro).
+
+Once I switched to the logging's `DEBUG` settings, I got more informative output. When I was developing in `nilearn`, this level of output was more the default (and the interface was to pass a `verbose` parameter). So, didn't realize the interface needs there.
+
+Downloads are proceeding! Will update later today when downloads complete. Thank you!",nan,nan
+31,issue_comment,1182,nilearn,nilearn,bcipolli,2016-11-22 16:18:08,"I do notice that if I have a disconnect in my connection, the neurosynth API call hangs and never returns. I thought the `nilearn` code times that out?
+
+No biggie, I just kill the process and restart, but wanted to check.",nan,nan
+10,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-11-22 17:05:42,"> I do notice that if I have a disconnect in my connection, the neurosynth API
+> call hangs and never returns. I thought the nilearn code times that out?
+
+Hum, we should probably have a timeout.
+",nan,nan
+32,issue_comment,1182,nilearn,nilearn,bcipolli,2016-11-23 20:03:46,"OK, things look good to me now; I've got my images and neurovault terms downloaded, and the cached copies are used relatively quickly on re-run. Thank you @jeromedockes !",nan,nan
+33,issue_comment,1182,nilearn,nilearn,bcipolli,2016-12-03 00:49:03,"Just to reiterate, this is working great for me. I'd love to see this get merged...",nan,nan
+34,issue_comment,1182,nilearn,nilearn,jeromedockes,2016-12-03 12:55:08,"> Just to reiterate, this is working great for me. I'd love to see this get merged...
+
+Thanks for all the feedback and help, Ben! I think the timeout problem is fixed, I just have to add a test for it. Then there's still the improvement of progress reporting to do.",nan,nan
+35,issue_comment,1182,nilearn,nilearn,bcipolli,2016-12-03 15:31:37,"Cool.
+
+For me, once I turned on the debug logging, I got the level of output I had been accustomed to from `nilearn`. There were maybe one or two outputs that I didn't really need, but the rest were helpful in understanding the download progression of the fetcher.
+
+ Good luck!",nan,nan
+87,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:08:39,"I think that it would be nice to have a more explicit name instead of ""nii"". Maybe ""meta_analysis_img""? Or something else (preferably finishing by ""_img"").",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_neurovault_meta_analysis.py')"
+88,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:10:14,"Is the try/except because of Python 2.6 support?
+
+We should really drop Python 2.6 support.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+89,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:10:54,I believe that this is for Python 2/Python 3 support. I think that it would be good to indicate it in a comment.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+90,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:21:20,"Minor style comment: this empty line makes things hard to read, because the separation of the new method is less visible.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+91,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:23:56,"Such sophistatication makes the code hard to read. Wouldn't it be possible to inline this decorator: take its logic and move it to the various places that use it (I have found 3 places, so the amount of duplication won't be large)",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+92,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:26:15,"What does the ""impl"" stand for in the name of this function? I don't understand it.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+93,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-07 17:24:01,Let's remove this functionality.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+94,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-07 17:24:37,"Let's remove this for the user, and let's try to use the same code as in the other downloaders.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+95,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-07 17:29:44,Can probably be removed: I don't see where it's used.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+96,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-07 17:30:47,"I would transform this into a ""skip_errors"" flag that can be True or False.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+97,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2016-12-07 17:32:15,I don't think that I would have done a line return here.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+59,issue_comment,1182,nilearn,nilearn,codecov[bot],2017-02-27 19:22:50,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=h1) Report
+> Merging [#1182](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/fe6fee62320fc5628198564cd1fa5172c053378d?src=pr&el=desc) will **increase** coverage by `0.1%`.
+> The diff coverage is `95.87%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1182/graphs/tree.svg?token=KpYArSdyXv&src=pr&height=150&width=650)](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff            @@
+##           master    #1182     +/-   ##
+=========================================
++ Coverage   94.51%   94.61%   +0.1%     
+=========================================
+  Files         118      120      +2     
+  Lines       13470    14537   +1067     
+=========================================
++ Hits        12731    13754   +1023     
+- Misses        739      783     +44
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/datasets/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9fX2luaXRfXy5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/datasets/neurovault.py](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9uZXVyb3ZhdWx0LnB5) | `94.96% <94.96%> (ø)` | |
+| [nilearn/datasets/tests/test\_neurovault.py](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X25ldXJvdmF1bHQucHk=) | `97.31% <97.31%> (ø)` | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=footer). Last update [fe6fee6...8212940](https://codecov.io/gh/nilearn/nilearn/pull/1182?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+98,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:54:19,Could you turn this in a title by adding an underline (and same for the different sections below),8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+99,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:55:13,We should strive to import from nilearn.datasets and not nilearn.datasets.neurovault,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_neurovault_meta_analysis.py')"
+100,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:56:08,+1,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_neurovault_meta_analysis.py')"
+101,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 17:58:26,We've dropped support for 2.6,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+102,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:02:30,"An example would help: people don't understand the ""*arg"" syntax.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(473, '', u'nilearn/datasets/neurovault.py')"
+103,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:11:18,Could you inline this function please.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+104,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:19:38,"We should remove all the code related to reduced representation, it will make things simple.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+105,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:22:04,Could you inline this function please.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+106,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:24:26,Could you replace all filters and maps by generator expressions please.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+107,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:25:39,Could you inline this function please.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+108,pull_request_commit_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:27:08,Remove empty lines here,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+11,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-03-02 18:32:11,"For the narrative documentation, we should add a section 6.2 ""Retrieving images from Neurovault"" that contains a small text describing the two functions, their intended use and points to the two examples.",nan,nan
+109,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:33:30,downlad -> download,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+110,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:34:58,"```
+:func:`nilearn.datasets.fetch_neurovault_ids`
+```
+can point to the reference. So, users can easily go through full documentation.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+111,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:38:57,This simple example is fetching me 1325 images. May be we should simple one which fetches least images ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+112,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:40:01,"Same here. Specifying this way can point users directly to reference.
+```
+:func:`nilearn.datasets.fetch_neurovault`
+```",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+113,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:41:35,I didn't understand why it is written as images' collections'. Any reason ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+114,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:48:54,"May be we should add a note here, default values in ```image_terms``` and ```collection_terms``` need also be taken into account while using filters as functions. Because, what specify here might be contradicting with default terms in those arguments. ",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+115,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 18:50:54,Demo on max_images=None might take some time to fetch the data. May be we should think of least images fetch as possible ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+116,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:07:19,"Comment is misleading isn't it removing nan and inf ?
+
+Why don't we smooth with NiftiMasker ?",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(79, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+117,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:13:52,plotting.show() here,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+118,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:14:43,"Then, we can remove importing matplotlib.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'examples/05_advanced/plot_ica_neurovault.py')"
+119,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:38:37,'owner' is represented as ```int``` in neurovault database where integer are hard to remember. May be we should opt to 'owner_name' ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(41, '', u'nilearn/datasets/neurovault.py')"
+120,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:40:13,Can you add short comment for what are these defined ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+121,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:42:24,Optional: Giving a short example here would be super useful. Defining filters using this special class.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(97, '', u'nilearn/datasets/neurovault.py')"
+122,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:46:56,same here (optional). Example might be super useful for users to use these classes constructing their own filters.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(136, '', u'nilearn/datasets/neurovault.py')"
+123,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:50:22,What it means by object ? As far I have seen defining like this NotEqual('atlas'). Isn't key to query rather than object ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(178, '', u'nilearn/datasets/neurovault.py')"
+124,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:52:37,Shouldn't be >= ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+125,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:54:11,allways -> always. Same comment for other classes wherever applicable.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+126,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:54:44,allways -> always,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+127,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:56:59,Shouldn't be the other way ? Am I missed something ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+128,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 19:59:18,May be I am confused with documentation.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+129,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:01:36,:+1: ,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(112, '', u'nilearn/datasets/neurovault.py')"
+130,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:03:46,consonnants -> consonants,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+131,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:06:56,It would have been nice if you specify for which argument this default function is used. To understand where it is used makes easy.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+132,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:14:01,query_terms_,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+133,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:17:01,"```python
+if level > threshold_level:
+```
+
+```python
+if with_traceback
+```",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+134,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:22:44,is -> if,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+135,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:25:31,returs -> returns,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+136,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:27:24,"May be c capital ""C"" for container ?",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+137,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:29:29,May be we should keep consistent in doc either n images or n files.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+138,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:29:52,vaule -> value,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+139,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:40:37,"wether -> whether. Also, applicable for remaining places in this API.",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+140,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:41:03,explicitely -> explicitly,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+141,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:41:49,Can you leave one line empty space below ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+142,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:43:55,owner_name is not specified in default collection filters.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+143,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:47:10,visual indent pep8,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+144,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:48:53,optional: any chance of simplifying the code ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+145,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:49:12,same here simplyfing code.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+146,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:50:58,pep8,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+147,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:52:26,Looks like some simplification here. I understand that we have lot and lengthy arguments.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+148,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:53:16,Line over-indented pep8,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+44,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:54:31,Some comments on minor details,nan,nan
+45,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 20:55:09,CircleCI error seems like time out. Locally I can build documentation successfully.,nan,nan
+46,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 21:01:18,"When I specify ""wrong argument"" by mistake it searches the server and returns me empty after searching for several minutes. ",nan,nan
+149,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-03-28 21:03:46,Can we simply say list or tuple rather than Container ?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+150,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2017-04-11 11:28:06,I think this is the usual way to write a plural possessive. I can rephrase the sentence if it is weird.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+151,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2017-04-11 11:28:49,Should we also emit a warning if the user passes a filter without changing the default terms?,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+152,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2017-04-11 11:30:37,"the owner id (an int) is a filter that can be applied by the server itself. Of course the user can choose to filter based on the name; in this case it will be done locally. This is just the list of filters we can include in a URL, it is determined by Neurovault",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(41, '', u'nilearn/datasets/neurovault.py')"
+153,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2017-04-11 11:31:07,it can be any object. Added an example,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(178, '', u'nilearn/datasets/neurovault.py')"
+154,pull_request_commit_comment,1182,nilearn,nilearn,jeromedockes,2017-04-11 11:32:41,"this is used to specify that whatever we compare it to should be greater or equal to the value we passed to the constructor. Therefore if we pass obj to the constructor, when we compare it to value, we get true if value is greater or equal to obj",8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+155,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-04-11 11:52:41,Only if it is not taking much time on this. I think it will be useful.,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'doc/building_blocks/neurovault.rst')"
+47,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-04-11 14:51:34,Can you please also add in doc/whats_new.rst ?,nan,nan
+156,pull_request_commit_comment,1182,nilearn,nilearn,KamalakerDadi,2017-04-11 14:55:35,Can you check please here ? May be you have added it accidentally,8212940456e9f3470dc0163a0c510b945e1b8c5e,"(None, '', u'nilearn/datasets/neurovault.py')"
+48,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-04-13 11:07:05,"CircleCI failure seems to be unrelated. Error:""command timed out"".
+
+I am able to build documentation locally. Also, this PR LGTM.
+Any more reviews on this ? Or merge ?",nan,nan
+12,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-04-13 11:18:43,"> Any more reviews on this ? Or merge ?
+
+Do release of 0.3 and then merge.
+",nan,nan
+49,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-04-20 07:50:51,"Can you please rebase on master ?
+
+Also in ```doc/whats_new.rst```, could you move these additions from release section 0.3.beta to new release section creating **0.3.1** ?
+Thanks",nan,nan
+50,issue_comment,1182,nilearn,nilearn,KamalakerDadi,2017-04-20 14:59:03,Great work! Thanks Merged,nan,nan
+13,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-04-20 15:11:27,"Hurray!!
+",nan,nan
+51,issue_comment,1182,nilearn,nilearn,bcipolli,2017-04-20 15:15:20,omg 😮 nice!! :),nan,nan
+43,issue_comment,1182,nilearn,nilearn,jeromedockes,2017-04-20 15:18:20,"Many thanks to everyone and especially @KamalakerDadi and @GaelVaroquaux for the reviews, all your help and sound advice",nan,nan
+52,issue_comment,1182,nilearn,nilearn,chrisfilo,2017-04-20 15:25:14,"Excellent work everyone! I'm getting drunk today to celebrate!
+
+On Apr 20, 2017 8:18 AM, ""jeromedockes"" <notifications@github.com> wrote:
+
+> Many thanks to everyone and especially @KamalakerDadi
+> <https://github.com/KamalakerDadi> and @GaelVaroquaux
+> <https://github.com/GaelVaroquaux> for the reviews, all your help and
+> sound advice
+>
+> —
+> You are receiving this because you were mentioned.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/nilearn/nilearn/pull/1182#issuecomment-295775344>, or mute
+> the thread
+> <https://github.com/notifications/unsubscribe-auth/AAOkp0lI-_ctWLkqkX_Vjdd3KVKndUSFks5rx3dAgaJpZM4JQkLw>
+> .
+>
+",nan,nan
+14,issue_comment,1182,nilearn,nilearn,GaelVaroquaux,2017-04-20 15:55:08,"> I'm getting drunk today to celebrate!
+
+Let's all do that!
+
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,issue_comment,1183,nilearn,nilearn,MartinPerez,2016-07-22 09:22:41,"I made the same code correction locally for the left and right problem, the change LGTM. @AlexandreAbraham  +1 for Merge
+
+ On the other hand I have not been able yet to reproduce consistently the case were the images are not inverted appropriately but this change should not affect that. Will keep looking.
+",nan,nan
+6,issue_comment,1183,nilearn,nilearn,GaelVaroquaux,2016-07-22 12:24:10,"> Merged #1183.
+
+That's pretty bad. I think that we need to do a bugfix release quite
+fast.
+",nan,nan
+8,issue_comment,1183,nilearn,nilearn,MartinPerez,2016-07-22 12:38:29,"@GaelVaroquaux I agree and apologize I did not manage for time reasons to fix the inversion inconsistency, which is a very ugly bug. This weekend I will dig deep into it again
+",nan,nan
+9,issue_comment,1183,nilearn,nilearn,MartinPerez,2016-07-22 12:49:03,"@AlexandreAbraham I can give you on monday the whole set of contrast images that I have from my current experiment in which some do the inversion and some dont. It would be great if you give me a hand to figure out the bug source if I dont manage to find it this weekend.
+",nan,nan
+10,issue_comment,1183,nilearn,nilearn,MartinPerez,2016-07-22 12:50:44,"I can also show you then the scripts that give origin to the images, but you would not be able to run them without a lot of extra preprocessed and processed data files
+",nan,nan
+11,issue_comment,1183,nilearn,nilearn,MartinPerez,2016-07-22 13:06:22,"Sent you one example :) with a comprehensive email, hope it helps.
+",nan,nan
+5,issue_comment,1183,nilearn,nilearn,robince,2016-07-27 14:43:06,"Not sure if it helps at this stage but we have tried using this and see this problem. For us it seems to happen when plotting an image of all zeros (we are plotting a sequence - on the first image with non-zero entries we get the switch to the correct layout).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

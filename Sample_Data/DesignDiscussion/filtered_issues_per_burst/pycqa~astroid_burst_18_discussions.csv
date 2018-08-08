@@ -1,0 +1,62 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,39,pycqa,astroid,pylint-bot,2015-02-26 17:04:30,"_Original comment by_ **Sylvain R (BitBucket: [sylvainr_](http://bitbucket.org/sylvainr_))**:
+
+---
+
+Hi there,
+
+Any updates on that issue?
+
+We use sqlalchemy extensively so that false positive shows up a lot.
+
+Because we use it so much, we can not just do an inline disable, nor do we want to disable the ''no-value-for-parameter"" globally. 
+
+So our current solution for the time being is to wrap pylint into a simple script that just filter out the ""No value passed for parameter 'dml' in function call"" lines, which kind of sucks and make our ""pylinter"" more complicated to use.
+
+Using that wrapper is not ideal and it would be awesome if:
+1) pylint/astroid would properly handle the sqlalchemy.Table.insert() calls, or
+2) provide an easy way to just ignore those specific errors.
+
+I know 1 may not be easy so maybe 2 is a more realistic solution? I am not aware of anyway to specifically ignore this error. I tried ignored-modules=sqlalchemy or ignored-classes=sqlalchemy.sql.schema.Table but it does not mute that error.
+
+I think in general having more granularity around ignores at the pylintrc level is a good thing when encountering those issues.
+
+Any suggestions?
+
+PS: Thanks a lot for that awesome tool!
+",nan,nan
+3,issue_comment,39,pycqa,astroid,pylint-bot,2015-02-26 18:23:14,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+This will most likely be fixed when this PR will be integrated: https://bitbucket.org/logilab/pylint/pull-request/222/added-support-for-arity-decrementing/diff. It adds support for understanding arity decrementing decorators and this issue falls in the same situation.
+",nan,nan
+4,issue_comment,39,pycqa,astroid,PCManticore,2016-02-18 21:52:45,"Closing this. I don't think this issue should be here, but rather in Pylint.
+",nan,nan
+5,issue_comment,39,pycqa,astroid,raylu,2017-07-27 03:02:02,"Is there an issue in pylint that tracks this? I found https://github.com/PyCQA/pylint/issues/194 which appears to be closed because it should be handled in pylint-brain, now astroid.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,72,pycqa,astroid,pylint-bot,2015-03-13 09:51:37,"_Original comment by_ **Michael Platings (BitBucket: [mplatings](http://bitbucket.org/mplatings), GitHub: @mplatings?)**:
+
+---
+
+For a work-around to fix the errors on Python 2, I've submitted this pull request: https://bitbucket.org/logilab/astroid/pull-request/70/work-around-the-python-2-part-of-issue
+
+I frequently get people asking me why they're seeing errors while installing my software so I'd really like to see this fixed!
+",nan,nan
+3,issue_comment,72,pycqa,astroid,pylint-bot,2015-08-10 17:46:35,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Would you like to work on a patch? ;-) It would be nice to have this fixed, but I'm at this point in a dearth of time, being overwhelmed by the number of issues that needs to be solved.
+",nan,nan
+4,issue_comment,72,pycqa,astroid,unixsurfer,2015-12-21 17:00:12,"I would like to see a fix for the python3 errors
+",nan,nan
+5,issue_comment,72,pycqa,astroid,PCManticore,2016-02-18 21:57:40,"Fixed, the testdata should be compatible with both versions.
+",nan,nan
+6,issue_comment,72,pycqa,astroid,cladmi,2016-02-19 00:15:10,"@PCManticore Nice ! Which commit does solve this, I wasn't good enough with setuptools to correct the bug, I tried but failed so I'm really interested.
+",nan,nan
+7,issue_comment,72,pycqa,astroid,PCManticore,2016-02-19 00:17:58,"It should be this one https://github.com/PyCQA/astroid/commit/ffa1ba873ca879ae2d259903b8add63f6e6eb2ac. This is applied only in the 2.0 branch, since that's where our focus is currently going (will become the new master in a couple of weeks hopefully).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

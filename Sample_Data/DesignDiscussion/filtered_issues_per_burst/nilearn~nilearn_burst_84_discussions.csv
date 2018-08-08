@@ -1,0 +1,27 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+9,issue_comment,1185,nilearn,nilearn,KamalakerDadi,2016-07-22 15:27:45,"Can I see which example has this bug behaviour, if any ?
+",nan,nan
+5,issue_comment,1185,nilearn,nilearn,MartinPerez,2016-07-22 16:00:51,"I will download the PR and test on all my images
+",nan,nan
+6,issue_comment,1185,nilearn,nilearn,MartinPerez,2016-07-22 16:50:34,"I tested that adding in line 98 of draw_2d:
+
+if self.direction == 'l':
+      self.ax.invert_xaxis()
+
+after 
+self.add_object_bounds((xmin_, xmax_, zmin_, zmax_))
+
+fixes my contrast images, moreover I deleted from line 659 the original inversion, since its not necessary there anymore and due to the bug would be reset anyway.
+
+It is important to verify that line 1347 of add_graph is also not affected by this bug. I think it is not.
+
+I think changing the code inside draw 2d would be better than checking bound values since the reason of the inversion becomes explicit and its dependence on self.direction is also clear.
+",nan,nan
+7,issue_comment,1185,nilearn,nilearn,MartinPerez,2016-07-27 09:19:22,"@AlexandreAbraham I see your point. Its true I am assuming draw2d to be called once at the end. I agree then with your solution.
+
+Just to clarify the reason there is a separate x_axis inversion in add_graph is because the connectomics code kind of overrides the glass brain implementation when I looked at the logic details. So I was forced to add a separate inversion call there after the markers and links were added. So If I read well the logic the two would never be called together.
+",nan,nan
+8,issue_comment,1185,nilearn,nilearn,MartinPerez,2016-07-27 09:43:52,"I would totally agree with re-engineering the code and will be happy to help. I thought exactly the same when modifying the code to add the left hemisphere, nonetheless I did not see any way without very heavy changes.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

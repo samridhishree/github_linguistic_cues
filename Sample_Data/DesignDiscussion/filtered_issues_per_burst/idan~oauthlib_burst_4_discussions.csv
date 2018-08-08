@@ -1,0 +1,15 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,16,idan,oauthlib,dgouldin,2012-04-07 21:07:44,"In the name of DRY, are there utils that can be abstracted out of both oauth 1 and 2 and put in a base utils module?  This would probably require restructuring of the oauth 1 rfc code into its own package, but honestly I'd prefer it that way anyway.
+",nan,nan
+5,issue_comment,16,idan,oauthlib,idan,2012-04-11 10:04:11,"Merging this for now, we can abstract and improve as we go.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,18,idan,oauthlib,kennethreitz,2012-03-31 09:39:13,"Ib's a machine :)
+",nan,nan
+4,issue_comment,18,idan,oauthlib,ib-lundgren,2012-06-28 12:35:05,"Cleaned up and commited into master =)
+",nan,nan
+5,issue_comment,18,idan,oauthlib,kennethreitz,2012-06-28 13:37:59,":sparkles: :cake: :sparkles:
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

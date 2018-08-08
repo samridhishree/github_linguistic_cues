@@ -1,0 +1,19 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,107,idan,oauthlib,ib-lundgren,2013-02-13 20:39:11,"It certainly should. Fancy sending a PR? The doc string for validate_redirect_uri should also mentioned the use of the special ""oob"" value.
+",nan,nan
+3,issue_comment,107,idan,oauthlib,ondrowan,2013-02-13 22:18:31,"Yeah, I can do it tomorrow
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,112,idan,oauthlib,ib-lundgren,2013-02-14 21:11:31,"Please move this up ~30 lines or so to the other ValueError throwing checks.
+",0215a772a8d725244a2cf09b49b237eb3fc418da,"(None, '', u'oauthlib/oauth1/rfc5849/__init__.py')"
+4,issue_comment,112,idan,oauthlib,ib-lundgren,2013-02-14 21:15:58,"Looks good, just a nit pick comment. Also, feel free to add yourself to the AUTHORS while you are at it.
+
+If you are interested in digging deeper I'd be happy to help out getting you started. For example with #95.
+",nan,nan
+5,issue_comment,112,idan,oauthlib,ondrowan,2013-02-14 22:37:39,"Fixed 'n squashed.
+
+I'll try to look at that issue later.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

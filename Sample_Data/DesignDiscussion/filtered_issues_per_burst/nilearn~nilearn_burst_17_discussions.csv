@@ -1,0 +1,113 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,98,nilearn,nilearn,GaelVaroquaux,2013-08-19 15:52:59,"Hi Alle,
+
+The error message did not get through. Could you please copy/paste it here?
+",nan,nan
+5,issue_comment,98,nilearn,nilearn,AlexandreAbraham,2013-08-19 16:05:58,"Hi Alle,
+
+In fact, nilearn.io has been renamed to nilearn.input_data recently and it seems that this has not been replaced in the examples. I will fix that this evening. Thanks for spotting the issue !
+
+Best,
+
+Alexandre.
+",nan,nan
+4,issue_comment,98,nilearn,nilearn,GaelVaroquaux,2013-08-19 16:13:07,"Hey Alex,
+
+good catch. My bad!
+",nan,nan
+6,issue_comment,98,nilearn,nilearn,AlexandreAbraham,2013-08-19 16:15:11,"Alle,
+
+This should be fixed right now. However, you should install nilearn by doing ""make install"" in nilearn directory, not in the doc directory.
+
+Best,
+
+Alexandre.
+",nan,nan
+8,issue_comment,98,nilearn,nilearn,amwink,2013-08-21 11:13:04,"Hi- thanks for all the help! sorry about the error log - it came up as a url in the middle of the 1st post.
+
+I did run make from the nilearn directory (as described)?
+If I ended up in the doc directory that must have been where the Makefile left me...
+
+After the git pull I still had to manually change 
+ ./doc/_build/html/_downloads/plot_nifti_advanced.py
+ ./doc/_build/html/_downloads/plot_old_canica_resting_state.py
+ ./doc/_build/html/_downloads/plot_ica_resting_state.py
+ ./doc/auto_examples/plot_nifti_advanced.py
+ ./doc/auto_examples/plot_old_canica_resting_state.py
+ ./doc/auto_examples/plot_ica_resting_state.py
+ ./plot_nifti_advanced.py
+ ./plot_old_canica_resting_state.py
+ ./plot_ica_resting_state.py
+to replace io by input_data
+
+Also in 
+ emacs doc/Makefile 
+there is a mention of niearn which should probably be nilearn.
+
+After doing all that the commands <in the nilearn directory>
+make clean && make install
+
+result in the following output: 
+![install log](https://f.cloud.github.com/assets/5262793/1000671/81904a62-0a52-11e3-80e3-4977c30e6433.jpg)
+--another jpg text file--
+
+I've done this a couple of time in a row, and in short
+1. the example scripts only need to run one time, except the plot_old_canica_resting_state.py script, which is called twice in every 'make install', and is not successful
+2. the pdf file is not built (possibly because of a syntax error in \FancyVerb [which I dont know]?)
+3. after the pdf generation, another clone attempt also fails.
+
+Hope this report is of use, very happy that the clustering script works.
+",nan,nan
+7,issue_comment,98,nilearn,nilearn,AlexandreAbraham,2013-08-21 11:29:43,"Hi Alle,
+
+Thanks for your feedback ! We try as much as possible to run compilation from scratch but I think my local repository is polluted by temporary files.
+
+To use nilearn, you do not need to 'make' it. Normally, cloning the git repository is enough:
+
+```
+git clone https://github.com/nilearn/nilearn.git
+python plot_rest_clustering.py
+```
+
+... should work (nilearn will be imported locally). If you really want to install it, use:
+
+```
+python setup.py install
+```
+
+I will try to fix the bugs you pointed out as fast as possible but I have other tasks pending. I hope that these installation problems did not dissuade you tu use nilearn !
+
+Do not hesitate to give us a feedback and, if you have an interesting experiment using open data, then maybe we could add it as an example !
+
+Best,
+
+Alexandre.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,91,nilearn,nilearn,GaelVaroquaux,2013-07-24 05:44:29,"> I have quickly changed nilearn logo and switched some colors in the CSS to
+> break the likeness with the scikit learn coloring scheme (as an emergency
+> action).
+
+I'd like to keep the colors but change the logo.
+
+G
+",nan,nan
+4,issue_comment,91,nilearn,nilearn,AlexandreAbraham,2013-07-29 11:47:51,"Indeed but we have no reference for the moment and we are based on the scikit so this does not seem odd to me.
+",nan,nan
+5,issue_comment,91,nilearn,nilearn,AlexandreAbraham,2013-08-19 07:30:02,"As the scikit learn website has changed, I think this is no longer a problem.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,97,nilearn,nilearn,GaelVaroquaux,2013-08-19 11:43:15,"> When a Nifti1Image is passed to a function, its representation contains a pointer to data in memory and therefore breaks the joblib cache system.
+
+It shouldn't: joblib doesn't use the repr, but an actual hash of the
+data. There must be something more. Do you have a small example to
+reproduce the problem. I'd love to look at it.
+",nan,nan
+4,issue_comment,97,nilearn,nilearn,AlexandreAbraham,2013-08-19 11:45:53,"I agree with you: after checking manually with the hash function, I have come to the conclusion that this is not related to Nifti1Image hasing. However, I still have a problem. I have no minimal use case for the moment, I'll let you know when I have.
+",nan,nan
+5,issue_comment,97,nilearn,nilearn,AlexandreAbraham,2013-08-20 13:40:26,"My problem was due to the fact that Nifti1Image hash (and therefore internal state) changes when calling get_data(). Concretely, when loading a Nifti1Image, only the header is loaded, data is loaded when calling get_data(), which break joblib caching. I will make a patch for my usecase (call get_data() on the loaded Nifti1Image in masker if a path is given) and maybe add a note in documentation (this would be a good occasion to start a troubleshooting page).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

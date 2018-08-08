@@ -1,0 +1,107 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,113,aio-libs,aioredis,th3hamm0r,2016-03-10 09:50:15,"Now I've used one asyncio `Lock` for both the `subscribe` and the `unsubscribe` call, so only one connection can actually use one of those methods until the result is returned.
+The problem still occurs.
+
+Here is a real log output of three subsequent `subscribe` calls I grabbed during a test (the above log was just an example):
+
+```
+DEBUG:connection-handler-9cd788e5-3fac-43a2-9518-7320027ecb77:subscribed redis channel - 
+key: ""connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription"", 
+channel: <Channel name:b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription', is_pattern:False, qsize:0>, 
+all channels: {
+    b'connection:b8e3bb75-dfd1-413e-ad29-e3999d9e903b:subscription': <Channel name:b'connection:b8e3bb75-dfd1-413e-ad29-e3999d9e903b:subscription', is_pattern:False, qsize:0>, 
+    b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription': <Channel name:b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription', is_pattern:False, qsize:0>, 
+    b'connection:6c191563-606b-49d0-aea5-a618fe4c226f:subscription': <Channel name:b'connection:6c191563-606b-49d0-aea5-a618fe4c226f:subscription', is_pattern:False, qsize:0>
+}
+
+DEBUG:connection-handler-b8e3bb75-dfd1-413e-ad29-e3999d9e903b:unsubscribing redis channel: ""<Channel name:b'connection:b8e3bb75-dfd1-413e-ad29-e3999d9e903b:subscription', is_pattern:False, qsize:0>""
+
+DEBUG:connection-handler-d10c4feb-057e-4876-9ebd-55370779fb3d:subscribed redis channel - 
+key: ""connection:d10c4feb-057e-4876-9ebd-55370779fb3d:subscription"", 
+channel: <Channel name:b'connection:d10c4feb-057e-4876-9ebd-55370779fb3d:subscription', is_pattern:False, qsize:0>, 
+all channels: {
+    b'connection:d10c4feb-057e-4876-9ebd-55370779fb3d:subscription': <Channel name:b'connection:d10c4feb-057e-4876-9ebd-55370779fb3d:subscription', is_pattern:False, qsize:0>, 
+    b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription': <Channel name:b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription', is_pattern:False, qsize:0>, 
+    b'connection:6c191563-606b-49d0-aea5-a618fe4c226f:subscription': <Channel name:b'connection:6c191563-606b-49d0-aea5-a618fe4c226f:subscription', is_pattern:False, qsize:0>
+}
+
+DEBUG:connection-handler-6c191563-606b-49d0-aea5-a618fe4c226f:unsubscribing redis channel: ""<Channel name:b'connection:6c191563-606b-49d0-aea5-a618fe4c226f:subscription', is_pattern:False, qsize:0>""
+
+DEBUG:connection-handler-309c77b4-a7ac-4354-a1b4-b4c80daa230b:subscribed redis channel - 
+key: ""connection:309c77b4-a7ac-4354-a1b4-b4c80daa230b:subscription"", 
+channel: <Channel name:b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription', is_pattern:False, qsize:0>, 
+all channels: {
+    b'connection:d10c4feb-057e-4876-9ebd-55370779fb3d:subscription': <Channel name:b'connection:d10c4feb-057e-4876-9ebd-55370779fb3d:subscription', is_pattern:False, qsize:0>, 
+    b'connection:309c77b4-a7ac-4354-a1b4-b4c80daa230b:subscription': <Channel name:b'connection:309c77b4-a7ac-4354-a1b4-b4c80daa230b:subscription', is_pattern:False, qsize:0>, 
+    b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription': <Channel name:b'connection:9cd788e5-3fac-43a2-9518-7320027ecb77:subscription', is_pattern:False, qsize:0>
+}
+```
+
+As you can see, the third call gets the channel of the first call.
+
+**edit:** Sorry, I forgot to add the log entries for the two unsubscribe calls.
+",nan,nan
+3,issue_comment,113,aio-libs,aioredis,popravich,2016-03-10 10:34:20,"Yeah, thanks for report.
+I was suspecting that something like this might happen)
+I will try to fix it this weekend
+",nan,nan
+4,issue_comment,113,aio-libs,aioredis,th3hamm0r,2016-03-10 10:50:57,"Wow thanks, that sounds awesome! Don't hesitate to bump me, if there is something to test for example.
+Btw I used the latest 0.2.5 version.
+
+A quick-fix that accesses the channels dict in case of a mismatch seems to work atm. So it looks like the subscription to the new channel actually succeeds (and resolves the future), but returns the wrong channel to the caller.
+",nan,nan
+5,issue_comment,113,aio-libs,aioredis,th3hamm0r,2016-03-10 11:34:42,"Ok, one last note: I stumbled over the case, that `subscribe()` returned the wrong channel, and the requested channel was not in the read-only channels dict. So I've to revert my assumption from the last comment.
+",nan,nan
+6,issue_comment,113,aio-libs,aioredis,popravich,2016-03-10 21:35:34,"@th3hamm0r , try version from master, it should be fixed now.
+",nan,nan
+7,issue_comment,113,aio-libs,aioredis,th3hamm0r,2016-03-11 09:15:37,"Nice, looks like you fixed it. I've removed the temporary locks from my code and tested it. Thanks a lot @popravich !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,110,aio-libs,aioredis,popravich,2016-03-04 12:46:15,"Hmm...
+This looks very strange, need to look into it...
+",nan,nan
+3,issue_comment,110,aio-libs,aioredis,popravich,2016-03-04 14:00:36,"Can you make a test to reproduce it?
+",nan,nan
+4,issue_comment,110,aio-libs,aioredis,tumb1er,2016-03-04 16:27:16,"I'll try to write an example script next week, because it's probably a race-condition effect.
+",nan,nan
+5,issue_comment,110,aio-libs,aioredis,tumb1er,2016-03-05 07:57:30,"Well, transaction and standalone commands itself don't break anything.
+I wrote a simple script, that executes 120 transactions and 1200 standalone redis commands with single redis connection, and couldn't reproduce behavior described above.
+Than I added ""cancel monkey"", than randomly cancels and re-launches green cycles, and in less than a minute script stucked with AssertionError. All other green cycles also stopped, except ""cancel monkey"".
+
+Script itself is here: https://gist.github.com/anonymous/4ea757a6690ccfb27d99
+
+Maybe `transaction.execute()` should be [shielded](https://docs.python.org/3/library/asyncio-task.html#asyncio.shield) from cancellation?
+",nan,nan
+6,issue_comment,110,aio-libs,aioredis,popravich,2016-03-05 10:09:53,"Thanks, I will take a look
+",nan,nan
+7,issue_comment,110,aio-libs,aioredis,tumb1er,2016-03-09 15:05:27,"``` python
+yield from asyncio.shield(transaction.execute())
+```
+
+And no more freezes. Is PR without any tests appropriate for this bugfix?
+",nan,nan
+8,issue_comment,110,aio-libs,aioredis,asvetlov,2016-03-09 15:51:18,"Interesting, I've added `shield` to aiopg in December
+",nan,nan
+9,issue_comment,110,aio-libs,aioredis,popravich,2016-03-09 19:28:08,"Its a bit deeper problem, but I almost have a fix.
+",nan,nan
+10,issue_comment,110,aio-libs,aioredis,popravich,2016-03-10 12:42:00,"@tumb1er, the issue should be fixed now, can you check it with latest version from master?
+",nan,nan
+11,issue_comment,110,aio-libs,aioredis,tumb1er,2016-03-10 13:09:34,"@popravich works for me now:
+
+``` sh
+$ pip install git+https://github.com/aio-libs/aioredis.git
+Collecting git+https://github.com/aio-libs/aioredis.git
+  Cloning https://github.com/aio-libs/aioredis.git to /tmp/pip-l10d4d8q-build
+Requirement already satisfied (use --upgrade to upgrade): hiredis in /home/tumbler/virtualenv/mitya/lib/python3.4/site-packages (from aioredis==0.2.5)
+Installing collected packages: aioredis
+  Found existing installation: aioredis 0.2.4
+    Uninstalling aioredis-0.2.4:
+      Successfully uninstalled aioredis-0.2.4
+  Running setup.py install for aioredis ... done
+Successfully installed aioredis-0.2.5
+
+```
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

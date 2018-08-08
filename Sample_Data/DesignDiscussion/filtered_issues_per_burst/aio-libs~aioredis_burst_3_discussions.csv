@@ -1,0 +1,45 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,24,aio-libs,aioredis,popravich,2014-07-06 19:35:41,"Looks good but I think that methods' arguments should have better validation, for instance `lindex(key, index)` method has check for `key` arg but no checks for `index` arg.
+",nan,nan
+5,issue_comment,24,aio-libs,aioredis,jettify,2014-07-06 20:21:00,"I thought the main reason to check `key` against `None` is that _redis_ replies with somewhat not obvious error response:
+
+```
+>>> redis.lindex(None, -1)
+ERR Protocol error: invalid bulk length
+```
+
+but in case wrong  `index` argument, we get more clear message: 
+
+```
+>>>redis.lindex(key, b'one')):
+ERR value is not an integer or out of range
+```
+
+note: that  ``redis.lindex(key, b'-10')` is valid command, and maybe it is not necessary to check that `index` is integer.
+
+---
+
+Anyway, I'll add more validation to arguments.
+",nan,nan
+6,issue_comment,24,aio-libs,aioredis,popravich,2014-07-07 06:35:29,"My intention of these mixins is to provide a bit simplier and at the same time more strict interface.
+For those who wish to use `b'-10'` there is always `.connection.execute` method which allows to do anything.
+",nan,nan
+7,issue_comment,24,aio-libs,aioredis,jettify,2014-07-07 16:58:22,"Done. Should I add more validation to `hash/set` commands too?
+",nan,nan
+8,pull_request_commit_comment,24,aio-libs,aioredis,popravich,2014-07-08 06:43:01,"I see you taken my note on arguments validation literally )
+",496b34f2f7090894e82b92b763f15a38e0ea8b7a,"(68, '', u'aioredis/commands/list.py')"
+9,pull_request_commit_comment,24,aio-libs,aioredis,popravich,2014-07-08 06:59:42,"Tests for blocking list operations doesn't work as expected:
+Creating a task in lines above only schedules it for execution
+and then yielding from `lpush` will first send a value to list then will give control to loop
+ which will start the `waiter` task.
+So the code above would work the same ways as if it was written like following:
+
+``` python
+yield from self.redis.lpush(key1, value1)
+yield from self.redis.blpop(key1)
+```
+",496b34f2f7090894e82b92b763f15a38e0ea8b7a,"(41, '', u'tests/list_commands_test.py')"
+10,pull_request_commit_comment,24,aio-libs,aioredis,popravich,2014-07-08 07:01:54,"I don't mind keeping the tests as is for now.
+",496b34f2f7090894e82b92b763f15a38e0ea8b7a,"(41, '', u'tests/list_commands_test.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 

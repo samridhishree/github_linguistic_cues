@@ -1,0 +1,504 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,586,nilearn,nilearn,GaelVaroquaux,2015-05-13 09:24:04,"I am not sure it is worth creating a wikipedia page. I would just add a
+reference on the pages on neuroimaging software.
+",nan,nan
+4,issue_comment,586,nilearn,nilearn,AlexandreAbraham,2015-05-13 09:37:32,"For me, it is a way to look more ""serious"" (even if the page is small) and it is the only way to get a link to the website.
+",nan,nan
+5,issue_comment,586,nilearn,nilearn,AlexandreAbraham,2015-05-19 07:41:29,"Page not created but nilearn referenced in the software lists.
+",nan,nan
+6,issue_comment,586,nilearn,nilearn,bthirion,2015-05-19 07:43:40,"Thx @AlexandreAbraham 
+",nan,nan
+7,issue_comment,586,nilearn,nilearn,GaelVaroquaux,2015-05-19 07:44:31,"Thank you! Closing the issue.
+",nan,nan
+8,issue_comment,586,nilearn,nilearn,AlexandreAbraham,2015-05-19 09:04:42,"No problem, I wanted to get rid of these annoying Wikipedia tabs in my browser ;).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,593,nilearn,nilearn,banilo,2015-05-20 18:03:32,"Two remarks:
+a) Just ported the function to image for new
+b) will do the other aspects soon
+",nan,nan
+33,pull_request_commit_comment,593,nilearn,nilearn,AlexandreAbraham,2015-05-21 11:51:37,"Too many delayed imports is a sign of bad software design. First, you should not delay the import here but delay the import of masking in the image module, since it's used only one time. You should also check if there is a way to avoid these delayed imports by refactoring some code.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/masking.py')"
+34,pull_request_commit_comment,593,nilearn,nilearn,banilo,2015-05-21 12:56:19,"I did this because there appeared to be many circular imports when directly importing at the topic in the lower level scripts.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/masking.py')"
+35,pull_request_commit_comment,593,nilearn,nilearn,AlexandreAbraham,2015-05-21 14:25:21,"My remark still holds. Too much delayed import is bad.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/masking.py')"
+36,pull_request_commit_comment,593,nilearn,nilearn,bthirion,2015-05-21 21:40:57,"Sorry if I am dumb, but why are you importing a function from this module ?
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/image.py')"
+37,pull_request_commit_comment,593,nilearn,nilearn,banilo,2015-05-22 18:52:55,"My bad...
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/image.py')"
+38,pull_request_commit_comment,593,nilearn,nilearn,banilo,2015-05-22 19:01:18,"if I make this import global (that is, only in masking.py), nosetests gives me 15 errors due to circular imports.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/masking.py')"
+39,pull_request_commit_comment,593,nilearn,nilearn,banilo,2015-05-22 19:11:51,"making these imports global gives 15 errors due to circular imports, too
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/resampling.py')"
+40,pull_request_commit_comment,593,nilearn,nilearn,GaelVaroquaux,2015-05-22 19:14:52,"> > -    from .image import new_img_like
+> 
+> making these imports global gives 15 errors due to circular imports, too
+
+This tells me that new_img_like should probably be defined in utils, and
+imported in places where it's used (including image to expose it).
+
+Other option is to always import it from image.image in the codebase. I
+think that this might solve the circular import problems.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/resampling.py')"
+41,pull_request_commit_comment,593,nilearn,nilearn,banilo,2015-05-22 19:18:23,"So we stay in _utils with new_img_like, yet expose it in image/image.py on
+the __init__-level?
+
+2015-05-22 21:14 GMT+02:00 Gael Varoquaux notifications@github.com:
+
+> In nilearn/image/resampling.py
+> https://github.com/nilearn/nilearn/pull/593#discussion_r30923273:
+> 
+> > @@ -340,6 +339,8 @@ def resample_img(img, target_affine=None, target_shape=None,
+> >      This function handles gracefully NaNs and infinite values in the input
+> >      data, however they make the execution of the function much slower.
+> >      """"""
+> > -    from .image import new_img_like
+> > - from .image import new_img_like making these imports global gives 15
+> >   errors due to circular imports, too
+> >   This tells me that new_img_like should probably be defined in utils, and
+> >   imported in places where it's used (including image to expose it). Other
+> >   option is to always import it from image.image in the codebase. I think
+> >   that this might solve the circular import problems.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/593/files#r30923273.
+
+## 
+
+Viele Grüße,
+Danilo
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/resampling.py')"
+42,pull_request_commit_comment,593,nilearn,nilearn,GaelVaroquaux,2015-05-22 19:20:17,"> So we stay in _utils with new_img_like, 
+
+We can try doing the internal imports from image.image to see if it
+solves the problem (add a comment saying that this is to avoid circular
+imports).
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/resampling.py')"
+6,issue_comment,593,nilearn,nilearn,banilo,2015-05-22 19:34:04,"Simple exposure, as suggest by Gael, appears to work better.
+",nan,nan
+7,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-05-22 23:11:31,"I don't think that introducing anti-patterns at such an early stage in a software is the way to go.
+",nan,nan
+8,issue_comment,593,nilearn,nilearn,GaelVaroquaux,2015-05-22 23:12:06,"> I don't think that introducing anti-patterns at such an early stage in a
+> software is the way to go.
+
+What do you mean?
+",nan,nan
+9,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-05-26 11:26:35,"I don't like to import code in one module from a totally different one. In particular because it is less intuitive for developers. For me, this reveals a flow in the architecture of the software itself (hence the term anti-pattern). I would prefer to put it in a submodule of image for example.
+",nan,nan
+10,issue_comment,593,nilearn,nilearn,eickenberg,2015-05-26 11:29:25,"then again, the `image` module, up until now, to me, felt more like a
+collection of tools to work on the voxel+affine level, e.g. smoothing,
+cropping, resampling
+
+On Tue, May 26, 2015 at 1:26 PM, Alexandre Abraham <notifications@github.com
+
+> wrote:
+> 
+> I don't like to import code in one module from a totally different one. In
+> particular because it is less intuitive for developers. For me, this
+> reveals a flow in the architecture of the software itself (hence the term
+> anti-pattern). I would prefer to put it in a submodule of image for example.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/593#issuecomment-105493668.
+",nan,nan
+11,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-05-26 11:34:51,"Maybe we need to do a discussion and design the package to integrate forthcoming features (because I guess that check_niimg may also become public in a near future).
+",nan,nan
+12,issue_comment,593,nilearn,nilearn,banilo,2015-06-09 14:56:42,"Ok for the argument swapping.
+
+But I am wondering about the optimal affine argument idea: Do you mean that we only checked for matching shape in case no affine is specified?
+",nan,nan
+13,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-06-09 19:52:39,"> Ok for the argument swapping.
+
+We agreed not to swap.
+
+> Do you mean that we only checked for matching shape in case no affine is specified?
+
+Yes, we suppose that the affine of the reference image is also the one of the resulting image. For me, it is always the case.
+",nan,nan
+14,issue_comment,593,nilearn,nilearn,banilo,2015-06-11 13:18:31,"Alright..
+",nan,nan
+15,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-06-11 13:24:56,"Shouldn't we support niimg instead of img? User may want to do that with filenames.
+",nan,nan
+16,issue_comment,593,nilearn,nilearn,banilo,2015-06-12 09:09:10,"> Shouldn't we support niimg instead of img? User may want to do that with filenames
+
+You mean add ""check_niimg_3D""?
+",nan,nan
+17,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-06-12 09:18:44,"Yes, do a wrapper around the existing function and calling `check_niimg` (we don't have dimension restriction).
+",nan,nan
+18,issue_comment,593,nilearn,nilearn,lesteve,2015-06-12 09:25:48,"> Shouldn't we support niimg instead of img? User may want to do that with filenames.
+
+Is it really that useful? It feels to me that you generally load the data from the file before transforming it and using new_img_like.
+",nan,nan
+19,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-06-12 09:34:49,"> Is it really that useful
+
+For us, it is not since we do proper checking before calling it so calling it again is spurious. For the users, it is a small cost and it will in particular do all proper checking regarding the type of the image. For the moment, the function clearly lacks of error handling.
+",nan,nan
+20,issue_comment,593,nilearn,nilearn,banilo,2015-06-24 13:55:27,"So what did we exactly agree on?
+",nan,nan
+43,pull_request_commit_comment,593,nilearn,nilearn,lesteve,2015-06-25 07:08:53,"Shouldn't affine be None by default in the arguments?
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/_utils/niimg.py')"
+21,issue_comment,593,nilearn,nilearn,banilo,2015-06-27 08:56:45,"How about now?
+",nan,nan
+22,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-06-28 22:08:45,"You didn't add a wrapper but modified the original function. For some functions, we have an internal version (optimized, straight to the point) and for other we have expose version (with error handling). This is the case for `index_img` for example. I think you should not modify the original function but create another one that does `check_niimg` and calls `new_img_like`.
+
+Anybody else to comment that choice?
+",nan,nan
+44,pull_request_commit_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-13 15:52:16,"I think refactoring is better that local import. Plus, you don't use it.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/_utils/niimg.py')"
+45,pull_request_commit_comment,593,nilearn,nilearn,GaelVaroquaux,2015-07-14 07:28:52,"Can you be more explicit: what refactoring are you suggesting exactly (I am asking to make it more clear what need to be done on the PR before merging).
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/_utils/niimg.py')"
+46,pull_request_commit_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-14 07:38:30,"Create one function, having one that call another is useless. Use `load_img` and not `check_niimg` (we want to load the data if it's a filename, we don't want to load list of niimgs). If it must be released, move that code to the image module. That's how I see it.
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/_utils/niimg.py')"
+23,issue_comment,593,nilearn,nilearn,banilo,2015-07-14 12:01:35,"In response to Alex' comments, I restored the the original code we had that raised a circular import
+
+``` python
+
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-1-398362f15096> in <module>()
+----> 1 from nilearn.image import new_img_like
+
+/git/nilearn/nilearn/image/__init__.py in <module>()
+      3 data, and an affine.
+      4 """"""
+----> 5 from .resampling import resample_img, reorder_img
+      6 from .image import high_variance_confounds, smooth_img, crop_img, \
+      7     mean_img, swap_img_hemispheres, index_img, iter_img
+
+/git/nilearn/nilearn/image/resampling.py in <module>()
+     13 from scipy import ndimage, linalg
+     14 
+---> 15 from .. import _utils
+     16 from .._utils import new_img_like
+     17 from .._utils.compat import _basestring
+
+/git/nilearn/nilearn/_utils/__init__.py in <module>()
+      1 
+----> 2 from .niimg_conversions import (check_niimg, check_niimg_3d, concat_niimgs,
+      3     check_niimg_4d)
+      4 
+      5 from .niimg import _repr_niimgs, copy_img
+
+/git/nilearn/nilearn/_utils/niimg_conversions.py in <module>()
+     12 from .cache_mixin import cache
+     13 from .niimg import _safe_get_data, load_niimg
+---> 14 from ..image import new_img_like
+     15 from .compat import _basestring
+     16 
+
+ImportError: cannot import name new_img_like
+
+```
+
+The only option I see right now would be to make several imports in _utils local.
+",nan,nan
+24,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-14 12:33:50,"The solutions I see.
+
+Option 1 : refactoring (my favorite)
+- leave `new_img_like`, `index_img` and `index_img` in `image.py`
+- evacuate other functions in `image/process.py` or something since they are explictely modifying the image.
+
+Option 2 : local import
+- import `reorder_img` locally in `swap_img_hemispheres` to avoid the circular import. This is the local import option that makes most sense to me.
+",nan,nan
+25,issue_comment,593,nilearn,nilearn,banilo,2015-07-14 14:15:45,"I would like to do Option 2.
+
+2015-07-14 14:33 GMT+02:00 Alexandre Abraham notifications@github.com:
+
+> The solutions I see.
+> 
+> Option 1 : refactoring (my favorite)
+> - leave new_img_like, index_img and index_img in image.py
+> - evacuate other functions in image/process.py or something since they
+>   are explictely modifying the image.
+> 
+> Option 2 : local import
+> - import reorder_img locally in swap_img_hemispheres to avoid the
+>   circular import. This is the local import option that makes most sense to
+>   me.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/593#issuecomment-121225949.
+
+## 
+
+Viele Grüße,
+Danilo
+",nan,nan
+26,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-14 14:22:56,"That's just because I said that I prefer the first one, right?
+",nan,nan
+27,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-14 23:13:00,"You won @banilo, I give up! I still see two options and I don't like both of them:
+- leave `new_img_like` in `_utils` and import it from there
+- move `new_img_like` to `image` but make all imports of `new_img_like` local in `niimg_conversion`.
+
+Well, I would be in favor of option 1.
+
+Sorry for wasting your time, I really thought that we could find a cleaner solution :-/.
+",nan,nan
+30,issue_comment,593,nilearn,nilearn,banilo,2015-07-15 14:55:35,"_WORKING_
+",nan,nan
+31,issue_comment,593,nilearn,nilearn,banilo,2015-07-15 14:55:42,"_NOW_
+",nan,nan
+29,issue_comment,593,nilearn,nilearn,lesteve,2015-07-15 15:13:23,"Wow capital letters, have you looked at the Travis build status ?
+",nan,nan
+47,pull_request_commit_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-15 20:00:13,", optional
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/image.py')"
+48,pull_request_commit_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-15 20:00:29,"Maybe elaborate a little bit?
+",cdc1587474cfeb9a1f24be2221da7142165cb500,"(None, '', u'nilearn/image/image.py')"
+28,issue_comment,593,nilearn,nilearn,AlexandreAbraham,2015-07-15 20:01:05,"Minor remark. :+1: 
+",nan,nan
+32,issue_comment,593,nilearn,nilearn,banilo,2015-07-16 06:06:07,"> Minor remark
+
+Addressed! We should be ready to go now.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,592,nilearn,nilearn,lesteve,2015-06-02 12:04:38,"> To workaround this warning scikit-learn and now in this PR, there is an extra action in conf.py that touches non-existing backreference example files so that one does not get the include warning
+
+Just wondering wheter there is a way to have some logic in the jinja2 template to say that if the .examples file exists include it otherwise don't bother. Seems slightly better than creating empty .examples files. By the way I am not sure about the ordering of  gen_gallery versus the 'autodoc-process-docstring' step. Imagine you start from a clean state, are all the .examples file created empty during the 'autodoc-process-docstring' and then gen_gallery comes along and generates non-empty .examples file or is it the other way around? I think what I am trying to say is that it does seem a bit fragile.
+
+> Since naming convention for example references is to include the target dir, this references are also updated.
+
+That makes the naming a bit too redundant: example_auto_examples_... Just wondering whether there is an easy but generic way to remove auto_examples from the reference name.
+
+Also you need to rebase on master and fix the merge conflicts.
+",nan,nan
+6,issue_comment,592,nilearn,nilearn,Titan-C,2015-06-02 12:26:34,"> . By the way I am not sure about the ordering of gen_gallery versus the 'autodoc-process-docstring' step.
+
+Sphinx gallery does its job first creating the .example files. 'autodoc-process-docstring' is executed afterwards everytime it finds the include directive to the example file
+
+> That makes the naming a bit too redundant: example_auto_examples_
+
+Yes, I agree on the redundancy. At some point I tested to rename it to sphx_glr_auto_example_ or to remove completely the example_ prefix, but I could not agree with myself on which to prefer so I left it that way. I support the fact to have the full target name on the reference starting from the sphinx source folder, so to our convention the gallery sits in auto_examples_. That way is was easier to link to the images and references. To put an additional prefix to it might not be necessary anymore, example_ was used because all paths where used taken the inside of the gallery folder as reference, so having the prefix became valuable. As a generic option I would rather remove example_ prefix than the first folder auto_example
+",nan,nan
+7,issue_comment,592,nilearn,nilearn,Titan-C,2015-06-02 12:39:56,"rebase done
+",nan,nan
+8,issue_comment,592,nilearn,nilearn,Titan-C,2015-06-02 12:40:47,"rebase done
+",nan,nan
+9,issue_comment,592,nilearn,nilearn,lesteve,2015-06-02 13:19:24,"> As a generic option I would rather remove example_ prefix than the first folder auto_example
+
+I am not sure, it feels like the reference name should look more like the example python file than the generated rst in auto_examples. Also it'd be good to have some consistency between the generated image name and the reference name. At the moment the two of them have grown further apart.
+
+> Sphinx gallery does its job first creating the .example files. 'autodoc-process-docstring' is executed afterwards everytime it finds the include directive to the example file
+
+Surely this can't be true, 'autodoc-process-docstring' doesn't know anything about example files which are sphinxgallery specific. The only way this can work if the autodoc-process-string creates all example files as empty and then sphinxgallery comes along, parses the example scripts and overrides the .examples files. Just curious, is the ordering guaranteed ? Does it depend on the ordering of `extensions` in conf.py ?
+
+More importantly, it seems that you haven't included the backreferences.py module in this PR (i.e. sphinxext/sphinxgallery/backreferences.py) is that on purpose?
+",nan,nan
+10,issue_comment,592,nilearn,nilearn,Titan-C,2015-06-02 13:41:15,"> I am not sure, it feels like the reference name should look more like the example python file than the generated rst in auto_examples. Also it'd be good to have some consistency between the generated image name and the reference name. At the moment the two of them have grown further apart.
+
+For the consistency with image names I wanted to put it as prefix sphx_glr, then the path to the python example. That way is more consistent.
+
+> Surely this can't be true, 'autodoc-process-docstring' doesn't know anything about example files which are sphinxgallery specific. 
+> 
+> Just curious, is the ordering guaranteed ? Does it depend on the ordering of extensions in conf.py ?
+
+Yes the ordering is guaranteed. As each one is assigned a different event in the sphinx build. It does not depend in the ordering of the extensions in conf.py but to which build step it was assigned. Sphinx-gallery happens when the builder is started(outputs rst files, image files, .example files), but the autodoc file touch is when rst files are parsed.
+So autodoc is completely independent of sphinx-gallery, it only tries to include a matching example file to every module it has to document. If it can't find the file a warning is issued, and in our case the missing file is touched and so no warning issued.
+
+> More importantly, it seems that you haven't included the backreferences.py module in this PR (i.e. sphinxext/sphinxgallery/backreferences.py) is that on purpose?
+
+This is a glitch in my update script as it does not git add new files. I'll fix it
+",nan,nan
+11,issue_comment,592,nilearn,nilearn,lesteve,2015-06-29 07:08:27,"This needs a rebase on master actually.
+",nan,nan
+25,pull_request_commit_comment,592,nilearn,nilearn,lesteve,2015-11-23 08:34:05,"Ideally we should stick with a released version. @Titan-C any reason why this is not 0.0.11?
+",6c9e894c07a0b6c6fe280f0cb284551c45bea3ab,"(None, '', u'doc/sphinxext/sphinxgallery/__init__.py')"
+12,issue_comment,592,nilearn,nilearn,Titan-C,2015-11-24 18:49:59,"This one is rebased on master and has the latest release of Sphinx-Gallery.
+Some examples already have the notebook style. All seem to be running now.
+
+There is one link that is not working and I hesitate to change.
+
+https://github.com/nilearn/nilearn/blame/master/doc/connectivity/functional_connectomes.rst#L138-L142
+file `examples/manipulating_visualizing/plot_probabilistic_atlas.py` does not exist. On same folder there is one `plot_prob_atlas.py`, but since there the following figure does not match the file either nor can I find mention of the function stated before the link I'm not sure.
+
+you can preview the website in
+
+http://scikit-learn.byethost7.com/nilearn/
+",nan,nan
+13,issue_comment,592,nilearn,nilearn,Titan-C,2015-11-24 19:00:39,"Side question. How does the circleci work. Can I see the sphinx output there? the rendered documentation?
+",nan,nan
+14,issue_comment,592,nilearn,nilearn,KamalakerDadi,2015-11-24 19:43:24,"@Titan-C Thanks for reporting.
+
+`examples/manipulating_visualizing/plot_probabilistic_atlas.py` does not exist since the name `plot_probabilistic_atlas` is renamed as `plot_overlay` to avoid conflicting with `plot_prob_atlas`. Both `plot_overlay` and `plot_prob_atlas` exists in Nilearn.
+
+Could you please change this
+ see the :ref:`corresponding example <example_manipulating_visualizing_plot_probabilistic_atlas.py>`
+
+to this
+see the :ref:`corresponding example <example_manipulating_visualizing_plot_overlay.py>`
+
+Then I think it will work. Please let me know. If it doesn't ?
+",nan,nan
+15,issue_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-25 12:42:19,"@Titan-C : the circle-ci web interface does not give you links to artifacts unless you are administrator :(.
+
+But here is the link to the latest build of your PR:
+https://circle-artifacts.com/gh/nilearn/nilearn/733/artifacts/0/home/ubuntu/nilearn/doc/_build/html/auto_examples/index.html
+",nan,nan
+26,pull_request_commit_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-25 12:43:57,"Not a blocker to merge this PR, but should this be in sphinx_gallery itself? It seems that it's something that people can easily get wrong.
+",6c9e894c07a0b6c6fe280f0cb284551c45bea3ab,"(41, '', u'doc/conf.py')"
+16,issue_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-25 13:02:13,"+1 for merge. This is simply great. Thank you very @Titan-C 
+
+Does anyone wants to have a look, or should I merge?
+",nan,nan
+17,issue_comment,592,nilearn,nilearn,KamalakerDadi,2015-11-25 14:14:16,"> Does anyone wants to have a look, or should I merge?
+
+I want to have a look. I will give my call by end of day.
+",nan,nan
+27,pull_request_commit_comment,592,nilearn,nilearn,Titan-C,2015-11-25 14:36:37,"I was also thinking about it. In general you don't need this. It is only to remove some warnings of sphinx as it runs autosummary. 
+",6c9e894c07a0b6c6fe280f0cb284551c45bea3ab,"(41, '', u'doc/conf.py')"
+28,pull_request_commit_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-25 14:37:51,"> > +def touch_example_backreferences(app, what, name, obj, options, lines):
+> 
+> I was also thinking about it. In general you don't need this. It is only to
+> remove some warnings of sphinx as it runs autosummary.
+
+If it's easy to add, I think you should (though not in this PR)
+",6c9e894c07a0b6c6fe280f0cb284551c45bea3ab,"(41, '', u'doc/conf.py')"
+18,issue_comment,592,nilearn,nilearn,Titan-C,2015-11-25 14:45:04,"> @Titan-C : the circle-ci web interface does not give you links to artifacts unless you are administrator :(.
+> 
+> But here is the link to the latest build of your PR:
+> https://circle-artifacts.com/gh/nilearn/nilearn/733/artifacts/0/home/ubuntu/nilearn/doc/_build/html/auto_examples/index.html
+
+That's cool. Then I would need to manually upload the builds to my test website
+",nan,nan
+19,issue_comment,592,nilearn,nilearn,lesteve,2015-11-26 10:11:42,"@Titan-C just curious, is there an example that renders as notebook in https://circle-artifacts.com/gh/nilearn/nilearn/733/artifacts/0/home/ubuntu/nilearn/doc/_build/html/auto_examples/index.html. I haven't found any yet.
+",nan,nan
+20,issue_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-26 10:16:45,"@lesteve 
+https://circle-artifacts.com/gh/nilearn/nilearn/733/artifacts/0/home/ubuntu/nilearn/doc/_build/html/auto_examples/decoding/plot_haxby_different_estimators.html#sphx-glr-auto-examples-decoding-plot-haxby-different-estimators-py
+
+And actually we can see that from a layout / styling perspective, the code line and the output of the script appear as visually similar, which can be confusing for the users. We will need to change this.
+",nan,nan
+21,issue_comment,592,nilearn,nilearn,lesteve,2015-11-26 10:22:18,"Thanks a lot.
+
+> And actually we can see that from a layout / styling perspective, the code line and the output of the script appear as visually similar,
+
+There is an issue about that already https://github.com/sphinx-gallery/sphinx-gallery/issues/44
+",nan,nan
+22,issue_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-26 10:27:40,"> There is an issue about that already sphinx-gallery/sphinx-gallery#44
+
+OK :)
+",nan,nan
+23,issue_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-26 10:40:35,"> There is an issue about that already sphinx-gallery/sphinx-gallery#44
+
+I pushed a quick fix:
+https://github.com/sphinx-gallery/sphinx-gallery/pull/72
+
+we can backport in nilearn.
+",nan,nan
+24,issue_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-28 10:33:13,"Merging this guy, and backporting the latest sphinx-gallery, to have the new style.
+",nan,nan
+29,pull_request_commit_comment,592,nilearn,nilearn,GaelVaroquaux,2015-11-28 10:39:00,"I just realized: why was this file deleted?
+",6c9e894c07a0b6c6fe280f0cb284551c45bea3ab,"(8, '', u'doc/sphinxext/copy_sphinxgallery.sh')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,595,nilearn,nilearn,lesteve,2015-05-27 06:53:36,"Glad you find nilearn plotting useful and thanks for the PR.
+
+One way to do what you want with the existing code is something like:
+
+``` python
+
+display = plotting.plot_roi(roi_nii, annotate=False)
+display.title('roi_label', size=12, color='k', bgcolor='w', weight='bold', alpha=0.)
+display.annotate(size=12)
+```
+
+My take on it is that we are trying to fight against adding more complexity in the plotting code but ccing @GaelVaroquaux and @AlexandreAbraham for their opinions on the matter.
+
+The rationale is that plotting.plot_\* functions should cover the most basic use cases. If you need more tweaking it can be done via the 'display' objects that these functions return.
+",nan,nan
+5,issue_comment,595,nilearn,nilearn,AlexandreAbraham,2015-05-27 07:27:32,"I am in favor of using the existing system. This is the way matplotlib works and I'd like to keep the arguments of the plot functions to their strict minimum.
+",nan,nan
+6,issue_comment,595,nilearn,nilearn,grlee77,2015-05-27 13:03:44,"thanks @lesteve 
+That looks just as easy.  I should have looked more closely to see that the object was returned and you could just set it then as in matplotlib!  
+
+Perhaps, something along these lines could be added to one of the examples here:
+http://nilearn.github.io/building_blocks/plotting.html
+",nan,nan
+7,issue_comment,595,nilearn,nilearn,AlexandreAbraham,2015-05-27 13:08:31,":+1: 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,591,nilearn,nilearn,AlexandreAbraham,2015-05-19 14:04:20,"> sudo pip install -U --user nilearn
+
+This is a pip related problem because root doesn't own the current directory. Doing `cd /tmp && sudo pip install -U --user nilearn` fixes the problem.
+
+> I re-ran with sudo with a -H flag and got the following output (again some warnings)...
+
+Obviously it works because `-H` changes your `$HOME` variable and thus pip ends up installing in root's home, which is owned by root. Note that updating pip should also fix the issue.
+
+> I wasn't sure how important the SSL warnings were? 
+
+Not important when it comes to downloading software.
+
+> Next, when I try to import nilearn in ipython, it isn't found....
+
+Seems like a configuration problem to me.
+Can you try:
+- `import nibabel`
+- `import sys; print sys.path`
+- `which pip` (in the terminal, not in ipython)
+",nan,nan
+4,issue_comment,591,nilearn,nilearn,jlhanson5,2015-05-19 17:42:56,"OK, I think I'm getting closer...
+
+I can import nibabel, but am still having trouble with nilearn (various output below). Further thoughts?
+
+```
+MNI-Space:nibabel-master jamielarshanson$ python
+Python 2.7.6 (default, Sep  9 2014, 15:04:36) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import nibabel
+>>> import sys; print sys.path
+['',
+ '/Library/Python/2.7/site-packages/pip-6.1.1-py2.7.egg',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC',
+ '/Library/Python/2.7/site-packages']
+>>> exit()
+```
+
+```
+MNI-Space:nibabel-master jamielarshanson$ which pip 
+/usr/local/bin/pip
+```
+
+```
+MNI-Space:nibabel-master jamielarshanson$ python 
+Python 2.7.6 (default, Sep  9 2014, 15:04:36) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import nilearn
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+ImportError: No module named nilearn
+```
+",nan,nan
+5,issue_comment,591,nilearn,nilearn,lesteve,2015-05-27 07:18:18,"Have you managed to get it working eventually?
+",nan,nan
+6,issue_comment,591,nilearn,nilearn,AlexandreAbraham,2015-06-01 07:26:30,"Closing as non reproducible and because we have no news. Please reopen if the problem is not solved.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,588,nilearn,nilearn,GaelVaroquaux,2015-05-15 16:12:41,"Hi @KamalakerDadi 
+
+You should not need to resample.
+
+Could you do a pull request with the code that you have as a function in img_plotting and an example that produces the problem that you are having with the MSDL atlas.
+",nan,nan
+4,issue_comment,588,nilearn,nilearn,AlexandreAbraham,2015-05-18 10:04:56,"Change the `levels` parameter in `add_contours` to `0.1` and it will work.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

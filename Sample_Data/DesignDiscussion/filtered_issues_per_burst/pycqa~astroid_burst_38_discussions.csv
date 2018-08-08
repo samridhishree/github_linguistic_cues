@@ -1,0 +1,14 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,474,pycqa,astroid,brycepg,2017-12-28 04:15:18,The only failure right now is pylint failing #475 ,nan,nan
+6,pull_request_commit_comment,474,pycqa,astroid,PCManticore,2017-12-28 11:58:37,"Can we have this a static, with the exception of the `if` statement? e.g no method for it.",0cba62405b9c3ce1c83a8452493ac3892eb02853,"(None, '', u'astroid/scoped_nodes.py')"
+7,pull_request_commit_comment,474,pycqa,astroid,PCManticore,2017-12-28 11:59:36,"Ah, I see, nevermind!",0cba62405b9c3ce1c83a8452493ac3892eb02853,"(None, '', u'astroid/scoped_nodes.py')"
+5,issue_comment,474,pycqa,astroid,PCManticore,2018-01-03 10:45:42,Thank you @brycepg !,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,475,pycqa,astroid,PCManticore,2017-12-28 09:45:14,"I'm aware of this. I just didn't have time to tackle it. The problem is of a cyclic dependency:
+- pylint 2.0 depends on an un-released 2.0 version. In the past, we solved this by adding a `dependency_links` with the link to an astroid 2.0 archive in pylint's `__pkginfo__`
+- astroid depends on latest pylint for linting. We could try to limit this one to a released version, since it is fine like that. 
+If you have some spare cycles, the second approach should be a simple PR.",nan,nan
+3,issue_comment,475,pycqa,astroid,brycepg,2017-12-30 20:30:08,"Alright, did that. Thanks for pointing me in the right direction",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

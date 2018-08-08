@@ -1,0 +1,77 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,3,idan,oauthlib,kennethreitz,2012-03-13 04:12:35,":cake:
+",nan,nan
+4,issue_comment,3,idan,oauthlib,dgouldin,2012-03-13 04:57:32,"The setup.py commit has been cherry-picked. I'm closing this pull request.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,6,idan,oauthlib,pydanny,2012-03-15 15:55:35,"I'm not in a good place to review this properly, but I have to say these are nicely done pull requests. :)
+",nan,nan
+5,issue_comment,6,idan,oauthlib,dgouldin,2012-03-15 16:00:23,"@ib-lundgren good catch, but I'd rather you pair the scheme with the port since it is possible for somebody to use 80 for https or 443 for http:
+
+```
+if (scheme == u'http' and port == u'80') or (scheme == u'https' and port == u'443'):
+```
+",nan,nan
+6,issue_comment,6,idan,oauthlib,dgouldin,2012-03-15 16:03:35,"Better yet:
+
+```
+default_ports = (
+    (u'http', u'80'),
+    (u'https', u'443'),
+)
+if (scheme, port) in default_ports:
+```
+",nan,nan
+7,issue_comment,6,idan,oauthlib,ib-lundgren,2012-03-15 17:33:20,"Thanks @pydanny, was aiming for a slightly less tangled mess than last time.
+
+Good idea @dgouldin , have updated to match your suggestion. Am a bit uncertain where to put the defaults port in the code though... in the method (as it is now)? inside the if u':'  block? or on top level as a constant DEFAULT_PORTS?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,7,idan,oauthlib,dgouldin,2012-03-15 21:04:42,"I wasn't aware that the RFC was different from 1.0a. Thanks for pointing that out.
+
+I think the correct answer is to namespace everything currently under oauthlib/ to oauthlib/oauth1_RFC5849/ but keeping the class names OAuthServer and OAuthClient.  Then when we implement oauth2 it can be namespaced under oauthlib/oauth2_draft18/ or whatever.
+
+@idangazit didn't want to change it right now, so I'll follow his lead on when is the best time to restructure.
+",nan,nan
+3,issue_comment,7,idan,oauthlib,ib-lundgren,2012-03-15 21:42:06,"Sounds good. Really like the structure of the OAuthLib now and think its advancing awesomely.
+
+Noted another thing...
+
+Currently resource owner key and resource owner secret is set to mandatory arguments to OAuthClient which might not be what we want. When obtaining a request/temporary token the client will usually have neither, the resource owner secret is most often obtained together with the ""access token"" in the last step of the authentication. 
+
+The oauth_token parameter may be set to an empty string so maybe that would be a good default value? Or None and not include it in params at all if not set. (http://tools.ietf.org/html/rfc5849#section-2.1)
+
+The resource owner secret could safely be set to None without affecting the HMAC-SHA signature. 
+",nan,nan
+4,issue_comment,7,idan,oauthlib,dgouldin,2012-03-15 21:55:56,"Changes required to the library should in theory be very straightforward.  Simply point out where we're not adhering to the spec, and if you're correct, it's a bug, without exception.  In the case where a paramater has a default if not specified or is not required, it should be represented as a keyword argument in the method used to fulfill that part of the spec, again without exception.
+
+If you'd like to send a pull request for this particular change, I'd be happy to look it over and give you pointers if it's not pythonic, but I think you have the right idea.  To satisfy the pedant in me, please open as a separate issue if you want to send a pull request.
+",nan,nan
+5,issue_comment,7,idan,oauthlib,ib-lundgren,2012-03-15 22:00:00,"Right, I'll do that in the future then =)
+",nan,nan
+6,issue_comment,7,idan,oauthlib,ib-lundgren,2012-04-13 11:14:09,"Closing since these changes have been made.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,8,idan,oauthlib,dgouldin,2012-03-16 05:21:07,"This looks good. Please update OAuth1aServer.check_request_signature accordingly and then I'll merge it.
+",nan,nan
+5,issue_comment,8,idan,oauthlib,ib-lundgren,2012-03-16 10:32:30,"Updated now, hope those changes were what you had in mind. 
+
+Have a vague memory of reading in the spec somewhere that the client_key is optional but very highly recommended and I am not aware of any service that does not use it or why they would not. Since I cant link to it as of now and since it does not make sense not to use it I left it as a mandatory argument.
+",nan,nan
+6,issue_comment,8,idan,oauthlib,dgouldin,2012-03-24 16:54:51,"Getting closer, but not quite there yet.  There's some validation that happens before determining that the uri is valid.  See:
+
+https://github.com/ib-lundgren/oauthlib/blob/785fe3cd04560d81331c6a7cbac6b6a95e85118f/oauthlib/oauth.py#L181
+
+Please update this validation to reflect the new state of required vs optional parameters.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,13,idan,oauthlib,dgouldin,2012-03-16 23:22:57,"We can put this somewhere in the documentation, though ideally we would work with flask core devs to build this into flask itself.  However, I'm uncomfortable even hinting at a dependency in the repo's code itself, so I'm -1 on adding anything flask-based to oauthlib.
+",nan,nan
+4,issue_comment,13,idan,oauthlib,ib-lundgren,2012-03-16 23:32:39,"Hrm can see where you are coming from. OAuthClient is so simple to work with that it makes it very tempting to just throw an example together, which ultimately might get people into bad habits of crafting their own (flask/django/requests/etc) oauth extensions rather than using carefully crafted ones. Good point, did not even occur to me. Closing.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

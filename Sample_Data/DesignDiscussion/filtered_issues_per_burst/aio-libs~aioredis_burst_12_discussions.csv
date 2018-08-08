@@ -1,0 +1,25 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,91,aio-libs,aioredis,popravich,2015-10-29 13:56:04,"> the example doesn't run, not even nearly. I guess it should be more like the example in the examples directory.
+
+Those examples was intended to demonstrate the way to work with pub/sub;
+
+> `asyncio.async` is depreciated in favour of `asyncio.ensure_future`
+
+This is true for Python 3.4.4+. This is a bit harder to change 'cause `aioredis` claims to support Python 3.3
+
+> async_reader2 is defined by never use, i guess the last line should be using it.
+
+And again, it's just to demonstrate an idea.
+",nan,nan
+3,issue_comment,91,aio-libs,aioredis,popravich,2015-10-29 13:57:21,"I can add a link to examples page. Will that make it more clear?
+",nan,nan
+4,issue_comment,91,aio-libs,aioredis,samuelcolvin,2015-10-29 14:02:48,"I get that it's just demonstrating an idea, but this example (unlike the other examples) is pretty baffling if you come to it cold. The working example was much clearer for me.
+
+I'm pretty sure the last line has a typo and should be referencing `async_reader2`.
+
+A link to the example would be good but for me the code in the docs is more confusing than helpful, why not just replace it with the example?
+",nan,nan
+5,issue_comment,91,aio-libs,aioredis,popravich,2015-10-29 14:05:19,"ok, I see your point.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

@@ -1,0 +1,88 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,743,nilearn,nilearn,AlexandreAbraham,2015-07-31 13:01:41,"Wow, effectivement !
+",nan,nan
+4,issue_comment,743,nilearn,nilearn,lesteve,2015-07-31 13:10:09,"BTW as a general announcement I just set up Codacy which looks quite good. It should add a new status for code quality in PR, let's see how useful this is.
+
+One reason to love Codacy even if you have no clue what it does: it rates nilearn as an A project: https://www.codacy.com/app/lesteve/nilearn/dashboard.
+",nan,nan
+5,issue_comment,743,nilearn,nilearn,lesteve,2015-07-31 13:11:19,"Also you can create issue from Codacy which is what I did here, hence the very detailed template (no I didn't do the history research and type that in).
+",nan,nan
+6,issue_comment,743,nilearn,nilearn,AlexandreAbraham,2015-07-31 13:36:14,"Can you exclude sphinx gallery from Codacy? It raises most of the issues.
+",nan,nan
+7,issue_comment,743,nilearn,nilearn,lesteve,2015-07-31 13:46:01,"I just tried but I am not sure if/when this is going to have an effect. FWIW you can filter by language, severity, or type, for the Codacy issues.
+",nan,nan
+8,issue_comment,743,nilearn,nilearn,lesteve,2015-07-31 15:41:09,"I see that you have pushed a fix in master, thanks! There is something I don't understand though shouldn't it have been caught by the tests?
+
+I seem to remember that we checked the error message to make sure it mentioned 4d rather than 3d or something like that.
+",nan,nan
+9,issue_comment,743,nilearn,nilearn,AlexandreAbraham,2015-08-04 08:26:15,"> I seem to remember that we checked the error message to make sure it mentioned 4d rather than 3d or something like that.
+
+We check that the number of dimensions asked is the right one ""Data must be 4D but you provided"" but we don't check the number of dimensions given by the user.
+",nan,nan
+10,issue_comment,743,nilearn,nilearn,AlexandreAbraham,2015-08-04 08:32:31,"Well, apparently I was wrong. This is indeed check in some cases... This is weird. Anyway i added more precise check in #749. Closing this one once travis has passed.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,750,nilearn,nilearn,KamalakerDadi,2015-08-04 13:21:36,"Issue #746 . Addressing inconsistencies giving a list of haxby datasets
+",nan,nan
+6,issue_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:36:51,"Unfortunately you have a merge conflict with Alex's last commit, you need to rebase.
+",nan,nan
+14,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:40:33,"in a single list is not important enough to feature in the short explanation (first line of the docstring). Also it is slightly inaccurate.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+15,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:42:28,"list of string rather than string list.
+
+About adding the hyphen in front of each line, have you checked how it renders in the html API reference documentation? Personally I wouldn't bother doing that in this PR. In case there is a neat improvement in term of html rendering, you would need to do that consistently for all the fetch_\* functions.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+16,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:43:42,"I don't think you need brackets around `fdescr` but I may be wrong.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+17,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:46:08,"Slightly inaccurate since you return a Bunch object and not a list. Say something about list being used because the dataset is single-subject.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+18,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-04 14:18:55,"No need for `fdescr` nor `mask` which are common to all subjects.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+19,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-04 14:19:11,":+1: 
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+20,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-04 14:19:18,":+1: 
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+21,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 08:14:15,"`mask` should not be a list.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+22,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 08:14:28,"`mask` should not be a list.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+7,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 12:49:56,"CircleCI blew up because of memory problem. This is weird since you rebased on master. @lesteve any thoughts on this one?
+",nan,nan
+23,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-05 13:00:26,"You probably want to use .func[0] here. I am actually surprised that you didn't have to modify .func -> .func[0] in any of the examples.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'examples/decoding/plot_haxby_anova_svm.py')"
+8,issue_comment,750,nilearn,nilearn,lesteve,2015-08-05 13:01:08,"> CircleCI blew up because of memory problem. This is weird since you rebased on master. @lesteve any thoughts on this one?
+
+That's weird indeed but I don't have any good suggestions as to why this is happening.
+",nan,nan
+24,pull_request_commit_comment,750,nilearn,nilearn,KamalakerDadi,2015-08-05 13:04:16,"I checked before. It worked not using `.func[0]`. But, still I can change to be consistent with list. Should I ?
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'examples/decoding/plot_haxby_anova_svm.py')"
+25,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-05 13:23:55,"haxby.func is a list of 4d nifti filenames, It doesn't seem like a good idea to use that directly and I am actually surprised you don't get an error somewhere...
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'examples/decoding/plot_haxby_anova_svm.py')"
+9,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 19:58:40,"All green, :+1: to merge. @lesteve?
+",nan,nan
+10,issue_comment,750,nilearn,nilearn,lesteve,2015-08-05 21:49:26,"some .func haven't been replaced by .func[0] I think (for example in some print statements). Please double-check @KamalakerDadi.
+",nan,nan
+11,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-17 12:08:41,"Seems good to go now. @lesteve?
+",nan,nan
+12,issue_comment,750,nilearn,nilearn,lesteve,2015-08-17 12:41:20,"Seems good enough. I'll probably tweak one of the comments post-merge.
+",nan,nan
+13,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-17 13:02:07,"Cool, thx.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,745,nilearn,nilearn,lesteve,2015-08-03 12:23:03,"> seems like both of them should include the full mask
+
+Seems like an oversight indeed!
+",nan,nan
+4,issue_comment,745,nilearn,nilearn,AlexandreAbraham,2015-08-03 17:14:25,"The whole-brain mask is shipped with the haxby example. The archive is 100MB, which is a lot to download for a single mask. Plus, we have no guarantee that this mask is suited for the whole dataset. @GaelVaroquaux, do you think we should upload it on NITRC and make it available with the full dataset?
+",nan,nan
+5,issue_comment,745,nilearn,nilearn,GaelVaroquaux,2015-08-03 17:15:02,"> @GaelVaroquaux, do you think we should upload it on NITRC and make it
+> available with the full dataset?
+
++1
+",nan,nan
+6,issue_comment,745,nilearn,nilearn,AlexandreAbraham,2015-08-04 07:54:23,"This one is fast. I take care of it while drinking my coffee.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

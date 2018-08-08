@@ -1,0 +1,102 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,276,pycqa,astroid,pylint-bot,2015-12-03 15:52:18,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+I can't replicate this failure.  Can you give us some more information about what conditions you're seeing the failure under?
+",nan,nan
+3,issue_comment,276,pycqa,astroid,pylint-bot,2015-12-03 17:51:01,"_Original comment by_ **BitBucket: [jlec](http://bitbucket.org/jlec), GitHub: @jlec?**:
+
+---
+
+Okay, the original report happened when running pytest.
+
+Using the new unittest way I see
+
+```
+#!python
+
+python -m unittest discover -p ""unittest*.py"" --verbose
+....
+test_from_imports (astroid.tests.unittest_brain.SixBrainTest) ... FAIL
+
+======================================================================
+FAIL: test_from_imports (astroid.tests.unittest_brain.SixBrainTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ""astroid/tests/unittest_brain.py"", line 276, in test_from_imports
+    self.assertIsInstance(inferred, nodes.ClassDef)
+AssertionError: YES is not an instance of <class 'astroid.scoped_nodes.ClassDef'>
+
+----------------------------------------------------------------------
+Ran 495 tests in 10.969s
+
+```
+",nan,nan
+4,issue_comment,276,pycqa,astroid,pylint-bot,2015-12-03 17:52:09,"_Original comment by_ **BitBucket: [jlec](http://bitbucket.org/jlec), GitHub: @jlec?**:
+
+---
+
+The whole thing is when I am running the test suite during installation on a Gentoo Linux system.
+",nan,nan
+5,issue_comment,276,pycqa,astroid,pylint-bot,2015-12-03 18:30:20,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+Can you check that six is installed correctly for the Python interpreter you're using?  If it is, try running:
+
+``` python
+from six.moves import http_client
+http_client.HTTPSConnection
+```
+
+and describe what happens. 
+",nan,nan
+6,issue_comment,276,pycqa,astroid,PCManticore,2016-06-27 17:34:05,"Closing for now, since we can't reproduce it. If you manage to reproduce this issue with the current master version (the future 1.5.0), please reopen it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,221,pycqa,astroid,pylint-bot,2015-11-06 23:51:40,"_Original comment by_ **BitBucket: [ceridwenv](http://bitbucket.org/ceridwenv), GitHub: @ceridwen**:
+
+---
+
+PyPy tests should be clean as of b68ee1186e5f.
+",nan,nan
+3,issue_comment,221,pycqa,astroid,PCManticore,2016-06-27 17:35:30,"PyPy and Jython are again erroring out with the latest astroid. I'm closing this issue, since we already have the errors in the CI (and we should strive to make it green all the time).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,159,pycqa,astroid,pylint-bot,2015-07-13 15:07:03,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Python.NET is IronPython or it's different? I will be happy to assist you on a PR, but first I got to see why it fails. ;-)
+",nan,nan
+3,issue_comment,159,pycqa,astroid,pylint-bot,2015-07-14 11:38:29,"_Original comment by_ **Benedikt Reinartz (BitBucket: [filmor](http://bitbucket.org/filmor), GitHub: @filmor?)**:
+
+---
+
+No, [Python.NET](http://pythonnet.github.io/) is a library to import and use CLR assemblies like Python modules.
+
+I don't know yet what the exact loading mechanism is, it's not exposed to Python, but it allows you to do stuff like `from System import String` to use .NET classes.
+",nan,nan
+4,issue_comment,159,pycqa,astroid,pylint-bot,2015-07-31 07:41:20,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Probably we could fix this by adding AST transforms. Have a look at astroid.brain, there's a bunch of transforms that could be useful for inspiration. Adding support for this in modutils doesn't seem the right approach.
+",nan,nan
+5,issue_comment,159,pycqa,astroid,filmor,2015-12-09 14:30:38,"Hi again, I now know a bit more about the loading mechanism. Basically, Python.NET overloads `__import__` in a brute-force way as soon as you `import clr`. I will have a look at `astroid.brain`, didn't have the time, yet.
+",nan,nan
+6,issue_comment,159,pycqa,astroid,PCManticore,2016-01-04 08:07:04,"Hi @filmor I somehow missed your comment. Yes, astroid.brain seems the proper way for solving this. Just ping me if you need any help.
+",nan,nan
+7,issue_comment,159,pycqa,astroid,denfromufa,2016-01-30 04:03:07,"@filmor this would be really useful! let me know how it goes?
+",nan,nan
+8,issue_comment,159,pycqa,astroid,PCManticore,2016-06-27 17:37:53,"Closing for the lack of activity. I don't have a particular interest in Python .NET, but I would be happy to help anyone that wants to tackle this issue, by implementing transforms or other changes required for astroid to work on this platform, but there is no point, for now, to keep this issue opened if there is no interest in supporting it by the core.
+",nan,nan
+9,issue_comment,159,pycqa,astroid,denfromufa,2016-09-14 03:37:46,"@PCManticore @filmor by building pure python skeletons programmatically (reflection on imported .NET types) like in pycharm this should be possible even without patching pylint and other static analysis tools:
+
+https://github.com/JetBrains/python-skeletons/blob/master/numpy/core/multiarray.py
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

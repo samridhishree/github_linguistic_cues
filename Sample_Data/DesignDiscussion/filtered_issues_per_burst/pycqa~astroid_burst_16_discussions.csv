@@ -1,0 +1,113 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,303,pycqa,astroid,The-Compiler,2016-01-14 10:48:50,"I'm not very familiar with astroid brain stuff, but isn't the point of this to _not_ call the real code behind it, i.e. should it call stuff from `pkg_resources`?
+",nan,nan
+5,issue_comment,303,pycqa,astroid,PCManticore,2016-01-14 10:56:09,"That's a string, it doesn't call real functions.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,305,pycqa,astroid,PCManticore,2016-01-15 13:13:20,"Merged localy https://github.com/PyCQA/astroid/commit/99a3870d4ba212a036dd629ad9ee020333009425. I also squashed your commits into one and cherry-picked it in multiple branches.
+",nan,nan
+4,issue_comment,305,pycqa,astroid,dbaum,2016-01-15 16:22:15,"Thanks!
+
+I'm new to using github, etc.  Is there something I should have done to
+make the pull easier for you?  Should I have combined the commits
+together?  Should I have not tried to synced with upstream/master?
+
+I'm asking because it is likely that I'll have a few more small patches to
+astroid in the near future and I want to make things as smooth as possible
+for you.
+
+Dave
+
+On Fri, Jan 15, 2016 at 7:13 AM Claudiu Popa notifications@github.com
+wrote:
+
+> Closed #305 https://github.com/PyCQA/astroid/pull/305.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/PyCQA/astroid/pull/305#event-516132730.
+",nan,nan
+5,issue_comment,305,pycqa,astroid,PCManticore,2016-01-15 16:26:10,"No worries. I prefer to have the commits squashed if they are not part of a bigger feature, in that case having some smaller chunks makes more sense. Also you should use rebase for feature branches, so that you won't be needing syncing with the upstream/master. It should be good after that, the cherry-picking is something that I must do, since we have multiple branches of development at the moment.
+
+Thanks for the (future) contributions, let me know if there is something I could help you with.
+",nan,nan
+6,issue_comment,305,pycqa,astroid,dbaum,2016-01-15 16:38:46,"I'm trying to understand the workflow.  Should I be doing my work on a
+brach, keep my master at (or behind) the upstream master, then rebase my
+feature branch to master and squash the commits at that point?  Something
+like:
+
+git checkout -b new-feature master
+git commit -a -m ""some work""
+git commit -a -m ""some more work""
+
+# I'm a little fuzzy on exactly what commands to use here.  The idea is to
+
+bring my
+
+# master up to date with the upstream master.
+
+git pull upsstream/master
+
+# Go back to working on my fix...
+
+git checkout new-feature
+git commit -a -m ""even more work""
+
+# Clean things up before a pull request.
+
+git rebase -i master
+
+On Fri, Jan 15, 2016 at 10:26 AM Claudiu Popa notifications@github.com
+wrote:
+
+> No worries. I prefer to have the commits squashed if they are not part of
+> a bigger feature, in that case having some smaller chunks makes more sense.
+> Also you should use rebase for feature branches, so that you won't be
+> needing syncing with the upstream/master. It should be good after that, the
+> cherry-picking is something that I must do, since we have multiple branches
+> of development at the moment.
+> 
+> Thanks for the (future) contributions, let me know if there is something I
+> could help you with.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/PyCQA/astroid/pull/305#issuecomment-172006547.
+",nan,nan
+7,issue_comment,305,pycqa,astroid,PCManticore,2016-01-15 16:41:34,"Exactly, that's the workflow that I'm using mostly.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,307,pycqa,astroid,dbaum,2016-01-15 17:52:39,"More info: upon success the last two values from getattr() are 
+
+<BoundMethod **new** of **builtin**.type at 0x4597724240
+<BoundMethod **new** of **builtin**.object at 0x4597883472
+
+on failure they are:
+
+<BoundMethod **new** of **builtin**.object at 0x4529744784
+<BoundMethod **new** of **builtin**.type at 0x4529787216
+
+So it comes down to the ordering of object and type and one has an args with fromlineno=0 and the other has fromlineno=1.
+",nan,nan
+3,issue_comment,307,pycqa,astroid,dbaum,2016-01-15 17:59:45,"Now I'm very confused.  When running just the one test file it looks like the fromlineno on both type and object are 0.  When running all tests via test discovery then the args for type seem to have fromlineno=1.  But I'm not even sure this is 100% true.  I'm out of my depth here.
+",nan,nan
+4,issue_comment,307,pycqa,astroid,PCManticore,2016-01-15 19:53:49,"There's also https://github.com/PyCQA/astroid/issues/195 for tracking this issue, which has nothing to do with the order of the results of getattr. The problem is caused by https://github.com/PyCQA/astroid/blob/master/astroid/node_classes.py#L387, which uses as a line number, in case one is not defined for a node, the first one of the children or the parents of the node. This happens usually with builtin modules, since there is no way to find out on which lines they actually are. The approach is definitely not a good idea and the fix would be to remove fixed_source_line altogether and leave such nodes with a line number not set. While this is rather easy, the hard thing is going through pylint and see where this might trip an exception or something undefined. Unfortunately I didn't have time to look over pylint for this issue. 
+",nan,nan
+5,issue_comment,307,pycqa,astroid,dbaum,2016-01-15 20:08:02,"I'm fine with closing this issue since #195 is tracking it (or perhaps there's a way to merge this into #195 as a duplicate).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,308,pycqa,astroid,ceridwen,2016-01-19 01:27:47,"This looks fine to me.  @PCManticore?
+",nan,nan
+4,issue_comment,308,pycqa,astroid,PCManticore,2016-01-19 14:55:38,"I'm not sure we should proliferate the use of the context as a parameter for all these methods. I'll look closely into the problem later today to see if there's another solution we might use for fixing this.
+",nan,nan
+5,issue_comment,308,pycqa,astroid,dbaum,2016-01-29 18:28:43,"Any ideas on this?  It's not urgent, but if you have suggestions on other ways to fix the problem please let me know.
+",nan,nan
+6,issue_comment,308,pycqa,astroid,PCManticore,2016-02-02 12:05:07,"Taking a look today or tomorrow, sorry for the delay, I got sidetracked in January with a lot of stuff.
+",nan,nan
+7,issue_comment,308,pycqa,astroid,PCManticore,2016-02-17 11:35:03,"It seems that this is fixed in 2.0, but it reproduces on master. Unfortunately I couldn't find the commit where this got fixed, but since 2.0 will become the new master in the next couple of weeks, I'm considering this fixed. Sorry for taking me so long to look over this issue and please let me know if it still reproduces for you on 2.0 (please note though that it is in an unstable test and pylint doesn't work yet with it)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

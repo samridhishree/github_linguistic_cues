@@ -1,0 +1,11 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,247,aio-libs,aioredis,popravich,2017-06-14 08:42:14,Apparently task executing `redis.hget` was cancelled,nan,nan
+3,issue_comment,247,aio-libs,aioredis,larry-dev,2017-06-14 08:54:34,"but,why it was cancelled.i don't understand.
+and this is not always a mistake",nan,nan
+4,issue_comment,247,aio-libs,aioredis,popravich,2017-06-14 09:04:57,"It is really hard to say looking at a single line of code)
+From what I can see, `hgetall` request was slow so the task cancellation bubbled up in call to redis.
+Do you have a timeout for that task?",nan,nan
+5,issue_comment,247,aio-libs,aioredis,larry-dev,2017-06-14 11:17:34,"sorry,it is my problem.",nan,nan
+6,issue_comment,247,aio-libs,aioredis,popravich,2017-06-14 11:33:24,no problem,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

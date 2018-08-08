@@ -1,0 +1,121 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+6,issue_comment,1304,nilearn,nilearn,erramuzpe,2016-10-04 14:05:50,"I won't open an issue since already have been reported in #1149 
+",nan,nan
+5,issue_comment,1304,nilearn,nilearn,GaelVaroquaux,2017-01-19 10:43:22,"Indeed, this was indeed a bug. Merging. Thank you.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,1359,nilearn,nilearn,bthirion,2017-01-20 09:05:17,response,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/decoding_intro.rst')"
+6,pull_request_commit_comment,1359,nilearn,nilearn,bthirion,2017-01-20 09:08:00,'downloading and returning' or 'download and return',c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/decoding_intro.rst')"
+7,pull_request_commit_comment,1359,nilearn,nilearn,bthirion,2017-01-20 09:13:49,time,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/decoding_intro.rst')"
+8,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:07:51,disriminating -> discr,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/decoding_intro.rst')"
+9,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:08:05,Aera -> Area,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/decoding_intro.rst')"
+10,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:08:22,Reciever -> Reciever,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/decoding_intro.rst')"
+11,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:09:24,understood -> understand,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/estimator_choice.rst')"
+12,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:09:56,similations -> simulations,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'doc/decoding/estimator_choice.rst')"
+13,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:19:13,places -> animals,c8b4914f7ea1ba5e329841445a957ed90bd25651,"(16, '', u'examples/02_decoding/plot_haxby_anova_svm.py')"
+14,pull_request_commit_comment,1359,nilearn,nilearn,KamalakerDadi,2017-01-21 16:20:33,"USe -> Use
+anatomic -> anatomical",c8b4914f7ea1ba5e329841445a957ed90bd25651,"(None, '', u'examples/02_decoding/plot_haxby_anova_svm.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1335,nilearn,nilearn,alexsavio,2016-12-07 10:38:01,Could you please merge this? I have copied the code from previous PRs and fixed docstring style for Sphinx. It's the same material as before but with cleaner history.,nan,nan
+7,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 05:07:03,"Sorry, if I miss this earlier. You can do only ```:func:nilearn.datasets.fetch_atlas_allen_2001```
+
+Since you already have initialized in atlas.py",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'doc/whats_new.rst')"
+8,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 05:09:03,"Either we stick to ```string``` or ```str```. Some are specified as ```bool``` rather than ```boolean```.
+
+I will prefer shortcuts ```str```",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+9,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 05:16:52,"May be we ""indent"" these return lines so that it appears like in the snapshot when we build the documentation.
+
+![allen_return](https://cloud.githubusercontent.com/assets/11410385/21071427/30916b40-bea0-11e6-90e1-8f9485a63699.png)
+
+",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+10,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 06:19:59,"Also, ""aggregate_ic_comps"" and ""all_unthresh_tmaps"" has both of 75 components.
+What is the difference ?",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+11,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 06:21:11,"It looks like labels are not ordered. Isn't it ?
+
+Are these collected from data resource ?",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+12,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2016-12-10 06:23:04,content name looks wrong. What we want is 'rsn_unthresh_tmaps'. Isn't it?,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/description/allen_rsn_2011.rst')"
+13,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 11:13:25,"no, the indices are for the `all_unthresh_tmaps` file. in the `rsn_unthresh_tmaps` file these have a different order and explained in the cited paper. rsn_unthresh_tmaps is a subset of all_unthresh_tmaps. I see the confusion, however this is how the information and files are available from the source.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/description/allen_rsn_2011.rst')"
+14,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 11:15:48,"I could order the label lists, this is how they are ordered in the paper:
+http://mialab.mrn.org/data/hcp/2011_Allen_FN_RestingBaseline.pdf",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+15,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 11:19:50,"I am not sure. The maps are very similar, but the values are different. The description page does not help: http://mialab.mrn.org/data/index.html",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+16,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 14:45:25,"Agreed, I will fix this.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+17,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2016-12-12 14:45:28,"Agreed, I will fix this.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'doc/whats_new.rst')"
+18,pull_request_commit_comment,1335,nilearn,nilearn,GaelVaroquaux,2017-01-19 10:10:55,"@alexsavio : sorry for the long turn around. I am doing too many things, and as a result I become a bottleneck.
+
+It would be good if we could try to be as close as possible to the structure of the other atlases that we are downloading. In particular, it would be good if the maps that are most likely to be used would be in a key called ""maps"", as in the other atlases, and the labels in a list given the corresponding labels in the order of the maps. You would have to give names to maps, rather than networks, but that should be easy, for instance ""Default-Mode_50"", .... You would need to add a list of networks labels too. The names of the other maps could then use a similar terminology, such as ""unthresh_maps"""", and ""networks_maps"".
+
+The msdl atlas, for instance, exposes this structure. In the beginning, we weren't very good at imposing this structure, but while teaching we saw that it led to unneeded conceptual difficulties for the users.",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+19,pull_request_commit_comment,1335,nilearn,nilearn,alexsavio,2017-01-19 16:11:12,@GaelVaroquaux thanks for your comments.,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+6,issue_comment,1335,nilearn,nilearn,alexsavio,2017-01-21 12:34:25,"I will look into this later today.
+
+On Sat, 21 Jan 2017, 12:03 Gael Varoquaux, <notifications@github.com> wrote:
+
+> @alexsavio <https://github.com/alexsavio> : you do have a legit test
+> failure that needs to be fixed.
+>
+> After that: +1 for merge.
+>
+> —
+> You are receiving this because you were mentioned.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/nilearn/nilearn/pull/1335#issuecomment-274254790>, or mute
+> the thread
+> <https://github.com/notifications/unsubscribe-auth/ACW4jEs8L-j-jZ3KlcXvL1YF-55g7kBuks5rUeXwgaJpZM4LFfH4>
+> .
+>
+-- 
+
+Sent from my phone, sorry for brevity or typos.
+",nan,nan
+20,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2017-01-21 16:32:16,components -> comps or vice-versa. In Returns documentation you have written as comps.,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/atlas.py')"
+21,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2017-01-21 16:33:20,description doc is missing in Returns section.,5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(32, '', u'nilearn/datasets/atlas.py')"
+22,pull_request_commit_comment,1335,nilearn,nilearn,KamalakerDadi,2017-01-21 16:36:21,"You missed to change here to ""maps"", ""rsn28"", ""comps"", I guess. Can you please have a look ?",5b968b86d24fd1c5d1267caebf3f78dfdbff3013,"(None, '', u'nilearn/datasets/tests/test_atlas.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,1366,nilearn,nilearn,GaelVaroquaux,2017-01-26 14:44:42,"A tiny docstring would really help. In particular detailing the accepted types of the memory argument, as this is non trivial.",61b0221adf07ea8e96a78c271eb92466f23728b8,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+6,pull_request_commit_comment,1366,nilearn,nilearn,GaelVaroquaux,2017-01-26 15:55:38,"The function also accepts None, doesn't it?",61b0221adf07ea8e96a78c271eb92466f23728b8,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+7,pull_request_commit_comment,1366,nilearn,nilearn,KamalakerDadi,2017-01-27 13:19:10,default is 0 but you mentioned as 1,61b0221adf07ea8e96a78c271eb92466f23728b8,"(14, '', u'nilearn/_utils/cache_mixin.py')"
+8,pull_request_commit_comment,1366,nilearn,nilearn,ahoyosid,2017-01-27 13:20:51,"Oh, that's true...
+It's is already merged. Do you know how can I change this?",61b0221adf07ea8e96a78c271eb92466f23728b8,"(14, '', u'nilearn/_utils/cache_mixin.py')"
+9,pull_request_commit_comment,1366,nilearn,nilearn,KamalakerDadi,2017-01-27 13:21:32,Function to make ensure an instance of joblib memory object.,61b0221adf07ea8e96a78c271eb92466f23728b8,"(5, '', u'nilearn/_utils/cache_mixin.py')"
+10,pull_request_commit_comment,1366,nilearn,nilearn,KamalakerDadi,2017-01-27 13:29:30,"May prefer to denote ""str"" rather than string since you denote integer as int below. For the sake of consistency.",61b0221adf07ea8e96a78c271eb92466f23728b8,"(9, '', u'nilearn/_utils/cache_mixin.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1368,nilearn,nilearn,eickenberg,2017-01-26 10:47:11,"and independently, nested cross-validation can be done with scikit-learn. nilearn is not going to provide anything that already exists in scikit-learn.
+But maybe your question was more specific?",nan,nan
+4,issue_comment,1368,nilearn,nilearn,antogeo,2017-01-26 12:54:46,"Thank you for your quick responses! 
+What I had in my mind was hyperparameter selection and is included in the #698 
+Merci!",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1301,nilearn,nilearn,mscherer,2016-10-02 11:12:24,"I think the removal of accentuaed characters are not the right fix, but getting code dealing with unicode on python2 and 3 can be a bit complex.
+",nan,nan
+7,issue_comment,1301,nilearn,nilearn,mscherer,2016-10-02 11:30:29,"So I found out that I can't reproduce the issue with:
+
+```
+python3 setup.py 
+```
+
+but if I do:
+
+```
+ LC_ALL=C python3 setup.py build
+```
+
+it result into:
+
+```
+Traceback (most recent call last):
+  File ""setup.py"", line 36, in <module>
+    _VERSION_GLOBALS = load_version()
+  File ""setup.py"", line 22, in load_version
+    exec(fp.read(), globals_dict)
+  File ""/usr/lib64/python3.5/encodings/ascii.py"", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 116: ordinal not in range(128)
+```
+",nan,nan
+5,issue_comment,1301,nilearn,nilearn,GaelVaroquaux,2017-01-19 10:23:08,Merging this. It's simple,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

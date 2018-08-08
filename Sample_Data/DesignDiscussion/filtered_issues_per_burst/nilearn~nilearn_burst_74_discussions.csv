@@ -1,0 +1,371 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,1051,nilearn,nilearn,aabadie,2016-03-10 08:37:53,"@GaelVaroquaux, maybe I can work on that ?
+",nan,nan
+3,issue_comment,1051,nilearn,nilearn,GaelVaroquaux,2016-03-10 08:55:32,"Sounds great!  Thanks 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Mar 10, 2016, 09:37, at 09:37, Alexandre Abadie notifications@github.com wrote:
+
+> @GaelVaroquaux, maybe I can work on that ?
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/issues/1051#issuecomment-194735399
+",nan,nan
+7,issue_comment,1051,nilearn,nilearn,AlexandreAbraham,2016-03-10 09:10:53,"To be complete, this should actually be applied to all paths in nilearn.
+",nan,nan
+6,issue_comment,1051,nilearn,nilearn,aabadie,2016-03-10 09:16:28,"Just had a look at the code and I have a question: when the argument is a basestring, globbing may return a list a matching paths. Does the CacheMixin be modified to manage a list of Memories in this case ?
+",nan,nan
+4,issue_comment,1051,nilearn,nilearn,GaelVaroquaux,2016-03-10 09:18:07,"> basestring, globbing may return a list a matching paths.
+
+We don't want globbing. Only exandpath.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-10 12:32:41,"Two things:
+
+First, the mechanism used to turn off globbing should also turn this off.
+
+Second, in terms of avoiding user error, I think that one think that we could do is that if len(os.path.split(dirname)) > 1, we should check if the base directory exists. If it doesn't exist, we should bail out, and give a very explicit error message. That error message should check if the path has been expanded, and if so explain what has happened to the user, and how to avoid this (for instance with '~""). That way, if a user gets path expansion by mistake, he/she understand what is going on.
+",nan,nan
+11,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-10 13:38:44,"> Two things
+
+Done
+",nan,nan
+12,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-10 13:39:53,"> give a very explicit error message. That error message should check if the path has been expanded, and if so explain what has happened to the user, and how to avoid this (for instance with '~""). That way, if a user gets path expansion by mistake, he/she understand what is going on.
+
+I think I missed the second part of this point. Will update my changes.
+",nan,nan
+13,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-10 14:19:22,"@GaelVaroquaux, to me there's no real problem with adding  `os.path.expanduser`. In fact, the problem comes from Memory which doesn't user `os.path.expanduser`. Also note that Memory [always creates ](https://github.com/joblib/joblib/blob/master/joblib/memory.py#L830) cache path if it doesn't exists.
+
+My conclusion is:
+1. to always use `os.path.expanduser`
+2. to also use `os.path.expanduser` in  joblib.Memory 
+",nan,nan
+6,issue_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-10 14:22:19,"> @GaelVaroquaux, to me there's no real problem with adding os.path.expanduser.
+> In fact, the problem comes from Memory which doesn't user os.path.expanduser.
+> Also note that Memory always creates cache path if it doesn't exists.
+> 
+> My conclusion is:
+> 1. to always use os.path.expanduser
+
+I disagree: what if a user (ie windows user) has a '~' in a directory
+name. That user will be very very surprised, and will not understand
+what's going on.
+
+> 1. to also use os.path.expanduser in joblib.Memory
+
+There is no globbing/expansion logic in joblib. I don't want to add any.
+It's not the feeling of the library.
+",nan,nan
+14,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-10 15:32:13,"> what if a user (ie windows user) has a '~' in a directory name. That user will be very very surprised, and will not understand what's going on.
+
+Reading the [doc](https://docs.python.org/2/library/os.path.html#os.path.expanduser), only initial `~` is taken in to account. On windows, `~` might be used by the system at the end of long paths. It will be fine.
+If the user created a directory starting with `~`, to me this is because he is looking for troubles, this is a very rare case.
+
+> There is no globbing/expansion logic in joblib. I don't want to add any. It's not the feeling of the library.
+
+Ok
+",nan,nan
+19,issue_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-10 15:37:57,"> If the user created a directory starting with ~, to me this is because he is looking for troubles, this is a very rare case.
+
+Agreed. However, as a Windows developper, I will never ever try to use `~` to reach home, my first reflex (if I am agnostic to Python path policy) would be to use `%UserProfile%`. In that case, `expandvars` is far more important than `expanduser`.
+
+Given that this cross-platform case is very poorly handled by Python, I agree with Gael to the fact that we should let the user find its own path (how poetic).
+",nan,nan
+22,pull_request_commit_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-10 15:44:36,"Naming suggest CacheMixinTest, this is not really a Mock.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/tests/test_cache_mixin.py')"
+15,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-10 17:15:28,"@GaelVaroquaux, I pushed a couple of commits that should work on CI and implement most of your requirements. Let me know if it's ok.
+
+@AlexandreAbraham, about the  `expandvars`, I agree that it would be great. Maybe another PR ?
+",nan,nan
+7,issue_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-10 18:06:22,"> @AlexandreAbraham, about the expandvars, I agree that it could be great. Maybe another PR ?
+
+I actually didn't get what you mean here.
+",nan,nan
+20,issue_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-10 21:23:05,"> I actually didn't get what you mean here.
+
+I was just saying that, on Windows, the canonical way to refer to the home directory is to use the environment variable `%UserProfile%` and thus, applying `expandvars` on the path is more important than applying `expandpath`. This was to underline the fact that `expandpath` is not mandatory and that, in any case, there is no ""good"" way in python to handle path. But I did not mean to integrate it, I meant that this should be left to the user.
+",nan,nan
+8,issue_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-10 21:24:16,"> I was just saying that, on Windows, the canonical way to refer to the home
+> directory is to use the environment variable %UserProfile% and thus, applying
+> expandvars on the path is more important than applying expandpath. This was to
+> underline the fact that expandpath is not mandatory and that, in any case,
+> there is no ""good"" way in python to handle path. But I did not mean to
+> integrate it, I meant that this should be left to the user.
+
+OK. 99.9% of our Windows users will not even understand the discussion,
+so we can safely skip.
+",nan,nan
+21,issue_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-10 21:30:08,"Windows users will probably use `right click on the folder > properties > absolute path` so, no worries!
+",nan,nan
+16,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-11 11:53:50,"@GaelVaroquaux, @AlexandreAbraham, All tests passed. Can you make a quick review ?
+",nan,nan
+17,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-15 09:14:10,"Ping @AlexandreAbraham, @GaelVaroquaux, for review :)
+",nan,nan
+23,pull_request_commit_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-15 20:11:14,"Here you should probably mention the variable to disable this behavior
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+9,issue_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-15 20:13:47,"One small comment on the error message.  But aside from that,  +1 to merge
+",nan,nan
+24,pull_request_commit_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-15 21:50:56,"Is this case really necessary? Isn't that handled by joblib?
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+25,pull_request_commit_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-15 21:51:58,"> Is this case really necessary? Isn't that handled by joblib?
+
+No: joblib creates it, including if the subdirectories don't exist.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+26,pull_request_commit_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-15 21:56:44,"So why raising an error ? If I understand the code well, my usecase the most common, ie `memory='cache/something'` is going to raise an error.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+27,pull_request_commit_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-15 21:58:13,"> So why raising an error ? If I understand the code well, my usecase the most
+> common, ie memory='cache' is going to raise an error.
+
+Nope. Because we raise an error only if the directory one step above
+doesn't exist. Ie ""tmp/cache"" would raise an error if tmp does not
+exists.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+28,pull_request_commit_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-15 22:07:51,"Precisely, I don't see why we should raise an error in a case that is considered valid by joblib. I don't see the rationale.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+29,pull_request_commit_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-15 22:08:34,"> Precisely, I don't see why we should raise an error in a case that is
+> considered valid by joblib. I don't see the rationale.
+
+Typos lead to creation of random paths across the file system.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+30,pull_request_commit_comment,1054,nilearn,nilearn,aabadie,2016-03-16 08:41:43,"I pushed the error message change suggested by @GaelVaroquaux. 
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+31,pull_request_commit_comment,1054,nilearn,nilearn,AlexandreAbraham,2016-03-16 09:05:55,"I always thought of joblib as a random path generator anyway :P.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+32,pull_request_commit_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-16 09:10:20,"> I always thought of joblib as a random path generator anyway :P.
+
+pseudo random, sir! It isn't coupled to a shot-noise sensor.
+",d89a2bb7c8e049fe9847fa8bf5160123893fe6ec,"(None, '', u'nilearn/_utils/cache_mixin.py')"
+18,issue_comment,1054,nilearn,nilearn,aabadie,2016-03-17 15:41:13,"@GaelVaroquaux @AlexandreAbraham , all checks are green. Maybe we can merge this one ?
+",nan,nan
+10,issue_comment,1054,nilearn,nilearn,GaelVaroquaux,2016-03-17 15:42:02,"Yup! Merging
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+12,pull_request_commit_comment,1061,nilearn,nilearn,banilo,2016-03-18 20:00:55,"perhaps even ""$USER$"" in each respective row?
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(52, '', u'doc/decoding/decoding_tutorial.rst')"
+13,pull_request_commit_comment,1061,nilearn,nilearn,Naereen,2016-03-18 20:10:40,"Well it is still a _""fake""_ display, so it won't really change anything.
+On Python, $USER has no meaning by the way, I don't think it improves readability (which was the only reason for my change `varoquau/dev/nilearn` → `user`).
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(52, '', u'doc/decoding/decoding_tutorial.rst')"
+14,pull_request_commit_comment,1061,nilearn,nilearn,bthirion,2016-03-18 21:48:27,"Hmm, the change is a bit frightening. I thinks that its is because the test that was discussed in that script actually refers to another script, namely `plot_haxby_anova_svm.py`.
+So the change is right, never mind. 
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(329, '', u'doc/decoding/decoding_tutorial.rst')"
+15,pull_request_commit_comment,1061,nilearn,nilearn,bthirion,2016-03-18 21:48:40,"indexes
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(None, '', u'doc/decoding/decoding_tutorial.rst')"
+8,issue_comment,1061,nilearn,nilearn,bthirion,2016-03-18 21:49:23,"Many thanks for taking care of that.
+",nan,nan
+16,pull_request_commit_comment,1061,nilearn,nilearn,Naereen,2016-03-18 22:11:34,"Hum, so do I keep this score 78.46% (the one I observed in the TP by copy/pasting and executing that snippet of code), or the previous score of 100% ?
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(329, '', u'doc/decoding/decoding_tutorial.rst')"
+17,pull_request_commit_comment,1061,nilearn,nilearn,Naereen,2016-03-18 22:14:05,"Funny how [both indices and indexes](http://www.nasdaqomx.com/transactions/indexes/indexesorindices/) are valid, but I changed it to a non existing spelling... I will correct that.
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(None, '', u'doc/decoding/decoding_tutorial.rst')"
+9,issue_comment,1061,nilearn,nilearn,Naereen,2016-03-18 22:14:59,"The checks passed. Can you merge it?
+",nan,nan
+18,pull_request_commit_comment,1061,nilearn,nilearn,Naereen,2016-03-18 22:17:58,"In fact, I suspect that the doctest was written and never tested (as it has a `doctest: +SKIP` flag), and that this score of 100% was just written in the rST documentation file, not computed from a real experiment.
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(329, '', u'doc/decoding/decoding_tutorial.rst')"
+19,pull_request_commit_comment,1061,nilearn,nilearn,bthirion,2016-03-19 12:28:08,"Sorry, I was unclear.
+The line that you're rightly replacing corresponds to another script: plot_haxby_anova_svm.py.
+in the context of this tutorial, the classification rate is what you got, no question about that.
+So, I'm fine with the change.
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(329, '', u'doc/decoding/decoding_tutorial.rst')"
+20,pull_request_commit_comment,1061,nilearn,nilearn,Naereen,2016-03-19 12:57:12,"OK.
+",db290b277a2dbe3f8961cf1e7fb98a1ba3d5512f,"(329, '', u'doc/decoding/decoding_tutorial.rst')"
+10,issue_comment,1061,nilearn,nilearn,bthirion,2016-03-20 21:27:23,"OK for merging. One more review ?
+",nan,nan
+5,issue_comment,1061,nilearn,nilearn,aabadie,2016-03-21 08:21:54,"Changes related to #1057 are ok. But there are quite a few cosmetic changes (period missing in html, etc) that are not related to this issue.
+I would be in favor of removing those changes and create a PR for fixing them.
+",nan,nan
+11,issue_comment,1061,nilearn,nilearn,Naereen,2016-03-21 14:03:18,"@aabadie OK I will try to do this asap.
+",nan,nan
+6,issue_comment,1061,nilearn,nilearn,aabadie,2016-03-23 14:00:37,"> @aabadie OK I will try to do this asap.
+
+@Naereen, waiting for your update :)
+",nan,nan
+7,issue_comment,1061,nilearn,nilearn,aabadie,2016-03-24 10:32:16,"@Naereen, I'll merge this. Thanks !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1059,nilearn,nilearn,aabadie,2016-03-17 22:17:20,"LGTM +1
+",nan,nan
+9,issue_comment,1059,nilearn,nilearn,Naereen,2016-03-17 22:38:13,"I have no idea why the circleci build failed, sorry.
+",nan,nan
+10,issue_comment,1059,nilearn,nilearn,lesteve,2016-03-18 07:08:01,"Looks like a download that didn't succeed in one of the examples:
+
+```
+Downloading data from https://www.nitrc.org/frs/download.php/8486/miyawaki2008.tgz ...
+________________________________________________________________________________
+../examples/02_decoding/plot_miyawaki_encoding.py is not compiling:
+Traceback (most recent call last):
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/urllib/request.py"", line 1240, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 1128, in _send_request
+    self.endheaders(body)
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 1079, in endheaders
+    self._send_output(message_body)
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 911, in _send_output
+    self.send(msg)
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 854, in send
+    self.connect()
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 1229, in connect
+    super().connect()
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/http/client.py"", line 826, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/socket.py"", line 711, in create_connection
+    raise err
+  File ""/home/ubuntu/miniconda2/envs/testenv/lib/python3.5/socket.py"", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+```
+",nan,nan
+11,issue_comment,1059,nilearn,nilearn,lesteve,2016-03-18 07:08:32,"I kicked off another CircleCI build.
+",nan,nan
+20,pull_request_commit_comment,1059,nilearn,nilearn,lesteve,2016-03-18 07:10:53,"It doesn't look like there is a strong agreement on whether e.g. should be followed by a comma or not, see for example [this](http://www.dailywritingtips.com/comma-after-i-e-and-e-g/).
+
+I would leave it like it was previously.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(84, '', u'doc/manipulating_images/data_preparation.rst')"
+21,pull_request_commit_comment,1059,nilearn,nilearn,lesteve,2016-03-18 07:11:03,"same comment about e.g. and comma.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(76, '', u'doc/manipulating_images/data_preparation.rst')"
+22,pull_request_commit_comment,1059,nilearn,nilearn,lesteve,2016-03-18 07:21:11,"Not exactly sure what single backquotes do in sphinx even after reading [this](http://www.sphinx-doc.org/en/stable/markup/inline.html). Did you mean to use double-backquotes instead?
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(75, '', u'doc/manipulating_images/data_preparation.rst')"
+23,pull_request_commit_comment,1059,nilearn,nilearn,Naereen,2016-03-18 07:51:49,"There is no formal rule, I agree, except consistency, and all the others e.g. were followed by a comma (in this file, and the rest of nilearn's documentation).
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(84, '', u'doc/manipulating_images/data_preparation.rst')"
+24,pull_request_commit_comment,1059,nilearn,nilearn,Naereen,2016-03-18 07:52:56,"Well, I was not sure... Part of the file was using `*`code`*`, part was using backquotes...
+I can update my PR and add double-blackquotes if you prefer.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(75, '', u'doc/manipulating_images/data_preparation.rst')"
+12,issue_comment,1059,nilearn,nilearn,Naereen,2016-03-18 07:57:15,"For the circle-ci build, _« Looks like a download that didn't succeed in one of the examples »_ : so it does not have anything to do with my PR, right?
+",nan,nan
+13,issue_comment,1059,nilearn,nilearn,lesteve,2016-03-18 09:30:44,"> it does not have anything to do with my PR, right?
+
+Another failure now, not related to your PR again. It'd be nice to be have CircleCI succeed in order to quickly look at the generated doc.
+",nan,nan
+14,issue_comment,1059,nilearn,nilearn,Naereen,2016-03-18 13:19:11,"So it worked now. Do you want any other change on my PR before merging?
+",nan,nan
+25,pull_request_commit_comment,1059,nilearn,nilearn,lesteve,2016-03-18 13:36:09,"> There is no formal rule, I agree, except consistency
+
+My 2 cents: consistency about this kind of things is very hard if not impossible to maintain in the long run and the benefit/cost ratio of maintaining it is very low.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(84, '', u'doc/manipulating_images/data_preparation.rst')"
+15,issue_comment,1059,nilearn,nilearn,lesteve,2016-03-18 13:37:54,"> So it worked now. Do you want any other change on my PR before merging?
+
+I haven't checked that the CircleCI documentation looked similar to the one of master, have you? You can look at the Artifacts tab in CircleCI for your PR and a master build and quickly check.
+",nan,nan
+26,pull_request_commit_comment,1059,nilearn,nilearn,GaelVaroquaux,2016-03-18 13:40:03,"I agree with @lesteve : I am almost always in favor of consistency, but for things like this, the benefit is very small.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(84, '', u'doc/manipulating_images/data_preparation.rst')"
+5,issue_comment,1059,nilearn,nilearn,GaelVaroquaux,2016-03-18 14:03:45,"> I haven't checked that the CircleCI documentation looked similar to the one of
+> master, have you? You can look at the Artifacts tab in CircleCI for your PR and
+> a master build and quickly check.
+
+Non admin users don't have an ""Artifacts"" tab. It sucks a bit;
+",nan,nan
+7,issue_comment,1059,nilearn,nilearn,aabadie,2016-03-18 14:07:52,"FYI, here is the [link](https://circle-artifacts.com/gh/nilearn/nilearn/1421/artifacts/0/home/ubuntu/nilearn/doc/_build/html/index.html).
+You can compare with current [master](https://circle-artifacts.com/gh/nilearn/nilearn/1414/artifacts/0/home/ubuntu/nilearn/doc/_build/html/index.html).
+",nan,nan
+27,pull_request_commit_comment,1059,nilearn,nilearn,Naereen,2016-03-18 17:41:42,"OK, I won't do tiny modifications like this in the future, sorry :sweat_smile:.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(84, '', u'doc/manipulating_images/data_preparation.rst')"
+16,issue_comment,1059,nilearn,nilearn,Naereen,2016-03-18 17:45:47,"The new doc on circle-ci's artifact looks as expected, LGTM.
+",nan,nan
+28,pull_request_commit_comment,1059,nilearn,nilearn,banilo,2016-03-18 19:52:45,"perhaps less ambiguous: ""the radius will only contain the single voxel at the radius center""
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(407, '', u'doc/manipulating_images/data_preparation.rst')"
+29,pull_request_commit_comment,1059,nilearn,nilearn,banilo,2016-03-18 19:53:40,"""affine"" only by itself sounds colloquial
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(372, '', u'doc/manipulating_images/data_preparation.rst')"
+30,pull_request_commit_comment,1059,nilearn,nilearn,banilo,2016-03-18 19:57:32,"perhaps add to the end of the sentence: ""...neuroimaging data in a heuristic fashion.""
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(152, '', u'doc/manipulating_images/data_preparation.rst')"
+31,pull_request_commit_comment,1059,nilearn,nilearn,Naereen,2016-03-18 20:06:20,"@banilo I think you should do your own PR instead of suggesting/askg changes on this one.
+",308092f477c29f67f996d8dc699db4fcc1b8dbe5,"(152, '', u'doc/manipulating_images/data_preparation.rst')"
+17,issue_comment,1059,nilearn,nilearn,Naereen,2016-03-20 01:38:06,"The checks passed, and I added your requests. Can you merge it?
+",nan,nan
+18,issue_comment,1059,nilearn,nilearn,bthirion,2016-03-20 21:18:05,"@Naereen for this you need two positive reviews.
+Here is one: LGTM.
+Many thanks !
+",nan,nan
+8,issue_comment,1059,nilearn,nilearn,aabadie,2016-03-21 08:27:57,"> you need two positive reviews. 
+
+Here is mine ! merging, thanks !
+",nan,nan
+19,issue_comment,1059,nilearn,nilearn,Naereen,2016-03-21 13:59:25,"Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1063,nilearn,nilearn,AlexandreAbraham,2016-03-30 22:27:38,"How can the message be enhanced?
+",nan,nan
+4,issue_comment,1063,nilearn,nilearn,banilo,2016-03-31 05:26:05,"For example, ""You provided items of incongruent dimensionality (e.g. [3D 3d 4D]) to concatenate.""
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,issue_comment,1062,nilearn,nilearn,dohmatob,2016-03-23 09:38:43,"Wow. That's a bunch of typos! Thanks for catching and fixing. +1 for merge.
+",nan,nan
+12,pull_request_commit_comment,1062,nilearn,nilearn,aabadie,2016-03-23 11:05:18,"I think this should be rephrased. Something like: `Each pair is composed of two lists of indices, one for the train, one for the test`.
+",128337e67d7648dc409885aeea776fb5612b79d7,"(None, '', u'nilearn/decoding/space_net.py')"
+4,issue_comment,1062,nilearn,nilearn,aabadie,2016-03-23 12:46:31,"Appart from my minor comment, all is ok.
+",nan,nan
+9,issue_comment,1062,nilearn,nilearn,Naereen,2016-03-23 14:10:20,"@aabadie: your suggestion has been included, the c.-i. checks will pass again, after what you can merge.
+",nan,nan
+5,issue_comment,1062,nilearn,nilearn,aabadie,2016-03-23 15:12:03,"@Naereen: you final version is even worse (sorry, my suggestion was not nice). Maybe something like this:
+`
+For the corresponding fold, each pair is composed of two lists of indices, one for the train samples and
+and one for the test samples.
+`
+What do you think ?
+Also, can you squash your commits into one ?
+",nan,nan
+10,issue_comment,1062,nilearn,nilearn,Naereen,2016-03-23 15:43:05,"- Last try for the doc on `cv_` attribute.
+- I don't know how to squash from GitHub's web interface, and don't really see the point of cloning, squashing, pushing..
+",nan,nan
+6,issue_comment,1062,nilearn,nilearn,aabadie,2016-03-23 15:59:53,"> Last try for the doc on cv_ attribute.
+
+Thanks
+
+> I don't know how to squash from GitHub's web interface, and don't really see the point of cloning, squashing, pushing..
+
+The idea is to keep as much as possible a clean history of commits. Maybe you can learn how to use git from the command line along with github [here](https://help.github.com/articles/good-resources-for-learning-git-and-github).
+",nan,nan
+11,issue_comment,1062,nilearn,nilearn,Naereen,2016-03-23 23:29:15,"Will try to do this asap.
+",nan,nan
+7,issue_comment,1062,nilearn,nilearn,aabadie,2016-03-24 10:13:32,"@Naereen, I manually merged your branch. Closing.
+
+Thanks !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,pull_request_commit_comment,1058,nilearn,nilearn,aabadie,2016-03-17 21:58:17,"Any reason for splitting this line ?
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(118, '', u'doc/connectivity/functional_connectomes.rst')"
+10,pull_request_commit_comment,1058,nilearn,nilearn,aabadie,2016-03-17 21:58:49,"Same question here. (just curious)
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')"
+11,pull_request_commit_comment,1058,nilearn,nilearn,Naereen,2016-03-17 22:18:46,"All the rST files in this repo (and others) try to keep lines below 80 characters, these harmless couple of line splits were done just to keep a more consistent line width style.
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')"
+12,pull_request_commit_comment,1058,nilearn,nilearn,aabadie,2016-03-17 22:25:39,"Ok, I was just wondering if it won't change the final display result (let's wait for circle ci to finish).
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')"
+13,pull_request_commit_comment,1058,nilearn,nilearn,Naereen,2016-03-17 22:29:54,"No, sphinx, as latex, usually don't care for line splitting (except if it between markup). In this case, for links, it's ok to split the line before the `<...>_` part.
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(125, '', u'doc/connectivity/functional_connectomes.rst')"
+14,pull_request_commit_comment,1058,nilearn,nilearn,banilo,2016-03-18 19:49:52,"adding ""et al."" here and below might give it a more sciency spin
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(None, '', u'doc/connectivity/functional_connectomes.rst')"
+15,pull_request_commit_comment,1058,nilearn,nilearn,Naereen,2016-03-18 19:57:22,"OK, done, [3ee1c69](https://github.com/Naereen/nilearn/commit/3ee1c693563f5c8babf26b8ec809914bd4d196b8).
+",3ee1c693563f5c8babf26b8ec809914bd4d196b8,"(None, '', u'doc/connectivity/functional_connectomes.rst')"
+6,issue_comment,1058,nilearn,nilearn,Naereen,2016-03-20 01:36:37,"The checks passed, and I added your requests. Can you merge it?
+",nan,nan
+7,issue_comment,1058,nilearn,nilearn,bthirion,2016-03-20 21:26:26,"LGTM.
+",nan,nan
+5,issue_comment,1058,nilearn,nilearn,aabadie,2016-03-21 08:24:04,"LGTM. Merging, thanks !
+",nan,nan
+8,issue_comment,1058,nilearn,nilearn,Naereen,2016-03-21 13:59:19,"Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1060,nilearn,nilearn,AlexandreAbraham,2016-03-30 22:29:09,"Can you tell us which version of python you are using? Type:
+`python --version`
+",nan,nan
+4,issue_comment,1060,nilearn,nilearn,Dinh-Hung-Tu,2016-04-01 07:53:11,"Thank you. I used to use Python 3 on Spyder. I am afraid that the problem is caused by conflicting presence of Python 3 and Python 2. This issue disappeared as I uninstall everything and currently it works with Anaconda Python 3.5.1 :: Anaconda 2.5.0 (64-bit). 
+",nan,nan
+5,issue_comment,1060,nilearn,nilearn,lesteve,2016-04-01 10:24:52,"@Dinh-Hung-Tu For the record you can use markdown in comments for example this is useful to use triple back-quotes for formatting error messages or code snippets. Look at https://help.github.com/articles/creating-and-highlighting-code-blocks/ for more details.
+",nan,nan
+6,issue_comment,1060,nilearn,nilearn,Dinh-Hung-Tu,2016-04-01 14:30:24,"@lesteve  I noted and formatted accordingly. Thanks for your recommendation. 
+",nan,nan
+7,issue_comment,1060,nilearn,nilearn,lesteve,2016-04-01 15:11:20,"> @lesteve I noted and formatted accordingly. Thanks for your recommendation. 
+
+Cheers, it does help for readability.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

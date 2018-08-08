@@ -1,0 +1,10 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,432,idan,oauthlib,thedrow,2016-11-24 15:52:39,What about flask and other frameworks?,nan,nan
+3,issue_comment,432,idan,oauthlib,adamn,2016-11-24 16:14:32,Flask and all currently maintained frameworks support 2.7 and 3.4+ so there's no problem there.  ,nan,nan
+4,issue_comment,432,idan,oauthlib,adamn,2016-11-24 16:16:34,"Sorry, didn't understand your statement.  Flask [does still test 2.6 and 3.3](https://github.com/pallets/flask/blob/master/tox.ini) but it really seems unnecessary unless somebody reading this is actually using one of those versions in production and planning on installing new versions of `oauthlib`.  Please comment if that's the case.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,453,idan,oauthlib,kippandrew,2017-02-15 22:15:24,Bump! Any chance someone can review this or merge it! Thanks!,nan,nan
+5,issue_comment,453,idan,oauthlib,thedrow,2017-03-31 09:10:19,Sorry. I missed this PR.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

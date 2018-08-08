@@ -1,0 +1,71 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,1333,nilearn,nilearn,KamalakerDadi,2016-11-30 16:42:16,"You can try this way:
+```python
+from nilearn.image import load_img, new_img_like
+from nilearn._utils.niimg_conversions import _safe_get_data
+from nilearn import plotting
+
+img = load_img('BD_Action.Execution.Speech.nii')
+d = _safe_get_data(img, ensure_finite=True)
+clean_n = new_img_like(img, d, affine=img.get_affine())
+
+# does not crash
+plotting.plot_epi(clean_n, cut_coords=(30, 40, 50))
+
+# now does not crashes
+plotting.plot_epi(clean_n)
+
+# now does not crashes
+plotting.plot_stat_map(clean_n, cut_coords=(30, 40, 50))
+
+# now does not crashes
+plotting.plot_stat_map(clean_n)
+plotting.show()
+```
+Let me know if problem still persists ?",nan,nan
+5,issue_comment,1333,nilearn,nilearn,TeresaMK,2016-12-02 12:36:03,"Thanks, it worked!",nan,nan
+6,issue_comment,1333,nilearn,nilearn,GaelVaroquaux,2016-12-02 12:53:08,"> TypeError: _safe_get_data() got an unexpected keyword argument 'ensure_finite'
+
+You need the development version of nilearn.
+",nan,nan
+7,issue_comment,1333,nilearn,nilearn,KamalakerDadi,2016-12-10 04:58:23,">Thanks, it worked!
+
+Great!
+
+Shall I close it ?
+",nan,nan
+8,issue_comment,1333,nilearn,nilearn,TeresaMK,2016-12-10 09:56:23,"Sure!
+
+Am 10.12.2016 05:58 schrieb ""KamalakerDadi"" <notifications@github.com>:
+
+Thanks, it worked!
+
+Great!
+
+Shall I close it ?
+
+—
+You are receiving this because you commented.
+Reply to this email directly, view it on GitHub
+<https://github.com/nilearn/nilearn/issues/1333#issuecomment-266179409>,
+or mute
+the thread
+<https://github.com/notifications/unsubscribe-auth/AVvNYxUnUucPvD_03JGGs59iZSnA9dzQks5rGjFxgaJpZM4LAYZ->
+.
+",nan,nan
+9,issue_comment,1333,nilearn,nilearn,GaelVaroquaux,2016-12-10 10:34:36,"> Shall I close it ?
+
+No, we need to include this by default so that plotting functions work
+always on files with NaNs without any lines of code. It entails using
+ensure_finite inside the plotting functions.
+",nan,nan
+3,issue_comment,1333,nilearn,nilearn,robince,2017-02-09 11:39:14,"I'm seeing similar NaN related problems (I think) in contour glass brain plots:
+```
+display = plotting.plot_glass_brain(None)
+display.add_contours(nimg)
+```
+But in my version of nilearn (just pip updated 0.2.6), `_safe_get_data` doesn't have an `ensure_finite` kwarg. 
+Is there an alternative?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

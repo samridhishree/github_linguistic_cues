@@ -1,0 +1,16 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,67,aio-libs,aioredis,popravich,2015-07-06 12:27:18,"Try like this:
+
+``` python
+cur = b'0'
+while cur:  # on first iteration `cur` evaluates to True value
+    cur, keys = yield from redis.scan(cur)
+    # at this point `cur` can be 0 (integer) marking end of scan so while loop will stop.
+    for key in keys:
+        print(key)
+```
+",nan,nan
+3,issue_comment,67,aio-libs,aioredis,pryg-skok,2015-07-07 08:57:19,"Thank you very much. It works.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

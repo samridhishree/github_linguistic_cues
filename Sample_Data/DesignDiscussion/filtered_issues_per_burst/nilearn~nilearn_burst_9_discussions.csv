@@ -1,0 +1,594 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+7,pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:33:15,"I hadn't seen this so far, even though it is not new in your PR: 'nisignals'. I'd rather avoid 'import as'. You can do 'from nisl.signals import clean'.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')"
+8,pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:34:15,"Good test! Thanks
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(20, 227, u'nisl/tests/test_signals.py')"
+5,issue_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:34:48,"> The fix was easy: it was just a matter of detrending the confounds as well as
+> the signals.
+
+Excellent!
+
+:+1: for merge.
+",nan,nan
+9,pull_request_commit_comment,49,nilearn,nilearn,pgervais,2013-04-23 13:53:05,"I find it much easier to read code where functions are prefixed with their respective package, or a shortcut for it (like np for numpy), than having to scroll all the time to the top of the file to known where it comes from. And I don't like writing ""import"" anywhere in the file either.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')"
+10,pull_request_commit_comment,49,nilearn,nilearn,GaelVaroquaux,2013-04-23 13:56:21,"> I find it much easier to read code where functions are prefixed with their
+> respective package, or a shortcut for it (like np for numpy), than having to
+> scroll all the time to the top of the file to known where it comes from. And I
+> don't like writing ""import"" anywhere in the file either.
+
+OK, but then please use 'nisl.signal.clean'. 'import as' is strongly
+frowned upon in general because it creates a vocabulary that is
+coder-specific.
+",372c392f06397f3b976bc7ec3ddb4c6bd97448dd,"(9, 216, u'nisl/tests/test_signals.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,45,nilearn,nilearn,GaelVaroquaux,2013-04-18 08:19:16,"Imports should be from general to specific. Thus sklearn comes after scipy.
+
+Naming conventions: n_confounds rather then confound_number
+
+In docstrings, we usually say ""array-like"", rather than ""numpy.ndarray"", as other objects should work.
+
+The return section is not correctly formatted. It won't build the docs right.
+
+The remark on ordering faster is true only for numpy belove 1.7. Anyhow, I would try doing something like:
+
+var = np.copy(series)
+var **= 2
+var = var.sum(axis=0)
+
+I believe that this should always be fast (not tested, please correct me if I am wrong).
+
+""Most energetic"" -> largest
+
+thanks for the PR!
+",nan,nan
+8,issue_comment,45,nilearn,nilearn,pgervais,2013-04-18 09:09:33,"- The faster ordering remark is indeed true only for numpy 1.3, not for 1.7 (I just checked). This is not a problem for me, since nisl must work with numpy 1.3 (tell me if I'm wrong).
+- The solution you give is slightly slower (of the order of 10%) than the best solution I found, though way better than the worst one. This is true for both numpy 1.3 and numpy 1.7. Ratio of execution time (best solution/your solution) are similar across versions. Here are the times I find on my mini-benchmark (the second times is your solution):
+
+**C order** numpy 1.7: 1.0s vs 1.2s. numpy 1.3: 1.3s vs 1.6s.
+**F order** numpy 1.7: 0.9s vs 1.1s. numpy 1.3: 0.9s vs 1.3s. 
+
+Values were obtained on a single run, but are fairly reproducible. Uncertainty is around 0.05s. At least, differences are significant.
+",nan,nan
+6,issue_comment,45,nilearn,nilearn,GaelVaroquaux,2013-04-18 21:01:35,">   • The solution you give is slightly slower (of the order of 10%) than the
+>     best solution I found, though way better than the worst one.
+
+Then go for the solution I gave: in my experience this pattern is
+applicable in many many spots. I would like to favor it in the code
+(people learn to code by copy-pasting).
+",nan,nan
+9,issue_comment,45,nilearn,nilearn,pgervais,2013-04-19 07:35:31,"For @bthirion: I removed the prints. nosetests.tools.assert_true is in the present case almost equivalent to assert(). I made the change though.
+The failure you experienced is probably due to a difference in computation error between my machine and yours, or to a different Scipy version. Try increasing the factor (set 20 instead of 15). If that doesn't work, tell me that I investigate further.
+
+For @GaelVaroquaux: I used your solution in the code. I replaced var.sum() by var.mean() because there is no significant change in execution time, and if people are copy-pasting, they'll end up with a proper computation for variance, not for sum of squares.
+",nan,nan
+7,issue_comment,45,nilearn,nilearn,GaelVaroquaux,2013-04-19 12:54:14,"> nosetests.tools.assert_true is in the present case almost equivalent to
+> assert().
+
+It gives a better errror message.
+",nan,nan
+10,issue_comment,45,nilearn,nilearn,pgervais,2013-04-19 14:00:36,"The failure in test reported by @bthirion is real, but unrelated to this pull request. If nobody feels strongly against merging this, I'll do it on Monday.
+",nan,nan
+11,issue_comment,45,nilearn,nilearn,pgervais,2013-04-23 12:42:33,"@bthirion: I changed the factor in the test from 15 to 20 in commit 3fb93b2ed5b1b367c53, just pushed in branch master.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 15:43:12,"Yup! Let's stick to a naming convention that all niimg objects and with '_img'. Thanks!
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(5, '', u'nisl/io/base_masker.py')"
+7,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 15:50:10,"Naming convention: it should be '3d', not '3D'.
+
+Also, I believe that the return type of this function has changed. I don't see this in the diff.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+8,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 15:52:06,"Should also be named '_nd' and not '_nD', like in 'ndarray'.
+
+Is there a reason that we are exposing to the user these functions (unmask_3d, unmask_nd) to the user? should they not be private: '_unmask_3d', '_unmask_nd'?
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+9,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-04-24 15:58:37,"I think that they can be hidden but I will let Philippe answer as he may have had an idea when he created these functions.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+10,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 16:01:08,"I think that we should raise an exception if we are given a non integer type:
+
+<pre>
+mask = mask_img.get_data()
+assert mask.dtype.kind == 'i', ""Meaningful error message""
+</pre>
+
+
+I can see people shooting themselves in the foot because there are not careful with what they do.
+
+What do you think?
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+11,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 16:02:27,"I think that mask should be renamed to mask_img. I think that a consistent naming convention to see types quickly will help usability.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+12,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 16:04:08,"Hum, why that?
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(5, '', u'setup.cfg')"
+13,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-04-24 16:09:40,"mask.shape should be equal to mask_img.shape. I don't mind changing the name here but I think I may be missing your point.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+14,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-04-24 16:10:19,"I don't understand why this file is changed... I'll revert it.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(5, '', u'setup.cfg')"
+15,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 16:17:10,"Wrong line :$. I don't know why my message appeared here. I believe that I wanted to comment on the signature of the 'unmask' function.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+5,issue_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-24 16:18:35,"You'll have to have @pgervais review this PR, but to me it looks good.
+
+Something important is that when designing these APIs, you should feel that they enable you to write clearer code in your research. That should be the tell-tale.
+",nan,nan
+16,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:20:36,"The fact that Nifti1Image cannot contain boolean arrays is **really** annoying. Several calls to astype() can't be avoided for this reason, which incurs a copy each time. One can argue that this is usually not a bottleneck, but I think we should do something about it. I created in df08e063a0ae9fe466b61ca4149a1c90a0f2ec12 (see also PR #47) a NislImage class, that just contains two methods get_data() and get_affine() for this reason. It is a valid niimg according to is_a_niimg(), but cannot be saved as a Nifti file easily.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+17,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:21:24,"""of shape the image shape"" is rather cryptic. What do you mean?
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+18,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:22:30,"copy().astype(int) can be replaced by astype(int) alone: it already makes a copy.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+19,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:24:24,"mask.ndim is not supposed to exist for a niimg.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+20,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:29:04,"Use utils.as_ndarray is this case:
+
+```
+mask = utils.as_ndarray(mask_img.get_data(), dtype=np.bool)
+```
+
+It ensures that as few copies as possible are made, and the data is loaded for disk as fast as possible (there are some corner cases that make your top-notch SAS hard disk drive behave like a floppy disk). See the source code of utils.py for details.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+21,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:33:37,"Unless there is a reason that I didn't see, this should be factored out in unmask(). Both unmask_3d() and unmask_nd() are private functions that are not subject to the same constraint as unmask() itself. The call to check_niimgs() should be factored out too.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+22,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:36:13,"I agree. Imposing a boolean array as input is probably too restrictive, especially because Nifti1Image cannot contain boolean data, but allowing any type to be passed is too much. If someone wants to use a floating-point array as a mask, then she must explicitly do the conversion to an int/boolean.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+23,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-25 08:37:12,"Same remark than before of ndim not existing for niimgs. Use ""number of dimensions"" instead.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+24,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-04-25 08:49:31,"That comment is from previous code. I agree we should change it.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+25,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-04-25 09:04:39,"OK, now I have reverted it, I see why :)
+
+CEA version of nosetests does not support ignore-files.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(5, '', u'setup.cfg')"
+26,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-04-25 09:15:40,"We currently have 1 dataset that provide a mask (Haxby) and the mask is a nifti file with float values (0., 1.). If I remeber well, FSL and SPM also output float files when you compute a mask.
+So if we forbid any other type than int, that will force people to load and convert manually the masks intead of giving the path directly to the Nifti Masker.
+
+Maybe we could check that the image has only 2 values as it is done in intersect masks ?
+
+<pre>
+assert len(np.unique(mask)) == 2, ""Meaningful error message""
+</pre>
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+27,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-25 09:51:14,"> Maybe we could check that the image has only 2 values as it is done in
+> intersect masks ?       assert len(np.unique(mask)) == 2, ""Meaningful error
+> message""
+
+ok! That's a good idea.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+28,pull_request_commit_comment,50,nilearn,nilearn,GaelVaroquaux,2013-04-25 21:46:58,"> The fact that Nifti1Image cannot contain boolean arrays is really annoying.
+
+It's the nifti standard that wants this.
+
+> Several calls to astype() can't be avoided for this reason, which
+> incurs a copy each time.
+
+Technically, if you can store int8 in Niftis, you don't need a memory
+copy:
+
+```
+In [4]: a = np.ones(10, dtype=np.int8)
+
+In [6]: b = a.view(np.bool)
+
+In [7]: b.shape
+Out[7]: (10,)
+
+In [8]: np.may_share_memory(a, b)
+Out[8]: True
+```
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+29,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-26 07:10:27,"I already found this solution (using a view instead of a copy), but wondered if the storage of boolean as int8 was standard in numpy or could vary with architecture. @AlexandreAbraham gave me the answer: it is standard, and can be relied on. So I'll use view() everywhere I can, I may be able to get rid of the NislImage class this way. Thanks.
+",7051946b80ca0e76f41d44a44d520dcfac0f7e9b,"(None, '', u'nisl/masking.py')"
+42,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-04-29 08:53:03,"Message really unclear. Understanding ""completely False"" is impossible for the end-user. ""no region defined"" would be better.
+",680e23af102c80fff13d1e6b393a05a91c51f51d,"(26, 35, u'nisl/masking.py')"
+43,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-05-03 12:14:31,"@AlexandreAbraham This return value is inconsistent with check_niimg(): I except check_mask_img() to return a niimg.
+Either change the output or rename the function, please...
+",680e23af102c80fff13d1e6b393a05a91c51f51d,"(39, 48, u'nisl/masking.py')"
+44,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-05-03 12:15:41,"Use as_ndarray() : it will be more efficient if _mask_ is an int8 array. There is a lot of places where the same remark applies.
+",680e23af102c80fff13d1e6b393a05a91c51f51d,"(38, 47, u'nisl/masking.py')"
+45,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-05-03 12:44:55,"Fixed in commit 0874e3d981df4813ce8b060597e0dba4926acb0c
+",680e23af102c80fff13d1e6b393a05a91c51f51d,"(38, 47, u'nisl/masking.py')"
+46,pull_request_commit_comment,50,nilearn,nilearn,AlexandreAbraham,2013-05-03 12:45:32,"Fixed in commit 0874e3d981df4813ce8b060597e0dba4926acb0c
+
+I changed the name of the function because it is not possible to return a Nifti1Image containing boolean data.
+",680e23af102c80fff13d1e6b393a05a91c51f51d,"(39, 48, u'nisl/masking.py')"
+47,pull_request_commit_comment,50,nilearn,nilearn,pgervais,2013-05-03 12:50:19,"```
+I changed the name of the function because it is not possible to return a Nifti1Image containing boolean data. 
+```
+
+There is a solution: use an int8 instead in Nifti1Image. Provided as_ndarray is used everywhere to convert to np.bool, there is almost no additional cost (np.bool and np.int8 are close to being the same thing for numpy).
+",680e23af102c80fff13d1e6b393a05a91c51f51d,"(39, 48, u'nisl/masking.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+16,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 13:15:46,"First thing to change: all the conversion functions regions___to__() should take niimgs as input instead of Python types. Affines are required when working with 3D or 4D data, thus the API should always deal with niimg in that case (as input and output)
+",nan,nan
+17,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 13:57:50,"Finding the scikit-learn convention about components and maps is quite difficult. I only found one occurence in the documentation (mean_shift). @AlexandreAbraham, can you point me to others? I will fix this problem soon anyway.
+
+I understand your point of view on regions masking, and that keeping the labels after masking could be useful. However, integrating this in apply_mask_to_regions() would lead to an inconsistent API imo. The output of apply_mask_to_regions() is designed to be used as input to apply_regions(), nothing else in the present state.
+
+I used the word ""unapply"" to get a consistent pair of function names (apply_mask / unmask being not consistent enough for me). I'm aware that this may not be the best names ever, particularly because these functions are not exact inverse to each other. Any other ideas (including other arguments against the existence of (un)apply_mask_regions) are welcome!
+",nan,nan
+5,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",nan,nan
+18,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 14:48:31,"All those generic terms are confusing (features, time points, ...).
+In the present state, the _shape_ output by apply_mask_to_regions() is (voxels _number_, region _number_), so that out[i, j] is the _weight_ of the j-th region on the i-th voxel. (voxel numbering being defined by the _mask_, which is independent from the regions). Is that consistent with scikit-learn or not? Is consistency required?
+",nan,nan
+19,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 14:51:16,"@AlexandreAbraham I see your point, the current API is indeed unefficient for your application. There must be an efficient shortcut for learning timeseries starting with masked labels. I'll try to find something suitable.
+",nan,nan
+20,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",nan,nan
+6,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",nan,nan
+7,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 15:01:51,"> All those generic terms are confusing (features, time points, ...).
+
+Yes. That's why we are not going to use them in nisl. However, in
+scikit-learn, we need them.
+
+> In the present state, the shape output by apply_mask_to_regions() is (voxels
+> number, region number), so that out[i, j] is the weight of the j-th region on
+> the i-th voxel. (voxel numbering being defined by the mask, which is
+> independent from the regions). Is that consistent with scikit-learn or not? Is
+> consistency required?
+
+I hadn't realized that you we talking about this function. I don't think
+that such a function should exist in the public API. I does not serve a
+usecase that people commonly need and will confuse people.
+",nan,nan
+21,issue_comment,47,nilearn,nilearn,pgervais,2013-04-22 15:34:26,"@GaelVaroquaux The apply_mask_to_regions() is required for this low-level API to be consistent. It cannot work without it (people will have to recreate it, or use apply_mask() instead, which I maintain is error-prone).
+
+Still, I agree on the fact that the name is confusing. I made a proposal at the very beginning of this thread that nobody commented on: adding an option to apply_mask() to distinguish between the regions and fMRI data cases. That would be a way to get rid of apply_mask_to_regions().
+
+Another way to get it out of the way would be to change the signature of apply_regions(), and to make it take non-masked input. I think we'll hit performance issues by doing this, that's why I didn't go for this solution.
+",nan,nan
+8,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",nan,nan
+22,issue_comment,47,nilearn,nilearn,pgervais,2013-04-23 08:39:00,"The reason why I think it is confusing is when applied to an array of labels. In that case, it will return a one-dimensional array containing the labels, a not a 2 dimensional array containing the weight for each voxel, which would be the case with the other representations of regions. I think of this as an inconsistency, not a feature. Others may think differently, though. 
+",nan,nan
+9,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",nan,nan
+10,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 16:27:36,"Minor comment in plot_regions_covariance.py: I prefer if functions are listed in the order of dependence. Thus 'plot_matrices' should go above 'graph_lasso_covariance'.
+",nan,nan
+34,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 16:40:27,"from scipy import ndimage please :).
+
+ndimage is a name that is unique enough that what people see it in a source code, they immediately know that it is scipy.ndimage.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+11,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-23 16:46:39,"Looking at the plot_regions_covariance.py file, a few quick comments.
+
+I think that get_ho_parcellation should be renamed to 'load_harvard_oxford' (load_ to follow the scikit-learn conventions, and 'harvard_oxford' because it is more explicit then HO, and move to the datasets module. I should take an optional argument to divide the regions in 2 or not.
+
+In terms of API, I still am not a huge fan of the duo: apply_mask_to_regions and apply_regions. I think that I would prefer an option 'mask' to apply_regions', that, if not None, would apply the mask.
+
+I think that we need to detrend the signals :). This is not terribly important here, because of the high_pass filter, but still, I think that this is a good habit to give to people.
+
+This is looking good! The next step is to have a 'transformer' that does all this!
+
+PS: this is really just a quick glance at the code while I should be at the poster session. I haven't had time to really have a profound thought about it.
+",nan,nan
+23,issue_comment,47,nilearn,nilearn,pgervais,2013-04-24 07:22:24,"I fixed most of the issues you raised (about plot_regions_covariance.py). 
+
+As for the detrending, it was already done (line 81), but independently of nisl.signals.clean(). The reason why I did it that way is that high_variance_confounds() must operate on detrended signals, and clean() too. The best way was to detrend the signals once, and not repeat the detrending in clean(). However, mvt_confounds could have a trend in them as well, and in the current state, they're not detrended. I added a call to _detrend() to clean to fix that. This is however rather convoluted for a low-level programmer, so I'll think of something clearer in the very near future.
+
+This file uses only functions and no transformers on purpose: the goal is to show the low-level API to advanced users. If this API isn't clear, there is no hope to get something simple at the transformer level. When the transformer API is ready, I'll create a second example file, doing the same thing.
+",nan,nan
+24,issue_comment,47,nilearn,nilearn,pgervais,2013-04-24 14:56:12,"As requested by Gaël, I moves the function for loading Harvard-Oxford parcellations in nisl.datasets. It has been slightly adapted, feel free to comment. 
+
+The example file plot_regions_covariance.py has been simplified, it is now only 105 lines long and don't require nibabel anymore. I think it won't shrink much more now.
+",nan,nan
+35,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(6, '', u'doc/modules/classes.rst')"
+36,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:29:41,"The public API is too long. We are not in the business of building a swiss army knife. If we address every problem that we are going to quickly drown under the lines of code.
+
+Do you actually need all these functions to code the example?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')"
+37,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:33:35,"I think that the word 'parcellation' should at least appear in the function name: as these functions grow we might drown under many different functions and guess what is what will become harder.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')"
+38,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')"
+39,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:37:10,"I do believe that the numpy docstring standard specifies that you need the colon after the variable name.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+40,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+41,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+42,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-04-24 22:02:39,"I do think that the 3 types of regions are useful, even if they are not in the example. It is consistent with the niimg concept.
+Maybe we could only have 3 functions: region.to_array, region.to_label and region.to_list ?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')"
+43,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')"
+44,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')"
+45,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')"
+46,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:03:14,"That is a really good question. I think we'd better talk about it in real life, troll, ahead... However my point of view is: follow scipy conventions. And most scipy module names are singular (signal, ndimage). Thus not only should ""region"" be singular, but ""signal"" as well...
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(6, '', u'doc/modules/classes.rst')"
+47,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:07:23,"This API is not set in stone, a higher-level one can be built on top of these functions. What you suggest @GaelVaroquaux is a good idea, it would reduce the number of functions and is easy to implement.
+
+I do think, however, that keeping the ""region_"" prefix is useful, because some people will use _from region import *_ thus making call to 'to_list()'. This is not very explicit in my opinion.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'doc/modules/classes.rst')"
+48,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:10:05,"I agree on the point that these functions (with fetch_yeo_2011())  should be more explicit. Creating dedicated package wouldn't necessarily create a nested hierarchy: just place is next to _dataset_. From example _nisl.atlas_ (or even in nisl.region).
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/datasets.py')"
+49,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:11:55,"I removed the colon because in the current state of the documentation configuration, Sphinx adds another colon at the end of the line. Numpy convention are slightly different from basic Sphinx's, and I don't know if the appropriate configuration has been done in Nisl.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+50,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+25,issue_comment,47,nilearn,nilearn,pgervais,2013-04-25 15:49:36,"I finally dropped the apply_mask_to_regions(), and merged it into apply_mask(). Two different behaviours are now available for this function, choice is made with the ""input_type"" flag. unapply_mask_to_regions() still exists though, I'll get rid of it soon.
+
+A very important change has been made at the same time: **a masked region array must now have as shape (region number, voxel number)**, which is in line with scikit-learn convention, but is the transpose of what was before this commit.
+",nan,nan
+26,issue_comment,47,nilearn,nilearn,pgervais,2013-04-30 12:14:57,"After long discussions with both @AlexandreAbraham, @GaelVaroquaux, @bthirion, and others, here is a new proposal for the low-level API. The important points being:
+- Vocabulary: ""maps"" and ""labels"" designate respectively fuzzy regions (possibly intersecting), and flat regions (non intersecting). The former being defined using weights in several 3D arrays, the latter using labels in a single 3D array. This vocabulary is consistent with Scipy's (see e.g. scipy.ndimage.measurements.label or .find_objects). ""images"", abbreviated ""img"" are 3D arrays, with a mandatory affine (even a trivial one). ""signals"" is a series of values extracted from a single voxel. The word ""timeseries"" is somehow specific to resting-state acquisitions: a signal is not necessarily evenly sampled, which is suggested by the term ""timeseries"".
+- Separate functions must exist for maps and labels processing. This will make cleaner API and permit some optimizations by using shortcuts in some cases.
+- Every 3D or 4D array must come with an affine, to permit automatic resampling. This implies passing niimgs as input in every such case, and not just numpy arrays.
+
+I suggest to create the following functions (that would replace the existing un|apply_regions): 
+- signals_from_labels() and signals_from_maps(): for extracting signals from regions defined by labels and maps respectively. Both functions take niimgs as inputs, and return a 2D numpy array, containing signals as columns.
+- img_from_labels() and img_from_maps(): for inverting signals_from_*() functions. Both take a 2D array as input, and ouput a NiftiImage.
+
+and make the modifications:
+- high_variance_confounds() should take images as input, not signals.
+- rename ""regions_are_overlapping"" to ""maps_are_overlapping""
+- remove all the conversion functions (_regions___to__), possibly with the exception of those involving labels, because they might prove useful, especially _regions_array_to_labels().
+
+I don't expect everyone to agree on this, but it seems a reasonable compromise to me.
+Tell me your thoughts before I start implementing this for good.
+",nan,nan
+12,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-30 13:44:59,"On Tue, Apr 30, 2013 at 05:14:58AM -0700, Philippe Gervais wrote:
+
+> ```
+> ""signals"" is a series of values extracted from a single voxel.
+> ```
+
+So what comes out of ROIs is not signals? Seems that the API that your
+are proposing below has a large acceptance of the word (which is fine by
+me).
+
+>   • signals_from_labels() and signals_from_maps(): for extracting signals from
+>     regions defined by labels and maps respectively. Both functions take niimgs
+>     as inputs, and return a 2D numpy array, containing signals as columns.
+>   • img_from_labels() and img_from_maps(): for inverting signals_from_*()
+>     functions. Both take a 2D array as input, and ouput a NiftiImage.
+
+Looks good!
+
+>   • high_variance_confounds() should take images as input, not signals.
+>   • rename ""regions_are_overlapping"" to ""maps_are_overlapping""
+>   • remove all the conversion functions (_regions___to__), possibly with the
+>     exception of those involving labels, because they might prove useful,
+>     especially _regions_array_to_labels().
+> 
+> I don't expect everyone to agree on this, but it seems a reasonable compromise
+> to me.
+
+The whole plan seems good to me.
+",nan,nan
+27,issue_comment,47,nilearn,nilearn,pgervais,2013-04-30 13:50:26,"@GaelVaroquaux is right: my definition of signals should not be restricted to values extracted from one voxel, but to a set of voxels as well. 
+
+Getting a precise yet general definition is kind of tricky in the present case. The idea is to transform a set of images, usually represented by a 4D array (3 dimensions for space, one for scans) into a 2D array, (1 dimension for space, 1 for scan). The column of the 2D array is what I call signals. 
+
+Everybody following this discussion has understood what I meant. This might not be the case for all future users.
+",nan,nan
+13,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",nan,nan
+28,issue_comment,47,nilearn,nilearn,pgervais,2013-04-30 15:59:29,"A less ambiguous function pair could be **img_to_region_signals** / **region_signals_to_img**, and use the two keywords maps_img= and labels_img=. This would give only one pair of functions instead of two, but I find this a better solution.
+",nan,nan
+161,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",df08e063a0ae9fe466b61ca4149a1c90a0f2ec12,"(87, 502, u'nisl/region.py')"
+162,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-02 14:54:14,"Warning: a string is Iterable. To avoid any misbehavior, I usually test the basestring type first.
+",df08e063a0ae9fe466b61ca4149a1c90a0f2ec12,"(72, 487, u'nisl/region.py')"
+29,issue_comment,47,nilearn,nilearn,pgervais,2013-05-07 14:12:44,"A lot of changes again in the last commits, but things should hopefully start to converge.
+- extraction of signals from regions and back are made using the following functions: img_to_signals_labels, img_to_signals_maps, signals_to_img_labels, signals_to_img_maps. They replace all the previous functions, including those for format conversion (array to list to labels, etc.).
+- created NiftiLabelsMasker, which basically does the same thing as NiftiMasker, but with regions defined as labels instead of just an single mask. Most features are implemented, with the notable exception of joblib and resampling (see below).
+- an example have been created to show the use of the new NiftiLabelsMasker: plot_regions_covariance_obj.py. This script is very close to plot_regions_covariance.py, which only uses functions, and no object. One of them is probably to remove, feel free to comment on this point.
+- in order to slightly shrink the example script, and simplify their usage, I added a new module _image_ and a new function image.high_variance_confounds(). It does the same thing as signals.high_variance_confounds(), but takes niimgs as input, not signals. It was required to avoid calling check_niimg() and doing some convoluted things inside the examples. See the diff for commit b6d9af3 for more details.
+
+As this pull request has been there for a while yet, I think this would be a good idea to stop implementing features, and get ready for a merge. For this reason, I focused on the core problems, and let aside some convenience features like joblib-caching and resampling. I know resampling is no detail, but I think integrating it in the API correctly will require a pull-request on its own. 
+",nan,nan
+30,issue_comment,47,nilearn,nilearn,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",nan,nan
+14,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:44:38,"The docstrings (e.g. that of the NiftiLabelsMasker) are not compatible
+with the numpy standard. Sorry for making the trivial remarks first. They
+are the easiest to do.
+",nan,nan
+31,issue_comment,47,nilearn,nilearn,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",nan,nan
+51,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+52,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:49:26,"Some init parameters are not documented.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+53,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:54:29,"Does check_niimg do a copy if a Nifti1Image is given? We do not want to modify init parameters by default: it can create confusing side effects.
+We can add a switch (e.g. copy_labels_img) if we find that it can be important to save memory, but with labels, I suspect that it is not crucial, and thus I would rather copy.
+
+Maybe check_niimg should have 'copy=False' argument, that induces a copy if true and the data wasn't loaded from the disk.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+54,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:55:50,"Typo: 'boils' -> 'boil'.
+
+I think that we need a standard sentence to define what we expect by 'niimgs' (and I think that the above sentence is not descriptive enough: I wouldn't guess that I can give filenames).
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+55,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 14:57:14,"That tells me that check_niimgs needs a copy argument :)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(148, '', u'nisl/io/nifti_region.py')"
+56,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:01:07,"Should we create a smooth_img function in which we fold all the above lines, and that returns a Nifti1Image?
+
+It could be a no-op (appart from loading) for smooth=None.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+57,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:03:15,"joblib is not yet used in this object. I am sure that you know it :). The question will be to figure out which parts should be joblib. This will be done by looking at our usage patterns (I am sure that @AlexandreAbraham will have great input here).
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(97, '', u'nisl/io/nifti_region.py')"
+58,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+59,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+60,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:09:04,"Copy should be True by default: functions are safe (no side effects) by default.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+61,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+62,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:14:24,"To be done later, after this PR is merged, but a similar function operating on niimgs and correcting the affine would be very, very useful.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(306, '', u'nisl/region.py')"
+63,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:17:38,"I don't think that we need the overlapping functionality anymore. If so, we should remove it. Sorry for all your hard work :$
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+64,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:18:06,"searchsorted + bincount would have done the trick :)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+65,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+66,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:19:55,"Detrend could take an optional 'copy' argument.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(170, '', u'nisl/signals.py')"
+67,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(97, '', u'nisl/tests/test_utils.py')"
+68,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:24:07,"Do we need this, or do we want to use the np.int8 trick?
+
+I am wondering which option will confuse most users: a lot of users are not used to thinking in terms of interface rather than implementation.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/utils.py')"
+69,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:24:36,"from nisl import datasets?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+70,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:25:05,"What I meant is that there is no way to make an true inplace detrend currently. By ""true"" I mean that doesn't need to use twice as much memory as the input array needs. So the copy argument is useless: there will be a copy in any case.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(170, '', u'nisl/signals.py')"
+71,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:25:55,"Looks good!
+
+@AlexandreAbraham , you'll have to tell us if you can use this for your work.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+72,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+73,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:33:39,"I though I removed this. It may just be used for testing. The np.int8 trick makes this class completely useless.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/utils.py')"
+74,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:33:58,"But required.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(97, '', u'nisl/tests/test_utils.py')"
+75,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:34:27,"We should name the low-level one '..._advanced' and the other one without a postfix.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+76,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:34:51,"Should we use fit_transform?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+77,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:36:02,"I though so. I some cases, just will want to merge all your regions to get a mask. @schwarty, @AlexandreAbraham, what do you think? 
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+78,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:39:02,"I'm sorry, I don't see your point. This is just a predicate that could be used before merging of converting regions. It may not be useful right now in the example, but I think @AlexandreAbraham will need something like this sooner or later. I may be wrong, though.
+
+Thanks to git, my hard work will continue to exist somewhere on a lot of hard disk drives :-)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+79,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:39:26,"Just ask.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(306, '', u'nisl/region.py')"
+80,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+81,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:41:52,"You're right here: I kept thinking about niimg as strings, things will break if a Nifti1Image is passed as niimg.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+82,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/utils.py')"
+83,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:44:23,"The official scikit-learn guidelines state that this method should be implemented ""When fitting and transforming can be performed much more efficiently together than separately,"". This is not the case here.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+84,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:45:46,"It's useless for testing as well, the np.int8 trick works.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/utils.py')"
+85,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+86,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:47:10,"> The official scikit-learn guidelines state that this method should be
+> implemented ""When fitting and transforming can be performed much more
+> efficiently together than separately,"".
+
+Yes, but if you are inheriting from TransformerMixin, you are inheriting
+such method.
+
+The question is whether we should teach the user to use it. I think that
+I believe so.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+87,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:47:13,"> I'm sorry, I don't see your point. This is just a predicate that could be used
+> before merging of converting regions.
+
+Good point. If we keep the maps to label functionality, we might need this.
+Else, I don't think we need it. However right now it is not used, is it?
+
+> It may not be useful right now in the example, but I think
+> @AlexandreAbraham will need something like this sooner or later.
+
+@AlexandreAbraham is actually doing things that are way more complex, so
+he is not really relying on such functionality.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+88,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 15:50:31,"Then the TransformerMixin in inconsistent with the coding guidelines. 
+
+I have no opinion on whether we should teach the user to use it or not. Scikit-learn's community can tell.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+89,pull_request_commit_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-07 15:52:20,"> Then the TransformerMixin in inconsistent with the coding guidelines.
+
+It's more that they are misleading: you should implement it only if it
+provides a benefit, else just use inheritance.
+
+> I have no opinion on whether we should teach the user to use it or not.
+
+I think we should
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+90,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:08:34,"Corrected
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+91,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:09:47,"Corrected
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/io/nifti_region.py')"
+92,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:13:51,"Corrected
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+93,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:15:04,"Corrected
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+94,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:16:41,"Corrected.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/masking.py')"
+95,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:17:04,"Corrected.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+96,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:19:41,"Changed to import nisl.datasets, to be consistent with the lines below this one.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+97,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-07 16:21:15,"Corrected.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance_obj.py')"
+98,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+99,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-07 16:48:34,"I have no use of this for the moment. And, in my application, I can't think of a usecase where it could be helpful.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+100,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(148, '', u'nisl/io/nifti_region.py')"
+101,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-07 16:59:29,"This transformer seems pretty basic to me so I think that using joblib to cache the transform step would be nice.
+Joblibing intermediate step is useful when you are in a parameter exploration step : if you want to clean your signal properly and do not want to smooth your data at each try, you may want to cache the call to smooth. Once your parameter are set, you want this step to be executed in no time.
+
+My concern of the moment is : does it work if I give it a loads of huge files ? ;)
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(97, '', u'nisl/io/nifti_region.py')"
+102,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-07 17:04:13,"No need for such functionality for the moment.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'nisl/region.py')"
+103,pull_request_commit_comment,47,nilearn,nilearn,bthirion,2013-05-07 20:55:23,"Isn't there any light-weight dataset that could be downloaded instead ? I understand that this is not simple, as an overly simple example would not be sufficient to demonstrate the effectiveness of the API and algorithms. On the other hand, it is important to be able to work even when the connection is not very strong -- of course, this is for a future PR.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+104,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-13 11:31:59,"@bthirion: using a smaller database is indeed possible, since this example only uses one subject in the adhd database, comprising 40. Unfortunately, I don't know of any lighter database. Any pointer would be highly appreciated. 
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(None, '', u'plot_regions_covariance.py')"
+32,issue_comment,47,nilearn,nilearn,pgervais,2013-05-14 16:08:41,"Almost every problem that has been highlighted in the discussion has been solved by the last commits. Though still not complete, this pull request is imho in a state in which it can be merged. 
+
+Comments may be useful on joblib usage in NiftiLabelsMasker. @AlexandreAbraham this is for you! Most other modifications are technical or of style.
+",nan,nan
+159,pull_request_commit_comment,47,nilearn,nilearn,AlexandreAbraham,2013-05-15 13:56:41,"Why did you replace the dashes by equal signs ?
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(5, 26, u'nisl/io/nifti_multi_masker.py')"
+160,pull_request_commit_comment,47,nilearn,nilearn,pgervais,2013-05-15 15:02:16,"It was one of my many tests. I left the things like this since it doesn't change anything.
+",3a0dcab01df41cbc33d77eee72b7cddeca055ffd,"(5, 26, u'nisl/io/nifti_multi_masker.py')"
+33,issue_comment,47,nilearn,nilearn,pgervais,2013-05-15 15:15:21,"Since my PR is very close to merging (I just wait for your advice and that of @GaelVaroquaux). I saved me some merging effort by directly correcting the bug in the roi branch. Some things had to be corrected in some example scripts that were added by the branch. 
+",nan,nan
+15,issue_comment,47,nilearn,nilearn,GaelVaroquaux,2013-05-15 15:15:54,"> Since my PR is very close to merging (I just wait for your advice and that of
+> @GaelVaroquaux).
+
+Don't wait from me. It looks good!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

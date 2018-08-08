@@ -1,0 +1,204 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,353,idan,oauthlib,thedrow,2015-07-01 15:32:53,"Why did you close the PR?
+",nan,nan
+4,issue_comment,353,idan,oauthlib,myyang,2015-07-01 15:37:11,"I deleted another testcase occasionally, so I close PR and try to fix it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,354,idan,oauthlib,lepture,2015-07-02 01:40:51,"@myyang tests failed.
+",nan,nan
+5,issue_comment,354,idan,oauthlib,myyang,2015-07-02 03:20:23,"Hi, I fixed it. Please examine and merge, thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,355,idan,oauthlib,foxx,2015-07-02 16:19:07,"LGTM.
+
+``` py
+>>> import re
+>>> a = ""username=abc&password=123&hello=world""
+>>> PASSWORD_PATTERN = re.compile(r'password=[^&]+')
+>>> print(PASSWORD_PATTERN.sub('password=***', a))
+username=abc&password=***&hello=world
+```
+",nan,nan
+5,issue_comment,355,idan,oauthlib,lepture,2015-07-02 17:17:58,"There are situations that the user's password is `***`. But will we take the output of `username=abc&password=***&hello=world` as  a password exposure?
+",nan,nan
+6,issue_comment,355,idan,oauthlib,foxx,2015-07-02 17:20:11,"If someone's password is ***, they deserved to get pwnt, just my two cents.
+
+On Thursday, July 2, 2015, Hsiaoming Yang notifications@github.com wrote:
+
+> There are situations that the user's password is **_. But will we take
+> the output of username=abc&password=**_&hello=world as a password
+> exposure?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/idan/oauthlib/pull/355#issuecomment-118097658.
+",nan,nan
+7,issue_comment,355,idan,oauthlib,lepture,2015-07-02 17:24:49,"Anyone against the patch? Anyone would +1 on it?
+",nan,nan
+8,issue_comment,355,idan,oauthlib,foxx,2015-07-02 17:26:36,"Lgtm, +1
+
+On Thursday, July 2, 2015, Hsiaoming Yang notifications@github.com wrote:
+
+> Anyone against the patch? Anyone would +1 on it?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/idan/oauthlib/pull/355#issuecomment-118099041.
+",nan,nan
+9,issue_comment,355,idan,oauthlib,masci,2015-07-02 17:57:17,":+1: 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,226,idan,oauthlib,ib-lundgren,2013-12-09 22:28:49,"If I recall correctly we quickly swapped to python-rsa to ease installation of oauthlib. However, since pycrypto was (at the time at least) considered more proven in the field we preferred pycrypto. Instead of relying on an arguably less trusted library we decided that it is better to let only the ones who really need to use OAuth1 with RSA go through the installation process, hence the optional dependency and swap back again.
+
+I remember searching for alternatives at the time but did not stumble upon tlslite, since then there has been no search or suggestion to use alternatives which is why there is no easy way to swap which library is used. It would be a very neat feature to have and I'd love a PR :)
+
+I've not really thought about how to best implement this but maybe trying to either do library detection through imports or asking the user to explicitly specify would be viable options.
+",nan,nan
+3,issue_comment,226,idan,oauthlib,TkTech,2013-12-10 00:17:31,"Because the signing methods are so simple, I was thinking of:
+- making the `Client()`'s `signature_method` kwarg accept a method instead of a string.
+- `oauthlib.oauth1.SIGNATURE_RSA` then just becomes an alias for the default implementation.
+- `SIGNATURE_RSA` uses tlslite by default, which is widely portable with 9 years of development and can use M2Crypto, pycrypto, or GMPY if they are installed for speed.
+- Add tlslite to `setup.py` as it's a light dependency (simplifying installation of oauthlib with all features out of the box).
+
+I think this would be more future-friendly and lower maintenance than library probing (although they aren't incompatible).
+
+I'll go ahead and make these changes in a PR if you are okay with them.
+",nan,nan
+4,issue_comment,226,idan,oauthlib,ib-lundgren,2013-12-10 11:30:02,"Sounds good. I'd say make signature_method be either a string or a method and use error catching to decide, something along the lines of 
+
+```
+try:
+    signature_method(...)
+except TypeError:
+    proceed as before...
+```
+
+and keep tlslite optional. The number of people using OAuth 1 is decreasing since most providers are moving away from it and the subset using the RSA signing method has always been a very small minority (AFAIK).
+
+Looking forward to the PR :)
+",nan,nan
+5,issue_comment,226,idan,oauthlib,thedrow,2014-08-24 14:08:57,"I suggest using [cryptography](https://cryptography.io/en/latest/). It supports RSA and Python 3/PyPy which makes it by far superior in comparision to PyCrypto.
+",nan,nan
+6,issue_comment,226,idan,oauthlib,ib-lundgren,2014-09-01 13:43:19,"Looks very promising indeed.
+
+On Sun, Aug 24, 2014 at 3:08 PM, Omer Katz notifications@github.com wrote:
+
+> I suggest using cryptography https://cryptography.io/en/latest/. It
+> supports RSA and Python 3/PyPy which makes it by far superior in
+> comparision to PyCrypto.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/idan/oauthlib/issues/226#issuecomment-53194390.
+",nan,nan
+7,issue_comment,226,idan,oauthlib,ib-lundgren,2014-09-24 16:28:30,"Sketched out a way to support both PyCrypto and Cryptography but the latter is not quite ready for prime time yet. Most notably it lacks support for loading public keys but it is coming (https://github.com/pyca/cryptography/pull/1331) and when it hits PyPI ill re-test and merge.
+",nan,nan
+8,issue_comment,226,idan,oauthlib,Zopieux,2015-01-08 14:53:19,"@ib-lundgren Just so you know, [pyca/cryptography#1331](https://github.com/pyca/cryptography/pull/1331) has been merged.
+",nan,nan
+9,issue_comment,226,idan,oauthlib,thedrow,2015-01-08 16:02:06,"Woot!
+",nan,nan
+10,issue_comment,226,idan,oauthlib,tilgovi,2015-04-19 19:18:38,"Can be closed now that #322 merged.
+",nan,nan
+11,issue_comment,226,idan,oauthlib,thedrow,2015-06-15 12:55:08,"@ib-lundgren ping. You can close this issue now.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,336,idan,oauthlib,josephtate,2015-04-14 17:21:28,"Note, this change is covered with unit tests.
+",nan,nan
+5,issue_comment,336,idan,oauthlib,tilgovi,2015-04-19 19:18:54,"Closed by #322?
+",nan,nan
+6,issue_comment,336,idan,oauthlib,josephtate,2015-04-20 02:41:22,"Not quite. There is a bit more here. This patch is authoritative.
+On Apr 19, 2015 3:18 PM, ""Randall Leeds"" notifications@github.com wrote:
+
+> Closed by #322 https://github.com/idan/oauthlib/pull/322?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/idan/oauthlib/pull/336#issuecomment-94306678.
+",nan,nan
+7,issue_comment,336,idan,oauthlib,josephtate,2015-04-20 07:37:29,"Remerged after conflicts when #323 landed.
+",nan,nan
+8,issue_comment,336,idan,oauthlib,josephtate,2015-05-06 21:28:23,"@tilgovi, or anyone, can I get a LGTM?
+",nan,nan
+9,issue_comment,336,idan,oauthlib,tilgovi,2015-05-06 21:42:58,"Yes. Looks straightforward.
+",nan,nan
+10,issue_comment,336,idan,oauthlib,thedrow,2015-07-01 09:47:12,"Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,337,idan,oauthlib,josephtate,2015-05-06 21:14:13,"Seems like we're missing test coverage for this. Any chance you can add one?
+",nan,nan
+4,issue_comment,337,idan,oauthlib,lribinik,2015-05-13 09:59:02,"Will work on adding a test.
+",nan,nan
+5,issue_comment,337,idan,oauthlib,thedrow,2015-07-01 11:33:29,"Already merged with a test in #351. Thanks.
+",nan,nan
+6,issue_comment,337,idan,oauthlib,lribinik,2015-07-01 14:17:14,"Thanks! (Unfortunately wasn't able to get to it)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,341,idan,oauthlib,kdazzle,2015-05-09 19:45:17,"Hmm, well a _lot_ of tests fail for a lot of different places around the code. One solution would be to replace all of the assumptions that a request attribute will be either something or `None`, or another would be to provide default values in `Request._params` in the constructor. Or a mix, of course. Something like the following commit.
+",nan,nan
+5,issue_comment,341,idan,oauthlib,thedrow,2015-07-01 11:37:25,"I'm really not sure about this one.
+Will this change break backwards compatibility?
+",nan,nan
+6,issue_comment,341,idan,oauthlib,foxx,2015-07-01 20:12:31,"It's certainly the correct way of doing things, and the test appear to pass fine, although there is a chance this might be breaking something which isn't well tested, as well as other people relying on this implementation approach. I'm +1 on this, but will need to be highlighted in the change log.
+",nan,nan
+7,issue_comment,341,idan,oauthlib,kdazzle,2015-07-02 19:23:37,"Thanks for taking a look at this and for merging it in!
+Yeah, as @foxx said, it could break peoples' code if they are relying on that implementation, but I think this change is worth it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,343,idan,oauthlib,jcbohin,2015-06-23 07:41:34,"dup with #349
+",nan,nan
+4,issue_comment,343,idan,oauthlib,foxx,2015-06-23 09:14:19,"@idan Could you possibly spend a few minutes going over some of these more smaller issues? The issue backlog is almost 50 strong at the moment, with some having no contributor response for over a month :/
+",nan,nan
+5,issue_comment,343,idan,oauthlib,thedrow,2015-07-01 09:41:14,"Closing this for #349 since it contains more indentation fixes.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,345,idan,oauthlib,H0neyBadger,2015-06-01 12:32:06,"Maybe the best way to fix this issue is to edit request’s representation function :
+https://github.com/idan/oauthlib/blob/master/oauthlib/common.py
+line 392 
+
+``` python
+    def __repr__(self):
+        return '<oauthlib.Request url=""%s"", http_method=""%s"", headers=""%s"", body=""%s"">' % (
+            self.uri, self.http_method, self.headers, self.body)
+```
+",nan,nan
+3,issue_comment,345,idan,oauthlib,foxx,2015-07-01 20:05:13,"I'm not sure if censoring the debug logs is the correct approach. In any sane deployment, you would only ever enable debug mode whilst debugging, rather than in production. Enabling such a feature by default would likely cause annoyance for little benefit. As such, I'd be -1 on this, lets see if the other maintainers chime in though.
+",nan,nan
+4,issue_comment,345,idan,oauthlib,H0neyBadger,2015-07-02 06:38:58,"Censoring! I call that ""respect the privacy of others""
+In many cases the debug logs are enabled on prod and pre-prod. 
+Even worse, in many cases logs are sent directly to a SIEM through syslogd and readable by a group of people.
+Now imagine if the windows or unix pam write a log with your password.
+Only poorly implemented products needs to debug the password.
+Anyway, this must be documented!
+",nan,nan
+5,issue_comment,345,idan,oauthlib,masci,2015-07-02 07:08:23,"I'm +1 on hiding sensitive data
+",nan,nan
+6,issue_comment,345,idan,oauthlib,lepture,2015-07-02 07:16:40,"I agree with @H0neyBadger . I've submitted a PR in #355 
+",nan,nan
+7,issue_comment,345,idan,oauthlib,foxx,2015-07-02 16:19:32,"Actually, after giving this some further thought, there could be situations where users are using real password with their debug runtimes. If they blindly paste these into pastebin or Github, it could cause for some embarrassment.
+
+After looking at how other projects do this, most will either hide sensitive log information by default (e.g. Apache2), or will remove known sensitive strings such as passwords (e.g. Dovecot).
+
+Left feedback on PR, thanks for reporting this @H0neyBadger!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,314,idan,oauthlib,josephtate,2015-05-06 21:30:11,"Can you freshen this? And maybe provide a unit test?
+",nan,nan
+5,issue_comment,314,idan,oauthlib,singingwolfboy,2015-05-07 03:11:31,"@josephtate fixed!
+",nan,nan
+6,issue_comment,314,idan,oauthlib,josephtate,2015-05-07 03:13:43,"LGTM pending travis run.
+",nan,nan
+7,issue_comment,314,idan,oauthlib,singingwolfboy,2015-05-09 13:58:46,"@josephtate ping
+",nan,nan
+8,issue_comment,314,idan,oauthlib,josephtate,2015-05-11 19:22:46,"@singingwolfboy I'm not able to merge pull requests, just pitching in to review. :( @ib-lundgren this LGTM.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

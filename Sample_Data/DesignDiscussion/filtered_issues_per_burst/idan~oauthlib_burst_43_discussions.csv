@@ -1,0 +1,144 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+19,pull_request_commit_comment,416,idan,oauthlib,clintonb,2016-04-20 01:31:59,"Why the changes to this file?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')"
+20,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-20 01:43:13,"Woops, I didn't mean to include that.  End of day mistake.
+
+> On Apr 19, 2016, at 6:32 PM, Clinton Blackburn notifications@github.com wrote:
+> 
+> In tox.ini:
+> 
+> > @@ -1,10 +1,12 @@
+> >  [tox]
+> > -envlist = py26,py27,py32,py33,py34,py35,pypy,pypy3
+> > Why the changes to this file?
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly or view it on GitHub
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')"
+21,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-04-20 08:25:52,"Why is this comment here?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')"
+4,issue_comment,416,idan,oauthlib,thedrow,2016-04-20 08:27:19,"Nice job. Have you tested this yourself?
+",nan,nan
+22,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:16:13,"Should this have a `#Start of OpenIDConnect` comment? Also, maybe rephrase this because it's new now, but it won't always be new.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/authorization_code.py')"
+23,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:20:54,"IIRC, the [OpenIDConnect spec allows](https://openid.net/specs/openid-connect-core-1_0.html#Authentication) specifying multiple, space-separated response types.
+
+Should this line be something like:
+
+`if not set(request.response_type.split()).issubset(self.response_types):`
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/implicit.py')"
+24,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:26:17,"This feels a bit hacky. If I understand correctly, in this scenario, we've already generated an access token, but then we're just throwing it away and not returning it to the user? I guess that's fine, but it seems like we should be able to do better and avoid creating access tokens we don't need. Can we dispatch on response_type earlier in the flow somewhere?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/openid_connect.py')"
+25,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:30:59,"Why is this the default on the GrantTypeBase?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(12, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+26,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-20 14:33:09,"Can we modify the request object to do this split() for us and have `request.response_type` always be a set? Or will that break things elsewhere?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+27,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-21 00:25:58,"Shouldn't be.  I'll pull that out too.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'tox.ini')"
+28,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-22 19:10:55,"Ah yes quite possibly.  I'll review this.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/implicit.py')"
+29,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-22 19:11:33,"Quite possibly, I'll look into what it will take.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/openid_connect.py')"
+30,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-22 19:18:14,"It looks like this was added to satisfy the default fragment response type in the OpenID spec, but I think this partially conflicts with the defaults defined in the OAuth2 Multiple Response Modes spec.  It may not impact existing OAuth2 flows (at least didn't reflect as an error in the tests) but I'll review to see if this can be less far reaching and scoped more toward OpenID specific requests.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(12, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+31,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-22 19:19:40,"Sounds like a good thing to do, at least during OpenID specific requests.  I'll review.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+5,issue_comment,416,idan,oauthlib,joelstevenson,2016-04-22 21:00:07,"@thedrow I'm developing it in the context of a Django app using Django-OAuth2-Toolkit, with a small few patches to DOT to support any changes made here to the oauthlib (mostly the validator) .  So far so good.
+",nan,nan
+6,issue_comment,416,idan,oauthlib,thedrow,2016-04-24 05:54:16,"Ok let me know when you guys are ready.
+",nan,nan
+32,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-26 00:37:20," I think splitting `request.response_type` will impact server implementations by basically changing it out from under them.  We could split and cache it in a private property like `_request_type` but I don't know that it's worth it here.  Thoughts?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+33,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-26 00:44:44,"`response_mode` defaults to ""fragment"" for all grants other than AuthorizationCode.  That grant overrides it and Implicit and Hybrid don't so it's mostly DRY.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(12, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+34,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-26 15:58:17,"I think splitting at all might be the wrong behavior: After reading [this document](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations) referenced from the OIDC spec, it sounds like we shouldn't be treating the response type as a space-separated list of values, but rather an enum that can take specific values of: `code token`, `code id_token`, `id_token token` or `code id_token token`.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+35,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-04-26 18:08:47,"True, I guess it's a question of how rigid we want to be about ordering of values in the `response_type`: should we recognize `token code` and `code token` as the same or only accept it in the `code token` form?  I'm inclined to be accepting of both given that there aren't semantic differences between them, but I can see an argument being made for cleaving to the letter of the spec too.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+36,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-04-26 18:54:01,"I agree it's instinctively appealing to accept both `token code` and `code token`, but I wonder if that could lead to issues down the road, or conflicts with future versions of the spec?
+
+How do other people feel? @clintonb @thedrow ?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+37,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-05-02 12:00:56,"This reads really ugly. Can we just use `response_types.items()` for both Python 2 and Python 3? I know it's slightly less memory-efficient in Py2, but `response_types` is going to be pretty darn small, so I doubt it matters.
+
+Failing that, I think we should use [`six`](https://pythonhosted.org/six/) to support multi-version Python, instead of scattering compatibility code throughout our code base.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/authorization.py')"
+38,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-05-02 12:03:48,"Could we use a `FrozenSet` instead of a comma-separated string for this purpose?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/authorization.py')"
+39,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-05-02 12:10:30,"Should this take a `nonce` explicitly? Or is it expected that implementors will get the nonce off the request object? If so, it might be good to document that.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(50, '', u'oauthlib/oauth2/rfc6749/request_validator.py')"
+40,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-05-02 12:14:22,":+1: Supporting the `claims` parameter.
+
+Maybe I'm not understanding, but are we sure this should be done as part of `token_type_handler.validate_request()` or should it be another method on the RequestValidator?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/resource.py')"
+41,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-05-02 18:02:59,"Yeah good question.  Currently the `validate_request()` method calls through to the request_validator's  `validate_bearer_token()` method where the validator currently has the chance to load the token from whatever persistent store it is using and populate request attributes from the stored token's data.  Both flask_oauthlib and the django-oauth-toolkit are doing this and setting the `client`, `user`, and `access_token` properties of the `request` (my patched version of DOT also sets `scopes` from the database because they may not come in via the HTTP request).  Assuming other clients are taking the same approach I didn't want to introduce new interface methods for clients to implement without a strong reason too.
+
+Now that I've been poking around in DOT and oauthlib for a while I can envision various interface level changes but I've been trying to minimize the impact on the RequestValidator interface definition to keep the update path clear.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/resource.py')"
+42,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-05-02 18:10:25,"In general it appears that the expectation has been that clients will be pulling any relevant parameters off of the `request`.  I'll make a note in the docs about the nonce in implicit and hybrid workflows.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(50, '', u'oauthlib/oauth2/rfc6749/request_validator.py')"
+43,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-05-02 18:23:56,"Fair points.  On further rumination I think supporting randomly ordered response_type values is not a significant use case and the code will be cleaner overall if we simply look for `response_type` values as defined in the spec's registry.  Code reverting this is pushed.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/authorization.py')"
+44,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-05-02 18:28:46,"I think that's probably the right decision. Nobody can really complain at us for following the letter of the spec.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/authorization.py')"
+45,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-05-02 18:36:32,"If there will be any API breakage I'll release this as oauthlib 2.0 and libraries will upgrade when they see fit.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/resource.py')"
+46,pull_request_commit_comment,416,idan,oauthlib,bjmc,2016-05-02 18:42:21,"I'll also note that we could probably safely add methods to RequestValidator as long as the RequestValidator base class contains no-op stubs of the relevant methods. Presumably implementers would be subclassing the Base, and so they wouldn't have any breakage.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/resource.py')"
+47,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-05-02 19:31:13,"Reviewing the flow here it looks like my comment 
+
+> the validate_request() call is a chance for the client library to finalize the scopes on the request 
+
+there is wrong.  `request.scopes` ought to be the scopes _required to access_ the Resource and can be defined by the client library prior to calling our `verify_request()`.  It's a bit confusing - if anything I'd rename the `scopes` argument of `verify_request()` to be `required_scopes`.  That would only slightly clarify it though - the `request.scopes` property is overloaded to mean both ""scopes listed in the incoming HTTP request"" in other request flows like Authorization and Token requests and ""scopes required to access the requested resource"" as in this protected resource request flow.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/resource.py')"
+48,pull_request_commit_comment,416,idan,oauthlib,joelstevenson,2016-05-03 18:48:06,"I'm ok with leaving this in `validate_request()` given the way the `request` is currently being populated within that code flow but if there's a clear desire to move it into a new `RequestValidator` method where this `claims` parameter parsing takes place let me know. 
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/resource.py')"
+7,issue_comment,416,idan,oauthlib,joelstevenson,2016-05-11 20:22:42,"@thedrow @bjmc @clintonb @ib-lundgren I think this is pretty much ready - but does anyone have any lingering concerns or suggestions?
+",nan,nan
+8,issue_comment,416,idan,oauthlib,thedrow,2016-05-13 06:32:27,"How much API does this PR break if at all?
+",nan,nan
+9,issue_comment,416,idan,oauthlib,thedrow,2016-05-13 06:34:38,"Also, this feature really needs to be documented. 
+",nan,nan
+10,issue_comment,416,idan,oauthlib,joelstevenson,2016-06-06 17:14:05,"Sorry for the delay - I hope to get to that this week.
+",nan,nan
+11,issue_comment,416,idan,oauthlib,clintonb,2016-08-17 13:39:11,"@joelstevenson @thedrow @ib-lundgren is this still under active development? What can we do to get it delivered?
+",nan,nan
+12,issue_comment,416,idan,oauthlib,joelstevenson,2016-08-17 16:45:31,"@clintonb I need to provide some documentation describing what aspects of OIDC are supported.  Thanks for the ping - I will do so today.
+",nan,nan
+13,issue_comment,416,idan,oauthlib,joelstevenson,2016-08-18 22:55:28,"@thedrow the OpenID Connect auth flows don't break any existing API, as such, though they do extend it when an OpenID Connect auth request is received.  The OIDC code is only active when/if the request has a scope including `openid`.  For all other requests OAuthLib will behave as if unchanged.  
+
+If OAuthLib users are passing the `scope` parameter through unfiltered (which is likely I'd imagine), and a request comes through that triggers the OIDC code then it will result in a `NotImplementedError` from one of:
+
+```
+RequestValidator.validate_silent_authorization()
+RequestValidator.validate_silent_login()
+RequestValidator.validate_user_match()
+RequestValidator.get_id_token()
+```
+
+Until their validator subclass provides an implementation.
+",nan,nan
+14,issue_comment,416,idan,oauthlib,bjmc,2016-08-25 14:50:35,"Is there anything else needed to push this across the finish line?
+",nan,nan
+49,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-08-25 17:19:08,"Why use `not var in list` instead of `var not in list`?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/endpoints/revocation.py')"
+50,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-08-25 17:20:42,"Here `not var in tuple` appears again.
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/base.py')"
+51,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-08-25 17:21:21,"Is the comment above still correct?
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/implicit.py')"
+52,pull_request_commit_comment,416,idan,oauthlib,thedrow,2016-08-25 17:24:51,"Again `not var in list`...
+",06c0bd8e2deb7c9c2e4c5d7874bc94c90e334d4d,"(None, '', u'oauthlib/oauth2/rfc6749/grant_types/openid_connect.py')"
+15,issue_comment,416,idan,oauthlib,thedrow,2016-08-25 17:29:21,"@bjmc Just a few more minor issues.
+@joelstevenson Can you take a look at the comments?
+Also, you can add yourself to the AUTHORS file :)
+",nan,nan
+16,issue_comment,416,idan,oauthlib,thedrow,2016-08-28 07:29:18,"@joelstevenson Great job! Thank you for your contribution.
+I'll release this feature tonight (Israel Time) :)
+",nan,nan
+17,issue_comment,416,idan,oauthlib,joelstevenson,2016-08-30 16:00:58,"@thedrow .  Cheers, I'm happy to help!  Most of the work was from @ib-lundgren so a big thanks to him for bootstrapping the whole effort.
+",nan,nan
+18,issue_comment,416,idan,oauthlib,thedrow,2016-09-03 08:58:38,"Released!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

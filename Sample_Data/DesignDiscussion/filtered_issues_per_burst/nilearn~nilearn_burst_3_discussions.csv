@@ -1,0 +1,323 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,15,nilearn,nilearn,agramfort,2012-06-25 11:51:50,"merged thx
+",nan,nan
+7,pull_request_commit_comment,15,nilearn,nilearn,GaelVaroquaux,2012-06-25 12:07:38,"this code is hard to understand. As I said in my mail, I would prefer to use np.logical_or and the two equality conditions, which is much easier to understand.
+",f583dc82f4894ac7d06d460d1f904da199f0f977,"(None, None, None)"
+8,pull_request_commit_comment,15,nilearn,nilearn,AlexandreAbraham,2012-06-25 12:18:58,"Sorry, I thought it was a recommandation more than an obligation. I have pushed the logical_or version (which is clearer, I agree !).
+",f583dc82f4894ac7d06d460d1f904da199f0f977,"(None, None, None)"
+9,pull_request_commit_comment,15,nilearn,nilearn,GaelVaroquaux,2012-06-25 12:44:14,"I hate obligations, and I try to always be open to someone
+contradicting me: people often do have better idaes than me.
+
+That said, I am also a subborn old bastard :)
+
+On 6/25/12, Alexandre Abraham
+reply@reply.github.com
+wrote:
+
+> Sorry, I thought it was a recommandation more than an obligation. I have
+> pushed the logical_or version (which is clearer, I agree !).
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/AlexandreAbraham/tutorial/commit/f583dc82f4894ac7d06d460d1f904da199f0f977#commitcomment-1498976
+",f583dc82f4894ac7d06d460d1f904da199f0f977,"(None, None, None)"
+10,pull_request_commit_comment,15,nilearn,nilearn,AlexandreAbraham,2012-06-25 13:52:02,"OK, let's say _very strong recommandation_ then.
+
+Gael said :
+
+> That said, I am also a subborn old bastard :)
+
+That quote deserves to be on the whiteboard :P
+",f583dc82f4894ac7d06d460d1f904da199f0f977,"(None, None, None)"
+11,pull_request_commit_comment,15,nilearn,nilearn,GaelVaroquaux,2012-06-25 13:52:52,"> Gael said :
+> 
+> > That said, I am also a subborn old bastard :)
+> 
+> That quote deserves to be on the whiteboard :P
+
+It's old new, thought. But you can, if you want.
+",f583dc82f4894ac7d06d460d1f904da199f0f977,"(None, None, None)"
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,23,nilearn,nilearn,agramfort,2012-06-29 09:23:47,"why does cropping reduces the accuracy if the cropping is done to remove black background?
+
+we have a 100% accuracy now? isn't that to good to be true?
+",nan,nan
+8,pull_request_commit_comment,23,nilearn,nilearn,AlexandreAbraham,2012-06-29 09:30:43,"These should be [:, 7:56, 10:52] not to lose information
+",10858d33ecd41991324e35012acacec5c50822ec,"(16, 522, u'nisl/datasets.py')"
+5,issue_comment,23,nilearn,nilearn,agramfort,2012-06-29 10:15:10,"I tend to say skip this for now. We can fix this after the tutorial
+
+it's a detail for the tutorial and it would raise too many questions in the audience
+",nan,nan
+6,issue_comment,23,nilearn,nilearn,GaelVaroquaux,2012-06-29 18:06:21,"Merged
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,18,nilearn,nilearn,agramfort,2012-06-25 13:44:25,"the code should work with the stable released version
+",c165ce9ff9c4ad5e2692847580c5ab1565410ed1,"(None, '', u'doc/haxby_decoding.rst')"
+8,pull_request_commit_comment,18,nilearn,nilearn,GaelVaroquaux,2012-06-25 13:46:40,"Agreed.
+",c165ce9ff9c4ad5e2692847580c5ab1565410ed1,"(None, '', u'doc/haxby_decoding.rst')"
+9,pull_request_commit_comment,18,nilearn,nilearn,jaquesgrobler,2012-06-25 13:46:46,"oh ja, it's not really why I changed it.. t'was more the fact that the old link was broken, so I searched the RFE in the scikit learn docs and
+replaced it - just happen to have the `dev` on open on my browser.. should I change it to `stable` quick ? 
+",c165ce9ff9c4ad5e2692847580c5ab1565410ed1,"(None, '', u'doc/haxby_decoding.rst')"
+5,issue_comment,18,nilearn,nilearn,GaelVaroquaux,2012-06-25 13:47:23,"Appart from the minor remark, this looks good. I am going to merge and pull before I board the plane, to ease my work on the plane.
+",nan,nan
+10,pull_request_commit_comment,18,nilearn,nilearn,agramfort,2012-06-25 13:47:49,"yes use stable
+",c165ce9ff9c4ad5e2692847580c5ab1565410ed1,"(None, '', u'doc/haxby_decoding.rst')"
+6,issue_comment,18,nilearn,nilearn,jaquesgrobler,2012-06-25 13:51:39,"haha got that last one in just in time!! :satisfied:
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+10,pull_request_commit_comment,5,nilearn,nilearn,GaelVaroquaux,2012-06-23 21:54:47,"Don't forget to pull from origin/master: you are falling off sync.
+",299ef9c68dcb29f012f414855d9301091cf3d15f,"(None, None, None)"
+11,pull_request_commit_comment,5,nilearn,nilearn,GaelVaroquaux,2012-06-23 21:58:03,"Also, I don't understand how this commit fixes my problem: from the debug that I did, it seemed that the problem was an error in the download URL. I am testing the fix, but as the download takes a while, I am not sure that my fix is correct.
+
+Before I scrap my work by pulling from your branch, I'd like to be really sure that it fixes the problem.
+
+On top of this, the fact that you committed in your master branch will make history management a bit convoluted.
+",299ef9c68dcb29f012f414855d9301091cf3d15f,"(None, None, None)"
+12,pull_request_commit_comment,5,nilearn,nilearn,AlexandreAbraham,2012-06-23 22:14:54,"Your problem with kamitani was a URL problem but with NYU the problem was that you had an incomplete download archive. My fix, when trying to uncompress a dataset, will download again an archive if it is corrupted.
+
+Sorry for messing up with git but I am not very familiar with several people working on several branches. Do you want me to move the commit to another branch ?
+",299ef9c68dcb29f012f414855d9301091cf3d15f,"(None, None, None)"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,17,nilearn,nilearn,agramfort,2012-06-25 13:19:09,"go for it!
+",nan,nan
+4,issue_comment,17,nilearn,nilearn,agramfort,2012-06-25 20:09:37,"I am not sure this is still necessary as the slice has been changed in the example. @AlexandreAbraham can you take a look?
+",nan,nan
+5,issue_comment,17,nilearn,nilearn,GaelVaroquaux,2012-06-29 17:58:26,"Done in PR #23
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+17,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:51:17,"no s at data
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/datasets.py')"
+18,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:52:01,"index and plural indices
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/datasets.py')"
+19,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:52:31,"bad doc formatting
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/images.py')"
+20,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:53:37,"should be Returns
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/images.py')"
+21,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:54:40,"bad doc formatting
+
+http://www.python.org/dev/peps/pep-0257/
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+22,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:54:50,"Returns
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+23,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:55:20,"should be ---------- not =======
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+24,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:55:30,"insert line here
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+25,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:55:40,"no blank line
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(101, '', u'nisl/searchlight.py')"
+26,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:56:23,"use joblib.cpu_count for that
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+27,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:57:20,"you can use np.array_split for this:
+
+In [51]: np.array_split(np.arange(10), 3)
+Out[51]: [array([0, 1, 2, 3]), array([4, 5, 6]), array([7, 8, 9])]
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+28,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:57:39,"formatting
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+29,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:57:47,"Returns
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+30,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:58:06,"doc 
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+31,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:58:25,"doc
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+32,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:58:51,"estimated attributes should end with _
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/searchlight.py')"
+33,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:59:16,"indent pb
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+34,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 06:59:34,"masks ?i
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+35,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 07:00:25,"nicer than the replacement of ind1 elsewhere
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(53, '', u'plot_haxby_searchlight.py')"
+36,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 07:00:47,"use pylab as pl
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+37,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 07:01:03,"add f_classif scores with -np.log10(p_values)
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+38,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 07:01:53,"doc
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'nisl/images.py')"
+39,pull_request_commit_comment,20,nilearn,nilearn,AlexandreAbraham,2012-06-26 08:48:24,"Gaël asked me to use pyplot explicitely and avoid aliases as much as possible (except for numpy -> np)
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+40,pull_request_commit_comment,20,nilearn,nilearn,agramfort,2012-06-26 11:23:44,"@GaelVaroquaux : pyplot and not pylab as pl ?
+
+On Tue, Jun 26, 2012 at 10:48 AM, Alexandre Abraham
+reply@reply.github.com
+wrote:
+
+> > +# Make processing parallel
+> > +# /!\ As each thread will print its progress, this could mess up a little
+> > +#     information output.
+> > +n_jobs = 2
+> > +
+> > +score_func = f1_score
+> > +
+> > +# A cross validation method is needed to measure precision of each voxel
+> > +cv = KFold(y.size, k=4)
+> > +searchlight = searchlight.SearchLight(mask, process_mask, radius=1.5,
+> > -        n_jobs=n_jobs, score_func=score_func, verbose=True, cv=cv)
+> >   +# scores.scores is an array containing per voxel precision
+> >   +scores = searchlight.fit(X, y)
+> >   +
+> >   +### Unmask the data and display it
+> >   +pyplot.imshow(np.rot90(scores.scores[..., 26]), interpolation='nearest',
+> 
+> Gaël asked me to use pyplot explicitely and avoid aliases as much as possible (except for numpy -> np)
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nisl/tutorial/pull/20/files#r1049290
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+41,pull_request_commit_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 11:34:46,"On Tue, Jun 26, 2012 at 04:23:44AM -0700, Alexandre Gramfort wrote:
+
+> @GaelVaroquaux : pyplot and not pylab as pl ?
+
+No, pylab as pl
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+42,pull_request_commit_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 11:35:06,"On Tue, Jun 26, 2012 at 01:48:24AM -0700, Alexandre Abraham wrote:
+
+> Gaël asked me to use pyplot explicitely
+
+Did I? I must have been drinking
+
+> and avoid aliases as much as possible (except for numpy -> np)
+
+other exception: pylab -> pl
+
+G
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+43,pull_request_commit_comment,20,nilearn,nilearn,AlexandreAbraham,2012-06-26 11:37:17,"OK, got it !
+",c381ca44726934120099b30e3d3cea63bc31ffc9,"(None, '', u'plot_haxby_searchlight.py')"
+6,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 13:13:39,"> @GaelVaroquaux : as computation takes only 70s, is it OK to do it on the entire slice or should we shrink it to keep only the back of the brain or 1 voxel out of 2 like suggested ?
+
+It's OK like this. Good job!
+
+G
+",nan,nan
+7,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 13:59:36,"This branch fails for me (did you test it using the building process,
+Alex A?):
+
+<pre>
+$ make doc
+...
+plotting plot_haxby_searchlight.py
+________________________________________________________________________________
+plot_haxby_searchlight.py is not compiling:
+Traceback (most recent call last):
+  File ""/home/varoquau/dev/nisl/tutorial/doc/sphinxext/gen_rst.py"", line
+304, in generate_file_rst
+    execfile(os.path.basename(src_file), my_globals)
+  File ""plot_haxby_searchlight.py"", line 60, in <module>
+    scores = searchlight.fit(X, y)
+  File ""/home/varoquau/dev/nisl/tutorial/nisl/searchlight.py"", line 239,
+in fit
+    self.score_func, self.cv, self.n_jobs, self.verbose)
+  File ""/home/varoquau/dev/nisl/tutorial/nisl/searchlight.py"", line 81,
+in search_light
+    for list_i in group_iter)
+  File ""/usr/lib/pymodules/python2.7/joblib/parallel.py"", line 451, in
+__call__
+    self._pool = multiprocessing.Pool(n_jobs)
+  File ""/usr/lib/python2.7/multiprocessing/__init__.py"", line 232, in
+Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild)
+  File ""/usr/lib/python2.7/multiprocessing/pool.py"", line 136, in
+__init__
+    self._repopulate_pool()
+  File ""/usr/lib/python2.7/multiprocessing/pool.py"", line 199, in
+_repopulate_pool
+    w.start()
+  File ""/usr/lib/python2.7/multiprocessing/process.py"", line 130, in
+start
+    self._popen = Popen(self)
+  File ""/usr/lib/python2.7/multiprocessing/forking.py"", line 116, in
+__init__
+    sys.stdout.flush()
+AttributeError: 'Tee' object has no attribute 'flush'
+________________________________________________________________________________
+</pre>
+
+
+This is a bug in gen_rst.py that I will fix. That said, it reveals that
+you are using n_jobs != 1, which we should never do by default. Could you
+fix that please.
+
+G
+",nan,nan
+8,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 14:00:27,"On Tue, Jun 26, 2012 at 03:59:31PM +0200, Gael Varoquaux wrote:
+
+> This is a bug in gen_rst.py that I will fix. That said, it reveals that
+> you are using n_jobs != 1, which we should never do by default. Could you
+> fix that please.
+
+Forget it, I am fixing it.
+",nan,nan
+9,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 14:03:25,"On Tue, Jun 26, 2012 at 04:00:23PM +0200, Gael Varoquaux wrote:
+
+> Forget it, I am fixing it.
+
+Fixed. Can you pull from my searchlight branch
+",nan,nan
+10,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 14:05:22,"Could you please make verbose be an integer that controls the amount of
+verbosity: for instance, between 1 and 10 it could control the frequency
+of message: 10 = all iterations print, 1 = one iteration out of 10. Right
+now the code is too verbose.
+
+Also, please add an estimation of remaining time. People are impatient.
+
+Finally, in the verbosity message: ""1 on 3008"" -> ""1 / 3008""/
+",nan,nan
+11,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 14:07:43,"Your example is missing a docstring and a title (it does not show up
+right in the example page).
+
+Also, when I run 'make plot', the resulting image is garbbled (colormaps
+screwed).
+
+PS: it takes 251s on my box. That's a bit slow. We'll worry about this
+later.
+",nan,nan
+12,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 14:08:48,"The generated example page does not look right (the two figures are not
+plotted). Please fix that.
+",nan,nan
+13,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-26 15:31:17,"> Yes, I am working on the visualization/documentation right now.
+
+Cool. Thanks. Can you also add the figure of searchligh to the front
+page, as the others are (beware, there is some javascript magic).
+",nan,nan
+14,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-28 07:39:35,"I am not sure that the 'use_gridspec' is an option: it is too recent, and thus we'll have it fail on some attendee's computer.
+
+How about having no colorbar?
+",nan,nan
+4,issue_comment,20,nilearn,nilearn,agramfort,2012-06-28 07:51:56,"works fine for me now.
+
+> How about having no colorbar?
+
+why not...
+
+how about hacking the gen_rst to avoid call to tight_layout?
+",nan,nan
+15,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-28 10:53:12,"> how about hacking the gen_rst to avoid call to tight_layout?
+
+It actually breaks some other layouts, which then need figure size
+tuning.
+
+It's a tradeoff. If you think that we can do without colorbar, I'd prefer
+that option.
+
+G
+",nan,nan
+5,issue_comment,20,nilearn,nilearn,agramfort,2012-06-28 10:59:10,"> It actually breaks some other layouts, which then need figure size
+> tuning.
+> 
+> It's a tradeoff. If you think that we can do without colorbar, I'd prefer
+> that option.
+
+ok fair enough.  Let's keep it as simple as possible
+",nan,nan
+16,issue_comment,20,nilearn,nilearn,GaelVaroquaux,2012-06-29 17:33:57,"This has been merged
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

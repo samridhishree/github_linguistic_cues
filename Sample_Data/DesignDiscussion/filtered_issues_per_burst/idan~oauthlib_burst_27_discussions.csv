@@ -1,0 +1,15 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,262,idan,oauthlib,ib-lundgren,2014-09-11 13:03:33,"Sounds reasonable :) 
+
+I think ""GenericEndpoint"" is a bit too vague, maybe call it ""SignatureOnlyEndpoint"" or something similar?
+",nan,nan
+5,issue_comment,262,idan,oauthlib,ryanhiebert,2014-09-11 15:25:26,"Sounds good. I'll push a new commit shortly.
+",nan,nan
+6,pull_request_commit_comment,262,idan,oauthlib,ib-lundgren,2014-09-12 10:12:01,"This is meant to check whether the client is registered and valid. While not a bad idea for this type of endpoint it is slightly more than just checking the signature. Was this what you intended? If so I'm happy to merge.
+",988d08284989226577d30ae07550278dbf50d751,"(54, '', u'oauthlib/oauth1/rfc5849/endpoints/signature_only.py')"
+7,pull_request_commit_comment,262,idan,oauthlib,ryanhiebert,2014-09-12 12:32:03,"It is what I intended. For LTI, which is driving this endpoint, it would (almost) always to make sense to check the client key. Obviously, we can't have a secret without a key, so the key needs to be registered.
+
+The operations seems common enough, even for a 0-legged case, that I think that it would be strange if it were not checked the same way as for the other endpoints that use the client key.
+",988d08284989226577d30ae07550278dbf50d751,"(54, '', u'oauthlib/oauth1/rfc5849/endpoints/signature_only.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 

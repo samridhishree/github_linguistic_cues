@@ -1,0 +1,7 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+7,pull_request_commit_comment,461,pycqa,astroid,PCManticore,2017-11-02 14:02:54,"If you wrote this yourself and it doesn't contain code from other files, feel free to just add yourself here!",68385d4311245c36704c61fae6d75432600b1788,"(2, '', u'astroid/tests/unittest_brain_numpy.py')"
+4,issue_comment,461,pycqa,astroid,hippo91,2017-11-03 10:03:45,"Hey @PCManticore, the CI passes but just because i added a decorator to skip the untittest concerning `numpy` if the `numpy` module is not present. Does it mean that those unittests are never executed in the CI (because tox env doesn't install numpy)?",nan,nan
+5,issue_comment,461,pycqa,astroid,PCManticore,2017-11-11 11:39:01,@hippo91 apparently that's true! https://github.com/PyCQA/astroid/blob/7bfb5e83b162d2126c9929b6d863724176269b6d/tox.ini#L14 we weren't installing numpy for pypy and py3.3,nan,nan
+6,issue_comment,461,pycqa,astroid,PCManticore,2017-11-11 11:39:50,Merged since the missing numpy doesn't block this PR. We'll handle this in its own change.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

@@ -1,0 +1,30 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,70,aio-libs,aioredis,kernel0,2015-07-28 02:30:08,"wait_convert, wait_make_dict do the same
+",nan,nan
+3,issue_comment,70,aio-libs,aioredis,popravich,2015-07-28 09:11:19,"The fix is in master.
+Will release with cluster commands update
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,71,aio-libs,aioredis,popravich,2015-08-04 07:07:17,"fixed
+",nan,nan
+3,issue_comment,71,aio-libs,aioredis,kernel0,2015-08-05 06:30:12,"awesome!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,72,aio-libs,aioredis,popravich,2015-07-29 06:22:28,"Hi, @kernel0,
+Thanks for PR.
+I know about this problem for a while but had no time to fix it properly.
+Regarding the fix, it should be a bit more complex:
+you solved the problem of stucking `_pool.put` call but not the problem of creating and closing multiple connections to Redis.
+The better way to fix it is to use some locking mechanism to prevent `_pool` queue overflow.
+",nan,nan
+4,issue_comment,72,aio-libs,aioredis,kernel0,2015-07-29 06:40:25,"Thanks for your review!! I'll think about the better way.
+For now, I'll close this PR. 
+",nan,nan
+5,issue_comment,72,aio-libs,aioredis,asvetlov,2015-07-29 10:15:58,"@kernel0 please take a look on `aiopg` pool for inspiration: https://github.com/aio-libs/aiopg/blob/master/aiopg/pool.py
+",nan,nan
+6,issue_comment,72,aio-libs,aioredis,kernel0,2015-07-31 08:12:52,"@asvetlov thank you!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

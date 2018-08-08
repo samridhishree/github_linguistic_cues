@@ -1,0 +1,335 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+13,issue_comment,1408,nilearn,nilearn,KamalakerDadi,2017-03-16 10:31:35,"@mjboos I made a start quite a while ago. Particularly, if your interested in some inputs validations or some other things. You can have a look at [this link](https://gist.github.com/KamalakerDadi/34abed6fe088908b79e79c5ef6641d75)",nan,nan
+14,issue_comment,1408,nilearn,nilearn,KamalakerDadi,2017-03-20 16:57:39,"Hi @mjboos. I understand that it is WIP but I was using your PR to plot matrices and thought that it may be useful to let you know some quirks. With @GaelVaroquaux 
+
+* By default, colormap is very low without specifying any explicit colormap. May be we need bright default choice.
+
+* By default, grid is False. But, I see plots with grid.
+![matrix_plot](https://cloud.githubusercontent.com/assets/11410385/24111245/20df89b2-0d96-11e7-8c09-1292a45fda87.png)
+
+* Explicitly specifying as grid=True 
+```
+ValueError: to_rgba: Invalid rgb arg ""True""
+cannot convert argument to rgb sequence.
+```
+
+
+",nan,nan
+16,pull_request_commit_comment,1408,nilearn,nilearn,bthirion,2017-06-05 07:36:17,Please remove the commented lines,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/01_plotting/plot_visualize_megatrawls_netmats.py')"
+17,pull_request_commit_comment,1408,nilearn,nilearn,bthirion,2017-06-05 07:37:44,pep8,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_multi_subject_connectome.py')"
+18,pull_request_commit_comment,1408,nilearn,nilearn,bthirion,2017-06-05 07:37:54,pep8,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_multi_subject_connectome.py')"
+19,pull_request_commit_comment,1408,nilearn,nilearn,bthirion,2017-06-05 07:46:58,pep8 (you should simply have an automated check in you editor).,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'nilearn/plotting/matrix_plotting.py')"
+20,pull_request_commit_comment,1408,nilearn,nilearn,bthirion,2017-06-05 07:47:40,Agree with the 3 suggestions,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'nilearn/plotting/matrix_plotting.py')"
+21,pull_request_commit_comment,1408,nilearn,nilearn,bthirion,2017-06-05 07:48:30,Many pep8 issues around.,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'nilearn/plotting/matrix_plotting.py')"
+15,issue_comment,1408,nilearn,nilearn,codecov[bot],2017-06-17 14:49:51,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=h1) Report
+> Merging [#1408](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/7e9cd8c63154af564383c12d6d581583a6e1a4c4?src=pr&el=desc) will **decrease** coverage by `0.15%`.
+> The diff coverage is `67.07%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1408/graphs/tree.svg?width=650&height=150&token=KpYArSdyXv&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1408      +/-   ##
+==========================================
+- Coverage   94.67%   94.52%   -0.16%     
+==========================================
+  Files         120      121       +1     
+  Lines       14793    14875      +82     
+==========================================
++ Hits        14006    14061      +55     
+- Misses        787      814      +27
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9fX2luaXRfXy5weQ==) | `84% <100%> (+0.66%)` | :arrow_up: |
+| [nilearn/plotting/tests/test\_displays.py](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X2Rpc3BsYXlzLnB5) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/plotting/matrix\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9tYXRyaXhfcGxvdHRpbmcucHk=) | `61.97% <61.97%> (ø)` | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=footer). Last update [7e9cd8c...5c64ab0](https://codecov.io/gh/nilearn/nilearn/pull/1408?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+11,issue_comment,1408,nilearn,nilearn,mjboos,2017-06-18 16:05:31,"Hi all, 
+I changed the pep8 issues and grid behavior, should work now. @KamalakerDadi I can not replicate the grid-lines without specifying grid=True behavior. The default imshow-cmap looked fine in the examples.
+
+W.r.t. the tests @bthirion should I just add a function to nilearn/plotting/tests/test_display.py?",nan,nan
+5,issue_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-06-19 12:13:10,"> W.r.t. the tests @bthirion should I just add a function to nilearn/plotting/
+> tests/test_display.py?
+
+Yes
+",nan,nan
+6,issue_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-06-27 00:51:15,@mjboos : this is almost done. Any chances that you finish this PR?,nan,nan
+12,issue_comment,1408,nilearn,nilearn,mjboos,2017-06-28 10:03:09,@GaelVaroquaux yes. sorry for the hiatus. Will finish it later.,nan,nan
+7,issue_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-06-28 15:08:36,"> @GaelVaroquaux yes. sorry for the hiatus. Will finish it later.
+
+Great! I am absolutely looking forward.
+",nan,nan
+22,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:12:48,We should import directly from nilearn.plotting: we strive to avoid deep imports.,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/01_plotting/plot_visualize_megatrawls_netmats.py')"
+23,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:13:02,Same comment on avoiding deep import,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_extract_regions_dictlearning_maps.py')"
+24,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:13:46,"Same comment: the import shouldn't be necessary, we should be able to use ""plotting.plot_matrix"".",5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_inverse_covariance_connectome.py')"
+25,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:19:40,"It seems surprising to me that the ""abs"" is needed: I would expect the max of the matrix to be positive.
+
+Given this, I would suggest to get rid of this intermediate function ""plot_matrix_symmetric_scale"", and directly inline the code and call ""plot_matrix"" in the example, to make things simpler.",5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_simulated_connectome.py')"
+26,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:42:26,"Hasn't this parameter been renamed to ""title""?",5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'nilearn/plotting/matrix_plotting.py')"
+27,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:45:54,"Almost all the examples use ""cmap=RdBu_r"". Maybe we should add a cmap argument, with the default ""RdBu_r"", to facilitate things for our users, and pass it along to imshow.",5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'nilearn/plotting/matrix_plotting.py')"
+28,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-04 15:47:09,"Why does ""plt.title"" not work here?",5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_multi_subject_connectome.py')"
+29,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-06 09:41:19,"Given that grid is False by default, I think that we can omit in the examples.",5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+30,pull_request_commit_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-06 09:42:22,Same comment about omiting the grid argument,5c64ab047ef2ba4c11804bc40f941606e68feb77,"(None, '', u'examples/03_connectivity/plot_sphere_based_connectome.py')"
+8,issue_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-30 09:51:02,"This is great! Thank you so much, @mjboos ! Merging.",nan,nan
+9,issue_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-30 13:25:59,"@mjboos : I did a few modifications to this PR directly in master: https://github.com/nilearn/nilearn/commit/5830eee2522cc9c00056f876e0e3a8debd184e7c
+
+I am quite happy that we have been able to simplify the examples quite significantly.",nan,nan
+10,issue_comment,1408,nilearn,nilearn,GaelVaroquaux,2017-07-30 14:06:26,"> There are few examples left to update. For example, in decoding I think. Shall I go through over them ?
+
+You can have a look. I am pretty much offline as of now :)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1487,nilearn,nilearn,bthirion,2017-07-26 19:23:46,"Sounds good, thanks !
+One thing that is missing now is some units tests to check that the groups variable is used correctly.",nan,nan
+7,issue_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-26 20:10:27,">I should note that by using model_selection, the cross_validation will no longer be compatible with scikit-learn < 0.15 (I think that is when model_selection was introduced)
+
+You can have a look at ```nilearn/_utils/fixes/__init__.py```. ",nan,nan
+11,issue_comment,1487,nilearn,nilearn,codecov[bot],2017-07-26 20:43:51,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=h1) Report
+> Merging [#1487](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/7e9cd8c63154af564383c12d6d581583a6e1a4c4?src=pr&el=desc) will **decrease** coverage by `0.19%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1487/graphs/tree.svg?src=pr&token=KpYArSdyXv&width=650&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff            @@
+##           master    #1487     +/-   ##
+=========================================
+- Coverage   94.67%   94.48%   -0.2%     
+=========================================
+  Files         120      122      +2     
+  Lines       14793    14910    +117     
+=========================================
++ Hits        14006    14088     +82     
+- Misses        787      822     +35
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decoding/tests/test\_searchlight.py](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy90ZXN0cy90ZXN0X3NlYXJjaGxpZ2h0LnB5) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/\_utils/fixes/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvZml4ZXMvX19pbml0X18ucHk=) | `88.23% <100%> (+1.56%)` | :arrow_up: |
+| [nilearn/decoding/searchlight.py](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zZWFyY2hsaWdodC5weQ==) | `82.5% <100%> (+0.44%)` | :arrow_up: |
+| [nilearn/plotting/tests/test\_matrix\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X21hdHJpeF9wbG90dGluZy5weQ==) | `100% <0%> (ø)` | |
+| [nilearn/plotting/matrix\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9tYXRyaXhfcGxvdHRpbmcucHk=) | `59.77% <0%> (ø)` | |
+| [nilearn/plotting/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9fX2luaXRfXy5weQ==) | `84% <0%> (+0.66%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=footer). Last update [7e9cd8c...3d31241](https://codecov.io/gh/nilearn/nilearn/pull/1487?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+12,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-27 09:03:52,I don't think this is required.,3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/_utils/fixes/__init__.py')"
+8,issue_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-27 09:06:00,"Thanks @njchiang. Overall your PR looks good. I will have a closer look in mean time.
+
+Minor comment: Could you address flake8 errors. Basically there are too long line written
+https://travis-ci.org/nilearn/nilearn/jobs/258020225",nan,nan
+13,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-27 09:07:18,"You can take optional beside array-like to short the line.
+
+array-like, optional",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/decoding/searchlight.py')"
+14,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:23:14,I would write membership -> labels to be more precise for neuroimaging users.,3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/decoding/searchlight.py')"
+15,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:23:32,same here membership -> labels,3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/decoding/searchlight.py')"
+16,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:23:46,same here membership -> labels,3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/decoding/searchlight.py')"
+17,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:27:58,"I think we should write explicitly that groups is only available for scikit-learn version >= 0.18
+
+May be we should add as a NOTE below default None.
+
+NOTE: this argument is valid for scikit learn version >= 0.18 ?
+
+Does this sounds good ? ping @GaelVaroquaux @bthirion ",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/decoding/searchlight.py')"
+18,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:28:43,same here adding NOTE to say users that this argument only available for scikit learn >= 0.18,3d312414ab1e96192a086bb25c2dedb3c73ea669,"(None, '', u'nilearn/decoding/searchlight.py')"
+19,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:29:32,"What's the difference in this test block compared to above one ?
+I see no difference. They are the same.",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(22, '', u'nilearn/decoding/tests/test_searchlight.py')"
+20,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 14:30:41,"May be you should add tests with other cv ?
+For instance, KFold to check that groups doesn't fail with other cvs",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(24, '', u'nilearn/decoding/tests/test_searchlight.py')"
+21,pull_request_commit_comment,1487,nilearn,nilearn,njchiang,2017-07-28 15:02:16,The results should be identical to the test in lines 57-67. The only difference is in sklearn >= 0.18 this will try LeaveOneGroupOut (cv=gcv) in line 88 rather than the KFold declared above. Let me know if I'm misunderstanding.  ,3d312414ab1e96192a086bb25c2dedb3c73ea669,"(22, '', u'nilearn/decoding/tests/test_searchlight.py')"
+22,pull_request_commit_comment,1487,nilearn,nilearn,njchiang,2017-07-28 15:03:00,"yes, this test uses KFold (cv=cv), which does not take a groups argument (even though I pass one in line 96). Is this what you mean? I can add other conditions you have in mind.",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(24, '', u'nilearn/decoding/tests/test_searchlight.py')"
+23,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-28 15:28:27,"Yes, you are right. Sorry, you can ignore this comment.",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(24, '', u'nilearn/decoding/tests/test_searchlight.py')"
+24,pull_request_commit_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-30 13:58:13,"Can you please add NOTE here too ?
+
+This function is also made available to users same like class.",3d312414ab1e96192a086bb25c2dedb3c73ea669,"(28, '', u'nilearn/decoding/searchlight.py')"
+9,issue_comment,1487,nilearn,nilearn,KamalakerDadi,2017-07-30 14:01:57,Apart from my small comment. I am +1 to merge.,nan,nan
+6,issue_comment,1487,nilearn,nilearn,bthirion,2017-08-01 20:20:40,LGTM overall. Thx.,nan,nan
+10,issue_comment,1487,nilearn,nilearn,KamalakerDadi,2017-08-02 14:22:22,Merged. Thank you for your work.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,issue_comment,1486,nilearn,nilearn,codecov[bot],2017-07-26 16:48:49,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=h1) Report
+> Merging [#1486](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/484e530cc0321669d09a0056f731a015e5d3ad71?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1486/graphs/tree.svg?width=650&token=KpYArSdyXv&height=150&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1486   +/-   ##
+=======================================
+  Coverage   94.67%   94.67%           
+=======================================
+  Files         120      120           
+  Lines       14793    14793           
+=======================================
+  Hits        14006    14006           
+  Misses        787      787
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/glass\_brain.py](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9nbGFzc19icmFpbi5weQ==) | `87.5% <ø> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=footer). Last update [484e530...3cc1f56](https://codecov.io/gh/nilearn/nilearn/pull/1486?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+5,issue_comment,1486,nilearn,nilearn,bthirion,2017-07-26 19:28:53,"Thx. I see 2 things in this PR:
+* A fix of the inconsistency between brain anatomical projection and 'L' and 'R' tags
+* A change of the default 'y' view fom front to back
+While the first point is to be accepted, I am quite unsure about the second: this alters default behavior of the plotting routine. What do people think ?
+
+",nan,nan
+7,issue_comment,1486,nilearn,nilearn,kingjr,2017-07-27 00:05:34,"@bthirion The behavior is unchanged. The 'y' direction was a back projection in the first place, but the drawing was a front projection, hence the mental incongruency. 
+
+@GaelVaroquaux Here is how it looks after manually tweaking `direction_to_transform_params`
+
+![image](https://user-images.githubusercontent.com/4881164/28648609-fb0bf886-723c-11e7-9027-258d8d0fa1bd.png)
+",nan,nan
+6,issue_comment,1486,nilearn,nilearn,bthirion,2017-07-27 09:29:33,+1. Thx again !,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1484,nilearn,nilearn,KamalakerDadi,2017-07-26 09:09:10,"Could you please also fix the link in examples/03_connectivity/plot_probabilistic_atlas_extraction.py ?
+Thanks",nan,nan
+9,issue_comment,1484,nilearn,nilearn,codecov[bot],2017-07-26 09:15:34,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=h1) Report
+> Merging [#1484](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/484e530cc0321669d09a0056f731a015e5d3ad71?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1484/graphs/tree.svg?height=150&token=KpYArSdyXv&width=650&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1484   +/-   ##
+=======================================
+  Coverage   94.67%   94.67%           
+=======================================
+  Files         120      120           
+  Lines       14793    14793           
+=======================================
+  Hits        14006    14006           
+  Misses        787      787
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=footer). Last update [484e530...be84d8c](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+10,issue_comment,1484,nilearn,nilearn,codecov[bot],2017-07-26 09:15:34,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=h1) Report
+> Merging [#1484](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/484e530cc0321669d09a0056f731a015e5d3ad71?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1484/graphs/tree.svg?height=150&width=650&token=KpYArSdyXv&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1484   +/-   ##
+=======================================
+  Coverage   94.67%   94.67%           
+=======================================
+  Files         120      120           
+  Lines       14793    14793           
+=======================================
+  Hits        14006    14006           
+  Misses        787      787
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=footer). Last update [484e530...70b1885](https://codecov.io/gh/nilearn/nilearn/pull/1484?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+6,issue_comment,1484,nilearn,nilearn,KamalakerDadi,2017-07-26 09:54:15,"I am waiting for circleci to green to check if there are any other links broken.
+",nan,nan
+7,issue_comment,1484,nilearn,nilearn,KamalakerDadi,2017-07-26 13:09:39,"Just a last comment. There are still few links which needs to fixed related to MSDL. Can you please address them also ?
+
+What I have done is
+git grep https://team.inria.fr/parietal/research/spatial_patterns/spatial-patterns-in-resting-state/
+
+- doc/connectivity/functional_connectomes.rst: Fixed
+
+- examples/01_plotting/plot_overlay.py: Needs to be fixed
+
+- examples/03_connectivity/plot_inverse_covariance_connectome.py: Needs to be fixed
+
+- examples/03_connectivity/plot_probabilistic_atlas_extraction.py: Fixed
+
+- nilearn/datasets/description/msdl_atlas.rst: Needs to be fixed
+",nan,nan
+8,issue_comment,1484,nilearn,nilearn,KamalakerDadi,2017-07-27 12:45:28,Thanks. LGTM.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1488,nilearn,nilearn,bthirion,2017-07-30 18:08:40,LGTM. Merge is CircelCI is green.,nan,nan
+8,issue_comment,1488,nilearn,nilearn,codecov[bot],2017-07-30 19:21:55,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=h1) Report
+> Merging [#1488](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5e90e1b7623ea3710efef9cfbf2e8dfd21a13fb0?src=pr&el=desc) will **decrease** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1488/graphs/tree.svg?src=pr&token=KpYArSdyXv&width=650&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1488      +/-   ##
+==========================================
+- Coverage   94.48%   94.48%   -0.01%     
+==========================================
+  Files         122      122              
+  Lines       14911    14892      -19     
+==========================================
+- Hits        14088    14070      -18     
++ Misses        823      822       -1
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decoding/tests/test\_searchlight.py](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy90ZXN0cy90ZXN0X3NlYXJjaGxpZ2h0LnB5) | `100% <ø> (ø)` | :arrow_up: |
+| [nilearn/decoding/searchlight.py](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zZWFyY2hsaWdodC5weQ==) | `82.05% <100%> (-0.45%)` | :arrow_down: |
+| [nilearn/\_utils/fixes/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvZml4ZXMvX19pbml0X18ucHk=) | `86.66% <100%> (+3.33%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=footer). Last update [5e90e1b...b04b259](https://codecov.io/gh/nilearn/nilearn/pull/1488?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+7,issue_comment,1488,nilearn,nilearn,KamalakerDadi,2017-07-30 19:34:33,">LGTM. Merge is CircelCI is green.
+
+Everything is green. Merging.",nan,nan
+6,issue_comment,1488,nilearn,nilearn,bthirion,2017-07-30 19:36:58,"Great, thx !",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1461,nilearn,nilearn,jona-sassenhagen,2017-06-01 09:58:23,"Ok, I'll try to get on it next week.",nan,nan
+4,issue_comment,1461,nilearn,nilearn,KamalakerDadi,2017-07-27 11:23:57,Closing with PR #1462,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

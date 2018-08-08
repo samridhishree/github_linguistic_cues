@@ -1,0 +1,51 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,93,nilearn,nilearn,GaelVaroquaux,2013-07-29 11:59:39,"> I suggest to add a tuple (npy filepath / numpy array, mask niimage) as a
+> niimage for compression purpose.
+
+I'd rather not. This is an internal format that we don't want to expose
+to users. I'd rather rely on joblib and the shelve mechanism for this
+purpose. Which also means that none of this is exposed to the end user.
+",nan,nan
+7,issue_comment,93,nilearn,nilearn,pgervais,2013-07-29 13:29:12,"We are touching the limits of joblib in that case. If I understand well, @AlexandreAbraham not only runs a given processing many times on the same set of masked images (which joblib is good for), but also runs several different processing on the same images. In the latter case, joblib is kind of awkward to use, even with the (still in progress) references. While I agree that providing a tuple as a niimg is not a good idea, using joblib for this is not (right now) a handy solution either.
+",nan,nan
+4,issue_comment,93,nilearn,nilearn,GaelVaroquaux,2013-07-29 15:01:49,"As I was telling Philippe, I see two kind of intermediate
+representations: some that make sens from a neuroscientific point of
+view, and these should absolutely be stored as nifti images, and some
+that are mere convenience for speed/caching reasons, and those should be
+easily recomputable from neuroscientific data, and thus rely on joblib.
+My analysis may be wrong, but I'll need a more precise usecase to be
+convinced.
+",nan,nan
+5,issue_comment,93,nilearn,nilearn,GaelVaroquaux,2013-08-01 12:24:17,"I am closing this guy. I hope nobody feels bad about it.
+",nan,nan
+6,issue_comment,93,nilearn,nilearn,AlexandreAbraham,2013-08-01 12:27:13,"No problem.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,96,nilearn,nilearn,GaelVaroquaux,2013-08-02 07:45:51,"@pgervais , @AlexandreAbraham : I am ready to be merged with this PR. After it's merged, I suggest that you rebase all your branch (all your rebases are belong to us!), because this PR has touched upon a lot of files, and will create conflicts.
+",nan,nan
+7,issue_comment,96,nilearn,nilearn,AlexandreAbraham,2013-08-02 07:47:48,"Go on !
+",nan,nan
+6,issue_comment,96,nilearn,nilearn,GaelVaroquaux,2013-08-02 08:18:04,"OK, I am merging this branch, because I need it for other work that I am
+doing in parallel. Too bad that I didn't get a review from @pgervais.
+Post-merge reviews appreciated anyhow
+",nan,nan
+8,issue_comment,96,nilearn,nilearn,pgervais,2013-08-26 11:18:26,"Everything looks fine to me.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,issue_comment,94,nilearn,nilearn,pgervais,2013-07-31 15:38:27,"I agree that io is not specific enough. nifti_io is better. 
+",nan,nan
+6,issue_comment,94,nilearn,nilearn,AlexandreAbraham,2013-07-31 15:40:08,"+1
+",nan,nan
+7,issue_comment,94,nilearn,nilearn,AlexandreAbraham,2013-07-31 15:44:52,"I think we should have a meeting about issue #58 to set up this kind of things and refactor the code once and for all. Maybe before you leave @GaelVaroquaux ?
+",nan,nan
+3,issue_comment,94,nilearn,nilearn,GaelVaroquaux,2013-07-31 15:51:49,"Sounds good. Next week?
+",nan,nan
+4,issue_comment,94,nilearn,nilearn,GaelVaroquaux,2013-07-31 16:29:25,"Meeting: tomorrow, as @pgervais is leaving on holidays. Let's say after
+lunch.
+",nan,nan
+5,issue_comment,94,nilearn,nilearn,GaelVaroquaux,2013-08-01 13:12:12,"Superseded by #58
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

@@ -1,0 +1,211 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+14,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:27:47,"I had left 'smooth' on purpose here, because I felt that in the context of ""apply_mask"", or a Masker object, ""fwhm"" had no meaning. Maybe we could have ""smoothing_fwhm"", but I think that I prefer ""smooth"".
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/base_masker.py')"
+15,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:28:19,"I hadn't realized, but the docstring should specify that it is a FWHM.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/nifti_masker.py')"
+16,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/nifti_region.py')"
+17,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 09:37:19,"For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm, even if it's longer. 
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/base_masker.py')"
+18,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:37:52,"I wonder if it is worth define 3 different variables (affine1, affine2, and affine3), if we set them all equal. I am just trying to make the test shorter and thus more readable.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/tests/test_nifti_region.py')"
+19,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 09:38:46,"A more correct version can be found in NiftiMapsMasker docstring. I'll fix this one.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/nifti_masker.py')"
+20,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 09:40:09,"I considered for a moment ""target_img"", because it was consistent with target_shape and target_affine. resampling_target sounds good to me.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/nifti_region.py')"
+21,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:40:50,"fwhm_sigma is somewhat a misnomer as it is a sigma (as in the formula of the Gaussian), not an FWHM. This is why I had left the original name.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/masking.py')"
+22,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/tests/test_nifti_region.py')"
+23,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/io/base_masker.py')"
+24,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 09:43:34,"You're right. I'll rename this into ""sigma"".
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'nisl/masking.py')"
+25,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:44:03,"We should always use 'nisl_cache' across the examples, to have only one cache directory.
+
+Also, all our caching procedures should be able to take a string. This way we don't have to explain to the user where to import the Memory object, and what it is.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+26,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:45:04,"OK, I see where mem is needed... I guess we need an explanation for the user who does not know joblib.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+27,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 09:45:48,"Usage of Memory is temporary in this case: not a single example makes use of joblib right now. This wil be removed before merging.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+28,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:46:06,"I would say: just do the simple version. It will make it easier to understand for the user.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+29,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:46:51,"Hum, actually, compcorr should be in the ADHD sets of confounds, I believe, so you don't need this.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+5,issue_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",nan,nan
+30,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 11:17:02,"This is temporary, again. The goal was to compare both results. 
+
+However, we need a way to show new users how to use the ""low-level"" API. What we did previously with plot_regions_covariance.py was to add another script, containing the ""advanced"" version. In the long run this is not a good idea, since it will basically mean duplicating every example file. 
+
+So the question is: where do we put ""advanced"" examples?
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+31,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 11:19:50,"We'll do different advanced examples that do not reproduce exactly the
+same thing. The idea being that we need less advanced examples, because
+they are for advanced users ( :$). Also, the advanced API is there to do
+things that are not possible with the simple API, as it is more flexible.
+We'll have to look for such usecases.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+8,issue_comment,59,nilearn,nilearn,pgervais,2013-05-22 11:39:12,"I'd like to have your opinion on the resampling API. Currently, the resampling target could be only the maps or the mask, but not in any case the images themselves. In other words there is no way to resample both the maps and the mask to the shape of the images. While technically feasible, this would probably cause confusion in the API. Example of use case of resampling_target=""images"":
+
+```
+masker = NiftiMapsMasker(maps_img, mask_img=mask_img, resampling_target=""images"")
+masker.fit(images)  # requires images just for shape and affine. Resample maps and mask here.
+signals = masker.transform(images)
+```
+
+or 
+
+```
+masker = NiftiMapsMasker(maps_img, mask_img=mask_img, resampling_target=images)  # pass images here.
+masker.fit()  # Resample maps and mask
+signals = masker.transform(images)
+```
+
+What do you think? Is this feature useful?
+",nan,nan
+6,issue_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 11:40:38,"> What do you think? Is this feature useful?
+
+The question is: how does resampling_target affect the output of
+inverse_transform?
+",nan,nan
+9,issue_comment,59,nilearn,nilearn,pgervais,2013-05-22 11:41:25,"For the moment, inverse_transform returns an image with the shape/affine given by resampling_target.
+",nan,nan
+7,issue_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 11:44:30,"> For the moment, inverse_transform returns an image with the shape/affine given
+> by resampling_target.
+
+That's what I thought. In this case, we need the option to have 'image'
+as resampling_target, I believe.
+",nan,nan
+10,issue_comment,59,nilearn,nilearn,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",nan,nan
+32,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 14:42:19,"To be precise, high_variance_confounds() is applied in this example to the whole image, including the space around the brain, which is probably not the case for the compcorr provided with the adhd dataset.
+
+I removed the call to high_variance_confounds() from **plot_region_covariance.py**. I tested that the result is almost unchanged. However, if I do the same in **plot_msdl_covariance_advanced.py**, the graph lasso does not converge, even if the result is really close to what it was before. We're not using the same regions (MSDL / Harvard-Oxford.)
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+33,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 14:44:25,"Then I can as well drop this example completely, because it's very similar to plot_region_covariance.py. The main differences are: different regions (maps instead of labels), and resampling.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+34,pull_request_commit_comment,59,nilearn,nilearn,pgervais,2013-05-22 14:47:26,"I should do the other way: keep plot_msdl_covariance.py and drop plot_regions_covariance.py, because the MSDL atlas can be downloaded from the internet, whereas Harvard-Oxford's needs a separate FSL installation.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+35,pull_request_commit_comment,59,nilearn,nilearn,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",1b2d20e79576efec7de15ad61031643cfbe5da60,"(None, '', u'plot_msdl_covariance_advanced.py')"
+11,issue_comment,59,nilearn,nilearn,pgervais,2013-05-23 08:22:14,"I added resampling to NiftiLabelsMasker, mostly the same way I did for NiftiMapsMasker.
+
+Since giving fmri images as the resampling target seems to need some more discussion (it's useful, but choosing a proper behaviour may take a while), I let it aside.
+
+From my point of view, this PR is good to merge.
+",nan,nan
+12,issue_comment,59,nilearn,nilearn,pgervais,2013-05-23 16:25:22,"Some more changes.
+
+The img_to_signals_*() functions now always output as many signals as regions. Having a array size known in advance will make downstream code simpler to write.
+
+I added some debugging messages to both Nifti(Maps|Labels)Masker object, putting at least something behind the ""verbose"" option. I created a mixin just for this, comments welcome, as usual. 
+
+I still didn't change the default for resampling_target, because I still think that setting ""labels"" or ""maps"" as a default will be harmful in most cases, because the voxel number in labels or maps images may be much higher than in images (in fMRI at least), and it will fill the memory very quickly. Imho, the safest choice would be to use fMRI images as target, but this option is still not implemented.
+",nan,nan
+13,issue_comment,59,nilearn,nilearn,pgervais,2013-05-27 09:37:11,"Rebased the branch on master for the sake of having a linear history.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-17 15:41:13,"That's why we need to move the 'copy' functionality in check_niimgs.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(200, '', u'nisl/io/nifti_region.py')"
+6,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-17 15:41:49,"Can't you fold all of the above into a call to smooth_img?
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+7,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-17 15:43:43,"I think so.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+8,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-17 15:43:46,"If self.mask_img is a string, as well as self.maps_img, it would be good to include them in the error message.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+9,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-17 15:44:25,"Use np.allclose here
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+10,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-17 15:45:28,"Fit should always take X, y in scikit-learn parlance, even if it doesn't use X.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+11,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-17 15:48:49,"It's better to use nose.tools.assert_equal: it raises a better error message.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/tests/test_nifti_region.py')"
+12,pull_request_commit_comment,57,nilearn,nilearn,bthirion,2013-05-17 17:22:02,"The docstrings need some corrections here.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+13,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 08:50:43,"Corrected.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+14,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 08:50:58,"Corrected
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+15,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 08:53:17,"Fixed.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+16,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 08:55:40,"Fixed everywhere.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/tests/test_nifti_region.py')"
+17,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 08:57:27,"Done
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(None, '', u'nisl/io/nifti_region.py')"
+18,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 09:06:08,"Well, in fact image.smooth() this code are slightly different. image.smooth() processes each image independently, whereas this code concatenates all 3D images. Using image.smooth() would require adding a concat_niimgs() somewhere, which would be kind of awkward (lots of conversion between different formats). I think I'll let things like this for the moment, time to think of a cleaner solution.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+19,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-21 09:08:45,"> Well, in fact image.smooth() this code are slightly different. image.smooth()
+> processes each image independently, whereas this code concatenates all 3D
+> images. Using image.smooth() would require adding a concat_niimgs() somewhere,
+> which would be kind of awkward (lots of conversion between different formats).
+> I think I'll let things like this for the moment, time to think of a cleaner
+> solution.
+
+What does image.smooth return when given a 4D niimg? I would believe that
+it should return a concatenated img.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+20,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 09:11:50,"- A 4D image in a single file is read and filtered as a 4D numpy array, and returned as one Nifti1Image object.
+- Several 3D images files are read and filtered independently. A list of Nifti1Image is returned. No concatenation whatsoever. This is the same for several 4D image files.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+21,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-21 09:14:07,">   • Several 3D images files are read and filtered independently. A list of
+>     Nifti1Image is returned. No concatenation whatsoever. 
+
+OK, this tells us that we need a concat_niimgs function, as mentioned at
+coffee break.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+22,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 09:21:51,"I don't see your point. There is already a concat_niimgs() function in utils.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+23,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-21 09:22:29,"> I don't see your point. There is already a concat_niimgs() function in utils.
+
+Oops. My bad. Could it/should it be used it.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+24,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 09:26:11,"I think there is a set of very useful functions in `utils`, but the API is rather messy. I'd rather close this PR before attempting to clean up something. This is why I'm postponing this issue.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+25,pull_request_commit_comment,57,nilearn,nilearn,GaelVaroquaux,2013-05-21 09:26:40,"> I think there is a set of very useful functions in utils, but the API
+> is rather messy. I'd rather close this PR before attempting to clean up
+> something. This is why I'm postponing this issue.
+
+Fine with me
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+26,pull_request_commit_comment,57,nilearn,nilearn,AlexandreAbraham,2013-05-21 09:27:54,"In fact, some functions that was in utils may have their place in image now.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+27,pull_request_commit_comment,57,nilearn,nilearn,pgervais,2013-05-21 09:31:10,"Indeed, some functions can be moved to image. 
+I'm closing the PR now, the ""copy"" argument for check_niimgs() will also be part of the future cleaning.
+",e1478144daaa2801c122587b6fb65d2161ae2fa0,"(202, '', u'nisl/io/nifti_region.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,51,nilearn,nilearn,pgervais,2013-05-15 12:58:07,"I merged the changes @AlexandreAbraham did to fix the documentation in my soon-to-be-merged branch ""roi"", and I stumble upon another problem: on the reference page for NiftiMultiMasker, the ""attributes"" section is empty (see e.g. http://nisl.github.io/modules/generated/nisl.io.nifti_multi_masker.NiftiMultiMasker.html), but there is actually something in the docstring. 
+
+I investigating and found that there is an ambiguity in the way rst is interpreted. The part of the docstring causing the problem has the following structure:
+
+```
+Parameters
+========
+param1: type
+    description
+Attributes
+=======
+att1: type
+    description
+```
+
+This can be interpreted in two ways: either as two sections, or as a table. Sphinx chooses the table. A key point is that ""Parameters"" and ""Attributes"" have the same length. Removing or adding a single character in one of the two make the problem disappear (but the section disappear in the generated output too, because the custom numpy-flavored rst parser expects a precise spelling). 
+
+Is it a bug in numpy_ext? The problem doesn't seem to exist in the numpy documentation, as can be seen here: 
+http://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html.
+",nan,nan
+5,issue_comment,51,nilearn,nilearn,pgervais,2013-05-16 15:04:35,"Now that PR #47 has been merged, all problems in example figure generation should be fixed. 
+",nan,nan
+3,issue_comment,51,nilearn,nilearn,GaelVaroquaux,2013-05-21 15:30:17,"This is fixed. Closing.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

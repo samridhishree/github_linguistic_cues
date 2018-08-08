@@ -1,0 +1,1661 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,884,nilearn,nilearn,lesteve,2015-12-02 22:54:27,"Sounds reasonable to me.
+",nan,nan
+4,issue_comment,884,nilearn,nilearn,bthirion,2015-12-02 23:00:34,"Sounds good in general, but I wonder what you put in 'Manipulation of brain images' ?
+",nan,nan
+5,issue_comment,884,nilearn,nilearn,GaelVaroquaux,2015-12-03 05:53:32,"> Sounds good in general, but I wonder what you put in 'Manipulation of brain
+> images' ?
+
+An example extracting ROIs from a statistical map (@KamalakerDadi has a
+great one almost ready), examples about computing masks (we have a few),
+the resampling example. Maybe more later, as we are finding that it is
+very important to teach people to do efficient yet simple manipulations
+of their data.
+",nan,nan
+6,issue_comment,884,nilearn,nilearn,bthirion,2015-12-03 07:29:31,"OK, the name and content may be further specified in the future anyhow.
+",nan,nan
+7,issue_comment,884,nilearn,nilearn,KamalakerDadi,2015-12-03 09:36:36,"Breaking concept is nice to me. 
+
+As @GaelVaroquaux  mentioned especially I am reshaping sub section 4.3.5 in Section 4 considering my example on ROI extraction on statistical maps.
+
+@GaelVaroquaux Do you need this for 0.2.1 or 0.2 release ?
+",nan,nan
+8,issue_comment,884,nilearn,nilearn,GaelVaroquaux,2015-12-03 09:38:54,"> @GaelVaroquaux Do you need this for 0.2.1 or 0.2 release ?
+
+Let's do it for 0.2.1, and not 0.2, as I don't want to delay the release.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 09:28:01,"For the record, I pushed a test function that checks that the `_iter_check_niimg` doesn't do any memory copy (as suggested by @AlexandreAbraham). The memory usage is as expected.
+",nan,nan
+6,issue_comment,959,nilearn,nilearn,AlexandreAbraham,2016-01-22 12:08:46,"That's great !
+
+I have another suggestion (not for your PR, in general). In nilearn, we often use weird coding patterns (I'm thinking of taking the sum of a numpy array to know if there is nan inside for example). It would be interesting to keep a performance test (time and memory usage) for some of these patterns.
+
+It is useful for other developers and, for example, we could bench the Nifti1Image format, on which we rely heavily, and thus spot if there is performance regression.
+
+Benching the I/O is also interesting for cluster computation: some design patterns may not be favorable on a cluster because of longer file access time.
+
+This is not a trivial work. What do you think?
+",nan,nan
+7,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 15:20:59,"> I have another suggestion (not for your PR, in general). In nilearn, we often
+> use weird coding patterns (I'm thinking of taking the sum of a numpy array
+> to know if there is nan inside for example). It would be interesting to keep
+> a performance test (time and memory usage) for some of these patterns.
+
+For computation time testing, it's difficult because it depends on the speed of the cpu running the test. Using reference measures computed from the current master and stored in a dedicated file, we could compare the measures of a PR against them and raise an error in case of a too large difference.
+
+> Benching the I/O is also interesting for cluster computation: some design
+> patterns may not be favorable on a cluster because of longer file access
+> time.
+
+I see the point. I don't how one can check the underlying I/O system calls from Python.
+Maybe this could be done using a call to an external command like (only available on posix):
+
+``` bash
+# Return the number of system calls to read
+strace python -c ""some python code with I/O"" 2>&1 | grep read | wc -l
+# Return the number of system calls to write
+strace python -c ""some python code with I/O"" 2>&1 | grep write | wc -l
+```
+
+The output of the commands above could then be sent back to and analyzed be the global python test script.
+
+> This is not a trivial work.
+
+I agree, but it's not impossible.
+",nan,nan
+8,issue_comment,959,nilearn,nilearn,lesteve,2016-01-22 15:29:17,"> >  This is not a trivial work.
+> 
+> I agree, but it's not impossible.
+
+scikit-learn tried to do these kind of performance monitoring at one point during a GSoC. From what I have heard, a significant amount of time was invested with little return because this is a lot of work to maintain the infrastructure to do it. From what I remember it was based on vbench which ended up changing its internals and breaking the work that was done on scikit-learn.
+",nan,nan
+9,issue_comment,959,nilearn,nilearn,lesteve,2016-01-22 15:30:25,"You seem to have introduced a PEP8 (line too long). You can look at the Travis build output [here](https://travis-ci.org/nilearn/nilearn/jobs/104104951). The best is if you run ./continuous_integration/flake8_diff.sh in your local code.
+",nan,nan
+10,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 15:34:15,"> You seem to have introduced a PEP8 (line too long)
+
+Indeed, I changed the configuration of my IDE flake8 to accept lines up to 80 characters...
+",nan,nan
+18,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-22 15:36:57,"I am not sure what 1e6 means and I think it is misleading since it actually means 1024 *\* 2 bytes.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+19,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-22 15:37:15,"What's the point of having callable_obj=None by default?
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+20,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-22 15:38:34,"why not do `memory_used = None` like you do for memory_usage?
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+21,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-22 15:39:44,"Probably the same as the one I took as example here: https://github.com/nilearn/nilearn/pull/959/files#diff-84deb1797526e96db1bf5f1c72f508eaR36
+I'll remove the default parameter.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+22,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-22 15:42:30,"I thought we agreed to check the used memory as measured by memory_profiler rather that the expected_value. Also from our little experiments I would say that setting the threshold at 10 MiB is more reasonable.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+23,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-22 15:50:03,"Indeed this is not necessary.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+24,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-22 15:57:26,"> I thought we agreed to check the used memory as measured by memory_profiler rather that the expected_value.
+
+I think that we didn't converge. Thinking of it, `expected_value` should be renamed to  `memory_limit` to be more in the spirit of the initial desired behaviour.
+
+> I would say that setting the threshold at 10 MiB is more reasonable.
+
+Agreed, will change.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+11,issue_comment,959,nilearn,nilearn,GaelVaroquaux,2016-01-22 15:59:23,"> From what I remember it was based on vbench which ended up changing its
+> internals and breaking the work that was done on scikit-learn.
+
+Pandas is now using something different, and they are very happy with it.
+We should look at that. But nilearn is probably not the place to set this
+up; rather a bigger project, with more manpowerful.
+",nan,nan
+25,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-22 16:11:18,"> I think that we didn't converge
+
+I should work on my impression of converging then :-). Given the %memit behaviour we saw, I would feel a lot more confident to check that the memory usage is not smaller than 10 MiB. You may need to change your test to make sure that the function uses some memory for example by creating the array inside the function if you want to make sure that something doesn't make any copy, e.g. in your test_iter_niimg stuff but that sounds fine to me.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+12,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 16:37:49,"> But nilearn is probably not the place to set this up; rather a bigger project, with more manpowerful.
+
+scikit-learn ?
+",nan,nan
+13,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 16:40:26,"> Pandas is now using something different, and they are very happy with it.
+
+Looking at their repos, it seems they are still using vbench. But I may have missed something.
+",nan,nan
+14,issue_comment,959,nilearn,nilearn,GaelVaroquaux,2016-01-22 16:42:14,"> scikit-learn ?
+
+Yes. But let's first discuss this in an engineering meeting at the lab.
+Do you want to schedule one? (doodle?)
+",nan,nan
+26,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-22 17:09:09,"> Given the %memit behaviour we saw, I would feel a lot more confident to check that the memory usage is not smaller than 10 MiB
+
+I added an extra check one the memory is measured. You were right : with 10MiB objects, the measured memory was 0.0... It works as expected with larger objects.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+15,issue_comment,959,nilearn,nilearn,aabadie,2016-01-22 17:13:02,"> Do you want to schedule one? (doodle?)
+
+Sure. Let's do it next wednesday afternoon or thursday.
+",nan,nan
+27,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-28 09:32:05,"Maybe we don't really care about running memory_profiler tests on CircleCI, given that we are already running them on Travis.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'circle.yml')"
+28,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-28 09:37:50,"Yeah, I just wanted to compare the results across CI's (as the tests fail on travis). I'll revert this.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'circle.yml')"
+29,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-01-28 12:49:03,"Quickly looking at the memory_profiler code, it looks like timeout does nothing when memory usage is called with a tuple (func, args, kwargs).
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+30,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-01-28 13:05:48,"I removed it.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/_utils/testing.py')"
+16,issue_comment,959,nilearn,nilearn,aabadie,2016-02-02 13:48:01,"Just for the record, I think this is PR is ready for a re-review (nearly mergeable).
+",nan,nan
+31,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-02-02 14:43:33,"Is this still necessary? I seem to remember it was added when you tried to make the AppVeyor tests pass.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+32,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-02-02 14:50:12,"Codacy disliked the previous code, if I remove the `del` line there's a flake8 issue on travis.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+33,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-02-02 14:51:03,"This generates a flake8 issue on travis (non used variable). Replacing by `b'a' * size` makes codacy fails...
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(14, '', u'nilearn/tests/test_testing.py')"
+34,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-02-02 15:37:36,"FWIW I don't think codacy brings much to the table. I'll probably remove it at one point. You can use `return mem_offset` if you really care about getting rid of the flake8 warning.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+35,pull_request_commit_comment,959,nilearn,nilearn,lesteve,2016-02-02 15:39:24,"Use `return mem_use`
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(14, '', u'nilearn/tests/test_testing.py')"
+36,pull_request_commit_comment,959,nilearn,nilearn,aabadie,2016-02-02 16:02:43,"I updated this. Travis and Codacy should be happy now.
+",8bc3083da7a34c50ddc232d08823fb957aa841d0,"(None, '', u'nilearn/tests/test_niimg_conversions.py')"
+17,issue_comment,959,nilearn,nilearn,lesteve,2016-02-04 14:54:09,"LGTM, let's merge this one and revisit potentially if we think we can improve it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,951,nilearn,nilearn,banilo,2016-01-17 23:32:04,"Why not just `np.nan_to_num()` on a general basis? This would only visit each element in img_data once.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')"
+8,pull_request_commit_comment,951,nilearn,nilearn,GaelVaroquaux,2016-01-18 06:44:06,"That's a great comment. Actually, when doing this we could remove the ""copy"" above, as nan_to_num always does a copy.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')"
+9,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 09:49:24,"> Why not just np.nan_to_num() on a general basis? This would only visit each element in img_data once.
+
+Aggregating data, such as doing `sum` on all elements, is done faster than a test on each element. So, if we assume that most images will not have NaNs, this actually saves time.
+
++1 for copying only if there is no NaNs.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')"
+10,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 10:22:07,"Not related to your PR but this looks suspicious to me: there is no need to copy data coming from `_safe_get_data`.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/image/image.py')"
+11,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 10:22:58,"same as above: if I'm not mistaken, `_safe_get_data` already returns a copy.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+12,pull_request_commit_comment,951,nilearn,nilearn,KamalakerDadi,2016-01-18 15:48:17,"My bad, I will remove it.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+13,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 15:52:22,"It's not your fault: we can see elsewhere that the data returned by `_safe_get_data` is copied. But, in my mind, it always returns a copy. Maybe I'm missing a corner case. Does anybody knows if it true or not?
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+14,pull_request_commit_comment,951,nilearn,nilearn,KamalakerDadi,2016-01-18 15:53:52,"May be @GaelVaroquaux could help us to understand more ?
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+15,pull_request_commit_comment,951,nilearn,nilearn,GaelVaroquaux,2016-01-18 15:55:52,"> May be @GaelVaroquaux could help us to understand more ?
+
+I have no clue. Sorry
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+16,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 16:02:44,"I'll take a closer look tomorrow.
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+17,pull_request_commit_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-18 16:02:59,"The one that could help us is Philippe Gervais :-/
+",a362dc8bc5703f9465cf9eb021444a2baeb5d27b,"(None, '', u'nilearn/regions/region_extractor.py')"
+6,issue_comment,951,nilearn,nilearn,KamalakerDadi,2016-01-19 11:34:45,"Any more reviews on this fix ?
+",nan,nan
+5,issue_comment,951,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:34:49,"Since the `_safe_get_data` question is not related to this PR, I merge it and I open another issue.
+
+Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+21,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-17 23:37:39,"The difference form many other fetchers appears to be gthat the atlas is a set of coordinates and not 3D shapes. That might be mentioned here.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')"
+22,pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-18 06:01:03,"> The difference form many other fetchers appears to be gthat the atlas is a set
+> of coordinates and not 3D shapes. That might be mentioned here.
+
+I do wonder if we should call this an atlas? Maybe fetch_coords_dosenbach
+rather?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')"
+23,pull_request_commit_comment,950,nilearn,nilearn,KamalakerDadi,2016-01-18 10:46:17,"Just curious to know `datasets.fetch_abide_pcp(derivatives=['rois_dosenbach160'])` ?
+
+Is this PR different than we get ?
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(6, '', u'nilearn/datasets/atlas.py')"
+12,issue_comment,950,nilearn,nilearn,salma1601,2016-01-18 11:03:12,"> I do wonder if we should call this an atlas? Maybe fetch_coords_dosenbach rather?
+
+I changed the function naming. Then  `fetch_atlas_power_2011` also should be renamed using coords I think.
+I have a problem in the documentation: in the modules reference page only the first sentence is given so it stops at ""...Dosenbach et al."" . I don't know how to avoid this ?
+@KamalakerDadi  `datasets.fetch_abide_pcp(derivatives=['rois_dosenbach160'])` gives ABIDE time-series extracted from an atlas of spheres of 4.5 mm radius around these coordinates.
+",nan,nan
+13,issue_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-18 14:36:59,"> Then fetch_atlas_power_2011 also should be renamed using coords I
+> think.
+
+I agree. Do you want to add an issue for that?
+",nan,nan
+14,issue_comment,950,nilearn,nilearn,salma1601,2016-01-18 14:44:31,"> Do you want to add an issue for that?
+
+Yes, I am a passionate nilearn-issue-generator
+Done in #954 
+",nan,nan
+24,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-18 23:31:46,"write out ""ROI""
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')"
+25,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-18 23:32:31,"maybe make the type of modularity analysis explicit here, such that one does not need to go back read the paper
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')"
+26,pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-19 06:35:23,"> maybe make the type of modularity analysis explicit here, such that one does
+> not need to go back read the paper
+
+Really? I don't think that we should strive to summarize or explain
+methods that we are not implementing.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')"
+27,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-21 11:19:57,"""modularity analysis"" does not mean anything -> perhaps add a half sentence that at least is not ambiuous about what will be fetched. In short, just say the method exactly.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')"
+28,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-21 11:21:15,"maybe move the MNI statement to the returns section
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')"
+29,pull_request_commit_comment,950,nilearn,nilearn,banilo,2016-01-21 11:23:17,"grammar: ""assigned to""
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/atlas.py')"
+30,pull_request_commit_comment,950,nilearn,nilearn,GaelVaroquaux,2016-01-21 11:52:53,"> > +160 ROIs covering much of the cerebral cortex and cerebellum.
+> > +They were obtained from meta-analyses of fMRI activation studies
+> > +and assigned into 6 networks according to a modularity analysis of
+> 
+> ""modularity analysis"" does not mean anything -> perhaps add a half sentence
+> that at least is not ambiuous about what will be fetched
+
+That's the terminology they use in the paper. I would simply leave it
+like that, and reference the paper.
+",ae4ac66b339970ff6ce23c22f92ccfef7e2aa2a6,"(None, '', u'nilearn/datasets/description/dosenbach_2010.rst')"
+5,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-16 13:31:55,"I think that we only need to fix @banilo's comments. For the example, I was thinking of adding dosenbach to my example with the power atlas in #924. What do you think?
+",nan,nan
+15,issue_comment,950,nilearn,nilearn,salma1601,2016-02-16 14:15:23,"> I was thinking of adding dosenbach to my example with the power atlas in #924.
+
+I was thinking the same thing !
+
+> I think that we only need to fix @banilo's comments
+
+I was waiting for a decision about the naming issue #954. Shall I name it fetch_atlas or fetch_coords or load_coords ??
+",nan,nan
+6,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:42:37,"> I was waiting for a decision about the naming issue #954. Shall I name it fetch_atlas or fetch_coords or load_coords ??
+
+The actual policy in nilearn is to name it `load_atlas`. `load` because it is not downloaded and `atlas` because we do not differentiate atlases from coordinates ATM. I suggest that you set this name and we open an issue to discuss atlas vs. coords.
+",nan,nan
+16,issue_comment,950,nilearn,nilearn,KamalakerDadi,2016-02-17 14:49:49,"> I suggest that you set this name
+
+meaning `fetch_atlas` ?
+",nan,nan
+7,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:53:53,"`load_atlas`
+",nan,nan
+8,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 14:56:57,"OK, Kamalakar is right. I thought we had `load_atlas_power` but it's `fetch`. Let's call it `fetch_atlas`
+",nan,nan
+17,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:17:19,"> I suggest that you set this name and we open an issue to discuss atlas vs. coords.
+
+This is #954.
+
+> Let's call it `fetch_atlas`
+
+Ok, done.
+",nan,nan
+9,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 15:18:19,"Can you fix the conflicts?
+",nan,nan
+18,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:23:42,"Yes I am on it
+",nan,nan
+19,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 15:42:24,"test_atlas.test_fail_fetch_atlas_harvard_oxford is failing on my labtop.
+",nan,nan
+10,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 15:47:37,"> merge master
+
+To keep history clean, we do not allow merges. Please rebase.
+
+> test_atlas.test_fail_fetch_atlas_harvard_oxford is failing on my labtop.
+
+Trace?
+",nan,nan
+20,issue_comment,950,nilearn,nilearn,salma1601,2016-02-17 16:48:19,"> To keep history clean, we do not allow merges. Please rebase.
+
+Sorry. Is it ok now ?
+
+> Trace?
+
+Traceback (most recent call last):
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+    self.test(*self.arg)
+  File ""/home/salma/CODE/Parietal/nilearn/nilearn/datasets/tests/test_atlas.py"", line 143, in test_fail_fetch_atlas_harvard_oxford
+    assert_equal(len(ho.labels), 5)
+AssertionError: 97 != 5
+    '97 != 5' = '%s != %s' % (safe_repr(97), safe_repr(5))
+    '97 != 5' = self._formatMessage('97 != 5', '97 != 5')
+  raise self.failureException('97 != 5')
+",nan,nan
+11,issue_comment,950,nilearn,nilearn,AlexandreAbraham,2016-02-17 18:07:05,"You may have local changes, Travis is happy with this test...
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,953,nilearn,nilearn,AlexandreAbraham,2016-01-18 14:28:11,"This is a known behavior. The problem is that the cache is invalidated for no reason. PR welcome.
+",nan,nan
+4,issue_comment,953,nilearn,nilearn,GaelVaroquaux,2016-01-18 14:30:09,"> This is a known behavior. The problem is that the cache is invalidated for no
+> reason. PR welcome.
+
+No need to do a PR: the new version of sphinx-gallery will solve this.
+We'll need to backport it nilearn as soon as it is released.
+",nan,nan
+5,issue_comment,953,nilearn,nilearn,AlexandreAbraham,2016-01-18 14:35:05,"> No need to do a PR: the new version of sphinx-gallery will solve this. We'll need to backport it nilearn as soon as it is released.
+
+I didn't know! Great work!
+",nan,nan
+6,issue_comment,953,nilearn,nilearn,GaelVaroquaux,2016-01-18 14:35:54,"> I didn't know! Great work!
+
+Yup, we need to thank @Titan-C
+",nan,nan
+7,issue_comment,953,nilearn,nilearn,salma1601,2016-01-18 14:37:17,"Great ! Thanks for the explanation.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,955,nilearn,nilearn,banilo,2016-01-18 23:39:38,"LedoitWolf is a shrinkage estimator, whereas EmpiricalCovariance isn't. Perhaps add some diagnostics on the absolute values of the covariance matrices, such as Frobenius norm.
+",nan,nan
+4,issue_comment,955,nilearn,nilearn,GaelVaroquaux,2016-01-21 07:21:24,"Indeed there is a large difference. It is to be expected.
+
+I think that the best way to compute correlations with LedoitWolf is to standardize the time series first. The reasoning being that LedoitWolf strives to give the best estimate (minimize a risk) of the covariance matrix. If what we want are correlations, we want the best estimate of the covariance of the standardized data.
+
+By the way, such a difference will be also present with something like a GraphLasso for the estimator.
+
+Hence, I would add in the ConnectivityMeasure transformer a test that normalizes time-series before running the covariance estimator if kind==""correlations"".
+",nan,nan
+5,issue_comment,955,nilearn,nilearn,bthirion,2016-01-21 10:03:53,"+1
+Ledoit Wolf shrinks toward the identity matrix, and not an arbitrary diagonal matrix.
+",nan,nan
+6,issue_comment,955,nilearn,nilearn,AlexandreAbraham,2016-02-03 17:26:59,"Fixed by #968 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,954,nilearn,nilearn,AlexandreAbraham,2016-01-18 14:51:11,"In all papers I've read, this is referred as ""Power atlas"". So I'm -1 on this one. If we start doing this, that means that all ""atlas"" functions should be renames to either ""labels"" or ""maps"" depending on their type.
+",nan,nan
+4,issue_comment,954,nilearn,nilearn,GaelVaroquaux,2016-01-18 15:04:35,"Hum :$
+
+It's going to make teaching even harder. When I teach I warn users that
+they are 2 types of atlases, and I spend time explaining the differences.
+How I need to talk about three... I am not very convinced.
+",nan,nan
+5,issue_comment,954,nilearn,nilearn,salma1601,2016-01-18 15:33:08,"for me the difference is bigger between giving coordinates vs regions than between maps vs labels
+",nan,nan
+6,issue_comment,954,nilearn,nilearn,banilo,2016-01-18 23:42:58,"Tricky case...introduce something like ""coordinate collections""?
+
+On the top of it, ""fetch"" might not make sense because sets of coordinates are not space/memory-demanding
+",nan,nan
+7,issue_comment,954,nilearn,nilearn,GaelVaroquaux,2016-01-19 07:09:52,"> On the top of it, ""fetch"" might not make sense because sets of coordinates are
+> not space/memory-demanding
+
+Indeed: we are not ""fetching"" them: they are provided in a CSV file in
+the repo.
+
+That's an oversight, the function should be named ""load_..."".
+",nan,nan
+8,issue_comment,954,nilearn,nilearn,lesteve,2016-01-19 08:17:31,"> Indeed: we are not ""fetching"" them: they are provided in a CSV file in
+> the repo.
+> 
+> That's an oversight, the function should be named ""load_..."".
+
+My 2c: I'd rather have a consistent naming with fetch_ rather than something that is based on implementation details (whether the data is part of the repo or not).
+",nan,nan
+9,issue_comment,954,nilearn,nilearn,GaelVaroquaux,2016-01-19 08:53:44,"> My 2c: I'd rather have a consistent naming with fetch_ rather than something
+> that is based on implementation details (whether the data is part of the repo
+> or not).
+
+It's not an implementation detail: it's about whether it will download
+something or not. Therefore is conditions disk space and the need for
+internet access.
+",nan,nan
+10,issue_comment,954,nilearn,nilearn,lesteve,2016-01-19 11:25:43,"> It's not an implementation detail: it's about whether it will download something or not. Therefore is conditions disk space and the need for internet access.
+
+Not entirely convinced the user cares that much about these details, he just wants to get the data and  vast majority of cases has the resources (internet + disk space) to do so.
+
+Also I could imagine doing `from nilearn.datasets import fetch_atlas<TAB>` and being confused because  fetch_atlas_power_2011 is not listed after the tab completion.
+",nan,nan
+11,issue_comment,954,nilearn,nilearn,AlexandreAbraham,2016-01-19 11:27:21,"> Also I could imagine doing `from nilearn.datasets import fetch_atlas<TAB>` and being confused because  fetch_atlas_power_2011 is not listed after the tab completion.
+
+Same problem with the `fetch_coords` renaming.
+",nan,nan
+12,issue_comment,954,nilearn,nilearn,lesteve,2016-01-19 11:31:21,"> Same problem with the fetch_coords renaming.
+
+I was more arguing about fetch_ vs load_ here.
+",nan,nan
+13,issue_comment,954,nilearn,nilearn,banilo,2016-01-21 11:32:07,"> I was more arguing about fetch_ vs load_ here.
+
+The modern neuroscience hacker working at airports, in train and metro will probably care whether the fast prototyping he or she is effectuating in an IPython notebook will require an internet connection or not....
+",nan,nan
+14,issue_comment,954,nilearn,nilearn,lesteve,2016-01-21 12:45:14,"> The modern neuroscience hacker working at airports, in train and metro will probably care whether the fast prototyping he or she is effectuating in an IPython notebook will require an internet connection or not....
+
+The modern neuroscience hacker will very likely have the data already downloaded because he uses nilearn extensively :-). Since my previous comment, I realised scikit-learn has this load_ vs fetch_ convention, so that's probably fine if people are used to it.
+",nan,nan
+15,issue_comment,954,nilearn,nilearn,GaelVaroquaux,2016-01-21 12:45:59,"> The modern neuroscience hacker will very likely have the data already
+> downloaded because he uses nilearn extensively :-).
+
+No
+",nan,nan
+16,issue_comment,954,nilearn,nilearn,lesteve,2016-01-21 12:59:56,"> > The modern neuroscience hacker will very likely have the data already
+> >  downloaded because he uses nilearn extensively :-).
+> 
+> No
+
+For the record that was meant as a tongue in cheek comment. IIRC most datasets in nilearn need to be downloaded the first time. The poor modern neuroscience hacker without an internet connection is slightly out of luck I am afraid, unless of course he has downloaded the dataset already.
+
+Other than that I reckon we are getting a bit side-tracked with respect to the original issue.
+",nan,nan
+17,issue_comment,954,nilearn,nilearn,GaelVaroquaux,2016-01-21 13:01:45,"> ```
+>     The modern neuroscience hacker will very likely have the data already
+>     downloaded because he uses nilearn extensively :-).
+> 
+> No
+> ```
+> 
+> For the record that was meant as a tongue in cheek comment.
+
+Sorry, I forgot the smiley, in my comment.
+",nan,nan
+18,issue_comment,954,nilearn,nilearn,AlexandreAbraham,2016-02-18 11:23:59,"I'm setting it to milestone 0.2.3 because I think that it is important to make a decision on this subject now.
+
+Regarding atlas vs. coords: I prefer to keep atlas since I've never read Power coordinates anywhere. But I have no strong feelings, I am OK for changing it to coords if majority votes for it.
+
+Regarding fetch vs load: I am not against the distinction between online/offline but what bothers me is that this comes before the fact that the dataset is an atlas. First, I think that the difference between `fetch` and `load` is not clear for everybody (let's ask Baptiste if he knows the difference...). A better option would be to put in the name but further. Something like `fetch_atlas_blabla_offline`. We can even make it closer like `fetch_atlas_offline_blabla` but putting it in first position will lose people that are used to do `fetch_atlas_<TAB>` like Loic said.
+",nan,nan
+19,issue_comment,954,nilearn,nilearn,bthirion,2016-02-18 22:35:14,"I don't have strong feelings, but `fetch_coords_power_2011` makes it clear that the output is not a standard atlas, so I'd rather go for it. I'm afraid that otherwise people will complain they don't know how to handle it.
+",nan,nan
+20,issue_comment,954,nilearn,nilearn,AlexandreAbraham,2016-02-18 23:13:41,"Given that most people agree on `coords`, I created a PR to change that #995.
+
+The question `fetch` vs `load` still remains.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,919,nilearn,nilearn,lesteve,2015-12-17 14:20:34,"This is the slightly magical bit of this PR. I am not sure what that does but it does remove warnings created by some interaction between numpydoc and autosummary. I checked and the reference documentation still looks fine.
+",12c7dc85f3a2633c49a572a73082402d9145b5b9,"(17, '', u'doc/conf.py')"
+5,issue_comment,919,nilearn,nilearn,AlexandreAbraham,2015-12-18 13:15:37,"I don't get most of this PR but the generated doc looks fine so +1.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,pull_request_commit_comment,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 12:54:30,"I don't think that these comments are necessary since the previous behavior was based on a bug. The first is useful though.
+",526eba22d57ada7552756d85a0591fd3044db459,"(None, '', u'nilearn/plotting/displays.py')"
+10,pull_request_commit_comment,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:57:33,"I am trying to give what had happened just in case for future. Ok, I keep only first sentence.
+",526eba22d57ada7552756d85a0591fd3044db459,"(None, '', u'nilearn/plotting/displays.py')"
+7,issue_comment,933,nilearn,nilearn,KamalakerDadi,2016-01-07 12:59:15,"I am trying to figure out how to add tests. Could you hint me ?
+",nan,nan
+5,issue_comment,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 13:07:43,"I think we should just move on. Making a test is possible by grabbing the binary representation of the image directly in matplotlib but the test would require more maintenance than the actual fix.
+",nan,nan
+6,issue_comment,933,nilearn,nilearn,AlexandreAbraham,2016-01-07 14:43:44,"Thanks!
+",nan,nan
+8,issue_comment,933,nilearn,nilearn,GaelVaroquaux,2016-01-07 19:23:36,"Good job people!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,932,nilearn,nilearn,KamalakerDadi,2016-01-07 11:41:21,"Thanks for reporting. But, we have fixed this in nilearn master. It will be perfect for next release.
+",nan,nan
+4,issue_comment,932,nilearn,nilearn,lesteve,2016-01-07 12:07:53,"Thanks @KamalakerDadi, closing then.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,pull_request_commit_comment,917,nilearn,nilearn,GaelVaroquaux,2015-12-16 22:34:08,"You should add a comment here that the example would be almost the same if the maps had been computed with an ICA.
+
+Such a comment is Google bait: people googling for ""regions extraction ICA"" with thus find your page
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+10,pull_request_commit_comment,917,nilearn,nilearn,KamalakerDadi,2016-01-08 14:25:56,"@GaelVaroquaux  fixed your comment at line 12.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+11,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-08 23:01:23,"I would be inclined to think that initializing a class instance does imply that its parameters/variable are also initialized. Thus ""and parameters"" might perhaps be confusing to some.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+12,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-08 23:06:12,"'dictionary map' might be confusing because the dictionary refers to the entire set of components, rather than a single of them.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+13,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-08 23:06:48,"Space in Dictionary{ }Learning is inconsistent across the script.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+14,pull_request_commit_comment,917,nilearn,nilearn,GaelVaroquaux,2016-01-09 15:44:56,"I know that this is not part of your PR, but I should we should replace 'izip', that we are importing from a private module (bad, bad), with 'zip', which does almost the same thing and is a builtin (ie doesn't have to be imported).
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+5,issue_comment,917,nilearn,nilearn,AlexandreAbraham,2016-01-12 11:30:01,"+1 once Gael's comments are addressed.
+",nan,nan
+8,issue_comment,917,nilearn,nilearn,KamalakerDadi,2016-01-12 19:24:41,"@GaelVaroquaux @AlexandreAbraham Addressed.
+",nan,nan
+15,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:08:09,"""each"" does not seem to fit into the sentence here
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+16,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:11:09,"why ""previously""....if you want to say that you first fetch then do dictionary learning, you might want to skip that word
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+17,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:12:45,"The neuroscientist might protest: why ""functional""? There is no notion of inference that is even remotely related to function in a neuriobiological or psychological sense. Epistemologically, it is not enough that the data are functional due to Fmri.
+Alternative ""spatiotemporally consistent whole-brain pattern"" or similar
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+18,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:14:37,"""functional filenames"" might also be wierd to some people. Perhaps ""filenames of fMRI data/recordings""
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+19,pull_request_commit_comment,917,nilearn,nilearn,GaelVaroquaux,2016-01-12 22:14:51,"> The neuroscientist might protest: why ""functional""? There is no notion on
+> inference that is even remotely related to function in a neuriobiological or
+> psychological sense.
+> Alternative ""spatiotemporally consistent whole-brain pattern"" or similar
+
+Whatever. I like functional. Let's not go into specialists hairsplitting.
+OK, this maybe be ever so slightly simplified, but it conveys the
+message.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+20,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:22:21,"Dictionary Learning is a modern matrix decomposition technique, broadly related to ICA and PCA. It assumes that neural activity data result from recombinations of a given number of latent (sparse) whole-brain patterns to be discovered.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(27, '', u'doc/connectivity/region_extraction.rst')"
+21,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:23:26,"I don't know how to split hairs? Have you tried it already :-P ?
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+22,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:25:50,"""connected"" -> ""spatially constrained""
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+23,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:26:41,"> Such a comment is Google bait: people googling for ""regions extraction ICA"" with thus find your page
+
+Huh, we are SEO-optimizing nilearn code ?
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+24,pull_request_commit_comment,917,nilearn,nilearn,GaelVaroquaux,2016-01-12 22:28:01,"> I don't know how to split hairs? Have you tried it already :-P ?
+
+Yeah. My hair lend well to that :). I'm actually pretty good at it.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+25,pull_request_commit_comment,917,nilearn,nilearn,GaelVaroquaux,2016-01-12 22:28:31,"> ```
+> Such a comment is Google bait: people googling for ""regions extraction ICA""
+> with thus find your page
+> ```
+> 
+> Huh, we are SEO-optimizing nilearn code ?
+
+Fuck yeah. Dude, we're in the business of getting rich.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+26,pull_request_commit_comment,917,nilearn,nilearn,banilo,2016-01-12 22:29:08,"article missing
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+27,pull_request_commit_comment,917,nilearn,nilearn,KamalakerDadi,2016-01-13 11:57:36,"I don't think definition matters here.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(27, '', u'doc/connectivity/region_extraction.rst')"
+28,pull_request_commit_comment,917,nilearn,nilearn,KamalakerDadi,2016-01-13 12:11:00,"I didn't get your comment
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'examples/connectivity/plot_extract_regions_dictlearn_maps.py')"
+6,issue_comment,917,nilearn,nilearn,KamalakerDadi,2016-01-15 17:26:45,"Can we have a final review on this ?
+",nan,nan
+29,pull_request_commit_comment,917,nilearn,nilearn,GaelVaroquaux,2016-01-16 11:33:29,"The object is called DictLearning, so I would rather call this example plot_extract_regions_dictlearning_maps.py
+
+Sorry for the annoying comment that comes in a bit late.
+",0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,"(None, '', u'doc/connectivity/region_extraction.rst')"
+7,issue_comment,917,nilearn,nilearn,GaelVaroquaux,2016-01-17 12:34:53,"This is great! Merging. Thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,930,nilearn,nilearn,AlexandreAbraham,2016-01-07 09:22:54,"What do you mean?
+",nan,nan
+5,issue_comment,930,nilearn,nilearn,GaelVaroquaux,2016-01-07 19:21:54,"Return in-memory labels, loaded from the CSV file. The code to load
+labels in Harvard Oxford and MSDL are very different.
+",nan,nan
+4,issue_comment,930,nilearn,nilearn,AlexandreAbraham,2016-01-12 12:04:22,"OK, you mean that labels are not loaded in MSDL. They are loaded in Harvard Oxford.
+",nan,nan
+7,issue_comment,930,nilearn,nilearn,banilo,2016-01-12 22:02:07,"Perhaps in form of an additional option in `NiftiLabelsMasker` and `NiftiMapsMasker` ?
+",nan,nan
+6,issue_comment,930,nilearn,nilearn,banilo,2016-01-17 23:46:23,"+1 for unifying label meta-data!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,937,nilearn,nilearn,banilo,2016-01-12 06:23:27,"All comments addressed.
+",nan,nan
+6,pull_request_commit_comment,937,nilearn,nilearn,bthirion,2016-01-12 07:47:15,"You don't test the output ?
+x, y, z is supposed to be what ? To me the result is empty for activation_threshold=1.1
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')"
+7,pull_request_commit_comment,937,nilearn,nilearn,AlexandreAbraham,2016-01-12 10:23:45,"This checks if no exception is raised.
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')"
+8,pull_request_commit_comment,937,nilearn,nilearn,lesteve,2016-01-12 10:26:11,"For a slightly better test, You could do something like this:
+
+``` python
+rng = np.random.RandomState(0)
+data_3d = rng.randn(10, 10, 10)
+data_4d = data_3d[..., np.newaxis]
+affine = np.eye(4)
+img_3d = nibabel.Nifti1Image(data_3d, affine)
+img_4d = nibabel.Nifti1Image(data_4d, affine)
+assert_equal(find_xyz_cut_coords(img_3d), find_xyz_cut_coords(img_4d))
+```
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')"
+9,pull_request_commit_comment,937,nilearn,nilearn,banilo,2016-01-12 10:26:49,"Ok, thanks good idea!
+
+2016-01-12 11:26 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/plotting/tests/test_find_cuts.py
+> https://github.com/nilearn/nilearn/pull/937#discussion_r49436370:
+> 
+> > @@ -42,6 +42,14 @@ def test_find_cut_coords():
+> >          np.array([x, y, z]),
+> >          0.5 \* np.array(data.shape).astype(np.float))
+> > -    # regression test (cf. #922)
+> > -    # pseudo-4D images as input (i.e., X, Y, Z, 1)
+> > -    # previously raised ""ValueError: too many values to unpack""
+> > -    data = np.ones((36, 43, 36))[..., np.newaxis]
+> > -    affine = np.eye(4)
+> > -    img = nibabel.Nifti1Image(data, affine)
+> > -    x, y, z = find_xyz_cut_coords(img, activation_threshold=1.1)
+> >   +
+> 
+> For a slightly better test, You could do something like this:
+> 
+> rng = np.random.RandomState(0)
+> data_3d = rng.randn((10, 10, 10))
+> data_4d = data_3d[..., np.newaxis]
+> affine = np.eye(4)
+> img_3d = nibabel.Nifti1Image(data_3d, affine)
+> img_4d = nibabel.Nifti1Image(data_4d, affine)
+> assert_equal(find_xyz_cut_coords(img_3d), find_xyz_cut_coords(img_4d))
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/937/files#r49436370.
+",63e16a933bcfc7576a4085750d10438f90d14819,"(None, '', u'nilearn/plotting/tests/test_find_cuts.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,935,nilearn,nilearn,lesteve,2016-01-08 13:23:28,"From a quick glance at it, LGTM.
+
+A few comments:
+- the issue was talking about moving around the examples but you moved also some of the documentation, e.g. plotting.rst got moved from doc/manipulating_visualizing to doc/plotting manipulating_images.rst got moved from doc/manipulating_visualizing to manipulating_images. Not sure whether the generated HTML looks any different. If it doesn't that's probably fine.
+- Someone should double-check once CircleCI that the breakdown of the examples by category makes sense. In particular what went into the ""Advanced"" section. Here is a comment from @GaelVaroquaux from the associated issue in case it helps:
+
+> Advanced is just another word for 'other', in a certain sense. We would put things like the low-level ICA stuff, or the mass-univariate stuff. Ie things that we don't really want to advertise strong to end users.
+",nan,nan
+6,issue_comment,935,nilearn,nilearn,lesteve,2016-01-08 13:49:28,"Looks like CircleCI fails with a genuine sphinx warning.
+
+```
+SphinxWarning: /home/ubuntu/nilearn/doc/plotting/plotting.rst:5: WARNING: duplicate label plotting, other instance in /home/ubuntu/nilearn/doc/plotting/index.rst
+```
+",nan,nan
+7,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-08 13:53:36,"moved two mass-univariate examples from manipulating into advanced section. Did I miss something more here ?
+",nan,nan
+8,issue_comment,935,nilearn,nilearn,lesteve,2016-01-08 14:03:20,"> Did I miss something more here ?
+
+@GaelVaroquaux mentions the ""low-level ICA stuff"". Not sure which one it is BTW. @AlexandreAbraham may know.
+",nan,nan
+9,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",nan,nan
+10,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-08 14:06:24,"> low-level ICA stuff
+
+I have no clear example to move. May be I thought this `plot_ica_resting_state.py` but I am not sure.
+",nan,nan
+11,issue_comment,935,nilearn,nilearn,lesteve,2016-01-08 14:06:42,"> I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+
+Just in case you didn't know, you can check on your machine using `make html-strict` in the doc folder.
+",nan,nan
+12,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-08 14:24:49,"> you can check on your machine using make html-strict
+
+I checked it, this time got an latex error which is not related to my PR.
+",nan,nan
+19,pull_request_commit_comment,935,nilearn,nilearn,GaelVaroquaux,2016-01-08 18:25:26,"I am not sure that this extra level of indirection is useful. Why don't you just include the contents of plotting.rst here (and thus remove the different tune_toc doc)?
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/plotting/index.rst')"
+20,pull_request_commit_comment,935,nilearn,nilearn,GaelVaroquaux,2016-01-08 18:26:26,"I would call this link label ""image_manipulation"", to be closer to the title that it represents.
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/manipulating_images/index.rst')"
+13,issue_comment,935,nilearn,nilearn,GaelVaroquaux,2016-01-08 18:29:30,"Overall, this looks great.
+
+I would like to change the ordering of the examples in the documentation. For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+
+The ordering that I would like is:
+- 01_plotting
+- 02_decoding
+- 03_connectivity
+- 04_manipulating_images
+- 05_advanced
+",nan,nan
+21,pull_request_commit_comment,935,nilearn,nilearn,banilo,2016-01-08 22:25:01,"simplify ""tools to manipulate""
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/manipulating_images/index.rst')"
+22,pull_request_commit_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-09 10:50:27,"To make sure myself, this means that should move content from plotting.rst here and remove both name and file plotting.rst and tune_toc.rst ?
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/plotting/index.rst')"
+23,pull_request_commit_comment,935,nilearn,nilearn,GaelVaroquaux,2016-01-09 10:53:58,"> To make sure myself, this means that should move content from plotting.rst here and remove both name and file plotting.rst and tune_toc.rst ?
+
+Correct for the first part, but don't remove tune_toc.rst, as it's used
+elsewhere.
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/plotting/index.rst')"
+24,pull_request_commit_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-09 15:55:17,"> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+
+I am not sure which director ? It is folder name you mean ?
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/manipulating_images/index.rst')"
+25,pull_request_commit_comment,935,nilearn,nilearn,GaelVaroquaux,2016-01-09 16:00:37,"> ```
+> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+> ```
+> 
+> I am not sure which director ? It is folder name you mean ?
+
+Sorry: typo: I meant ""directories"".
+",945605fa3cc996adb26968fc7f2e2e8875c9ca83,"(None, '', u'doc/manipulating_images/index.rst')"
+17,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-11 13:02:09,"@GaelVaroquaux Could you please have a review if I have done according to your comments ?
+",nan,nan
+16,issue_comment,935,nilearn,nilearn,banilo,2016-01-12 21:58:42,"LGTM
+",nan,nan
+18,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-13 16:33:58,"> Aside from that comment, the PR looks great.
+
+I will finish it soon. I will get back if I have any rendering issues.
+",nan,nan
+14,issue_comment,935,nilearn,nilearn,KamalakerDadi,2016-01-15 12:02:33,"> it's not visible on the main page, but scrolling down the logs in artifacts
+
+@GaelVaroquaux Sorry, I should have seen it myself. But, its done now.
+
+> As a by-product, it shows that some examples should be renamed, but this should be done in another PR
+
+@bthirion Do you want me to open an issue ? Could you give which examples in particular ?
+",nan,nan
+15,issue_comment,935,nilearn,nilearn,GaelVaroquaux,2016-01-15 12:23:30,"That's great. I'm merging. Thank you!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,892,nilearn,nilearn,bthirion,2015-12-04 21:10:45,"I would not make this a priority, because efficiency should be improved before going to more complex versions of sparse PCA. Also, it unclear to me what is the best suited structured dictionary: why not TV-l1 regularized ?
+",nan,nan
+4,issue_comment,892,nilearn,nilearn,banilo,2015-12-04 21:34:57,"SSPCA could be interesting for unsupervised questions and TV-l1 for
+supervised questions.
+
+2015-12-04 22:10 GMT+01:00 bthirion notifications@github.com:
+
+> I would not make this a priority, because efficiency should be improved
+> before going to more complex versions of sparse PCA. Also, it unclear to me
+> what is the best suited structured dictionary: why not TV-l1 regularized ?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/892#issuecomment-162082770.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,717,nilearn,nilearn,GaelVaroquaux,2015-07-23 12:15:11,"Totally, that would be awesome!
+",nan,nan
+6,issue_comment,717,nilearn,nilearn,AlexandreAbraham,2015-07-23 12:57:44,"I just browsed quickly and I see no way to get the data. Did you mean that you want the parceallations to be downloaded and the study re-run?
+",nan,nan
+7,issue_comment,717,nilearn,nilearn,AlexandreAbraham,2015-07-23 12:58:24,"I guess that what you wanted were the correlation matrices.
+",nan,nan
+8,issue_comment,717,nilearn,nilearn,AlexandreAbraham,2015-07-23 13:08:14,"Found it. It is really not obvious. Select any run (I take 3T_Q1-Q6related468_MSMsulc_d25_ts3).
+Click on ""nodes+edges 2"" to get the netjs graph.
+Sniff a little bit, find that ""main.js"" do the job.
+Open it: https://db.humanconnectome.org/megatrawl/3T_Q1-Q6related468_MSMsulc_d25_ts2/netjs/js/main.js
+Find the matrices, eg : https://db.humanconnectome.org/megatrawl/3T_Q1-Q6related468_MSMsulc_d25_ts2/netjs/data/dataset1/Znet2.txt
+
+The files are very light, we can totally include them directly into nilearn. However, they have a user agreement that we must include.
+
+Most of the work will be to understand dataformat and load it in a user-friendly fashion.
+
+I let anybody motivated take it from here ;).
+",nan,nan
+9,issue_comment,717,nilearn,nilearn,AlexandreAbraham,2015-07-23 13:29:36,"Sidenote: the netjs visualization if very pretty and they basically did most of the work to adapt it to our usecase. It shouldn't be too much work to generate it from our data. PR welcome in `nilearn_sandbox` ;).
+",nan,nan
+4,issue_comment,717,nilearn,nilearn,KamalakerDadi,2015-08-05 12:37:50,"> I let anybody motivated take it from here ;)
+
+What about me ? I can try to address this. If not, I announce it here.
+",nan,nan
+5,issue_comment,717,nilearn,nilearn,AlexandreAbraham,2015-08-05 15:12:00,"I'm OK with you working on it but you already have a lot of battles to fight.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,931,nilearn,nilearn,KamalakerDadi,2016-01-07 09:26:09,"ping @AlexandreAbraham
+",nan,nan
+3,issue_comment,931,nilearn,nilearn,AlexandreAbraham,2016-01-07 10:19:53,"+1
+",nan,nan
+4,issue_comment,931,nilearn,nilearn,AlexandreAbraham,2016-01-07 12:20:18,"More precision on this problem. In matplotlib <1.5, asking to color the levels [1., 0.] colors all values above one. It works because of a bug in matplotlib with decreasing values. The contour code has changed in 1.5 and now giving non increasing list of levels yields an unexpected behavior (the actual Picasso painting at the top of this issue). So the proposition of Kamalakar makes the code compliant with matplotlib and solves the problem for 1.5 without impacting the behavior in previous versions.
+
+@KamalakerDadi if you a PR, it will be merged ASAP.
+",nan,nan
+7,issue_comment,931,nilearn,nilearn,KamalakerDadi,2016-01-07 12:29:50,"Yup, I am on it.
+",nan,nan
+5,issue_comment,931,nilearn,nilearn,AlexandreAbraham,2016-01-07 12:30:19,"Awesome!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,869,nilearn,nilearn,AlexandreAbraham,2015-12-02 13:01:04,"The problem is that the fetching is fine. It crashes on file opening so we can't trigger a new downloading of the file automatically.
+",nan,nan
+6,issue_comment,869,nilearn,nilearn,lesteve,2015-12-02 15:36:29,"> I suspect the allowed cache size on circle is not sufficient for the nilearn_data.
+
+Do you have some evidence, CircleCI docs or others, to back up that claim?
+",nan,nan
+5,issue_comment,869,nilearn,nilearn,AlexandreAbraham,2015-12-02 15:54:20,"As suggested by @GaelVaroquaux, I can implement a check of file size at fetching. It would help narrowing down the problem.
+",nan,nan
+7,issue_comment,869,nilearn,nilearn,lesteve,2015-12-02 16:42:20,"By the way you can restart the build with a SSH access with CircleCI, see [this](https://circleci.com/docs/ssh-build). Maybe that could help pinpointing the problem ?
+",nan,nan
+8,issue_comment,869,nilearn,nilearn,lesteve,2015-12-02 16:46:53,"In particular, if the CircleCI cache is somehow the culprit and corrupts the dataset, I find it slightly weird that the gzip file is valid enough to get to the CRC checks.
+",nan,nan
+3,issue_comment,869,nilearn,nilearn,GaelVaroquaux,2015-12-02 22:19:38,"Looks like we understood this guy (circleci was running out of cache). Hence a check on the file size might help.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,840,nilearn,nilearn,GaelVaroquaux,2015-11-12 10:46:01,"What are the differences in terms of the Atlas?
+",nan,nan
+4,issue_comment,840,nilearn,nilearn,alexsavio,2015-11-12 11:04:22,"It has an ""Implementation of a new parcellation of the orbitofrontal cortex in the automated anatomical labeling atlas"". Rolls ET, Joliot M & Tzourio-Mazoyer N (2015) . NeuroImage 0.1016/j.neuroimage.2015.07.075.
+![the new parcellation](http://www.gin.cnrs.fr/IMG/png/figure_aal2.png)
+
+I am having a small issue working on these AAL2 files though. The voxel values in the .txt labels file don't match the voxel values. The voxel values have a '01' or '02' ""appended"" to them depending if it is left or right hemisphere. Does this sound familiar to you?
+
+On the other hand, my boss says that AAL is not very precise (I'm not the physician to argue), in fact I will be using the Hammer atlas instead. This is from http://www.brain-development.org/
+AFAIK adding this to nilearn requires a license acceptance though.
+",nan,nan
+5,issue_comment,840,nilearn,nilearn,GaelVaroquaux,2015-11-12 11:44:03,"> On the other hand, my boss says that AAL is not very precise (I'm not the
+> physician to argue),
+
+Yes, it's horrible. We have it because it is standard.
+
+> in fact I will be using the Hammer atlas instead. This is
+> from http://www.brain-development.org/
+> AFAIK adding this to nilearn requires a license acceptance though.
+
+:(
+
+It's thus probably not possible to have it, unless they are willing to do
+a specific arrangement.
+",nan,nan
+6,issue_comment,840,nilearn,nilearn,alexsavio,2015-11-12 14:39:28,"For me it is not an issue. It would be nice to have it here though.
+Would you like to add it to the `datasets` module? I don't mind contacting them.
+",nan,nan
+7,issue_comment,840,nilearn,nilearn,GaelVaroquaux,2015-11-12 14:43:46,"> Would you like to add it to the datasets module? I don't mind
+> contacting them.
+
+It would be fantastic if you would contact them. We can put a note in the
+documentation stipulating the conditions of use. We cannot put something
+where there is an action from the user, as things need to be able to run
+without user intervention, eg on clusters.
+",nan,nan
+8,issue_comment,840,nilearn,nilearn,alexsavio,2016-01-13 16:02:31,"We tried, but he is not responding anymore. :/
+
+Thanks for the intention.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+16,issue_comment,946,nilearn,nilearn,mrahim,2016-01-14 12:07:21,"Nice.
+I have a warning when running my example: `SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. `
+
+Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+In the current case, the error message is unclear `seed empty`.
+",nan,nan
+5,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-01-14 12:43:01,"> I have a warning when running my example: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. 
+
+Yeah, it can be solved with one line.
+
+> Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+> In the current case, the error message is unclear seed empty.
+
+I do it. However, a masked seed is not a showstopper for me: the rest of the sphere can contain unmasked voxels.
+",nan,nan
+12,issue_comment,946,nilearn,nilearn,bthirion,2016-01-17 08:26:49,"You could ass teh script as a new test. Besides this, LGTM.
+",nan,nan
+17,pull_request_commit_comment,946,nilearn,nilearn,banilo,2016-01-17 23:35:56,"comment meaning may remain obscure
+",b1d1d21c9fa17b1cd83d8090d43b2a2f2fa18ff1,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')"
+6,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-01-28 15:18:08,"I have fixed the Travis failure. However, this failure was due to the fact that scikit learn crashes if we give a mask with only one voxel unmasked to the neighbor graph estimator... There is probably a bug under the hood.
+",nan,nan
+7,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-01-28 15:34:17,"> If you can isolate the scikit-learn bug, it would be great to report it upstream. 
+
+Added on my todo list.
+
+> Did you remove the warning?
+
+Yes.
+",nan,nan
+8,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-02 16:21:34,"Build triggered again.
+",nan,nan
+9,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:32:16,"Now it's becoming funny.
+
+In this build: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.577
+- build failed on Python 2.7
+- build successful on Python 3.4
+
+In this one: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.575
+- build successful on Python 2.7
+- build cancelled on Python 3.4
+
+So, the tests are not intrinsically broken but it seems to introduce some hazardous segfaults in appveyor... I don't know what to do.
+",nan,nan
+13,issue_comment,946,nilearn,nilearn,GaelVaroquaux,2016-02-03 14:35:41,"Is it the always same test that is segfaulting?
+",nan,nan
+14,issue_comment,946,nilearn,nilearn,lesteve,2016-02-03 14:40:30,"> In this build: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.577
+> 
+>    build failed on Python 2.7
+
+The tests actually seem to run fine with the output:
+
+```
+Ran 387 tests in 228.284s
+ OK (SKIP=1)
+```
+
+I have seen that happening from time to time, but it tends to go away if you kick off another AppVeyor build.
+
+> In this one: https://ci.appveyor.com/project/nilearn-ci/nilearn/build/1.0.575
+> 
+> build cancelled on Python 3.4
+
+No idea why the build was cancelled.
+",nan,nan
+15,issue_comment,946,nilearn,nilearn,aabadie,2016-02-03 14:51:17,"> No idea why the build was cancelled.
+
+New jobs requests can cancel previously started jobs. You probably pushed a new commit to that branch (or another PR was updated in the mean time). Maybe we can change this settings on appveyor.
+",nan,nan
+10,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-03 14:57:58,"> Is it the always same test that is segfaulting?
+
+There is no segfault in the tests, it's at the end of the tests.
+
+See other people as troubled as we are:
+https://github.com/dart-lang/test/issues/356
+",nan,nan
+11,issue_comment,946,nilearn,nilearn,AlexandreAbraham,2016-02-04 00:30:29,"OK. Looking at the history, the problem on AppVeyor seems to happen quite often. I'm going to merge this one but we should investigate this problem at some point.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,945,nilearn,nilearn,banilo,2016-01-17 23:44:43,"In what settings would the canonical brain mask appear within the nilearn code?
+",nan,nan
+6,issue_comment,945,nilearn,nilearn,GaelVaroquaux,2016-01-18 05:59:53,"> In what settings would the canonical brain mask appear within the
+> nilearn code?
+
+It appeared as useful in an example downloading data from neurovault.
+",nan,nan
+7,issue_comment,945,nilearn,nilearn,KamalakerDadi,2016-01-18 08:40:57,"> In what settings would the canonical brain mask appear within the nilearn code?
+
+In future, it can also be appeared in function which computes out of brain mask confounds.
+",nan,nan
+8,issue_comment,945,nilearn,nilearn,GaelVaroquaux,2016-01-18 09:12:07,"> In future, it can also be appeared in function which computes out of
+> brain mask confounds.
+
+That's a good point.
+",nan,nan
+9,issue_comment,945,nilearn,nilearn,KamalakerDadi,2016-05-26 14:49:59,"Does this issue also demands for grey matter mask ?
+
+Or
+
+simply a canonical brain mask as done in PR #1103 
+",nan,nan
+3,issue_comment,945,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:53:31,"Hmm, asking for both... We should maybe rename it to grey matter or open a new one for the gray matter mask.
+",nan,nan
+10,issue_comment,945,nilearn,nilearn,KamalakerDadi,2016-05-26 15:09:30,"> Hmm, asking for both
+
+How does it go with grey matter mask ? We simply compute it from ICBM ['gm'] and resample to MNI template and return it, [like here!](https://github.com/NeuroVault/neurovault_analysis/blob/master/compute_gm_mask.py)
+",nan,nan
+4,issue_comment,945,nilearn,nilearn,AlexandreAbraham,2016-05-26 15:10:22,"I guess so, yes.
+",nan,nan
+11,issue_comment,945,nilearn,nilearn,KamalakerDadi,2016-05-26 15:11:32,"Ok, then I would integrate it in the same PR.
+Thanks.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,942,nilearn,nilearn,banilo,2016-01-12 18:34:09,"+1 for the idea.
+
+Should not be that hard to implement.
+
+Sent from my iPhone
+
+> On 12 Jan 2016, at 17:41, Gael Varoquaux notifications@github.com wrote:
+> 
+> It would be great to have a mode for the glass brain that separates hemispheres in the lateral view.
+> 
+> It would look like:
+> 
+> and it would project on one side of the brain only activations with x > 0, and on the other side only activations with x < 0.
+> 
+> For plot_connectome, it would do the same thing with points, and in terms of lines it would not draw lines that cross the hemispheric border (which is a bug or a feature depending on how you see it).
+> 
+> —
+> Reply to this email directly or view it on GitHub.
+",nan,nan
+4,issue_comment,942,nilearn,nilearn,MartinPerez,2016-01-12 19:18:58,"+1. What about also having the option of projecting in each hemisphere only its own activation, would be nice for the type of contrasts strongly lateralized like the language network and motor
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+10,pull_request_commit_comment,864,nilearn,nilearn,lesteve,2015-12-01 10:34:55,"Someone with more git-fu than me may know this. I couldn't figure out a way to get the equivalent on $REMOTE/master without checking a branch locally ...
+The problem comes from the fact that Travis checks out a single branch like this:
+
+```
+git clone --depth=50 --branch=test https://github.com/lesteve/nilearn.git lesteve/nilearn
+```
+
+So even doing `git fetch origin` upstream/master, origin/master is not going to show up in `git branch -r`.
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(None, '', u'continuous_integration/flake8_diff.sh')"
+6,issue_comment,864,nilearn,nilearn,GaelVaroquaux,2015-12-02 08:35:06,"@ogrisel: can you review this PR? We are somewhat thinking of it as a POC for something that could go in scikit-learn.
+",nan,nan
+11,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2015-12-16 09:43:15,"Maybe try: `remotes/upstream/master` instead?
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(None, '', u'continuous_integration/flake8_diff.sh')"
+8,issue_comment,864,nilearn,nilearn,lesteve,2015-12-16 15:09:23,"> Coverage decreased (-0.8%) to 92.767% 
+
+Interesting glitch in coveralls given that I haven't touched a python file in this PR. Will relaunch to see whether it is just temporary.
+",nan,nan
+7,issue_comment,864,nilearn,nilearn,lesteve,2016-01-08 14:12:29,"Does someone want to review this one in more details ?
+
+The additional build is allowed to fail in Travis so there won't be any impact on build status and we can refine the flake8 checking after having learned how useful it is.
+",nan,nan
+12,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2016-01-08 14:23:48,"Do you have an idea of this performance impact of a full fetch on a project like nilearn and on a large project like scikit-learn?
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')"
+13,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2016-01-08 14:27:07,"Maybe add a comment to explain which error it is and why it needs to be ignored in the context of flake8_diff.
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(None, '', u'setup.cfg')"
+5,issue_comment,864,nilearn,nilearn,ogrisel,2016-01-08 14:28:01,"LGTM
+",nan,nan
+14,pull_request_commit_comment,864,nilearn,nilearn,lesteve,2016-01-08 14:38:48,"I haven't tried yet. The thing to bear in mind is that the Travis build that does the flake8 checks doesn't run tests so I would expect the unshallowing not to matter that much in practice. Also note that if you run this script locally the unshallowing won't need to happen (at least in most cases).
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')"
+15,pull_request_commit_comment,864,nilearn,nilearn,lesteve,2016-01-08 14:58:13,"For completeness here are some very rough timings compared for the time `git clone --depth 50` (which is what Travis does at the time of writing) and `git fetch --unshallow`:
+
+|  | git clone depth 50 | git unshallowing |
+| --- | --- | --- |
+| scikit-learn | 10s | 40s |
+| joblib | 1-2s | 2-3s |
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')"
+16,pull_request_commit_comment,864,nilearn,nilearn,ogrisel,2016-01-08 15:00:36,"> The thing to bear in mind is that the Travis build that does the flake8 checks doesn't run tests so I would expect the unshallowing not to matter that much in practice.
+
+Alright then!
+",5ff76db267e2b7d25784842fcd1fad9caeddaa1b,"(8, '', u'continuous_integration/flake8_diff.sh')"
+9,issue_comment,864,nilearn,nilearn,lesteve,2016-01-11 09:46:00,"I am going to merge this one and try to monitor the allowed failures in Travis to learn more about how to refine it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,940,nilearn,nilearn,lesteve,2016-01-12 12:02:44,"_ is clearer to indicate that the variable is not used.
+",1c299705b1f43c8992c734ab377be681928ad1fc,"(5, '', u'nilearn/decoding/space_net.py')"
+6,pull_request_commit_comment,940,nilearn,nilearn,AlexandreAbraham,2016-01-12 12:11:43,"Yes but it triggers an unnecessary warning.
+",1c299705b1f43c8992c734ab377be681928ad1fc,"(5, '', u'nilearn/decoding/space_net.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+13,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 15:59:12,"Was removing the doctest skip intentional? This will trigger a download of the data while doctesting, which is probably something that we want to avoid.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+14,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:01:10,"Same remark about skipping the doctest. It's probably a bad idea not to skip them, as it will entail heavy downloads on travis.
+
+Another option would be to mock or modify dataset downloads while testing. I'm open to it, but it requires much more work.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+5,issue_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:01:51,"In general the changes look right, but I don't think that we should be running downloads during doctests.
+",nan,nan
+15,pull_request_commit_comment,928,nilearn,nilearn,aabadie,2016-01-06 16:11:11,"> Was removing the doctest skip intentional?
+
+Yes, I just wanted to be sure the example was valid when running `make test-doc`. I can revert this change.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+16,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:13:18,"> Yes, I just wanted to be sure the example was valid when running make
+> test-doc.
+
+Make sense. I wonder if we can have multiple modes. It probably goes in
+the direction of mocking the downloaders. @AlexandreAbraham might have an
+idea on this.
+
+> I can revert this change.
+
+It would be good.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+17,pull_request_commit_comment,928,nilearn,nilearn,AlexandreAbraham,2016-01-06 16:15:48,"Depending on which level you want to mock the downloader, it may not be as easy as it seems.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+18,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:20:08,"> Depending on which level you want to mock the downloader, it may not be
+> as easy as it seems.
+
+I was thinking on a very high level: returning meaningful paths without
+any download. The next step would even be to put some generated data in
+these meaningful paths.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+6,issue_comment,928,nilearn,nilearn,aabadie,2016-01-06 16:25:29,"> In general the changes look right, but I don't think that we should be running downloads during doctests.
+
+I pushed the change. Waiting for CI's.
+",nan,nan
+19,pull_request_commit_comment,928,nilearn,nilearn,AlexandreAbraham,2016-01-06 16:26:23,"Returning meaningful paths is already what we do in the tests. We can easily generate data in them. However, we sometimes have to generate file with meaningful content (XML) and this is the most difficult part to handle. I mean that we can't automatically mock everything. Some dataset loader requires specific code and we should think of a good way to put that out of the tests  in order to use it elsewhere.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+20,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:28:30,"Are we already returning paths without downloading the doctests? If so we
+shouldn't need to skip that part?
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+21,pull_request_commit_comment,928,nilearn,nilearn,AlexandreAbraham,2016-01-06 16:37:34,"If you call `nilearn.datasets.tests.test_utils.setup_mock`, the function `fetch_haxby` will return existing paths to empty files.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+22,pull_request_commit_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 16:39:49,"Alex Abadie: do you want to try to set this up, and thus remove the
+skips?
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+23,pull_request_commit_comment,928,nilearn,nilearn,aabadie,2016-01-06 16:44:48,"Sure :)
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+24,pull_request_commit_comment,928,nilearn,nilearn,lesteve,2016-01-06 16:48:34,"PEP8 two spaces before an inline comment. Just saying.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+25,pull_request_commit_comment,928,nilearn,nilearn,lesteve,2016-01-06 16:57:20,"I would remove the three dots here
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+7,issue_comment,928,nilearn,nilearn,lesteve,2016-01-06 17:03:40,"Could the text overlap not be fixed at the HTML level rather than in the rst, e.g. by setting overflow-x on the pre class in the CSS ? Not a CSS expert so there might be a better way to do it.
+
+Here is a snapshot to explain what the text overlap issue actually looks like:
+![nilearn_text_overlap](https://cloud.githubusercontent.com/assets/1680079/12148600/9cdd24da-b49f-11e5-83f9-de6edff4170b.png)
+",nan,nan
+8,issue_comment,928,nilearn,nilearn,GaelVaroquaux,2016-01-06 17:06:15,"> Could the text overlap not be fixed at the HTML level rather than in
+> the rst, e.g. by setting overflow-x on the pre class in the CSS ? Not a
+> CSS expert so there might be a better way to do it.
+
+Any change on CSS needs to be validated thoroughly, as it affects the
+whole documentation. These things are tricky.
+
+Backporting some CSS from scipy-lectures to nilearn would probably fix
+this, as a lot of effort went into designing a very good CSS for the code
+block in scipy-lectures. But this is a certain amount of work.
+",nan,nan
+9,issue_comment,928,nilearn,nilearn,lesteve,2016-01-06 17:47:31,"> Any change on CSS needs to be validated thoroughly, as it affects the whole documentation. These things are tricky. 
+
+Makes sense.
+",nan,nan
+26,pull_request_commit_comment,928,nilearn,nilearn,aabadie,2016-01-07 09:50:36,"@GaelVaroquaux @AlexandreAbraham, I gave a try to `setup_mock` but it doesn't work like this out of the box and would require a bit more work (I cannot evaluate how many).
+I reverted the change and now skip the doctest for this. The mock thing could be part of another PR I think.
+",c515f4e020b6ed6dcb58c731c40ea5e396512a91,"(None, '', u'doc/manipulating_visualizing/manipulating_images.rst')"
+10,issue_comment,928,nilearn,nilearn,aabadie,2016-01-07 09:54:19,"@lesteve, @GaelVaroquaux, for the record about the overlap issue, using `# doctest: +NORMALIZE_WHITESPACE` works with the output on 2 lines.
+",nan,nan
+11,issue_comment,928,nilearn,nilearn,lesteve,2016-01-07 10:35:49,"LGTM, I'll wait for CircleCI green light, and I'll merge this one.
+",nan,nan
+12,issue_comment,928,nilearn,nilearn,lesteve,2016-01-07 12:04:10,"Merging, thanks !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:00:17,"How do you execute these scripts?
+",nan,nan
+5,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:02:02,"I tried ""python script_name.py"" and ""ipython script_name.py"", respectively
+",nan,nan
+6,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:03:39,"OK, ""Python script_name.py"" should work, but it might be an OSX thing, I don't know anything about OSX.
+
+How do you get matplotlib to show plots?
+",nan,nan
+7,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:07:05,"I just tested trivial things in the ipython environment like:
+
+```
+import matplotlib.pyplot as plt
+plt.plot(range(10), range(10))
+plt.show()
+```
+
+just to test whether matplotlib works properly
+",nan,nan
+8,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:08:26,"Then just run the example using ""%run filename.py"" in the IPython
+environnement where things work well.
+",nan,nan
+9,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:13:39,"Ok, didn't try to run it from within python. Now plots show, but I also get following error:
+
+```
+/Users/Stephan/anaconda/lib/python2.7/site-packages/matplotlib/__init__.py:1350: UserWarning:  This call to matplotlib.use() has no effect
+because the backend has already been chosen;
+matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
+or matplotlib.backends is imported for the first time.
+```
+",nan,nan
+10,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:16:34,"plots only show when I open ipython via `ipython --matplotlib` but then I get the error from above. When I open it with without `--matplotlib` flag, no plots and no error
+",nan,nan
+11,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:16:47,"Out of curiosity, can you tell use what do the following return in
+python:
+
+<pre>
+import os
+print(os.name)
+print('DISPLAY' in os.environ')
+</pre>
+",nan,nan
+12,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:19:04,"sure:
+
+```
+In [1]: import os
+
+In [2]: print os.name
+posix
+
+In [4]: print('DISPLAY' in os.environ)
+False
+```
+",nan,nan
+13,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:23:08,"I am starting to understand better what you are experiencing. Can you
+also give us the output of:
+
+<pre>
+print(os.uname())
+import matplotlib
+print(matplotlib.get_backend())
+</pre>
+",nan,nan
+14,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:28:22,"cool, thanks for your help man. here is the output:
+
+```
+In [5]: print(os.uname())
+('Darwin', 'KH-Lees-Macbook.local', '15.0.0', 'Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 2015; root:xnu-3247.10.11~1/RELEASE_X86_64', 'x86_64')
+
+In [7]: print(matplotlib.get_backend())
+MacOSX
+```
+",nan,nan
+15,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-06 19:42:38,"OK. You can work in the ""ipython --matplotlib"" environment; it won't be any problem.
+
+The rest are things that we can fix based on your feedback, so that it works seemlessly in all situations. We'll release a fix soon; Thanks!
+",nan,nan
+16,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-06 19:43:53,"Many thanks, have a good day!
+",nan,nan
+17,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-07 19:06:48,"Note for self (I know how to fix this, and will submit a PR soon): sampling of MacOSX installs:
+- os.name is always posix
+- os.uname()[0] is always 'Darwin':
+- ""'DISPLAY' in os.environ"": True 2 out of 3
+- matplotlib.get_backend():
+  - 'TkAgg' (on @ogrisel's computer)
+  -  'MacOSX' on the two others
+",nan,nan
+3,issue_comment,929,nilearn,nilearn,ogrisel,2016-01-07 21:08:48,"Also:
+
+``` python
+sys.platform == 'darwin'
+```
+
+this is the canonical way to detect OSX.
+",nan,nan
+18,issue_comment,929,nilearn,nilearn,GaelVaroquaux,2016-01-07 21:09:59,"> sys.platform == 'darwin'
+> 
+> this is the canonical way to detect OSX.
+
+Thanks! I was missing that.
+",nan,nan
+19,issue_comment,929,nilearn,nilearn,neurotronix,2016-01-13 16:26:58,"@lesteve Looking good so far. Plots now show up when scripts are called from shell. thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+18,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:26:11,"CamelCase for a function. Blah!
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+19,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:27:08,"Are you sure that this is in the standard library?
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+20,pull_request_commit_comment,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:27:19,"I use it as a decorator afterward. But I can change it to `snake_case` since nose does that with `with_setup`.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+21,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:28:41,"> I use it as a decorator afterward.
+
+Decorators aRe nOt CamelCase. It's uGlY. :) 
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+22,pull_request_commit_comment,803,nilearn,nilearn,AlexandreAbraham,2015-10-22 12:38:39,"It is for Unix systems. I probably should skip tests if not available / setrlimit or getrlimit raise a resource.error.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+23,pull_request_commit_comment,803,nilearn,nilearn,GaelVaroquaux,2015-10-22 12:46:50,"> It is for Unix systems. I probably should skip tests if not available /
+> setrlimit or getrlimit raise a resource.error.
+
+More than skip tests, you cannot import it at all windows, I suspect.
+Which means that importing scikit-learn on windows would crash.
+
+We need CI for Windows. I created an issue: #804.
+",c033fefe76a807290e29be5f96d65be658b438da,"(None, '', u'nilearn/_utils/testing.py')"
+4,issue_comment,803,nilearn,nilearn,aabadie,2015-10-22 14:30:44,"> Ping @aabadie, apparently I stole your job. But I've done the easy part, the hardest part is to set it cleverly when needed :P.
+
+No problem @AlexandreAbraham, your change is a nice contribution.
+",nan,nan
+5,issue_comment,803,nilearn,nilearn,aabadie,2015-10-23 12:52:36,"@AlexandreAbraham,  in case you missed it, the test is failing on circle ci. Probably an issue when setting memory limit on the VM.
+",nan,nan
+15,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 07:51:33,"> @aabadie, setting the limit of memory is protected. The error seems to be that a segfault is triggered when I allocate too much memory instead of a memory error. I'll try to put a smaller object in the test.
+
+You put a smaller object but didn't change the memory_limit. I would guess that's why the Travis tests are now failing.
+",nan,nan
+16,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 08:25:10,"> I don't get your comment. The error should be triggered when the allocated object size is higher than the limit, which is the case. Or maybe I have my memory usage estimation wrong?
+
+I haven't double-checked the memory usage computation but it looks like the Travis failure is due to the fact that the memory usage doesn't go over the memory_limit threshold.
+",nan,nan
+17,issue_comment,803,nilearn,nilearn,lesteve,2015-10-28 08:26:48,"On top of that it looks like it only fails for a few distributions but not for the other, weird.
+
+Here is the error you get:
+
+```
+======================================================================
+
+FAIL: nilearn.tests.test_testing.test_memory_limit_raise
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File ""/usr/lib/python2.7/dist-packages/nose/case.py"", line 197, in runTest
+
+    self.test(*self.arg)
+
+  File ""/home/travis/build/nilearn/nilearn/testvenv/local/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/_utils/testing.py"", line 690, in wrapper_func
+
+    retval = func(*args, **kwargs)
+
+  File ""/home/travis/build/nilearn/nilearn/testvenv/local/lib/python2.7/site-packages/nilearn-0.1.5.dev0-py2.7.egg/nilearn/tests/test_testing.py"", line 58, in test_memory_limit_raise
+
+    MemoryError, '', np.zeros, (500, 100, 60), dtype=np.float32)
+
+AssertionError: MemoryError not raised
+```
+",nan,nan
+8,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-18 11:54:42,"The problem seems that the code segfaults instead of raising a memory error... Maybe I asked for too much memory?
+",nan,nan
+6,issue_comment,803,nilearn,nilearn,aabadie,2016-01-18 13:02:02,"> The problem seems that the code segfaults instead of raising a memory error... Maybe I asked for too much memory?
+
+This is a possibility but I would be surprised as the maximum memory is set to 10000000 (10MB) and the size of the array is 12MB which is not that much.
+
+Maybe using a strategy based on MemoryProfiler would help.
+",nan,nan
+9,issue_comment,803,nilearn,nilearn,GaelVaroquaux,2016-01-18 15:06:00,"> The problem seems that the code segfaults instead of raising a memory error...
+> Maybe I asked for too much memory?
+
+Indeed, under old versions of Python, there were segfaults when you asked
+for too much memory.
+",nan,nan
+10,issue_comment,803,nilearn,nilearn,lesteve,2016-01-19 12:56:11,"FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler, which is part of https://github.com/joblib/joblib/pull/260.
+
+I am not entirely sure it is worth investigating more time making this PR work.
+",nan,nan
+7,issue_comment,803,nilearn,nilearn,aabadie,2016-01-19 13:00:25,"> FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler
+
+ @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+",nan,nan
+11,issue_comment,803,nilearn,nilearn,lesteve,2016-01-19 13:22:53,"> @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+
+This is fine with me. It would be great to find a few tests to add in order to test functions in nilearn where  memory consumption actually matters. @AlexandreAbraham, @GaelVaroquaux any suggestions ?
+",nan,nan
+12,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:31:59,"> Indeed, under old versions of Python, there were segfaults when you asked
+> for too much memory.
+
+But we don't use older versions of Python. This is why this seems strange to me.
+
+> FWIW @aabadie has a solution for this use case (testing nilearn memory consumption as per #736) based on memory_profiler, which is part of joblib/joblib#260.
+
+Yes, I know how to do it with `memory_profiler`. The goal of this PR was to rely on the system and avoid a dependency.
+",nan,nan
+13,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-19 13:41:06,"> @AlexandreAbraham, @lesteve, if you agree, I'll propose a PR based on that solution.
+
+I won't say no :P 
+
+>  It would be great to find a few tests to add in order to test functions in nilearn where memory consumption actually matters. @AlexandreAbraham, @GaelVaroquaux any suggestions ?
+
+Any function that is supposed to treat data iteratively such as `compute_multi_epi_mask` (or `multi_compute_epi_mask` or `compute_epi_multi_mask`).
+",nan,nan
+14,issue_comment,803,nilearn,nilearn,AlexandreAbraham,2016-01-20 14:25:47,"Handing it over to @aabadie !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,922,nilearn,nilearn,bthirion,2015-12-18 21:57:45,"The issue is that the image that you provided is 4D (with the last dimension=1). if you remove the last dimension form your image, it is OK.
+plotting.find_xyz_cut_coords(nib.four_to_three(nib.load('dmpfc-3.nii'))[0])
+
+Should we support this kind of case ?
+",nan,nan
+7,issue_comment,922,nilearn,nilearn,banilo,2015-12-19 22:28:17,"Ok, merci pour le conseil.
+
+It would be nice to support the case because the 3D and Pseudo-4D images contain the same information and the optimal x, y and z cut planes can be expected to be the same. That appears intuitive to me.
+",nan,nan
+3,issue_comment,922,nilearn,nilearn,AlexandreAbraham,2015-12-20 13:43:48,"As all functions working on img directly (not niimg), it assumes that the input has the right dimension. This has been done because this function is not ""opened to public"". So, two options:
+- you use the regular way to load your image, meaning `check_niimg_3d` (instead of `nibabel.load`). It will convert your 4d image to 3d automatically
+- We call `check_niimg_3d` at the beginning of `find_xyz_cut_coords`. It will then work natively on all niimgs.
+",nan,nan
+8,issue_comment,922,nilearn,nilearn,GaelVaroquaux,2015-12-20 14:02:45,"These days it is exposed to the public. We should probably add a checker
+in the input. Is there a downside?
+",nan,nan
+4,issue_comment,922,nilearn,nilearn,AlexandreAbraham,2015-12-20 14:04:12,"Well, a small computational overhead because we check the input data, that's all.
+",nan,nan
+9,issue_comment,922,nilearn,nilearn,GaelVaroquaux,2015-12-20 14:08:17,"> Well, a small computational overhead because we check the input data,
+
+It's probably tiny compared to the time of the funtion.
+
+@banilo: do you want to do a PR?
+",nan,nan
+10,issue_comment,922,nilearn,nilearn,banilo,2015-12-20 14:13:21,"Sure, I'd be happy to.
+
+As the find_\* function is probably typically called for plotting, it should
+not be called excessively and thus not typically cause a big overhead.
+
+2015-12-20 15:08 GMT+01:00 Gael Varoquaux notifications@github.com:
+
+> > Well, a small computational overhead because we check the input data,
+> 
+> It's probably tiny compared to the time of the funtion.
+> 
+> @banilo: do you want to do a PR?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/922#issuecomment-166119067.
+",nan,nan
+5,issue_comment,922,nilearn,nilearn,AlexandreAbraham,2016-01-07 12:16:36,"@banilo I think this is important for 0.2.2. Are you working on it?
+",nan,nan
+11,issue_comment,922,nilearn,nilearn,banilo,2016-01-08 22:07:40,"I will do it this weekend
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+11,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 10:28:36,"Should we really handle lists of options or should we let the user do the loop on its own if he wants them all? @GaelVaroquaux @lesteve 
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+12,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 10:29:17,"`n_networks` or `n_components` would be better.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+13,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 10:29:48,"Here too we should find another wording.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+14,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 10:30:06,"I am with giving options to choose.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+15,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 10:30:10,"You do not return a Bunch here.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+16,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 10:31:33,"Or maybe we could just always return them all.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+17,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 10:31:51,"Please load the files before returning them to the user.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+18,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 10:37:56,"By default, it will return all.But, I thought it would be nice to have options to choose.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+19,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 12:33:39,"Can we stick to `n_dimensionalities` ? since all the strings are named as 'd'. There would be 
+confusion to users.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+20,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 12:36:19,"May be this `timeseries`. To be consistent with the names 'ts'.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+21,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 12:41:49,"Can we not stick to returning path of the text files? I see confounds in some fetchers are returned the same.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+22,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-10-28 13:58:07,"is -> has been or just remove this comment. I don't think it adds a lot of value.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+23,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-10-28 14:00:01,"Can you add a rst for the description in nilearn/datasets/description and a test that the description is correctly loaded?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+24,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 14:09:13,"Well, I was thinking of removing the 'd' and make it an integer.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+25,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 14:10:23,"Yes but we should not let the user choose between ""ts2"" or ""ts3"". We should find better wordings.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+26,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-10-28 14:12:48,"Confounds are not loaded because the masker do it automagically. It is very likely for matrices to be fed to sklearn estimators that won't load them. But we should wait for @lesteve and @GaelVaroquaux to give their mind.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+27,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 14:21:49,"I feel returning the paths can have an option to user to look if he fetched the right files. If we returned values if user does some mistake in giving input then it would be hard to identify.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+28,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-10-28 14:27:57,"Fixed
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+29,pull_request_commit_comment,806,nilearn,nilearn,bthirion,2015-10-30 21:42:42,"I'd rather put ""The network matrices are estimated from functional connectivity datasets of 461 subjects. ""
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+30,pull_request_commit_comment,806,nilearn,nilearn,bthirion,2015-10-30 21:45:44,"Sorry, but it is not crystal-clear to me what ""eigen regression"" refers to. Could you possibly give a reference here ?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+31,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:48:13,"Shorten the two sentences:
+
+```
+See :func:`nilearn.datasets.fetch_megatrawls_netmats` documentation for more details.
+```
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+32,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:49:44,"You probably want to use a red/blue colormap like in other examples when we plot connectivity matrices.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+33,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:49:46,"This is not a list ...
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+34,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:50:51,"Maybe ""Plotting correlation matrices"" instead?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+35,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:53:21,"Typo: Possible
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+36,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:54:07,"Just use ""by default"" rather than ""if chosen to be default"". This is valid for a few other places as well.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+37,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:55:12,"no capital after a comma. You have done that in multiple places.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+38,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:57:06,"you don't need parentheses
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+39,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:57:32,"don't need the outer parentheses
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+40,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 08:58:17,"Just curious, do the `_` at the end of the variable names carry a special meaning?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+41,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-02 10:10:25,"Thanks I will change.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+42,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-02 10:10:39,"I will change to `dict_`
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+43,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-02 10:14:10,"Nothing special. I will change it.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+44,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 10:19:21,"As a comment, two reasons I know of for using final underscores:
+- avoid shadowing a builtin like list
+- scikit-learn convention for attributes that depends on data
+
+IMHO final underscores are not that great for readability, especially when you have `some_variable` and `some_variable_` in the same function.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+45,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-02 10:21:18,"It is better to have a meaningful name for viariables. `correlation_matrices` is probably better in this case.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+46,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-02 10:24:01,"Noted
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+47,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 12:23:38,"> It is better to have a meaningful name for viariables
+
++100
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+48,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-02 12:28:27,"Why the capital C in Correlation?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+49,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-03 16:28:08,"ping @AlexandreAbraham @lesteve @GaelVaroquaux @bthirion 
+Any suggestions for a better naming to `choice_dimensionality` and `choice_timeseries` ?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+50,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-03 16:51:11,"`choice_dimensionality` -> `n_components` with value in [25, 50, 100, 200, 300] with default ?
+`choice_timeseries` -> `timeseries_regression` with value in ['multiple-spatial-regression', 'eigenregression'] with default 'eigenregression'.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+51,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-03 17:01:25,"Ok sounds good. Then, most of the lines need to be replaced. Present code well adapted to string. I will wait for others for a final decision.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+52,pull_request_commit_comment,806,nilearn,nilearn,bthirion,2015-11-03 21:21:37,"`choice_dimensionality` -> why not `dimensionality` or even `dimension` ?
+`choice_timeseries` -> `regression_mode`
+I would also replace 'eigenregression' with 'eigen_regression' and 'multiple-spatial-regression' with 'multiple_spatial_regression'
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+5,issue_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-10 12:43:46,"I have addressed your comments @bthirion @AlexandreAbraham 
+",nan,nan
+53,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-10 13:31:32,"We use ""Correlation"" rather than ""Full correlation"".
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+54,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-10 13:37:01,"None is actually not permitted according to the docs.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+55,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-10 13:40:24,"Why don't you give the user the choice between `correlation` and `partial_correlation`?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+56,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-10 13:41:35,"Could you load the matrices and not return filepaths?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+57,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-10 13:42:05,"How is the user supposed to know which file corresponds to the timeseries / dimensionality he asked for?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+58,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-10 15:35:16,"For dimensionality = 25 and timeseries='eigen_regression' for example:
+Output filename: 3T_Q1-Q6related468_MSMsulc_d25_ts3 where `d25` and `ts3` is what you have asked for ?
+
+I have mentioned in the Returns doc saying that ts3 is eigen_regression and ts2 is multiple_spatial_regression. To keep it with Megatrawls naming.
+
+And also worth to mention that we  uploaded in NITRC with these file naming. 
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+59,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-10 22:23:33,"You know how the filename is formatted but the user does not. Plus, you have to load the matrices before returning them so the user won't know what is the original filename.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+60,pull_request_commit_comment,806,nilearn,nilearn,bthirion,2015-11-11 22:18:27,"If possible, a better reference would be welcome. I believe that this what @alexsavio pointed to in #841.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+6,issue_comment,806,nilearn,nilearn,lesteve,2015-11-12 07:54:12,"This needs a rebase.
+",nan,nan
+61,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-16 09:03:31,"Detail: if you start a new line, you can fit this the `for` loop on 2 lines.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+62,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-16 09:05:48,"You don't need this.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+63,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-16 09:06:06,"`for file_netmat in files_netmats:`
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+64,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-16 09:06:25,"`data_dir, file_netmats, resume=resume, verbose=verbose)`
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+65,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-16 09:08:30,"There is nothing to join here.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+66,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-16 09:38:36,"Several problems in your function:
+- you have 2 `for` loops: one to fetch the files, one to load them. They can be merged.
+- you have 3 for loops intricated for the 3 parameters. You can factorize that using itertools
+- you generate a string for each item of the dataset. That mean that, if I want to have the matrices of dimensionality 20, I'll have to parse your string, which is inconvenient, you can use 3 lists instead.
+- there is no reason to call `_fetch_files` several times since you only download one file
+
+So I would write:
+
+``` python
+    dataset_name = 'Megatrawls'
+    data_dir = _get_dataset_dir(dataset_name, data_dir=data_dir, verbose=verbose)
+    description = _get_dataset_descr(dataset_name)
+
+    # Generate all combinations
+    dims, tseries, mats = list(zip(*list(itertools.product(dimensionalities, timeseries, matrices))))
+    files = []
+    ts_map = dict(multiple_spatial_regression='ts2', eigen_regression='ts3')
+    mat_map = dict(correlation='Znet1.txt', partial_correlation='Znet2.txt')
+    for dim, tserie, mat in zip(dims, tseries, mats):
+        filepath = os.path.join('3T_Q1-Q6related468_MSMsulc_d%d_%s' % (dim, ts_map[tserie]), mat_map[mat])
+        files.append((filepath, url, opts))
+
+    # Fetch all files
+    files = _fetch_files(data_dir, files, resume=resume, verbose=verbose)
+
+    # Load them
+    files = [csv_to_array(f) for f in files]
+
+    # Build the output bunch
+    return Bunch(
+        description=description,
+        dimensionality=dims,
+        timeseries=tseries,
+        matrices=mats,
+        data=files)
+```
+
+A good thing can also be to replace the `data` element by `correlation` and `partial_correlation` or both when pertinent.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+67,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-20 11:54:12,"You can take a look at the test for Harvard Oxford fetching in test_atlas.py. Before fetching, we create a dummy XML file otherwise the function crash:
+
+``` python
+    dummy = open(os.path.join(ho_dir, 'HarvardOxford-Cortical.xml'), 'w')
+    dummy.write(""<?xml version='1.0' encoding='us-ascii'?> ""
+                ""<metadata>""
+                ""</metadata>"")
+    dummy.close()
+
+    ho = atlas.fetch_atlas_harvard_oxford(target_atlas,
+                                          data_dir=tst.tmpdir)
+```
+
+The problem is that your dummy file must be loadable by `csv_to_array` and empty files are not. You can, for exemple, replace the call of `csv_to_array` by `np.gen_from_txt` directly. You can also determine the filepaths that will be loaded by the function and make them non empty:
+
+``` python
+    for dim in [25, 100, 200, 300]:
+        dummy = open(
+            os.path.join(tst.tmp_dir,
+                         'Megatrawls',
+                         '3T_Q1-Q6related468_MSMsulc_d%d_ts3' % dim , 'Znet2.txt'), 'w')
+        dummy.write(""1"")
+        dummy.close()
+```
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+68,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-11-20 12:01:49,"Overriding the local version of `csv_to_array` should work too:
+
+``` python
+
+def do_nothing(*args, **kwargs):
+    return np.zeros((0,))
+
+func.csv_to_array = do_nothing
+```
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+69,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-26 08:23:43,"You can use with `open(...) as` to simplify slightly the code (you don't need the .close line)
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+70,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-26 08:24:14,"Can you add a comment explaining why you need to create these mock files?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+71,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-26 08:26:07,":confused: what are you trying to test here? assert_true takes two arguments:
+
+```
+Signature: assert_true(expr, msg=None)
+```
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+72,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-26 08:27:40,"It would be great to test that the invalid value is part of the error message. Also I would really make it obvious which one it is for people not familiar with this fetcher, i.e. call it 'invalid_input' rather than 'a10', 'multiple_sptial_regression', etc ...
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+73,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-26 08:30:05,"Use assert_raises_regex with an error message just for explicitness
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+7,issue_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-27 08:49:53,"@lesteve I have addressed your comments.
+",nan,nan
+74,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-11-27 08:51:52,"Well, here I know we could test more than this. Any suggestions would be welcome.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+75,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-27 16:45:14,"you didn't use the name of the key here, I guess `description: ...`
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+76,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 08:04:02,"This comment hasn't been tackled yet.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+77,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 08:24:35,"That's plotting only one matrix, right? If yes, just a naming suggestion: `plot_matrix(matrix, title)`
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+78,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 08:27:02,"matrices is a plural, use `matrix` instead
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+79,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 08:27:11,"Idem
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+80,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 08:27:26,"You don't need parentheses here
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+81,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:07:01,"You should probably use tuples for default arguments. Using mutable arguments as defaults is one of the Python gotchas. See http://docs.python-guide.org/en/latest/writing/gotchas/#mutable-default-arguments for example.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+82,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:08:45,"""Valid inputs"" seem slightly better.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+83,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:10:30,"This should be a comma: ""For full technical details about each method, refer to [3] [4] [5].""
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+84,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:11:23,"I tend to use the python types, here, i.e. bool rather than boolean, str rather than string. In this case I would say:
+
+str or list of str, optional
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+85,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:12:05,"Maybe valid ""inputs"" are: ...
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+86,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:13:27,"""partially downloaded"" seems to win the google contest against ""partly downloaded""
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+87,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:13:53,"Data -> data
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+88,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:15:48,"You can use else here. In other words there is no point using elif if your elif condition is the negation of your if condition.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+89,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:16:59,"should be **a** list, maybe you can use `collections.Sequence` rather than list, i.e. you could argue tuple could work.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+90,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-11-30 09:28:54,"Check each key content, e.g.:
+
+``` python
+assert_equal(correlations.dimensions_partial, [25, 100, 200, 300])
+assert_equal(correlations.timeseries_partial=['eigen_regression'] * 4
+# etc...
+```
+
+Side-comment: correlations is not a great name, maybe just megatrawl_dataset or something similar.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+8,issue_comment,806,nilearn,nilearn,KamalakerDadi,2015-12-17 13:46:43,"@lesteve @AlexandreAbraham Any more reviews on this ?
+",nan,nan
+91,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-12-17 14:24:15,":confused: why don't you say `isinstance(inputs, collection.SequenceType)` or something like that if you want your inputs to be a list.
+
+Also amend the error message to say ""sequence"" and show the type of the inputs.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/_utils/param_validation.py')"
+92,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-12-17 14:26:18,"This doesn't seem like this is general enough to be in _utils.param_validation. Why not put it next to your fetch_megatrawls function?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/_utils/param_validation.py')"
+93,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-12-17 14:27:33,"You should really really really configure your editor to run pyflake8. This would have shown you that izip is unused.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/_utils/param_validation.py')"
+94,pull_request_commit_comment,806,nilearn,nilearn,KamalakerDadi,2015-12-17 14:31:30,"You mean port this function directly into func.py or code ?
+
+Why is it not do you think ?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/_utils/param_validation.py')"
+95,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-12-17 14:57:05,"Answered that IRL.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/_utils/param_validation.py')"
+96,pull_request_commit_comment,806,nilearn,nilearn,lesteve,2015-12-17 15:04:33,"This import doesn't seem to be used.
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(4, '', u'nilearn/datasets/tests/test_func.py')"
+97,pull_request_commit_comment,806,nilearn,nilearn,AlexandreAbraham,2015-12-18 10:16:37,"I find the output overly complicated. Why splitting everything between `correlation` and `partial_correlation` and not having three lists in the bunch: `dimensionality`, `timeseries` and `matrices`? I am still convinced that allowing only one value per parameter would be much simpler: this is what we already do for most of the fetchers (for harvard oxford, only one type of atlas is allowed, for aal, it's the same, only one version at a time).
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+9,issue_comment,806,nilearn,nilearn,AlexandreAbraham,2015-12-18 10:18:00,"Apart from my comment about output, I'm +1.
+",nan,nan
+98,pull_request_commit_comment,806,nilearn,nilearn,banilo,2015-12-19 22:46:20,"`plt` might not be defined upon function call
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+99,pull_request_commit_comment,806,nilearn,nilearn,banilo,2015-12-19 22:49:20,"is it possible to make this comment more informative?
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+100,pull_request_commit_comment,806,nilearn,nilearn,banilo,2015-12-19 22:51:30,"minor comment, but `tseries` might be more natural
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+101,pull_request_commit_comment,806,nilearn,nilearn,banilo,2015-12-19 22:53:54,"grammar
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/description/Megatrawls.rst')"
+102,pull_request_commit_comment,806,nilearn,nilearn,banilo,2015-12-19 22:57:06,"We might want to move this section to the corresponding *.rst file
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/func.py')"
+103,pull_request_commit_comment,806,nilearn,nilearn,banilo,2015-12-19 22:58:21,"Aren't you missing some cases here. Dimensinoalities appear to be `[25, 50, 100, 200, 300]`
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'nilearn/datasets/tests/test_func.py')"
+104,pull_request_commit_comment,806,nilearn,nilearn,bthirion,2015-12-20 09:42:14,"`time_series` would actually be much better
+",cb9d60c7fa9269c17910b18bf95e5a23aa41a8d2,"(None, '', u'examples/manipulating_visualizing/plot_visualize_megatrawls_netmats.py')"
+10,issue_comment,806,nilearn,nilearn,KamalakerDadi,2015-12-22 07:40:03,"@AlexandreAbraham Just to inform you that I addressed your comments. It would be nice to have a look whenever you have time. Thanks.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

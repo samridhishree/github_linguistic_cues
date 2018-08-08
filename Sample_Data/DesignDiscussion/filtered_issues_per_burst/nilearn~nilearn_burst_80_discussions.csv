@@ -1,0 +1,369 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+8,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:41:43,"utilize (or, more simply, use)
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+9,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:44:39,"emphasize the use of parameters
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+10,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:45:12,"from the XXXXXX class
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+11,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:45:27,"...directions, where directions can be one of 'ortho', ...
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+12,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:47:10,"a limited number of slices
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+13,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:47:41,"sagittal
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+14,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:48:14,"The first argument is a path to the filename of a contrast map
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+15,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:49:54,"and the optional `cut_coords` argument, that is here a list of integers,
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+16,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:50:47,"By default the `colorbar` argument is set to True in plot_stat_map.
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+17,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:51:16,"are selected automatically
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+18,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:51:37,"the `display_mode` argument
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+19,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:52:04,"sagittal
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+20,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:52:23,"sagittal
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+21,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:52:56,"the contrast map
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+22,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:53:35,"to select the slices to be displayed
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+23,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:53:52,"the contrast map
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+24,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:54:41,"for further interpretation
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+25,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:55:14,"let us
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+26,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:57:11,"we call the `plot_anat` plotting function, with a background image as first argument, in this case the mean fMRI image.
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+27,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:58:24,"we call the `plot_anat` function with a background image as first argument,
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+28,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:59:24,"with the path to a mask image from the Haxby dataset as first argument
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+29,pull_request_commit_comment,1096,nilearn,nilearn,bthirion,2016-05-09 21:59:54,"Contrast maps
+",66c7425700cc33badb30cda3e00d2da67ba708a7,"(None, '', u'examples/01_plotting/plot_demo_more_plotting.py')"
+7,issue_comment,1096,nilearn,nilearn,KamalakerDadi,2016-05-10 21:00:08,"@bthirion Thanks for reviewing. I addressed your comments.
+",nan,nan
+6,issue_comment,1096,nilearn,nilearn,KamalakerDadi,2016-05-13 09:57:31,"Can I have one more review on this ?
+",nan,nan
+5,issue_comment,1096,nilearn,nilearn,AlexandreAbraham,2016-05-23 08:42:47,"Great improvements!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,pull_request_commit_comment,1076,nilearn,nilearn,AlexandreAbraham,2016-04-12 12:18:21,"dimension
+",f53b459115cd9736242d87dce4c1a092b2d3f705,"(None, '', u'nilearn/_utils/exceptions.py')"
+9,pull_request_commit_comment,1076,nilearn,nilearn,aabadie,2016-04-12 12:20:49,"oh nooo ! (the issue is repeated in so many places)
+",f53b459115cd9736242d87dce4c1a092b2d3f705,"(None, '', u'nilearn/_utils/exceptions.py')"
+10,pull_request_commit_comment,1076,nilearn,nilearn,aabadie,2016-04-12 12:57:50,"I pushed an update.
+",f53b459115cd9736242d87dce4c1a092b2d3f705,"(None, '', u'nilearn/_utils/exceptions.py')"
+7,issue_comment,1076,nilearn,nilearn,banilo,2016-04-14 11:30:38,"LGTM
+",nan,nan
+5,issue_comment,1076,nilearn,nilearn,aabadie,2016-05-18 15:57:04,"I found I had this one pending for a moment. Once CI are green, could someone have a look ?  (@AlexandreAbraham, @banilo)
+",nan,nan
+6,issue_comment,1076,nilearn,nilearn,AlexandreAbraham,2016-05-23 08:31:57,"Good to go, thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1063,nilearn,nilearn,AlexandreAbraham,2016-03-30 22:27:38,"How can the message be enhanced?
+",nan,nan
+4,issue_comment,1063,nilearn,nilearn,banilo,2016-03-31 05:26:05,"For example, ""You provided items of incongruent dimensionality (e.g. [3D 3d 4D]) to concatenate.""
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+15,pull_request_commit_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-04-19 10:51:37,"I'm a bit afraid of this change as we don't really have control on the input. For example, with imgs=""test.nii"", this will not work as strings are iterable. And I'm sure that we can find other weird cases. This is why NiftiStuffMasker are declined in Single and Multi flavors: accepting any dimensionality of data was too messy.
+
+Plus documentation is not updated.
+
+I would go for feeding ['test.nii'] to canica for single subject and postponing this behavior for later when we will have time to think it through. Apart from that, +1 for merge.
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(None, '', u'nilearn/decomposition/base.py')"
+5,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-04-19 17:30:11,"To reply to @AlexandreAbraham 's comment: in a sense, yes, it's a bit of a quick hack. However, it's a very light modification and it makes the code work like the user expects it: asking the user to do fit(['fmri.nii']) is not good. In addition, the current error
+
+In the long run, maybe we should think about this in the same time as when we do the globbiing.
+
+I have made sure that strings are well handle (as per @AlexandreAbraham 's remark).
+",nan,nan
+10,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-04-26 11:17:50,"This should work if rebased.
+",nan,nan
+16,pull_request_commit_comment,1089,nilearn,nilearn,banilo,2016-04-26 12:17:22,"merge conflicts?
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(23, '', u'nilearn/decomposition/base.py')"
+17,pull_request_commit_comment,1089,nilearn,nilearn,banilo,2016-04-26 12:26:46,"- regression test that verifies one-subject compat?
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(68, '', u'nilearn/decomposition/tests/test_canica.py')"
+6,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 11:20:40,"Rebased branch. Waiting for tests to finish.
+",nan,nan
+7,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 13:43:34,"Can I haz merge?
+",nan,nan
+18,pull_request_commit_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 13:51:19,"Please use:
+
+``` python
+from .._utils.compat import _basestring
+```
+",88d3cd8a55618f5f7020dd3fae63e06a8182faf9,"(None, '', u'nilearn/decomposition/base.py')"
+11,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 13:54:04,"I can merge and fix the small stuff directly into master or you can fix it now.
+",nan,nan
+8,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 14:00:14,"Fixed. Thanks
+",nan,nan
+13,issue_comment,1089,nilearn,nilearn,bthirion,2016-05-19 14:10:42,"LGTM
+",nan,nan
+12,issue_comment,1089,nilearn,nilearn,AlexandreAbraham,2016-05-19 14:13:33,"I'll just wait for CI to go green, just to be sure, and I'll merge!
+",nan,nan
+14,issue_comment,1089,nilearn,nilearn,banilo,2016-05-19 15:46:55,"Looks good.
+",nan,nan
+9,issue_comment,1089,nilearn,nilearn,GaelVaroquaux,2016-05-19 16:04:42,"CI is green. Merging
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,1106,nilearn,nilearn,AlexandreAbraham,2016-05-27 13:08:54,"It may be safer to use `np.nan_to_num`.
+",46994a820ec93e39e1f97ba9c0b235d799edaa03,"(None, '', u'nilearn/plotting/edge_detect.py')"
+5,issue_comment,1106,nilearn,nilearn,AlexandreAbraham,2016-05-27 13:09:19,"LGTM
+",nan,nan
+6,issue_comment,1106,nilearn,nilearn,KamalakerDadi,2016-05-31 15:59:31,"LGTM too.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,1067,nilearn,nilearn,aabadie,2016-03-29 16:01:55,"Period missing ?
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(144, '', u'nilearn/decomposition/dict_learning.py')"
+7,pull_request_commit_comment,1067,nilearn,nilearn,dohmatob,2016-03-29 16:16:11,"this is one of the many issues with the existing code. not introduced by
+the proposed patch ...
+
+On Tue, Mar 29, 2016 at 6:01 PM, Alexandre Abadie notifications@github.com
+wrote:
+
+> In nilearn/decomposition/dict_learning.py
+> https://github.com/nilearn/nilearn/pull/1067#discussion_r57749736:
+> 
+> > ```
+> >  def fit(self, imgs, y=None, confounds=None):
+> > ```
+> > -        """"""Compute the mask and the ICA maps across subjects
+> > -        """"""Compute the mask and component maps across subjects
+> 
+> Period missing ?
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/1067/files/532c2da19d52928e94a99d6ac1f8dfa1d65067d2#r57749736
+
+## 
+
+Elvis Dohmatob,
+_sent from my  potato..._
+http://dohmatob.blogspot.fr/, https://team.inria.fr/parietal/elvis/,
+https://github.com/dohmatob
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(144, '', u'nilearn/decomposition/dict_learning.py')"
+8,pull_request_commit_comment,1067,nilearn,nilearn,aabadie,2016-03-30 13:30:24,"Maybe add a ""Returns"" section explaining that `fit` chaining is allowed. Do we really want this ?
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(160, '', u'nilearn/decomposition/dict_learning.py')"
+9,pull_request_commit_comment,1067,nilearn,nilearn,GaelVaroquaux,2016-03-30 13:34:15,"> Do we really want this ?
+
+An estimator is not valid scikit-learn if fit does not return self.
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(160, '', u'nilearn/decomposition/dict_learning.py')"
+5,issue_comment,1067,nilearn,nilearn,bthirion,2016-04-03 22:28:42,"LGTM.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+16,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-19 11:14:44,"Will always return 1e-6 in Python 2.7 and will fail in Python 3.
+
+`threshold=1e-6` is what you wanted, I think!
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+17,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 11:25:23,"> threshold=1e-6 is what you wanted, I think!
+
+Yes, I will change.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+18,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-19 14:11:08,"@AlexandreAbraham do you think this sounds reasonable ? 
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+19,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:50:39,"If a single
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+20,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:50:56,", the same percentile
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+21,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:51:45,"Otherwise, if a list of percentiles is provided, each map is...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+22,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:52:07,"with the number of ...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+23,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:52:33,"the given value
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+24,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:53:01,"to threshold the maps without...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+7,issue_comment,1100,nilearn,nilearn,bthirion,2016-05-21 20:53:57,"Small wording details. LGTM otherwise.
+",nan,nan
+8,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-22 13:07:08,"Thanks @bthirion addressed wording details.
+",nan,nan
+9,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 13:40:07,"Any reviews on this please ?
+",nan,nan
+25,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:39:24,"I would say ""list of str or numbers""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+26,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:40:03,"This parameter is optional and is used...
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+27,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:43:34,"I agree that the strategy is hard to describe. Instead of describing it, I think that you should at least state what is the purpose of the ""auto"" keyword:
+
+The default strategy, corresponding to ""auto"", computes a threshold that seeks to minimize (yet not eliminate completely) the overlap between maps for a better display.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+28,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:44:50,"It is a bit convoluted. I would simplify:
+
+If None, no threshold is applied.
+
+Even better:
+
+If None, a very small threshold is applied to remove numerical noise from the maps background.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+29,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 14:46:38,"> to remove numerical noise from the maps background
+
+A bit technical for user. I would keep this: ""If None, no threshold is applied.""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+30,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:46:43,"I would say ""The threshold can also be expressed as a percentile over the values of the whole atlas. In that case, the value must be specified in a string ending with a percent sign, e.g., ""25.3%"".""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+6,issue_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-05-26 14:47:21,"A bit of wording too. Apart from that, +1 for merging.
+",nan,nan
+31,pull_request_commit_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 14:47:29,"I will change. I thought description for argument will be so long.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+10,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-05-26 14:48:39,"> Apart from that, +1 for merging.
+
+Ok cool. I will address them soon.
+",nan,nan
+11,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-06-08 08:43:51,"Any more reviews on this ?
+",nan,nan
+32,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-06-08 21:27:17,"automized -> automatically selected
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+33,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-06-08 21:27:44,"""which lies above"" -> ""above""
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+34,pull_request_commit_comment,1100,nilearn,nilearn,bthirion,2016-06-08 21:29:53,"should match the (no ""with"")
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+14,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-06-09 08:33:59,"I am done with recent comments.
+",nan,nan
+35,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:11:16,"I would remove 'auto' since it is a str and I don't see the point of singling out this value in the type information of the parameter.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+36,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:15:41,"It's not completely true, right? You are setting the threshold to a small value, maybe you could say that you are removing the background without mentioning the precise value of the threshold you are using.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+37,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:15:55,"Remove this comment, not informative.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+38,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:16:20,"ping @AlexandreAbraham.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(None, '', u'nilearn/plotting/img_plotting.py')"
+15,issue_comment,1100,nilearn,nilearn,KamalakerDadi,2016-06-09 09:36:48,"@lesteve your comments are now fixed 
+",nan,nan
+12,issue_comment,1100,nilearn,nilearn,lesteve,2016-06-09 09:57:08,"LGTM, will wait for the tests to be green and merge.
+",nan,nan
+39,pull_request_commit_comment,1100,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:33:04,"It would be good to have a plt.close after that.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')"
+40,pull_request_commit_comment,1100,nilearn,nilearn,lesteve,2016-06-09 12:35:52,"Nice catch
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')"
+5,issue_comment,1100,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:40:42,"Aside from my minor comment, LGTM.
+",nan,nan
+41,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-06-09 12:43:38,"BTW, I have added `plt.close` everywhere to save testing time and it was efficient. Do you think that we should configure nose to close all figures after each test?
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')"
+13,issue_comment,1100,nilearn,nilearn,lesteve,2016-06-09 12:45:22,"The previous commit was all green, and the latest one is a simple change so I'll merge this one, thanks!
+",nan,nan
+42,pull_request_commit_comment,1100,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:46:29,"> BTW, I have added plt.close everywhere to save testing time and it was
+> efficient. Do you think that we should configure nose to close all figures
+> after each test?
+
+I am worried that I will create more infrastructure that is opaque to non
+expert contributors. I prefer simple solutions like this.
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')"
+43,pull_request_commit_comment,1100,nilearn,nilearn,AlexandreAbraham,2016-06-09 12:47:24,"Good for me!
+",246f77cd86469749c5a7f0f54e8aff1d3ce211c3,"(14, '', u'nilearn/plotting/tests/test_img_plotting.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1101,nilearn,nilearn,AlexandreAbraham,2016-05-22 20:39:48,"You are right, we should accept colormap names. In the meantime, you can use this workaround:
+
+``` python
+from matplotlib.cm import get_cmap
+
+display = plotting.plot_connectome(delta_edge, 
+                         networks_coords[3:], 
+                         display_mode = 'y',
+                         node_color= networks_cols[3:],  
+                         colorbar=True,                         
+                         edge_cmap = get_cmap('Blues'),
+                         edge_vmin = 0,
+                         edge_vmax = 0.075,
+                         annotate = False,
+                         );       
+```
+",nan,nan
+4,issue_comment,1101,nilearn,nilearn,rschmaelzle,2016-05-22 21:02:03,"nice! thanks so much. Best ralf
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+14,pull_request_commit_comment,1103,nilearn,nilearn,AlexandreAbraham,2016-05-25 12:18:52,"Maybe `load_mni152_brain_mask` would be a better naming?
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+15,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-05-25 12:25:17,"Ok.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+16,pull_request_commit_comment,1103,nilearn,nilearn,bthirion,2016-05-25 21:17:04,"+1
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+5,issue_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 12:11:57,"Is this an MRG?
+",nan,nan
+9,issue_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 12:22:26,"I am pushing new commit which contains grey matter mask. Just about to push. 
+",nan,nan
+10,issue_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 12:30:43,"@GaelVaroquaux please could you check ? How it goes ?
+
+![gery](https://cloud.githubusercontent.com/assets/11410385/15894322/8b019124-2d85-11e6-911e-8004eeb6d693.png)
+",nan,nan
+17,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 12:45:28,"Why are you resampling? I would keep it as such.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+18,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 12:50:17,"> Why are you resampling?
+
+What if somebody want to use in their own experiments ?
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+19,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 12:52:40,"> What if somebody want to use in their own experiments ?
+
+They resample. The nifti masker does that automatically. No need to
+resample twice.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+20,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 12:55:46,"> They resample. The nifti masker does that automatically. No need to resample twice.
+
+Ok, do you think I am over enthusiastic ? I don't think then it is necessary `fetch_mni152_grey_matter_mask` ?
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+21,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 12:57:09,"> I don't think then it is necessary fetch_mni152_grey_matter_mask ?
+
+I don't understand this sentence.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+22,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 13:04:19,"Ok, I return grey mask as it is without resampling.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+6,issue_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 13:19:17,"Could you add some seealso in the docstring of the new functions, and maybe the load_mni152
+",nan,nan
+23,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 13:24:29,"You should add a notes section that tell us that you threshold the ICBM probabilities at .2
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+7,issue_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 13:26:42,"Also, there needs entries added in the modules/reference.rst for the reference documentation.
+",nan,nan
+24,pull_request_commit_comment,1103,nilearn,nilearn,AlexandreAbraham,2016-06-08 13:32:02,"The mask seems very permissive, why .2? .5 seems more logical to me.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+25,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 13:35:34,"> The mask seems very permissive, why .2? .5 seems more logical to me.
+
+Let's make it an optional argument. Permissive masks are usual a good
+idea, however, so I think that .2 is a good default.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+26,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 13:37:04,"> so I think that .2 is a good default.
+
+For me too, for completeness I would post some pictures between those two values.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+11,issue_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 15:54:40,"So far grey matter output:
+![grey_comparison](https://cloud.githubusercontent.com/assets/11410385/15901018/e08fd9f4-2da1-11e6-8d12-467f0a234ded.png)
+
+@GaelVaroquaux Any quick advice how to complete holes ?
+
+Side: threshold=0.5 or 0.2 doesn't show any difference 
+",nan,nan
+8,issue_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-08 16:23:42,"I don't see the holes as been a problem. It would be interesting to check whether they are actually holes in 3D, or just seen as such on the cuts.
+",nan,nan
+12,issue_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 16:31:15,"I checked seen as cuts.
+",nan,nan
+27,pull_request_commit_comment,1103,nilearn,nilearn,AlexandreAbraham,2016-06-08 21:08:25,"I would add the name of the dataset in the function name.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+28,pull_request_commit_comment,1103,nilearn,nilearn,AlexandreAbraham,2016-06-08 21:10:38,"I understand why I found your mask thick. Why do you apply binary closing?
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(100, '', u'nilearn/datasets/struct.py')"
+29,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-08 21:18:39,"Just to cover missing areas, I suppose.
+
+![why_bin_close](https://cloud.githubusercontent.com/assets/11410385/15911258/50c899ae-2dcf-11e6-9bd3-c71ada731dcb.png)
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(100, '', u'nilearn/datasets/struct.py')"
+30,pull_request_commit_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-09 08:36:56,"@AlexandreAbraham does that sounds convincing or not ?
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(100, '', u'nilearn/datasets/struct.py')"
+31,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:25:39,"I think that I would prefer that file to be in alphabetic order.
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'doc/modules/reference.rst')"
+32,pull_request_commit_comment,1103,nilearn,nilearn,GaelVaroquaux,2016-06-09 12:26:34,"I would say here ""for the MNI152 T1 template"".
+",85afe85e43210797c894ac733bbbf02dceacb6da,"(None, '', u'nilearn/datasets/struct.py')"
+13,issue_comment,1103,nilearn,nilearn,KamalakerDadi,2016-06-09 13:19:51,"@GaelVaroquaux I addressed your comments. Thanks.
+
+Just a curious question: Do you think we need an example showing how to analyze this mask in their own data processing ? If Yes, how do I start ?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

@@ -1,0 +1,43 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,1324,nilearn,nilearn,GaelVaroquaux,2016-11-10 21:31:55,"> wtf
+
+What do you mean?
+",nan,nan
+9,issue_comment,1324,nilearn,nilearn,ncullen93,2016-11-10 21:45:04,"No offense.. it's just weird. No datasets seem to be working.. Working on it right now
+",nan,nan
+10,issue_comment,1324,nilearn,nilearn,ncullen93,2016-11-10 21:51:10,"I'm inclined to think it's the path to the files that has changed.. something w/  https://www.nitrc.org/frs/download.php/../archive.tgz 
+",nan,nan
+4,issue_comment,1324,nilearn,nilearn,GaelVaroquaux,2016-11-10 21:53:07,"> I'm inclined to think it's the path to the files that has changed.. something w / https://www.nitrc.org/frs/download.php/../archive.tgz
+
+The datasets/struct.py contains the URL. If you can change it and tell us
+what works, we'll fix it.
+",nan,nan
+7,issue_comment,1324,nilearn,nilearn,AlexandreAbraham,2016-11-14 10:56:21,"Superseded by #1327 
+",nan,nan
+5,issue_comment,1324,nilearn,nilearn,GaelVaroquaux,2016-11-14 12:39:27,"This should not be fixed.
+",nan,nan
+8,issue_comment,1324,nilearn,nilearn,AlexandreAbraham,2016-11-14 12:53:17,"Now that the download links are active again, you have to clear your `nilearn_data`directory (or at least the corrupted datasets) to force downloading of files.
+",nan,nan
+6,issue_comment,1324,nilearn,nilearn,GaelVaroquaux,2016-11-14 13:28:35,"> Now that the download links are active again, you have to clear your
+> nilearn_datadirectory (or at least the corrupted datasets) to force downloading
+> of files.
+
+Good point.
+
+It would probably be a good thing to trigger a new download when the data
+is corrupted.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1327,nilearn,nilearn,GaelVaroquaux,2016-11-14 12:39:15,"I think that I've fixed the problem. It was a configuration switch to flip in the NITRC set up (disable the external downloads).
+
+Everything should be working now. Could people check (I did a small check myself).
+",nan,nan
+3,issue_comment,1327,nilearn,nilearn,AlexandreAbraham,2016-11-14 12:51:56,"Fiou, I'm relieved :P.
+
+Small check passed for me. For people having problem: you can clear the nilearn_data directory (sorry for the inconvenience).
+",nan,nan
+5,issue_comment,1327,nilearn,nilearn,salma1601,2016-11-14 18:33:42,"`fetch_oasis_vbm` works OK for me now. Thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

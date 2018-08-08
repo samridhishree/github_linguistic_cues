@@ -1,0 +1,103 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,2,aio-libs,aioredis,asvetlov,2014-05-28 18:57:49,"Sounds good for me, but for you that means extra code and tests.
+Do you really want to implement the feature very soon?
+I guess to postpone one to the future.
+At least you can make translation of hiredis events into aioredis ones and do not implement pure python parser.
+",nan,nan
+3,issue_comment,2,aio-libs,aioredis,popravich,2015-03-05 09:04:35,"Won't do. hiredis is much faster. It would sound more reasonable to improve hiredis parser.
+",nan,nan
+4,issue_comment,2,aio-libs,aioredis,kernel0,2015-03-05 12:43:15,"because hiredis package does not support windows, windows user can't use aioredis. Is there workaround?
+",nan,nan
+5,issue_comment,2,aio-libs,aioredis,popravich,2015-03-05 14:16:48,"hmm...
+",nan,nan
+6,issue_comment,2,aio-libs,aioredis,popravich,2015-03-05 14:17:08,"ok. I'll consider this
+",nan,nan
+7,issue_comment,2,aio-libs,aioredis,kernel0,2015-03-05 15:57:18,"thank you! :+1: 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,3,aio-libs,aioredis,popravich,2014-05-29 08:37:33,"Any ideas / proposals?
+",nan,nan
+3,issue_comment,3,aio-libs,aioredis,popravich,2014-05-29 09:10:16,"here is two ideas:
+1.
+
+``` python
+# make a decorator that will register function as a redis command;
+# make a wrapper that will (in __getattr__ call) look into registry for command
+# handler and return that handler bound to connection
+# like this:
+def command(fun):
+    """"""extract name;
+       assert not in registry;
+       put (name, fun) pair into registry""""""
+
+class Wrapper:
+    def __init__(self, conn):
+        self.conn = conn
+    def __getattr__(self, name):
+        fun = registry[name]  # with KeyError to AttributeError translation ofcourse
+        return partial(fun, self.conn)
+```
+
+2.
+
+``` python
+# make a connection wrapper class that will provide all commands
+# (throught mixins)
+# without any dynamic lookups in registry ro elsewhere
+class Redis(_KeysCommandsMixin, _StringCommandsMixin,...):
+    def __init__(self, conn):
+        self.conn = conn
+# plus a factory to instantiate this wrapper.
+```
+",nan,nan
+4,issue_comment,3,aio-libs,aioredis,popravich,2014-05-29 12:22:04,"pros & cons:
+**1.**
+_pros_:
+    \* dynamic handlers registration
+    \* a way for registerring custom handlers
+_cons_:
+    \* very hard to debug
+
+**2.**
+_pros_:
+    \* simple and clean way for implementing commands
+    \* easy to debug calls
+_cons_:
+    \* no simple way for registering custom handlers/commands
+",nan,nan
+5,issue_comment,3,aio-libs,aioredis,popravich,2014-05-29 12:22:41,"+1 for option **2**
+",nan,nan
+6,issue_comment,3,aio-libs,aioredis,asvetlov,2014-05-29 12:27:33,"I vote on the second option too.
+
+On Thu, May 29, 2014 at 3:22 PM, Alexey Popravka notifications@github.com
+wrote:
+
+> +1 for option _2_
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/popravich/aioredis/issues/3#issuecomment-44525940.
+
+## 
+
+Thanks,
+Andrew Svetlov
+",nan,nan
+7,issue_comment,3,aio-libs,aioredis,popravich,2014-05-30 18:45:24,"ok.
+started implementing option 2.
+",nan,nan
+8,issue_comment,3,aio-libs,aioredis,asvetlov,2014-05-30 18:48:24,"Thanks
+",nan,nan
+9,issue_comment,3,aio-libs,aioredis,popravich,2014-06-03 08:29:05,"For implementation status see #22 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,6,aio-libs,aioredis,asvetlov,2014-05-28 16:59:40,"After some thinking I've come to sharing your opinion about explicit acquiring connection from pool. It's much safer and cleaner than implicit way.
+",nan,nan
+3,issue_comment,6,aio-libs,aioredis,popravich,2014-05-31 10:13:27,"started implementing `RedisPool` almost the same as `aiopg.Pool`
+",nan,nan
+4,issue_comment,6,aio-libs,aioredis,popravich,2014-06-13 21:23:19,"done
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

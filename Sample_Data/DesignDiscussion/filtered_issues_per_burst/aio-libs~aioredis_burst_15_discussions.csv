@@ -1,0 +1,30 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,112,aio-libs,aioredis,popravich,2016-03-09 14:42:01,"Hi, both solutions are fine, but I personally would prefer second one, ie:
+using keys prefixed with specific hash tags and sending FLUSHALL only when needed.
+",nan,nan
+3,issue_comment,112,aio-libs,aioredis,the-panda,2016-03-14 13:29:38,"I have now modified most of your tests so that they run successfully on a cluster. I changed keys to something like {key:delete}:1 whenever multiple keys are used on the same node. The remaining tests are skipped because the tested functionality is not meaningful on a cluster or has not yet been implemented by the cluster code.
+
+You can find my pull request to trezorg's fork here: https://github.com/trezorg/aioredis/pull/1
+
+To reduce the risk of merge conflicts while the cluster code is still in development I could create a pull request to your repository which would only include my changes to the *_commands_test.py files (and a bit in _testutils.py), but no actual cluster code. Do you think this is a good idea?
+
+Besides, I still think that it would be better to flush the database before each test. It would make the tests independent and would allow to remove many delete-commands at the beginning of various tests.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,118,aio-libs,aioredis,coveralls,2016-04-05 11:04:02,"[![Coverage Status](https://coveralls.io/builds/5666790/badge)](https://coveralls.io/builds/5666790)
+
+Coverage increased (+0.06%) to 92.456% when pulling **58e616d318cc1f6c5afdf2daeac55d0ee6a4a535 on ymap:shieldfix** into **6eecc0334490bfd835b65954c39dea30b903268e on aio-libs:master**.
+",nan,nan
+5,issue_comment,118,aio-libs,aioredis,popravich,2016-04-05 12:54:40,"Please add tests
+",nan,nan
+6,issue_comment,118,aio-libs,aioredis,the-panda,2016-04-05 14:00:59,"I added a basic test for wait_closed and one that fails without the fix above.
+",nan,nan
+7,issue_comment,118,aio-libs,aioredis,coveralls,2016-04-05 14:14:01,"[![Coverage Status](https://coveralls.io/builds/5668676/badge)](https://coveralls.io/builds/5668676)
+
+Coverage increased (+0.06%) to 92.456% when pulling **5d07b32409bd1a12f9a39c198d7305ad679def32 on ymap:shieldfix** into **6eecc0334490bfd835b65954c39dea30b903268e on aio-libs:master**.
+",nan,nan
+8,issue_comment,118,aio-libs,aioredis,popravich,2016-04-05 14:51:44,"Thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

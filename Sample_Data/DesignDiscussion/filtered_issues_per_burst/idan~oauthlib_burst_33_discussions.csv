@@ -1,0 +1,48 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,283,idan,oauthlib,ib-lundgren,2014-10-23 18:44:02,"I have tested this in py27, py34 and pypy (will do remaining tomorrow) for both oauthlib and flask-oauthlib, django-oauth-toolkit and requests-oauthlib. None of which the current master cause failing unittests.
+
+@lepture, @masci, @evonove, @widnyana please let me know if current master cause you any issues. If not Ill go ahead and push a new release in the weekend or early next week.
+",nan,nan
+3,issue_comment,283,idan,oauthlib,widnyana,2014-10-24 05:01:42,"@ib-lundgren I'm good, haven't found any problem yet. :)
+",nan,nan
+4,issue_comment,283,idan,oauthlib,lepture,2014-10-24 06:32:14,"@ib-lundgren I'm ok.
+",nan,nan
+5,issue_comment,283,idan,oauthlib,ib-lundgren,2014-10-24 09:15:19,"cc @singingwolfboy
+",nan,nan
+6,issue_comment,283,idan,oauthlib,masci,2014-10-24 12:01:17,"@ib-lundgren all tests pass
+",nan,nan
+7,issue_comment,283,idan,oauthlib,ib-lundgren,2014-10-27 14:05:01,"0.7.0 is now live.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,284,idan,oauthlib,ib-lundgren,2014-10-24 13:50:13,"The current implementation is working as intended but the documentation should be updated.
+
+As of next release...
+- On the provider side you, e.g. in `validator.save_bearer_token`, can use `token.scopes` to access this list of scope strings.
+- On the client side side you can first load the dict with json.loads and then use `oauthlib.oauth.OAuth2Token` to access the scope as a list. (This will happen automatically in extensions like requests-oauthlib). 
+
+```
+>>> from oauthlib.oauth2 import OAuth2Token
+>>> token = OAuth2Token(json.loads(request_body))
+['https://example.com/userProfile', 'https://example.com/pictures']
+```
+
+If you fancy updating the docs that'd be awesome :)
+",nan,nan
+3,issue_comment,284,idan,oauthlib,garcianavalon,2014-10-27 08:01:44,"Hey! 
+Thanks for your answer. I'll update de docs to show the current behavior ;)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,286,idan,oauthlib,ib-lundgren,2014-10-27 17:10:53,"This is what happens when I try to do a quick release when jet lagged. WIll look into it later today.
+",nan,nan
+3,issue_comment,286,idan,oauthlib,ib-lundgren,2014-10-27 17:11:05,"Thanks for reporting @thieman 
+",nan,nan
+4,issue_comment,286,idan,oauthlib,thieman,2014-10-27 17:11:38,"Quick fix appreciated, was happy to see it was already fixed when my build broke :smile:
+",nan,nan
+5,issue_comment,286,idan,oauthlib,thedrow,2014-11-02 10:05:54,"This issue should be closed.
+",nan,nan
+6,issue_comment,286,idan,oauthlib,thieman,2014-11-02 14:44:27,"Yup, looks like the tag has been fixed.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

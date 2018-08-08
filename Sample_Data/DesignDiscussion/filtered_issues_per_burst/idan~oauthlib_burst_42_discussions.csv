@@ -1,0 +1,9 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,404,idan,oauthlib,Bramas,2016-01-18 22:07:27,"I totally agree with this.
+",nan,nan
+3,issue_comment,404,idan,oauthlib,macrojames,2016-01-18 22:21:48,"I also read colons are allowed. I have issues with this at the moment, because some libs won't encode the redirect uris 
+",nan,nan
+4,issue_comment,404,idan,oauthlib,rhaining,2016-03-14 18:04:49,"@thedrow awesome! thanks so much for fixing this. 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

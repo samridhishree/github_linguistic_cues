@@ -1,0 +1,153 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,193,nilearn,nilearn,GaelVaroquaux,2014-05-15 19:58:03,"Yes: storing redundant information. You can have this information by doing .mask_img_.shape why duplicate it and risk having desynchronisation between the two information?
+",nan,nan
+7,issue_comment,193,nilearn,nilearn,eickenberg,2014-05-15 20:01:18,"I was going to try to make it point to the shape of  `nifti_masker.mask_img_` but didn't want to complicate things.
+
+It seems like a natural thing to want to do (exactly like len(cv) for cross_validation iterators in sklearn)
+",nan,nan
+5,issue_comment,193,nilearn,nilearn,GaelVaroquaux,2014-05-15 20:03:09,"> It seems like a natural thing to want to do
+
+I'd rather keep things simple.
+
+> (exactly like len(cv) for cross_validation iterators in sklearn)
+
+Well, these are iterators, thus we make them have an interface of
+sequence: the behave as sequences. A niftimasker doesn't behave as a
+mask, it embedded a mask.
+",nan,nan
+6,issue_comment,193,nilearn,nilearn,GaelVaroquaux,2014-05-19 13:06:40,"Closing this guy: we won't merge it. Sorry
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,187,nilearn,nilearn,bthirion,2014-04-16 21:43:34,"Silently imputing by 0's will probably create many issues: it should be required explictly by the user.
+Raising a warning is clearly necessary. 
+",nan,nan
+3,issue_comment,187,nilearn,nilearn,GaelVaroquaux,2014-04-17 09:01:56,"I think that the resampling could be made more clever to deal with NaNs
+automatically. It's a bit of work, but it's really worth it.
+",nan,nan
+4,issue_comment,187,nilearn,nilearn,GaelVaroquaux,2014-04-22 14:57:05,"Proposed solution: tackle the problem at the resampling level:
+
+If they are NaNs in the data, take a mask of these, do an imputation of the data in this mask (using our imputation method that works by growing the data from the edges of the mask), resample the imputed data. In the mean-while, resample the mask and use the resampled mask to insert NaNs in the output image. This last step would be optional, to keep the imputed values in the output image.
+
+Also, of course, we would spit a big nasty warning if there are NaNs, and the imputation option is not turned on.
+",nan,nan
+5,issue_comment,187,nilearn,nilearn,GaelVaroquaux,2014-05-19 13:07:02,"Fixed by #188
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-22 20:29:39,"Do you count `np.inf` as NaN? Or would you disambiguate between them? It all depends on definition/ convention
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(None, '', u'nilearn/image/resampling.py')"
+9,pull_request_commit_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-22 20:30:19,"> Do you count np.inf as NaN? Or would you disambiguate between them? It all
+> depends on definition/ convention
+
+I can indeed improve the warning message.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(None, '', u'nilearn/image/resampling.py')"
+10,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-22 20:44:43,"I assume this transforms as gracefully as possible? I looked in the scipy code until I found that `_nd_image.geometric_transform` is written in C if I am not mistaken. My question is whether binary values are handled well using this function. It seems to have worked well using the nifti_masker, at least in my experience it has always worked.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(79, '', u'nilearn/image/resampling.py')"
+11,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-22 20:45:46,"same question as above with respect to explicit mention of `Inf`
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(None, '', u'nilearn/image/resampling.py')"
+12,pull_request_commit_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-22 20:46:20,"> My question is whether binary values are handled well using this
+> function. It seems to have worked well using the nifti_masker, at least
+> in my experience it has always worked.
+
+That's why I use an interpolation order of 0: this setting handles
+discrete values well (and in particular binary values).
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(79, '', u'nilearn/image/resampling.py')"
+13,pull_request_commit_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-22 20:47:16,"> same question as above with respect to explicit mention of Inf
+
+I believe that I have addressed this (valid) concern. You should probably try
+reloading the page of the PR.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(None, '', u'nilearn/image/resampling.py')"
+14,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-22 20:53:37,"From what I understood, the proposal was to give an option whether to keep the NaNs or keep the imputed values. Here it seems that NaNs are set back always.
+
+Also, less importantly, previous `-np.inf` and `np.inf` will all end up being `np.nan` at the output of this function. Again, a question of convention
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(117, '', u'nilearn/image/resampling.py')"
+15,pull_request_commit_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-22 20:57:18,"> From what I understood, the proposal was to give an option whether to keep the
+> NaNs or keep the imputed values. Here it seems that NaNs are set back always.
+
+Indeed. I didn't feel confident to do this robustly, as it could require
+extrapolating arbitrarily far from the data, and I'd rather that such an
+operation be done by the user, as it is bound to be fragile.
+
+> Also, less importantly, previous -np.inf and np.inf will all end up being
+> np.nan at the output of this function. Again, a question of convention
+
+Yes, it would be significantly more work to try to keep them, so I gave
+up :). I think that right now we have a somewhat sensible behavior to
+non-finite values, and I think that we can stop here. At least now we
+won't be completely breaking pipelines when there are NaNs.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(117, '', u'nilearn/image/resampling.py')"
+16,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-22 21:00:08,"If `iterations` were a large value, this recursion would create a lot of copies of the mask, but I don't think this problem is relevant in the usecases of this function.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(11, '', u'nilearn/masking.py')"
+17,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-22 21:03:17,"Could you explain the reasoning behind `iterations=2`? Is 4 the most probable max side length of NaN clusters? It is true that a NaN cluster of 5x5x5 voxels within the data part of the image seems like an indicator that something else has gone wrong.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(69, '', u'nilearn/image/resampling.py')"
+18,pull_request_commit_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-22 21:05:57,"> Could you explain the reasoning behind iterations=2?
+
+I am not expecting resampling by more than a factor of 4 (going from 4mm
+voxels to 1mm voxels). But what this really boils down to is a trade-off
+between computing speed and quality in most common cases.
+
+It might be improvable by looking at the largest eigen value of the
+scaling part of the affine matrix :).
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(69, '', u'nilearn/image/resampling.py')"
+19,pull_request_commit_comment,188,nilearn,nilearn,eickenberg,2014-04-23 08:15:19,"OK, so your reasoning is with respect to maximal size that one voxel can take once rescaled and that rescaling won't probably exceed an upsampling of 4, which seems reasonable.
+
+I was more concerned about blocks of NaNs in the data that are larger than 4x4x4, even if there is no rescaling. But I don't know if this is something that can happen
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(69, '', u'nilearn/image/resampling.py')"
+20,pull_request_commit_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-23 08:17:34,"> OK, so your reasoning is with respect to maximal size that one voxel can take
+> once rescaled and that rescaling won't probably exceed an upsampling of 4,
+> which seems reasonable.
+
+Yes.
+
+> I was more concerned about blocks of NaNs in the data that are larger than
+> 4x4x4, even if there is no rescaling. But I don't know if this is something
+> that can happen
+
+This might happen, and it would be a problem if we actually tried to do
+inpainting of missing values in the NaNs, but we are not doing this. We
+need to extrapolate only to avoid border effects near the NaNs.
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(69, '', u'nilearn/image/resampling.py')"
+4,issue_comment,188,nilearn,nilearn,GaelVaroquaux,2014-04-26 11:15:13,"Is there any reason not to merge this PR?
+",nan,nan
+6,issue_comment,188,nilearn,nilearn,eickenberg,2014-04-27 19:48:12,"LGTM
+",nan,nan
+21,pull_request_commit_comment,188,nilearn,nilearn,VirgileFritsch,2014-04-28 12:29:41,"The code below seems to be the same as the code above. I think it would be better to make any volume a 4D volume (possibly with only one single element in the fourth, optional dimension). I think a `np.reshape` would do the trick, although there might exist some more clever and efficient alternatives.
+
+Another option would be to put the duplicated code in a function (e.g.`resample_one_volume`).
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(85, '', u'nilearn/image/resampling.py')"
+22,pull_request_commit_comment,188,nilearn,nilearn,VirgileFritsch,2014-04-28 12:31:06,"maybe ""they do NOT"" ;)
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(28, '', u'nilearn/image/tests/test_resampling.py')"
+23,pull_request_commit_comment,188,nilearn,nilearn,VirgileFritsch,2014-04-28 12:33:01,"Weird line return?
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(35, '', u'nilearn/image/tests/test_resampling.py')"
+24,pull_request_commit_comment,188,nilearn,nilearn,VirgileFritsch,2014-04-28 12:33:58,"Too many blank lines
+",c4dc4f94ed8170322212a130b8c198821d06aae3,"(71, '', u'nilearn/image/tests/test_resampling.py')"
+7,issue_comment,188,nilearn,nilearn,AlexandreAbraham,2014-05-01 20:44:44,"I agree with Virgile: we should do something to avoid code duplication. Apart from that, LGTM.
+",nan,nan
+5,issue_comment,188,nilearn,nilearn,GaelVaroquaux,2014-05-16 14:46:26,"I have taken in account the various comments and merged. Thanks all!
+
+Pff, this nan behavior was really getting in our way.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,189,nilearn,nilearn,bthirion,2014-05-16 14:58:20,"cannot be exchanged
+",800b25e0e564ac859f0debc86620b719ee807a1f,"(None, '', u'plot_haxby_mass_univariate.py')"
+8,pull_request_commit_comment,189,nilearn,nilearn,bthirion,2014-05-16 14:59:29,"leave an empty line before the loop
+",800b25e0e564ac859f0debc86620b719ee807a1f,"(None, '', u'plot_haxby_mass_univariate.py')"
+5,issue_comment,189,nilearn,nilearn,GaelVaroquaux,2014-05-20 15:35:11,"+1 to merge.
+
+However, the current state of this example is that it is too technical
+for anybody that is not an expert. I am afraid that there isn't much that
+we can do about, but it is certainly not something that we can show
+without risking freaking out newcomers to the Python neuroimaging world.
+",nan,nan
+6,issue_comment,189,nilearn,nilearn,GaelVaroquaux,2014-05-20 16:46:17,"> Maybe we need structuring the examples and create an ""advanced"" section?
+
+We'll have to do this, but later, because it means have subdirectories.
+Right now the examples are in the root folder, because when people
+download the package it runs out of the box without installation.
+
+When we close in on an alpha release (this summer?), we will do that.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

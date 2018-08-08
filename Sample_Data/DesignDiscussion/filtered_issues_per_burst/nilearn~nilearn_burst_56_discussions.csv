@@ -1,0 +1,450 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,591,nilearn,nilearn,AlexandreAbraham,2015-05-19 14:04:20,"> sudo pip install -U --user nilearn
+
+This is a pip related problem because root doesn't own the current directory. Doing `cd /tmp && sudo pip install -U --user nilearn` fixes the problem.
+
+> I re-ran with sudo with a -H flag and got the following output (again some warnings)...
+
+Obviously it works because `-H` changes your `$HOME` variable and thus pip ends up installing in root's home, which is owned by root. Note that updating pip should also fix the issue.
+
+> I wasn't sure how important the SSL warnings were? 
+
+Not important when it comes to downloading software.
+
+> Next, when I try to import nilearn in ipython, it isn't found....
+
+Seems like a configuration problem to me.
+Can you try:
+- `import nibabel`
+- `import sys; print sys.path`
+- `which pip` (in the terminal, not in ipython)
+",nan,nan
+4,issue_comment,591,nilearn,nilearn,jlhanson5,2015-05-19 17:42:56,"OK, I think I'm getting closer...
+
+I can import nibabel, but am still having trouble with nilearn (various output below). Further thoughts?
+
+```
+MNI-Space:nibabel-master jamielarshanson$ python
+Python 2.7.6 (default, Sep  9 2014, 15:04:36) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import nibabel
+>>> import sys; print sys.path
+['',
+ '/Library/Python/2.7/site-packages/pip-6.1.1-py2.7.egg',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC',
+ '/Library/Python/2.7/site-packages']
+>>> exit()
+```
+
+```
+MNI-Space:nibabel-master jamielarshanson$ which pip 
+/usr/local/bin/pip
+```
+
+```
+MNI-Space:nibabel-master jamielarshanson$ python 
+Python 2.7.6 (default, Sep  9 2014, 15:04:36) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import nilearn
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+ImportError: No module named nilearn
+```
+",nan,nan
+5,issue_comment,591,nilearn,nilearn,lesteve,2015-05-27 07:18:18,"Have you managed to get it working eventually?
+",nan,nan
+6,issue_comment,591,nilearn,nilearn,AlexandreAbraham,2015-06-01 07:26:30,"Closing as non reproducible and because we have no news. Please reopen if the problem is not solved.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,595,nilearn,nilearn,lesteve,2015-05-27 06:53:36,"Glad you find nilearn plotting useful and thanks for the PR.
+
+One way to do what you want with the existing code is something like:
+
+``` python
+
+display = plotting.plot_roi(roi_nii, annotate=False)
+display.title('roi_label', size=12, color='k', bgcolor='w', weight='bold', alpha=0.)
+display.annotate(size=12)
+```
+
+My take on it is that we are trying to fight against adding more complexity in the plotting code but ccing @GaelVaroquaux and @AlexandreAbraham for their opinions on the matter.
+
+The rationale is that plotting.plot_\* functions should cover the most basic use cases. If you need more tweaking it can be done via the 'display' objects that these functions return.
+",nan,nan
+5,issue_comment,595,nilearn,nilearn,AlexandreAbraham,2015-05-27 07:27:32,"I am in favor of using the existing system. This is the way matplotlib works and I'd like to keep the arguments of the plot functions to their strict minimum.
+",nan,nan
+6,issue_comment,595,nilearn,nilearn,grlee77,2015-05-27 13:03:44,"thanks @lesteve 
+That looks just as easy.  I should have looked more closely to see that the object was returned and you could just set it then as in matplotlib!  
+
+Perhaps, something along these lines could be added to one of the examples here:
+http://nilearn.github.io/building_blocks/plotting.html
+",nan,nan
+7,issue_comment,595,nilearn,nilearn,AlexandreAbraham,2015-05-27 13:08:31,":+1: 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,600,nilearn,nilearn,AlexandreAbraham,2015-06-04 09:37:41,":+1: 
+",nan,nan
+6,issue_comment,600,nilearn,nilearn,bthirion,2015-06-04 11:44:56,"Sounds good.
+",nan,nan
+7,issue_comment,600,nilearn,nilearn,lesteve,2015-06-04 12:10:09,"Merging this one then.
+",nan,nan
+8,issue_comment,600,nilearn,nilearn,GaelVaroquaux,2015-06-04 14:22:08,"Good job!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,597,nilearn,nilearn,lesteve,2015-06-01 12:30:19,"This is going to break a couple of examples and some of the rst doc needs to be updated.
+",nan,nan
+6,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-01 13:01:32,"Fixed!
+",nan,nan
+7,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 07:49:36,"@lesteve Is that OK now?
+",nan,nan
+8,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 07:49:59,"@salma1601 can you test this PR to see if your problems are solved?
+",nan,nan
+9,issue_comment,597,nilearn,nilearn,salma1601,2015-06-02 09:40:30,"Yes fetch_harvard_oxford finds the existant atlas file. Could you please update the docstring of this function for the output ?
+",nan,nan
+10,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-02 21:18:57,"Docstring updated.
+",nan,nan
+11,issue_comment,597,nilearn,nilearn,GaelVaroquaux,2015-06-03 04:49:07,"I would like this PR not to be merged before the middle of next week. The
+reason being that in the beginning of next week we are teaching a nilearn
+course. Just in case someone is using master in the course, this PR would
+break our course.
+
+In general, though, I am not opposed to the changes that this PR brings.
+",nan,nan
+12,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-03 11:29:06,"> I would like this PR not to be merged before the middle of next week
+
+I can take care of #481 this week end if you need.
+",nan,nan
+20,pull_request_commit_comment,597,nilearn,nilearn,banilo,2015-06-09 13:29:11,"alternatively ""to explore first.""
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')"
+21,pull_request_commit_comment,597,nilearn,nilearn,banilo,2015-06-09 13:34:57,"if you split into a list of individuals paths why do you use extend() instead of append()?
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')"
+22,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-09 13:40:03,"Fixed.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')"
+23,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-09 13:40:43,"I want `paths` to be a list of paths. If I use `append`, I will end up with a list of list of paths.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')"
+24,pull_request_commit_comment,597,nilearn,nilearn,banilo,2015-06-09 13:47:32,"OH, ok. I though d, here, already contains only single paths. But I was probably wrong.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')"
+13,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-12 07:54:07,"@GaelVaroquaux is that OK for merging now?
+",nan,nan
+14,issue_comment,597,nilearn,nilearn,bthirion,2015-06-12 20:45:44,"LGTM.
+",nan,nan
+25,pull_request_commit_comment,597,nilearn,nilearn,lesteve,2015-06-17 09:19:45,"pre_dirs is not a great name if you ask me. No great suggestion though !
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')"
+26,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-17 10:49:13,"Yeah, I feel the same about it :-/
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')"
+27,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-17 11:09:07,"In the doc, we say that single path are handled in parameter or in environment variables. Behind the scenes, we also handle several paths separated by colons.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(64, '', u'nilearn/datasets.py')"
+15,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-18 08:04:27,"I had the idea of mixing this PR with #610. Instead of changing the output of `fetch_harvard_oxford` (which is a bunch now), I created a function with the new wording, `fetch_atlas_harvard_oxford` and kept the old one with a deperecation warning so that the user scripts won't be impacted.
+
+@lesteve, this one is ready to merge! 
+",nan,nan
+28,pull_request_commit_comment,597,nilearn,nilearn,lesteve,2015-06-18 10:54:46,"maybe dirs_to_search_first, or paths_to_explore_first, priority_searched_paths, any combination of these, or something even better ...
+
+By the way default mutable argument is not recommended.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')"
+29,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-18 11:08:01,"Fixed.
+
+On Thu, Jun 18, 2015 at 12:54 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/datasets.py
+> https://github.com/nilearn/nilearn/pull/597#discussion_r32718362:
+> 
+> > @@ -176,7 +176,7 @@ def _chunk_read_(response, local_file, chunk_size=8192, report_hook=None,
+> >      return
+> > 
+> > -def _get_dataset_dir(dataset_name, data_dir=None, env_vars=[],
+> > +def _get_dataset_dir(dataset_name, data_dir=None, pre_dirs=[],
+> 
+> maybe dirs_to_search_first, or paths_to_explore_first,
+> priority_searched_paths, any combination of these, or something even better
+> ...
+> 
+> By the way default mutable argument is not recommended.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/597/files#r32718362.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(None, '', u'nilearn/datasets.py')"
+30,pull_request_commit_comment,597,nilearn,nilearn,lesteve,2015-06-18 11:30:47,"Can you amend doc/manipulating_visualizing/manipulating_images.rst which has the same description (or a very similar one)?
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(41, '', u'nilearn/datasets.py')"
+16,issue_comment,597,nilearn,nilearn,lesteve,2015-06-18 11:32:10,"Failing tests, pre_dirs hasn't been renamed everywhere.
+",nan,nan
+31,pull_request_commit_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-18 11:41:51,"Done.
+
+On Thu, Jun 18, 2015 at 1:30 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/datasets.py
+> https://github.com/nilearn/nilearn/pull/597#discussion_r32720516:
+> 
+> > @@ -204,39 +206,43 @@ def _get_dataset_dir(dataset_name, data_dir=None, env_vars=[],
+> >      -----
+> >      This function retrieves the datasets directory (or data directory) using
+> >      the following priority :
+> > -    1. the keyword argument data_dir
+> > -    2. the global environment variable NILEARN_SHARED_DATA
+> > -    3. the user environment variable NILEARN_DATA
+> > -    4. nilearn_data in the user home folder
+> > -    1. defaults system paths
+> > -    2. the keyword argument data_dir
+> > -    3. the global environment variable NILEARN_SHARED_DATA
+> > -    4. the user environment variable NILEARN_DATA
+> > -    5. nilearn_data in the user home folder
+> 
+> Can you amend doc/manipulating_visualizing/manipulating_images.rst which
+> has the same description (or a very similar one)?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/597/files#r32720516.
+",0948d6b1441c8712e60ee5275396cfed80342e1e,"(41, '', u'nilearn/datasets.py')"
+17,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-18 11:42:32,"I've seen that. That's why I push my changes, to get return from travis ;).
+
+On Thu, Jun 18, 2015 at 1:32 PM, Loïc Estève notifications@github.com
+wrote:
+
+> Failing tests, pre_dirs hasn't been renamed everywhere.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/597#issuecomment-113120974.
+",nan,nan
+18,issue_comment,597,nilearn,nilearn,AlexandreAbraham,2015-06-18 13:50:47,"@lesteve We can hit the big green button now ;)
+",nan,nan
+19,issue_comment,597,nilearn,nilearn,lesteve,2015-06-18 14:11:40,"Good stuff merging.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,599,nilearn,nilearn,lesteve,2015-06-03 07:18:33,"Can you provide an example reproducing the problem? It's not entirely obvious to me what the problem is by just looking at the plots. In particular in the plot_stat_map case, it does look like the threshold=9 is applied.
+
+I checked whether `reorder_img` was getting rid of the mask when the input image in in LPS orientation but this doesn't seem to be the case.
+
+``` python
+
+import numpy as np
+import nibabel as nib
+
+from nilearn import image, plotting
+
+data = np.random.randn(20, 20, 20)
+data = np.ma.masked_less(data, 0.)
+
+# This should be LPS hopefully
+affine = np.array([[-3., 0., 0., 1.],
+                   [0., -3., 0., -2.],
+                   [0., 0., 3., 3.],
+                   [0., 0., 0., 1.]])
+img = nib.Nifti1Image(data, affine)
+
+reordered_img = image.reorder_img(img)
+
+print('Consistent mask:',
+      np.sum(data.mask) == np.sum(reordered_img.get_data().mask))
+
+# The plotting seems fine too AFAICS
+plotting.plot_stat_map(img, threshold=0.5)
+
+```
+",nan,nan
+4,issue_comment,599,nilearn,nilearn,mwaskom,2015-06-03 13:33:52,"> Can you provide an example reproducing the problem? It's not entirely obvious to me what the problem is by just looking at the plots.
+
+Do you mean the images themselves? Sure I can do that when I get to school. 
+
+> In particular in the plot_stat_map case, it does look like the threshold=9 is applied.
+
+Why do you say that? I would have expected much of the overlay would be transparent (z = 9 is a high threshold) and that we would see the gray colormapped mean epi image in those spots.
+
+> I checked whether reorder_img was getting rid of the mask when the input image in in LPS orientation but this doesn't seem to be the case.
+
+What happens when you make an affine with rotations?
+",nan,nan
+5,issue_comment,599,nilearn,nilearn,lesteve,2015-06-03 16:19:45,"> What happens when you make an affine with rotations?
+
+Good point, I can reproduce the problem, the reordered_img lose the mask for some reason which needs to be elucidated:
+
+``` python
+import numpy as np
+import nibabel as nib
+
+from nilearn import image, plotting
+
+data = np.random.randn(20, 20, 20)
+data = np.ma.masked_less(data, 0.)
+
+# matrix with rotation
+affine = np.array([[-3., 1., 0., 1.],
+                   [-1., -3., 0., -2.],
+                   [0., 0., 3., 3.],
+                   [0., 0., 0., 1.]])
+img = nib.Nifti1Image(data, affine)
+
+reordered_img = image.reorder_img(img, resample='continuous')
+print('img data type:', type(img.get_data()))  # numpy.ma.core.MaskedArray
+print('reordered_img data type:', type(reordered_img.get_data()))  # numpy.ndarray
+```
+
+This seems more related to affine with rotations rather than LPS vs RAS by the way.
+",nan,nan
+6,issue_comment,599,nilearn,nilearn,GaelVaroquaux,2015-06-03 16:21:39,"> This seems more related to affine with rotations rather than LPS vs RAS by the
+> way.
+
+It's going to be the resampling.
+
+One thing that we could do would be to move this reordering before we
+apply the threshold. The other option is to resample the mask, but that's
+going to be ugly (resampling discrete info is not something that I like).
+",nan,nan
+7,issue_comment,599,nilearn,nilearn,lesteve,2015-06-03 16:35:45,"> One thing that we could do would be to move this reordering before we apply the threshold
+
+From a quick look at the code, it does look like it is feasible.
+",nan,nan
+8,issue_comment,599,nilearn,nilearn,mwaskom,2015-06-03 16:36:54,"> One thing that we could do would be to move this reordering before we
+> apply the threshold.
+
+That sounds like the right order of operations to me, although I am (much) less familiar with the codebase.
+",nan,nan
+9,issue_comment,599,nilearn,nilearn,GaelVaroquaux,2015-06-03 16:39:23,"> That sounds like the right order of operations to me,
+
+Quite clearly. This was an oversight.
+
+G
+",nan,nan
+10,issue_comment,599,nilearn,nilearn,AlexandreAbraham,2015-06-04 08:32:55,"What if the user gives us data that is already masked?
+",nan,nan
+11,issue_comment,599,nilearn,nilearn,GaelVaroquaux,2015-06-04 14:23:23,"> What if the user gives us data that is already masked?
+
+That means trouble! How about a little note saying that in this case (ie
+non affine with rotation) we don't support user masks.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,pull_request_commit_comment,598,nilearn,nilearn,banilo,2015-06-02 14:25:46,"nice :)
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/resampling.py')"
+9,pull_request_commit_comment,598,nilearn,nilearn,lesteve,2015-06-02 14:29:30,"I didn't write this part, look at git blame for full credits.
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/resampling.py')"
+10,pull_request_commit_comment,598,nilearn,nilearn,banilo,2015-06-02 14:32:30,"I am probably missing something, but why only _almost_? Shouldn't only the affine have changed? Rounding?
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/tests/test_resampling.py')"
+11,pull_request_commit_comment,598,nilearn,nilearn,lesteve,2015-06-02 14:37:16,"You are probably right, I'll fix that.
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/tests/test_resampling.py')"
+12,pull_request_commit_comment,598,nilearn,nilearn,AlexandreAbraham,2015-06-02 22:38:25,"Well, blaming is the word here. It is far less readable than `[:, :, :]` and highly inefficient. There is an iterator to iterate on non-first dimensions, it is `np.nested_iters`. However this is not the fastest solution, transposing the axes is even faster. It has to be noted that, for that particular purpose, a `nditer` may be the faster solution because it would iter on both arrays at the same time.
+
+Here is a small bench to convince you.
+
+``` python
+import numpy as np
+import time
+
+
+a = np.random.random((20, 30, 40, 5, 6))
+
+t0 = time.time()
+for i in range(100):
+    all_img = (slice(None), ) * 3
+    other_shape = a.shape[3:]
+    for ind in np.ndindex(*other_shape):
+        a[all_img + ind].shape
+print time.time() - t0
+
+t0 = time.time()
+for i in range(100):
+    it0, it1 = np.nested_iters(a, [range(3, a.ndim), [0, 1, 2]], flags=['multi_index'])
+    for x in it0:
+        it1.itviews[0].shape
+print time.time() - t0
+
+t0 = time.time()
+for i in range(100):
+    other_shape = a.shape[3:]
+    b = np.transpose(a, range(3, a.ndim) + [0, 1, 2])
+    b = np.reshape(b, (-1,) + a.shape[:3])
+    for x in b:
+        x
+print time.time() - t0
+```
+
+Output:
+
+```
+0.00588703155518
+0.00144195556641
+0.000957012176514
+```
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/resampling.py')"
+5,issue_comment,598,nilearn,nilearn,AlexandreAbraham,2015-06-02 23:48:56,"I agree that the inconsistency in the behavior of the function is a bug. However, casting to float, in my opinion, is the way to go if resample_img is called with `interpolation=""continuous""`. Because continuous interpolation implies that the values are continuous. For the record, we already do that in `smooth_img`.
+
+So I am :-1: for the behavior proposed here.
+",nan,nan
+6,issue_comment,598,nilearn,nilearn,banilo,2015-06-08 08:43:46,"> I agree that the inconsistency in the behavior of the function is a bug. However, casting to float, in my opinion, is the way to go if resample_img is called with interpolation=""continuous"".
+
+Sounds good.
+",nan,nan
+13,pull_request_commit_comment,598,nilearn,nilearn,banilo,2015-06-09 13:25:03,"Not sure what you mean here by ""separable"" :(
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(37, '', u'nilearn/image/resampling.py')"
+14,pull_request_commit_comment,598,nilearn,nilearn,AlexandreAbraham,2015-06-12 09:37:58,"It means that you can do the interpolation on the 3d slices. You don't need the whole 4d image to do it.
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(37, '', u'nilearn/image/resampling.py')"
+7,issue_comment,598,nilearn,nilearn,lesteve,2015-08-21 14:41:56,"I resuscitated this one. Comments welcome!
+",nan,nan
+15,pull_request_commit_comment,598,nilearn,nilearn,AlexandreAbraham,2015-08-22 21:07:03,"That's cool!
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(29, '', u'nilearn/image/resampling.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,495,nilearn,nilearn,GaelVaroquaux,2015-03-12 09:42:35,"Care should be taken addressing this issue: this is nibabel jargon that will not mean anything to 99% of users.  We should not let this make our docs harder to understand or scare users. 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Mar 12, 2015, 09:52, at 09:52, Alexandre Abraham notifications@github.com wrote:
+
+> Related to #478. Must be done after #483.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/issues/495
+",nan,nan
+4,issue_comment,495,nilearn,nilearn,AlexandreAbraham,2015-03-12 10:29:51,"I think that we should say to the users that we accept any format read by nibabel. The, in a (wiki) developper page, precise that any type derived from SpatialImage is accepted. We could also enlarge that to any type compatible with spatialimage (get_data, get_affine, get_header, to_filename...).
+",nan,nan
+5,issue_comment,495,nilearn,nilearn,GaelVaroquaux,2015-03-12 12:09:03,"> I think that we should say to the users that we accept any format read by
+> nibabel.
+
+Just say 'formats read by nibabel' without 'any'. That way it is vague.
+In a footnote be more precise.
+",nan,nan
+6,issue_comment,495,nilearn,nilearn,AlexandreAbraham,2015-06-01 08:51:27,"Since we don't really know if we accept all formats, I suggest that we stick to Nifti1Image for the moment. See #579 for further developments.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,363,nilearn,nilearn,lesteve,2015-01-22 08:06:15,"Reducing the warnings noise is a worthwhile goal. I am wondering how painful this would be to get rid of the numpy/scipy warnings across all the supported versions.
+",nan,nan
+5,issue_comment,363,nilearn,nilearn,AlexandreAbraham,2015-01-22 08:55:55,"I thing we should the pertinent ones. For example, `numpy boolean negative (the unary - operator) is deprecated`. Fixing all of them is a lost battle. Some of these warnings are normal and should be kept.
+
+I think the one about the memory should be fixed. For example, if you run a NiftiMasker with default parameters, you will get a warning. This annoys me a lot.
+",nan,nan
+3,issue_comment,363,nilearn,nilearn,GaelVaroquaux,2015-01-22 15:42:15,"> I think the one about the memory should be fixed. For example, if you run a
+> NiftiMasker with default parameters, you will get a warning. This annoys me a
+> lot.
+
+Agree. We should not raise a warning with default settings.
+",nan,nan
+7,issue_comment,363,nilearn,nilearn,bcipolli,2015-01-29 03:29:11,"Debugging Python 3.x errors and warnings is challenging, as they mix with these existing warnings.  After completing the output PR, I will work on resolving these next.
+
+Note that some of the warnings are expected, and the tests simply need to be changed to catch and check the warnings (which seems like the right thing anyway!).
+",nan,nan
+6,issue_comment,363,nilearn,nilearn,AlexandreAbraham,2015-06-01 13:06:25,"Closing as partially fixed. Thanks @bcipolli for spotting warnings that were hiding errors.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

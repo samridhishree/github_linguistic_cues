@@ -1,0 +1,151 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,314,pycqa,astroid,ceridwen,2016-02-11 17:22:30,"I would use ""Parameter"" as the name for the new node rather than ""Param.""  I don't like shortening names into non-words unless it's necessary, and I don't think it is here.  For instance, inspect/funcsigs calls their parameter object ""Parameter.""
+
+For the implementation of Empty, I was planning to have `__bool__` return False, like None is treated as False.  This will save a lot of refactoring work changing boolean checks to type checks and preserve backwards compatibility for the plugins.  Empty should be a singleton object: there's no reason to consume additional memory or time by creating a new object every time we need an Empty node, since all of them are identical anyways.  I'd call the underlying type `_Empty` or  `_EmptyType` or `EmptyType` (by analogy with NoneType) and then instantiate the object once in node_classes.py.
+",nan,nan
+5,issue_comment,314,pycqa,astroid,PCManticore,2016-02-11 17:26:17,"Thanks, these make sense! I'll update the PR.
+",nan,nan
+9,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 17:28:58,"Since we're now going to have two objects named Parameter (the astroid node and the inspect/funcsigs.Parameter), I'd rewrite this to say something like, ""Generates an iterator of Parameter nodes from an iterator of inspect/funcsigs.Parameter objects.""
+",6d2529632bae545ff7564501cac14316d5ea9204,"(None, '', u'astroid/raw_building.py')"
+10,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 17:29:30,"This docstring should also be expanded similarly.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(None, '', u'astroid/raw_building.py')"
+11,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 19:26:52,"This will hopefully be irrelevant soon, but I don't understand this comment, so you should probably expand it.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(None, '', u'astroid/raw_building.py')"
+6,issue_comment,314,pycqa,astroid,ceridwen,2016-02-11 19:45:56,"I think that our handling of positional-only and keyword-only arguments ought to be consistent: there should be another field in Arguments nodes to hold positional-only arguments like `kwonlyargs`, or keyword-only arguments should be flagged in the Parameter nodes like the positional-only arguments are.  Doing one with a flag in Parameters and the other with a field in Arguments is going to lead to confusion later, even though Python handles these parameters differently (positional-only parameters are only possible in C, keyword-only arguments are available in pure Python).
+",nan,nan
+12,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-11 19:57:43,"This is a quibble but this could probably be a subclass of `ast.NodeVisitor`.  In the future, I'd like to reorganize the rebuilder to make it so that the main visitor contains only methods corresponding to the standard library AST's nodes, and move all other nodes to independent functions or something else here.  We might also consider if using the `ast.NodeVisitor` is appropriate for the main visitor: it might offer better forward compatibility when the CPython developers change something in the standard library AST.  On the other hand, it wouldn't work with turning the visitor methods into generators, which I proposed to prevent it from overflowing the call stack and which might also speed it up.  If we're going to end up moving to another parser like 2to3 or Dropbox's altered version of the CPython parser, all this is moot, though.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(12, '', u'astroid/tree/rebuilder.py')"
+7,issue_comment,314,pycqa,astroid,PCManticore,2016-02-13 14:28:27,"Thanks for the review. Here's the updated version. I dropped the positional_only attribute from the Parameter node and went with separate lists of arguments, but I also included a new attribute in the Arguments node, positional_and_keyword, which holds both positional only and positional_or_keyword arguments. That's because when processing the arguments we're interested in both, while trying to separate their processing from kwonlyargs, so whenever .args.args was used, it got replaced with positional_and_keyword list. Decided not to subclass ParameterVisitor from ast.NodeVisitor, it's not a big deal for now and we're planning to change it anyway.
+",nan,nan
+13,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-13 18:09:51,"This comment could be expanded to clarify what this code is doing.  (I'm not clear on its purpose.)
+",6d2529632bae545ff7564501cac14316d5ea9204,"(14, '', u'astroid/test_utils.py')"
+14,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-13 18:11:09,"Why is this test only run on 3.4?  Shouldn't it at least run on 3.5 as well?
+",6d2529632bae545ff7564501cac14316d5ea9204,"(60, '', u'astroid/tests/unittest_python3.py')"
+15,pull_request_commit_comment,314,pycqa,astroid,PCManticore,2016-02-13 18:12:23,"That's the minimum.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(60, '', u'astroid/tests/unittest_python3.py')"
+16,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-13 18:13:36,"This should be a read-only property to avoid the possibility of these attributes getting unsynchronized from one another.  If we ever make the nodes immutable, that would also fix the problem.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(105, '', u'astroid/tree/node_classes.py')"
+17,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-13 18:15:12,"Ah, my mistake.  That works then.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(60, '', u'astroid/tests/unittest_python3.py')"
+8,issue_comment,314,pycqa,astroid,ceridwen,2016-02-13 18:15:42,"I added a few final comments, otherwise looks good to me.
+",nan,nan
+18,pull_request_commit_comment,314,pycqa,astroid,PCManticore,2016-02-13 18:18:06,"I'm not keen on making this a property for now. It's used in a lot of places in astroid and I don't want to append these lists all the time I'm using positional_and_keyword. The exposed problem (arguments getting unsynchronized) shouldn't happen, since the nodes should be immutable, at least recommending to do so (if someone wants to add a new argument, it should create a new Arguments node instead).
+",6d2529632bae545ff7564501cac14316d5ea9204,"(105, '', u'astroid/tree/node_classes.py')"
+19,pull_request_commit_comment,314,pycqa,astroid,ceridwen,2016-02-13 20:06:20,"I'm fully onboard with making nodes immutable, I just wasn't sure if that was your plan.  If we do make nodes immutable, though, I'd like to add programmatic safety to ensure they're immutable, replacing mutable structures like lists with tuples, for instance, and documentation.  None of this is urgent, so leaving this as-is is fine as long as we're planning to push for immutability in 2.0.
+
+On February 13, 2016 1:18:07 PM EST, Claudiu Popa notifications@github.com wrote:
+
+> > ## \-        self.kwonly_annotations = []
+> > -    def postinit(self, args, defaults, kwonlyargs, kw_defaults,
+> > -                 annotations, kwonly_annotations,
+> >   varargannotation=None,
+> > -                 kwargannotation=None):
+> > -        self.args = args
+> > -        self.defaults = defaults
+> > -        self.kwonlyargs = kwonlyargs
+> > -        self.kw_defaults = kw_defaults
+> > -        self.annotations = annotations
+> > -        self.varargannotation = varargannotation
+> > -        self.kwargannotation = kwargannotation
+> > -        self.kwonly_annotations = kwonly_annotations
+> > -        self.keyword_only = keyword_only
+> > -        self.positional_only = positional_only
+> > -        self.positional_and_keyword = self.args +
+> >   self.positional_only
+> 
+> I'm not keen on making this a property for now. It's used in a lot of
+> places in astroid and I don't want to append these lists all the time
+> I'm using positional_and_keyword. The exposed problem (arguments
+> getting unsynchronized) shouldn't happen, since the nodes should be
+> immutable, at least recommending to do so (if someone wants to add a
+> new argument, it should create a new Arguments node instead).
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/PyCQA/astroid/pull/314/files#r52831455
+
+## 
+
+Sent from my Android device with K-9 Mail. Please excuse my brevity.
+",6d2529632bae545ff7564501cac14316d5ea9204,"(105, '', u'astroid/tree/node_classes.py')"
+20,pull_request_commit_comment,314,pycqa,astroid,PCManticore,2016-02-13 23:25:28,"That's the plan. :-)
+",6d2529632bae545ff7564501cac14316d5ea9204,"(105, '', u'astroid/tree/node_classes.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,316,pycqa,astroid,ceridwen,2016-02-10 18:06:01,"logilab.common was removed as a dependency for astroid, or should have been, as of the last release.  Where are you still seeing it? 
+
+On February 10, 2016 12:57:57 PM EST, dbaum notifications@github.com wrote:
+
+> I know this isn't common because sys.path usually contains paths to the
+> standard libraries, etc.  But we are using a meta importer for standard
+> libraries so it is possible that sys.path is [].  This leads to
+> exceptions in a couple places because of statements like:
+> 
+> _path = (path is None and sys.path or path)
+> 
+> The intention is that if path is None we use sys.path, otherwise we use
+> path.  But if sys.path is [] and path is None, then _path will be None.
+> Then:
+> 
+> for __path in __path:
+> 
+> will throw an exception since you cannot iterate None.
+> 
+> This appears to occur in both astroid/modutils.py and
+> logilab/common/modutils.py.  This can be fixed by changing the _path
+> assignment to:
+> 
+> _path = sys.path if path is None else path
+> 
+> However, I'm not sure if handling sys.path==[] is even a reasonable
+> requirement.  If you think it is reasonable, then I'll fix astroid and
+> start a pull request.  How should I update logilab/common?  I didn't
+> see a project for it in PyCQA and I'm not quite sure where it comes
+> from.
+> 
+> On the other hand, nobody really cares about sys.path == [], then I can
+> change the way we launch pylint so that sys.path is always non-empty
+> (perhaps just appending a non-existent path).
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/PyCQA/astroid/issues/316
+
+## 
+
+Sent from my Android device with K-9 Mail. Please excuse my brevity.
+",nan,nan
+3,issue_comment,316,pycqa,astroid,PCManticore,2016-02-10 18:07:19,"Hmm, interesting. A potential fix would be to let pylint and astroid to use a specific list of paths that can be used instead of sys.path. Alternatively, you could use --init-hook for pylint in order to append something to the path before running the actual analysis. If you need custom support in modutils.py though, I'm not against it, just send a PR (I'll have more time soon for reviewing, so don't worry about my late non-responsiveness)
+",nan,nan
+4,issue_comment,316,pycqa,astroid,dbaum,2016-02-10 18:15:54,"We're a bit behind on pylint, which is why I was still seeing logilab.  Usually my debugging consists of hacking on our internal version until I isolate the problem, then looking at current pylint/astroid code to see if the problem is still present in code.  When possible I also try to reproduce with a clean and recent pylint.  However, in this case there really isn't a good way for me to fake out what the rest of our infrastructure is doing, so I could only demonstrate the problem with our old release.  Anyway, it sounds like logilab isn't a problem.
+
+We already do a lot of sys.path manipulation prior to invoking pylint, so it's easy for me to append something without any additional hooks.  I'm fine with calling this a non-problem and closing the bug.  I just figured it was worth documenting this in an issue just in case someone else runs into the same problem.  But if you feel astroid should handle sys.path==[] gracefully, then I can create a pull request (though testing might be a lot of trouble).
+",nan,nan
+5,issue_comment,316,pycqa,astroid,PCManticore,2016-02-10 23:57:54,"If --init-hook fixes your problem, then I think we could close this issue. The behavior can be documented if you're up to that.
+",nan,nan
+6,issue_comment,316,pycqa,astroid,dbaum,2016-02-11 02:54:04,"Yep, go ahead and close the issue.  What did you have in mind for documentation.  The issue itself might be fine - if someone searches for sys.path they'll find it.  Or we can add some comments in code, though I'm not quite sure where would be best.
+",nan,nan
+7,issue_comment,316,pycqa,astroid,PCManticore,2016-02-11 10:08:21,"Let's leave it like this then, if someone else encounters the same problem, it can just find this issue.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,318,pycqa,astroid,ceridwen,2016-02-13 18:27:40,"This looks good to me.  I tested it against rope, one of my own scripts, and snakefood, and none of them crash, so I think you resolved the problems.  I'd like to clean up the tox.ini with respect to coverage and MANIFEST.in, based on some things I learned from that horrible experience with Python's packaging tools, but I can do that after the merge.
+",nan,nan
+5,issue_comment,318,pycqa,astroid,PCManticore,2016-02-13 18:33:32,"Done! 
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,215,pycqa,astroid,pylint-bot,2015-11-03 16:07:37,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+This seems like a good idea to me and it makes sense to ease a little bit the interaction with the arguments. When we first talked about this, I suggested to emulate the ast module API, but it seems weird now that I see your full proposal. The change we're talking now is going to be pretty heavy on rewrites, since you'll have to change how inference works for arguments, how CallSite works and do similar modifications in pylint, which might be simple enough after having the code though. So +1 on the first version.
+",nan,nan
+3,issue_comment,215,pycqa,astroid,PCManticore,2016-01-24 22:42:05,"@ceridwen mind if I take this? 
+",nan,nan
+4,issue_comment,215,pycqa,astroid,ceridwen,2016-01-25 00:00:21,"Go ahead.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

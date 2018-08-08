@@ -1,0 +1,781 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,763,nilearn,nilearn,dohmatob,2015-08-21 08:57:31,"I think it's YAGNI, and we'll bring us more trouble than the anticipated good it might do for users. Let them expand their paths themselves. Also, `nilearn.plotting` is not supposed to be a unix shell environment ;)
+",nan,nan
+5,issue_comment,763,nilearn,nilearn,GaelVaroquaux,2015-10-13 18:49:00,"To sum up the work to be done:
+- Have check_niimg optionally use glob (and sort if using glob) (with the default being true)
+- Have a constant at the level of `nilearn.__init__` to control this behavior
+- Have a very clear error message if a glob returns an empty list, that explains what is going on, and assumes that the user might have made a glob by mistake (thus points out the above constant).
+",nan,nan
+6,issue_comment,763,nilearn,nilearn,AlexandreAbraham,2015-10-13 20:03:41,"Maybe this behavior should be restricted to `check_niimg_4d`?
+",nan,nan
+7,issue_comment,763,nilearn,nilearn,GaelVaroquaux,2015-10-13 20:07:15,"> Maybe this behavior should be restricted to check_niimg_4d?
+
+Well, if we want to expand '~' we can do it in check_niimg. But for the
+rest, I agree.
+",nan,nan
+8,issue_comment,763,nilearn,nilearn,banilo,2015-10-13 20:37:00,"I agree with Gael that glob-integration could increase comfort of nilearn users. After all, we do glob.glob before loading anyways.
+",nan,nan
+3,issue_comment,763,nilearn,nilearn,aabadie,2015-10-15 14:29:40,"> To sum up the work to be done:
+> - Have check_niimg optionally use glob (and sort if using glob) (with the default being true)
+> - Have a constant at the level of nilearn.init to control this behavior
+> - Have a very clear error message if a glob returns an empty list, that explains what is going on, and > assumes that the user might have made a glob by mistake (thus points out the above constant).
+
+@GaelVaroquaux, I pushed 419019a that should address this feature. A test is missing though.
+",nan,nan
+9,issue_comment,763,nilearn,nilearn,KamalakerDadi,2015-10-15 19:59:51,"@aabadie  It would be nice if you do PR tagged as **[WIP]** and ping somebody if you need help.
+",nan,nan
+10,issue_comment,763,nilearn,nilearn,lesteve,2015-10-15 20:09:12,"> @aabadie It would be nice if you do PR tagged as [WIP] and ping somebody if you need help.
+
+:+1: in general commenting on commits is not a really good idea, because comments tend to be completely lost if there is a rebase. It is a lot better to start a PR so that the discussion happens all in one place.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,746,nilearn,nilearn,lesteve,2015-08-03 12:49:41,"I _think_ this is because fetch_haxby can return multiple subjects data. 
+
+For n_subjects=1 (which is the default), we could potentially transform single-element list into its element. What do you think @AlexandreAbraham?
+",nan,nan
+4,issue_comment,746,nilearn,nilearn,AlexandreAbraham,2015-08-03 17:09:48,"> would be good to be consistent and return as lists as well from haxby_dataset_simple
+
+Agreed.
+
+> I think this is because fetch_haxby can return multiple subjects data. 
+
+Yes, `fetch_haxby_simple` does not return lists for historical reasons. We should return lists everytime.
+",nan,nan
+5,issue_comment,746,nilearn,nilearn,lesteve,2015-08-03 17:39:17,"> Yes, fetch_haxby_simple does not return lists for historical reasons. We should return lists everytime.
+
+Fine with me.
+",nan,nan
+6,issue_comment,746,nilearn,nilearn,lesteve,2015-08-04 06:36:13,"@KamalakerDadi are you up for this one?
+",nan,nan
+7,issue_comment,746,nilearn,nilearn,KamalakerDadi,2015-08-04 07:19:33,"Yes. I will.
+",nan,nan
+8,issue_comment,746,nilearn,nilearn,AlexandreAbraham,2015-08-04 08:21:00,"Since it's fast and it modifies one of the most used dataset, please put it at the top of your todo list.
+",nan,nan
+9,issue_comment,746,nilearn,nilearn,KamalakerDadi,2015-08-04 08:41:39,"I am afraid that I have insertions and editions in another branch `AutoExtractor`. I will soon commit and push these and shift to haxby.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,706,nilearn,nilearn,MartinPerez,2015-07-17 16:13:07,"Im on it
+",nan,nan
+3,issue_comment,706,nilearn,nilearn,MartinPerez,2015-08-08 17:04:45,"@GaelVaroquaux By ""a drop-in replacement for other atlases"" do you mean something in addition to the implementation of the fetch_atlas function and documentation 
+",nan,nan
+4,issue_comment,706,nilearn,nilearn,AlexandreAbraham,2015-08-25 10:49:29,"Fixed by #758.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-09 20:10:01,"added test
+",nan,nan
+33,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:20:17,"It does not download file names ;). Can you just put `Downloads and returns the AAL template for SPM 12.`
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+34,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:22:46,"The title is missing.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+35,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:27:46,"So, apparently, the ICBM template is in `datasets.struct` and not here. So, should this one be here or struct? I believe it belongs here.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+36,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:29:43,"According to nilearn semantics, this one should be called `labels` and the XML file `labels` too. I think we have a problem ;).
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+37,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:30:26,"Before going further on this point: is there actually a difference between AAL in SPM8 and in SPM12?
+",490c0bba540405d888e9592b2bb07e0614642953,"(70, '', u'nilearn/datasets/atlas.py')"
+38,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:31:41,"My gut feeling about that is that a name is rarely too specific. So `aal_spm_12` would maybe be the best option. If we want to add another atlas computed with the AAL methods later, we won't have collisions.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+39,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:32:07,"You don't need newlines here.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+40,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:32:30,"Well, you totally got the `_fetch_files` logic ;).
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+41,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:34:08,"Putting here the explicit names would maybe be clearer. Also, we should load the XML file for the user. Most of them won't be able to do it.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+42,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-11 01:00:11,"I guess we could say labels and labels_description/labels_ids then?
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+43,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-11 01:01:21,"my bad, its this:
+Automated Anatomical Labeling of Activations in SPM Using a Macroscopic Anatomical Parcellation of the MNI MRI Single-Subject Brain.
+
+I will add it
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+44,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-11 01:02:05,"yes they are quite different, i downloaded all the versions to test, spm12 is the first to have only a nii file and xml file, all the previous ones have a crazy amount of files, i think they have one file per label. If you mean if the labels are different, I dont really know....
+",490c0bba540405d888e9592b2bb07e0614642953,"(70, '', u'nilearn/datasets/atlas.py')"
+45,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-11 01:02:36,"I agree with you
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+46,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-11 01:03:12,"what do you mean by loading the XML, putting it in a dictionary?
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+47,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-11 12:17:20,"We can change the name but in that case, we have to change `harvard_oxford` too to be homogeneous. No good naming comes to my mind we I can summon our naming specialist @banilo ;).
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+48,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-11 12:17:50,"Let's stick with the last version.
+",490c0bba540405d888e9592b2bb07e0614642953,"(70, '', u'nilearn/datasets/atlas.py')"
+49,pull_request_commit_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-11 12:18:41,"I mean actually loading the content of the XML file and provide a dictionnary associating the label id with the region name.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+6,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-17 11:40:32,"@AlexandreAbraham I fixed all the comments, and about the naming I finally changed anat for maps, which i think follow the convention behind the other atlases.
+",nan,nan
+7,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-17 11:41:45,"I realized that when it comes to what to return there is no standard across atlases, some return directly a nibable.Niftiimage while others return the file name, with respect to labels, some just return a list while I am returning a dictionary... Should this be reported as an issue?
+",nan,nan
+8,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-17 11:53:55,"> about the naming I finally changed anat for maps
+
+This is misleading: your atlas cannot be trated by NiftiMapsMasker, it should be fed to NiftiLabelsMasker.
+
+> some return directly a nibable.Niftiimage while others return the file name
+
+When a Nifti1Image is returned, it is probably that some processing of the atlas was required. However, this doesn't matter as both are niimgs and can be processed by all nilearn functions.
+
+> some just return a list while I am returning a dictionary
+
+Well, a list can be seen as an ""int to string"" dictionary :P. I think that we should return dictionaries everywhere.
+
+> Should this be reported as an issue?
+
+Yes! We definitely need to harmonize the naming conventions and return types. However, I have no time to do it. Let's merge your PR and then solve the problem of the naming.
+",nan,nan
+9,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-17 14:49:57,"sorry i didnt understand the first comment, so what should I name it finally?
+",nan,nan
+10,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-17 22:02:45,"I don't know.
+",nan,nan
+11,issue_comment,758,nilearn,nilearn,bthirion,2015-08-18 20:30:23,"Regarding the naming: maybe label_masks or multi_mask ?
+",nan,nan
+50,pull_request_commit_comment,758,nilearn,nilearn,bthirion,2015-08-18 22:00:02,"Maybe more simply: import xml.etree.ElementTree
+as this is used only once.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+12,issue_comment,758,nilearn,nilearn,bthirion,2015-08-18 22:00:34,"No other comment atm.
+",nan,nan
+13,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-19 09:31:59,"I changed the import and the name to multi_mask then
+",nan,nan
+14,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-19 10:39:39,"For me, it's even worse. People will try to stick it into the MultiNiftiMasker and wonder why it doesn't work.
+",nan,nan
+15,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-19 10:42:28,"@AlexandreAbraham  What if we use then something like ""regions"" and clarify in the documentation what people are supposed to do with the file?
+
+All these problems with the naming, seem to me like something coming from problems in conventions in the rest of the framework, I think this should be opened as another issue and will likely lead to renaming the output of other atlases.
+",nan,nan
+16,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-19 10:48:43,"Yes, any naming like ""atlas"", ""regions"" or even ""label_masks"" is fine with me. I just don't want it to collide with other maskers name. We'll change it afterward when we'll agree on the right vocabulary.
+",nan,nan
+17,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-19 11:16:47,"Ok the name is 'regions' now
+",nan,nan
+18,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:10:13,"You have failing tests.
+",nan,nan
+19,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:19:57,"Seems like your failing test is related to the test, which is normal because ot tries to load an empty XML file. Take a look at the harvard oxford fetch function: we create a dummy XML file to avoid this kind of crash.
+",nan,nan
+20,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 09:00:13,"thank you for the tip @AlexandreAbraham, I think I fixed the test now following your advice.
+",nan,nan
+21,issue_comment,758,nilearn,nilearn,lesteve,2015-08-20 11:31:39,"It's getting there but you still have an error for Python 2.6 due to the fact that the `.iter` method is new in python 2.7. It looks like `.getiterator` although deprecated works for all the python versions we care about.
+",nan,nan
+22,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 13:13:46,"@lesteve thanks for the advice. The checks seem to be fine finally.
+",nan,nan
+51,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:24:24,"Why not put that on a single line?
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+52,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:24:54,"It looks like you are only using `keys` once so I would remove the `keys` definition above and do:
+
+``` python
+params = {'descr': fdescr, 'regions': atlas_img, 'labels': labels_dict}
+```
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/atlas.py')"
+53,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:28:10,"you can use a context manager here:
+
+``` python
+with open(os.path.join(ho_dir, 'AAL.xml'), 'w') as xml_file:
+    xml_file.write(...)
+```
+
+and the file will be closed at the exit of the block.
+",490c0bba540405d888e9592b2bb07e0614642953,"(None, '', u'nilearn/datasets/tests/test_atlas.py')"
+54,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:29:34,"Would it make sense to add a description of the dataset in nilearn/datasets/description? All you need to do is add aal_spm_12.rst there I think.
+",490c0bba540405d888e9592b2bb07e0614642953,"(88, '', u'nilearn/datasets/atlas.py')"
+23,issue_comment,758,nilearn,nilearn,lesteve,2015-08-20 13:31:47,"Do we want to have fetch_atlas_aal_spm_12 exposed in `nilearn/datasets/__init__.py`?
+",nan,nan
+55,pull_request_commit_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 13:34:20,"Adding the atlas is @GaelVaroquaux  idea so im not sure what extra documentation is useful or desirable. I will add it if you want.
+",490c0bba540405d888e9592b2bb07e0614642953,"(88, '', u'nilearn/datasets/atlas.py')"
+24,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 14:58:07,"@lesteve I made the changes you pointed out, except for the description and exposing the function in `__init__`. I await your confirmation on what to do about that.
+",nan,nan
+25,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 15:06:56,"Yes we want a description if possible (not mandatory, you can skip it or make it short), and yes it should be exposed like the others :).
+",nan,nan
+26,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 15:26:36,"ok exposed it and added the description file, but im not sure is snough to add aal_spm_12.rst to descriptions folder?
+",nan,nan
+27,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 15:29:49,"Yes it is. This line `fdescr = _get_dataset_descr(dataset_name)` does all the magic of loading it for you ;).
+",nan,nan
+28,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-20 15:32:38,"but what is the convention? yeo for example should be yeo_2011.rst but instead it is just yeo.rst ... well happy its done then :)
+",nan,nan
+29,issue_comment,758,nilearn,nilearn,AlexandreAbraham,2015-08-20 15:33:52,"> but what is the convention? yeo for example should be yeo_2011.rst but instead it is just yeo.rst ... well happy its done then :)
+
+Seems like an error to me...
+",nan,nan
+30,issue_comment,758,nilearn,nilearn,lesteve,2015-08-21 06:46:51,"> Seems like an error to me...
+
+Good catch, I just fixed it in master.
+",nan,nan
+56,pull_request_commit_comment,758,nilearn,nilearn,lesteve,2015-08-21 06:55:19,"About exposing fetch_atlas_aal_spm12, you want to add fetch_atlas_aal_smp12 in the import from .atlas a few lines above so that you can do:
+
+``` python
+
+from nilearn import datasets
+datasets.fetch_atlas_aal_smp12()
+```
+
+For the record `__all___` is used when doing `from nilearn.datasets import *`.
+",490c0bba540405d888e9592b2bb07e0614642953,"(15, '', u'nilearn/datasets/__init__.py')"
+31,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-21 08:14:43,"I see, thanks @lesteve , done!
+",nan,nan
+32,issue_comment,758,nilearn,nilearn,MartinPerez,2015-08-21 12:03:27,"Nice :). thank you.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,700,nilearn,nilearn,AlexandreAbraham,2015-08-05 07:24:54,"Linked to #736. By using ulimit, we can reduce the memory available and maybe trigger the segfault faster.
+",nan,nan
+4,issue_comment,700,nilearn,nilearn,lesteve,2015-08-05 08:07:41,"> Linked to #736. By using ulimit, we can reduce the memory available and maybe trigger the segfault faster.
+
+Not entirely sure this is true. The segmentation fault is due to an int32 array index wrapping over IIRC.
+",nan,nan
+5,issue_comment,700,nilearn,nilearn,AlexandreAbraham,2015-08-05 08:16:09,"OK, my bad!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+11,pull_request_commit_comment,702,nilearn,nilearn,GaelVaroquaux,2015-07-17 14:04:23,"You need to be a bit more explicit about what this does:
+- This creates a masker object if it does not exist
+- Propagates the parameters (list them explicitly) to this masker.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+12,pull_request_commit_comment,702,nilearn,nilearn,GaelVaroquaux,2015-07-17 14:05:49,"You should always inherit from object.
+
+Also, please use a slightly more explicit name, like ""TestClass"".
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+13,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-17 14:13:47,"Why do you pop it?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+9,issue_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-17 14:14:43,"Good job in un-spaghettying stuff.
+",nan,nan
+14,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 14:32:56,"Also this is not a base class but a function ...
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+15,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 14:38:13,"I guess MockMasker or MaskerMock might be the name you want to use.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+16,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 14:39:51,"Should you check in the code that `isinstance(instance, BaseEstimator)` ?
+
+Also you could call it estimator rather than instance.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+17,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 14:47:56,"You probably want to check identity here i.e. `masker.mask_img is mask`
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+18,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 14:48:39,"You probably want to check strict type equality rather than inheritance: `type(masker) == MultiNiftiMasker`
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+19,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 14:49:11,"same comment about checking the type rather than isinstance
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+20,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-17 14:56:56,"Since this function will be used internally, I don't think that checking it is necessary.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+21,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-17 14:59:06,"Do you really need to zip that ? You can just reorder the variables. It will make things clearer too.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+10,issue_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-17 14:59:52,"Once comments are addressed, :+1:
+",nan,nan
+22,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 15:16:31,"Comment half-lying: masker_type is not necessarily a MultiNiftiMasker
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+23,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 15:20:34,"Copying is a bit misleading, given that it takes a reference ...
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+24,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-17 15:21:02,"Again masker_type is not necessarily MultiNiftiMasker
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+25,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-07-20 11:48:44,"In case instance has both mask and mask_img parameters. I will remove it so that it raises ArgumentError in this case
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+26,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-20 12:10:10,"I don't get your comment
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+27,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-20 12:15:05,"What happens in the MultiPCA is the opposite : we override user's parameter with our defaults values. Or maybe I misunderstood something.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+28,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-07-20 12:28:10,"This is true. However, doing the opposite is difficult to do in a clean way as we would need to check if user has explicitly provided non default argument.
+
+The bottom line is that I don't think that it makes any sense to allow the user to create a masker and override its parameters in an estimator class.
+
+This warning is especially useful to warn the user that he provided a masker that diverges from default masker embedded within an estimator class (providing 'detrend' = False in MultiPCA for instance)
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+29,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-23 15:06:27,"@GaelVaroquaux This remark is the only barrier between my finger and the big green button. Your thoughts on this?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+30,pull_request_commit_comment,702,nilearn,nilearn,GaelVaroquaux,2015-07-23 15:09:39,"Arthur and you can come in my office right now to discuss it, please?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+31,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-23 15:24:44,"I can't right now because I left early to do the groceries.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+32,pull_request_commit_comment,702,nilearn,nilearn,GaelVaroquaux,2015-07-23 15:25:42,"> I can't right now because I left early to do the groceries.
+
+Tomorrow, coffee break?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+33,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-07-23 18:41:14,"Sorry i missed your mail, tomorrow coffee break?
+On 23 Jul 2015 17:25, ""Gael Varoquaux"" notifications@github.com wrote:
+
+> In nilearn/input_data/masker_validation.py
+> https://github.com/nilearn/nilearn/pull/702#discussion_r35333806:
+> 
+> > -    if isinstance(mask, (NiftiMasker, MultiNiftiMasker)):
+> > -        # Creating (Multi)NiftiMasker from mask
+> > -        params = get_params(masker_type, mask)
+> > -        if multi and hasattr(estimator, 'n_jobs'):
+> > -            params['n_jobs'] = estimator.n_jobs
+> > -        masker = masker_type(memory=estimator.memory,
+> > -                             memory_level=estimator.memory_level,
+> > -                             verbose=estimator.verbose,
+> > -                             **params
+> > -                             )
+> > -        # Raising warning if providing user has provided a masker
+> > -        for param_key in masker.get_params():
+> > -            if param_key in parameters and getattr(masker, param_key)\
+> > -                    != parameters[param_key]:
+> > -                warnings.warn(""Provided mask overrides""
+> > -                              "" default/provided parameter %s"" % param_key)
+> 
+>  I can't right now because I left early to do the groceries.
+> Tomorrow, coffee break?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/702/files#r35333806.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+34,pull_request_commit_comment,702,nilearn,nilearn,AlexandreAbraham,2015-07-23 20:24:07,"Tomorrow, :coffee: break.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+35,pull_request_commit_comment,702,nilearn,nilearn,banilo,2015-07-24 04:22:08,"turn `multi` into `multi_subject`or `multi_block` to be more explicit? ;) 
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+36,pull_request_commit_comment,702,nilearn,nilearn,banilo,2015-07-24 04:28:05,"Isn't it a bit confusing to have a `parameters`and `params` variable in the same namespace?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+37,pull_request_commit_comment,702,nilearn,nilearn,banilo,2015-07-24 04:30:20,"Good point.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+38,pull_request_commit_comment,702,nilearn,nilearn,banilo,2015-07-24 04:31:40,"Isn't nose.\* more basic than sklearn.*? Move up?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+39,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 12:53:21,"Not sure this is good practice to rely on `__init__.py` for these imports. I would rather import from their real home, i.e. `.multi_nifti_masker` and `.nifti_masker`.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+40,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 12:55:15,"This doesn't follow PEP 258 or whatever number the docstring PEP is. In particular you should have a short description on one line, then a newline and then a longer description.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+41,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 12:57:41,"It seems like the usual thing is to use `-------` for docstrings, although I agree this is not completely consistent within nilearn. Reference for numpy documentation conventions: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+42,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 12:58:00,"Not consistent with parameter name. Same thing for `multi` a few lines below.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+43,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:01:52,"typo: overriding
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+44,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:05:05,"You can get away from using backslashes in a lot of cases in Python:
+
+``` python
+conflict_string += (""Parameter {0:s} :\n""
+                    ""    Masker parameter {1:s}""
+                    ""..."").format(...)
+```
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+45,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:05:26,"Similar comment about backslashes.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+46,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:06:59,"Dictionaries are iterated by key by default in python, so you don't need the `.keys()`.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+47,pull_request_commit_comment,702,nilearn,nilearn,GaelVaroquaux,2015-07-27 13:09:48,"> Dictionaries are iterated by key by default in python, so you don't need the
+> .keys().
+
+But we should use 'sorted(params)', to avoir having non reproducible
+displays / tests (order is not reproducible in the dicts).
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+48,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:11:09,"Still picking on poor old backslashes ... you can do:
+
+``` python
+
+for mask, multi_subject in (
+    (MultiNiftiMasker(), True), (NiftiMasker(), False)):
+    ...
+```
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+49,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:11:23,"assert_equal gives sligthly nicer error messages.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+50,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:11:44,"same comment about assert_equal 
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+51,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:20:27,"I don't think you are supposed to end the line with a comma but I may be wrong about that.
+
+Interestingly, looks like the numpy doc is encouraging to put optional in the type but the default value in the parameter description rather than the type, see https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#sections. I don't think that's something which we applied very broadly in nilearn though.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+52,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:35:07,"Looks like you have some error with python 2.6 related to these lines but I would have thought that you don't need the `str` here since {0:s} in the template string is going to do it for you. Why am I wrong?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+53,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:37:05,"You may want to group nilearn imports together, after the sklearn would make sense.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+54,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:41:35,"`type(masker) is MultiNiftiMasker`
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+55,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:41:49,"For consistency use `type(masker) is type(mask)`
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+56,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-27 13:41:56,"Again check for identity rather than equality: `masker.mask_img is mask.mask_img_`
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/tests/test_masker_validation.py')"
+57,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-07-31 13:31:48,"Python 2.6 don't automatically convert non string type to string when using this pattern. From 2.7 you can use `r` instead of `s`, which avoid this problem
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+58,pull_request_commit_comment,702,nilearn,nilearn,GaelVaroquaux,2015-07-31 13:51:41,"> Python 2.6 don't automatically convert non string type to string when using
+> this pattern. From 2.7 you can use r instead of s, which avoid this problem
+
+I am OK with dropping Python 2.6 compat. We just need to update travis
+accordingly.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+59,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-31 14:11:28,"> I am OK with dropping Python 2.6 compat
+
+Wow, now that's a surprise albeit a good one ;-).
+
+@arthurmensch about the original technical issue, I tried to reproduce the problem in Python 2.6 and I couldn't:
+
+```
+Python 2.6.9 |Continuum Analytics, Inc.| (unknown, Aug 21 2014, 18:28:52) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux2
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> '{0:s}'.format({'a': 1, 'b': 2})
+""{'a': 1, 'b': 2}""
+>>> '{0:s}'.format(object())
+'<object object at 0x7f075bd31090>'
+```
+
+Do you have a particular example of an object for which this fails?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+60,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-07-31 15:31:11,"People, please look at your diff before or even after pushing ...
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'.idea/dictionaries/arthur.xml')"
+61,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-07-31 15:43:44,"Sorry about that !
+On 31 Jul 2015 17:31, ""Loïc Estève"" notifications@github.com wrote:
+
+> In .idea/dictionaries/arthur.xml
+> https://github.com/nilearn/nilearn/pull/702#discussion_r35984580:
+> 
+> > @@ -0,0 +1,3 @@
+> > +<component name=""ProjectDictionaryState"">
+> 
+> People, please look at your diff before or even after pushing ...
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/702/files#r35984580.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'.idea/dictionaries/arthur.xml')"
+62,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-07-31 15:45:09,"It fails on some nilearn objects that do not have a **repr** field I
+believe.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+63,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-08-03 13:14:15,"Hmm, anything more specific? I tried removing the `str(...)` and the tests are still passing with python 2.6.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+64,pull_request_commit_comment,702,nilearn,nilearn,banilo,2015-08-04 18:16:25,"out of interest: why do we need `sorted` here?
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(58, '', u'nilearn/input_data/masker_validation.py')"
+65,pull_request_commit_comment,702,nilearn,nilearn,banilo,2015-08-04 18:17:51,"nice, very elegant!
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(72, '', u'nilearn/input_data/masker_validation.py')"
+66,pull_request_commit_comment,702,nilearn,nilearn,lesteve,2015-08-04 21:58:28,"To ensure the reproducibility of the error message in Python 3, since dictionaries order is arbritrary. Try to run `python -c ""print({'a': 1, 'b': 2})""` a few times with Python 3.
+
+Also even with Python 2 it just makes for a nicer error message if keys are sorted alphabetically.
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(58, '', u'nilearn/input_data/masker_validation.py')"
+67,pull_request_commit_comment,702,nilearn,nilearn,arthurmensch,2015-08-17 09:32:07,"I removed `str()`, let's see what Travis is saying
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+68,pull_request_commit_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:42:44,"This indentation is non-standard
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+69,pull_request_commit_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:44:00,"------- (7 \* '-')
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+70,pull_request_commit_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:45:18,"MultiNiftiMasker or NiftiMasker
+",5fbbde46c6815b39c917b8f40486f1e28e349a16,"(None, '', u'nilearn/input_data/masker_validation.py')"
+5,issue_comment,702,nilearn,nilearn,bthirion,2015-08-18 21:55:32,"Besides syntactic trifle, looks good.
+",nan,nan
+6,issue_comment,702,nilearn,nilearn,arthurmensch,2015-08-19 07:07:03,"Should I add some kind of developer note in the documentation ?
+",nan,nan
+7,issue_comment,702,nilearn,nilearn,lesteve,2015-08-20 09:24:26,"> Should I add some kind of developer note in the documentation ?
+
+I reckon the docstring is probably good enough.
+",nan,nan
+8,issue_comment,702,nilearn,nilearn,lesteve,2015-08-20 11:40:43,"Merging, thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,750,nilearn,nilearn,KamalakerDadi,2015-08-04 13:21:36,"Issue #746 . Addressing inconsistencies giving a list of haxby datasets
+",nan,nan
+6,issue_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:36:51,"Unfortunately you have a merge conflict with Alex's last commit, you need to rebase.
+",nan,nan
+14,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:40:33,"in a single list is not important enough to feature in the short explanation (first line of the docstring). Also it is slightly inaccurate.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+15,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:42:28,"list of string rather than string list.
+
+About adding the hyphen in front of each line, have you checked how it renders in the html API reference documentation? Personally I wouldn't bother doing that in this PR. In case there is a neat improvement in term of html rendering, you would need to do that consistently for all the fetch_\* functions.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+16,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:43:42,"I don't think you need brackets around `fdescr` but I may be wrong.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+17,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-04 13:46:08,"Slightly inaccurate since you return a Bunch object and not a list. Say something about list being used because the dataset is single-subject.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+18,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-04 14:18:55,"No need for `fdescr` nor `mask` which are common to all subjects.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+19,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-04 14:19:11,":+1: 
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+20,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-04 14:19:18,":+1: 
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+21,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 08:14:15,"`mask` should not be a list.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+22,pull_request_commit_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 08:14:28,"`mask` should not be a list.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'nilearn/datasets/func.py')"
+7,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 12:49:56,"CircleCI blew up because of memory problem. This is weird since you rebased on master. @lesteve any thoughts on this one?
+",nan,nan
+23,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-05 13:00:26,"You probably want to use .func[0] here. I am actually surprised that you didn't have to modify .func -> .func[0] in any of the examples.
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'examples/decoding/plot_haxby_anova_svm.py')"
+8,issue_comment,750,nilearn,nilearn,lesteve,2015-08-05 13:01:08,"> CircleCI blew up because of memory problem. This is weird since you rebased on master. @lesteve any thoughts on this one?
+
+That's weird indeed but I don't have any good suggestions as to why this is happening.
+",nan,nan
+24,pull_request_commit_comment,750,nilearn,nilearn,KamalakerDadi,2015-08-05 13:04:16,"I checked before. It worked not using `.func[0]`. But, still I can change to be consistent with list. Should I ?
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'examples/decoding/plot_haxby_anova_svm.py')"
+25,pull_request_commit_comment,750,nilearn,nilearn,lesteve,2015-08-05 13:23:55,"haxby.func is a list of 4d nifti filenames, It doesn't seem like a good idea to use that directly and I am actually surprised you don't get an error somewhere...
+",9bbc16cc9f033aae159fd577b76b239b0a24ad93,"(None, '', u'examples/decoding/plot_haxby_anova_svm.py')"
+9,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-05 19:58:40,"All green, :+1: to merge. @lesteve?
+",nan,nan
+10,issue_comment,750,nilearn,nilearn,lesteve,2015-08-05 21:49:26,"some .func haven't been replaced by .func[0] I think (for example in some print statements). Please double-check @KamalakerDadi.
+",nan,nan
+11,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-17 12:08:41,"Seems good to go now. @lesteve?
+",nan,nan
+12,issue_comment,750,nilearn,nilearn,lesteve,2015-08-17 12:41:20,"Seems good enough. I'll probably tweak one of the comments post-merge.
+",nan,nan
+13,issue_comment,750,nilearn,nilearn,AlexandreAbraham,2015-08-17 13:02:07,"Cool, thx.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,764,nilearn,nilearn,MartinPerez,2015-08-21 12:48:55,"Originally I wrote fetch_atlas_aal. But I was told to make it more specific,  I guees if a new aal spm version is included, it would be as a separate atlas function. Actually the file structure is so different between versions that it might be better to just have them in separate fetch functions.
+",nan,nan
+6,issue_comment,764,nilearn,nilearn,MartinPerez,2015-08-21 13:13:03,"ahhh, i really understood you wanted me to change everything, actually i was passing a version parameter at the beginning, I would completely agree with that, If you want I can implement the change, its a second... 
+
+Then the parameter would be used also to create the dataset folder with the version attached, nonetheless I think it would be misleading for a user to have the parameter in the function exposed when at the moment there is no download of other versions, so maybe we would also need to point out in the docs that other versions are not downloadable yet?
+",nan,nan
+3,issue_comment,764,nilearn,nilearn,AlexandreAbraham,2015-10-21 15:47:17,"Ping @GaelVaroquaux 
+",nan,nan
+4,issue_comment,764,nilearn,nilearn,GaelVaroquaux,2015-10-21 15:49:49,"> Ping @GaelVaroquaux
+
+.... @GaelVaroquaux is alive.
+
+More seriously: fetch_atlas_aal is good. People don't even realize that
+there is an SPM version of the AAL.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,pull_request_commit_comment,598,nilearn,nilearn,banilo,2015-06-02 14:25:46,"nice :)
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/resampling.py')"
+9,pull_request_commit_comment,598,nilearn,nilearn,lesteve,2015-06-02 14:29:30,"I didn't write this part, look at git blame for full credits.
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/resampling.py')"
+10,pull_request_commit_comment,598,nilearn,nilearn,banilo,2015-06-02 14:32:30,"I am probably missing something, but why only _almost_? Shouldn't only the affine have changed? Rounding?
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/tests/test_resampling.py')"
+11,pull_request_commit_comment,598,nilearn,nilearn,lesteve,2015-06-02 14:37:16,"You are probably right, I'll fix that.
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/tests/test_resampling.py')"
+12,pull_request_commit_comment,598,nilearn,nilearn,AlexandreAbraham,2015-06-02 22:38:25,"Well, blaming is the word here. It is far less readable than `[:, :, :]` and highly inefficient. There is an iterator to iterate on non-first dimensions, it is `np.nested_iters`. However this is not the fastest solution, transposing the axes is even faster. It has to be noted that, for that particular purpose, a `nditer` may be the faster solution because it would iter on both arrays at the same time.
+
+Here is a small bench to convince you.
+
+``` python
+import numpy as np
+import time
+
+
+a = np.random.random((20, 30, 40, 5, 6))
+
+t0 = time.time()
+for i in range(100):
+    all_img = (slice(None), ) * 3
+    other_shape = a.shape[3:]
+    for ind in np.ndindex(*other_shape):
+        a[all_img + ind].shape
+print time.time() - t0
+
+t0 = time.time()
+for i in range(100):
+    it0, it1 = np.nested_iters(a, [range(3, a.ndim), [0, 1, 2]], flags=['multi_index'])
+    for x in it0:
+        it1.itviews[0].shape
+print time.time() - t0
+
+t0 = time.time()
+for i in range(100):
+    other_shape = a.shape[3:]
+    b = np.transpose(a, range(3, a.ndim) + [0, 1, 2])
+    b = np.reshape(b, (-1,) + a.shape[:3])
+    for x in b:
+        x
+print time.time() - t0
+```
+
+Output:
+
+```
+0.00588703155518
+0.00144195556641
+0.000957012176514
+```
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(None, '', u'nilearn/image/resampling.py')"
+5,issue_comment,598,nilearn,nilearn,AlexandreAbraham,2015-06-02 23:48:56,"I agree that the inconsistency in the behavior of the function is a bug. However, casting to float, in my opinion, is the way to go if resample_img is called with `interpolation=""continuous""`. Because continuous interpolation implies that the values are continuous. For the record, we already do that in `smooth_img`.
+
+So I am :-1: for the behavior proposed here.
+",nan,nan
+6,issue_comment,598,nilearn,nilearn,banilo,2015-06-08 08:43:46,"> I agree that the inconsistency in the behavior of the function is a bug. However, casting to float, in my opinion, is the way to go if resample_img is called with interpolation=""continuous"".
+
+Sounds good.
+",nan,nan
+13,pull_request_commit_comment,598,nilearn,nilearn,banilo,2015-06-09 13:25:03,"Not sure what you mean here by ""separable"" :(
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(37, '', u'nilearn/image/resampling.py')"
+14,pull_request_commit_comment,598,nilearn,nilearn,AlexandreAbraham,2015-06-12 09:37:58,"It means that you can do the interpolation on the 3d slices. You don't need the whole 4d image to do it.
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(37, '', u'nilearn/image/resampling.py')"
+7,issue_comment,598,nilearn,nilearn,lesteve,2015-08-21 14:41:56,"I resuscitated this one. Comments welcome!
+",nan,nan
+15,pull_request_commit_comment,598,nilearn,nilearn,AlexandreAbraham,2015-08-22 21:07:03,"That's cool!
+",17cd0e1955982ac227a0a1f03aacfb4971590b61,"(29, '', u'nilearn/image/resampling.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+12,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-07-31 10:43:52,"Side-comment, this _repr_niimgs[:200] is all over the place and I have seen it too often now, not  to be annoyed by it. Why not have _repr_niimg which takes an argument like shorten=True ...
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+13,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-07-31 10:44:56,"Or even have _repr_niimgs always returns something more compact if imgs is a list of string (I seem to remember that's the case for which _repr_niimgs returns something which can be very long)
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+14,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-07-31 12:33:58,"I agree with you on the fact that this is annoying. I think that we should add a shorten=True by default. We could show the long version if verbose is higher than 10 for example.
+I don't want to do it here because discussions are needed to solve this problem. If it's OK for you, I'll open an issue and we can solve it in another PR.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+15,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-07-31 13:06:44,"> I don't want to do it here because discussions are needed to solve this problem. If it's OK for you, I'll open an issue and we can solve it in another PR.
+
+That sounds great.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+16,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-03 12:43:04,"FYI just created the issue, see #747.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+5,issue_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-05 11:26:53,"This one is ready for merge.
+",nan,nan
+6,issue_comment,738,nilearn,nilearn,lesteve,2015-08-05 11:34:03,"Looks like the CircleCI error is a genuine one.
+",nan,nan
+7,issue_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-05 11:40:15,"Dammit! No time to look at it, maybe tonight.
+",nan,nan
+8,issue_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-05 13:11:18,"Since master examples are broken, I pushed a 5-minutes crafted emergency patch. We may want to merge it fast.
+",nan,nan
+17,pull_request_commit_comment,738,nilearn,nilearn,bthirion,2015-08-05 21:23:25,"I am wondering about the change in the association between smoothing and masking: prior to this PR, I understand that no smoothing was performed with signals outside of the mask, while now, the images are smoothed irrespective of the mask. This may have consequences when the mask is used to avoid some noise sources (artefacted voxels, vessels etc.)
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+18,pull_request_commit_comment,738,nilearn,nilearn,bthirion,2015-08-05 21:25:45,"I am wondering about the change in the association between smoothing and masking: prior to this PR, I understand that no smoothing was performed with signals outside of the mask, while now, the images are smoothed irrespective of the mask. This may have consequences when the mask is used to avoid some noise sources (artefacted voxels, vessels etc.)
+",546888b3495564218d5e443041441476084b316b,"(141, '', u'nilearn/input_data/base_masker.py')"
+19,pull_request_commit_comment,738,nilearn,nilearn,bthirion,2015-08-05 21:31:47,"Could you you clarify in the dosctring why  'single' ?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+20,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-05 21:34:08,"Not at all. `masking.apply_mask` smooths the image regardless of the mask and masks it afterward.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+21,pull_request_commit_comment,738,nilearn,nilearn,bthirion,2015-08-05 21:34:11,"Sorry if I missed it, but the redundancy of the API with /nifti_labels_masker.py is wanted, isn't it ?
+",546888b3495564218d5e443041441476084b316b,"(20, '', u'nilearn/input_data/nifti_maps_masker.py')"
+22,pull_request_commit_comment,738,nilearn,nilearn,bthirion,2015-08-05 21:36:37,"OK, but I think that we should raise a new issue about this, then.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+23,pull_request_commit_comment,738,nilearn,nilearn,bthirion,2015-08-05 21:41:04,"`sessions` is not documented
+",546888b3495564218d5e443041441476084b316b,"(9, '', u'nilearn/signal.py')"
+24,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-06 07:51:42,"I can but I don't agree with this name. I kept it for historical reasons.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+25,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-06 07:57:08,"I made the doc more precise and moved it into BaseMasker so that it's propagated to all subclasses.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+26,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-06 07:58:33,"Yes. Since the extraction methods are different for regions and maps, we preferred to split them. I factorized a lot of code between the two classes in my last PR though. I hope to reduce the common code as much as possible.
+",546888b3495564218d5e443041441476084b316b,"(20, '', u'nilearn/input_data/nifti_maps_masker.py')"
+27,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-06 08:00:37,"Good catch! Fixed.
+",546888b3495564218d5e443041441476084b316b,"(9, '', u'nilearn/signal.py')"
+28,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:37:35,"Usual stuff about niimg-like object? It looks like it may need to be 4D from a quick look at the code below as well, not sure.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+29,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:38:43,"This seems a bit fragile, maybe pass the class name as an additional optional parameter ?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+30,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:45:47,"invalid**ate** the cache
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+31,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:49:47,"`-----` rather than `====` 
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+32,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:49:55,"`-----` rather than `====` 
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+33,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:50:47,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+34,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:52:00,"slight niggle, I tend to prefer:
+
+``` python
+smoothing_fwhm = parameters.get('smoothing_fwhm')
+if smoothing_fwhm is not None:
+    ...
+```
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+35,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:52:32,"This function has been created precisely to avoid that.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+36,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 07:53:44,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+37,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 07:58:37,"I am not sure how enclosing_scope_name works but it feels like the magical stack_level set to 3 may not work for all cases since you don't have any idea how far away in the stack the class is.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+38,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:03:38,"You don't need None in this line and the line above, `{}.get('whatever')` returns None.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+39,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:05:07,"Returns is not documented
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+40,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:05:36,"Maybe document shortly what the function takes as arguments and what it returns?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+41,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:07:23,"is a 4D Niimg-like object not required here?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+42,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:08:27,"We tend to use triple double quotes reasonably consistently everywhere else for docstrings.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+43,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:10:34,"Is there a reason to use a list here rather than a generator?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+44,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:11:21,"Both are used equally in nilearn. Please open an issue about that to harmonize.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+45,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:13:02,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+46,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:15:39,"You mean that joblib magic inbetween can make this number bigger? I've raised it to 10.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+47,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:16:23,"memory_level missing from the ignore
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_masker.py')"
+48,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:17:47,"Fixed
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+49,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:17:48,"memory_level missing from the ignore
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+50,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:20:16,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+51,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:21:42,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+52,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:23:30,"Yes, it's written below. I think that 3D niimg work too since it is converted to 4D with a single scan as last dimension.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+53,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:25:29,"Yes, sorry, this is just a copy/paste from BaseMasker original code. I'll fix it.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+54,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:27:41,"Bad habits.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+55,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:30:53,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+56,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:32:51,"should be NotImplementedError()
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+57,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:38:38,"Why not put 4D it in the type then?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+58,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:41:02,"Returns not documented
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+59,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:41:44,"Fixed
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+60,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:43:42,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+61,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:44:22,"AFAIK this is not something that we do in nilearn. But I added it. We should put it everywhere it matters.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+62,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:44:48,"Undocumented returns.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+63,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:45:59,"Just wondering whether you should not copy and paste the docstring from BaseMasker.transform_single_imgs here.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+64,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 08:46:59,"If yes, then it would need to be done for all other classes overriding transform_single_imgs
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+65,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 08:48:12,"It should be done and customized regarding the special behavior of the class.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+66,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 11:06:01,"Fixed.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/nifti_labels_masker.py')"
+67,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-18 13:58:37,"Tests are failing because you removed this line ...
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+68,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 14:00:47,"That was obviously not volontary :P.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+69,pull_request_commit_comment,738,nilearn,nilearn,banilo,2015-08-18 20:12:19,"perhaps use ""pooling function"" somewhere?
+",546888b3495564218d5e443041441476084b316b,"(60, '', u'nilearn/input_data/base_masker.py')"
+70,pull_request_commit_comment,738,nilearn,nilearn,banilo,2015-08-18 20:31:18,"No simpler way possible?
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+9,issue_comment,738,nilearn,nilearn,bthirion,2015-08-18 21:31:30,"I have no further issue to raise on this PR. Should be good to merge.
+",nan,nan
+71,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-18 21:56:59,"Suggestions welcome ;).
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+72,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-19 06:20:34,"My suggestions:
+`return list(map(lambda x: x[0], data))`
+or
+`return [d[0] for d in data]]`
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+73,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-19 06:24:10,"My preference goes to the first one because I like functional programming but I'm going for the second one.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/multi_nifti_masker.py')"
+74,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-20 08:45:19,"FYI I just checked the code and stack_level is not used when check_estimator=True (which it is by default) ...
+",546888b3495564218d5e443041441476084b316b,"(85, '', u'nilearn/input_data/base_masker.py')"
+75,pull_request_commit_comment,738,nilearn,nilearn,lesteve,2015-08-20 08:47:05,"what's the aux variable then?
+
+``` python
+region_signals, aux = cache(extraction_function, ...)
+```
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+76,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:48:48,"Oh, I can remove it then :).
+",546888b3495564218d5e443041441476084b316b,"(85, '', u'nilearn/input_data/base_masker.py')"
+77,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 08:51:30,"The `aux` variable is an additional result that can be provided. In NiftiLabelsMasker, it is used to get the loaded labels back from the extraction function to provide them to the user in the `labels_` property.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+78,pull_request_commit_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 09:17:01,"We can't do that with a functor since the operation has to remain stateless because of the caching system.
+",546888b3495564218d5e443041441476084b316b,"(None, '', u'nilearn/input_data/base_masker.py')"
+10,issue_comment,738,nilearn,nilearn,AlexandreAbraham,2015-08-20 19:42:41,"@lesteve : doc fixed as requested. 
+",nan,nan
+11,issue_comment,738,nilearn,nilearn,lesteve,2015-08-21 06:28:00,"Merging, thanks a lot!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,770,nilearn,nilearn,bthirion,2015-08-25 20:45:07,"Do you thinks that this should be the default. Maybe this deserves a word in the documentation.
+",e286a8652d9afc9b276cd7900b67bcd8bc6fd1cb,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')"
+6,pull_request_commit_comment,770,nilearn,nilearn,lesteve,2015-10-22 11:28:11,"@AlexandreAbraham you haven't answered this comment.
+",e286a8652d9afc9b276cd7900b67bcd8bc6fd1cb,"(None, '', u'nilearn/input_data/nifti_spheres_masker.py')"
+7,pull_request_commit_comment,770,nilearn,nilearn,lesteve,2015-10-22 11:30:14,"For the sake of clarity, what about expanding this `no_maps` into `non_overlapping_maps` and `o_maps` into `overlapping_maps`?
+",e286a8652d9afc9b276cd7900b67bcd8bc6fd1cb,"(None, '', u'nilearn/input_data/tests/test_nifti_maps_masker.py')"
+8,pull_request_commit_comment,770,nilearn,nilearn,lesteve,2015-10-22 11:30:36,"Same thing for _img and _masker variable, obviously.
+",e286a8652d9afc9b276cd7900b67bcd8bc6fd1cb,"(None, '', u'nilearn/input_data/tests/test_nifti_maps_masker.py')"
+9,pull_request_commit_comment,770,nilearn,nilearn,lesteve,2015-10-23 08:59:01,"Original remark about o -> overlapping, no -> non_overlapping applied to this file as well.
+",e286a8652d9afc9b276cd7900b67bcd8bc6fd1cb,"(16, '', u'nilearn/input_data/tests/test_nifti_spheres_masker.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,pull_request_commit_comment,759,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:16:34,"We use ""eg"" instead of ""ex"" as in `the files, eg (...)`. Also, I would say `file_path` instead of `file_name` ot underline the fact that `subfolder/file_name` is a valid value.
+",4982e325d18f9ca22a12b6f58dc82e6df244b2a5,"(None, '', u'nilearn/datasets/utils.py')"
+9,pull_request_commit_comment,759,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:18:05,"If a filename is not found, the download is immediately cancelled (with your sentence, I have the impression that we download the rest of the files before failing). You should also state that the downloaded files are erased (I'll add an option to override this behavior later).
+",4982e325d18f9ca22a12b6f58dc82e6df244b2a5,"(None, '', u'nilearn/datasets/utils.py')"
+5,issue_comment,759,nilearn,nilearn,AlexandreAbraham,2015-08-10 16:18:33,"Apart from two minor comments, good to go. It is clearer indeed !
+",nan,nan
+6,issue_comment,759,nilearn,nilearn,MartinPerez,2015-08-11 01:10:05,"@AlexandreAbraham  I fixed accordingly to your comments
+",nan,nan
+7,issue_comment,759,nilearn,nilearn,lesteve,2015-08-17 08:48:38,"Merging thanks a lot!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

@@ -1,0 +1,7 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,245,idan,oauthlib,ib-lundgren,2014-04-18 14:43:42,"Style fixes are always welcome. Thanks :)
+",nan,nan
+5,issue_comment,245,idan,oauthlib,x746e,2014-04-18 14:59:49,"Actually it's not (only) about styling: the problem was that before this change docstrings were not placed into `module.__doc__` (and that's why I spotted this).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

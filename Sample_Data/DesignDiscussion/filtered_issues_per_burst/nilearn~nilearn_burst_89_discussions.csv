@@ -1,0 +1,837 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+6,issue_comment,1304,nilearn,nilearn,erramuzpe,2016-10-04 14:05:50,"I won't open an issue since already have been reported in #1149 
+",nan,nan
+5,issue_comment,1304,nilearn,nilearn,GaelVaroquaux,2017-01-19 10:43:22,"Indeed, this was indeed a bug. Merging. Thank you.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1305,nilearn,nilearn,GaelVaroquaux,2016-10-06 13:55:49,"We don't want to add a dependency.
+
+The real fix to the problem would be to have numexpr merged into numpy. I
+don't think that it will happen, but that would be from the big picture
+the solution to these problems that pop up everywhere, and not only in
+math_img or in nilearn.
+",nan,nan
+6,issue_comment,1305,nilearn,nilearn,alexsavio,2016-10-06 14:04:10,"Ok, thanks.
+
+BTW, I am playing with numexpr to add a wrapper to automatically generate expressions from numpy functions. But this wouldn't help if you don't want to add the dependency.
+",nan,nan
+4,issue_comment,1305,nilearn,nilearn,GaelVaroquaux,2016-10-06 14:05:45,"> But this wouldn't help if you don't want to add the dependency.
+
+Numerical computation in math_img is seldom a bottleneck in an analysis.
+",nan,nan
+5,issue_comment,1305,nilearn,nilearn,AlexandreAbraham,2016-10-06 15:21:30,"That may be a good candidate for nilearn_sandbox.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1306,nilearn,nilearn,AlexandreAbraham,2016-10-07 15:11:54,"This should be fixed in the latest released version. Which version of nilearn are you using?
+",nan,nan
+3,issue_comment,1306,nilearn,nilearn,GaelVaroquaux,2016-10-07 15:26:07,"Yes, they changed behavior without a deprecation cycle, which caused a
+bug in our code. I was very unahappy. The bug has been fixed in the new
+version of nilearn.
+",nan,nan
+6,issue_comment,1306,nilearn,nilearn,alexsavio,2016-10-07 15:35:14,"Ok. I didn't know it was fixed already, couldn't find a related issue here. I will pull a newer version. Thanks!
+",nan,nan
+4,issue_comment,1306,nilearn,nilearn,GaelVaroquaux,2016-10-07 16:21:46,"Keep us posted.
+",nan,nan
+7,issue_comment,1306,nilearn,nilearn,scottfleming,2017-08-13 05:28:44,"As a follow-up to this thread, I recently was running into a similar problem with nilearn. In particular, I was trying to map a mask (91,109,91) onto lower-resolution statistical map (65,77,49) and when I ran the resample_to_img method the transformed mask I obtained as a result was all zeros. It turns out I was using nilearn v0.2.5, which is the version still hanging out on conda-forge (oops!). So I used the guide posted for installing nilearn on Windows (http://nilearn.github.io/introduction.html#installation) to update to version 0.3.1. Now I don't have the problem with an all-zero resampled image, but I still get the warning:
+
+![image](https://user-images.githubusercontent.com/11773823/29246369-a3f3f94a-7fac-11e7-8157-e7b0262a0d6b.png)
+
+![image](https://user-images.githubusercontent.com/11773823/29246384-264f0de4-7fad-11e7-8135-082a8d6c03e1.png)
+
+Thank you for an amazing package and for all your help!",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1301,nilearn,nilearn,mscherer,2016-10-02 11:12:24,"I think the removal of accentuaed characters are not the right fix, but getting code dealing with unicode on python2 and 3 can be a bit complex.
+",nan,nan
+7,issue_comment,1301,nilearn,nilearn,mscherer,2016-10-02 11:30:29,"So I found out that I can't reproduce the issue with:
+
+```
+python3 setup.py 
+```
+
+but if I do:
+
+```
+ LC_ALL=C python3 setup.py build
+```
+
+it result into:
+
+```
+Traceback (most recent call last):
+  File ""setup.py"", line 36, in <module>
+    _VERSION_GLOBALS = load_version()
+  File ""setup.py"", line 22, in load_version
+    exec(fp.read(), globals_dict)
+  File ""/usr/lib64/python3.5/encodings/ascii.py"", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 116: ordinal not in range(128)
+```
+",nan,nan
+5,issue_comment,1301,nilearn,nilearn,GaelVaroquaux,2017-01-19 10:23:08,Merging this. It's simple,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,issue_comment,1303,nilearn,nilearn,KamalakerDadi,2016-10-04 11:17:15,"``` python
+File ""C:\Miniconda-x64\lib\site-packages\nilearn\input_data\tests\test_nifti_maps_masker.py"", line 81, in test_nifti_maps_masker
+    assert_raises(ValueError, masker11.fit)
+  File ""C:\Miniconda-x64\lib\contextlib.py"", line 24, in __exit__
+    self.gen.next()
+  File ""C:\Miniconda-x64\lib\site-packages\nilearn\_utils\testing.py"", line 207, in write_tmp_imgs
+    os.remove(filename)
+WindowsError: [Error 32] The process cannot access the file because it is being used by another process: 'c:\\users\\appveyor\\appdata\\local\\temp\\1\\nilearn_hvjmhw.nii'
+```
+
+``` python
+File ""C:\Miniconda-x64\lib\site-packages\nilearn\tests\test_niimg_conversions.py"", line 282, in test_check_niimg_wildcards
+    img_3d.get_data())
+  File ""C:\Miniconda-x64\lib\contextlib.py"", line 35, in __exit__
+    self.gen.throw(type, value, traceback)
+  File ""C:\Miniconda-x64\lib\site-packages\nilearn\_utils\testing.py"", line 207, in write_tmp_imgs
+    os.remove(filename)
+WindowsError: [Error 32] The process cannot access the file because it is being used by another process: 'c:\\users\\appveyor\\appdata\\local\\temp\\1\\nilearn_ovmkef.nii'
+```
+
+I am not sure why suddenly these errors ?
+
+Shall we try `del masker11` and `del img_3d` ? If yes, I can push and see if it fixes `WindowsError` with AppVeyor ?
+",nan,nan
+8,issue_comment,1303,nilearn,nilearn,KamalakerDadi,2016-10-04 11:18:33,"Also CircleCI failure seems like spurious to me. Locally, I can see building html successfully.
+",nan,nan
+6,issue_comment,1303,nilearn,nilearn,aabadie,2016-10-09 10:38:50,"LGTM +1. Appveyor fixes are ok.
+",nan,nan
+5,issue_comment,1303,nilearn,nilearn,GaelVaroquaux,2016-10-09 18:01:50,"LGTM. Thanks a lot. Merging. Sorry for the delay in reviewing.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1262,nilearn,nilearn,AlexandreAbraham,2016-09-06 06:16:00,"`np.argmax`
+",nan,nan
+4,issue_comment,1262,nilearn,nilearn,salma1601,2016-09-06 21:26:34,"nice ! thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1265,nilearn,nilearn,AlexandreAbraham,2016-09-08 14:26:45,"LGTM
+",nan,nan
+5,issue_comment,1265,nilearn,nilearn,GaelVaroquaux,2016-09-30 09:01:59,"Merging this. Thanks @Titan-C .
+Sorry for having taken so long.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1299,nilearn,nilearn,GaelVaroquaux,2016-10-02 21:02:09,"Could you please rebase on master. I've fixed circleCI
+",nan,nan
+6,issue_comment,1299,nilearn,nilearn,GaelVaroquaux,2016-10-03 06:39:46,"LGTM. Merging. Thanks!
+",nan,nan
+11,pull_request_commit_comment,1299,nilearn,nilearn,AlexandreAbraham,2016-10-03 07:05:28,"Here the data is loaded twice: once to get the shape, once to get the data.
+",ffdeb6c5b8082197845d366fb44e085c1b6ae2e6,"(13, '', u'nilearn/input_data/nifti_maps_masker.py')"
+7,issue_comment,1299,nilearn,nilearn,GaelVaroquaux,2016-10-03 07:33:37,"I worry that it's going to be fragile. And the data isn't loaded twice, as there is the nibabel caching mechanism. 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Oct 3, 2016, 09:06, at 09:06, Alexandre Abraham notifications@github.com wrote:
+
+> AlexandreAbraham commented on this pull request.
+> 
+> Why not fixing the get_data_dtype function according to what Matthew
+> said in the nibabel issue?
+> 
+> > @@ -276,7 +275,7 @@ def transform_single_imgs(self, imgs,
+> > confounds=None):
+> >             # Check if there is an overlap.
+> 
+> ```
+>         # If float, we set low values to 0
+> ```
+> -            dtype = _get_data_dtype(self._resampled_maps_img_)
+> -            dtype = self._resampled_maps_img_.get_data().dtype
+> 
+> Here the data is loaded twice: once to get the shape, once to get the
+> data.
+> 
+> ## 
+> 
+> You are receiving this because you modified the open/close state.
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/1299#pullrequestreview-2474463
+",nan,nan
+9,issue_comment,1299,nilearn,nilearn,AlexandreAbraham,2016-10-03 21:59:28,"> I worry that it's going to be fragile.
+
+Given the usage that we make of this function, it may not be worth the risk.
+
+> And the data isn't loaded twice, as there is the nibabel caching mechanism.
+
+I have trouble understanding on which behavior of nibabel we can rely or not. nibabel caching is evolving and becoming more and more cusomizable. I would not be surprised that a global option to disable it arise in a near future. Anyway I just thought that avoiding calling the same method twice in a row was good practice.
+",nan,nan
+8,issue_comment,1299,nilearn,nilearn,GaelVaroquaux,2016-10-03 22:03:25,"I agree with you. @KamalakerDadi : you see how in the line right after the one that you modified here (line 278 in nifti_maps_masker), the data is retrieved. We could use this to get the dtype. Do you want to do that?
+",nan,nan
+10,issue_comment,1299,nilearn,nilearn,KamalakerDadi,2016-10-04 05:41:22,"> Do you want to do that?
+
+I will do. 
+
+Was this causing AppVeyor failure ?
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,pull_request_commit_comment,1292,nilearn,nilearn,alexsavio,2016-09-26 17:32:25,"I am not sure if this function should be here.
+",5032c8881adbb6fb1a89dbbc5823c73d727d3d65,"(32, '', u'nilearn/datasets/tests/test_rsn.py')"
+4,issue_comment,1292,nilearn,nilearn,GaelVaroquaux,2016-09-26 17:32:48,"Is there a reason that you added this in a new file?
+",nan,nan
+6,issue_comment,1292,nilearn,nilearn,alexsavio,2016-09-26 17:34:38,"Should I add it to atlas.py maybe?
+
+On Mon, 26 Sep 2016, 19:32 Gael Varoquaux, notifications@github.com wrote:
+
+> Is there a reason that you added this in a new file?
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly, view it on GitHub
+> https://github.com/nilearn/nilearn/pull/1292#issuecomment-249639398, or mute
+> the thread
+> https://github.com/notifications/unsubscribe-auth/ACW4jKCvV0PFWfNJsc2tR5rM1rlY-vIAks5quAHBgaJpZM4KGyEJ
+> .
+> 
+> ## 
+
+Sent from my phone, sorry for brevity or typos.
+",nan,nan
+5,issue_comment,1292,nilearn,nilearn,GaelVaroquaux,2016-09-26 17:35:53,"> Should I add it to atlas.py maybe?
+
+I would think so.
+",nan,nan
+7,issue_comment,1292,nilearn,nilearn,alexsavio,2016-09-26 17:36:53,"Ok. I wasnt sure. I will do it tomorrow.
+
+On Mon, 26 Sep 2016, 19:35 Gael Varoquaux, notifications@github.com wrote:
+
+> > Should I add it to atlas.py maybe?
+> 
+> I would think so.
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly, view it on GitHub
+> https://github.com/nilearn/nilearn/pull/1292#issuecomment-249640245, or mute
+> the thread
+> https://github.com/notifications/unsubscribe-auth/ACW4jFby2t1LS9e8PsGXHUV4RkvXqAAGks5quAJ6gaJpZM4KGyEJ
+> .
+> 
+> ## 
+
+Sent from my phone, sorry for brevity or typos.
+",nan,nan
+10,pull_request_commit_comment,1292,nilearn,nilearn,AlexandreAbraham,2016-09-27 15:14:33,"Not sure that à whole file is needed for this information. You can encode this in a list or in a dict and return it in the fetcher directly.
+",5032c8881adbb6fb1a89dbbc5823c73d727d3d65,"(7, '', u'nilearn/datasets/data/ALL_HC_unthresholded_tmaps.txt')"
+8,issue_comment,1292,nilearn,nilearn,alexsavio,2016-09-27 15:43:00,"Since I don't know how to overwrite this PR (to not keep the wrongly created files in the history), I made a new one: #1295
+",nan,nan
+11,pull_request_commit_comment,1292,nilearn,nilearn,alexsavio,2016-09-27 15:43:16,"I did this in #1295
+",5032c8881adbb6fb1a89dbbc5823c73d727d3d65,"(7, '', u'nilearn/datasets/data/ALL_HC_unthresholded_tmaps.txt')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1290,nilearn,nilearn,GaelVaroquaux,2016-09-26 14:48:09,"2 things that come to my mind:
+- We should implement a fetcher to these templates
+- This is related to https://github.com/nilearn/nilearn/pull/1284
+  Ideally, we should have one function useable for both purposes.
+",nan,nan
+6,issue_comment,1290,nilearn,nilearn,alexsavio,2016-09-26 15:06:40,"Sounds good to me, to begin with. The unthresholded Allen RSN templates are here:
+http://mialab.mrn.org/data/index.html
+The labels file should be included in the code, since it is not available online. I built one using a Figure in their paper as a reference. I will start with the fetcher later this week (I have a deadline on Wednesday and I am procrastineering).
+
+I was thinking on a simple helper class to manage these RSN templates and labels and separate measure functions for each functionality, such the Jaccard coefficient mentioned in #1284, etc..., if these goes into nilearn.
+",nan,nan
+4,issue_comment,1290,nilearn,nilearn,GaelVaroquaux,2016-09-26 15:09:41,"> I was thinking on a simple helper class to manage these RSN templates and
+> labels and separate measure functions for each functionality,
+
+I'd rather start with functions (think about the great talk on the
+""functional core"" at Euroscipy).
+",nan,nan
+7,issue_comment,1290,nilearn,nilearn,alexsavio,2016-09-26 17:28:13,"Okay, a bunch of functions will also do the job :)
+",nan,nan
+5,issue_comment,1290,nilearn,nilearn,GaelVaroquaux,2017-03-03 15:09:27,Yes indeed: closing as fixed by #1295 / #1335,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1296,nilearn,nilearn,ahoyosid,2016-12-07 10:34:24,WDYM?,nan,nan
+3,issue_comment,1296,nilearn,nilearn,GaelVaroquaux,2017-06-15 19:27:44,Closing as fixed,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1294,nilearn,nilearn,GaelVaroquaux,2016-09-27 14:26:23,"> I can't make the new colormaps (plt.cm.magma, viridis...) plot the colorbar.
+> The brain plot is done, but I get an exception when plotting the colorbar.
+> Has anyone had this problem before?
+
+No, but I am not sure that anybody runs bleeding edge matplotlib.
+
+Could you post the traceback here, please.
+",nan,nan
+4,issue_comment,1294,nilearn,nilearn,alexsavio,2016-09-27 15:06:52,"I am using matplotlib 1.5.2.
+Today I am in a rush, but I can look into this another day. Here it goes:
+
+```
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-321-747b3bb54538> in <module>()
+     37 
+     38     p1 = plot_spatial_map( pet_blobs, bg_img=bg_img, title=""FDG-PET IC {}"".format(pet_bold_ics[idx][0]),
+---> 39                           cut_coords=cutcoords[idx], cmap=plt.cm.viridis, alpha=1, figure=fig, axes=plt.subplot(gs[0]))
+     40     p2 = plot_spatial_map(bold_blobs, bg_img=bg_img, title=""fMRI IC {}"".format(pet_bold_ics[idx][1]),
+     41                           cut_coords=cutcoords[idx], cmap=plt.cm.hot, alpha=1, figure=fig, axes=plt.subplot(gs[1]))
+
+<ipython-input-252-cd0b08153002> in plot_spatial_map(spatial_map, cut_coords, bg_img, title, **kwargs)
+     29                                  title=title,
+     30                                  draw_cross=False,
+---> 31                                  **kwargs,
+     32                                  )
+
+/home/alexandre/Software/nilearn/nilearn/plotting/img_plotting.py in plot_roi(roi_img, bg_img, cut_coords, output_file, display_mode, figure, axes, title, annotate, draw_cross, black_bg, alpha, cmap, dim, vmin, vmax, **kwargs)
+    657                                 resampling_interpolation='nearest',
+    658                                 alpha=alpha, cmap=cmap,
+--> 659                                 vmin=vmin, vmax=vmax, **kwargs)
+    660     return display
+    661 
+
+/home/alexandre/Software/nilearn/nilearn/plotting/img_plotting.py in _plot_img_with_bg(img, bg_img, cut_coords, output_file, display_mode, colorbar, figure, axes, title, threshold, annotate, draw_cross, black_bg, vmin, vmax, bg_vmin, bg_vmax, interpolation, display_factory, cbar_vmin, cbar_vmax, **kwargs)
+    182                             threshold=threshold, interpolation=interpolation,
+    183                             colorbar=colorbar, vmin=vmin, vmax=vmax,
+--> 184                             **kwargs)
+    185 
+    186     if annotate:
+
+/home/alexandre/Software/nilearn/nilearn/plotting/displays.py in add_overlay(self, img, threshold, colorbar, **kwargs)
+    593         # `ims` can be empty in some corner cases, look at test_img_plotting.test_outlier_cut_coords.
+    594         if colorbar and ims:
+--> 595             self._show_colorbar(ims[0].cmap, ims[0].norm, threshold)
+    596 
+    597         plt.draw_if_interactive()
+
+/home/alexandre/Software/nilearn/nilearn/plotting/displays.py in _show_colorbar(self, cmap, norm, threshold)
+    732             return
+    733         else:
+--> 734             our_cmap = our_cmap.from_list('Custom cmap', cmaplist, our_cmap.N)
+    735 
+    736         self._cbar = ColorbarBase(
+
+AttributeError: 'ListedColormap' object has no attribute 'from_list'
+```
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+14,pull_request_commit_comment,1295,nilearn,nilearn,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/tests/test_atlas.py')"
+15,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 20:56:47,"Any reason why it is not started with `fetch_atlas_` ? All other functionalities has the same namings almost.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+10,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 20:57:54,"Can you add in `nilearn/datasets/__init__.py` ?
+",nan,nan
+11,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:06:27,"Can you add in `doc/whats_new.rst` about this new fetcher ?
+",nan,nan
+12,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:09:41,"Can you please also refer your fetcher in doc/modules/reference.rst ?
+",nan,nan
+16,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:17:55,"May be this sounds good `fetch_atlas_allen_2011` ?
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+13,issue_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-06 21:19:23,"Some minor comments from my side.
+",nan,nan
+17,pull_request_commit_comment,1295,nilearn,nilearn,alexsavio,2016-10-07 10:54:12,"Would you call this an atlas? I'm not sure. What about `fetch_rsn_template_allen_2011` ? If you want to keep the `atlas`...I would say: `fetch_atlas_rsn_allen_2011` ?
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+18,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-07 11:31:28,"> Would you call this an atlas? 
+
+Group of RSNs can be called as an atlas.
+
+> If you want to keep the atlas
+
+That is how rest of the functions are kept as. I have no strong opinions on the names. My intention is just to keep them easy to call and consistent with other functionalities.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+19,pull_request_commit_comment,1295,nilearn,nilearn,KamalakerDadi,2016-10-07 11:32:27,"@GaelVaroquaux Any suggestions on the name ?
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+20,pull_request_commit_comment,1295,nilearn,nilearn,alexsavio,2016-10-07 15:47:44,"I just saw that the fetch_atlas_smith_2009 is also for a RSN template. So your suggestion sounds good.
+",6a2705cd2e683aa0efef25b84c7c426c4d660cc3,"(None, '', u'nilearn/datasets/atlas.py')"
+6,issue_comment,1295,nilearn,nilearn,alexsavio,2016-10-11 12:54:09,"There is an error coming from `fetch_atlas_smith_2009`, do you want me to fix that for this PR?
+",nan,nan
+7,issue_comment,1295,nilearn,nilearn,alexsavio,2016-10-25 12:05:17,"@KamalakerDadi my alternative is always pull everything, merge the changes manually and do another PR.
+",nan,nan
+4,issue_comment,1295,nilearn,nilearn,GaelVaroquaux,2016-10-25 18:31:34,"> ```
+> I can't do a proper rebase.
+> ```
+> 
+> Me neither.
+
+OK, don't bother with rebase. Merge is OK.
+",nan,nan
+5,issue_comment,1295,nilearn,nilearn,GaelVaroquaux,2016-12-04 17:35:54,"Tests are all failing here, and it doesn't look spurious to me. @alexsavio : could you please have a look?",nan,nan
+8,issue_comment,1295,nilearn,nilearn,alexsavio,2016-12-05 14:00:43,"I will, soon.",nan,nan
+9,issue_comment,1295,nilearn,nilearn,alexsavio,2016-12-06 14:48:43,For the sake of a clean history I am doing a different PR.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:11:57,"How did that slip by? What's the test case to reproduce (I'm not asking you for a unit test, just something that I can type in a terminal).
+
+Will fixing in master be enough for the tutorial, or will you need a release?
+",nan,nan
+11,issue_comment,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:26:50,"> How did that slip by?
+
+I have absolutely no idea given that we did use this code for OHBM tutorial... I would like to fix this ASAP and not look at the root of the problem.
+
+> What's the test case to reproduce (I'm not asking you for a unit test, just something that I can type in a terminal).
+
+This should do:
+
+``` python
+from nilearn.datasets import fetch_abide_pcp
+a = fetch_abide_pcp(derivatives=['rois_cc200'], SITE_ID=[b'NYU'], n_subjects=1)
+```
+
+> Will fixing in master be enough for the tutorial, or will you need a release?
+
+I will do a release.
+",nan,nan
+6,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:38:39,"OK, I can reproduce the bug and the fix.
+
+I am a bit bothered that circleCI doesn't run due to docs.scipy.org timing out. It seems that before a release, or before merging this PR, we'd like to check that all the examples run well.
+",nan,nan
+12,issue_comment,1278,nilearn,nilearn,KamalakerDadi,2016-09-18 14:39:54,"It would be great if you could also address the documentation conflict with n_subjects ? As we have discussed it should be > 94.
+",nan,nan
+13,issue_comment,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:44:53,"> we'd like to check that all the examples run well
+
+I agree.
+
+> It would be great if you could also address the documentation conflict with n_subjects ?
+
+Doc is fixed, thanks for reminding me!
+",nan,nan
+7,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:46:38,"> ```
+> we'd like to check that all the examples run well
+> ```
+> 
+> I agree.
+
+I've been restarting CircleCI in the hope that it completes. But it might
+be a lost cause given that I cannot get access to it at all on my
+browser.
+",nan,nan
+14,issue_comment,1278,nilearn,nilearn,AlexandreAbraham,2016-09-18 14:51:59,"> I've been restarting CircleCI in the hope that it completes. But it might be a lost cause given that I cannot get access to it at all on my browser.
+
+Can't we just run the examples on drago?
+",nan,nan
+8,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:53:04,"> Can't we just run the examples on drago?
+
+It's not as nice, because it's not a clean, controled environment. But we
+might have to do that.
+",nan,nan
+9,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 14:57:15,"> > Can't we just run the examples on drago?
+> 
+> It's not as nice, because it's not a clean, controled environment. But we
+> might have to do that.
+
+OK, I'm running it on drago.
+",nan,nan
+10,issue_comment,1278,nilearn,nilearn,GaelVaroquaux,2016-09-18 16:34:29,"> OK, I'm running it on drago.
+
+I am merging: it completed on drago without problems.
+
+Don't release, I'll try doing it after some manual QAing.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,pull_request_commit_comment,1279,nilearn,nilearn,GaelVaroquaux,2016-09-18 16:44:10,"Why not ""astype(array[col].dtype)""? Why the extra "".type""?
+",58872e0f25879a54a0fb7bf288c2a5de1d23739b,"(None, '', u'nilearn/datasets/utils.py')"
+5,issue_comment,1279,nilearn,nilearn,GaelVaroquaux,2016-09-18 18:23:28,"I am waiting for this PR, and then cutting a release?
+",nan,nan
+7,issue_comment,1279,nilearn,nilearn,AlexandreAbraham,2016-09-18 18:27:05,"Fixed! Go on for the release, or I can take care of it if you want.
+",nan,nan
+8,issue_comment,1279,nilearn,nilearn,AlexandreAbraham,2016-09-18 19:21:49,"Scipy is back ! I'm waiting for CircleCI to go green and I do the release. @GaelVaroquaux, do not work on it anymore, I'm taking care.
+",nan,nan
+6,issue_comment,1279,nilearn,nilearn,GaelVaroquaux,2016-09-18 19:35:43,"OK, go for the release.
+
+Don't forget to update the whats_new, and to add an entry in the sidebar.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1270,nilearn,nilearn,GaelVaroquaux,2016-09-11 20:01:33,"You can try removing doc/_build/doctrees.
+
+If that doesn't work, please post the full traceback here.
+",nan,nan
+6,issue_comment,1270,nilearn,nilearn,salma1601,2016-09-11 20:10:28,"It didn't work
+
+# Sphinx version: 1.4.6
+# Python version: 2.7.12 (CPython)
+# Docutils version: 0.12 release
+# Jinja2 version: 2.8
+# Last messages:
+#  
+#   copying static files...
+#   done
+#   copying extra files...
+#   done
+#   dumping search index in English (code: en) ...
+#   done
+#   dumping object inventory...
+#   done
+#   build succeeded, 82 warnings.
+# Loaded extensions:
+#   numpydoc.numpydoc (unknown version) from /home/salma/CODE/Parietal/nilearn/doc/sphinxext/numpydoc/numpydoc.pyc
+#   sphinx.ext.autodoc (1.4.6) from /home/salma/anaconda2/lib/python2.7/site-packages/sphinx/ext/autodoc.pyc
+#   sphinx.ext.intersphinx (1.4.6) from /home/salma/anaconda2/lib/python2.7/site-packages/sphinx/ext/intersphinx.pyc
+#   sphinx_gallery.gen_gallery (unknown version) from /home/salma/CODE/Parietal/nilearn/doc/sphinxext/sphinx_gallery/gen_gallery.pyc
+#   alabaster (0.7.9) from /home/salma/anaconda2/lib/python2.7/site-packages/alabaster/**init**.pyc
+#   sphinx.ext.autosummary (1.4.6) from /home/salma/anaconda2/lib/python2.7/site-packages/sphinx/ext/autosummary/**init**.pyc
+#   sphinx.ext.imgmath (1.4.6) from /home/salma/anaconda2/lib/python2.7/site-packages/sphinx/ext/imgmath.pyc
+Traceback (most recent call last):
+  File ""/home/salma/anaconda2/lib/python2.7/site-packages/sphinx/cmdline.py"", line 244, in main
+    app.build(opts.force_all, filenames)
+  File ""/home/salma/anaconda2/lib/python2.7/site-packages/sphinx/application.py"", line 315, in build
+    self.emit('build-finished', None)
+  File ""/home/salma/anaconda2/lib/python2.7/site-packages/sphinx/application.py"", line 551, in emit
+    results.append(callback(self, *args))
+  File ""/home/salma/CODE/Parietal/nilearn/doc/sphinxext/sphinx_gallery/docs_resolv.py"", line 436, in embed_code_links
+    _embed_code_links(app, gallery_conf, gallery_dir)
+  File ""/home/salma/CODE/Parietal/nilearn/doc/sphinxext/sphinx_gallery/docs_resolv.py"", line 331, in _embed_code_links
+    gallery_dir)
+  File ""/home/salma/CODE/Parietal/nilearn/doc/sphinxext/sphinx_gallery/docs_resolv.py"", line 214, in __init__
+    sindex = get_data(searchindex_url, gallery_dir)
+  File ""/home/salma/CODE/Parietal/nilearn/doc/sphinxext/sphinx_gallery/docs_resolv.py"", line 62, in get_data
+    search_index = shelve.open(cached_file)
+  File ""/home/salma/anaconda2/lib/python2.7/shelve.py"", line 243, in open
+    return DbfilenameShelf(filename, flag, protocol, writeback)
+  File ""/home/salma/anaconda2/lib/python2.7/shelve.py"", line 227, in **init**
+    Shelf.**init**(self, anydbm.open(filename, flag), protocol, writeback)
+  File ""/home/salma/anaconda2/lib/python2.7/anydbm.py"", line 85, in open
+    return mod.open(file, flag, mode)
+  File ""/home/salma/anaconda2/lib/python2.7/dbhash.py"", line 18, in open
+    return bsddb.hashopen(file, flag, mode)
+  File ""/home/salma/anaconda2/lib/python2.7/bsddb/**init**.py"", line 364, in hashopen
+    d.open(file, db.DB_HASH, flags, mode)
+DBInvalidArgError: (22, 'Invalid argument -- BDB3037 ./auto_examples/searchindex: file size not a multiple of the pagesize')
+",nan,nan
+4,issue_comment,1270,nilearn,nilearn,GaelVaroquaux,2016-09-11 20:13:39,"OK, try removing doc/auto_examples/searchindex
+
+@titan-C: that's probably the sphinx-gallery cache that gets corrupted.
+We should capture that error, and reissue it was a suggestion to remove
+that file, if that solves the problem.
+",nan,nan
+7,issue_comment,1270,nilearn,nilearn,salma1601,2016-09-11 20:22:08,"now it works, thanks !
+",nan,nan
+5,issue_comment,1270,nilearn,nilearn,GaelVaroquaux,2016-09-13 10:36:43,"Closing this issue. @Titan-C : can you please capture this error in sphinx-gallery and reraise it with a more meaningful message.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1272,nilearn,nilearn,AlexandreAbraham,2016-09-12 09:01:02,"Yeah, this is a good practice. +1
+",nan,nan
+5,issue_comment,1272,nilearn,nilearn,aabadie,2016-09-12 12:09:47,"All CIs are green. Merging.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1273,nilearn,nilearn,AlexandreAbraham,2016-09-12 19:49:57,"+1
+",nan,nan
+6,issue_comment,1273,nilearn,nilearn,bthirion,2016-09-12 21:11:54,"+1
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1275,nilearn,nilearn,GaelVaroquaux,2016-09-14 12:18:00,"If you're using CanICA you shouldn't have to rely on a NiftiMasker,
+CanICA does it for you. What are the lines that you are using to call
+CanICA?
+",nan,nan
+8,issue_comment,1275,nilearn,nilearn,medcharleslaidi,2016-09-14 12:20:48,"I used : 
+
+`canica = CanICA(mask=masker.mask_img_, 
+                n_components=21, 
+                smoothing_fwhm=6., 
+                memory=""nilearn_cache"", memory_level=2, 
+                threshold=3., verbose=10, random_state=0)
+canica.fit(func)`
+
+When not specifying any mask argument, I had the ""the mask is invalid as it is empty"" error.... 
+",nan,nan
+4,issue_comment,1275,nilearn,nilearn,GaelVaroquaux,2016-09-14 12:28:55,"Is there a reason why you really want to give to CanICA a mask? Usually letting CanICA figure out it's mask work quite well.
+
+If you really want to compute the mask yourself, you could do a soft intersection of the masks of the different subjects, using http://nilearn.github.io/modules/generated/nilearn.masking.intersect_masks.html#nilearn.masking.intersect_masks
+",nan,nan
+9,issue_comment,1275,nilearn,nilearn,bthirion,2016-09-14 13:04:58,"Another part of the discussion is that the mask does not vocer perfectly the MNI template. This is because individual brains do not have extactly the shape of the MNI brain, due to the  variability between subjects.
+In a group analysis, you probably want a standard mask that does not correspond to one subject in particular, but to the average of your sample. CaniCa does it for you (see Gael's response)?
+ Best,
+",nan,nan
+10,issue_comment,1275,nilearn,nilearn,medcharleslaidi,2016-09-14 13:24:48,"Actually I didn't wanted to give CanICA a mask, but when just doing : 
+
+`canica = CanICA(n_components=21,   
+                smoothing_fwhm=6., 
+                memory=""nilearn_cache"", memory_level=2, 
+                threshold=3., verbose=10, random_state=0)`
+`canica.fit(func)`
+
+I had the : 
+
+> ValueError: The mask is invalid as it is empty: it masks all 
+> 
+> data.
+
+error
+
+So I assumed that CanICA wasn't able to compute the mask and that I should create the mask myself... 
+",nan,nan
+5,issue_comment,1275,nilearn,nilearn,GaelVaroquaux,2016-09-14 13:30:17,"So the automatic masking fails. It would be interesting for us to
+reproduce. What is the exact set of data that you are putting in. We
+might have it available on our computers, as we have also looked at
+ABIDE. Cc @abraham
+",nan,nan
+11,issue_comment,1275,nilearn,nilearn,medcharleslaidi,2016-09-14 14:05:52,"Using the soft intersection of the masks of my different subjects just gave me a fairly similar result : 
+
+![mask3](https://cloud.githubusercontent.com/assets/11093149/18515149/9f1d7112-7a94-11e6-80d7-c49683b9a335.png)
+
+I used data from the ""UM"" sample from abide i  preprocessed with dparsf
+I could easily send you this sample (I'm working at the 2nd floor of Neurospin !).  
+Would also be very interested if you guys are planning to schedule a nilearn tutorial at neurospin or elsewhere. 
+
+Thanks for your help !
+",nan,nan
+6,issue_comment,1275,nilearn,nilearn,GaelVaroquaux,2016-09-14 14:08:10,"> I could easily send you this sample (I'm working at the 2nd floor of Neurospin !).
+
+OK. Let's see this together tomorrow, I am not in Neurospin today. Let's
+sit down at your computer and debug this. Grab me at some point.
+",nan,nan
+7,issue_comment,1275,nilearn,nilearn,GaelVaroquaux,2016-09-15 11:58:46,"I saw with @medcharleslaidi today. The problem was that he was feeding in images that were already zero-meaned and variance-normalized. As a result, the mask extraction was failing.
+
+To prevent this issue, we should do two things. First work on reporting: if @medcharleslaidi had been able to show us a report, we would have immediately diagnosed the problem. Second, we can add a warning in the mask extraction routines if they fail. It might prompt the user to look at their data. I have added #1276 as an enhancement issue on this subject.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 08:44:51,"Jaccard similarity is already in scikit-learn:
+http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html
+
+Overall, this kind of functionality, not strictly neuroimaging related, lives more in scikit-learn than nilearn.
+
+What may be useful could be to add a function to do matching of 2 sets of maps, using sklearn.utils.linear_assignment. It should also be added to a nilearn example, for instance at the end of http://nilearn.github.io/auto_examples/03_connectivity/plot_compare_resting_state_decomposition.html, to plot the same map for both ICA and dict-learning.
+",nan,nan
+12,issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 08:54:02,"> Jaccard similarity is already in scikit-learn:
+> http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html
+
+Scikit-learn implements the Jaccard Index in the specific setting of measuring clustering similarity. Here we have a fuzzy extension of the measure that will probably not be accepted in sklearn because there is no ""best"" way to make this extension. In particular, people in neuroimaging tend to use extensions that do not rely on linear assignment of the regions, see _Generalized Overlap Measures for Evaluation and
+Validation in Medical Image Analysis_ (Crum 2006)
+",nan,nan
+6,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 08:56:08,"I won't accept this in nilearn unless it comes with clear neuroimaging
+applications. Everything in nilearn should solve a brain-research
+problem.
+
+What's the problem that you are trying to solve?
+",nan,nan
+13,issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 08:58:38,"> What's the problem that you are trying to solve?
+
+Having a similarity score between two sets of brain maps with continuous values and possible overlaps.
+",nan,nan
+7,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:00:20,"> ```
+> What's the problem that you are trying to solve?
+> ```
+> 
+> Having a similarity score between two sets of brain maps with
+> continuous values and possible overlaps.
+
+No, that's a formal problem. In what application setting? What the
+'brain' question?
+",nan,nan
+14,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 09:07:08,"I'd argue one of the main interests is a matter of reproducibility; we could introduce an example in which we split a dataset and build atlases from each of the splits and compare their similarity (the brain question being: are the regions we're learning serving actual stable and interesting neuroscientific purposes or are they just an artifact of the specific subset we looked at?)
+",nan,nan
+8,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:21:20,"You don't have to convince me it is useful, I am convinced. You have to
+put it in a way that non technical users can use it, understand how and
+why.
+
+Nilearn targets people who are not computer scientists. If we cannot
+demonstrate how some piece of code makes their life better, it does not
+enter nilearn.
+",nan,nan
+15,issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 09:36:53,"So! People here wants to assess the _reliability_ of methods extracting resting state networks. They define _reliability_ as the ability to extract similar brain atlases on test-retest sessions. In particular, most of them want to compare ICA to their approach. This is what I understood!
+",nan,nan
+9,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:40:45,"Yes, but just giving them a metric won't help them solve their problem.
+They need more. It's like giving people a showel when they want to build
+a house.
+
+Once again: either you can do a convincing example, or it does not go
+into nilearn. Without a convincing example, it either won't be used, or
+we'll keep getting questions on how to use it.
+
+That's a clear and important rule of nilearn: anything that goes in must
+produce an example that is relevant for brain imaging, even for people
+who are not computer scientists.
+",nan,nan
+16,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 10:07:00,"I think the following example is quite didactic: in the spirit of 8.4.7, we take ADHD and we split it in two. We then create atlases for both splits using CanICA and Dictionary Learning. Finally, we compute two Jaccard indexes: one between the CanICA atlases and one between the DictLearning atlases, to compare replicability between methods. The narrative would explain that we want our methods to be not only valid, but also replicable, and would give an intuitive explanation of the index.
+",nan,nan
+17,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 11:53:28,"A rough idea of the example: http://bit.ly/2cVX1Hh
+",nan,nan
+10,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 12:08:51,"OK. Make sure that the example runs fast enough. Maybe limit yourself to
+6 subjects, and make 2 different sub-groups of 5 subjects, with only 10
+components.
+
+To make an example that is easy to follow, I think that you need
+something higher level than just the Jaccard index. It's too low level,
+and will lead to a lot of numpy code in the example. Maybe a function
+that take 2 set of maps, returns a reordered version and a list of
+similarities.
+",nan,nan
+18,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 14:17:25,"Simplified example (with 10 subjects because the atlas using 6 subjects were just too ugly): http://bit.ly/2cVX1Hh. I think it's reasonably high-level and light on numpy code (most of the example is just _getting_ the atlases, which is quite a standard analysis, and computing the jaccard indexes is done in one line).
+
+I really like the idea of comparing two atlases map by map and trying to find a one-to-one correspondence, and I believe a lot of people would be interested in it. However, it seems to me like a significantly different question than just measuring similarity between atlases, shouldn't we leave it to another PR?
+",nan,nan
+11,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-10-31 18:44:25,"> Merged #1284.
+
+Not happy
+",nan,nan
+19,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-11-01 11:33:51,"Sorry about that, totally my fault: I got mixed up with the working branch for the other PR and it ended up pushing this one, since the changes had been reverted I didn't think it would change anything. I didn't know this would get automatically merged as well. I'll create new, clean PRs.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1287,nilearn,nilearn,AlexandreAbraham,2016-09-24 22:03:07,"Hey Christian,
+
+If you look at the file `nilearn/plotting/__init__.py`, you'll see that we have some code to use the `agg` backend if no sidplay is available. I guess that somehow this code is not working properly on your machine. Could you:
+- tell us how you launch the test suite so that we can reproduce
+- try to copy/paste the code in the beginning of init and then check that the backend has been switched to `agg` (using `matplotlib.get_backend()`)
+- check that you don't have a maplotlib.rc file in your current dir on anything at python loading (maybe an `ipython_config.py`) that pre-set a different matplotlb backend (because in that case, nilearn cannot reset it).
+
+As a reminder, the code to be run:
+
+``` python
+def _set_mpl_backend():
+    try:
+        # We are doing local imports here to avoid poluting our namespace
+        import matplotlib
+        import os
+        import sys
+        # Set the backend to a non-interactive one for unices without X
+        if (os.name == 'posix' and 'DISPLAY' not in os.environ
+            and not (sys.platform == 'darwin'
+                     and matplotlib.get_backend() == 'MacOSX'
+                     )):
+            matplotlib.use('Agg')
+            print('Switching backend to agg')
+    except ImportError:
+        from .._utils.testing import skip_if_running_nose
+        # No need to fail when running tests
+        skip_if_running_nose('matplotlib not installed')
+        raise
+    else:
+        from ..version import (_import_module_with_version_check,
+                               OPTIONAL_MATPLOTLIB_MIN_VERSION)
+        # When matplotlib was successfully imported we need to check
+        # that the version is greater that the minimum required one
+        _import_module_with_version_check('matplotlib',
+                                          OPTIONAL_MATPLOTLIB_MIN_VERSION)
+
+_set_mpl_backend()
+print('The backend is', matplotlib.get_backend())
+
+```
+",nan,nan
+5,issue_comment,1287,nilearn,nilearn,TheChymera,2016-09-24 22:59:59,"I am launching the tests via `nosetests -v`. Still, it might be an issue with my testing environement. @SoapGentoo @jlec the error above appears when I emerge [this ebuild](https://github.com/TheChymera/neurogentoo/blob/c6907fb9f1426461ca314ac3880f3ca358a52721/sci-biology/nilearn/nilearn-0.2.6.ebuild). However, when I cd to the workdir and run `nosetests -v` I do not get this particular error. 
+
+This is a problem because I can't reproduce the error outside portage. Can you maybe help out?
+",nan,nan
+6,issue_comment,1287,nilearn,nilearn,AlexandreAbraham,2016-09-25 07:44:28,"Can you print debug line when running your ebuild so that we can diagnose it? In a first time, could you try to unset DISPLAY before running the tests ?
+",nan,nan
+7,issue_comment,1287,nilearn,nilearn,TheChymera,2016-09-25 11:48:46,"@AlexandreAbraham as I said, if I run the tests outside Portage, I do not get this particular error. Or did you mean unsetting DISPLAY for the emerge call? Like:
+
+```
+DISPLAY="""" FEATURES=""test"" emerge -v =nilearn-0.2.6 
+```
+
+?
+
+In any case, [here](https://bpaste.net/show/9046d0d7d38a) is the full portage log. And [here](https://bpaste.net/show/a99c2c03e2e4) is what I get when I run the tests manually.
+
+I see that the failure is caused by something entirely different, if you have any advice on that that would also be nice.
+",nan,nan
+3,issue_comment,1287,nilearn,nilearn,jlec,2016-09-26 10:59:44,"@TheChymera try to use the `virtualx.eclass`
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1286,nilearn,nilearn,GaelVaroquaux,2016-09-21 13:42:56,"You should be able to use the inverse_transform method of
+NiftiLabelsMasker (where you have instantiated it given as a labels_img
+your parcellation, and you have fitted it on data that has the same
+affine and shape than the image you want to produce) to create the image
+that you pass to plot_stat_maps.
+",nan,nan
+4,issue_comment,1286,nilearn,nilearn,rschmaelzle,2016-09-21 13:53:23,"+++ thank you so much. so fast, so simple!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1281,nilearn,nilearn,AlexandreAbraham,2016-09-19 08:36:10,"We noticed with @KamalakerDadi some unusual memory consumption when masking. We are currently investigating it. If anybody can run profiling on masking code, that would be helpful.
+",nan,nan
+3,issue_comment,1281,nilearn,nilearn,GaelVaroquaux,2017-11-06 20:47:09,"I am closing this issue: it's not helpful. It's a general comment, and not something that someone (eg an external person to the project) can tackle.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1283,nilearn,nilearn,Joaoloula,2016-09-19 13:57:58,"+1
+",nan,nan
+5,issue_comment,1283,nilearn,nilearn,GaelVaroquaux,2016-09-19 13:59:42,"Thanks!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1282,nilearn,nilearn,KamalakerDadi,2016-09-19 13:08:36,"I saw there is. May be I am missing something ?
+",nan,nan
+3,issue_comment,1282,nilearn,nilearn,GaelVaroquaux,2016-09-19 13:09:02,"> We would need this for visualisation.
+
+Are you sure that you don't mean the converse: vec_to_sym? It seems to me
+that this is what we would need for visualization.
+",nan,nan
+5,issue_comment,1282,nilearn,nilearn,AlexandreAbraham,2016-09-19 13:09:02,"Sorry, vec_to_sym ;)
+",nan,nan
+6,issue_comment,1282,nilearn,nilearn,KamalakerDadi,2016-09-19 13:09:36,"Ok. Yes PR #1236 in progress
+",nan,nan
+7,issue_comment,1282,nilearn,nilearn,salma1601,2016-09-19 13:21:49,"This PR #1236 has many things that may be useful in it, including `vec_to_sym`. I am not going to finish it before I am sure of how we do the statistical testing for the `tangent` coefficients. I am working on this right now, but I can in the meantime remove the statistical testing part, and address all the comments.
+Just tell me if this is useful for you so I do it @AlexandreAbraham  @GaelVaroquaux .
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-08-02 21:00:03,"I am not sure if I should consider as bug or images should be in 4D space as (x, y, z, 1) ? It works like this.
+
+``` python
+from nilearn import datasets
+from nilearn._utils import check_niimg
+from nilearn import plotting
+
+icbm = datasets.fetch_icbm152_2009()
+gm = check_niimg(icbm.gm, atleast_4d=True)
+print(gm.shape)
+plotting.plot_roi(gm)
+```
+",nan,nan
+5,issue_comment,1187,nilearn,nilearn,salma1601,2016-08-03 11:17:25,"Ok thanks
+",nan,nan
+7,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-08-17 13:55:23,"Here for this issue, if I reorder_img before plotting. It is good to visualize.
+
+On the other side, if I plot as it is w/o reorder_img. I see variations deep inside the code. It breaks at line 171 in displays.py
+_Breaking is due to this: `y_map` has more length calculated 250 which is more than actual data length 233 in 'y' direction._
+What's going wrong here ? How does `self.coord` is given ?
+
+Some information related to that:
+
+``` python
+self.coord = 116.5 (may be half of affine in 'y' direction)
+data.shape
+(197, 233, 189)
+ affine
+array([[   1.,    0.,    0.,  -98.],
+       [   0.,    1.,    0., -134.],
+       [   0.,    0.,    1.,  -72.],
+       [   0.,    0.,    0.,    1.]])
+```
+",nan,nan
+8,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-08-18 12:39:26,"data type at some point is converted to `int32` with `check_niimg_3d(img, dtype='auto')` leading `find_xyz_cut_coords` to find wrong coordinates. I guess.
+",nan,nan
+3,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-09-29 12:35:00,"May be it is bad idea. Can we give parameter option `dtype` to plotting functions to control ? Any other ideas/hints ? Given that we have `dtype` plotting issues with some images.
+For your record, plot_prob_atlas is broken particularly with icbm templates.
+",nan,nan
+4,issue_comment,1187,nilearn,nilearn,KamalakerDadi,2016-09-30 13:04:31,"FYI: This is been reported in nibabel https://github.com/nipy/nibabel/issues/490
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1288,nilearn,nilearn,GaelVaroquaux,2016-09-26 09:41:22,"Duplicate of #1282 
+
+@banilo, make a bit of an effort :)
+",nan,nan
+4,issue_comment,1288,nilearn,nilearn,banilo,2016-09-26 09:43:04,"upsi
+
+Gael Varoquaux notifications@github.com schrieb am Mo., 26. Sep. 2016 um
+11:41 Uhr:
+
+> Duplicate of #1282 https://github.com/nilearn/nilearn/issues/1282
+> 
+> @banilo https://github.com/banilo, make a bit of an effort :)
+> 
+> —
+> You are receiving this because you were mentioned.
+> Reply to this email directly, view it on GitHub
+> https://github.com/nilearn/nilearn/issues/1288#issuecomment-249524916,
+> or mute the thread
+> https://github.com/notifications/unsubscribe-auth/ADufREe6y-Gx9mSMcKLJhk38ZZaupwOLks5qt5NDgaJpZM4KGUnL
+> .
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

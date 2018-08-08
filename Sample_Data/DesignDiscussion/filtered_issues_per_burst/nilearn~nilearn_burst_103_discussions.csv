@@ -1,0 +1,19 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,1413,nilearn,nilearn,GaelVaroquaux,2017-03-12 14:25:40,"Are you sure that this happens on master?
+
+I merged a PR from @arthurmensch a week ago that fixes this:
+https://github.com/nilearn/nilearn/pull/1395
+",nan,nan
+6,issue_comment,1413,nilearn,nilearn,KamalakerDadi,2017-03-12 15:52:40,">Are you sure that this happens on master?
+
+Yes, it happened to me on master. When I hacked a bit code to check for >= 2.0, it succeeded.
+
+How do I see on which version of matplotlib is CircleCI build running ?",nan,nan
+4,issue_comment,1413,nilearn,nilearn,GaelVaroquaux,2017-03-12 18:33:47,Good point! I just pushed a fix to master.,nan,nan
+7,issue_comment,1413,nilearn,nilearn,KamalakerDadi,2017-03-13 09:46:06,">Good point! I just pushed a fix to master.
+
+Missed at Line935 https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/displays.py#L935",nan,nan
+5,issue_comment,1413,nilearn,nilearn,GaelVaroquaux,2017-03-13 19:12:16,"Indeed. I pushed a new fix :)
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

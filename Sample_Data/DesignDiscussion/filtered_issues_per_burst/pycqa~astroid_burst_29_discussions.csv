@@ -1,0 +1,16 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,413,pycqa,astroid,cpennington,2017-03-10 19:50:36,Oops. My latest set of changes seems to have changed the semantics.,nan,nan
+5,issue_comment,413,pycqa,astroid,ceridwen,2017-03-11 23:19:08,"Caching finders looks like it produces a major speed up, but I'm not immediately sure this is the right way to do it.  I'm assuming the slow steps are the calls to the standard library import machinery?  Is the search_path key unique across modules?  (I assume yes, but I don't completely understand this code.)  Rather than the cache as a nested dictionary accessed by a global variable, can we move it into separate caches on the finders?  @PCManticore, any comments?
+
+Using an lru cache on ObjectModel.attributes looks good to me.
+
+Based on @cpennington's performance results, caching MROs doesn't get us much.  If we want to do it, adding another mutable attribute to ClassDef nodes is the wrong way, because the MRO is a property not only of the ClassDef node itself but of the tree it's embedded in.  Any memoization would have to take place at the tree level and require cache invalidation in the case of tree mutation.",nan,nan
+6,issue_comment,413,pycqa,astroid,cpennington,2017-03-13 13:42:55,"@ceridwen: IIRC (and from looking at the set of finders), I think the biggest culprit in the Finders was the `ZipFinder`. We could maybe just do an `lru_cache` on `_precache_zipimporters`. Although... that depends on `sys.path` and the `sys.path_importer_cache`.
+
+I'm going to do a bit of digging to see if there's a more targeted approach.",nan,nan
+7,pull_request_commit_comment,413,pycqa,astroid,PCManticore,2017-03-13 20:56:58,"Sorry for being late to the party, I thought this was still work-in-progress.
+
+Why don't we use https://pypi.python.org/pypi/backports.functools_lru_cache/ instead? this is what we use in pylint and it seems official, rather than functools32.",432c519234798563c5b7b16d4c107acd3ed04d04,"(6, '', u'astroid/__pkginfo__.py')"
+8,pull_request_commit_comment,413,pycqa,astroid,ceridwen,2017-03-14 00:51:03,"Good point, thanks.  We had some conversation about it in IRC this afternoon, and I've been trying to prevent any more pull requests than we already have from languishing.",432c519234798563c5b7b16d4c107acd3ed04d04,"(6, '', u'astroid/__pkginfo__.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 

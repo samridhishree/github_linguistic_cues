@@ -6,10 +6,22 @@ import os
 import sys
 import csv
 import pandas as pd
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--bursty_issues_dir', help='The directory containing raw issue files', 
+                default='Sample_Data/burst_issues/')
+parser.add_argument('--output_dir', help='Directory containing the clean issues', 
+                default='Sample_Data/DesignDiscussion/filtered_issues_per_burst/')
+args, unknown = parser.parse_known_args()
 
-bursty_issues_dir = sys.argv[1]
-output_dir = sys.argv[2]
+bursty_issues_dir = args.bursty_issues_dir
+output_dir = args.output_dir
+
+try:
+    os.makedirs(output_dir)
+except:
+    pass
 
 for filename in os.listdir(bursty_issues_dir):
     parts = filename.split('_burst_')

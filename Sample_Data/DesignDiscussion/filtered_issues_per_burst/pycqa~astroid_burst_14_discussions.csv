@@ -1,0 +1,11 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,274,pycqa,astroid,pylint-bot,2015-11-30 23:12:59,"_Original comment by_ **Claudiu Popa (BitBucket: [PCManticore](http://bitbucket.org/PCManticore), GitHub: @PCManticore)**:
+
+---
+
+Weird, nothing fails for me or in the CI. Could you send this as a PR? Thanks!
+",nan,nan
+3,issue_comment,274,pycqa,astroid,bcl,2015-12-10 22:54:10,"Ends up this was because I was using setup.py test instead of tox.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

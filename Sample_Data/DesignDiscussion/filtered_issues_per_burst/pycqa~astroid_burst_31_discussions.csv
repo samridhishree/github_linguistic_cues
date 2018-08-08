@@ -1,0 +1,10 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,428,pycqa,astroid,rogalski,2017-05-15 05:31:55,#429 will fix this.,nan,nan
+3,issue_comment,428,pycqa,astroid,PCManticore,2017-05-22 12:58:29,This should be fixed after #429 ,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,435,pycqa,astroid,rogalski,2017-05-15 17:45:34,"[It's C extension](https://bitbucket.org/al45tair/netifaces/src/master/netifaces.c), consider running it after setting `extension-pkg-whitelist=netifaces `
+",nan,nan
+3,issue_comment,435,pycqa,astroid,PCManticore,2017-05-22 13:02:32,This works with extension-pkg-whitelist,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

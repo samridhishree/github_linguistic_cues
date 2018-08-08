@@ -1,0 +1,201 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,140,nilearn,nilearn,bthirion,2013-11-22 15:36:44,"LGTM. A call to pylab remains in introduction.rst
+",nan,nan
+6,issue_comment,140,nilearn,nilearn,rphlypo,2013-11-22 15:49:13,"pylab in introduction.rst call has been altered
+",nan,nan
+7,issue_comment,140,nilearn,nilearn,rphlypo,2013-11-22 16:07:07,"no other pylab occurrences found with grep, except for 
+
+```
+ipython -pylab
+```
+
+and related occurrences in introduction.rst, but this is totally legitimate 
+",nan,nan
+4,issue_comment,140,nilearn,nilearn,GaelVaroquaux,2013-11-22 17:16:41,"Merged by rebase. Thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,133,nilearn,nilearn,AlexandreAbraham,2013-11-21 12:23:38,"We cannot label components as they may be different across CanICA runs.
+
+Showing the output before the code is not illogic : we show the figures before the code, which is part of the output of the script. However, I agree that such a long output should not be shown. We should first reduce the verbosity of the objects. Second, I think that these debug output are done on stderr, not on stdout. We should not capture stdout, but it has to be verified.
+",nan,nan
+3,issue_comment,133,nilearn,nilearn,GaelVaroquaux,2013-11-21 12:28:25,"> Showing the output before the code is not illogic : we show the figures
+> before the code, which is part of the output of the script. However, I
+> agree that such a long output should not be shown. We should first
+> reduce the verbosity of the objects. Second, I think that these debug
+> output are done on stderr, not on stdout. We should not capture stdout,
+> but it has to be verified.
+
+I will do a simple fix using CSS and overflow: scroll
+",nan,nan
+6,issue_comment,133,nilearn,nilearn,AlexandreAbraham,2013-11-21 12:36:15,"Good idea !
+",nan,nan
+4,issue_comment,133,nilearn,nilearn,GaelVaroquaux,2013-11-22 17:17:09,"Code output is fixed.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 11:43:26,"Online build should be updated to latest now
+",nan,nan
+7,issue_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 11:44:53,"This is an **html-noplot** build, by the way. So the plots aren't there
+",nan,nan
+11,pull_request_commit_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 12:20:46,"whoops - deleting this
+",3db06754623e0ac63e2bb3a48b7a41baf8de1b24,"(None, '', u'doc/sphinxext/gen_rst.py')"
+8,issue_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 12:41:23,"I think that caption below images should be centered.
+",nan,nan
+9,issue_comment,132,nilearn,nilearn,jaquesgrobler,2013-11-19 12:42:21,"@AlexandreAbraham  good point - thanks... fixing
+",nan,nan
+12,pull_request_commit_comment,132,nilearn,nilearn,GaelVaroquaux,2013-11-19 19:12:02,"Would it be possible to move the CSS part in the CSS file? If need be, do not hesitate to give a more specific css attribute to the corresponding figures.
+",3db06754623e0ac63e2bb3a48b7a41baf8de1b24,"(2, '', u'doc/sphinxext/gen_rst.py')"
+4,issue_comment,132,nilearn,nilearn,GaelVaroquaux,2013-11-19 19:14:54,"This is just beautiful work! The code is simple and I really like the visual result.
+
+I'd like @AlexandreAbraham to have a look, and if you could address my minor comment it would be great. But beyond that, I am :+1: for merge, and super positive about the result.
+",nan,nan
+23,pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:43:53,"If a file is opened with a `with ... as` statement, there is no need to close it.
+",c4b1004045a8dc57642f7139fcbbf896ccabb215,"(68, 774, u'doc/sphinxext/gen_rst.py')"
+24,pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:44:08,"Same here, no need to close.
+",c4b1004045a8dc57642f7139fcbbf896ccabb215,"(76, 782, u'doc/sphinxext/gen_rst.py')"
+21,pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:49:18,"If I am not mistaken, these lines are actually useful: if you change an example, it forces sphinx to re-run it. Ideally, there should be a test of files modification date (if the script is newer than the image, re-run it, otherwise keep the already computed image). Have you tested that these lines are superfluous ?
+",0dbe1f49b988ef212590e8f208a58d3cdfddc63f,"(5, 42, u'doc/Makefile')"
+10,issue_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:57:30,"I found the behavior of the tooltip annoying in a particular situation: if you go on a figure, make the tooltip appear and then go right to hover the next figure (trhough the tooltip) I would like the tooltip to disappear. No other comment on the rendering: it's far more better than the previous one.
+",nan,nan
+22,pull_request_commit_comment,132,nilearn,nilearn,AlexandreAbraham,2013-11-20 10:10:55,"Even if it works, I really doubt that adding a `tooltip` field to a `div` is standard. I think that HTML 5 introduce a way to store custom data (throught the data-\* fileds) but otherwise, this may cause trouble. Hace you tried it on older browsers ?
+
+At least, renaming it `data-tooltip` has to be done, so we are HTML 5 compliant. At best, I think that we could use an existing unused tag like `title`.
+",0dbe1f49b988ef212590e8f208a58d3cdfddc63f,"(201, 588, u'doc/sphinxext/gen_rst.py')"
+5,issue_comment,132,nilearn,nilearn,GaelVaroquaux,2013-11-20 16:30:24,"I fixed a few things in the CSS and merged. This was the last block to push the new nilearn website. Ouf! As we say in French.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,131,nilearn,nilearn,GaelVaroquaux,2013-11-19 22:29:13,"I want to merge this branch. Any comments, @AlexandreAbraham  ?
+",nan,nan
+6,issue_comment,131,nilearn,nilearn,AlexandreAbraham,2013-11-19 23:39:10,"+1 for merging. I thought I commented this one. I have tested the gzip monkey patch and the improvement is impressive.
+",nan,nan
+5,issue_comment,131,nilearn,nilearn,GaelVaroquaux,2013-11-20 05:46:24,"Thanks for your review! Merging
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,137,nilearn,nilearn,juhuntenburg,2015-07-13 09:51:18,"Does this refer to the reference doc or user guide?
+
+The reference doc says:
+""confounds: list of confounds, optional :
+    List of confounds (2D arrays or filenames pointing to CSV files). Must be of same length than imgs_list.""
+
+So is it already solved or should the ordering be pointed out specifically?
+",nan,nan
+3,issue_comment,137,nilearn,nilearn,GaelVaroquaux,2015-07-13 09:54:02,"I think that you are right, and that this issue has been fixed since then. 
+
+I am closing it. Thanks a lot for checking things.
+",nan,nan
+5,issue_comment,137,nilearn,nilearn,banilo,2015-07-13 14:20:30,"I agree. People have repeatedly asked me how the confound removal does work
+exactly statistics-wise.
+
+2015-07-13 11:54 GMT+02:00 Gael Varoquaux notifications@github.com:
+
+> I think that you are right, and that this issue has been fixed since then.
+> 
+> I am closing it. Thanks a lot for checking things.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/issues/137#issuecomment-120877002.
+
+## 
+
+Viele Grüße,
+Danilo
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,135,nilearn,nilearn,GaelVaroquaux,2013-11-21 16:36:53,"Ronald, do you think that you can take care of that, please?
+",nan,nan
+5,issue_comment,135,nilearn,nilearn,rphlypo,2013-11-21 16:50:06,"Ok, I am on it
+",nan,nan
+4,issue_comment,135,nilearn,nilearn,GaelVaroquaux,2013-11-22 17:17:38,"Done!
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+18,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-07 15:09:16,"I had to remove dataset fetcher tests because the new API break them. I can make new smoke tests (that will increase code coverage) but it won't be useful... The only way to test the dataset fetchers in real conditions is to create phony dataset files (ie files that mimic the dataset tree) locally, as it has already been done for haxby simple.
+
+@GaelVaroquaux do we make smoke tests, tests with phony files or no test at all ?
+",nan,nan
+4,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-07 15:13:06,"> @GaelVaroquaux do we make smoke tests, tests with phony files or no
+> test at all ?
+
+Right now, make smoke tests, and add an issue to make (later) tests with
+phony files.
+",nan,nan
+19,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",nan,nan
+20,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 09:11:57,"I added back some tests. More has to be done but, apart from that, this PR is ready for merging.
+",nan,nan
+5,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:36:04,"I haven't followed: the new ADHD dataset is now good to go?
+",nan,nan
+21,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:36:50,"We need to strive _not_ to have UTF-8 in our code base.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(2, '', u'nilearn/datasets.py')"
+22,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:41:58,"It seems to me that this iteration does not seem to match the function signature as described in the docstring.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+23,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:45:45,"I'd rather not use an 'import from'. Note that you don't need the ""import os.path"", as the submodule ""path"" is imported.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+24,pull_request_commit_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 09:47:06,"Yes. pgervais added this one, I don't know why because there are no special characters. I'll remove it.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(2, '', u'nilearn/datasets.py')"
+25,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:49:37,"I think that I would prefer:
+
+<pre>
+md5sum = opts.get('md5sum', None)
+</pre>
+
+That way you can also remove the line above putting md5sum to None.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+26,pull_request_commit_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 09:50:35,"Indeed. Thanks for noticing. I tried to docstring this one even if it's not public as it may be used by developers wanting to implement a fetcher for their datasets.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+27,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:52:24,"I think that I would prefer to use the 'warnings' module.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+28,pull_request_commit_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 09:55:02,"The problem is that exists and join are use intensively, sometimes with long filenames. Using os.path.exists will force me to break some lines. This is feasible though.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+29,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+6,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:03:50,"Despite your worthy efforts to test the dataset module, it's coverage is still the lowest of the whole nilearn codebase:
+
+<pre>
+nilearn.datasets                          412    210    49%   30, 73, 104, 138-143, 196, 200, 229-232, 234-245, 252, 256-258, 298, 308, 312-313, 321-334, 346-357, 361, 363-364, 406, 410-412, 416, 439-460, 464-468, 474-482, 529-549, 598-620, 667-692, 736, 806-807, 812-814, 824, 847-850, 1005-1006, 1014, 1063-1128, 1170-1180, 1218-1280, 1316-1396
+</pre>
+
+And this is actually tricky code. We need it covered :(
+",nan,nan
+7,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:09:37,"The function _tree could and should have its own unit test, as well as _filter_columns
+",nan,nan
+8,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:11:07,"Actually, _filter_columns seems broken to me: it returns ""filter"", but the variable defined inside the function is ""filter_"".
+",nan,nan
+13,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 10:13:08,"`_tree` should be tested. `filter_columns` is not used, I'll remove it.
+",nan,nan
+9,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:14:16,"Yes, I just noticed that '_filter_columns' was not used. I am still busy understanding the code. I agree that it should be removed. This functionality is useful, but we will add it later.
+",nan,nan
+30,pull_request_commit_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:17:52,"Although this is not part of you PR, there is a horrible camelCase notation, urlOpener, that needs to be changed to url_opener.
+",7f1b47559229c21571c55a5970b92b74ecf2d03f,"(None, '', u'nilearn/datasets.py')"
+14,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 10:18:18,"This is some code I made quickly for fetching ABIDE. This allow to select subjects based on some criteria applied to phenotypic information. This was made to avoid a dependency to pandas. Only simple requests are handled (AGE=18 for exemple).
+",nan,nan
+10,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-13 10:24:46,"OK, I have finished reviewing this PR. My main comment is that code coverage needs to go up. If you look systematically at the coverage, they are many low hanging fruits.
+",nan,nan
+15,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-13 14:37:10,"ADHD seems good to go. The examples are running well.
+
+I'll increase test coverage bit by bit as it takes some time. The whole downloading codepath is already tested by `test_fetch_haxby_simple`. I thinks it's ok if others are some tests. For some fetchers however, we won't be able to test everything without copying some files in the repo.
+",nan,nan
+16,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-18 22:01:47,"@GaelVaroquaux: coverage is now 85%.
+",nan,nan
+11,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-19 19:57:50,"This is absolutely great!
+
+The tests are failing on travis:
+https://travis-ci.org/nilearn/nilearn/jobs/14164854
+but I am sure that it is a minor detail that you will be able to fix
+quickly.
+",nan,nan
+17,issue_comment,125,nilearn,nilearn,AlexandreAbraham,2013-11-20 00:20:04,"@GaelVaroquaux Fixed.
+",nan,nan
+12,issue_comment,125,nilearn,nilearn,GaelVaroquaux,2013-11-20 05:43:25,"Fantastic! Merging.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

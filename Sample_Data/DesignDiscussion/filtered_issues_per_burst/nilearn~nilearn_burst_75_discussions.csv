@@ -1,0 +1,91 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,1069,nilearn,nilearn,GaelVaroquaux,2016-03-31 15:32:52,"You need to look at mask_img_: the object never modifies its input, but
+creates a shadow variable with an underscore.
+",nan,nan
+5,issue_comment,1069,nilearn,nilearn,cinvro,2016-03-31 17:30:13,"When I print the masker.mask_img_, it gives me None too.
+",nan,nan
+4,issue_comment,1069,nilearn,nilearn,AlexandreAbraham,2016-03-31 18:23:55,"If you dont provide `mask_img` parameter, then `mask_img_` will be None. NiftiLabelsMasker stores the label atlas in `labels_img_`. The `mask_img`parameter can be used to exclude voxels outside of the Brain. Meaning that if zone région from the labels has a part inside of the Braun and one outside (as defined by mask_img) then the mean of the voxels inside the brain is averaged at transform.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,1068,nilearn,nilearn,aabadie,2016-03-30 13:15:01,"I don't think we should remove this line as it shows that `image.smooth_img` function can take a nibabel object as input.
+I admit it's a bit weird to smooth an already smoothed object, though. Maybe the comment above could be more explicit or we could use `img_index` to retrieve a nibabel object which will then smoothed with a different factor (let's say 5). Finally both smoothed images could be compared in 2 plots.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')"
+7,pull_request_commit_comment,1068,nilearn,nilearn,KamalakerDadi,2016-03-30 13:36:51,"I agree for the rest but,
+
+> Finally both smoothed images could be compared in 2 plots.
+
+We are not showing any comparisons here.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')"
+8,pull_request_commit_comment,1068,nilearn,nilearn,aabadie,2016-03-30 13:40:12,"> We are not showing any comparisons here.
+
+Agreed. Let's go for the comment improvement then !
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')"
+9,pull_request_commit_comment,1068,nilearn,nilearn,GaelVaroquaux,2016-03-30 13:41:58,"> > -# Finally, it can be passed to nilearn function
+> > -smooth_anat_img = image.smooth_img(smooth_anat_img, 3)
+> 
+> I don't think we should remove this line as it shows that image.smooth_img
+> function can take a nibabel object as input.
+
++1.
+
+> I admit it's a bit weird to smooth an already smoothed object, though. Maybe
+> the comment above could be more explicit or we could use img_index to retrieve
+> a nibabel object which will then smoothed with a different factor (let's say
+> 5). Finally both smoothed images could be compared in 2 plots.
+
+I'd rather have a more explicit comment than making this more complex.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')"
+10,pull_request_commit_comment,1068,nilearn,nilearn,KamalakerDadi,2016-03-31 07:54:30,"Fixed. Does this looks good ?
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(None, '', u'examples/plot_nilearn_101.py')"
+5,issue_comment,1068,nilearn,nilearn,aabadie,2016-03-31 09:28:07,"Travis failed due to the memory profiler usual suspect. I don't know what happened to appeyor (the log was empty).  I respawned both.
+
+When all CI are green, I'll be +1 for merge.
+",nan,nan
+11,pull_request_commit_comment,1068,nilearn,nilearn,GaelVaroquaux,2016-04-07 05:22:12,"I am not sure why this is written ""in-memory Nifti file"", given that we are using a filename below.
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(5, '', u'examples/plot_nilearn_101.py')"
+12,pull_request_commit_comment,1068,nilearn,nilearn,GaelVaroquaux,2016-04-07 06:54:48,"Changed in master
+",639a0ca4f9f0e628dec7ce59931f0e1979f43d7e,"(5, '', u'examples/plot_nilearn_101.py')"
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,pull_request_commit_comment,1067,nilearn,nilearn,aabadie,2016-03-29 16:01:55,"Period missing ?
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(144, '', u'nilearn/decomposition/dict_learning.py')"
+7,pull_request_commit_comment,1067,nilearn,nilearn,dohmatob,2016-03-29 16:16:11,"this is one of the many issues with the existing code. not introduced by
+the proposed patch ...
+
+On Tue, Mar 29, 2016 at 6:01 PM, Alexandre Abadie notifications@github.com
+wrote:
+
+> In nilearn/decomposition/dict_learning.py
+> https://github.com/nilearn/nilearn/pull/1067#discussion_r57749736:
+> 
+> > ```
+> >  def fit(self, imgs, y=None, confounds=None):
+> > ```
+> > -        """"""Compute the mask and the ICA maps across subjects
+> > -        """"""Compute the mask and component maps across subjects
+> 
+> Period missing ?
+> 
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/1067/files/532c2da19d52928e94a99d6ac1f8dfa1d65067d2#r57749736
+
+## 
+
+Elvis Dohmatob,
+_sent from my  potato..._
+http://dohmatob.blogspot.fr/, https://team.inria.fr/parietal/elvis/,
+https://github.com/dohmatob
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(144, '', u'nilearn/decomposition/dict_learning.py')"
+8,pull_request_commit_comment,1067,nilearn,nilearn,aabadie,2016-03-30 13:30:24,"Maybe add a ""Returns"" section explaining that `fit` chaining is allowed. Do we really want this ?
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(160, '', u'nilearn/decomposition/dict_learning.py')"
+9,pull_request_commit_comment,1067,nilearn,nilearn,GaelVaroquaux,2016-03-30 13:34:15,"> Do we really want this ?
+
+An estimator is not valid scikit-learn if fit does not return self.
+",7f26b947ecfc1ef758266188c0df477ed8d8ec3a,"(160, '', u'nilearn/decomposition/dict_learning.py')"
+5,issue_comment,1067,nilearn,nilearn,bthirion,2016-04-03 22:28:42,"LGTM.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

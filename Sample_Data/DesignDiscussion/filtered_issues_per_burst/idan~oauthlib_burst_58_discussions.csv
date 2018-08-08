@@ -1,0 +1,35 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,388,idan,oauthlib,thedrow,2015-10-25 11:09:03,"Looks really nice but needs test coverage.
+",nan,nan
+6,pull_request_commit_comment,388,idan,oauthlib,thedrow,2016-12-06 13:27:16,If I remember correctly this needs to be converted to bytes in order to be Python 3 compatible. ,ab1b728a50b86a786247559fb423d01260dd438c,"(52, '', u'oauthlib/oauth1/rfc5849/signature.py')"
+7,pull_request_commit_comment,388,idan,oauthlib,thedrow,2016-12-06 13:28:26,This will break backwards compatibility. Please include both `SIGNATURE_HMAC_SHA1` & `SIGNATURE_HMAC`.,ab1b728a50b86a786247559fb423d01260dd438c,"(11, '', u'oauthlib/oauth1/rfc5849/__init__.py')"
+8,pull_request_commit_comment,388,idan,oauthlib,kevin-brown,2016-12-06 14:40:02,Are those two the exact same? (line 32),ab1b728a50b86a786247559fb423d01260dd438c,"(11, '', u'oauthlib/oauth1/rfc5849/__init__.py')"
+9,pull_request_commit_comment,388,idan,oauthlib,thedrow,2016-12-07 20:36:57,Yes they are.,ab1b728a50b86a786247559fb423d01260dd438c,"(11, '', u'oauthlib/oauth1/rfc5849/__init__.py')"
+4,issue_comment,388,idan,oauthlib,ViktorHaag,2017-10-27 17:14:03,Superseded with PR #498 ?,nan,nan
+5,issue_comment,388,idan,oauthlib,lepture,2017-10-27 17:42:52,"This should not be included in this library. It is not in RFC. However, we can provide a way to extend signature methods.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,pull_request_commit_comment,498,idan,oauthlib,lepture,2017-10-27 17:41:27,There is no such thing in RFC5849.,be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')"
+4,issue_comment,498,idan,oauthlib,lepture,2017-10-27 17:44:45,"Actually there is a way to register your own signature method.
+https://github.com/idan/oauthlib/blob/master/oauthlib/oauth1/rfc5849/__init__.py#L52
+
+This **HMAC-SHA256** is not a part of the specification in RFC. This patch should not be included in this repo.",nan,nan
+8,pull_request_commit_comment,498,idan,oauthlib,ViktorHaag,2017-10-27 18:21:43,"Agreed. Note that my comment didn't claim it was in RFC5849, but defined in RFC4634 (as one of the suite of accepted Secure Hash Algorithms beyond SHA-1).
+
+I took 5849's provision of three signature methods as _not exclusive_. In section 3.4, it says ""OAuth _does not mandate_ a particular signature method"" (my emphasis), and so it seems useful, with little harm, to add support for SHA2-family signing methods.
+
+If the maintainers would prefer to have clients add support for more modern signing methods via extension, rather than provided in the library, I can understand that decision. I would have thought having the support in-library would at least help clients ensure consistency, but it's clearly not my decision.",be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')"
+9,pull_request_commit_comment,498,idan,oauthlib,lepture,2017-10-27 18:43:48,"@ViktorHaag See my comment. There is a register function to extend signature methods. The folder is named as rfc5849, things beyond this scope should not be included.
+
+cc @thedrow @ib-lundgren ",be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')"
+10,pull_request_commit_comment,498,idan,oauthlib,ViktorHaag,2017-10-27 19:14:35,"Yes, I understand your point. I had assumed from the comments in #388, that the blocking factor here was a lack of testing and documentation, and not the idea in the first place. It was or that reason that I decided to help by ""finishing"" the original PR. If the maintainer group would prefer not to include it, that's fine: I'm glad there is a way to extend the package usefully.",be7d482a5d5696ea8aa468dc8f31a0188bc74033,"(18, '', u'oauthlib/oauth1/rfc5849/signature.py')"
+5,issue_comment,498,idan,oauthlib,thedrow,2017-11-14 15:44:36,"I have given this some thought.
+I don't see the harm in providing this implementation to our users.
+It's a pretty common usecase.",nan,nan
+6,issue_comment,498,idan,oauthlib,thedrow,2017-11-14 15:45:34,"Thank you @ViktorHaag @mick88 
+Feel free to add yourselves to the AUTHORS file.
+
+@lepture If you strongly disagree let's chat about this over email.
+We can always revert before making a new release.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

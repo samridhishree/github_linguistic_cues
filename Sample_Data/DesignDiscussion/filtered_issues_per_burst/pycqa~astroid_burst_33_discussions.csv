@@ -1,0 +1,25 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,452,pycqa,astroid,PCManticore,2017-10-12 07:41:49,"I'm sorry but I cannot agree with this. C extensions cannot be loaded for a reason, which is that it creates a security risk, which is why they have to be exempted with ``--extension-pkg-whitelist``. The problem with `numpy` though stems from the fact that it's relying heavily on dynamic features, such as generating members dynamically, which cannot be inferred correctly by pylint. What we need to do is to introduce proper hints through brain modules for these inner modules where numpy uses those dynamic features.",nan,nan
+4,issue_comment,452,pycqa,astroid,hippo91,2017-10-14 08:57:38,"Ok, thanks @PCManticore for these explanation!
+I will try to make something in brain_numpy.py to handle those dynamic features.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,454,pycqa,astroid,hugovk,2017-10-12 07:49:24,"On further investigation, commit c2e8ca524793905018e0e4adc5e29e1d3b0446c6 to fix #172, which introduced that test, has been failing from the start.
+
+Here's the failing commit to fix #172:
+https://travis-ci.org/hugovk/astroid/builds/286902750
+
+And here's the passing commit (except for pylint) before that one:
+https://travis-ci.org/hugovk/astroid/builds/286903238
+
+In the short term, I suggest at least removing the test so the CI is useful for new PRs. And then revisit the test to make sure the fix for #172 is working as expected.
+
+",nan,nan
+3,issue_comment,454,pycqa,astroid,PCManticore,2017-10-12 08:40:14,"This is caused by https://github.com/PyCQA/astroid/issues/444. The PR looks good to me, plus we also track the error in the linked issue.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,455,pycqa,astroid,PCManticore,2017-10-12 08:39:05,"Rather than removing it entirely, this test should be marked as expected failure. ",eef6a7628da0ccbf6f659e0156a98a86d92ed387,"(None, '', u'astroid/tests/unittest_inference.py')"
+6,pull_request_commit_comment,455,pycqa,astroid,hugovk,2017-10-12 08:53:12,"@PCManticore Thanks, updated.",eef6a7628da0ccbf6f659e0156a98a86d92ed387,"(None, '', u'astroid/tests/unittest_inference.py')"
+4,issue_comment,455,pycqa,astroid,PCManticore,2017-10-12 09:04:15,"Thanks @hugovk ! The build still fails, but due to some pylint warnings",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

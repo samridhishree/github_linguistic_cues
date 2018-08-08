@@ -1,0 +1,55 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+2,issue_comment,34,idan,oauthlib,kennethreitz,2012-05-04 18:48:07,"I'd enjoy us switching to the [rsa module](http://stuvel.eu/rsa) if possible.
+",nan,nan
+3,issue_comment,34,idan,oauthlib,kennethreitz,2012-05-04 18:51:46,"Better yet, it would better if oauthlib had a soft dependency on pycrypto,
+",nan,nan
+4,issue_comment,34,idan,oauthlib,ib-lundgren,2013-02-18 18:23:29,"Closing since it's in the docs.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,76,idan,oauthlib,lepture,2012-11-22 05:37:53,"yes. it does.
+",nan,nan
+3,issue_comment,76,idan,oauthlib,sigmavirus24,2012-11-22 05:41:34,"It supports 3.1 and 3.2 afaik. No response from them on 3.3 yet.
+",nan,nan
+4,issue_comment,76,idan,oauthlib,ib-lundgren,2013-02-18 18:36:09,"Travis does not support 3.1, 3.2 and 3.3 should work when we find a way to exclude the installation of unittest2 for python 3 envs.
+",nan,nan
+5,issue_comment,76,idan,oauthlib,sigmavirus24,2013-02-18 18:40:42,"@ib-lundgren you're correct that they stopped supporting 3.1 and now only support 3.2 and 3.3. If you want I can write something for you that will manage the dependencies based on python version, but you'll have to use `python setup.py install` for the install command, not `pip install -r requirements.txt`. 
+",nan,nan
+6,issue_comment,76,idan,oauthlib,ondrowan,2013-02-18 18:47:45,"I started to (really) slowly implement oauthlib to Django and this is setup i'm using for testing: https://github.com/ondrowan/django-oauthlib/blob/master/.travis.yml. It should solve unittest2 issues.
+",nan,nan
+7,issue_comment,76,idan,oauthlib,ib-lundgren,2013-02-18 18:48:20,"We are using pip + crate.io currently as setup.py has been flaky with PyCrypto (falls back on a ftp that quite often is unavailable if I remember correctly). 
+",nan,nan
+8,issue_comment,76,idan,oauthlib,ib-lundgren,2013-02-18 18:49:38,"Hrm, using tox might very well work. Will reduce duplication of dependency spec slightly too =)
+",nan,nan
+9,issue_comment,76,idan,oauthlib,ib-lundgren,2013-02-18 19:39:00,"Updated to use tox, only failed a few times... Removed 3.1 from tox.ini, will continue to test it locally but don't think it's a major issue not having everything go through it.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,118,idan,oauthlib,techtonik,2013-02-21 08:37:50,"http://vimeo.com/52882780 - around 23:04 should help - you really need to make sure you get those security concepts before you proceed.
+",nan,nan
+3,issue_comment,118,idan,oauthlib,ib-lundgren,2013-02-21 10:51:49,"Thanks, will take a look tonight. There are many interesting posts around
+on OAuth as well and I hope to eventually go through them all. For example
+the recent facebook hickup.
+
+http://homakov.blogspot.ch/2013/02/hacking-facebook-with-oauth2-and-chrome.html
+
+On Thu, Feb 21, 2013 at 9:37 AM, anatoly techtonik <notifications@github.com
+
+> wrote:
+> 
+> http://vimeo.com/52882780 - around 23:04 should help - you really need to
+> make sure you get those security concepts before you proceed.
+> 
+> —
+> Reply to this email directly or view it on GitHubhttps://github.com/idan/oauthlib/issues/118#issuecomment-13878404.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,119,idan,oauthlib,wiliamsouza,2013-02-18 19:40:25,"""How to get started on an OAuth 2 provider"" That is a good question in nutshell It can be basicaly, I implement the methods  of oauthlib.oauth2.RequestValidator and pass it to oauthlib.oauth2.WebApplicationServer so I can call create_authorization_response and  create_token_response?
+",nan,nan
+3,issue_comment,119,idan,oauthlib,ib-lundgren,2013-02-18 20:03:32,"Essentially. yes. Note that while OAuth 2 providers are quickly maturing they are still not quite ready for prime time and there might lurk nasty bugs there.
+
+Check out https://oauthlib.readthedocs.org/en/latest/server2.html for some info as well.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

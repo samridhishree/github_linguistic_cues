@@ -1,0 +1,180 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+7,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 09:28:33,"Did you forget this print instruction ?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/searchlight.py')"
+8,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 09:30:07,"Should this be the default behavior ?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+9,pull_request_commit_comment,1232,nilearn,nilearn,AlexandreAbraham,2016-08-09 09:37:44,"I wondered. From a developper POV, this is indeed the most wanted behavior. From a user POV, being able to transform only one point is nice.
+
+Another option I thought of is this:
+`coord_transform(1, 2, 3, np.eye(4))` returns a 3-tuple `(1, 2, 3)`
+and
+`coord_transform([1], [2], [3], np.eye(4))` returns a 3-tuple of list `([1], [2], [3])`
+
+Maybe this is more natural?
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+10,pull_request_commit_comment,1232,nilearn,nilearn,bthirion,2016-08-09 20:48:21,"Sorry, I am missing the point. The scores are uniformly zero. Shouldn't we have a non-zero score at [0, 0, 0].
+Maybe I missed the logic of this update.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/tests/test_searchlight.py')"
+11,pull_request_commit_comment,1232,nilearn,nilearn,AlexandreAbraham,2016-08-10 13:34:27,"Answer is in the conversation. For your question in particular, no, the score is 0 because the sphere is too small to grab the voxel containing the signal.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/decoding/tests/test_searchlight.py')"
+6,issue_comment,1232,nilearn,nilearn,KamalakerDadi,2016-08-18 15:59:00,"Is it worth to add tests for `coord_transform` ?
+",nan,nan
+12,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:22:59,"> > -def coord_transform(x, y, z, affine):
+> > +def coord_transform(x, y, z, affine, squeeze=True):
+> 
+> Should this be the default behavior ?
+
+I don't think so. It's always annoying to have to deal with a number of
+dimensions that can fluctuate.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+13,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:30:24,"It might be good to have a test, testing that input shape == output shape.
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(13, '', u'nilearn/image/resampling.py')"
+14,pull_request_commit_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 07:30:45,"> > Should this be the default behavior ?
+> 
+> I don't think so. It's always annoying to have to deal with a number of
+> dimensions that can fluctuate.
+
+Looks like you addressed that comment :$
+",28ec2e53ad0aad0bbd9b2a153fea4f8c9a77eac8,"(None, '', u'nilearn/image/resampling.py')"
+5,issue_comment,1232,nilearn,nilearn,GaelVaroquaux,2016-08-19 09:57:07,"LGTM, but it would be nice to have a test on coord_transform.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1262,nilearn,nilearn,AlexandreAbraham,2016-09-06 06:16:00,"`np.argmax`
+",nan,nan
+4,issue_comment,1262,nilearn,nilearn,salma1601,2016-09-06 21:26:34,"nice ! thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1267,nilearn,nilearn,AlexandreAbraham,2016-09-08 08:50:27,"Nailed it. The dtype of aal.maps is '>i2', so big endian. image._resample_one_img creates an output image of the same type, '>i2' for the output. But scipy.ndimage.affine_transform writes values in little endian, hence the mess.
+",nan,nan
+5,issue_comment,1267,nilearn,nilearn,KamalakerDadi,2017-03-13 10:24:25,"Similar big endian problem appeared when using ```largest_connected_component``` from _utils.ndimage on AAL atlas.
+```ValueError: Big-endian buffer not supported on little-endian compiler```
+
+Basically, this will also have impact on this PR #1409 
+",nan,nan
+6,issue_comment,1267,nilearn,nilearn,KamalakerDadi,2017-06-23 00:51:28,"With current master, we don't see any negative labels after resampling. @salma1601 Can you please confirm this one ?",nan,nan
+4,issue_comment,1267,nilearn,nilearn,salma1601,2017-06-23 07:46:27,"Yep ! No negative labels now, thanks !",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+7,issue_comment,1266,nilearn,nilearn,AlexandreAbraham,2016-09-07 14:33:56,"Maybe testing if the link exist is more clever? This would let open the possibility to customize these links. This is just an open question, this is not something that I do.
+",nan,nan
+6,issue_comment,1266,nilearn,nilearn,lesteve,2016-09-07 14:42:50,"AFAIR this is a kludge to share nilearn_cache from different examples folders on CircleCI, the simpler the better ...
+",nan,nan
+5,issue_comment,1266,nilearn,nilearn,aabadie,2016-09-07 15:45:55,"I had an oral agreement from @AlexandreAbraham for merging this one once CI are green.
+Everything is green => Merging !
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+6,issue_comment,1265,nilearn,nilearn,AlexandreAbraham,2016-09-08 14:26:45,"LGTM
+",nan,nan
+5,issue_comment,1265,nilearn,nilearn,GaelVaroquaux,2016-09-30 09:01:59,"Merging this. Thanks @Titan-C .
+Sorry for having taken so long.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,issue_comment,1264,nilearn,nilearn,KamalakerDadi,2016-09-06 20:41:14,"As far as warnings, I don't think there is a way.
+
+But, you can ignore the warnings by catch the warnings and tell to ignore them. Watch at Neurovault fetcher PR particularly example to make sense of what I am talking. Feel free to close it if you think this issue still not be kept hold.
+",nan,nan
+4,issue_comment,1264,nilearn,nilearn,aabadie,2016-09-06 20:43:19,"This warning was fixed in upstream Joblib in [this PR](https://github.com/joblib/joblib/pull/309). I think this fix is also in the latest version of scikit-learn.
+Maybe updating scikit-learn would solve your issue.
+",nan,nan
+5,issue_comment,1264,nilearn,nilearn,aabadie,2016-09-06 20:53:55,"Just verified and scikit-learn 0.17.1 (latest stable release) contains the fix so consider upgrading your installed version.
+
+```
+pip install scikit-learn --upgrade
+```
+
+or 
+
+```
+conda update scikit-learn
+```
+
+if you use anaconda.
+",nan,nan
+9,issue_comment,1264,nilearn,nilearn,salma1601,2016-09-06 21:27:18,"I just upgraded sklearn to 0.17.1
+
+``` Python
+In [1]: import sklearn
+In [2]: sklearn.__version__
+Out[2]: '0.17.1
+```
+
+but I still got the warnings
+",nan,nan
+10,issue_comment,1264,nilearn,nilearn,salma1601,2016-09-06 21:35:30,"It is strange because I have the old version of the file joblib `hashing` file (not tacking into account the mentioned PR) although I upgraded sklearn
+",nan,nan
+6,issue_comment,1264,nilearn,nilearn,aabadie,2016-09-07 07:55:52,"@salma1601, my bad, my scikit-learn installation was ""partched"" with a more recent version of joblib (0.10.0) which itself contains the fix.
+The default scikit-learn installation (0.17.1) still uses 0.9.4, sorry. The next release of scikit-learn should be out by the end of this month.
+",nan,nan
+11,issue_comment,1264,nilearn,nilearn,salma1601,2016-09-07 16:45:26,"Ok thanks for the explanations !
+",nan,nan
+7,issue_comment,1264,nilearn,nilearn,lesteve,2016-09-08 07:55:41,"In the mean time, if you find them really annoying, you can get rid of the warnings by either use the `warnings` module in your script or set the `PYTHONWARNINGS` environment variable. Something like this after your imports in your script (some package modify the warnings filters at import time which can override the filter you are trying to set) should work:
+
+``` py
+import warnings
+warnings.simplefilter('ignore', DeprecationWarning)
+```
+",nan,nan
+12,issue_comment,1264,nilearn,nilearn,salma1601,2016-09-08 08:38:43,"Ok, thanks !
+",nan,nan
+3,issue_comment,1264,nilearn,nilearn,GaelVaroquaux,2017-11-06 21:13:12,Closing this as we won't fix it in the nilearn codebase. It will just disappear by itself :),nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,issue_comment,375,nilearn,nilearn,AlexandreAbraham,2015-01-30 15:34:21,"> just checking: there is a standardize=True for the masker in plot_haxby_rpbi.py with a comment that says that it is important for RPBI. The thing is that standardize=True is not used for the other RPBI examples. Any reason why?
+
+We should check in RPBI that data is standardize and raise a warning if not.
+",nan,nan
+4,issue_comment,375,nilearn,nilearn,bcipolli,2015-02-23 06:07:03,"@lesteve I have been looking at this today, I think it could be useful for some of the RSA things I've been doing in the background.
+
+I'd be happy to help push this forward.  I can take care of the merge conflicts and take care of the printing / verbose issues, for example.  I also think the coding of the `plot_haxby_rpbi` example could be simplified.    
+
+I also had a couple of questions about analysis choices made in the `plot_haxby_rpbi` example.  I worry that my questions / concerns may be naive (I am still very new to neuroimaging analysis), but I will follow up with them in case they're questions others might have in learning from the examples.
+",nan,nan
+5,issue_comment,375,nilearn,nilearn,bcipolli,2015-02-23 06:44:02,"2 questions to start:
+- Why does the Haxby example limit data to houses and faces?  I think a comment there would be helpful.
+- The code mentions that it takes the mean image per condition, as different samples within the same session have dependencies in time.
+  - Isn't this issue also true (to a lesser degree) between conditions (house vs. face)?
+  - Would this be (at least partially) alleviated by passing `detrend=True` in the mask?
+  - Is this really a concern in a block design (24s per stimulus, 12s of rest in-between)?
+",nan,nan
+6,issue_comment,375,nilearn,nilearn,lesteve,2015-02-27 09:36:28,"> I'd be happy to help push this forward.
+
+That would be great indeed! There was some interest about working on it during the 0.1 sprint but other issues were deemed more important at the time.
+
+I guess the first thing would be to rebase on master and fix merge conflicts. The bullet points mentioned in my message at the very top are good next steps.
+",nan,nan
+7,issue_comment,375,nilearn,nilearn,eickenberg,2015-02-27 12:01:11,"> Isn't this issue also true (to a lesser degree) between conditions (house vs. face)?
+
+Probably, but the extent depends on long range temporal interactions (which are typically drift components) that are difficult to quantify
+
+> Is this really a concern in a block design (24s per stimulus, 12s of rest in-between)?
+
+Drift cutoff in nipy GLM is set by default to a period of 128s. If the interactions are really that long, then this would be a concern. 
+
+> Would this be (at least partially) alleviated by passing detrend=True in the mask?
+
+Probably. But as mentioned elsewhere, this detrending needs to be done by chunks (as indicated by the `chunk` variable in the label data)
+",nan,nan
+8,issue_comment,375,nilearn,nilearn,bcipolli,2015-02-28 20:47:02,"Rebased to master / fixed merge conflicts:
+https://github.com/bcipolli/nilearn/tree/rpbi
+
+Thanks @eickenberg ; I can perhaps include some of that in the example (like the detrending in chunks), and a bit more in comments.  I also think the code can be cleaned up a bit (after working through the example for some of the RSA-focused work I'm doing).
+
+I'll also take a look at the bullet points listed!
+",nan,nan
+10,issue_comment,375,nilearn,nilearn,AlexandreAbraham,2015-12-18 13:22:40,"Should we kill this one? Or resurrect it?
+",nan,nan
+11,issue_comment,375,nilearn,nilearn,bthirion,2015-12-18 13:36:16,"I am wondering what the right placeholder for that method is: Nilearn/Nistats. There are two blockers: 
+- the structure instantiated to obtain the p-values through permutation is a bit complex / hard to maintain.
+- Ward clustering is very slow. Renn should be implemented instead.
+  The second point is easy to address, not the first one.
+
+An idea that we have currently is to have a procedure that does not require the permutations, but this is a topic of research. Should go to nilearn-sandbox ?
+",nan,nan
+12,issue_comment,375,nilearn,nilearn,lesteve,2016-09-06 14:23:10,"Closing this one, since this is in nilearn_sandbox now, see https://github.com/nilearn/nilearn_sandbox/pull/8.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

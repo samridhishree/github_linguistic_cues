@@ -1,0 +1,15 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,171,nilearn,nilearn,AlexandreAbraham,2014-03-06 15:47:52,"@GaelVaroquaux ping!
+",nan,nan
+6,issue_comment,171,nilearn,nilearn,GaelVaroquaux,2014-03-06 17:00:04,"Pong
+",nan,nan
+7,issue_comment,171,nilearn,nilearn,GaelVaroquaux,2014-03-06 17:02:59,"Looks great. I would just make it shorter. For instance, you can remove the author and the title, and simply make the 'journal article' clickable. Also, I would replace 'journal article' by 'paper'.
+",nan,nan
+8,issue_comment,171,nilearn,nilearn,GaelVaroquaux,2014-03-06 17:03:23,"Once you make these changes, merge without waiting for my feedback. Thanks!
+",nan,nan
+9,issue_comment,171,nilearn,nilearn,GaelVaroquaux,2014-03-18 23:17:23,"@AlexandreAbraham : do you think that you could wrap this guy up?
+",nan,nan
+10,issue_comment,171,nilearn,nilearn,AlexandreAbraham,2014-03-19 01:12:20,"You can merge it if you think the diff is OK. If you don't I'll do it tomorrow after checking that the website is OK (I've launch a rebuild) so that I'll be able to merge it and push the new website version.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

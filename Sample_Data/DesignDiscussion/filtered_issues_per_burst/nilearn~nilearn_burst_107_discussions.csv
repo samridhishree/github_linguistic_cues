@@ -1,0 +1,37 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,1433,nilearn,nilearn,bthirion,2017-04-06 19:37:18,"LGTM, thx.",nan,nan
+6,issue_comment,1433,nilearn,nilearn,codecov[bot],2017-04-06 21:07:27,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=h1) Report
+> Merging [#1433](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1433/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1433   +/-   ##
+=======================================
+  Coverage   94.51%   94.51%           
+=======================================
+  Files         118      118           
+  Lines       13470    13470           
+=======================================
+  Hits        12731    12731           
+  Misses        739      739
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=footer). Last update [87c12ef...161d7bc](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+9,pull_request_commit_comment,1433,nilearn,nilearn,KamalakerDadi,2017-04-07 08:53:01,Why these details are removed ? I think added details are useful to understand a bit more.,161d7bcec89a3fb59fb516c159f4fef87f800178,"(None, '', u'doc/decoding/decoding_intro.rst')"
+10,pull_request_commit_comment,1433,nilearn,nilearn,bthirion,2017-04-08 20:00:42,"It is true that this comment is not very clear at that place. 
+
+Let me suggest: ""**Do not predict on data used by the fit: this would yield misleadingly optimistic scores.**""",161d7bcec89a3fb59fb516c159f4fef87f800178,"(None, '', u'doc/decoding/decoding_intro.rst')"
+7,issue_comment,1433,nilearn,nilearn,KamalakerDadi,2017-04-24 12:16:03,Any reviews on this or merge ?,nan,nan
+8,issue_comment,1433,nilearn,nilearn,KamalakerDadi,2017-04-25 11:53:22,Merging this one. Thanks,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

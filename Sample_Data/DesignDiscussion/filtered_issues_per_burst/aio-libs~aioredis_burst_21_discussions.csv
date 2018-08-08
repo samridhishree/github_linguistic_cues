@@ -1,0 +1,25 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,166,aio-libs,aioredis,codecov-io,2016-11-14 21:33:37,"## [Current coverage](https://codecov.io/gh/aio-libs/aioredis/pull/166?src=pr) is 96.65% (diff: 100%)
+
+> Merging [#166](https://codecov.io/gh/aio-libs/aioredis/pull/166?src=pr) into [master](https://codecov.io/gh/aio-libs/aioredis/branch/master?src=pr) will increase coverage by **0.05%**
+
+``` diff
+@@             master       #166   diff @@
+==========================================
+  Files            46         46          
+  Lines          5555       5555          
+  Methods           0          0          
+  Messages          0          0          
+  Branches        419        419          
+==========================================
++ Hits           5366       5369     +3   
++ Misses          143        142     -1   
++ Partials         46         44     -2   
+```
+
+> Powered by [Codecov](https://codecov.io?src=pr). Last update [f4645d6...acb3cc6](https://codecov.io/gh/aio-libs/aioredis/compare/f4645d6427e919f1efd3304b2f3b07381941907e...acb3cc62e01e32929d0056aabdd7d5a3cdcfd643?src=pr)
+",nan,nan
+4,issue_comment,166,aio-libs,aioredis,pyup-bot,2016-11-14 23:14:56,"Closing this in favor of #167
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

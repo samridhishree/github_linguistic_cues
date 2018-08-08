@@ -1,0 +1,97 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,1074,nilearn,nilearn,bthirion,2016-04-07 21:03:53,"Would `().any()` work ?
+",nan,nan
+5,issue_comment,1074,nilearn,nilearn,jeromedockes,2016-04-08 11:13:49,"yes `np.any(new_masker_params[param_key] != estimator_params[param_key])` should work
+",nan,nan
+6,issue_comment,1074,nilearn,nilearn,bthirion,2016-04-08 11:23:39,"Can you issue a PR ?
+",nan,nan
+7,issue_comment,1074,nilearn,nilearn,KamalakerDadi,2016-08-02 09:12:24,"Can I close this issue ? as it is solved by PR #1075 
+",nan,nan
+3,issue_comment,1074,nilearn,nilearn,AlexandreAbraham,2016-08-02 09:16:02,"Of course ! I let you click the button. When you are sure that the problem is solved, you can close it directly and one can reopen it if necessary.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,pull_request_commit_comment,1073,nilearn,nilearn,AlexandreAbraham,2016-04-07 05:58:38,"Should we also say 4D with 1 scan?
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+6,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 05:59:44,"> Should we also say 4D with 1 scan?
+
+You mean in the 3D part? Sound reasonnable. Do we enforce this
+systematically?
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+7,pull_request_commit_comment,1073,nilearn,nilearn,AlexandreAbraham,2016-04-07 06:39:21,"I think so, I have to check. Otherwise, LGTM. You can merge it and I will fix this détail later.
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+8,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 06:55:44,"nitpick 1: perhaps something with ""time series"" instead of 4D as this is more a computerscience-vision and potentially unclear to newcomers
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+9,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 06:56:23,"> nitpick 1: perhaps something with ""time series"" instead of 4D as this
+> is more a computerscience-vision and potentially unclear to newcomers
+
+Fair enough: can you suggest a wording?
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+10,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 06:58:37,"Can you have a look, and correct in master (or with a short PR) after this merge. Thx!
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+11,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:00:34,"leave out ""multiple""
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+12,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:03:24,"reconsider grammar
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+13,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:05:41,"Make clearer that the first way relies on prespecified behavioral/other indicators while the detrending does not require user-input to perform a notion of confound removal
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+14,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:07:08,"> > -  multiple different computers.
+> 
+> leave out ""multiple""
+
+Indeed.
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+15,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:07:42,"> > +Visualizing the mask computed
+> 
+> reconsider grammar
+
+""Visualizing the computed mask""?
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+16,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:07:59,"global may not be clear to everybody here
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(41, '', u'doc/manipulating_images/manipulating_images.rst')"
+17,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:10:57,"somewhat unefficient sentence strucutre
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(207, '', u'doc/manipulating_images/manipulating_images.rst')"
+18,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:11:36,"> Make clearer that the first way relies on prespecified behavioral/other
+> indicators while the detrending does not require user-input to perform
+> a notion of confound removal
+
+Addressed
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+19,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:12:26,"> global may not be clear to everybody here
+
+OK but:
+- This is not a change introduced by this PR
+- This paragraph is for advanced users
+
+So, skipping for now.
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(41, '', u'doc/manipulating_images/manipulating_images.rst')"
+20,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:12:30,"recursive statement
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(36, '', u'examples/04_manipulating_images/plot_mask_computation.py')"
+21,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:12:59,"""time series of 3D images (i.e., 4D)""
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+22,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:13:01,"> somewhat unefficient sentence strucutre
+
+Agreed, but this sentence was already in the doc, I just moved it.
+Skipping in the interest of time.
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(207, '', u'doc/manipulating_images/manipulating_images.rst')"
+23,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:13:44,"sounds good
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+24,pull_request_commit_comment,1073,nilearn,nilearn,banilo,2016-04-07 07:15:12,"perhaps give an example with concrete numbers, people might worry about how to specify that exactly
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(345, '', u'doc/manipulating_images/data_preparation.rst')"
+25,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:16:19,"> ""time series of 3D images (i.e., 4D)""
+
+It makes a horribly long title though. Are you sure that it is that
+important?
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+26,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:25:13,"> > ""time series of 3D images (i.e., 4D)""
+> 
+> It makes a horribly long title though. Are you sure that it is that
+> important?
+
+I am detailing this wording below, in the text, rather than in the title.
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+27,pull_request_commit_comment,1073,nilearn,nilearn,GaelVaroquaux,2016-04-07 07:26:22,"Thanks a lot for the feedback. I have taken it in account. I am merging,
+in the interest of short iterations (and because my time is up).
+",696897150e5c581d2f2f200154e760c72d8eaa24,"(None, '', u'doc/manipulating_images/data_preparation.rst')"
+ , , , , , , , , , 
+ , , , , , , , , , 

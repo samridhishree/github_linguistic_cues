@@ -1,0 +1,15 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+6,pull_request_commit_comment,14,aio-libs,aioredis,popravich,2014-06-17 20:52:48,"Everything looks good.
+But I would prefer `*values` split into two vars: `value, *values`
+This would be more verbose when looking on function signature,
+ie: `def pfadd(self, key, value, *values)` -- it's clear that at least on `value` is required and others are optional.
+Same note regarding `pfcount` and `pfmerge`.
+",66787a9cb875e77a5a0d6f119e0d5819f97ccced,"(None, '', u'aioredis/commands/hyperloglog.py')"
+7,pull_request_commit_comment,14,aio-libs,aioredis,asvetlov,2014-06-17 21:03:29,"Agree with @popravich 
+",66787a9cb875e77a5a0d6f119e0d5819f97ccced,"(None, '', u'aioredis/commands/hyperloglog.py')"
+4,issue_comment,14,aio-libs,aioredis,jettify,2014-06-17 21:29:41,"Fixed. That was my initial thought, but then I found out that _redis-py_ have done that other way.
+",nan,nan
+5,issue_comment,14,aio-libs,aioredis,popravich,2014-06-18 04:49:32,"Thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

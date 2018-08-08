@@ -1,0 +1,69 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+4,issue_comment,1307,nilearn,nilearn,AlexandreAbraham,2016-10-11 05:18:28,"Hey Aki,
+
+Most of the time, this error is due to the fact that the file was downloaded on a website that requires authentication. So, what is downloaded is the login page of the network. You can check that by opening the file with your favorite text editor.
+
+Let me know if it is the case. If so, I will add a check in Nilearn to circumvent it.
+",nan,nan
+5,issue_comment,1307,nilearn,nilearn,AlexandreAbraham,2016-10-11 05:19:23,"s/website/network/ (I cannot edit comment on my phone)
+",nan,nan
+3,issue_comment,1307,nilearn,nilearn,GaelVaroquaux,2016-10-11 13:44:49,"+1
+
+On Tue, Oct 11, 2016 at 06:23:48AM -0700, KamalakerDadi wrote:
+
+> May be we should fetch from nitrc mirror='nitrc' ?
+> 
+> —
+> You are receiving this because you are subscribed to this thread.
+> Reply to this email directly, view it on GitHub, or mute the thread.*
+
+## 
+
+```
+Gael Varoquaux
+Researcher, INRIA Parietal
+NeuroSpin/CEA Saclay , Bat 145, 91191 Gif-sur-Yvette France
+Phone:  ++ 33-1-69-08-79-68
+http://gael-varoquaux.info            http://twitter.com/GaelVaroquaux
+```
+",nan,nan
+6,issue_comment,1307,nilearn,nilearn,AkiNikolaidis,2016-10-11 22:16:30,"Thanks Alex,
+
+You're right- Looks like it downloaded the webpage- first few lines are pasted below-
+
+Thanks,
+Aki
+
+<!DOCTYPE html PUBLIC ""-//W3C//DTD HTML 4.01 Transitional//EN"" ""http://www.w3.org/TR/html4/loose.dtd"">
+<HTML><HEAD><meta http-equiv=""Content-Type"" content=""text/html;charset=utf-8"">
+<TITLE>BrainMap + RSNs</TITLE></HEAD><BODY>
+
+<STYLE TYPE=""text/css"">BODY { background: white ; font-family: 'Arial'}</STYLE>
+
+<br><hr>
+<img align=right width=""30%"" src=""bm.jpg"" /> 
+
+<H2>Correspondence between BrainMap and Resting-FMRI ICA components</H2>
+
+A collaboration between FMRIB, Oxford and RIC, San Antonio<br>
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1314,nilearn,nilearn,mrahim,2016-10-20 11:19:43,"Same thing here.
+Looks like the link has changed ([see here](http://preprocessed-connectomes-project.org/abide/download.html)):
+https://s3.amazonaws.com/fcp-indi-new/data/Projects/ABIDE_Initiative/Outputs/cpac/nofilt_noglobal/func_preproc/Pitt_0050003_func_preproc.nii.gz
+
+was
+https://s3.amazonaws.com/fcp-indi/data/Projects/ABIDE_Initiative/Outputs/cpac/nofilt_noglobal/func_preproc/Pitt_0050003_func_preproc.nii.gz
+",nan,nan
+3,issue_comment,1314,nilearn,nilearn,AlexandreAbraham,2016-10-31 13:45:31,"As @jpellman explained to Joao and me, the fcp-indi-new bucket was a temporary one and we should point to it. Full answer:
+
+> We recently migrated to a new AWS account.  As part of this migration, the data from the 'fcp-indi' bucket was synced to a temporary bucket ('fcp-indi-new') belonging to our new account.  After the migration of our data to the new account, our old account was deleted, and along with it the old 'fcp-indi' bucket.  In order to preserve the S3 paths that we had been using under the old account, we re-created the 'fcp-indi' bucket under our new account and began syncing all of the data in 'fcp-indi-new' to it.  At this time, I changed the URLs in our documentation to ensure that interested researchers could still access our data from the temporary bucket while it was syncing to the new 'fcp-indi' bucket.  Presently, the file sync is finished and the only reason that the temporary bucket ('fcp-indi-new') is still referred to in the documentation is that we also had to change permissions for all the files in 'fcp-indi' using a script so that they were publicly readable.  This script has finished executing, however, and I am reverting the documentation to refer to the 'fcp-indi' bucket now.
+> 
+> So to answer your question, the data is the same in 'fcp-indi-new' and 'fcp-indi', but you shouldn't need to change your code.  In fact, you should use 'fcp-indi', since we are going to remove the 'fcp-indi-new' bucket now that our migration is finished.
+> 
+> ```
+> ```
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

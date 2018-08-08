@@ -1,0 +1,417 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+6,issue_comment,1434,nilearn,nilearn,codecov[bot],2017-04-07 14:11:50,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=h1) Report
+> Merging [#1434](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1434/graphs/tree.svg?src=pr&token=KpYArSdyXv&width=650&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1434      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13470    13476       +6     
+==========================================
++ Hits        12731    12737       +6     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/regions/tests/test\_region\_extractor.py](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree#diff-bmlsZWFybi9yZWdpb25zL3Rlc3RzL3Rlc3RfcmVnaW9uX2V4dHJhY3Rvci5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/regions/region\_extractor.py](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree#diff-bmlsZWFybi9yZWdpb25zL3JlZ2lvbl9leHRyYWN0b3IucHk=) | `100% <100%> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=footer). Last update [87c12ef...82a3483](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+11,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-10 08:15:42,"I am wandering whether we should test with
+ -   ```float``` as input to smoothing_fwhm
+- low min_region_size_in_mm3 taking data resolution example same as yours.
+
+Does this sounds good ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+12,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-10 08:19:22,">No region for too high FWHM
+
+I would take this as a NOTE in documentation near ```smoothing_fwhm``` and rather not add a test testing whether it raises an error.
+
+I was trying to solve this ""zero-size array"" problem in PR #1247 by returning am empty array whenever there are no regions found to be extracted.
+
+So, I am not sure whether we should add a test ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+13,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-04-11 12:16:06,"I changed the test with maps similar to mine, is this ok ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+14,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-04-11 12:25:01,"Ok, I added this in doc, let me know if it is OK for you",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+7,issue_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-11 16:12:29,Thanks. LGTM.,nan,nan
+8,issue_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-25 11:58:11,Track issue at #1424 ,nan,nan
+9,issue_comment,1434,nilearn,nilearn,KamalakerDadi,2017-05-05 12:47:52,Any reviews on this one ?,nan,nan
+10,issue_comment,1434,nilearn,nilearn,bthirion,2017-05-06 21:37:19,LGTM.,nan,nan
+15,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-05-23 09:45:55,"I am a bit worried that this image is big, and the test is going to take time. Is there a reason that we don't do it with an image 20x20x20?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+16,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-05-30 10:16:13,"Ok, done",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+5,issue_comment,1434,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:50:55,LGTM. Thanks. Merging.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1435,nilearn,nilearn,codecov[bot],2017-04-08 00:59:17,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=h1) Report
+> Merging [#1435](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/c842617f46384d764707ae6a4335edad4f4684dc?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1435/graphs/tree.svg?height=150&width=650&token=KpYArSdyXv&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1435      +/-   ##
+==========================================
++ Coverage   94.48%   94.48%   +<.01%     
+==========================================
+  Files         122      122              
+  Lines       14910    14918       +8     
+==========================================
++ Hits        14088    14096       +8     
+  Misses        822      822
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/tests/test\_find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X2ZpbmRfY3V0cy5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/plotting/find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.71% <100%> (+0.34%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=footer). Last update [c842617...3c98fb8](https://codecov.io/gh/nilearn/nilearn/pull/1435?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+6,issue_comment,1435,nilearn,nilearn,KamalakerDadi,2017-04-08 07:11:16,"Thank you for your PR.
+
+This issue #1193 is under review with this PR #1430 FYI.",nan,nan
+4,issue_comment,1435,nilearn,nilearn,GaelVaroquaux,2017-11-16 19:57:09,Closing as superseeded by #1430,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1432,nilearn,nilearn,GaelVaroquaux,2017-04-05 15:41:14,"That's not the right approach: code in the RST file is not well tested
+and hard to maintain. The approach that we are taking is to enrich the
+example files with blocks of rich comments and trying to remove as much
+as possible from the rst files.
+",nan,nan
+6,issue_comment,1432,nilearn,nilearn,SylvainLan,2017-04-05 15:45:00,"Ok, so the code in the rst file is not supposed to be run? And what is your opinion on the order of this part? ",nan,nan
+5,issue_comment,1432,nilearn,nilearn,GaelVaroquaux,2017-04-05 15:47:24,"> Ok, so the code in the rst file is not supposed to be run?
+
+I think that I'd like to move as much as possible out to a long tutorial
+example, and reference that example. I think that the narrative parts of
+the documentation should be as much as possible about high-level
+concepts, and the code should be as much as possible in examples
+referenced from the docs.
+
+> And what is your opinion on the order of this part?
+
+I am not sure that I love it :$. We can discuss that at a coffee break.
+",nan,nan
+7,issue_comment,1432,nilearn,nilearn,SylvainLan,2017-04-06 07:29:04,consequently close this PR,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+10,pull_request_commit_comment,1430,nilearn,nilearn,KamalakerDadi,2017-04-06 08:05:02,"This parameter should take only Nifti images and should be renamed from mask -> mask_img.
+
+```mask_img : 3D Nifti1Image, optional```
+
+Should be added a bit of documentation as,  ""An optional brain mask, provided mask_img should not be empty.""",a42076f5b3257e8734549646215fe29b326099f5,"(None, '', u'nilearn/plotting/find_cuts.py')"
+11,pull_request_commit_comment,1430,nilearn,nilearn,KamalakerDadi,2017-04-06 08:09:17,"We should be doing this on the top. First, checking if it is a valid Nifti image in 3D and second using _safe_get_data on mask image to convert to data numpy array. Rest should do the job by itself. Tell me if I miss something here ?
+
+ I think this snippet should be added on top after ```data = _safe_get_data(img)``` at line 55.
+```python
+mask_img=check_niimg_3d(mask_img)
+mask = _safe_get_data(mask_img)
+```",a42076f5b3257e8734549646215fe29b326099f5,"(None, '', u'nilearn/plotting/find_cuts.py')"
+5,issue_comment,1430,nilearn,nilearn,codecov[bot],2017-04-06 08:35:16,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=h1) Report
+> Merging [#1430](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1430/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1430      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13470    13477       +7     
+==========================================
++ Hits        12731    12738       +7     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.64% <100%> (+0.27%)` | :arrow_up: |
+| [nilearn/plotting/tests/test\_find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X2ZpbmRfY3V0cy5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=footer). Last update [87c12ef...a42076f](https://codecov.io/gh/nilearn/nilearn/pull/1430?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+6,issue_comment,1430,nilearn,nilearn,bthirion,2017-04-06 16:53:29,LGTM. Need to check the failures though.,nan,nan
+7,issue_comment,1430,nilearn,nilearn,KamalakerDadi,2017-04-07 08:19:47,"Regarding failure: You may have forgotten to address this test function related to mask to be replaced by mask_img. 
+
+```nilearn.plotting.tests.test_find_cuts.test_find_cuts_empty_mask_no_crash```",nan,nan
+8,issue_comment,1430,nilearn,nilearn,bthirion,2017-04-13 09:36:49,LGTM.,nan,nan
+12,pull_request_commit_comment,1430,nilearn,nilearn,AlexandreAbraham,2017-04-13 09:51:20,"Do we really have the guarantee that img and mask_img are in the same space? We should at least check it, and at best raise an error or do a resampling if not.",a42076f5b3257e8734549646215fe29b326099f5,"(26, '', u'nilearn/plotting/find_cuts.py')"
+9,issue_comment,1430,nilearn,nilearn,KamalakerDadi,2017-05-23 09:44:05,"There's a change of public API. I (@GaelVaroquaux, borrowing @KamalakerDadi's computer) think that it is fine, because people seldom pass a mask, but we should specify it in the whats_new.rst.",nan,nan
+4,issue_comment,1430,nilearn,nilearn,GaelVaroquaux,2017-11-16 19:54:41,I added a whats_new and merged.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1431,nilearn,nilearn,AlexandreAbraham,2017-04-05 14:14:08,Maps' weight may not be probabilities. Plus I see no interest in doing this scaling. Strong -1.,nan,nan
+5,issue_comment,1431,nilearn,nilearn,SylvainLan,2017-04-05 14:30:31,"My bad, I must not have gotten the issue #1416 correctly, closing this PR",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1429,nilearn,nilearn,codecov[bot],2017-04-05 07:48:19,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=h1) Report
+> Merging [#1429](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1429/graphs/tree.svg?width=650&token=KpYArSdyXv&height=150&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1429   +/-   ##
+=======================================
+  Coverage   94.51%   94.51%           
+=======================================
+  Files         118      118           
+  Lines       13470    13470           
+=======================================
+  Hits        12731    12731           
+  Misses        739      739
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=footer). Last update [87c12ef...da26bb6](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+5,issue_comment,1429,nilearn,nilearn,codecov[bot],2017-04-05 07:48:20,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=h1) Report
+> Merging [#1429](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1429/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1429   +/-   ##
+=======================================
+  Coverage   94.51%   94.51%           
+=======================================
+  Files         118      118           
+  Lines       13470    13470           
+=======================================
+  Hits        12731    12731           
+  Misses        739      739
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=footer). Last update [87c12ef...dc991f8](https://codecov.io/gh/nilearn/nilearn/pull/1429?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+6,issue_comment,1429,nilearn,nilearn,KamalakerDadi,2017-04-05 13:37:13,"In ```doc/building_blocks/manual_pipeline.rst```, we should change name ```dataset``` to ```haxby_dataset``` to be in consistent with the example ```examples/plot_decoding_tutorial.py``` we are pointing to. Sample code is a bit of mix of both names dataset and haxby_dataset.
+
+Also, section ""6.1.1.3. Masking the data: from 4D image to 2D array"" should be moved to above ""6.1.1.2. Loading non image data: experiment description"". The reason is in between we have conditioning applied to the masked dataset (fmri_masked) restricting to face vs cat labels which is done before masking. This might confuse users if they have followed the code snippets. 
+
+Any thoughts on this ? ping @GaelVaroquaux @bthirion ",nan,nan
+7,issue_comment,1429,nilearn,nilearn,SylvainLan,2017-04-06 07:28:24,Close PR after comment from @GaelVaroquaux in PR #1432,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+14,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:37:34,"From the doc, the given threshold can be None, 'auto' or float. Here, you should also check that the given threshold should be a ```numbers.Number``` to raise an error. Also, in Python I think we don't need parenthesis.",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/canica.py')"
+15,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:39:09,"In the error message, there is no space after number. You can leave space after number before "".
+Error message can be seen here, https://travis-ci.org/nilearn/nilearn/jobs/218779100#L2729",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/canica.py')"
+16,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:40:17,Please don't remove lines which are not related to your changes.,27243ee461a3345091c3828681488c4d303a276e,"(27, '', u'nilearn/decomposition/canica.py')"
+6,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:42:58,"Also, you forgot to add bounds in the ```threshold``` parameter documentation. From the issue, if I get correctly threshold should be between [0. and n_components]",nan,nan
+7,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 08:44:18,You should also add tests to check whether error is raised or not. Tests should be added in nilearn/decomposition/tests/test_canica.py,nan,nan
+8,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 09:07:08,">Also, you forgot to add bounds in the threshold parameter documentation. From the issue, if I get correctly 
+threshold should be between [0. and n_components]
+
+May be it would be good idea to put threshold bound [0. and n_components] near the description of float value. Right after non-zero voxels). ....... ",nan,nan
+9,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 13:13:56,">You should also add tests to check whether error is raised or not. Tests should be added in nilearn/decomposition/tests/test_canica.py
+
+Could you add tests please ?",nan,nan
+10,issue_comment,1428,nilearn,nilearn,codecov[bot],2017-04-05 13:42:56,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=h1) Report
+> Merging [#1428](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **decrease** coverage by `<.01%`.
+> The diff coverage is `50%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1428/graphs/tree.svg?width=650&token=KpYArSdyXv&height=150&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff            @@
+##           master   #1428      +/-   ##
+=========================================
+- Coverage   94.51%   94.5%   -0.01%     
+=========================================
+  Files         118     118              
+  Lines       13470   13472       +2     
+=========================================
++ Hits        12731   12732       +1     
+- Misses        739     740       +1
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decomposition/canica.py](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2NhbmljYS5weQ==) | `92.5% <50%> (-2.24%)` | :arrow_down: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=footer). Last update [87c12ef...f1a292b](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+11,issue_comment,1428,nilearn,nilearn,codecov[bot],2017-04-05 13:42:56,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=h1) Report
+> Merging [#1428](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1428/graphs/tree.svg?src=pr&token=KpYArSdyXv&width=650&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1428      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13470    13474       +4     
+==========================================
++ Hits        12731    12735       +4     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/decomposition/tests/test\_canica.py](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL3Rlc3RzL3Rlc3RfY2FuaWNhLnB5) | `98.82% <100%> (+0.02%)` | :arrow_up: |
+| [nilearn/decomposition/canica.py](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=tree#diff-bmlsZWFybi9kZWNvbXBvc2l0aW9uL2NhbmljYS5weQ==) | `95% <100%> (+0.26%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=footer). Last update [87c12ef...27243ee](https://codecov.io/gh/nilearn/nilearn/pull/1428?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+17,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:16:16,We don't need this because directly validating the parameters where data is not required.,27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/tests/test_canica.py')"
+18,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:17:18,"Should be doing like this. Below CanICA is an object followed by inputs
+```python
+ assert_raises(ValueError, CanICA, n_components=4, threshold=5.)
+```",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/tests/test_canica.py')"
+19,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:19:00,"Can you include threshold in the error message. I think writing as and ""you provided threshold=%s"" would be bit clear.",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/canica.py')"
+20,pull_request_commit_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 14:51:34,"It should 'C' capital (CanICA).
+
+For reference ```from nilearn.decomposition import CanICA```.",27243ee461a3345091c3828681488c4d303a276e,"(None, '', u'nilearn/decomposition/tests/test_canica.py')"
+12,issue_comment,1428,nilearn,nilearn,KamalakerDadi,2017-04-05 19:26:46,LGTM,nan,nan
+13,issue_comment,1428,nilearn,nilearn,bthirion,2017-04-06 16:44:39,LGTM,nan,nan
+5,issue_comment,1428,nilearn,nilearn,GaelVaroquaux,2017-05-23 10:06:17,LGTM. Merging,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1438,nilearn,nilearn,KamalakerDadi,2017-04-10 19:56:14,"You should be using like this:
+Step 1: I am trying to create mask
+
+```python
+fmri_gm_norm = '/home/brain/Downloads/Audrey_Vanhaudenhuise/T1/mni_icbm152_gm_tal_nlin_sym_09a.nii'
+T1 = '/home/brain/Downloads/Audrey_Vanhaudenhuise/T1/T1.nii'
+
+from nilearn.input_data import NiftiMasker
+masker = NiftiMasker(mask_strategy='epi',
+mask_args=dict(upper_cutoff=.9, lower_cutoff=.4,
+opening=False))
+masker.fit(fmri_gm_norm)
+```
+Step 2: and apply it to a T1 image
+```python
+# You should `fit` your mask image first and then should be using to transform
+# your T1.
+
+data = masker.transform(T1) 
+```
+
+Hope this helps.
+",nan,nan
+3,issue_comment,1438,nilearn,nilearn,acamargofb,2017-04-11 16:18:46,"Thanks a lot,  it works :)",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1427,nilearn,nilearn,codecov[bot],2017-04-03 17:27:22,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=h1) Report
+> Merging [#1427](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1427/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1427   +/-   ##
+=======================================
+  Coverage   94.51%   94.51%           
+=======================================
+  Files         118      118           
+  Lines       13470    13470           
+=======================================
+  Hits        12731    12731           
+  Misses        739      739
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=footer). Last update [87c12ef...7473568](https://codecov.io/gh/nilearn/nilearn/pull/1427?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+5,issue_comment,1427,nilearn,nilearn,bthirion,2017-04-03 21:19:35,LGTM.,nan,nan
+6,issue_comment,1427,nilearn,nilearn,KamalakerDadi,2017-04-05 07:44:58,"I think the best way is to keep fixes related to doc, API, examples separate so that it will make reviewing easy.",nan,nan
+8,pull_request_commit_comment,1427,nilearn,nilearn,KamalakerDadi,2017-04-05 07:50:58,tests are failing because of this change. You have any issue or idea behind this change ? Because I could not understand it properly.,747356844dcbe5f14607dfd02ac698d11d80309e,"(5, '', u'nilearn/decomposition/canica.py')"
+7,issue_comment,1427,nilearn,nilearn,SylvainLan,2017-04-05 13:11:08,redundant PR with #1429 ,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1433,nilearn,nilearn,bthirion,2017-04-06 19:37:18,"LGTM, thx.",nan,nan
+6,issue_comment,1433,nilearn,nilearn,codecov[bot],2017-04-06 21:07:27,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=h1) Report
+> Merging [#1433](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1433/graphs/tree.svg?width=650&height=150&src=pr&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1433   +/-   ##
+=======================================
+  Coverage   94.51%   94.51%           
+=======================================
+  Files         118      118           
+  Lines       13470    13470           
+=======================================
+  Hits        12731    12731           
+  Misses        739      739
+```
+
+
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=footer). Last update [87c12ef...161d7bc](https://codecov.io/gh/nilearn/nilearn/pull/1433?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+9,pull_request_commit_comment,1433,nilearn,nilearn,KamalakerDadi,2017-04-07 08:53:01,Why these details are removed ? I think added details are useful to understand a bit more.,161d7bcec89a3fb59fb516c159f4fef87f800178,"(None, '', u'doc/decoding/decoding_intro.rst')"
+10,pull_request_commit_comment,1433,nilearn,nilearn,bthirion,2017-04-08 20:00:42,"It is true that this comment is not very clear at that place. 
+
+Let me suggest: ""**Do not predict on data used by the fit: this would yield misleadingly optimistic scores.**""",161d7bcec89a3fb59fb516c159f4fef87f800178,"(None, '', u'doc/decoding/decoding_intro.rst')"
+7,issue_comment,1433,nilearn,nilearn,KamalakerDadi,2017-04-24 12:16:03,Any reviews on this or merge ?,nan,nan
+8,issue_comment,1433,nilearn,nilearn,KamalakerDadi,2017-04-25 11:53:22,Merging this one. Thanks,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

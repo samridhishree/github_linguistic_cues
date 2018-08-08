@@ -1,0 +1,39 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+3,issue_comment,437,idan,oauthlib,jandd,2016-09-17 09:50:56,"The tox run for py32 in the Travis build fails for reasons not related to the code change.
+",nan,nan
+4,issue_comment,437,idan,oauthlib,jandd,2016-09-17 10:21:43,"The build fails for the cloned master branch as well (see https://travis-ci.org/jandd/oauthlib/jobs/160642978)
+",nan,nan
+5,issue_comment,437,idan,oauthlib,yon2004,2016-09-22 13:17:34,"Can confirm that this fixes the issue. Thanks @jandd 
+",nan,nan
+6,issue_comment,437,idan,oauthlib,Sumukh,2016-10-07 04:06:44,"If you merge master back in - tests should pass again. 
+
+I'm not sure who is responsible for merging/reviewing - but the change in here is really small and can only fix errors (which is impacting a lot of users of downstream libraries). 
+",nan,nan
+7,issue_comment,437,idan,oauthlib,thedrow,2016-11-24 16:00:10,#450 Should fix this,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,440,idan,oauthlib,fabfuel,2016-10-07 17:22:55,"The build failures are not related to my changes. Not the same, but similar issues with Python 3.2 as in #437 
+",nan,nan
+5,issue_comment,440,idan,oauthlib,thedrow,2016-11-24 15:57:48,Thanks!,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,441,idan,oauthlib,davidvartanian,2016-10-17 09:35:11,"Please notice that Travis tests fail on py32 for reasons not related to this commit as well as the tests on master without my change.
+",nan,nan
+4,issue_comment,441,idan,oauthlib,Sumukh,2016-10-20 19:11:18,"#436 is also another approach to this same issue. In the meantime, what we have done is install directly from our fork. 
+
+I have a fork that should work:  https://github.com/Sumukh/oauthlib
+",nan,nan
+5,issue_comment,441,idan,oauthlib,thedrow,2016-11-24 15:55:07,#450 should fix this,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,443,idan,oauthlib,mistermocha,2016-10-21 22:30:09,"For the record, here's a snip from a run https://gist.github.com/mistermocha/a65ded680cd5c8fcbaf7bb32da3290d7
+
+The import chain here is:
+
+my script -> requests -> requests-oauthlib -> oauthlib
+",nan,nan
+3,issue_comment,443,idan,oauthlib,mistermocha,2016-11-03 17:20:14,"Ping? This should be an easy change, but my attempts to merge failed tests.
+",nan,nan
+4,issue_comment,443,idan,oauthlib,thedrow,2016-11-24 15:52:13,I'll release this soon with other changes.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

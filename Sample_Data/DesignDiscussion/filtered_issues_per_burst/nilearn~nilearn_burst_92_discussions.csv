@@ -1,0 +1,197 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-26 08:30:09,"Small question: are we sure that there is no difference between fcp-indi and fcp-indi-new?
+",nan,nan
+6,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-26 08:53:00,"> I think we should go with ""fcp-indi-new"" since the main project has the same name.
+
+I know that it is the new URL but what is the difference with the previous one? Maybe the used an update version of CPAC for the preproc? I just would like to be sure that we are still fetching the same data.
+",nan,nan
+7,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-26 11:21:13,"I think that taking the md5 hash of a bucnh of random files should be enough. Or maybe @Joaoloula can grab Cameron at brainhack and ask him ? :P
+",nan,nan
+10,issue_comment,1316,nilearn,nilearn,Joaoloula,2016-10-26 12:08:55,"Cameron's not here :/ In the middle of testing, I actually overwrote the dataset coming from the old download link, so I can't compare the checksums, can someone who still has the 'old' data take care of that?
+",nan,nan
+11,issue_comment,1316,nilearn,nilearn,Joaoloula,2016-10-31 13:46:54,"So @AlexandreAbraham got in touch with the Child Mind Institute people and, long story short, the fcp-indi-new does have exactly the same data as fcp-indi, but it was just a temporary switch they made. The old link is now up and running again, and so I reverted this part of the PR.
+",nan,nan
+8,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-31 13:49:59,"So, let's go merging this one when all is green.
+",nan,nan
+9,issue_comment,1316,nilearn,nilearn,AlexandreAbraham,2016-10-31 16:04:11,"Merging as it makes doc better (independently of the subjects / n_subjects debate).
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+9,pull_request_commit_comment,1315,nilearn,nilearn,bthirion,2016-10-24 20:36:14,"Maybe add a test with only one value for `levels`
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'nilearn/plotting/tests/test_displays.py')"
+10,pull_request_commit_comment,1315,nilearn,nilearn,bthirion,2016-10-24 20:36:37,"Seems a bit unrelated...
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(6, '', u'nilearn/datasets/func.py')"
+11,pull_request_commit_comment,1315,nilearn,nilearn,bthirion,2016-10-24 20:37:28,"countour_ fillings
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'nilearn/plotting/displays.py')"
+12,pull_request_commit_comment,1315,nilearn,nilearn,bthirion,2016-10-24 20:39:43,"What happens if levels not in kwargs ? Does this deserve a unit test ?
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(45, '', u'nilearn/plotting/displays.py')"
+13,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 21:01:14,"> What happens if levels not in kwargs ?
+
+Good point. Plots looks surprising. It is not failing with error but fails drastically in finding correct levels leading to masking out entire background.
+For example,
+![figure_1](https://cloud.githubusercontent.com/assets/11410385/19663754/b40c0cdc-9a3d-11e6-8a47-0472f38eee2f.png)
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(45, '', u'nilearn/plotting/displays.py')"
+14,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 21:05:18,"Done
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'nilearn/plotting/tests/test_displays.py')"
+15,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 21:05:27,"My mistake.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(6, '', u'nilearn/datasets/func.py')"
+16,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 21:05:37,"Done
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'nilearn/plotting/displays.py')"
+17,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-24 21:09:01,"May be I should remove `if` condition to force to give certain levels value ? 
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(45, '', u'nilearn/plotting/displays.py')"
+18,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-10-25 12:54:24,"I'd rather not, but we coud do good guesses: + and - 90th percentile and 50th percentile of the absolute value.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(45, '', u'nilearn/plotting/displays.py')"
+19,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-10-25 12:55:36,"@KamalakerDadi : did you push these changes? I don't see that test.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'nilearn/plotting/tests/test_displays.py')"
+5,issue_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-10-25 13:01:32,"Looks good in general. I'd like the heuristic that I suggested to be implement when level is not specified:
+
+<pre>
+abs_data = np.abs(data)
+data_90 = np.percentile(abs_data, 90)
+data_50 = np.median(abs_data)
+levels = [data_90, data_50, -data_50, -data_90]
+</pre>
+",nan,nan
+20,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-25 13:10:03,"I haven't. I am waiting to push with some other changes integrated which we are discussing on how to choose/set 'levels'. I will work on those comments and push them.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'nilearn/plotting/tests/test_displays.py')"
+21,pull_request_commit_comment,1315,nilearn,nilearn,KamalakerDadi,2016-10-25 14:54:35,"I have opened an issue #1317. I have the same behaviour even for automatic guesses in levels. The thing we are missing is `threshold` from what I have understood. Then in that case, we don't have to worry about guessing values. 
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(45, '', u'nilearn/plotting/displays.py')"
+22,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:08:51,"I would have liked an extra separation here, so that we have only one figure per cell. It makes things easier to understand for the user.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+23,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:09:17,"Same remark here: one separation would be useful.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(33, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+24,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:12:33,"A separation here too
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(49, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+25,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:12:51,"And one here
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(84, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+26,pull_request_commit_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:21:17,"Same here: one new cell, please.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+6,issue_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 06:25:00,"This is in general good to go for me. However, I'd that that on the notebook-like example we always have only one figure per cell.
+",nan,nan
+27,pull_request_commit_comment,1315,nilearn,nilearn,AlexandreAbraham,2016-11-03 07:35:01,"I would reformulate:
+We give two values through the `levels`parameter which corresponds to the thresholds of the contour we want to draw: One is positive and the other one is negative. We give a list of colors as parameter to associate a different color to each contour. Additionally, we plot them with thick line widths: We give only one value so that it is used for both contours.
+",d8f824f114b0f628b39109d475aef9f3167163e5,"(None, '', u'examples/01_plotting/plot_demo_glass_brain_extensive.py')"
+7,issue_comment,1315,nilearn,nilearn,GaelVaroquaux,2016-11-03 13:25:33,"LGTM. Merging. Thank you!
+",nan,nan
+8,issue_comment,1315,nilearn,nilearn,ccvanschie,2016-12-08 09:22:04,"Dear Kamalaker,
+
+I am not feeling well today so I decided to go back home. Unfortunately, I will not get to see you again today. It was very nice to meet you. Thank you for your help! I wish you a great conference but an even greater holiday with your family.
+
+Kind regards, Charlotte
+
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1314,nilearn,nilearn,mrahim,2016-10-20 11:19:43,"Same thing here.
+Looks like the link has changed ([see here](http://preprocessed-connectomes-project.org/abide/download.html)):
+https://s3.amazonaws.com/fcp-indi-new/data/Projects/ABIDE_Initiative/Outputs/cpac/nofilt_noglobal/func_preproc/Pitt_0050003_func_preproc.nii.gz
+
+was
+https://s3.amazonaws.com/fcp-indi/data/Projects/ABIDE_Initiative/Outputs/cpac/nofilt_noglobal/func_preproc/Pitt_0050003_func_preproc.nii.gz
+",nan,nan
+3,issue_comment,1314,nilearn,nilearn,AlexandreAbraham,2016-10-31 13:45:31,"As @jpellman explained to Joao and me, the fcp-indi-new bucket was a temporary one and we should point to it. Full answer:
+
+> We recently migrated to a new AWS account.  As part of this migration, the data from the 'fcp-indi' bucket was synced to a temporary bucket ('fcp-indi-new') belonging to our new account.  After the migration of our data to the new account, our old account was deleted, and along with it the old 'fcp-indi' bucket.  In order to preserve the S3 paths that we had been using under the old account, we re-created the 'fcp-indi' bucket under our new account and began syncing all of the data in 'fcp-indi-new' to it.  At this time, I changed the URLs in our documentation to ensure that interested researchers could still access our data from the temporary bucket while it was syncing to the new 'fcp-indi' bucket.  Presently, the file sync is finished and the only reason that the temporary bucket ('fcp-indi-new') is still referred to in the documentation is that we also had to change permissions for all the files in 'fcp-indi' using a script so that they were publicly readable.  This script has finished executing, however, and I am reverting the documentation to refer to the 'fcp-indi' bucket now.
+> 
+> So to answer your question, the data is the same in 'fcp-indi-new' and 'fcp-indi', but you shouldn't need to change your code.  In fact, you should use 'fcp-indi', since we are going to remove the 'fcp-indi-new' bucket now that our migration is finished.
+> 
+> ```
+> ```
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+5,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 08:44:51,"Jaccard similarity is already in scikit-learn:
+http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html
+
+Overall, this kind of functionality, not strictly neuroimaging related, lives more in scikit-learn than nilearn.
+
+What may be useful could be to add a function to do matching of 2 sets of maps, using sklearn.utils.linear_assignment. It should also be added to a nilearn example, for instance at the end of http://nilearn.github.io/auto_examples/03_connectivity/plot_compare_resting_state_decomposition.html, to plot the same map for both ICA and dict-learning.
+",nan,nan
+12,issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 08:54:02,"> Jaccard similarity is already in scikit-learn:
+> http://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_similarity_score.html
+
+Scikit-learn implements the Jaccard Index in the specific setting of measuring clustering similarity. Here we have a fuzzy extension of the measure that will probably not be accepted in sklearn because there is no ""best"" way to make this extension. In particular, people in neuroimaging tend to use extensions that do not rely on linear assignment of the regions, see _Generalized Overlap Measures for Evaluation and
+Validation in Medical Image Analysis_ (Crum 2006)
+",nan,nan
+6,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 08:56:08,"I won't accept this in nilearn unless it comes with clear neuroimaging
+applications. Everything in nilearn should solve a brain-research
+problem.
+
+What's the problem that you are trying to solve?
+",nan,nan
+13,issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 08:58:38,"> What's the problem that you are trying to solve?
+
+Having a similarity score between two sets of brain maps with continuous values and possible overlaps.
+",nan,nan
+7,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:00:20,"> ```
+> What's the problem that you are trying to solve?
+> ```
+> 
+> Having a similarity score between two sets of brain maps with
+> continuous values and possible overlaps.
+
+No, that's a formal problem. In what application setting? What the
+'brain' question?
+",nan,nan
+14,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 09:07:08,"I'd argue one of the main interests is a matter of reproducibility; we could introduce an example in which we split a dataset and build atlases from each of the splits and compare their similarity (the brain question being: are the regions we're learning serving actual stable and interesting neuroscientific purposes or are they just an artifact of the specific subset we looked at?)
+",nan,nan
+8,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:21:20,"You don't have to convince me it is useful, I am convinced. You have to
+put it in a way that non technical users can use it, understand how and
+why.
+
+Nilearn targets people who are not computer scientists. If we cannot
+demonstrate how some piece of code makes their life better, it does not
+enter nilearn.
+",nan,nan
+15,issue_comment,1284,nilearn,nilearn,AlexandreAbraham,2016-09-20 09:36:53,"So! People here wants to assess the _reliability_ of methods extracting resting state networks. They define _reliability_ as the ability to extract similar brain atlases on test-retest sessions. In particular, most of them want to compare ICA to their approach. This is what I understood!
+",nan,nan
+9,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 09:40:45,"Yes, but just giving them a metric won't help them solve their problem.
+They need more. It's like giving people a showel when they want to build
+a house.
+
+Once again: either you can do a convincing example, or it does not go
+into nilearn. Without a convincing example, it either won't be used, or
+we'll keep getting questions on how to use it.
+
+That's a clear and important rule of nilearn: anything that goes in must
+produce an example that is relevant for brain imaging, even for people
+who are not computer scientists.
+",nan,nan
+16,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 10:07:00,"I think the following example is quite didactic: in the spirit of 8.4.7, we take ADHD and we split it in two. We then create atlases for both splits using CanICA and Dictionary Learning. Finally, we compute two Jaccard indexes: one between the CanICA atlases and one between the DictLearning atlases, to compare replicability between methods. The narrative would explain that we want our methods to be not only valid, but also replicable, and would give an intuitive explanation of the index.
+",nan,nan
+17,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 11:53:28,"A rough idea of the example: http://bit.ly/2cVX1Hh
+",nan,nan
+10,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-09-20 12:08:51,"OK. Make sure that the example runs fast enough. Maybe limit yourself to
+6 subjects, and make 2 different sub-groups of 5 subjects, with only 10
+components.
+
+To make an example that is easy to follow, I think that you need
+something higher level than just the Jaccard index. It's too low level,
+and will lead to a lot of numpy code in the example. Maybe a function
+that take 2 set of maps, returns a reordered version and a list of
+similarities.
+",nan,nan
+18,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-09-20 14:17:25,"Simplified example (with 10 subjects because the atlas using 6 subjects were just too ugly): http://bit.ly/2cVX1Hh. I think it's reasonably high-level and light on numpy code (most of the example is just _getting_ the atlases, which is quite a standard analysis, and computing the jaccard indexes is done in one line).
+
+I really like the idea of comparing two atlases map by map and trying to find a one-to-one correspondence, and I believe a lot of people would be interested in it. However, it seems to me like a significantly different question than just measuring similarity between atlases, shouldn't we leave it to another PR?
+",nan,nan
+11,issue_comment,1284,nilearn,nilearn,GaelVaroquaux,2016-10-31 18:44:25,"> Merged #1284.
+
+Not happy
+",nan,nan
+19,issue_comment,1284,nilearn,nilearn,Joaoloula,2016-11-01 11:33:51,"Sorry about that, totally my fault: I got mixed up with the working branch for the other PR and it ended up pushing this one, since the changes had been reverted I didn't think it would change anything. I didn't know this would get automatically merged as well. I'll create new, clean PRs.
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1320,nilearn,nilearn,khamael,2016-10-31 15:07:53,"Suggestions how to convert to MNI?
+",nan,nan
+5,issue_comment,1320,nilearn,nilearn,khamael,2016-11-01 18:21:18,"yeah, so I'm registering the cortical labels file into the standard/MNI152_T1_2mm
+I get the x,y,z of that new file, and when I plot it, it's kinda in the glass brain, but not quite:
+<img width=""666"" alt=""screen shot 2016-11-01 at 7 20 28 pm"" src=""https://cloud.githubusercontent.com/assets/5000837/19901701/4df029f2-a068-11e6-9072-d2ba6f31a453.png"">
+",nan,nan
+3,issue_comment,1320,nilearn,nilearn,GaelVaroquaux,2016-11-01 18:23:17,"I think that either you are not correctly registered, or the way you compute the x, y, z coordinates of the nodes is wrong.
+",nan,nan
+6,issue_comment,1320,nilearn,nilearn,khamael,2016-11-01 19:40:02,"Ok, I've figured out. I was using x,y,z from LabelStats but something was wrong there. It's nice now! thanks
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

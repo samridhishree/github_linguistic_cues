@@ -1,0 +1,395 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+6,issue_comment,1434,nilearn,nilearn,codecov[bot],2017-04-07 14:11:50,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=h1) Report
+> Merging [#1434](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/87c12efe14c005f1c916f76358639b55a306fb06?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1434/graphs/tree.svg?src=pr&token=KpYArSdyXv&width=650&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1434      +/-   ##
+==========================================
++ Coverage   94.51%   94.51%   +<.01%     
+==========================================
+  Files         118      118              
+  Lines       13470    13476       +6     
+==========================================
++ Hits        12731    12737       +6     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/regions/tests/test\_region\_extractor.py](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree#diff-bmlsZWFybi9yZWdpb25zL3Rlc3RzL3Rlc3RfcmVnaW9uX2V4dHJhY3Rvci5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/regions/region\_extractor.py](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=tree#diff-bmlsZWFybi9yZWdpb25zL3JlZ2lvbl9leHRyYWN0b3IucHk=) | `100% <100%> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=footer). Last update [87c12ef...82a3483](https://codecov.io/gh/nilearn/nilearn/pull/1434?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+11,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-10 08:15:42,"I am wandering whether we should test with
+ -   ```float``` as input to smoothing_fwhm
+- low min_region_size_in_mm3 taking data resolution example same as yours.
+
+Does this sounds good ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+12,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-10 08:19:22,">No region for too high FWHM
+
+I would take this as a NOTE in documentation near ```smoothing_fwhm``` and rather not add a test testing whether it raises an error.
+
+I was trying to solve this ""zero-size array"" problem in PR #1247 by returning am empty array whenever there are no regions found to be extracted.
+
+So, I am not sure whether we should add a test ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+13,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-04-11 12:16:06,"I changed the test with maps similar to mine, is this ok ?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+14,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-04-11 12:25:01,"Ok, I added this in doc, let me know if it is OK for you",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+7,issue_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-11 16:12:29,Thanks. LGTM.,nan,nan
+8,issue_comment,1434,nilearn,nilearn,KamalakerDadi,2017-04-25 11:58:11,Track issue at #1424 ,nan,nan
+9,issue_comment,1434,nilearn,nilearn,KamalakerDadi,2017-05-05 12:47:52,Any reviews on this one ?,nan,nan
+10,issue_comment,1434,nilearn,nilearn,bthirion,2017-05-06 21:37:19,LGTM.,nan,nan
+15,pull_request_commit_comment,1434,nilearn,nilearn,KamalakerDadi,2017-05-23 09:45:55,"I am a bit worried that this image is big, and the test is going to take time. Is there a reason that we don't do it with an image 20x20x20?",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+16,pull_request_commit_comment,1434,nilearn,nilearn,salma1601,2017-05-30 10:16:13,"Ok, done",82a3483d490923a471433d57e45fc585d0fae1d4,"(None, '', u'nilearn/regions/tests/test_region_extractor.py')"
+5,issue_comment,1434,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:50:55,LGTM. Thanks. Merging.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+23,issue_comment,1409,nilearn,nilearn,codecov[bot],2017-03-04 19:29:54,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=h1) Report
+> Merging [#1409](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/1d6c15d48d3fa51ee03765485641e63186c266ff?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `97.72%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1409/graphs/tree.svg?height=150&width=650&token=KpYArSdyXv&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1409      +/-   ##
+==========================================
++ Coverage   94.51%   94.53%   +0.01%     
+==========================================
+  Files         118      118              
+  Lines       13469    13511      +42     
+==========================================
++ Hits        12730    12772      +42     
+  Misses        739      739
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/image/\_\_init\_\_.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS9fX2luaXRfXy5weQ==) | `100% <ø> (ø)` | :arrow_up: |
+| [nilearn/tests/test\_ndimage.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X25kaW1hZ2UucHk=) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/image/tests/test\_image.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS90ZXN0cy90ZXN0X2ltYWdlLnB5) | `99.66% <100%> (+0.02%)` | :arrow_up: |
+| [nilearn/image/image.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS9pbWFnZS5weQ==) | `96.95% <100%> (+0.21%)` | :arrow_up: |
+| [nilearn/\_utils/ndimage.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvbmRpbWFnZS5weQ==) | `91.42% <75%> (+0.8%)` | :arrow_up: |
+| [nilearn/plotting/find\_cuts.py](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.37% <0%> (+0.07%)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=footer). Last update [1d6c15d...f784fb2](https://codecov.io/gh/nilearn/nilearn/pull/1409?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",nan,nan
+24,pull_request_commit_comment,1409,nilearn,nilearn,bthirion,2017-03-05 20:57:59,I'm curious about what happens with a 4D image,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/_utils/ndimage.py')"
+25,pull_request_commit_comment,1409,nilearn,nilearn,bthirion,2017-03-05 21:00:02,"A test with a 4D image, then ?",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+26,pull_request_commit_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-06 08:40:35,"I had a short discussion with @KamalakerDadi  about this. We were a bit unsure about how ndimage would behave in the case of 4D images. And decided to limit the function to 3D images. 
+I am going to look into this tonight. ",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/_utils/ndimage.py')"
+5,issue_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-03-06 08:42:24,"> I had a short discussion with @KamalakerDadi about this. We were a bit unsure
+> about how ndimage would behave in the case of 4D images. I am going to look
+> into this tonight.
+
+In case of a 4D image, ndimage is going to take the large CC in all
+direction, ie in the 4D space. That is most likely going to surprise the
+user. I think that, if the input image is 4D, we want to either raise an
+error, or loop on every 3D image.
+
+",nan,nan
+21,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-06 09:06:23,"Ok, I'll implement the loop over the 3D images. I think this will be nicer from a user's perspective. ",nan,nan
+9,issue_comment,1409,nilearn,nilearn,AlexandreAbraham,2017-03-06 11:33:52,"Note that for other functions we have chosen not to handle 3d and 4d in the same function. The reason is that we tried this previously and the codebase has grown to handle 3d/4d cases, and also users ended up feeding 4d images to some functions, thinking it was 3d, which resulted in unexpected results.
+
+I think that we should add for 3d first, and discuss in a separate issue how to make it easy for users to process 4d images (and possibly do it for other functions as well).",nan,nan
+6,issue_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-03-06 12:02:16,"> I think that we should add for 3d first, and discuss in a separate issue how to make it easy for users to process 4d images.
+
+It's my feeling too. The functionality is one that I would expect on 3D,
+but less on 4D data.
+",nan,nan
+22,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-06 12:18:38,"So in the current form check_niimg_3d(img) should already provide the right error when a 4D image is given - at least if I got that right?
+
+> I think that we should add for 3d first, and discuss in a separate issue how to make it easy for users to process 4d images.
+
+For me (being more of a user): In my feeling no added functionality is needed as iter_image & concat_img should do the job already. But maybe adding an explicit example could do the trick, to stress the usefulness of those function (also new_img_like etc.). However: different issue. ",nan,nan
+27,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-10 09:02:31,"Can you write a short comment here of what you are testing ?
+It will be useful for anybody who can quickly follow and understand.
+
+Same for both tests you have added here.",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+28,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-10 09:09:19,"Can you add this here ?  ```.. versionadded:: 0.3``` with empty line space before and after.
+
+In Nilearn, you can have a look at this link
+https://github.com/nilearn/nilearn/blob/230279e885aae8f9ae28c99c291ed3b0b4e93588/nilearn/connectome/connectivity_matrices.py#L204
+
+Ref for version added and other: http://www.sphinx-doc.org/en/stable/markup/para.html",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/_utils/ndimage.py')"
+20,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-10 09:10:03,Some minor comments from my side. ,nan,nan
+10,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-12 18:31:17,Added the suggestions. Sorry for the double commit. ,nan,nan
+29,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:18:34,">did this break the check ?
+
+CircleCI build failed because reference you have given as ```nilearn._utils.ndimage.largest_connected_component_img``` could not be found. Since this function is not initialized in ```nilearn/_utils/__init__.py``` from ndimage module.
+
+We could initialize this function in ```_utils/__init__.py``` from ndimage and refer as ``nilearn._utils.largest_connected_component_img``` directly in whats_new.rst. In this way we can find the target and build will go through.",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'doc/whats_new.rst')"
+30,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:18:49,"Also, I could not understand why largest_connected_component is referred here. May be you could write ""so that Nifti images can now be passed on directly to extract largest connected components in the images.""",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'doc/whats_new.rst')"
+31,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:19:45,"Should be ```.. versionadded:: 0.3```. Space is missing between "".."" and ""versionadded""",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/_utils/ndimage.py')"
+32,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:23:15,"PEP: Missing white space after "","". Should be like shape=(10, 11, 12) and n_regions=2)",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+33,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:24:34,"Space missing between ""#"" and Test",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+34,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:25:36,"PEP8: regions = [1, 3] space missing after "","".",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+35,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:26:16,PEP8: Some unexpected whitespaces here. Should be like shape=shapes[0].,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+36,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:27:23,"Here too, PEP8 unexpected white space between n_regions and = and space before "")""",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+37,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:27:49,Same here PEP8 as commented above.,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+38,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:28:16,Unexpected space after [0],f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+39,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:28:41,Same here unexpected space.,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+40,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-13 09:30:04,flake8 package would be helpful to check these minor errors.,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'nilearn/tests/test_ndimage.py')"
+41,pull_request_commit_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-13 12:38:50,"Would this mean adding 
+`from .ndimage import largest_connected_component_img`  
+and `'largest_connected_component_img'` to `__all__` in `_utils/__init__.py`?
+
+(I'll do all the little changes later -- and I thought I spend extra attention to the little details :/ . I have flake8 installed though, but I am also quite new to vim - so apparently my setup still isn't working as expected.) ",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'doc/whats_new.rst')"
+42,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-14 08:53:43,Yes. If you add then you can check by importing ```from nilearn._utils import largest_connected_component_img``` without necessarily specifying ```ndimage``` module.,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(None, '', u'doc/whats_new.rst')"
+7,issue_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-03-14 08:54:51,"> +    - Function :func:`nilearn._utils.ndimage.largest_connected_component_img`
+
+I just realized: that function shouldn't be in nilearn._utils.ndimage,
+which is a private utilities module, but in nilearn.image.
+",nan,nan
+11,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-15 15:29:06,Thanks for changes @SRSteinkamp . We have to wait because for some reason scipy server is down which leads to tests failed on CircleCI.,nan,nan
+12,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-16 14:50:11,"Regarding CircleCI reference error, I missed to tell you that you need to add your function in ```doc/modules/reference.rst```. Should be in alphabetical order so right after ```load_img``` in mod:```nilearn.image```.
+Can you add that please and hopefully CircleCI will be fixed ?",nan,nan
+13,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-16 15:24:55,"If it's alphabetical, then it should be before load_img ;) 
+Done, hopefully, everything goes through now. 
+Thanks for guiding me through all this :)
+ 
+",nan,nan
+43,pull_request_commit_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-16 15:55:11,"Ideally, it would be better to leave other things not to change which are not related to your PR. Sometimes reviewing PR might get complex. Just a suggestion. :)",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(5, '', u'nilearn/_utils/ndimage.py')"
+14,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-16 16:06:05,Thank you @SRSteinkamp for working on this. Feel free to shoot for another issue ;),nan,nan
+44,pull_request_commit_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-16 16:35:41,"I see the point, won't do this in the future... I got a bit overzealous when I got flake working. ",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(5, '', u'nilearn/_utils/ndimage.py')"
+15,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-17 08:07:31,"Will do if I find some time at my hand :) 
+Hm, I do not understand the CI error-message, but it seems to be related to the docs/sphinx again? ",nan,nan
+16,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-17 12:54:21,">Hm, I do not understand the CI error-message, but it seems to be related to the docs/sphinx again?
+
+Build is succeeded which your changes are fine. But, I don't get the error message.",nan,nan
+17,issue_comment,1409,nilearn,nilearn,SRSteinkamp,2017-03-17 13:06:28,"Ok ... Well I see ""ci/circleci — Your tests failed on CircleCI "":
+
+A small excerpt of the error message for build no. 2367:
+``Exception occurred:
+  File ""/home/ubuntu/nilearn/doc/sphinxext/sphinx_gallery/docs_resolv.py"", line 262, in _get_link
+    raise``
+
+
+``source continuous_integration/circle_ci_test_doc.sh returned exit code 2``",nan,nan
+18,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-17 15:53:39,">Ok ... Well I see ""ci/circleci — Your tests failed on CircleCI "":
+
+I see that but I don't know what is causing ?
+For me your PR looks good.",nan,nan
+19,issue_comment,1409,nilearn,nilearn,KamalakerDadi,2017-03-31 13:39:15,"All went green. Can I have reviews or should I merge this one ?
+Please let me know if I missed to review ?",nan,nan
+45,pull_request_commit_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:53:45,"Style: Python developers do not like continuation lines. We prefer to use parenthesis. We will merge this, to avoid more waiting time, but change it after merge.",f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(20, '', u'nilearn/_utils/ndimage.py')"
+46,pull_request_commit_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:54:56,Need to change this to 0.3.1. We'll do it in master,f784fb2cd08ebb26a5c822a5c8dfb73c3a88db49,"(9, '', u'nilearn/image/image.py')"
+8,issue_comment,1409,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:55:24,Merging. Thanks a lot,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+8,issue_comment,1456,nilearn,nilearn,KamalakerDadi,2017-05-18 19:58:12,"Thanks for your PR.
+
+There are few things need to be done before merge.
+
+- ```threshold=threshold``` is missed specifying in ```_plot_img_with_bg```. By specifying that, user can now pass their threshold to rois, if needed.
+- In the ```plot_roi``` docstring at parameter ```threshold```. You should add ```default=0.5```.
+- Add a Notes section above See Also. In Notes, adding a single line saying that ""A very small threshold is applied by default to eliminate numerical noise from the images background. Otherwise, images will be plotted with background noise.""
+
+See issue #443 for more discussion on this. Somehow that issue got closed without addressing. 
+",nan,nan
+12,issue_comment,1456,nilearn,nilearn,codecov[bot],2017-05-20 23:42:50,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=h1) Report
+> Merging [#1456](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/e0524d3cc9dfd97cca24099b01a4c0cf6eabad87?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `n/a`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1456/graphs/tree.svg?width=650&src=pr&token=KpYArSdyXv&height=150)](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree)
+
+```diff
+@@          Coverage Diff           @@
+##           master   #1456   +/-   ##
+======================================
+  Coverage    94.6%   94.6%           
+======================================
+  Files         120     120           
+  Lines       14663   14663           
+======================================
+  Hits        13872   13872           
+  Misses        791     791
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/img\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9pbWdfcGxvdHRpbmcucHk=) | `94.28% <ø> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=footer). Last update [e0524d3...3bbe3cf](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+13,issue_comment,1456,nilearn,nilearn,codecov[bot],2017-05-20 23:42:50,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=h1) Report
+> Merging [#1456](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/2f825c480f6f7c9fbf4873e81121c4320dedd71d?src=pr&el=desc) will **increase** coverage by `<.01%`.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1456/graphs/tree.svg?token=KpYArSdyXv&width=650&height=150&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1456      +/-   ##
+==========================================
++ Coverage   94.66%   94.66%   +<.01%     
+==========================================
+  Files         120      120              
+  Lines       14686    14687       +1     
+==========================================
++ Hits        13903    13904       +1     
+  Misses        783      783
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/plotting/tests/test\_img\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy90ZXN0cy90ZXN0X2ltZ19wbG90dGluZy5weQ==) | `100% <100%> (ø)` | :arrow_up: |
+| [nilearn/plotting/img\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9pbWdfcGxvdHRpbmcucHk=) | `94.28% <100%> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=footer). Last update [2f825c4...7bab2b0](https://codecov.io/gh/nilearn/nilearn/pull/1456?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+14,pull_request_commit_comment,1456,nilearn,nilearn,KamalakerDadi,2017-05-22 16:05:59,"Minor comment: line too long (88 > 79 characters) by adding new argument threshold=0.5
+
+Can you adjust into new line ?",7bab2b0ef7680fbcbb67596999a34fd11ff0e06d,"(None, '', u'nilearn/plotting/img_plotting.py')"
+15,pull_request_commit_comment,1456,nilearn,nilearn,KamalakerDadi,2017-05-22 16:07:30,"Same here line too long (88 > 79 characters).
+
+Could you break the sentence into two lines ? and
+It would be better if you could drag Notes section above See Also.
+Thanks",7bab2b0ef7680fbcbb67596999a34fd11ff0e06d,"(None, '', u'nilearn/plotting/img_plotting.py')"
+16,pull_request_commit_comment,1456,nilearn,nilearn,KamalakerDadi,2017-05-22 16:19:19,W291 trailing whitespace introduced in this line.,7bab2b0ef7680fbcbb67596999a34fd11ff0e06d,"(None, '', u'nilearn/plotting/img_plotting.py')"
+9,issue_comment,1456,nilearn,nilearn,KamalakerDadi,2017-05-29 07:40:29,Thanks. LGTM.,nan,nan
+5,issue_comment,1456,nilearn,nilearn,GaelVaroquaux,2017-05-29 08:03:40,"Sorry for coming up with yet another comment on a PR that is a good one, but:
+
+It would be good to add a test in nilearn/plotting/tests/test_img_plotting.py that tests exactly the problem that you report. It's a well testable problem, and adding a test will make our codebase more robust.
+
+Thanks!",nan,nan
+10,issue_comment,1456,nilearn,nilearn,KamalakerDadi,2017-06-08 12:10:55,Apparently this PR should close issue #1248 ,nan,nan
+11,issue_comment,1456,nilearn,nilearn,KamalakerDadi,2017-06-12 09:02:20,@bthirion Can you have a look at this one please ?,nan,nan
+7,issue_comment,1456,nilearn,nilearn,bthirion,2017-06-12 21:43:02,LGTM.,nan,nan
+6,issue_comment,1456,nilearn,nilearn,GaelVaroquaux,2017-06-15 16:49:46,Thanks for the tests. Merging.,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+4,issue_comment,1296,nilearn,nilearn,ahoyosid,2016-12-07 10:34:24,WDYM?,nan,nan
+3,issue_comment,1296,nilearn,nilearn,GaelVaroquaux,2017-06-15 19:27:44,Closing as fixed,nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+11,issue_comment,1463,nilearn,nilearn,codecov[bot],2017-06-12 14:36:18,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=h1) Report
+> Merging [#1463](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/2f825c480f6f7c9fbf4873e81121c4320dedd71d?src=pr&el=desc) will **not change** coverage.
+> The diff coverage is `100%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1463/graphs/tree.svg?src=pr&width=650&height=150&token=KpYArSdyXv)](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=tree)
+
+```diff
+@@           Coverage Diff           @@
+##           master    #1463   +/-   ##
+=======================================
+  Coverage   94.66%   94.66%           
+=======================================
+  Files         120      120           
+  Lines       14686    14686           
+=======================================
+  Hits        13903    13903           
+  Misses        783      783
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/image/tests/test\_image.py](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=tree#diff-bmlsZWFybi9pbWFnZS90ZXN0cy90ZXN0X2ltYWdlLnB5) | `99.63% <ø> (ø)` | :arrow_up: |
+| [nilearn/masking.py](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=tree#diff-bmlsZWFybi9tYXNraW5nLnB5) | `94.41% <100%> (ø)` | :arrow_up: |
+| [nilearn/tests/test\_masking.py](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X21hc2tpbmcucHk=) | `100% <100%> (ø)` | :arrow_up: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=footer). Last update [2f825c4...7c27017](https://codecov.io/gh/nilearn/nilearn/pull/1463?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",nan,nan
+7,issue_comment,1463,nilearn,nilearn,KamalakerDadi,2017-06-12 14:36:38,"- Recent commit should FIX failure in CircleCI with sphinx version 1.6.2.
+- Also, some examples documentation seems to be broken. For example, with plot_extract_regions_dictlearn.py",nan,nan
+5,issue_comment,1463,nilearn,nilearn,bthirion,2017-06-12 21:48:06,"Nothing to say about he updates, but circleci fails ?",nan,nan
+8,issue_comment,1463,nilearn,nilearn,KamalakerDadi,2017-06-13 06:59:49,">Nothing to say about he updates, but circleci fails ?
+
+Still there are some documentation build failures. I will address them as well. Below is the one with failure (decoding).
+```sphinx.errors.SphinxWarning: /home/ubuntu/nilearn/doc/decoding/decoding_intro.rst:423:end-before pattern not found:```",nan,nan
+6,issue_comment,1463,nilearn,nilearn,bthirion,2017-06-14 09:49:03,"Nothing to argue about he updates, but circleci fails ?",nan,nan
+9,issue_comment,1463,nilearn,nilearn,KamalakerDadi,2017-06-14 10:35:11,"> but circleci fails ?
+
+No, it is fixed now.",nan,nan
+10,issue_comment,1463,nilearn,nilearn,KamalakerDadi,2017-06-14 10:56:11,"Summarizing altogether, this PR attempts to FIX:
+
+- Fixes are related to numpy boolean type operations. Where recommended
+  solutions are to use numpy functions on arrays.
+  See for instance in PR #1462 with this link https://travis-ci.org/nilearn/nilearn/jobs/241458725
+- Should also FIX failure in CircleCI with sphinx updated to version 1.6.2.
+   See for instance in https://circleci.com/gh/nilearn/nilearn/2514?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link
+- Few fixes with documentation build errors. ```region_extraction.rst```, ```decoding_intro.rst```, ```manipulating_images.rst```
+
+Can I have reviews on this please ?",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+3,issue_comment,1424,nilearn,nilearn,GaelVaroquaux,2017-03-31 14:20:51,"> I can do a PR to try fix this
+
+The first problem yes. The second one, I don't understand.
+",nan,nan
+5,issue_comment,1424,nilearn,nilearn,salma1601,2017-03-31 14:27:03,"If want 50 voxels as minimal, if I understand correctly the doc, I have to put min_region_size to `50 * (0.2 ** 3)` so it will be `min_region_size=.4`, not an int as said in the doc ",nan,nan
+9,issue_comment,1424,nilearn,nilearn,KamalakerDadi,2017-03-31 14:30:46,"It is not hard-coded if you import as a function, ```from nilearn.regions import connected_regions``` and use your own smoothing. I don't see a PR in this.",nan,nan
+4,issue_comment,1424,nilearn,nilearn,GaelVaroquaux,2017-03-31 14:32:34,"Indeed, either the docs or the code, or both should be fixed. Kamalakar,
+what's your take?
+",nan,nan
+6,issue_comment,1424,nilearn,nilearn,salma1601,2017-03-31 14:39:15,">It is not hard-coded if you import as a function, from nilearn.regions import connected_regions and use your own smoothing. I don't see a PR in this
+
+you mean I should use the function `connected_regions` and never use `RegionExtractor` ?",nan,nan
+10,issue_comment,1424,nilearn,nilearn,KamalakerDadi,2017-03-31 14:42:15,Both I guess.,nan,nan
+11,issue_comment,1424,nilearn,nilearn,KamalakerDadi,2017-03-31 14:43:39,">you mean I should use the function connected_regions and never use RegionExtractor ?
+
+Please use it.",nan,nan
+7,issue_comment,1424,nilearn,nilearn,salma1601,2017-03-31 14:44:57,Yes but when I use `RegionExtractor` I can not set the smoothing_fwhm. So it smoothes my data at 6mm and I have no more regions :),nan,nan
+8,issue_comment,1424,nilearn,nilearn,salma1601,2017-04-07 10:13:40,">I don't see a PR in this.
+
+@KamalakerDadi may be I was unclear. So first my mouse fMRI images have different range than human images, e.g.` print func_imgs[0].header.get_zooms()` gives `(0.2, 0.2, 0.2, 1.0)`. Now I am using DictionaryLearning to extract my networks, with a smoothing FWHM suitable for my data
+```Python
+from nilearn.decomposition import DictLearning
+
+dict_learn = DictLearning(n_components=20, smoothing_fwhm=.3, n_jobs=-3)
+dict_learn.fit(func_imgs)
+components_img = dict_learn.masker_.inverse_transform(dict_learn.components_)
+```
+At this point everything works fine. Now I want to keep only large enough regions
+```Python
+extractor = RegionExtractor(components_img, thresholding_strategy='ratio_n_voxels',
+    extractor='local_regions', min_region_size=.4)
+extractor.fit()
+```
+and here I have an error
+```Python
+ValueError: zero-size array to reduction operation maximum which has no identity
+```
+
+However when I set `smoothing_fwhm=.3` here
+```Python
+https://github.com/nilearn/nilearn/blob/master/nilearn/regions/region_extractor.py#L401
+```
+I get my regions extracted.",nan,nan
+12,issue_comment,1424,nilearn,nilearn,KamalakerDadi,2017-04-07 11:07:02,"I agree with you. I was wrong in understanding. PR welcome please.
+Thanks",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 

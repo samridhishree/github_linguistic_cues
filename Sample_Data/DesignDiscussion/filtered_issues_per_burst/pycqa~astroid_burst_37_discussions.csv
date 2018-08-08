@@ -1,0 +1,25 @@
+Unnamed: 0,rectype,issueid,project_owner,project_name,actor,time,text,action,title
+5,pull_request_commit_comment,468,pycqa,astroid,PCManticore,2017-12-11 09:17:55,"I think here we intended to have >= 3.4, this will stop working on 3.4",39f5d8042140f626678ee2b4381fc28b12f18c66,"(None, '', u'astroid/interpreter/_import/spec.py')"
+6,pull_request_commit_comment,468,pycqa,astroid,PCManticore,2017-12-11 09:18:39,>= perhaps?,39f5d8042140f626678ee2b4381fc28b12f18c66,"(None, '', u'astroid/tests/unittest_manager.py')"
+7,pull_request_commit_comment,468,pycqa,astroid,PCManticore,2017-12-11 09:18:58,Ditto. I think namespace protocol landed in 3.4,39f5d8042140f626678ee2b4381fc28b12f18c66,"(None, '', u'astroid/tests/unittest_manager.py')"
+8,pull_request_commit_comment,468,pycqa,astroid,hugovk,2017-12-11 09:32:04,"Good point, will fix! (There was no test failure so here's a gap in coverage.)",39f5d8042140f626678ee2b4381fc28b12f18c66,"(None, '', u'astroid/interpreter/_import/spec.py')"
+9,pull_request_commit_comment,468,pycqa,astroid,hugovk,2017-12-11 09:33:08,"Yep, will change to `>= (3, 4)`.",39f5d8042140f626678ee2b4381fc28b12f18c66,"(None, '', u'astroid/tests/unittest_manager.py')"
+4,issue_comment,468,pycqa,astroid,hugovk,2017-12-11 09:40:25,"@PCManticore Thanks, I've updated the PR.",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,469,pycqa,astroid,PCManticore,2017-12-11 10:02:09,Thanks @The-Compiler ! Gonna check it,nan,nan
+3,issue_comment,469,pycqa,astroid,The-Compiler,2017-12-15 09:39:25,"Looks good now, thank you! 👍 ",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
+2,issue_comment,471,pycqa,astroid,PCManticore,2017-12-15 14:44:22,This should be reported upstream to `pylint-mccabe`. That method emitted DeprecationWarnings for a couple of releases now and it was scheduled to be removed in 1.6.,nan,nan
+3,issue_comment,471,pycqa,astroid,craiga,2017-12-18 11:13:16,"I ran into the same issue, and found that [pylint ships with a design checker which implements McCabe complexity testing](https://pylint.readthedocs.io/en/latest/technical_reference/extensions.html#design-checker).
+
+As pylint-mccabe hasn't been updated in five years, you should probably move to this extension.
+
+I just added the following to .pylintrc:
+
+    [MASTER]
+    load-plugins=pylint.extensions.mccabe
+",nan,nan
+ , , , , , , , , , 
+ , , , , , , , , , 
