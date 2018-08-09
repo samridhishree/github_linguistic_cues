@@ -111,7 +111,7 @@ def CleanIssueComment(text):
 for filename in os.listdir(raw_issue_dir):
     print "Processing for file = ", filename
     f = codecs.open(os.path.join(raw_issue_dir, filename), 'rb', encoding='utf-8')
-    reader = csv.DictReader(f, fieldnames=["rectype", "issueid", "project_owner", "project_name", "actor", "time", "text", "action", "title"])
+    reader = csv.DictReader(f)
     header = reader.fieldnames + ['clean_text']
     output_file = os.path.join(clean_issue_dir, filename.replace('.csv', '_clean.csv'))
     w = codecs.open(output_file, 'wb', encoding='utf-8')
