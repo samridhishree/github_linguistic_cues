@@ -17,13 +17,15 @@ parser.add_argument('--burst_pickle', help='The pickle file with all bursts of t
                 default='Sample_Data/hmm_bursts.pickle')
 parser.add_argument('--output_dir', help='Directory containing insertion deletion counts per project', 
                 default='Sample_Data/ModRequest/insertion_deletion_counts/')
+parser.add_argument('--clones_dir', help='Directory containing clones of all projects',
+                default='/usr2/scratch/repo_clones_pypi/')
 args, unknown = parser.parse_known_args()
 
 burst_pickle = args.burst_pickle
 output_dir = args.output_dir
 bursts = pickle.load(open(burst_pickle, 'rb'))
 projects = bursts.keys()
-projects = ['aio-libs~aioredis', 'idan~oauthlib', 'nilearn~nilearn', 'pycqa~astroid']
+#projects = ['aio-libs~aioredis', 'idan~oauthlib', 'nilearn~nilearn', 'pycqa~astroid']
 cur_dir = os.getcwd()
 
 try:
@@ -37,7 +39,7 @@ for project in projects:
     name = parts[1]
     lines = []
     try:
-        cd_command = '/usr2/scratch/repo_clones_pypi/' + owner + '/' + name + '/'
+        cd_command = args.clones_dir + owner + '/' + name + '/'
         os.chdir(cd_command)
         str = 'git log  --oneline --pretty="@%H"  --stat   |grep -v \| |  tr "\n" " "  |  tr "@" "\n"'
         lines = subprocess.check_output(str, shell=True)
