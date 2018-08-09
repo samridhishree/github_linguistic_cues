@@ -39,7 +39,7 @@ args, unknown = parser.parse_known_args()
 
 CHAR_THRESHOLD = 25
 bursty_issues_dir = args.bursty_issues_dir
-raw_commit_dir = args.raw_commits
+raw_commit_dir = args.raw_commit_dir
 ins_del_count_dir = args.ins_del_count_dir
 trained_model = args.trained_model     #FastText Model
 output_dir = args.output_dir
@@ -179,9 +179,9 @@ for filename in os.listdir(bursty_issues_dir):
 
     # Get the insertion deletion counts for each PR and retain the ones with counts >= 30
     high_impact_commits = []
-    ins_del_file = os.path.join(ins_del_count_dir, project.replace('_', '~', 1) + '_ins_del_counts.pickle')
+    ins_del_file = os.path.join(ins_del_count_dir, project + '_ins_del_counts.pickle')
     ins_del_dir = pickle.load(open(ins_del_file, 'rb'))
-    raw_commit_file = os.path.join(raw_commit_dir, 'repo_' + project + '_commits.csv')
+    raw_commit_file = os.path.join(raw_commit_dir, 'repo_' + project.replace('~', '_', 1) + '_commits.csv')
     commit_data = pd.read_csv(raw_commit_file)
     for commit in after_issue_start:
         sha = commit['action']

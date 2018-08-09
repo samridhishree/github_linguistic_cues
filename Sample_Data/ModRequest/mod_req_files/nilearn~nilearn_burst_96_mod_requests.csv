@@ -1,0 +1,78 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,653a58424dc3e0f9a5bc06757aee7b1cb769a7e3,39,1351,ahoyosid,2016-12-22 09:29:29,updating check masker,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1719612330429616
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7413932119777451
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.7128031851075146
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.6493309082708887
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,77c67b748eb6de1babad5275102c3a2ddb51b801,76,1351,ahoyosid,2016-12-22 11:21:40,addressing checking masker comments,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.2252108244584423
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7235801766774357
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.6518816973236682
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.5977291790856016
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,89c2e3113c899674aba1611a4f8a189602753739,117,1351,ahoyosid,2017-01-25 14:44:27,minor,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1302440286751763
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:14:36,In this case the masker is not fitted. Is this the intended behavior?,0.9089977894710627
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.8676459606938101
+pull_request_commit_comment,NA,NA,1351,bthirion,2016-12-21 22:16:16,"Actually, this module should be independent from SpaceNet. Do you believe that the use will be confined to the future Decoder object, in which case SpaceNet -> Decoder ? Otherwise, we should remove the reference to SpaceNet.",0.8485586453791383
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,407767ac38e8ef211544e74fed947c8fa1bbb9b0,39,1351,ahoyosid,2016-12-22 09:29:29,updating check masker,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1719612330429616
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7413932119777451
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.7128031851075146
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.6493309082708887
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,fcb45db6183253c327de4e6ef6d1b8280c299f89,76,1351,ahoyosid,2016-12-22 11:21:40,addressing checking masker comments,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.2252108244584423
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7235801766774357
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.6518816973236682
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.5977291790856016
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5dd28ef8efb10246ac58d10c60853c9931685e50,117,1351,ahoyosid,2017-01-25 14:44:27,minor,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1302440286751763
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:14:36,In this case the masker is not fitted. Is this the intended behavior?,0.9089977894710627
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.8676459606938101
+pull_request_commit_comment,NA,NA,1351,bthirion,2016-12-21 22:16:16,"Actually, this module should be independent from SpaceNet. Do you believe that the use will be confined to the future Decoder object, in which case SpaceNet -> Decoder ? Otherwise, we should remove the reference to SpaceNet.",0.8485586453791383
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d9926f5fc8031ccc08180ab5ff28c940c95ac7fb,39,1351,ahoyosid,2016-12-22 09:29:29,updating check masker,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1719612330429616
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7413932119777451
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.7128031851075146
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.6493309082708887
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9debb25ddda337d5f5071044291317f84d978847,76,1351,ahoyosid,2016-12-22 11:21:40,addressing checking masker comments,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.2252108244584423
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7235801766774357
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.6518816973236682
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.5977291790856016
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3ff4cb3a99783af6559a0bf1ca874d73bd4a98f4,117,1351,ahoyosid,2017-01-25 14:44:27,minor,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1302440286751763
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:14:36,In this case the masker is not fitted. Is this the intended behavior?,0.9089977894710627
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.8676459606938101
+pull_request_commit_comment,NA,NA,1351,bthirion,2016-12-21 22:16:16,"Actually, this module should be independent from SpaceNet. Do you believe that the use will be confined to the future Decoder object, in which case SpaceNet -> Decoder ? Otherwise, we should remove the reference to SpaceNet.",0.8485586453791383
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b5a5c9bde1a3a505562de28bdd853d9b15c1a62b,37,1351,ahoyosid,2016-12-22 09:29:29,updating check masker,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1719612330429616
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.7413932119777451
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:14:19,Missing empty line here.,0.7128031851075146
+pull_request_commit_comment,NA,NA,1351,GaelVaroquaux,2016-12-21 18:27:10,Missing empty line here also.,0.6493309082708887
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,57431170c839f20919385645be855fd3fe25a33b,101,1351,ahoyosid,2017-01-25 14:44:27,minor,NA
+pull_request_commit_comment,NA,NA,1351,ahoyosid,2016-12-21 17:45:29,Ok,1.1302440286751763
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:14:36,In this case the masker is not fitted. Is this the intended behavior?,0.9089977894710627
+pull_request_commit_comment,NA,NA,1351,AlexandreAbraham,2016-12-22 06:05:56,Empty line,0.8676459606938101
+pull_request_commit_comment,NA,NA,1351,bthirion,2016-12-21 22:16:16,"Actually, this module should be independent from SpaceNet. Do you believe that the use will be confined to the future Decoder object, in which case SpaceNet -> Decoder ? Otherwise, we should remove the reference to SpaceNet.",0.8485586453791383
+ , , , , , , , 
+ , , , , , , , 

@@ -23,6 +23,7 @@ burst_pickle = args.burst_pickle
 output_dir = args.output_dir
 bursts = pickle.load(open(burst_pickle, 'rb'))
 projects = bursts.keys()
+projects = ['aio-libs~aioredis', 'idan~oauthlib', 'nilearn~nilearn', 'pycqa~astroid']
 cur_dir = os.getcwd()
 
 try:

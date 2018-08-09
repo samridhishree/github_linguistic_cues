@@ -1,0 +1,483 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,8a8da8999c29d26b5e497ee360cbc9857018a23d,223,1133,KamalakerDadi,2016-06-28 09:28:01,Address comment: Integrate into demo glass brain extensive,NA
+issue_comment,NA,NA,1133,KamalakerDadi,2016-06-23 09:52:33,"> +1 on integrating to the tutorial.
+
+Into which one ?
+",0.5989495026445012
+issue_comment,NA,NA,1133,KamalakerDadi,2016-06-23 08:54:43,"Any reviews please ?
+",0.5573103010814813
+issue_comment,NA,NA,1133,KamalakerDadi,2016-06-23 10:00:43,"We have demo based `plot_demo_glass_brain` and all options based.
+",0.49786503032468776
+issue_comment,NA,NA,1133,AlexandreAbraham,2016-06-23 09:01:01,"The code is OK. I am just wondering if it is worth making a new example or if we should integrate this in an existing one.
+",0.29538049657208576
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,33728d315cdad49fe51277f7ea93a7b5e9b408ec,108,1125,GaelVaroquaux,2016-06-13 11:26:12,"DOC: add an example
+
+This example should be the 2nd one in a beginner's tutorial.",NA
+issue_comment,NA,NA,1125,AlexandreAbraham,2016-06-13 10:24:42,"LGTM but I dont sée where `get_data_dir` is used. Shouldn't we advertise it in an example?
+",0.28834293746558115
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6ac381e9730a6ceb1807c346408513baae097789,38,924,AlexandreAbraham,2016-01-12 09:47:14,Use ConnectivityMeasure for correlation computation,NA
+pull_request_commit_comment,NA,NA,924,GaelVaroquaux,2015-12-18 22:14:50,"> I think that the output of this example is a bit too messy. You should
+> focus on a particular model of connectivity, e.g. sparse inverse
+> covariance, and leave the others apart.
+
++1
+",0.905624341993636
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:46,"should be removed ?
+",0.8085355369493787
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:30,"print (**doc**) ?
+",0.6897594035790382
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:19,"a comment here could increase readability for the user
+",0.48897477918252674
+issue_comment,NA,NA,924,bthirion,2015-12-18 21:37:55,"This kind of example is very useful, thx.
+",0.4862230562787513
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:06:54,"We don't do the explicit plotting of the file paths etc. as we do it in other examples with fetchers.
+",0.4721031306622733
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:48,"(=partial correlation)
+",0.4363700757376553
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:35:42,"Shouldn't we make the effort to use more specific terms, e.g. 'correlation' rather than 'connectivity' ?
+",0.3689614770214569
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:37:29,"I think that the output of this example is a bit too messy. You should focus on a  particular model of connectivity, e.g. sparse inverse covariance, and leave the others apart.
+",0.349903727395138
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6e5083f80d4c6878a02d65f3b0f3431d534938ca,36,924,AlexandreAbraham,2016-01-12 09:47:14,Use ConnectivityMeasure for correlation computation,NA
+pull_request_commit_comment,NA,NA,924,GaelVaroquaux,2015-12-18 22:14:50,"> I think that the output of this example is a bit too messy. You should
+> focus on a particular model of connectivity, e.g. sparse inverse
+> covariance, and leave the others apart.
+
++1
+",0.905624341993636
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:46,"should be removed ?
+",0.8085355369493787
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:30,"print (**doc**) ?
+",0.6897594035790382
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:19,"a comment here could increase readability for the user
+",0.48897477918252674
+issue_comment,NA,NA,924,bthirion,2015-12-18 21:37:55,"This kind of example is very useful, thx.
+",0.4862230562787513
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:06:54,"We don't do the explicit plotting of the file paths etc. as we do it in other examples with fetchers.
+",0.4721031306622733
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:48,"(=partial correlation)
+",0.4363700757376553
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:35:42,"Shouldn't we make the effort to use more specific terms, e.g. 'correlation' rather than 'connectivity' ?
+",0.3689614770214569
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:37:29,"I think that the output of this example is a bit too messy. You should focus on a  particular model of connectivity, e.g. sparse inverse covariance, and leave the others apart.
+",0.349903727395138
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1039a5cd211fcd785a6a2901b0310660b18b7d93,61,924,AlexandreAbraham,2016-02-19 09:39:14,Fix comments,NA
+pull_request_commit_comment,NA,NA,924,salma1601,2016-01-18 12:02:19,"5 mm
+",1.0294717813989078
+pull_request_commit_comment,NA,NA,924,GaelVaroquaux,2015-12-18 22:14:50,"> I think that the output of this example is a bit too messy. You should
+> focus on a particular model of connectivity, e.g. sparse inverse
+> covariance, and leave the others apart.
+
++1
+",0.9788542736827447
+pull_request_commit_comment,NA,NA,924,banilo,2016-01-21 11:27:26,"title -> ""Covariance matrix"" to contrast with the precision plot
+",0.8038890749587391
+pull_request_commit_comment,NA,NA,924,banilo,2016-01-21 11:27:43,"title -> ""...:Precision matrix"" to contrast with the covariance matrix plot
+",0.8038890749587391
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:48,"(=partial correlation)
+",0.7460150090751757
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:46,"should be removed ?
+",0.6607564589942907
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,10c49e4525cd9840f0f6bcc171aec10039768aa7,191,924,AlexandreAbraham,2016-02-19 10:42:01,Update the example,NA
+pull_request_commit_comment,NA,NA,924,salma1601,2016-01-18 12:02:19,"5 mm
+",1.1092644128325586
+pull_request_commit_comment,NA,NA,924,GaelVaroquaux,2015-12-18 22:14:50,"> I think that the output of this example is a bit too messy. You should
+> focus on a particular model of connectivity, e.g. sparse inverse
+> covariance, and leave the others apart.
+
++1
+",0.8455207136036038
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:48,"(=partial correlation)
+",0.8128830175709868
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:46,"should be removed ?
+",0.7639615980695283
+pull_request_commit_comment,NA,NA,924,banilo,2016-01-21 11:27:26,"title -> ""Covariance matrix"" to contrast with the precision plot
+",0.735568238845071
+pull_request_commit_comment,NA,NA,924,banilo,2016-01-21 11:27:43,"title -> ""...:Precision matrix"" to contrast with the covariance matrix plot
+",0.735568238845071
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c252370f1f86d244eb68b96c78f0578f18c5daa8,381,924,AlexandreAbraham,2016-05-23 08:19:57,Fix comments,NA
+pull_request_commit_comment,NA,NA,924,salma1601,2016-01-18 12:02:19,"5 mm
+",1.0294717813989078
+pull_request_commit_comment,NA,NA,924,GaelVaroquaux,2015-12-18 22:14:50,"> I think that the output of this example is a bit too messy. You should
+> focus on a particular model of connectivity, e.g. sparse inverse
+> covariance, and leave the others apart.
+
++1
+",0.9788542736827447
+pull_request_commit_comment,NA,NA,924,banilo,2016-01-21 11:27:26,"title -> ""Covariance matrix"" to contrast with the precision plot
+",0.8038890749587391
+pull_request_commit_comment,NA,NA,924,banilo,2016-01-21 11:27:43,"title -> ""...:Precision matrix"" to contrast with the covariance matrix plot
+",0.8038890749587391
+pull_request_commit_comment,NA,NA,924,banilo,2015-12-19 23:07:48,"(=partial correlation)
+",0.7460150090751757
+pull_request_commit_comment,NA,NA,924,bthirion,2015-12-18 21:32:46,"should be removed ?
+",0.6607564589942907
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6f87498b1d5897397f30594cd6671798449cc82d,30,1117,GaelVaroquaux,2016-06-10 12:21:09,"DOC: address comments
+
+Address comments by @KamalakerDadi and @AlexandreAbraham",NA
+pull_request_commit_comment,NA,NA,1117,GaelVaroquaux,2016-06-10 11:24:05,"> Perhaps it would be nice to show how to homogenize the masks using
+> swap_img and math_img?
+
+No
+",0.7735834111588953
+issue_comment,NA,NA,1117,KamalakerDadi,2016-06-10 11:14:23,"5.2 LGTM
+",0.7310969565739097
+pull_request_commit_comment,NA,NA,1117,AlexandreAbraham,2016-06-10 11:25:18,"+1 it is the only one to handle string fields correctly. In that case, I would not mention `gen_fom_txt` at all.
+",0.6738201148334562
+pull_request_commit_comment,NA,NA,1117,AlexandreAbraham,2016-06-10 11:02:44,"I would list the 3 files for completeness.
+",0.6640299580093265
+pull_request_commit_comment,NA,NA,1117,AlexandreAbraham,2016-06-10 11:06:52,"Missing commas?
+",0.6249624376385263
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d6e92cac818a4497cd343b68269d144e77e92ea8,192,1119,AlexandreAbraham,2016-06-10 12:10:27,Address comments,NA
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:09:34,"of course !
+",0.8072145975420002
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:35:05,"bool ?
+",0.7582729041220232
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:42:54,"filtered -> cleaned ?
+",0.7299552571047689
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:05:52,"We use dtype to be consistent with numpy.
+",0.6998474970821869
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:41:25,"parameter is named as niimg, above.
+",0.6879011849985752
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:47:14,"optional, missing
+",0.6568695236439286
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:36:07,"May be `nilearn.image.clean_img` if this tends to be in nilearn.image
+",0.6537951425377129
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:05:20,"In all the docs, we have ""Niimg-like"" (in the docstrings).
+",0.6495391846343408
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:36:46,"avoid
+",0.6197831268986246
+issue_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:55:09,"Also, doc/whats_new and version added
+",0.6079871490322475
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8405e53b55291c325e2ea46aaa04a2ac31747d71,32,1119,AlexandreAbraham,2016-06-10 12:18:15,Address comments,NA
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:09:34,"of course !
+",0.8072145975420002
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:35:05,"bool ?
+",0.7582729041220232
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:42:54,"filtered -> cleaned ?
+",0.7299552571047689
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:05:52,"We use dtype to be consistent with numpy.
+",0.6998474970821869
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:41:25,"parameter is named as niimg, above.
+",0.6879011849985752
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:47:14,"optional, missing
+",0.6568695236439286
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:36:07,"May be `nilearn.image.clean_img` if this tends to be in nilearn.image
+",0.6537951425377129
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:05:20,"In all the docs, we have ""Niimg-like"" (in the docstrings).
+",0.6495391846343408
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:36:46,"avoid
+",0.6197831268986246
+issue_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:55:09,"Also, doc/whats_new and version added
+",0.6079871490322475
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,58ead6ea4bb059193d777b3f19777e834a964618,153,1119,AlexandreAbraham,2016-06-10 12:29:43,Fix test and indent,NA
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:09:34,"of course !
+",0.740020690337051
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:41:25,"parameter is named as niimg, above.
+",0.6396008616412006
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:35:05,"bool ?
+",0.6311574812812129
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:36:07,"May be `nilearn.image.clean_img` if this tends to be in nilearn.image
+",0.618474603578966
+issue_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:55:09,"Also, doc/whats_new and version added
+",0.6156553232163117
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:42:54,"filtered -> cleaned ?
+",0.6029497326388451
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:47:14,"optional, missing
+",0.6019896971209022
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:05:20,"In all the docs, we have ""Niimg-like"" (in the docstrings).
+",0.5894470868966071
+pull_request_commit_comment,NA,NA,1119,KamalakerDadi,2016-06-10 11:36:46,"avoid
+",0.5874693969524977
+pull_request_commit_comment,NA,NA,1119,AlexandreAbraham,2016-06-10 12:05:52,"We use dtype to be consistent with numpy.
+",0.5590558881778495
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,967eca1cc7511c793fed8ee92da80ee405f07921,96,1034,MartinPerez,2016-02-29 18:42:19,added arbitrary axes order functionality and simplified hemisphericprojector. Also addressed some comments on the docs and examples. added smoke test for glass brain with hemispheres,NA
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.6854160523253123
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.6112059965058125
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6021791667678501
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.4568496828631249
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.4483690038989633
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:41:44,"sorry you are right. mistake during the rebase merge just done.
+",0.4298195058682107
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.4185958774560983
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8141cc13fb361236c06ae9c173633b50b6fb370e,171,1034,MartinPerez,2016-03-20 12:49:56,generalized previous code,NA
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.7919343211573481
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.7780991566915249
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.7378355733345632
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.7288195569901543
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.7099243511654343
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:28:18,"Like in the examples?
+",0.6975447537607153
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",0.6935558398187576
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.692450229130606
+issue_comment,NA,NA,1034,MartinPerez,2016-03-10 12:12:58,"@chrisfilo thanks for the reference, I will check it out.
+",0.6849569369005406
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:20:47,"Can you comment on these lines?
+",0.6733500248815276
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.6723504137268588
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.6707954395702254
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 06:09:50,"To make the HTML view of the example simpler to comprehend, I think that it would be good to have 3 different ""cells"" in this example, one per plot.
+",0.6548363058101437
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.6543709587613007
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4368032ab16a5df76c5c788160f2ecb270ba1a51,3366,1034,MartinPerez,2016-03-21 10:42:39,"added connectomics, generalized and improved code, including glass brain",NA
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",0.6671692993722865
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.6545763814361152
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.6543527420288391
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6397921953005008
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.6053193705812376
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.5975484686898642
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.5972419409422216
+issue_comment,NA,NA,1034,MartinPerez,2016-03-10 12:12:58,"@chrisfilo thanks for the reference, I will check it out.
+",0.5602423371078729
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",0.5537312685308491
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.539389665963901
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 06:44:07,"That last one should be ""right_side"", no?
+",0.518171353259971
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.507858905524406
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.5021784076131157
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.5002285287499413
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9137744560d72a0d5cf8500cec8ee1045df84ffa,51,1034,MartinPerez,2016-05-18 16:13:00,minor comments corrections. saggital to sagittal and titles in plots.,NA
+issue_comment,NA,NA,1034,GaelVaroquaux,2016-04-27 16:51:37,"> For me solution to this problem is to add a line saying that images should be
+> in MNI space. We always pressure this point to users to avoid surprising
+> results.
+
++1
+",0.8950644532943857
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.7188167936202838
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.6971905237025497
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6959064034458229
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",0.6909286417237623
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.675850406473525
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.5920259782175579
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:52:38,"same with here some `title`s would be useful.
+",0.5722315172258554
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.5638367165944744
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",0.5497087065892947
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:28:18,"Like in the examples?
+",0.5480845620033092
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.5345296748116825
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.5289384523079752
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.5053064280781534
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.4909321992633008
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:37:37,"Can we have a demo of ""lzr"", which I suspect is the mode useful mode.
+",0.4795177648097192
+issue_comment,NA,NA,1034,MartinPerez,2016-03-10 12:12:58,"@chrisfilo thanks for the reference, I will check it out.
+",0.46694442554439797
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:19:22,"I'm pretty sure that this copy is not necessary. This is not a big deal, though.
+",0.44843322894617255
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-04-26 13:09:01,"This will not work if the affine is not diagonal. Is that always the case? If so, you could just do `data_selection=data[:int(x_center), :, :]` to avoid the copy above.
+",0.44718360807344093
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2a67cc8b3d0ac4802e65af0ab51e69dd5405f5cc,38,1034,MartinPerez,2016-05-23 14:32:16,coordinate x==0 included in both hemispheres now. Adressing also minor comments in the docs. Simplified example,NA
+issue_comment,NA,NA,1034,GaelVaroquaux,2016-04-27 16:51:37,"> For me solution to this problem is to add a line saying that images should be
+> in MNI space. We always pressure this point to users to avoid surprising
+> results.
+
++1
+",0.8624244771182071
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.7605383232039753
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-05-19 11:19:44,"+1, I guess 2 plots are enough ;).
+",0.7605031959383496
+pull_request_commit_comment,NA,NA,1034,lesteve,2016-05-19 11:11:17,"you can put that in the same if clause: `if self.direction == 'r' and xc >=0`
+",0.6813014942305698
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:06:20,"saggital -> sagittal
+",0.679356714798171
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",0.6777257133221268
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6586674585528882
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.6516430530607096
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.6293369891764532
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.5922199412000044
+pull_request_commit_comment,NA,NA,1034,lesteve,2016-05-19 11:11:40,"same remark as above you can put it in the same if clause.
+",0.5616979005778544
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:52:38,"same with here some `title`s would be useful.
+",0.5344679426716671
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.530079184896373
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.5026726455931181
+issue_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:27:43,"This does look very nice! On the images at the top (with a white background), there is a strange yellow background color. 
+",0.4802101301556272
+pull_request_commit_comment,NA,NA,1034,aabadie,2016-03-21 11:11:50,"""Demo glass brain plotting using whole brain saggital cuts.""
+",0.4783684645835078
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-04-26 13:09:01,"This will not work if the affine is not diagonal. Is that always the case? If so, you could just do `data_selection=data[:int(x_center), :, :]` to avoid the copy above.
+",0.4759253462198727
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.47399228073633837
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.4731261084117052
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 06:44:07,"That last one should be ""right_side"", no?
+",0.4667353876715783
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:37:37,"Can we have a demo of ""lzr"", which I suspect is the mode useful mode.
+",0.46448846656898124
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:05:58,"what it means by whole brain saggital cuts ?
+",0.45990277363147747
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.45866766592722463
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9f8c95af1188a07155c83a5a7c797fd96a7027c6,93,1098,KamalakerDadi,2016-05-22 16:25:53,Addressed comments & corrections made by Bertrand,NA
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:23:35,"p=~20,000-200,000
+",0.7698198592915134
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:25:51,"were not drawn
+",0.7240424686730225
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:18:55,"To regularize or finnesse the mask definition
+",0.6799158911031351
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 14:21:40,"The transformer
+",0.6595691697383416
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:26:46,"with lower p-values
+",0.6402656449250561
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:24:36,"poorly due to the so-called curse of dimensionality.
+",0.6051943479299714
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:10:58,"fetched the dataset,
+",0.6036388838793648
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c0bfa846f24422c13431317b8cf2e30d02c989d5,223,1098,KamalakerDadi,2016-06-09 16:50:49,Making example more verbose than narrative doc,NA
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:25:51,"were not drawn
+",0.773249362177843
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:19:35,"Below are results
+",0.69323945005155
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:26:46,"with lower p-values
+",0.6886970020792282
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:23:35,"p=~20,000-200,000
+",0.6879345781738216
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 14:21:40,"The transformer
+",0.6834612652343843
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:26:08,"The lower the p-value
+",0.6561423037191034
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:20:35,"two separate regions (ROIs), one in each
+",0.6293015698631064
+pull_request_commit_comment,NA,NA,1098,bthirion,2016-05-22 10:10:58,"fetched the dataset,
+",0.6240825505182813
+pull_request_commit_comment,NA,NA,1098,GaelVaroquaux,2016-06-09 09:32:02,"> We should probably avoid to use _utils stuff in examples, shouldn't we, the
+> rationale being that _utils stuff should only be used within nilearn and not by
+> end-users. I would say nibabel.load is probably fine.
+
++1: this is an advanced example, it's good to teach nibabel to these
+users.
+",0.6023320465072088
+pull_request_commit_comment,NA,NA,1098,lesteve,2016-06-09 09:32:11,"Why a capital M in mask?
+",0.5883248416773346
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8166eef43ec23b9b5130a6c5f31b1cb350e74ca0,64,1103,KamalakerDadi,2016-06-08 12:22:16,Added fetch grey matter mask from ICBM template,NA
+pull_request_commit_comment,NA,NA,1103,KamalakerDadi,2016-05-25 12:25:17,"Ok.
+",1.191150757966635
+pull_request_commit_comment,NA,NA,1103,bthirion,2016-05-25 21:17:04,"+1
+",0.9717869798818051
+issue_comment,NA,NA,1103,GaelVaroquaux,2016-06-08 12:11:57,"Is this an MRG?
+",0.6012771340827073
+pull_request_commit_comment,NA,NA,1103,AlexandreAbraham,2016-05-25 12:18:52,"Maybe `load_mni152_brain_mask` would be a better naming?
+",0.48471354742431716
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,02484a1221d81bf778c7e65994b316a319e74bce,64,1103,KamalakerDadi,2016-06-08 15:50:16,"Comments addressed: Notes, doc references, removed resampling",NA
+pull_request_commit_comment,NA,NA,1103,KamalakerDadi,2016-05-25 12:25:17,"Ok.
+",1.1185707087222383
+pull_request_commit_comment,NA,NA,1103,bthirion,2016-05-25 21:17:04,"+1
+",0.9541635513093546
+issue_comment,NA,NA,1103,GaelVaroquaux,2016-06-08 12:11:57,"Is this an MRG?
+",0.6818287247158603
+pull_request_commit_comment,NA,NA,1103,AlexandreAbraham,2016-06-08 13:32:02,"The mask seems very permissive, why .2? .5 seems more logical to me.
+",0.663998836656374
+pull_request_commit_comment,NA,NA,1103,KamalakerDadi,2016-06-08 13:37:04,"> so I think that .2 is a good default.
+
+For me too, for completeness I would post some pictures between those two values.
+",0.5013338320485059
+pull_request_commit_comment,NA,NA,1103,KamalakerDadi,2016-06-08 12:55:46,"> They resample. The nifti masker does that automatically. No need to resample twice.
+
+Ok, do you think I am over enthusiastic ? I don't think then it is necessary `fetch_mni152_grey_matter_mask` ?
+",0.498653136352164
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,698a6f5693890752b6b4742dc7395a71186b9fbc,231,1121,AlexandreAbraham,2016-06-10 13:50:57,Replace all titles!,NA
+pull_request_commit_comment,NA,NA,1121,lesteve,2016-06-10 13:20:48,"There are remaining `=` in other places in your diff too, that'd be great to fix them while you are at it.
+",0.6946999029328943
+pull_request_commit_comment,NA,NA,1121,lesteve,2016-06-10 13:19:54,"Why not replace this `=` by `-` like you did in other files?
+",0.3594402959493753
+ , , , , , , , 
+ , , , , , , , 

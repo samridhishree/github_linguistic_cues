@@ -1,0 +1,130 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,f8cb17ee55e7c05abce61e1481b3668666c1de1a,318,177,VirgileFritsch,2014-03-28 14:26:25,Localizer: Add example + function to download one structural image,NA
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:58:06,"It is, again, doable by using the ""move"" option of _fetch_files.
+",0.42532650731211163
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 17:00:27,"@bthirion Could you suggest relevant names where missing and correct my suggestions?
+",0.40793265261745537
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:47,"Isn't the point of the file_name option to be changed for each file ?
+",0.3781987880811437
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:57:37,"This behavior can be reproduced using the ""move"" option in _fetch_files.
+",0.35564478887491646
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b28f80346270231ff2ef253af7ef4c5cd37f0916,30,177,VirgileFritsch,2014-03-28 15:26:53,Localizer: Nice plot of background anat in example.,NA
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:57:49,"Should document `file_name` parameter.
+",0.4484094199093227
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:54:51,"Should document subfolder_name parameter...
+",0.443836577570457
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:47,"Isn't the point of the file_name option to be changed for each file ?
+",0.4318071012583814
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:58:06,"It is, again, doable by using the ""move"" option of _fetch_files.
+",0.4244441325339585
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4b1804d475ca6e9703c51190391166844ed0ca32,197,177,VirgileFritsch,2014-03-31 11:34:55,Localizer: Better contrast names (WIP),NA
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:49:57,"missing space
+",0.6726911180009292
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:31:37,"Sorry, what do you mean ?
+",0.6505578541293502
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:25,"I don't get the point of appending things in `urls` as you only take elements from 0 to len(contrasts_wrapped) or am I wrong ?
+",0.5882811566679136
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:57:49,"Should document `file_name` parameter.
+",0.558862017914129
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:47,"Isn't the point of the file_name option to be changed for each file ?
+",0.5507543970060798
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:54:51,"Should document subfolder_name parameter...
+",0.5398795203129354
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:07:14,"... which can lead to timeout while the archive is generated on the remote server. (I think it is useful to precise it fur future generations ;))
+",0.5036540805992898
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0317ba3336aca539fa1de357df2613ed0a081186,73,177,VirgileFritsch,2014-03-31 13:35:37,Localizer: Contrast naming,NA
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:49:57,"missing space
+",0.7745352443633824
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:31:37,"Sorry, what do you mean ?
+",0.737460441082864
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:25,"I don't get the point of appending things in `urls` as you only take elements from 0 to len(contrasts_wrapped) or am I wrong ?
+",0.6866858932710411
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:47,"Isn't the point of the file_name option to be changed for each file ?
+",0.6111354224715568
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:36:13,"This dowloads only one structural image ? What is the purpose of this ?
+",0.5848938552568457
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:58:06,"It is, again, doable by using the ""move"" option of _fetch_files.
+",0.582429556180433
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:57:37,"This behavior can be reproduced using the ""move"" option in _fetch_files.
+",0.5686059913447707
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c9ac17f4b16416ae776328c9fedd2e5894b6f3f5,79,177,VirgileFritsch,2014-04-02 08:39:37,Localizer: remove function that dowwloads only one structural img.,NA
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:31:37,"Sorry, what do you mean ?
+",0.6574975004919617
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:49:57,"missing space
+",0.64736434992754
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:41:55,"determine
+",0.627835194680422
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:39:10,"sentence listening and reading
+",0.5740719481845586
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:39:47,"calculation (auditory and visual cue)
+",0.5399888304242162
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:43:09,"For the sake of clarity, please define a design matrix
+design_matrix = np.ones((n_samples, 1), dtype=float)
+
+Note that it is used twice
+",0.525517002042176
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:58:06,"It is, again, doable by using the ""move"" option of _fetch_files.
+",0.5013164649956579
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:25,"I don't get the point of appending things in `urls` as you only take elements from 0 to len(contrasts_wrapped) or am I wrong ?
+",0.44851992209289016
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 17:00:27,"@bthirion Could you suggest relevant names where missing and correct my suggestions?
+",0.43967694986039163
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,bb8b05b42c7ceefcf7550484e658ed7e189e7f78,95,177,VirgileFritsch,2014-04-02 09:23:02,Localizer: contrast names (proposal),NA
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:49:57,"missing space
+",0.7546516518283501
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:41:55,"determine
+",0.6844415146484912
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:31:37,"Sorry, what do you mean ?
+",0.6636436877822698
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:43:09,"For the sake of clarity, please define a design matrix
+design_matrix = np.ones((n_samples, 1), dtype=float)
+
+Note that it is used twice
+",0.5674949093057993
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:25,"I don't get the point of appending things in `urls` as you only take elements from 0 to len(contrasts_wrapped) or am I wrong ?
+",0.5673159469758118
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:39:10,"sentence listening and reading
+",0.5609372699427139
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:39:47,"calculation (auditory and visual cue)
+",0.5597996612646807
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:47,"Isn't the point of the file_name option to be changed for each file ?
+",0.5455821121533628
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 17:58:06,"It is, again, doable by using the ""move"" option of _fetch_files.
+",0.5384917690440549
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:54:51,"Should document subfolder_name parameter...
+",0.5235795348118137
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1c3345a7f272c38f6a818b30d5e71d1f70effe7d,39,177,VirgileFritsch,2014-04-04 11:19:43,Localizer: contrast names (final).,NA
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-02 21:50:15,"OK.
+",1.14202722131908
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:49:57,"missing space
+",0.7129433943417471
+pull_request_commit_comment,NA,NA,177,bthirion,2014-03-30 20:31:37,"Sorry, what do you mean ?
+",0.6925974565390427
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:41:55,"determine
+",0.6655510846673749
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:39:47,"calculation (auditory and visual cue)
+",0.6619821544175192
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:25,"I don't get the point of appending things in `urls` as you only take elements from 0 to len(contrasts_wrapped) or am I wrong ?
+",0.6554172672343834
+pull_request_commit_comment,NA,NA,177,bthirion,2014-04-01 21:39:10,"sentence listening and reading
+",0.6463984685436623
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:54:51,"Should document subfolder_name parameter...
+",0.5864681033563646
+pull_request_commit_comment,NA,NA,177,AlexandreAbraham,2014-03-27 18:37:47,"Isn't the point of the file_name option to be changed for each file ?
+",0.5816513137231952
+pull_request_commit_comment,NA,NA,177,VirgileFritsch,2014-03-27 16:57:49,"Should document `file_name` parameter.
+",0.5804249989627336
+ , , , , , , , 
+ , , , , , , , 

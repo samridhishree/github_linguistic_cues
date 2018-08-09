@@ -1,0 +1,14 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,fc2d1218e015adcf65ba01965884430c47895cd0,301,322,josephtate,2015-04-14 16:30:44,Support newer PyJWT (1.0.0). remove PyCrypto completely for cryptography and PyJWT helpers. Reformat some test certificates to be easier to maintain. Update documentation to match use of cryptography instead of PyCrypto,NA
+issue_comment,NA,NA,322,wiliamsouza,2015-03-18 12:45:43,":+1:  LGTM
+",0.8182762455217509
+issue_comment,NA,NA,322,josephtate,2015-04-06 16:57:30,"I think I'm all done with this @ib-lundgren.
+",0.5997449109034081
+issue_comment,NA,NA,322,lepture,2015-03-04 05:41:06,"ping @ib-lundgren 
+",0.5562642800177677
+issue_comment,NA,NA,322,tilgovi,2015-03-17 20:41:35,"LGTM
+",0.5143167631838943
+issue_comment,NA,NA,322,josephtate,2015-03-23 00:45:19,"@jpadilla Thanks for the heads up
+",0.4776423434730034
+ , , , , , , , 
+ , , , , , , , 

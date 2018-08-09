@@ -1,0 +1,20 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,66c7425700cc33badb30cda3e00d2da67ba708a7,95,1096,KamalakerDadi,2016-05-10 19:21:27,Addressed Bertrand's comments about wording,NA
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:47:41,"sagittal
+",0.8667762810205109
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:52:04,"sagittal
+",0.8667762810205109
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:52:23,"sagittal
+",0.8667762810205109
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:53:35,"to select the slices to be displayed
+",0.6852332407846178
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:51:16,"are selected automatically
+",0.6811117809611964
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:52:56,"the contrast map
+",0.6741063812817263
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:53:52,"the contrast map
+",0.6741063812817263
+pull_request_commit_comment,NA,NA,1096,bthirion,2016-05-09 21:59:54,"Contrast maps
+",0.6741063812817263
+ , , , , , , , 
+ , , , , , , , 

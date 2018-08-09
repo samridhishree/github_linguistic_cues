@@ -1,0 +1,445 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,2402ea3cfcc44d1ad429add78469537db3ccebc8,56,556,demianw,2015-04-22 15:58:06,Changed the interface for edge coloring from a Normalizer class to the vmin/vmax parameters,NA
+issue_comment,NA,NA,556,lesteve,2015-04-22 14:37:45,"Just curious, what's your use case, making it easier to visually compare different connectome plots by using the same norm for all these plots?
+
+Maybe having `edge_vmin` and `edge_vmax` arguments in plot_connectome would be easier to understand for the user.
+",0.3956387271511035
+issue_comment,NA,NA,556,GaelVaroquaux,2015-04-22 15:43:29,"> Sounds like an absolutely reasonable criteria. Would you rather I change it for
+> the simpler vmin, vmax?
+
+Yes, such an API is easily understandable by non technical users.
+
+> Nowadays the vmin-vmax behaviour is internally hardcoded and not documented.
+> It's in lines 266-270 of nilearn/plotting/displays.py
+
+I agree that from a design perspective this is not ideal. I think that
+exposing it and documentating it is a clear cut improvement.
+
+Thanks
+",0.34976430682687987
+issue_comment,NA,NA,556,GaelVaroquaux,2015-04-22 15:34:49,"OK, but trying to solve every corner case is going to blow up the
+cyclomatic complexity of nilearn and make the API really hard to
+understand (matplotlib is a good example of this). So we are taking the
+""Steve Jobs"" position on this and only catering to the 99% usecase.
+
+Just to stress that this is not a theoretical argument but a practical
+one, the recent few additions to the colorbar have made our codebase much
+more complex and lead to a buggy release. We don't have the resources to
+address these issues.
+",0.3136107042435121
+issue_comment,NA,NA,556,GaelVaroquaux,2015-04-22 15:03:34,"I am not very excited about exposing this super technical option to the
+user while we are really striving to target simpler, less technical
+users.
+
+Is there a reason why you cannot process your data, for instance applying a
+log, and then use a standard normalization?
+",0.30201312014415616
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,951829286c6022af6e457cf1a2e6921a268ad169,145,585,AlexandreAbraham,2015-06-23 08:50:56,Activate level 1 caching for maps masker,NA
+issue_comment,NA,NA,585,bthirion,2015-05-23 20:46:28,"Please notice a travis failure on Python 3.
+",0.8710064984190371
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:19:08,"Fixed.
+",0.8618919463337239
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 09:15:15,"Fixed.
+",0.8618919463337239
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:41:46,"And if this is not too complicated, explain the logic...
+",0.8226985627771138
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 11:35:46,"I like your version. Replaced!
+",0.8187396887590347
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 11:54:50,"same thing here, optional shouldn't have been removed.
+",0.7661907850457974
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,ebb82224b974c6e19ecd26c885c58071718e88ab,112,585,AlexandreAbraham,2015-06-23 09:12:00,Do things,NA
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 12:00:09,"Any reason why you changed func_memory_level in this file? Used to be 1 now is 2.
+",1.1568855924657622
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:45:53,"In general, what is the strategy to set memory_level / func_memory elvel to 1 or 2 ? Should there be a pragraph on it in the doc ?
+",1.116160336254367
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 11:59:32,"Fixed.
+
+On Fri, Jun 12, 2015 at 1:54 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/_utils/cache_mixin.py
+> https://github.com/nilearn/nilearn/pull/585#discussion_r32309405:
+> 
+> > ```
+> >      The memory_level from which caching must be enabled for the wrapped
+> >      function.
+> > ```
+> > -    memory_level: int, optional
+> > -    memory_level: int
+> 
+> same thing here, optional shouldn't have been removed.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/585/files#r32309405.
+",1.114607381966204
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 11:54:33,"Fair enough, but then func_memory_level is optional and the docstring should be consistent.
+",1.0891763129532102
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:24:13,"Each function has a reference memory_level (func_memory_level). If the user memory_level if equal or greater to func_memory_level, then the function is cached. The goal is, for example, to have several layers of caching. In NiftiMasker:
+- level 1 only cache the output (masked data)
+- level 2 will cache intermediate step of the pretreatment.
+",1.0682435518033655
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:19:08,"Fixed.
+",1.0644219145570633
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 09:15:15,"Fixed.
+",1.0644219145570633
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,063907787cd54bd3d2321bb130c24e4ab79f9f30,89,585,AlexandreAbraham,2015-06-23 11:09:46,Handle the `target_resampling=None` handling,NA
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 12:00:09,"Any reason why you changed func_memory_level in this file? Used to be 1 now is 2.
+",0.9236357211371039
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 11:35:46,"I like your version. Replaced!
+",0.8464052420679156
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:19:08,"Fixed.
+",0.8450365422639365
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 09:15:15,"Fixed.
+",0.8450365422639365
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 11:54:50,"same thing here, optional shouldn't have been removed.
+",0.8425952390108887
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 13:54:13,"Good point! The logic is that at level 1, only the signals should be cached. And at level 2, all intermediate steps should be cached. But the level 1 is missing here.
+",0.8381325859832562
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d20836544187b27aa88cef9edab17b63e9c989bf,37,585,AlexandreAbraham,2015-06-23 14:22:05,Add tests,NA
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 12:00:09,"Any reason why you changed func_memory_level in this file? Used to be 1 now is 2.
+",0.7884373426150328
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:45:53,"In general, what is the strategy to set memory_level / func_memory elvel to 1 or 2 ? Should there be a pragraph on it in the doc ?
+",0.7454661804348481
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 13:54:13,"Good point! The logic is that at level 1, only the signals should be cached. And at level 2, all intermediate steps should be cached. But the level 1 is missing here.
+",0.7378028387920965
+issue_comment,NA,NA,585,bthirion,2015-05-23 20:46:28,"Please notice a travis failure on Python 3.
+",0.6978857590961058
+issue_comment,NA,NA,585,AlexandreAbraham,2015-06-23 12:14:22,"@lesteve Ready for next round ;)
+",0.6831115305358917
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 11:59:32,"Fixed.
+
+On Fri, Jun 12, 2015 at 1:54 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/_utils/cache_mixin.py
+> https://github.com/nilearn/nilearn/pull/585#discussion_r32309405:
+> 
+> > ```
+> >      The memory_level from which caching must be enabled for the wrapped
+> >      function.
+> > ```
+> > -    memory_level: int, optional
+> > -    memory_level: int
+> 
+> same thing here, optional shouldn't have been removed.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/585/files#r32309405.
+",0.6225984761107151
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 11:35:46,"I like your version. Replaced!
+",0.5924745366849626
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a040234a30e6a279fe3265f89211642d36c70ab8,50,585,AlexandreAbraham,2015-07-02 11:15:33,Fix tests,NA
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 12:00:09,"Any reason why you changed func_memory_level in this file? Used to be 1 now is 2.
+",0.843917132360496
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-30 14:07:01,"Merged.
+",0.7983332848773149
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:45:53,"In general, what is the strategy to set memory_level / func_memory elvel to 1 or 2 ? Should there be a pragraph on it in the doc ?
+",0.7834670266825546
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 13:54:13,"Good point! The logic is that at level 1, only the signals should be cached. And at level 2, all intermediate steps should be cached. But the level 1 is missing here.
+",0.7796977583205221
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:19:43,"Yes. It is a caching system for multiple calls.
+",0.6978677861998281
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-24 07:43:52,"Do you need to ignore memory and memory_level here?
+",0.6879246994739437
+issue_comment,NA,NA,585,lesteve,2015-06-25 12:08:16,"FYI this PR needs a rebase.
+",0.6865803922162144
+issue_comment,NA,NA,585,AlexandreAbraham,2015-06-23 12:14:22,"@lesteve Ready for next round ;)
+",0.6683231978926436
+issue_comment,NA,NA,585,bthirion,2015-05-23 20:46:28,"Please notice a travis failure on Python 3.
+",0.6529559701742029
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 11:59:32,"Fixed.
+
+On Fri, Jun 12, 2015 at 1:54 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/_utils/cache_mixin.py
+> https://github.com/nilearn/nilearn/pull/585#discussion_r32309405:
+> 
+> > ```
+> >      The memory_level from which caching must be enabled for the wrapped
+> >      function.
+> > ```
+> > -    memory_level: int, optional
+> > -    memory_level: int
+> 
+> same thing here, optional shouldn't have been removed.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/585/files#r32309405.
+",0.5874677057012128
+issue_comment,NA,NA,585,lesteve,2015-06-23 14:20:36,"> @lesteve Ready for next round ;)
+
+Not clear to me what the target_resampling=None has to do with this PR. Can you enlighten me ?
+",0.5810844854501639
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 09:17:15,"Is there a standard way to precise that in the doc?
+
+Also, I'm not fond of this name but it already changed twice...
+",0.5785391038740506
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 11:35:46,"I like your version. Replaced!
+",0.5763278025474632
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:24:13,"Each function has a reference memory_level (func_memory_level). If the user memory_level if equal or greater to func_memory_level, then the function is cached. The goal is, for example, to have several layers of caching. In NiftiMasker:
+- level 1 only cache the output (masked data)
+- level 2 will cache intermediate step of the pretreatment.
+",0.5575819162020876
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,31de368bbce60709d4ded78b20dd012e2685df04,32,585,AlexandreAbraham,2015-07-13 10:26:40,Put explicit keywork arg for `_cache`,NA
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 12:00:09,"Any reason why you changed func_memory_level in this file? Used to be 1 now is 2.
+",0.8137886075036745
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-30 14:07:01,"Merged.
+",0.7814920112721244
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 13:54:13,"Good point! The logic is that at level 1, only the signals should be cached. And at level 2, all intermediate steps should be cached. But the level 1 is missing here.
+",0.731635852027734
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:45:53,"In general, what is the strategy to set memory_level / func_memory elvel to 1 or 2 ? Should there be a pragraph on it in the doc ?
+",0.7281493144981626
+pull_request_commit_comment,NA,NA,585,GaelVaroquaux,2015-07-13 09:48:13,"I'd be happier with the kwarg being explicit :)
+",0.684977930900373
+issue_comment,NA,NA,585,lesteve,2015-06-25 12:08:16,"FYI this PR needs a rebase.
+",0.6428362347217456
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-24 07:43:52,"Do you need to ignore memory and memory_level here?
+",0.631685561077932
+issue_comment,NA,NA,585,AlexandreAbraham,2015-06-23 12:14:22,"@lesteve Ready for next round ;)
+",0.6229094976285645
+issue_comment,NA,NA,585,bthirion,2015-05-23 20:46:28,"Please notice a travis failure on Python 3.
+",0.602917156780211
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:19:43,"Yes. It is a caching system for multiple calls.
+",0.5969643557016979
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:17:40,"Fixed.
+",0.5929933920577255
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:19:15,"Fixed.
+",0.5929933920577255
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:20:36,"Fixed
+",0.5929933920577255
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 09:15:15,"Fixed.
+",0.5929933920577255
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-30 15:29:53,"Fixed.
+",0.5929933920577255
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:19:08,"Fixed.
+",0.5929933920577255
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-07-13 10:21:54,"Fixed.
+",0.5929933920577255
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,07366be1a0638c957e3b56dcc930d2909c4c505b,38,585,AlexandreAbraham,2015-07-13 12:18:15,Put `func_memory_level=1` as default,NA
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-12 12:00:09,"Any reason why you changed func_memory_level in this file? Used to be 1 now is 2.
+",0.8237913906947388
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-30 14:07:01,"Merged.
+",0.8011875778887576
+pull_request_commit_comment,NA,NA,585,lesteve,2015-06-24 07:43:52,"Do you need to ignore memory and memory_level here?
+",0.7810502356211444
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 13:54:13,"Good point! The logic is that at level 1, only the signals should be cached. And at level 2, all intermediate steps should be cached. But the level 1 is missing here.
+",0.7806619303638698
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:45:53,"In general, what is the strategy to set memory_level / func_memory elvel to 1 or 2 ? Should there be a pragraph on it in the doc ?
+",0.7421461345927545
+pull_request_commit_comment,NA,NA,585,GaelVaroquaux,2015-07-13 09:48:13,"I'd be happier with the kwarg being explicit :)
+",0.7313358331193301
+issue_comment,NA,NA,585,lesteve,2015-06-25 12:08:16,"FYI this PR needs a rebase.
+",0.7216727248289032
+issue_comment,NA,NA,585,AlexandreAbraham,2015-06-23 12:14:22,"@lesteve Ready for next round ;)
+",0.7181405546650111
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:19:43,"Yes. It is a caching system for multiple calls.
+",0.6629497517247178
+issue_comment,NA,NA,585,bthirion,2015-05-23 20:46:28,"Please notice a travis failure on Python 3.
+",0.6553858139333539
+pull_request_commit_comment,NA,NA,585,GaelVaroquaux,2015-07-13 09:40:46,"I would prefer, for readability, still having the name of the keyword argument in the code. It serves to explain what the '1' means.
+",0.6115880246774719
+issue_comment,NA,NA,585,lesteve,2015-06-23 14:20:36,"> @lesteve Ready for next round ;)
+
+Not clear to me what the target_resampling=None has to do with this PR. Can you enlighten me ?
+",0.6084280272818067
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-12 11:59:32,"Fixed.
+
+On Fri, Jun 12, 2015 at 1:54 PM, Loïc Estève notifications@github.com
+wrote:
+
+> In nilearn/_utils/cache_mixin.py
+> https://github.com/nilearn/nilearn/pull/585#discussion_r32309405:
+> 
+> > ```
+> >      The memory_level from which caching must be enabled for the wrapped
+> >      function.
+> > ```
+> > -    memory_level: int, optional
+> > -    memory_level: int
+> 
+> same thing here, optional shouldn't have been removed.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/585/files#r32309405.
+",0.5990185597522636
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 09:17:15,"Is there a standard way to precise that in the doc?
+
+Also, I'm not fond of this name but it already changed twice...
+",0.5714379262575437
+pull_request_commit_comment,NA,NA,585,bthirion,2015-05-23 20:41:46,"And if this is not too complicated, explain the logic...
+",0.5693049738346483
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-09 11:35:46,"I like your version. Replaced!
+",0.5609235743447036
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-06-24 09:22:52,"I'm afraid to fix stuff since people tell me that it should be part of another PR :P.
+",0.5582623485760801
+pull_request_commit_comment,NA,NA,585,AlexandreAbraham,2015-05-23 22:24:13,"Each function has a reference memory_level (func_memory_level). If the user memory_level if equal or greater to func_memory_level, then the function is cached. The goal is, for example, to have several layers of caching. In NiftiMasker:
+- level 1 only cache the output (masked data)
+- level 2 will cache intermediate step of the pretreatment.
+",0.5533460519131037
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9bf062c85f3b95bb3131af4088e1c03ec89906c8,39,568,banilo,2015-05-02 09:08:23,loose _safe_filter_and_mask,NA
+issue_comment,NA,NA,568,banilo,2015-05-02 08:52:03,"@AlexandreAbraham Is this what you had in mind?
+",0.6867483074138212
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,415f691f23e031ec5ef18ff4897f22ab692c27ea,41,562,lesteve,2015-05-10 22:01:05,"Use matplotlib.pyplot instead of plt
+
+for clarity",NA
+pull_request_commit_comment,NA,NA,562,AlexandreAbraham,2015-04-30 09:14:20,"PR welcome ;)
+",0.7729550135772414
+pull_request_commit_comment,NA,NA,562,lesteve,2015-04-30 11:33:50,"basically equivalent for `'vmin' not in kwargs or kwargs['vmin'] is None`
+",0.5396346667864169
+pull_request_commit_comment,NA,NA,562,banilo,2015-04-30 09:03:03,"Somebody likes the Huttinger slides :-P
+",0.5283688476943973
+issue_comment,NA,NA,562,banilo,2015-04-28 13:12:01,"looks good.
+
+Should there be a new test for this?
+",0.4649731826836798
+pull_request_commit_comment,NA,NA,562,banilo,2015-04-28 13:04:57,"A possible alternative explanation for vmin/vmax would be:
+
+`A lower/bigger bound filter that pushes any map value up/down smaller/bigger than vmin/max towards vmin/vmax.`
+
+mention the analogy to np.clip()?
+
+""Given an interval, values outside the interval are clipped to
+the interval edges.  For example, if an interval of `[0, 1]`
+is specified, values smaller than 0 become 0, and values larger
+than 1 become 1.""
+",0.4255765751019154
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1872ec1a1359fc4486f244b7e6e561cbbba10882,64,571,dohmatob,2015-05-08 12:07:21,FIXUPS: test_component_sign in canica (issue #570),NA
+issue_comment,NA,NA,571,dohmatob,2015-05-05 08:49:10,"3 ==> 2 subjects in test.
+",1.1649227715119743
+issue_comment,NA,NA,571,dohmatob,2015-05-05 08:49:56,"sum ==> max heuristic
+",0.7598684723703937
+pull_request_commit_comment,NA,NA,571,GaelVaroquaux,2015-05-07 14:01:00,"I don't understand the few lines above: what are they there for? It seems that they are not used.
+",0.6777323347248143
+pull_request_commit_comment,NA,NA,571,GaelVaroquaux,2015-05-05 07:30:47,"Good thinking with regards to decreasing the number of subjects to speed up tests. How about having only 2 subjects?
+",0.5611439940385436
+pull_request_commit_comment,NA,NA,571,GaelVaroquaux,2015-05-05 07:27:27,"I'd rather have the heuristic that I proposed, using the max, rather that the heuristic using the sum. Indeed, the max is really what people look at in neuroimaging, it's the ""blob"" sticking out.
+",0.4605156227338145
+pull_request_commit_comment,NA,NA,571,GaelVaroquaux,2015-05-05 07:29:37,"I don't understand the goal of these lines: I don't see what they test at the level of CanICA
+",0.4368420818908939
+pull_request_commit_comment,NA,NA,571,dohmatob,2015-05-05 08:23:44,"Those lines are not meant to test CanICA. They're simply making sure the test data are what they should be (more blue than red). They're testing the test data for sanity. They're meta-tests if you like. At worst, those lines don't do any harm.
+",0.4087092740159245
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1bf365581ecd61975c42d5bd335b9b8313c30a2f,109,542,AlexandreAbraham,2015-04-24 10:55:10,Simplify concat_niimg using tee only,NA
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-21 11:29:20,"Agreed.
+",0.8151129556899653
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 11:57:04,"maybe put ""Must be 3 or 4"" in the docstring instead:
+
+ndim: integer {3, 4}, optional
+",0.7352068793659268
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 08:33:11,"Pfff...
+",0.7311303917919948
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 08:47:08,":bow:
+",0.7293220367424477
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 12:42:54,"Removed. It was never used.
+",0.6237251922993776
+issue_comment,NA,NA,542,AlexandreAbraham,2015-04-16 15:10:05,"@lesteve: it's all green, ready to review :)
+",0.6118778890877861
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 13:34:47,"another one of these parentheses ...
+",0.6049669602178278
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-21 12:03:25,"Not really. ndim is a stronger limitation, atleast_4d is more smooth. ndim = 4 will fail if 3d images is provided.
+",0.5906591549310523
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 12:41:43,"I think danilo did it and I didn't put it back...
+",0.5862273653069656
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 11:57:27,"Fixed.
+",0.5782417055116642
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 11:58:27,"Fixed.
+",0.5782417055116642
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 14:34:44,"``` python
+inspect.isgenerator(itertools.chain('a', 'bc'))  # return False
+```
+
+Well, I see no problem here.
+",0.5674284455961074
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 11:52:13,"what about calling it ndim_minus_one?
+",0.5673445354434385
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a8306b43ae8c764b7c2f057d4346d09ff8c89988,43,542,AlexandreAbraham,2015-04-27 07:34:20,Naming,NA
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 08:33:11,"Pfff...
+",0.9529391593553523
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 11:57:04,"maybe put ""Must be 3 or 4"" in the docstring instead:
+
+ndim: integer {3, 4}, optional
+",0.9434159895822779
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-21 11:29:20,"Agreed.
+",0.8914949105780976
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-21 12:03:25,"Not really. ndim is a stronger limitation, atleast_4d is more smooth. ndim = 4 will fail if 3d images is provided.
+",0.8595934820334921
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 11:57:27,"Fixed.
+",0.8371510394280339
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 11:58:27,"Fixed.
+",0.8371510394280339
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-21 11:53:34,"Oops sorry for the noise.
+",0.833422731849413
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-17 08:47:08,":bow:
+",0.8118401901080858
+pull_request_commit_comment,NA,NA,542,AlexandreAbraham,2015-04-20 08:38:00,"Do you think we should fallback on case 2 for iterator or use tee?
+",0.8063577492747802
+issue_comment,NA,NA,542,lesteve,2015-04-17 11:13:38,"There still seems to be this bug from #463, is this PR supposed to fix it?
+
+``` python
+import numpy as np
+from nibabel import Nifti1Image
+
+from nilearn import _utils
+
+affine = np.eye(4)
+img_3d = Nifti1Image(np.ones((10, 10, 10)), affine)
+
+input_iterator = iter([img_3d, img_3d])
+img_4d = _utils.check_niimg_4d(input_iterator)
+img_4d.shape  # (10, 10, 10, 1) instead of (10, 10, 10, 2)
+
+input_iterator = iter([img_3d, img_3d])
+img_4d = _utils.check_niimg(input_iterator)
+img_4d.shape  # (10, 10, 10, 1) instead of (10, 10, 10, 2)
+```
+",0.7872936029075673
+pull_request_commit_comment,NA,NA,542,lesteve,2015-04-17 12:03:35,"assert_equal provides better error when it fails
+",0.7766238418668998
+issue_comment,NA,NA,542,AlexandreAbraham,2015-04-21 09:03:40,"@lesteve ""Meeeerge meeeeee""
+",0.77427178763319
+issue_comment,NA,NA,542,AlexandreAbraham,2015-04-16 15:10:05,"@lesteve: it's all green, ready to review :)
+",0.762767742379917
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0a838b69f1df2f953ddd5f81220220fd02037c94,36,563,sb238920@is223297.intra.cea.fr,2015-05-11 09:43:36,"non-full rank regression for scipy 0.9, added test",NA
+issue_comment,NA,NA,563,GaelVaroquaux,2015-05-07 14:39:55,"@salma1601 : thanks a lot.
+
+The tests are not passing on scipy 0.9.0, which we must support as it is the standard version in one of the ubuntu distributions that we support.
+
+The reason is trivial: the 'pivoting' argument to scipy.linalg.qr was added in version 0.10.1.
+
+The solution is to test for the version of scipy, and use the 'pivoting' only if the version is greater. One example of such code to do this can be found on 
+https://github.com/nilearn/nilearn/blob/master/nilearn/decomposition/canica.py#L153
+
+Thanks!
+",0.3336385145694133
+ , , , , , , , 
+ , , , , , , , 

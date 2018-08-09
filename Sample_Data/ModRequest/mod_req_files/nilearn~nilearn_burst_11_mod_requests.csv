@@ -1,0 +1,1684 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,b69af8b856fbf69ba2b6e372cfea40a24347681f,95,47,pgervais,2013-04-22 16:00:39,Fixed tests of region.py functions.,NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5256816481227452
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.4302743791330389
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.4217623292446532
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.3952821332751396
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:48:31,"All those generic terms are confusing (features, time points, ...).
+In the present state, the _shape_ output by apply_mask_to_regions() is (voxels _number_, region _number_), so that out[i, j] is the _weight_ of the j-th region on the i-th voxel. (voxel numbering being defined by the _mask_, which is independent from the regions). Is that consistent with scikit-learn or not? Is consistency required?
+",0.32386866677452697
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:51:16,"@AlexandreAbraham I see your point, the current API is indeed unefficient for your application. There must be an efficient shortcut for learning timeseries starting with masked labels. I'll try to find something suitable.
+",0.30434793805372196
+issue_comment,NA,NA,47,pgervais,2013-04-22 15:34:26,"@GaelVaroquaux The apply_mask_to_regions() is required for this low-level API to be consistent. It cannot work without it (people will have to recreate it, or use apply_mask() instead, which I maintain is error-prone).
+
+Still, I agree on the fact that the name is confusing. I made a proposal at the very beginning of this thread that nobody commented on: adding an option to apply_mask() to distinguish between the regions and fMRI data cases. That would be a way to get rid of apply_mask_to_regions().
+
+Another way to get it out of the way would be to change the signature of apply_regions(), and to make it take non-masked input. I think we'll hit performance issues by doing this, that's why I didn't go for this solution.
+",0.28581026809791377
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:01:51,"> All those generic terms are confusing (features, time points, ...).
+
+Yes. That's why we are not going to use them in nisl. However, in
+scikit-learn, we need them.
+
+> In the present state, the shape output by apply_mask_to_regions() is (voxels
+> number, region number), so that out[i, j] is the weight of the j-th region on
+> the i-th voxel. (voxel numbering being defined by the mask, which is
+> independent from the regions). Is that consistent with scikit-learn or not? Is
+> consistency required?
+
+I hadn't realized that you we talking about this function. I don't think
+that such a function should exist in the public API. I does not serve a
+usecase that people commonly need and will confuse people.
+",0.2715304148861123
+issue_comment,NA,NA,47,pgervais,2013-04-22 13:15:46,"First thing to change: all the conversion functions regions___to__() should take niimgs as input instead of Python types. Affines are required when working with 3D or 4D data, thus the API should always deal with niimg in that case (as input and output)
+",0.2610848114003387
+issue_comment,NA,NA,47,pgervais,2013-04-22 13:57:50,"Finding the scikit-learn convention about components and maps is quite difficult. I only found one occurence in the documentation (mean_shift). @AlexandreAbraham, can you point me to others? I will fix this problem soon anyway.
+
+I understand your point of view on regions masking, and that keeping the labels after masking could be useful. However, integrating this in apply_mask_to_regions() would lead to an inconsistent API imo. The output of apply_mask_to_regions() is designed to be used as input to apply_regions(), nothing else in the present state.
+
+I used the word ""unapply"" to get a consistent pair of function names (apply_mask / unmask being not consistent enough for me). I'm aware that this may not be the best names ever, particularly because these functions are not exact inverse to each other. Any other ideas (including other arguments against the existence of (un)apply_mask_regions) are welcome!
+",0.25108225154613983
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,df08e063a0ae9fe466b61ca4149a1c90a0f2ec12,205,47,pgervais,2013-04-23 09:18:13,"Added regions_to_mask() and NislImage class
+
+Tests for regions_to_mask() have been written too.",NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5469111977024281
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.44867343401518534
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.43587792812400605
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.37648804148919746
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,85c85fd9a58298c6e0d948d071e2cdec5dcddbba,90,47,pgervais,2013-04-23 11:56:56,"Option background_label to regions_labels_to_list()
+
+This option is used to give the label that should be considered as
+background during the conversion (nothing is output for this label)",NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.4843592784303472
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.3975665762111633
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.3640991108834972
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.3375769692689453
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d99f6e7fadac4b162f248aa60d1a6c35d9f59df4,164,47,pgervais,2013-04-23 12:24:39,"Added plot_regions_covariance.py (example file)
+
+This script demonstrates usage of the regions API.",NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5025685139243742
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.40378542697073827
+issue_comment,NA,NA,47,pgervais,2013-04-23 08:39:00,"The reason why I think it is confusing is when applied to an array of labels. In that case, it will return a one-dimensional array containing the labels, a not a 2 dimensional array containing the weight for each voxel, which would be the case with the other representations of regions. I think of this as an inconsistency, not a feature. Others may think differently, though. 
+",0.36517205149717646
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.3456862895887106
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b1b90396a3a5f355942452c71710077e614b86fb,41,47,pgervais,2013-04-24 07:21:32,Style fixes in plot_regions_covariance.py,NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5806602397303557
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.4748407322713045
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.45119620432645435
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-23 16:40:27,"from scipy import ndimage please :).
+
+ndimage is a name that is unique enough that what people see it in a source code, they immediately know that it is scipy.ndimage.
+",0.4487742554180194
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.41195698505652034
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d373769ca71db04ffc0da020703b04fcf020be58,67,47,pgervais,2013-04-24 14:09:41,"Detrending in high_variance_confounds()
+
+Added ""detrend"" parameter in high_variance_confounds(), to detrend
+data before computing confounds.",NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5800784861596724
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.48693384262575046
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.48615876026521865
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.47088845021002745
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-23 16:40:27,"from scipy import ndimage please :).
+
+ndimage is a name that is unique enough that what people see it in a source code, they immediately know that it is scipy.ndimage.
+",0.4445005417027158
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,42c7e598e5e987bc731117a52c59b91acf94df86,222,47,pgervais,2013-04-24 14:51:23,"Created nisl.datasets.load_harvard_oxford()
+
+This function loads Harvard-Oxford atlas, provided it is already
+on the disk. It can also split every region in two symmetric parts.
+
+plot_regions_covariance.py has been heavily adapted.",NA
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.4956679655162576
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.3178985324005953
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.30890896214456887
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.29758219163100674
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.28651094455593384
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b5ce51c697bd2c92986c68c20939779d51492c23,570,47,pgervais,2013-04-25 15:41:51,"Removed apply_mask_to_regions()
+
+This function was merged with apply_mask(), and the corresponding
+processing is activated using a keyword parameter (input_type).
+
+Masked regions arrays are now transposed compared to before this
+commit. The present state is consistent with scikit-learn's
+convention.
+
+Tests have been adapted, some reorganizing has been made.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.5818347521528354
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5032923193768617
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.49654344332865374
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.46083110951658335
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4300518306302322
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3550919538005578
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.33757625082692344
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.335255186972356
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.3115028113411259
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.30082249998659616
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,13217c2340d0a1d3677b27aaf39105de81770c1c,161,47,pgervais,2013-04-26 08:36:22,"Updated nd_asarray()
+
+nd_asarray does not do any copy when converting from a 1-byte type
+to a boolean.
+
+Increased the number of tests, probably fixed some existing bugs at
+the same time.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6521299059039933
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5569474973913898
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5325964169204049
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.4654201834365047
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4357377859144522
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.41448372499300956
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.4086669269462556
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3942533313211575
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.35507529846707975
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.3393079128015253
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f2a96a3f4b12e011489d79145bc8c05256d4a63d,99,47,pgervais,2013-04-26 12:55:00,"Made regions conversion functions private.
+
+Functions for regions conversion (regions_labels_to_array e.g.) have
+been renamed (underscore prepended).",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.610928524860763
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5462991241083857
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.544688422724948
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5308694641075196
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5270449108057698
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.4257963170856238
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.41009681147774024
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.4058739389600876
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.37991470515850867
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.3682338043063159
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,49f82988bd2b2a5e9f1edf410702b395519fbc22,278,47,pgervais,2013-05-02 11:33:27,"Signal extraction to/from regions as labels.
+
+Created signals_from_labels() and img_from_labels(), with tests.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.7243053043762846
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.6286122496444035
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5978937139624991
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5791054962760332
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.48724603247786247
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.45839164338720795
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.4405731742640355
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.4339528450717568
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.40987577798637964
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.40906098267076907
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:29:41,"The public API is too long. We are not in the business of building a swiss army knife. If we address every problem that we are going to quickly drown under the lines of code.
+
+Do you actually need all these functions to code the example?
+",0.4060005683796528
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.3845803794426125
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,99fdce6a8ab311eda37eaf3eb07ae77c193426a2,475,47,pgervais,2013-05-03 09:33:21,"Signals extraction to/from regions as maps
+
+Removed old functions (un)apply_mask_to_regions()
+Tests for new functions have been added as well.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6685473166847339
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.534428627424439
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5276562287478093
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5255864322757602
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.43439346245531496
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.4161653493036168
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.40902762173846197
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.384510142561052
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.377925586912361
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.374151053079641
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.36720793138602537
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3599537576653985
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.35736727315618644
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f2dc6e30576057f5b79008a6f82b77a82928edf3,400,47,pgervais,2013-05-03 11:43:28,"Removed all regions conversion functions
+
+Every function for converting a region from a storage format (list,
+array, labels) to another has been removed. Tests using these functions
+have been adapted.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6579657200811784
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5604690269460779
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5523527250381302
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5144638015088783
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4826398742696374
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.41852095422075786
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4135126758295069
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.4099070810198394
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.4019773995668273
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.37821983284197913
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:54:14,"Warning: a string is Iterable. To avoid any misbehavior, I usually test the basestring type first.
+",0.37717639331103103
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.37358641353844446
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.36401008838036886
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a15c5807bfaf29c1bbc888c3da713b2f0d598f2b,67,47,pgervais,2013-05-03 11:46:09,"Removed (un)apply_regions
+
+These two functions have been superseded by (signals|img)_to_(labels|maps)",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6517004122952602
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5313924645516886
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5305028016756739
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5131317383496883
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5107233311205269
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.444621341065249
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.41574778808327695
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.4115981830788099
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4072284301928253
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.40485608577001164
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.3990114493716078
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-23 16:40:27,"from scipy import ndimage please :).
+
+ndimage is a name that is unique enough that what people see it in a source code, they immediately know that it is scipy.ndimage.
+",0.3975286818903129
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.39606756497528117
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,afadce2768d387de46fa0a9bf5520650a8ba3a1c,36,47,pgervais,2013-05-03 15:24:13,Corrected a bug in regions_to_mask(),NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.7394894110743583
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5769787002275726
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5725691958373658
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5352364602972921
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5142258137473057
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.5023414329123006
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.4995222958380011
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.475552935418426
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-23 16:40:27,"from scipy import ndimage please :).
+
+ndimage is a name that is unique enough that what people see it in a source code, they immediately know that it is scipy.ndimage.
+",0.474465057683221
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.4565916743458459
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:29:41,"The public API is too long. We are not in the business of building a swiss army knife. If we address every problem that we are going to quickly drown under the lines of code.
+
+Do you actually need all these functions to code the example?
+",0.45176344156649717
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4483167758421913
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.448056234156922
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0909a1101d564e780ff489326924f1055a68b4a1,253,47,pgervais,2013-05-06 08:38:43,"Created NiftiLabelsMasker and example
+
+NiftiLabelsMasker computes signals from regions, plot_region_covariance_obj.py
+is an example usage.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.7231035754598572
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.6586154183698423
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.6092541044985227
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.60521999707089
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5119365371022353
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.4927641941694175
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.42107115692169517
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4087798460119264
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.40369360290300005
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.3964017733633455
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:29:41,"The public API is too long. We are not in the business of building a swiss army knife. If we address every problem that we are going to quickly drown under the lines of code.
+
+Do you actually need all these functions to code the example?
+",0.3857887498466016
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.38352821772938006
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.37819536529672704
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,351005821cd8d052b1e9fe01f6d607e6831a0141,53,47,pgervais,2013-05-06 15:47:20,"Renamed functions for regions signals extraction
+
+New naming scheme is
+signals_to_img_(maps|labels)
+img_to_signals(maps|labels)
+
+""img"" is a 4D-MRI image
+""signals"" are values taken by voxels, along scans.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.5955668055795635
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5548235701117201
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5494333370699047
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5358785547861935
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4489014417304069
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.4436479589991361
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.39721288911627617
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3828744442619084
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:54:14,"Warning: a string is Iterable. To avoid any misbehavior, I usually test the basestring type first.
+",0.37517253896385516
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.36252995754117423
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-23 15:30:48,"> So the question is: do we allow the user to make a masked version of the 3rd
+> representation ?
+
+I think not. Let's simplify our options: less features = less code = less
+bugs :)
+",0.35411526422953377
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.34538821061258695
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.3451745809026695
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,748e21bd4f433f4557ade5b01f53a5e95db3b77a,140,47,pgervais,2013-05-07 08:30:56,"Created _smooth_array()
+
+This function is used to smooth an MRI image. It takes a numpy.ndarray as
+input, and the corresponding affine.
+
+A test has been added.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6412396603646706
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5210970841917897
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5121581882104631
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.510264783567643
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.49344183431289534
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.40410352978617514
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.3984194257207627
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3880530926018634
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:54:14,"Warning: a string is Iterable. To avoid any misbehavior, I usually test the basestring type first.
+",0.3665978821018595
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.36290086401161925
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.3584150757330107
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.3560928696231178
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:37:52,"I am not sure that this should be in comments. Maybe better in the module docstring.
+",0.3234079958921954
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f80ad2e8dafb628d9fcd0ac4883959cac379a4a4,223,47,pgervais,2013-05-07 11:14:48,"Added tests for NiftiLabelsMasker
+
+Moved generate_fake_fmri() to testing.py
+Fixed some bugs in NiftiLabelsMasker.
+
+100% coverage on NiftiLabelsMasker (but mostly smoke tests).",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.7251137458498034
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5696158473060533
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5596401046887307
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5083762865967724
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4992868737671441
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.4992343521141269
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.48296937552761854
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.44967638004490407
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.4366220279754851
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.43182165917634796
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.41305872925908704
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:59:50,"> I take the output of the ward (masked labels) and I want to learn the
+> corresponding time series.
+
+You should apply the 'transform' method of the Ward object.
+
+> @GaelVaroquaux : I think you are mistaking ""apply_mask_regions"" and
+> ""apply_regions"".
+
+What do you mean (what I you refering to)? If I am mistaking these, other
+people with.
+",0.3864642056021014
+issue_comment,NA,NA,47,pgervais,2013-04-22 14:54:52,"@AlexandreAbraham Transformers for all these operations are planned, but I'd like to get the low-level API right before going for more sophisticated thing.
+",0.3733854620456375
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b6d9af31be8ac0bfc46dffb1718cdfbd22a69865,115,47,pgervais,2013-05-07 13:55:45,"Created image.high_variance_confounds()
+
+This function does the same thing as signals.high_variance_confounds(),
+but takes niimgs as input (and an optional mask) instead of signals.",NA
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6308513431256504
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5289108208878476
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5042305635768491
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.47764480500519246
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4318381004006233
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.40932292454547947
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.38511600988232764
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.3765160752995953
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3670014370588969
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.3465092932125303
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:54:14,"Warning: a string is Iterable. To avoid any misbehavior, I usually test the basestring type first.
+",0.34271918819705083
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.33996230790618
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:29:41,"The public API is too long. We are not in the business of building a swiss army knife. If we address every problem that we are going to quickly drown under the lines of code.
+
+Do you actually need all these functions to code the example?
+",0.3077529428201139
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e73527275d2df134869e53e3e3a1c567c23b055c,76,47,pgervais,2013-05-07 16:26:04,"Minor fixes
+
+Implemented NiftiLabelsMasker.fit_transform()
+Style, typos.",NA
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.6667111141003322
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.6594136565846421
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.6494813359217374
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6380708249145327
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.6131653820248523
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.6097735037251952
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5790351838915464
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:24:36,"from nisl import datasets?
+",0.5749112126823492
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.548071381644763
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.544315226975747
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",0.5356981046425028
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5224587164054313
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.5206803703691412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.518752892260111
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.5173853216746684
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:26,"Some init parameters are not documented.
+",0.5066297268834465
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:19:41,"Changed to import nisl.datasets, to be consistent with the lines below this one.
+",0.5033170841298277
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:14:24,"To be done later, after this PR is merged, but a similar function operating on niimgs and correcting the affine would be very, very useful.
+",0.49067732569953637
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.48268220296136255
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.48093558506077894
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.4719873810548698
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:19:55,"Detrend could take an optional 'copy' argument.
+",0.46832768261248947
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:02:39,"I do think that the 3 types of regions are useful, even if they are not in the example. It is consistent with the niimg concept.
+Maybe we could only have 3 functions: region.to_array, region.to_label and region.to_list ?
+",0.4675539442139449
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:54:14,"Warning: a string is Iterable. To avoid any misbehavior, I usually test the basestring type first.
+",0.467356050705678
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.4661321419119415
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4646215671865559
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:34:51,"Should we use fit_transform?
+",0.46267071081545286
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.46085303140684175
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,89d6be6abd5a91617fe9fd4d9a752e52213a09da,31,47,pgervais,2013-05-13 12:14:18,"NiftiLabelsMasker can safely process Nifti1Image
+
+In the previous state, passing a Nifti1Image as labels image would modify
+it inplace. A copy is now made before modifying it.",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.8843902211395586
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.7750402604966455
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6882689671795341
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5976343915862867
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.5884011188922529
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5831327550224688
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5696618589087143
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.5598794961592335
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.5585975041435992
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.5345984392793535
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.5337903267758137
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.5316421940735061
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.5277390721717208
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 17:04:13,"No need for such functionality for the moment.
+",0.5170591255382572
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.5103310985734475
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.5092472972894188
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.5084323107212343
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.4942303285431664
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4812946397840333
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.47259955324607383
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.4583686531656237
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.452496590492802
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.45127911976746005
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.44000355327914775
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d65257937b195906d92db704acf5bcb4b2f71a08,290,47,pgervais,2013-05-13 12:19:57,"Removed unused functions
+
+regions_are_overlapping() and regions_to_mask() have been removed (and
+their tests.)",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.9666534406809214
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.7185333758145309
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6472763353606515
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.6233314994311924
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.620604680873297
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.6111318456864647
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.6080496093230232
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.6047937871036189
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.5960986107531132
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5773285434688761
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.575019304233366
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.5693577450014173
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.567942122772468
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.5651741994709834
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.5449711754197113
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.5383999307761473
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.5351583617429971
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.5117419965499592
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.5035550298639215
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.49380111826918394
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-30 13:54:16,"> > @GaelVaroquaux is right: my definition of signals should not be restricted to
+> > values extracted from one voxel, but to a set of voxels as well.
+
+OK, that definition seems to me to be a good one. In general I think that
+the word is well chosen and will be understood by most people.
+",0.49238802869726617
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.488876725499256
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:25:55,"Looks good!
+
+@AlexandreAbraham , you'll have to tell us if you can use this for your work.
+",0.47920396682012556
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",0.4751307471634105
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,65955343b3a66dc20e9152b3f1866d0e0ef43e45,35,47,pgervais,2013-05-14 08:32:50,"Optimized signals_to_img_labels()
+
+This function runs much faster when given a large (>1000) number of regions.
+The found speedup factor is around 6 times on the developer's machine.",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.9693348328964798
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.6278031675937861
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6039944588989279
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.5395458173795412
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.5350083954610009
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.49756812302925446
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.49061262226397717
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.48471075304399813
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.47903631885354836
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.47352892549242953
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.4567369242201459
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.4510059344146118
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.45088153246354823
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4476438064571481
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",0.44599987550479214
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.4430614625797612
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.4429819093338959
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:24:36,"from nisl import datasets?
+",0.4396400277599346
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.43243610404714006
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.43127581457462394
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.42932471562445074
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.41426902469187654
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:34:51,"Should we use fit_transform?
+",0.3924026732601451
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.38191028709104835
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c5ad56010a3302472f6d25ba1a34d1f826d2d2cb,159,47,pgervais,2013-05-14 11:54:56,"Created write_tmp_imgs context manager
+
+This context manager is used to write temporary nifti files on disk, for
+testing purposes.
+
+Used this context manager in several places in nisl/tests, to strengthen
+existing tests.",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.9181121063573582
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6098592204405666
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.5816747980112036
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.5345620616604083
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.5331251287973968
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.529496579887041
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5222618784226348
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.5190057929459558
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5176784060884062
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5020160313814943
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.498339770888342
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.4979423289389251
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4620793842954123
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.4612638895276123
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 17:04:13,"No need for such functionality for the moment.
+",0.4476051413607278
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.44566056604553206
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.44231169578092955
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.43426776027805203
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",0.4281062686289345
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.4198959678237485
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.41881220480502823
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4130706629301033
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.412273699078441
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.3959360368670801
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8a94f10355b895ba8be0221bd7d22c50d1d887b7,229,47,pgervais,2013-05-14 12:13:18,"Cleaned up example scripts
+
+Example scripts for covariance computation of regions are now mostly similar,
+except for the use of functions or objects for region signals extraction.
+
+The scripts have been renamed as well.",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.9253055291112426
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.701559882561963
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.5946632442524042
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5147030791632436
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.5122148181197824
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.5030311177801208
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.5001121633810207
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.4896325775109198
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.4889477120808787
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.48887877142259895
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.48730755847103735
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.4831025581185179
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.4797764437667865
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.46801636218482956
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.46433881217034045
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.4586085158254749
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.45185900071312135
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.44260812682513684
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.43971816291779664
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.42869613969538634
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:24:36,"from nisl import datasets?
+",0.4035410060060368
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.40206078007120805
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.3991906276918188
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",0.38583058042518537
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,71d7505d335e1aa208ecd804606368c4687a4690,220,47,pgervais,2013-05-14 15:09:03,"Lots of documentation fixes
+
+Fixed a lot of things in documentation.
+nisl.region is properly documented.
+All example scripts run (plot_nifti_simple has been significantly modified)",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.9136422691900309
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.6606821563749984
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6344840141875117
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.5630903652395676
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.5429608556435004
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.537014381683739
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.5231590804646695
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.48431468855404713
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.48128985057237483
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.46518036391700723
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.4574294883773399
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.4468868424600738
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.43657231845222566
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.42897522325230564
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.4264604316039191
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.4180082058200988
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4103532575206431
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.4069626130214449
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.39057613161455274
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 17:04:13,"No need for such functionality for the moment.
+",0.3868647656218013
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.38507441082855154
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.3847844835701544
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.3806986423381741
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.37794579632084435
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,71c346448e34e908c4db3acc73f027dc16d63097,488,47,pgervais,2013-05-14 15:56:22,"Docstring style fixes
+
+All docstrings are now in numpy-style.
+Some docstrings have been expanded, a some typos have been corrected.",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.9260346009686644
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.7328134775074033
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.723958104311121
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.6064824374908602
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.5832322504597588
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.5632342320492725
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.5609747266679534
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.557354050816679
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5572016995537312
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.5421142951472104
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.531046684740528
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.5180199229546583
+pull_request_commit_comment,NA,NA,47,pgervais,2013-04-25 07:12:47,"I'll fix this in the next commit.
+",0.49562560159636115
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.4925118320478715
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.48781216652322035
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:39:26,"Just ask.
+",0.47398975509881014
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.4683823833076627
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:05:52,"> I do think that the 3 types of regions are useful, even if they are not in the
+> example. It is consistent with the niimg concept.
+> Maybe we could only have 3 functions: region.to_array, region.to_label and
+> region.to_list ?
+
+Let's discuss this in real life. Right now, I have a tunnel vision
+through a computer at an airport.
+",0.4644995625774605
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.4643020056704883
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.46112873561899914
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:24:36,"from nisl import datasets?
+",0.451948599775855
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.45185125001194804
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 17:04:13,"No need for such functionality for the moment.
+",0.4489548056203877
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.4487767198823188
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.43963292395208453
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.435904661303419
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.435904661303419
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.435904661303419
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.435904661303419
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.435904661303419
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.435904661303419
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.435904661303419
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3a0dcab01df41cbc33d77eee72b7cddeca055ffd,81,47,pgervais,2013-05-15 13:19:28,"Fixed several documentation problems
+
+On example page, the name of the root directory was hard-coded, this is fixed.
+
+Fixed some non-critical documentation compilation problems, and typos.",NA
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:50:25,"+1
+",0.925175398797689
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:21:32,"Impressive!
+",0.6602032663036983
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:38:19,"Please, no renaming.
+",0.6094677167264784
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 22:08:55,"> If we leave these functions here, then it would be a good idea. If we plan to
+> add more reference atlases, then making a dedicated package would be a better
+> choice.
+
+Flat is better than nested.
+",0.5854614024228295
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:18:50,"Is this function very useful?
+",0.5786873316281427
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:08:15,"State the unit: it is in mm (because the output space of the affine is in mm).
+",0.5453473134378586
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:45:58,"I know. I'm planning to normalize this after this PR has been merged.
+",0.5445094245818494
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 15:47:05,"My point is that all this is low level and should probably be hidden from
+the users.
+",0.5308798750858019
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 16:44:13,"I use this for my work :)
+",0.5140226714884741
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:07:33,"In English, Gaussian is capitalized.
+",0.5076828713113584
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:33:58,"But required.
+",0.4928758957082221
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:24:36,"from nisl import datasets?
+",0.4567748533848659
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:33:57,"Same remark :)
+",0.45229113825754885
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:45:47,"Oops, copy-pasting
+",0.4383614677447877
+issue_comment,NA,NA,47,pgervais,2013-05-07 14:24:18,"Have a look on region.py, io/nifti_region.py and plot_regions_covariance_obj.py.
+",0.4301369832788374
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 15:40:37,"I think so. I intended to write it as soon as this PR was merged.
+",0.42880935748318394
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-04-24 22:06:25,"If we leave these functions here, then it would be a good idea. If we plan to add more reference atlases, then making a dedicated package would be a better choice. 
+",0.42591243981100824
+issue_comment,NA,NA,47,GaelVaroquaux,2013-04-22 14:41:56,"> Also, the output after masking is under the form n_features \* n_regions.
+
+It should be n_time_points \* n_regions: the time points are the samples
+here, and the regions are the features.
+",0.42333793864355995
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:19:41,"Changed to import nisl.datasets, to be consistent with the lines below this one.
+",0.4199692587870901
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-04-24 21:27:35,"Nitpick: should the module be called 'regions' rather than 'region'?
+",0.4195303615026065
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-02 14:52:01,"Use `basestring` instead of   ̀str` (it does not include unicode strings).
+",0.4145677789604719
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:33:35,"Isn't this guy the high-level one?
+",0.39833561567017395
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:44:10,"> It may just be used for testing.
+
+Then maybe it should go in 'testing.py'.
+",0.39061176040507006
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:10:24,"Minor indentation glitch
+",0.38958831587666276
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 14:49:08,"Should be marked as optional
+",0.3858945634934223
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:14:24,"To be done later, after this PR is merged, but a similar function operating on niimgs and correcting the affine would be very, very useful.
+",0.3774192943202216
+pull_request_commit_comment,NA,NA,47,AlexandreAbraham,2013-05-07 17:04:13,"No need for such functionality for the moment.
+",0.3744374725844726
+pull_request_commit_comment,NA,NA,47,GaelVaroquaux,2013-05-07 15:34:51,"Should we use fit_transform?
+",0.3681610790265495
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:08:34,"Corrected
+",0.36474261502616445
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:09:47,"Corrected
+",0.36474261502616445
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:13:51,"Corrected
+",0.36474261502616445
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:15:04,"Corrected
+",0.36474261502616445
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:16:41,"Corrected.
+",0.36474261502616445
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:17:04,"Corrected.
+",0.36474261502616445
+pull_request_commit_comment,NA,NA,47,pgervais,2013-05-07 16:21:15,"Corrected.
+",0.36474261502616445
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e1478144daaa2801c122587b6fb65d2161ae2fa0,110,57,pgervais,2013-05-21 08:57:59,"Strengthened io/nifti_region.py tests.
+
+Miscellaneous fixes",NA
+pull_request_commit_comment,NA,NA,57,GaelVaroquaux,2013-05-17 15:45:28,"Fit should always take X, y in scikit-learn parlance, even if it doesn't use X.
+",0.7304883868046825
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-21 08:57:27,"Done
+",0.6060688501992413
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-17 15:43:43,"I think so.
+",0.5870023940371384
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-21 08:50:43,"Corrected.
+",0.49464384945792217
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-21 08:50:58,"Corrected
+",0.49464384945792217
+ , , , , , , , 
+ , , , , , , , 

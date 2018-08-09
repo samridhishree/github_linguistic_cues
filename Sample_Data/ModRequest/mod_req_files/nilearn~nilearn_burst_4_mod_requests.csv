@@ -1,0 +1,37 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,6e0652dc354d745ab3847c9390aa5a718da0e7fd,208,24,alexandre.abraham@cea.fr,2012-09-18 15:50:12,"Make a more extensive use of niimg where it makes sense
+
+Resample, extract_time_series now take a niimg as parameter.
+In Nifti_Masker, mask is a niimg
+
+Warning : this has not been extensively tested so some bugs
+may remain.",NA
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:54:09,"We now have a policy of never using an unseeded random generator. We do:
+<pre>
+rng = np.random.RandomState(0)
+data = rng.randint(0, 10, shape)
+<pre>
+",0.4350065366099435
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:55:32,"I would rename this _check_niimg_methods
+",0.3672280701577466
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:55:46,"I would rename this check_niimg
+",0.35491500869407966
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:43:35,"I think that you should only mention LeaveOneLabelOut as an example of usage, rather then the main purpose of this entry.
+",0.352239807710202
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0434894e834d8dfbb2091d228810dea7e049093e,185,24,AlexandreAbraham,2012-09-18 18:08:01,Experimental : replace missing nifti_masker in emergency,NA
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:55:59,"collapse niimg
+",0.5595075282312039
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:55:32,"I would rename this _check_niimg_methods
+",0.5394911302539599
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:55:46,"I would rename this check_niimg
+",0.531393185276652
+pull_request_commit_comment,NA,NA,24,GaelVaroquaux,2012-09-18 13:54:09,"We now have a policy of never using an unseeded random generator. We do:
+<pre>
+rng = np.random.RandomState(0)
+data = rng.randint(0, 10, shape)
+<pre>
+",0.4858164054492695
+ , , , , , , , 
+ , , , , , , , 

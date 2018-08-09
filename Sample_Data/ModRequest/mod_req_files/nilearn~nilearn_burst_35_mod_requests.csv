@@ -1,0 +1,19 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,3464302143240b48268bc86e0d06bb4896b87490,60,173,VirgileFritsch,2014-04-23 14:57:55,Permuted OLS: code coverage + associated bug fix + cosmit.,NA
+pull_request_commit_comment,NA,NA,173,GaelVaroquaux,2014-04-21 14:05:19,"F scores or T scores?
+",0.7427228305976707
+pull_request_commit_comment,NA,NA,173,bthirion,2014-03-25 22:39:10,"independently
+",0.6837509578423512
+pull_request_commit_comment,NA,NA,173,VirgileFritsch,2014-03-25 17:13:01,"Ok. That's a major contribution then.
+",0.6257779555771553
+pull_request_commit_comment,NA,NA,173,GaelVaroquaux,2014-04-21 14:00:12,"Same remarks.
+",0.5701792672261129
+pull_request_commit_comment,NA,NA,173,VirgileFritsch,2014-03-25 17:00:29,"I mean an effect and its ""opposite"".
+",0.5664839299719115
+pull_request_commit_comment,NA,NA,173,bthirion,2014-03-20 21:10:59,"only positive effects
+
+-> negative effects are tested in another test. 
+Actually I'm not sure I understand what this sentence means.
+",0.5301851580646927
+ , , , , , , , 
+ , , , , , , , 

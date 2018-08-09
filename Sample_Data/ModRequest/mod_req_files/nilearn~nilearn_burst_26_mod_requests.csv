@@ -1,0 +1,377 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,593949f19f688ad1f74d8f2758f955829c6cb8cd,126,146,AlexandreAbraham,2013-12-10 10:39:50,Merge image manipulation script into vizualisation,NA
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:04,"That link label seems wrong.
+",0.5720058483654367
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:49,"We do not want to use the word 'tutorial' anymore: let's talk about 'page', or 'section', as we are designing this to be part of a documentation.
+",0.42854758511473556
+issue_comment,NA,NA,146,GaelVaroquaux,2013-12-06 21:26:54,"I have been thinking about how this can be integrated in the current documentation and I think that a good option would be to add it at the end of the manipulating_mr_images.rst file. It will require reworking a bit wording, but I think that this is where is makes more sens.
+",0.42741834190076355
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2e881438f0846398bb09c3fc69685c33cce2f37a,72,146,AlexandreAbraham,2013-12-10 10:40:06,Start merging documentation,NA
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:04,"That link label seems wrong.
+",0.5401303869579139
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:49,"We do not want to use the word 'tutorial' anymore: let's talk about 'page', or 'section', as we are designing this to be part of a documentation.
+",0.4457530908174694
+issue_comment,NA,NA,146,GaelVaroquaux,2013-12-06 21:26:54,"I have been thinking about how this can be integrated in the current documentation and I think that a good option would be to add it at the end of the manipulating_mr_images.rst file. It will require reworking a bit wording, but I think that this is where is makes more sens.
+",0.38164415309315103
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0fe4cb12ab87ee4e60bae1248d5ad5dacff6ea7a,159,146,AlexandreAbraham,2013-12-10 13:34:09,Fix code inclusions,NA
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:04,"That link label seems wrong.
+",0.5526482033652396
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:49,"We do not want to use the word 'tutorial' anymore: let's talk about 'page', or 'section', as we are designing this to be part of a documentation.
+",0.4108753658485027
+issue_comment,NA,NA,146,GaelVaroquaux,2013-12-06 21:26:54,"I have been thinking about how this can be integrated in the current documentation and I think that a good option would be to add it at the end of the manipulating_mr_images.rst file. It will require reworking a bit wording, but I think that this is where is makes more sens.
+",0.4107261923822152
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,537beea50c0a311d3bf9e78c17ae67c275179973,232,146,AlexandreAbraham,2013-12-10 13:34:49,Clean old files,NA
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:04,"That link label seems wrong.
+",0.6335150035362054
+pull_request_commit_comment,NA,NA,146,GaelVaroquaux,2013-12-06 16:00:49,"We do not want to use the word 'tutorial' anymore: let's talk about 'page', or 'section', as we are designing this to be part of a documentation.
+",0.5400262850793087
+issue_comment,NA,NA,146,GaelVaroquaux,2013-12-06 21:26:54,"I have been thinking about how this can be integrated in the current documentation and I think that a good option would be to add it at the end of the manipulating_mr_images.rst file. It will require reworking a bit wording, but I think that this is where is makes more sens.
+",0.4148469736912146
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,cf3a150a84a7c74a6cf6cf05c2bf83376662a7f8,425,144,eickenberg,2013-12-03 10:35:01,commit before merge,NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.8153319566690918
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.756852684237996
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:12:02,"We have decided to only use ""import matplotlib.pyplot as plt"" rather than ""pylab as pl""
+",0.6836516301849889
+pull_request_commit_comment,NA,NA,144,AlexandreAbraham,2013-12-03 10:16:21,"I have tested and see no problem with the NiftiMasker.
+",0.6650529480603526
+pull_request_commit_comment,NA,NA,144,AlexandreAbraham,2013-12-03 09:25:27,"Awesome. `scipy.misc.imread` does not have the bug of random flipped images !
+",0.648002124200155
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:13:57,"Ideally we want to use the NiftiMasker. We loose people when we go in these details.
+",0.6433312038793604
+issue_comment,NA,NA,144,GaelVaroquaux,2013-12-03 10:00:19,"Ok, I need more time to understand the problem (right now I am multitasking too much).
+",0.6402141139118087
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,52a558a88149852488d282667b68586428cbb787,66,144,eickenberg,2013-12-03 11:44:56,Exported function for showing stimuli to another example file,NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.9082998411202134
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.6881410671773913
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:45:51,"Cool! Do I update this section with Alex's code and scipy.misc.imread or do I remove it altogether?
+",0.5459699945818696
+issue_comment,NA,NA,144,GaelVaroquaux,2013-12-03 10:01:40,"Also, it would be good to have @bthirion's opinion on that.
+",0.4685832639958477
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:52:08,"Just trying to distinguish citations from comments. Will remove this.
+",0.468381729550593
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:10:14,"I think that we should maybe move this in another script. We are going to drown the beginning under too many things.
+",0.4681697188720966
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:10:56,"I would prefer if you used scipy.misc.imread, rather than the PIL
+",0.4417556119475521
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f266cf7609e4aba90a277038b415e02fa4af4ab0,32,144,eickenberg,2013-12-03 11:49:37,changed pl to plt everywhere,NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.8289585614941615
+issue_comment,NA,NA,144,GaelVaroquaux,2013-12-03 10:00:19,"Ok, I need more time to understand the problem (right now I am multitasking too much).
+",0.6762860744750463
+issue_comment,NA,NA,144,GaelVaroquaux,2013-12-03 10:01:40,"Also, it would be good to have @bthirion's opinion on that.
+",0.6520942517467703
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.6274136797588699
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.6263750031199751
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:45:51,"Cool! Do I update this section with Alex's code and scipy.misc.imread or do I remove it altogether?
+",0.6204459292254898
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:10:14,"I think that we should maybe move this in another script. We are going to drown the beginning under too many things.
+",0.6125293520279658
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2d0150fc271fd0c1babadc0c930fcf1c58c1007b,32,144,eickenberg,2013-12-03 12:12:29,Removed comments in quotes. Replaced by frame of # signs,NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.8381848882629732
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.6412273686341591
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:10:14,"I think that we should maybe move this in another script. We are going to drown the beginning under too many things.
+",0.49982784307744665
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.49667813893117263
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:13:57,"Ideally we want to use the NiftiMasker. We loose people when we go in these details.
+",0.4873483690540664
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:12:02,"We have decided to only use ""import matplotlib.pyplot as plt"" rather than ""pylab as pl""
+",0.48519947640091965
+issue_comment,NA,NA,144,GaelVaroquaux,2013-12-03 10:01:40,"Also, it would be good to have @bthirion's opinion on that.
+",0.47233813202754027
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,81d0aedfa135b33d8384eb74b7200634fc0c95a8,135,144,eickenberg,2013-12-04 13:59:14,"Scrapped the whole GLM + similarity matrix stuff in favour of two decoding schemes, one in the given ventral temporal ROI, one on full brain. Both perform way above chance, but the ROI one is better",NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.792081370642576
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.6054771463057729
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.4387482610077862
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:45:51,"Cool! Do I update this section with Alex's code and scipy.misc.imread or do I remove it altogether?
+",0.4069081357990435
+pull_request_commit_comment,NA,NA,144,AlexandreAbraham,2013-12-03 09:25:27,"Awesome. `scipy.misc.imread` does not have the bug of random flipped images !
+",0.38300016543254034
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:12:02,"We have decided to only use ""import matplotlib.pyplot as plt"" rather than ""pylab as pl""
+",0.37678134232538363
+issue_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:06:41,"Can we rename the script to plot_....py, so that it is compiled during building of the webpage.
+",0.3759054045845541
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f2fa47eee854163b1d421eaf16fcf6790f477c00,54,144,eickenberg,2013-12-06 09:04:55,turned haxby stimulus presentation back into script,NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.9019901127893272
+issue_comment,NA,NA,144,bthirion,2013-12-05 15:50:21,"Leave it as is.
+",0.7240653177111194
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:33:50,"n_jobs=12 ???
+
+use 1 by default please. For the poor people :)
+",0.6880899356957606
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:28:06,"remove these comments
+",0.6796709684595861
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.6617604375400314
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:45:51,"Cool! Do I update this section with Alex's code and scipy.misc.imread or do I remove it altogether?
+",0.5699071613670672
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:36:32,"I get 0.69 mean score on full brain. Do you confirm?
+",0.5626751142891462
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 15:34:06,"pep8 line too long
+",0.5502722791712029
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:27:47,"don't you want kernel='linear' ?
+",0.5425569653437958
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:29:27,"import matplotlib.pyplot as plt
+",0.5348086033638915
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:37:51,"import matplotlib.pyplot as plt
+",0.5348086033638915
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:27:53,"matplotlib.pyplot
+",0.5248286484033468
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.5140402573683279
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:52:08,"Just trying to distinguish citations from comments. Will remove this.
+",0.5042508259409526
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7c97791383adb5c641492ca424c61d8028385e81,37,144,eickenberg,2013-12-06 17:55:45,"Scrapped detrending for the ROI, scores up to same level as full brain ...... is this scary?",NA
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.8303598365041149
+issue_comment,NA,NA,144,bthirion,2013-12-05 15:50:21,"Leave it as is.
+",0.7126731922243182
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:33:50,"n_jobs=12 ???
+
+use 1 by default please. For the poor people :)
+",0.6690246603802923
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.6200777068046928
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 15:34:06,"pep8 line too long
+",0.6115986175809174
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:28:06,"remove these comments
+",0.5811815542205412
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.5727911240664578
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:27:53,"matplotlib.pyplot
+",0.5593524386748877
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:29:27,"import matplotlib.pyplot as plt
+",0.5545122692976012
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:37:51,"import matplotlib.pyplot as plt
+",0.5545122692976012
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 19:47:57,"the function is used in the other script
+",0.519518649425422
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:45:51,"Cool! Do I update this section with Alex's code and scipy.misc.imread or do I remove it altogether?
+",0.5146234456009258
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:27:47,"don't you want kernel='linear' ?
+",0.5067679917885676
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:10:14,"I think that we should maybe move this in another script. We are going to drown the beginning under too many things.
+",0.49899366520359556
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:12:02,"We have decided to only use ""import matplotlib.pyplot as plt"" rather than ""pylab as pl""
+",0.48216901462557227
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f68b316c3ce64c37844fbfbe0bcac0597934af7f,118,144,eickenberg,2013-12-08 20:16:30,"refactoring script. One cross-validation per label and mask. Changed scoring to f1 precision/recall, because 0-1 score chance level is at .875",NA
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:38:58,"is146139
+",0.9072308993475225
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.828478095879736
+issue_comment,NA,NA,144,bthirion,2013-12-05 15:50:21,"Leave it as is.
+",0.7812501088497132
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.7191480312895697
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-07 18:34:17,"+1 for using LeaveOneLabelOut to make it explicit
+",0.6838717634016095
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:33:50,"n_jobs=12 ???
+
+use 1 by default please. For the poor people :)
+",0.5978835435562428
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:28:06,"remove these comments
+",0.5975115546005343
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 15:34:06,"pep8 line too long
+",0.5917957931208745
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:37:51,"import matplotlib.pyplot as plt
+",0.5691100094725741
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:29:27,"import matplotlib.pyplot as plt
+",0.5691100094725741
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.5533530581295248
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:27:53,"matplotlib.pyplot
+",0.5482055492719163
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:39:49,"This is definitely weird...
+",0.5469485405580072
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:45:51,"Cool! Do I update this section with Alex's code and scipy.misc.imread or do I remove it altogether?
+",0.5375459904454146
+pull_request_commit_comment,NA,NA,144,AlexandreAbraham,2013-12-03 09:25:27,"Awesome. `scipy.misc.imread` does not have the bug of random flipped images !
+",0.5112259454165097
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:28:32,"""ANOVA + Linear SVM C=1 on full brain""
+",0.5091958946868109
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 19:47:57,"the function is used in the other script
+",0.4998781912789423
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:13:57,"Ideally we want to use the NiftiMasker. We loose people when we go in these details.
+",0.49873339796885907
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:12:02,"We have decided to only use ""import matplotlib.pyplot as plt"" rather than ""pylab as pl""
+",0.4931521937497506
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,99e57da01db8c5fa3760b63f693838f77b1481cb,48,144,eickenberg,2013-12-08 20:23:53,refactoring,NA
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:38:58,"is146139
+",0.905393790663839
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-08 20:22:28,"yes
+",0.8286605279771764
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-08 20:19:29,"I agree. 
+",0.8199321183492584
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-07 18:34:17,"+1 for using LeaveOneLabelOut to make it explicit
+",0.7956923634924239
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.7940604446866542
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 15:34:06,"pep8 line too long
+",0.7853536465928255
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.7681724740346073
+issue_comment,NA,NA,144,bthirion,2013-12-05 15:50:21,"Leave it as is.
+",0.7556847777214849
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:33:50,"n_jobs=12 ???
+
+use 1 by default please. For the poor people :)
+",0.7294532936101843
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:28:32,"""ANOVA + Linear SVM C=1 on full brain""
+",0.7069317540078974
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:36:32,"I get 0.69 mean score on full brain. Do you confirm?
+",0.6745609725706563
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:29:27,"import matplotlib.pyplot as plt
+",0.6743538692877553
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:37:51,"import matplotlib.pyplot as plt
+",0.6743538692877553
+pull_request_commit_comment,NA,NA,144,bthirion,2013-12-06 22:46:05,"Score: 0.67 +- 0.09 # on my laptop. I should run my experiments on your machine... what is you is number ?
+",0.6651963896968127
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 19:47:57,"the function is used in the other script
+",0.643048326448113
+pull_request_commit_comment,NA,NA,144,AlexandreAbraham,2013-12-03 09:25:27,"Awesome. `scipy.misc.imread` does not have the bug of random flipped images !
+",0.6261478800474644
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:39:49,"This is definitely weird...
+",0.6137166740197642
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.5944798418148118
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:42:43,"got the same on my laptop.
+
+I guess my computer is really powerful ...
+",0.5935806975094333
+issue_comment,NA,NA,144,eickenberg,2013-12-04 14:00:36,"All GLMs gone, two SVM experiments coded.
+To be optimized and possibly extended with logistic regression etc
+",0.5881758905679577
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:27:53,"matplotlib.pyplot
+",0.5878550513826786
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c7c44e7010ee2e259d172ab7dcd91c3e99613f30,61,144,eickenberg,2013-12-08 21:03:41,more refactoring,NA
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:38:58,"is146139
+",0.905393790663839
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-08 20:22:28,"yes
+",0.8286605279771764
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-08 20:19:29,"I agree. 
+",0.8199321183492584
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-07 18:34:17,"+1 for using LeaveOneLabelOut to make it explicit
+",0.7956923634924239
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:43:17,"> This is useful code anyway.
+
+It is. I just think that it should not be there.
+",0.7940604446866542
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 15:34:06,"pep8 line too long
+",0.7853536465928255
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-03 09:46:25,"OK, will correct and do this in the future
+",0.7681724740346073
+issue_comment,NA,NA,144,bthirion,2013-12-05 15:50:21,"Leave it as is.
+",0.7556847777214849
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:33:50,"n_jobs=12 ???
+
+use 1 by default please. For the poor people :)
+",0.7294532936101843
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:28:32,"""ANOVA + Linear SVM C=1 on full brain""
+",0.7069317540078974
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:36:32,"I get 0.69 mean score on full brain. Do you confirm?
+",0.6745609725706563
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 13:29:27,"import matplotlib.pyplot as plt
+",0.6743538692877553
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:37:51,"import matplotlib.pyplot as plt
+",0.6743538692877553
+pull_request_commit_comment,NA,NA,144,bthirion,2013-12-06 22:46:05,"Score: 0.67 +- 0.09 # on my laptop. I should run my experiments on your machine... what is you is number ?
+",0.6651963896968127
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 19:47:57,"the function is used in the other script
+",0.643048326448113
+pull_request_commit_comment,NA,NA,144,AlexandreAbraham,2013-12-03 09:25:27,"Awesome. `scipy.misc.imread` does not have the bug of random flipped images !
+",0.6261478800474644
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:39:49,"This is definitely weird...
+",0.6137166740197642
+pull_request_commit_comment,NA,NA,144,GaelVaroquaux,2013-12-03 09:47:39,"> Cool! Do I update this section with Alex's code and scipy.misc.imread or do I
+> remove it altogether?
+
+Move it to a separate file and update it, please.
+",0.5944798418148118
+pull_request_commit_comment,NA,NA,144,eickenberg,2013-12-06 23:42:43,"got the same on my laptop.
+
+I guess my computer is really powerful ...
+",0.5935806975094333
+issue_comment,NA,NA,144,eickenberg,2013-12-04 14:00:36,"All GLMs gone, two SVM experiments coded.
+To be optimized and possibly extended with logistic regression etc
+",0.5881758905679577
+pull_request_commit_comment,NA,NA,144,agramfort,2013-12-05 20:27:53,"matplotlib.pyplot
+",0.5878550513826786
+ , , , , , , , 
+ , , , , , , , 

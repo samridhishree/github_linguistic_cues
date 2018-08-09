@@ -1,0 +1,126 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,6a60028c54cc6ea12e3bb175c0b105e5dbff72da,144,802,AlexandreAbraham,2015-10-26 10:28:53,Add tests to detect description loading. Fix bugs.,NA
+issue_comment,NA,NA,802,GaelVaroquaux,2015-10-22 11:02:28,"@aabadi : do you want to review this?
+",0.550086740331392
+issue_comment,NA,NA,802,aabadie,2015-10-26 08:17:48,"Sorry @GaelVaroquaux, you mispelled my id so I wasn't notified.
+",0.4957388925094858
+issue_comment,NA,NA,802,lesteve,2015-10-23 12:34:06,"You need to change the description rst in nilearn/datasets/description/aal_spm_12.rst.
+
+Side remark: it would be nice if we had a way to tests that dataset descriptions were correctly loaded ...
+",0.17769945809536758
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3115ba797dade8b89dcebe9dd32e8798e3ee0cc8,109,798,alexandre.abadie@therapixel.com,2015-10-21 15:22:20,adding extended globbing feature test,NA
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-21 12:05:29,"Ok ! I removed it in 810643a
+",0.8270992766535028
+issue_comment,NA,NA,798,aabadie,2015-10-21 12:50:39,"> Indeed, we need to do 'import nilearn as ni'
+
+I pushed this change in commit 01b479b.
+",0.599044891340725
+pull_request_commit_comment,NA,NA,798,bthirion,2015-10-20 18:56:33,"'match'
+return_iterator
+",0.5532555396499534
+issue_comment,NA,NA,798,lesteve,2015-10-21 12:57:02,"> Indeed, we need to do 'import nilearn as ni' in nilearn._utils.niimg_conversions and then access EXPAND_PATH_WILDCARDS as ""ni.EXPAND_PATH_WILDCARDS""
+
+Note that I couldn't figure out a way to do the same thing with a relative import. Not sure how likely this is to create a problem in the real world.
+
+> You need a test that fails before this commit and works after, that way we are convinced that it works.
+
+:+1:
+",0.525452350855113
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0e14e1dcba996997cdb20327d314276879f2c5a1,36,798,alexandre.abadie@therapixel.com,2015-10-21 15:22:58,fixing nilearn globbing test,NA
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-21 12:05:29,"Ok ! I removed it in 810643a
+",0.8453161815935964
+issue_comment,NA,NA,798,aabadie,2015-10-21 12:50:39,"> Indeed, we need to do 'import nilearn as ni'
+
+I pushed this change in commit 01b479b.
+",0.5645737789933418
+pull_request_commit_comment,NA,NA,798,bthirion,2015-10-20 18:56:33,"'match'
+return_iterator
+",0.51978256655412
+issue_comment,NA,NA,798,lesteve,2015-10-21 12:57:02,"> Indeed, we need to do 'import nilearn as ni' in nilearn._utils.niimg_conversions and then access EXPAND_PATH_WILDCARDS as ""ni.EXPAND_PATH_WILDCARDS""
+
+Note that I couldn't figure out a way to do the same thing with a relative import. Not sure how likely this is to create a problem in the real world.
+
+> You need a test that fails before this commit and works after, that way we are convinced that it works.
+
+:+1:
+",0.5157114298332751
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,644beae6b73f50d79497fe63c4a95ebab03a726f,72,798,alexandre.abadie@therapixel.com,2015-10-23 10:44:50,cover more use cases in check_niimg test,NA
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-21 12:05:29,"Ok ! I removed it in 810643a
+",0.7935030373450235
+issue_comment,NA,NA,798,AlexandreAbraham,2015-10-22 08:11:59,"Apart from some usability questions, :+1: 
+",0.7476688582582713
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-22 13:41:50,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+ok
+",0.6310979993333228
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-22 09:53:16,"@KamalakerDadi: added online documentation in  243f789
+",0.5498877304600918
+issue_comment,NA,NA,798,aabadie,2015-10-23 08:13:31,"@KamalakerDadi, @GaelVaroquaux @lesteve @AlexandreAbraham, is this ok to merge ?
+",0.5460039547402362
+pull_request_commit_comment,NA,NA,798,KamalakerDadi,2015-10-22 13:19:49,"Will it be not easy to mention only about `wildcards=False` ?
+",0.5420389145382375
+issue_comment,NA,NA,798,aabadie,2015-10-21 12:50:39,"> Indeed, we need to do 'import nilearn as ni'
+
+I pushed this change in commit 01b479b.
+",0.5334134815404057
+pull_request_commit_comment,NA,NA,798,lesteve,2015-10-22 13:15:18,"This is really overkill isn't it?
+",0.528252478568775
+pull_request_commit_comment,NA,NA,798,lesteve,2015-10-22 13:12:28,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+I should have done the original comment here.
+",0.5242142771664835
+issue_comment,NA,NA,798,aabadie,2015-10-22 14:01:39,"@lesteve @KamalakerDadi your recent comments have been adressed ;)
+",0.5230326326228609
+pull_request_commit_comment,NA,NA,798,bthirion,2015-10-20 18:56:33,"'match'
+return_iterator
+",0.4974419459016103
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7c82802d6142b3757a9065deabd93741eb0d1bda,40,798,alexandre.abadie@therapixel.com,2015-10-23 10:47:01,make write_tmp_imgs more robust: created tmp images were not removed in case of an error,NA
+issue_comment,NA,NA,798,AlexandreAbraham,2015-10-22 08:11:59,"Apart from some usability questions, :+1: 
+",0.7371825591673555
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-21 12:05:29,"Ok ! I removed it in 810643a
+",0.6036462230331168
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-22 13:41:50,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+ok
+",0.5829384564437206
+pull_request_commit_comment,NA,NA,798,bthirion,2015-10-20 18:56:33,"'match'
+return_iterator
+",0.5515382400613396
+issue_comment,NA,NA,798,aabadie,2015-10-21 12:50:39,"> Indeed, we need to do 'import nilearn as ni'
+
+I pushed this change in commit 01b479b.
+",0.5286764174814838
+issue_comment,NA,NA,798,GaelVaroquaux,2015-10-21 15:27:44,"> ```
+> I pushed 3115ba7 which contains a tests covering more use cases related to
+> globbing. I'm waiting for the tests to fail and will push the fix later.
+> ```
+
+Test driven development! Yey
+",0.528676217717382
+pull_request_commit_comment,NA,NA,798,KamalakerDadi,2015-10-22 13:19:49,"Will it be not easy to mention only about `wildcards=False` ?
+",0.5026106968145826
+pull_request_commit_comment,NA,NA,798,aabadie,2015-10-22 09:53:16,"@KamalakerDadi: added online documentation in  243f789
+",0.47007875830860246
+pull_request_commit_comment,NA,NA,798,lesteve,2015-10-22 13:12:28,"> You should probably be more explicit and say nilearn.EXPAND_PATH_WILDCARDS
+
+I should have done the original comment here.
+",0.4699929344079278
+pull_request_commit_comment,NA,NA,798,lesteve,2015-10-22 13:15:18,"This is really overkill isn't it?
+",0.45615365283058584
+pull_request_commit_comment,NA,NA,798,KamalakerDadi,2015-10-22 08:45:51,"It would be nice if you refer some where giving reference to small code snippet to here. If you think its good, it is located in `doc/manipulating_visualizing/manipulating_images.rst` file. It would be more clear enough.
+",0.4371809603633212
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c259ebbdee9a3233a5e9d8d2038e0a51c4d0f8fc,70,805,alexandre.abadie@therapixel.com,2015-10-23 12:47:51,fixing oasis dataset bunch description,NA
+issue_comment,NA,NA,805,lesteve,2015-10-23 12:28:45,"oasis1 should probably be called oasis1.rst. Double check by using nilearn.dataset.fetch_oasis_vbm() and checking that the returned bunch has a non empty .description field.
+",0.25075047191855937
+ , , , , , , , 
+ , , , , , , , 

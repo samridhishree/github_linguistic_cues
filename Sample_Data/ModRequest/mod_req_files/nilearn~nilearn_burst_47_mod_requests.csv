@@ -1,0 +1,200 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,80cb0cb82ed0902d3821f9cf1c768b8aed3a76a5,71,248,banilo,2014-10-02 08:06:04,addswap,NA
+pull_request_commit_comment,NA,NA,248,dengemann,2014-10-01 16:53:54,"@banilo you have too many dashes here ;-) remove one.
+",0.7962374005495032
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:47:11,"In variable names, we tend to use underscores between words. This would be 'out_nii'. I would prefer 'out_img', as we have the convention that everything that is a niimg should be named with a trailing '_img'.
+",0.7140481555901921
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:43:35,"I think that these remarks should be made in the 'Notes' section of the docstring. The guideline is to keep the initial description very short.
+",0.6348571710466955
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:41:44,"Could you please call the input argument 'niimg'.
+",0.6138601309752288
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:45:16,"Any time that I see such warnings in the doc, I have the feeling that we are misdesigning something. Maybe we should use the nilearn.image.reorder_img to relax a bit the assumptions.
+",0.600627134067053
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:42:47,"Let's not define our software by what other softwares do. I would here mention that it swaps the hemispheres.
+",0.5696937296191178
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:46:07,"Here you should use utils.check_niimg. That way you would also accept strings as input (and the docstring should be updated to reflect that).
+",0.5442344114770409
+pull_request_commit_comment,NA,NA,248,dengemann,2014-10-01 16:53:59,"and here.
+",nan
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b0ba57e9f5045757a30b7211639b70bcb03a6b3b,72,261,lesteve,2014-10-13 21:29:38,"Add tests for is_spd.
+* test_fast_maths.py has been renamed to test_extmath.py
+* Only use relative tolerance in is_spd to check that the matrix is symmetric",NA
+issue_comment,NA,NA,261,GaelVaroquaux,2014-10-13 18:13:29,"I think that it would be good to have a small unit test.
+
+Aside from this, LGTM.
+",0.2742508976492708
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9dca9a6249cf6b329e5ff2545afeaf03792359fb,30,267,banilo,2014-10-29 14:39:35,"fit-check for Nifti([Labels, Maps])Masker + type in BaseMasker corrected",NA
+issue_comment,NA,NA,267,banilo,2014-10-27 20:49:15,"Ok, thanks for the advice!
+",0.7745478447742302
+issue_comment,NA,NA,267,bthirion,2014-10-28 11:31:06,"LGTM
+",0.590829287856557
+pull_request_commit_comment,NA,NA,267,banilo,2014-10-28 11:42:36,"Ok, in progress.
+
+2014-10-28 8:41 GMT+01:00 Loïc Estève notifications@github.com:
+
+> In nilearn/input_data/nifti_region.py:
+> 
+> > @@ -196,6 +196,12 @@ def fit(self, X=None, y=None):
+> >      def fit_transform(self, niimgs, confounds=None):
+> >          return self.fit().transform(niimgs, confounds=confounds)
+> > -    def _check_fitted(self):
+> > -        if not hasattr(self, ""labels_img_""):
+> > -            raise ValueError('It seems that %s has not been fit. '
+> 
+> It should probably be fitt_ed_ rather than fit. Could you fix it here and
+> I'll fix the error message in BaseMasker.
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/267/files#r19456271.
+
+## 
+
+Viele Grüße,
+Danilo
+",0.5561093328700535
+pull_request_commit_comment,NA,NA,267,lesteve,2014-10-28 07:41:42,"It should probably be fitt_ed_ rather than fit. Could you fix it here and I'll fix the error message in BaseMasker?
+",0.31437067732649226
+pull_request_commit_comment,NA,NA,267,lesteve,2014-10-28 07:41:38,"Could you:
+- use assert_raises_regexp to check that the error message is the one you are expecting
+- add the same test for inverse_transform for completeness
+",0.26026607005946456
+issue_comment,NA,NA,267,lesteve,2014-10-27 08:54:20,"The tests are failing in case you have missed it. 
+
+Also I think it would be better to raise a ValueError rather than an AttributeError to be consistent with what the NiftiMasker is doing. I would even use the same error message:
+
+``` python
+raise ValueError('It seems that %s has not been fit. '
+                             'You must call fit() before calling transform().'
+                             % self.__class__.__name__)
+```
+",0.2529644300115832
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,16539bf83ec9b06540bd314e8f438bb31aad70fa,42,259,banilo,2014-10-13 15:33:56,ROI example: second version,NA
+pull_request_commit_comment,NA,NA,259,GaelVaroquaux,2014-10-13 14:57:11,"> I think the naming convention is that *_img is reserved for nifti images.
+
+Yes
+",0.771183142349478
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:19:16,"idem
+",0.688366690865911
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:21:22,"you could use np.arange(1, n_scans + 1) which might be slightly easier to read
+",0.6040662433773802
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:44:11,"I am not 100% convinced that the 2 element loop is simpler to read. I would just unroll it:
+
+```
+first_roi_data = (labels == 1).astype(np.int)
+sedond_roi_data = (labels == 2).astype(np.int)
+```
+",0.5883675481827239
+pull_request_commit_comment,NA,NA,259,banilo,2014-10-13 07:56:06,"Sorry, this is an error on my part.
+",0.5432802704697199
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0a15e72846ad2b2ccfd206f8aff1007240416581,81,259,banilo,2014-10-15 17:07:37,Now Subplots and boxplots,NA
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:19:16,"idem
+",0.8733621214455742
+pull_request_commit_comment,NA,NA,259,GaelVaroquaux,2014-10-13 14:57:11,"> I think the naming convention is that *_img is reserved for nifti images.
+
+Yes
+",0.8230416295717384
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:21:22,"you could use np.arange(1, n_scans + 1) which might be slightly easier to read
+",0.6845093165874065
+issue_comment,NA,NA,259,GaelVaroquaux,2014-10-14 08:33:05,"On Tue, Oct 14, 2014 at 12:24:08AM -0700, Danilo Bzdok wrote:
+
+> 2g: That's because we are loading 1000 images of the Haxby dataset. We could reduce it to 50 or 100 to be less demanding on memory.
+
+That might be a good idea.
+",0.6164532102130077
+pull_request_commit_comment,NA,NA,259,banilo,2014-10-13 07:56:06,"Sorry, this is an error on my part.
+",0.5747827028142183
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 06:54:18,"I wouldn't specify cut_coords and let it default to None
+",0.5685363121101075
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:44:11,"I am not 100% convinced that the 2 element loop is simpler to read. I would just unroll it:
+
+```
+first_roi_data = (labels == 1).astype(np.int)
+sedond_roi_data = (labels == 2).astype(np.int)
+```
+",0.5661840301147791
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5e055605e835c12f5cb5d89314a13470742849cd,41,259,banilo,2014-10-21 14:14:02,PEP8ized + more intuitive variable names,NA
+pull_request_commit_comment,NA,NA,259,GaelVaroquaux,2014-10-13 14:57:11,"> I think the naming convention is that *_img is reserved for nifti images.
+
+Yes
+",0.7897541074557738
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:19:16,"idem
+",0.7504690237972812
+pull_request_commit_comment,NA,NA,259,bthirion,2014-10-20 20:38:16,"pep8: this line (and some others) is too long
+",0.598625041233306
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:44:11,"I am not 100% convinced that the 2 element loop is simpler to read. I would just unroll it:
+
+```
+first_roi_data = (labels == 1).astype(np.int)
+sedond_roi_data = (labels == 2).astype(np.int)
+```
+",0.5953425965696137
+pull_request_commit_comment,NA,NA,259,banilo,2014-10-13 07:56:06,"Sorry, this is an error on my part.
+",0.5938695202645794
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:16:26,"Same thing about `cut_coords=None` as above
+",0.588229908760486
+pull_request_commit_comment,NA,NA,259,bthirion,2014-10-13 09:04:21,"I believe there's no need to include the header explictly. I would not 
+do it.
+",0.5680759939676434
+issue_comment,NA,NA,259,GaelVaroquaux,2014-10-14 08:33:05,"On Tue, Oct 14, 2014 at 12:24:08AM -0700, Danilo Bzdok wrote:
+
+> 2g: That's because we are loading 1000 images of the Haxby dataset. We could reduce it to 50 or 100 to be less demanding on memory.
+
+That might be a good idea.
+",0.5533538593561618
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 06:54:46,"Same comment about letting `cut_coords` default to None.
+",0.5305040798894602
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7c75a09b6237db3e263eb1d2410be3874aca1f9c,34,259,banilo,2014-10-28 23:20:23,variable renaming + cosmetics,NA
+pull_request_commit_comment,NA,NA,259,GaelVaroquaux,2014-10-13 14:57:11,"> I think the naming convention is that *_img is reserved for nifti images.
+
+Yes
+",0.7937865758159339
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:19:16,"idem
+",0.7499683811887199
+pull_request_commit_comment,NA,NA,259,bthirion,2014-10-28 11:17:22,"Please remove this line
+",0.722071301926612
+issue_comment,NA,NA,259,bthirion,2014-10-13 20:24:01,"The example throws 8 figures, which is a bit messy. It would be better if some of them could be subplot of one larger figure. For instance 1-3 and 4-7 could be gathered into two figures.
+I'm not sure I get the gist from fig. 8.
+",0.7037227896727807
+pull_request_commit_comment,NA,NA,259,bthirion,2014-10-20 21:06:04,"could the value be inferred from trial_list ?
+I'm not sure what max_trials actually means ?
+",0.6927503928767242
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:16:26,"Same thing about `cut_coords=None` as above
+",0.6877266774422125
+issue_comment,NA,NA,259,lesteve,2014-10-28 13:57:55,"Hidden in an outdated diff comment:
+
+> This comment is used as a target in the doc, look at doc/building_blocks/manipulating_mr_images.rst. So you'll have to change it in the rst as well.
+> 
+> Also have you regenerated the doc and checked that the order of images hasn't changed and/or that the doc description still matches the pictures?
+",0.6787464675308276
+issue_comment,NA,NA,259,GaelVaroquaux,2014-10-14 08:33:05,"On Tue, Oct 14, 2014 at 12:24:08AM -0700, Danilo Bzdok wrote:
+
+> 2g: That's because we are loading 1000 images of the Haxby dataset. We could reduce it to 50 or 100 to be less demanding on memory.
+
+That might be a good idea.
+",0.6764909127466369
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:44:11,"I am not 100% convinced that the 2 element loop is simpler to read. I would just unroll it:
+
+```
+first_roi_data = (labels == 1).astype(np.int)
+sedond_roi_data = (labels == 2).astype(np.int)
+```
+",0.6719226850648183
+pull_request_commit_comment,NA,NA,259,bthirion,2014-10-20 20:38:16,"pep8: this line (and some others) is too long
+",0.649370241256553
+pull_request_commit_comment,NA,NA,259,lesteve,2014-10-13 07:21:22,"you could use np.arange(1, n_scans + 1) which might be slightly easier to read
+",0.6478453311702024
+ , , , , , , , 
+ , , , , , , , 

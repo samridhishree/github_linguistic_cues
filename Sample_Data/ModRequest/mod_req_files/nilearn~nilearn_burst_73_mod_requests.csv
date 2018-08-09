@@ -1,0 +1,66 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,5ae96d4ae8f37506c5b00398f8a49c6dc22f9ba8,75,1054,aabadie,2016-03-10 13:38:12,"adding global boolean to control user expand option behavior, adding checks on input cache path",NA
+issue_comment,NA,NA,1054,GaelVaroquaux,2016-03-10 12:32:41,"Two things:
+
+First, the mechanism used to turn off globbing should also turn this off.
+
+Second, in terms of avoiding user error, I think that one think that we could do is that if len(os.path.split(dirname)) > 1, we should check if the base directory exists. If it doesn't exist, we should bail out, and give a very explicit error message. That error message should check if the path has been expanded, and if so explain what has happened to the user, and how to avoid this (for instance with '~""). That way, if a user gets path expansion by mistake, he/she understand what is going on.
+",0.2424051248146203
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f0e503f1b6ae333de185deb7a670756e7fe1020f,52,1054,aabadie,2016-03-10 16:52:06,should fix failing tests,NA
+issue_comment,NA,NA,1054,aabadie,2016-03-10 13:38:44,"> Two things
+
+Done
+",0.5278498504318778
+pull_request_commit_comment,NA,NA,1054,GaelVaroquaux,2016-03-10 15:44:36,"Naming suggest CacheMixinTest, this is not really a Mock.
+",0.5193161827398136
+issue_comment,NA,NA,1054,aabadie,2016-03-10 14:19:22,"@GaelVaroquaux, to me there's no real problem with adding  `os.path.expanduser`. In fact, the problem comes from Memory which doesn't user `os.path.expanduser`. Also note that Memory [always creates ](https://github.com/joblib/joblib/blob/master/joblib/memory.py#L830) cache path if it doesn't exists.
+
+My conclusion is:
+1. to always use `os.path.expanduser`
+2. to also use `os.path.expanduser` in  joblib.Memory 
+",0.4866155490788726
+issue_comment,NA,NA,1054,aabadie,2016-03-10 13:39:53,"> give a very explicit error message. That error message should check if the path has been expanded, and if so explain what has happened to the user, and how to avoid this (for instance with '~""). That way, if a user gets path expansion by mistake, he/she understand what is going on.
+
+I think I missed the second part of this point. Will update my changes.
+",0.4476780583672624
+issue_comment,NA,NA,1054,aabadie,2016-03-10 15:32:13,"> what if a user (ie windows user) has a '~' in a directory name. That user will be very very surprised, and will not understand what's going on.
+
+Reading the [doc](https://docs.python.org/2/library/os.path.html#os.path.expanduser), only initial `~` is taken in to account. On windows, `~` might be used by the system at the end of long paths. It will be fine.
+If the user created a directory starting with `~`, to me this is because he is looking for troubles, this is a very rare case.
+
+> There is no globbing/expansion logic in joblib. I don't want to add any. It's not the feeling of the library.
+
+Ok
+",0.41225316967348646
+issue_comment,NA,NA,1054,GaelVaroquaux,2016-03-10 14:22:19,"> @GaelVaroquaux, to me there's no real problem with adding os.path.expanduser.
+> In fact, the problem comes from Memory which doesn't user os.path.expanduser.
+> Also note that Memory always creates cache path if it doesn't exists.
+> 
+> My conclusion is:
+> 1. to always use os.path.expanduser
+
+I disagree: what if a user (ie windows user) has a '~' in a directory
+name. That user will be very very surprised, and will not understand
+what's going on.
+
+> 1. to also use os.path.expanduser in joblib.Memory
+
+There is no globbing/expansion logic in joblib. I don't want to add any.
+It's not the feeling of the library.
+",0.3948538692950583
+issue_comment,NA,NA,1054,AlexandreAbraham,2016-03-10 15:37:57,"> If the user created a directory starting with ~, to me this is because he is looking for troubles, this is a very rare case.
+
+Agreed. However, as a Windows developper, I will never ever try to use `~` to reach home, my first reflex (if I am agnostic to Python path policy) would be to use `%UserProfile%`. In that case, `expandvars` is far more important than `expanduser`.
+
+Given that this cross-platform case is very poorly handled by Python, I agree with Gael to the fact that we should let the user find its own path (how poetic).
+",0.3925318957122004
+issue_comment,NA,NA,1054,GaelVaroquaux,2016-03-10 12:32:41,"Two things:
+
+First, the mechanism used to turn off globbing should also turn this off.
+
+Second, in terms of avoiding user error, I think that one think that we could do is that if len(os.path.split(dirname)) > 1, we should check if the base directory exists. If it doesn't exist, we should bail out, and give a very explicit error message. That error message should check if the path has been expanded, and if so explain what has happened to the user, and how to avoid this (for instance with '~""). That way, if a user gets path expansion by mistake, he/she understand what is going on.
+",0.3307824617026981
+ , , , , , , , 
+ , , , , , , , 

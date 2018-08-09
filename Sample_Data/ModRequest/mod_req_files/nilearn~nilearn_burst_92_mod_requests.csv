@@ -1,0 +1,29 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,aa00b6c09e49d29f6189c9d5d5e6763330192144,74,1315,KamalakerDadi,2016-10-30 13:31:24,"Addressed comments, example enhancement in plot_demo_glass_brain_extensive",NA
+pull_request_commit_comment,NA,NA,1315,KamalakerDadi,2016-10-24 21:05:27,"My mistake.
+",0.9835189782304621
+pull_request_commit_comment,NA,NA,1315,bthirion,2016-10-24 20:37:28,"countour_ fillings
+",0.6528957598133909
+pull_request_commit_comment,NA,NA,1315,KamalakerDadi,2016-10-24 21:05:18,"Done
+",0.5720210367945279
+pull_request_commit_comment,NA,NA,1315,KamalakerDadi,2016-10-24 21:05:37,"Done
+",0.5720210367945279
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d8f824f114b0f628b39109d475aef9f3167163e5,52,1315,KamalakerDadi,2016-11-03 10:42:07,Addressed:Made each demonstration in a separate cell,NA
+pull_request_commit_comment,NA,NA,1315,KamalakerDadi,2016-10-24 21:05:27,"My mistake.
+",0.886078491543171
+pull_request_commit_comment,NA,NA,1315,bthirion,2016-10-24 20:37:28,"countour_ fillings
+",0.7454638171069253
+pull_request_commit_comment,NA,NA,1315,bthirion,2016-10-24 20:36:37,"Seems a bit unrelated...
+",0.6621575986225491
+pull_request_commit_comment,NA,NA,1315,KamalakerDadi,2016-10-24 21:05:18,"Done
+",0.66089600985915
+pull_request_commit_comment,NA,NA,1315,KamalakerDadi,2016-10-24 21:05:37,"Done
+",0.66089600985915
+pull_request_commit_comment,NA,NA,1315,GaelVaroquaux,2016-11-03 06:12:51,"And one here
+",0.642446610994248
+pull_request_commit_comment,NA,NA,1315,bthirion,2016-10-24 20:36:14,"Maybe add a test with only one value for `levels`
+",0.5551445337901884
+ , , , , , , , 
+ , , , , , , , 

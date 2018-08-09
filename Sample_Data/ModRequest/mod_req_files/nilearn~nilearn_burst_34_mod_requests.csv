@@ -1,0 +1,244 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,61865e54db9b6ba529fcea959750475534da9bee,62,175,eickenberg,2014-03-25 18:20:03,"TDD, provided cases where Exceptions should be raised. Added BoundingBoxException",NA
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.7631419116998063
+issue_comment,NA,NA,175,eickenberg,2014-03-21 21:22:33,"Thanks! I was just about to put the result of our conversation here right now
+",0.5148721742407593
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:50:11,"> In the usecases I can imagine, the 3x3 matrix never comes from nowhere. It
+> would most often come from a 4x4 matrix cropped to 3x3.
+
+No, it often comes from nowhere. For instance you want to work on a voxel
+size of (3 x 3 x 4), eg to reduce your dataset. You don't care about the
+offset, you just want to specify the voxel size.
+",0.4206756221989787
+issue_comment,NA,NA,175,eickenberg,2014-03-20 09:41:04,"Problem fixed, but this may call for a change of the decision tree structure inside resample_img (some branches may be useless), see comment in commit 2
+",0.3494916661889652
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5f18d1ad806461f0047504598e3a03d88970b597,95,175,eickenberg,2014-03-26 08:30:47,"Refactored resample_img, raising appropriate exceptions when necessary",NA
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.7960722755955995
+issue_comment,NA,NA,175,eickenberg,2014-03-21 21:22:33,"Thanks! I was just about to put the result of our conversation here right now
+",0.43038940185612706
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-20 09:39:46,"This line may be obsolete (it is called if the affine shape is 3x3, but is in this case overwritten later)
+",0.3589999512138271
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:50:11,"> In the usecases I can imagine, the 3x3 matrix never comes from nowhere. It
+> would most often come from a 4x4 matrix cropped to 3x3.
+
+No, it often comes from nowhere. For instance you want to work on a voxel
+size of (3 x 3 x 4), eg to reduce your dataset. You don't care about the
+offset, you just want to specify the voxel size.
+",0.35147583176788555
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d35722bc58bde516f0674289b5486eae11278013,33,175,eickenberg,2014-03-26 15:38:19,Added documentation,NA
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.7649106515221143
+issue_comment,NA,NA,175,eickenberg,2014-03-21 21:22:33,"Thanks! I was just about to put the result of our conversation here right now
+",0.6740514952136967
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:50:11,"> In the usecases I can imagine, the 3x3 matrix never comes from nowhere. It
+> would most often come from a 4x4 matrix cropped to 3x3.
+
+No, it often comes from nowhere. For instance you want to work on a voxel
+size of (3 x 3 x 4), eg to reduce your dataset. You don't care about the
+offset, you just want to specify the voxel size.
+",0.6546336539277142
+issue_comment,NA,NA,175,eickenberg,2014-03-26 10:19:38,"Re the ""tricky thing"" I mentioned 2 posts up: If anybody ever needs this, it is easily done in two steps: resample_img given 4x4 transformation matrix followed by a call to the crop_img function. This respects the voxel grid and the bounding box is as close as possible without cropping nonzero data.
+",0.5733252984117878
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-26 15:12:35,"Re the ""tricky ting"":could you please mention it in the ""notes"" section of the docstring.
+",0.5659990155893256
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d00a702359896b3d702eb97afc2ff279d206b40b,36,175,eickenberg,2014-03-27 08:35:57,Wrote failing test for 3x3 affine issue,NA
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:09:42,"I am dense, horribly dense, and slow... Forget point 2 above...
+",0.7670516453368333
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.7583270366233057
+issue_comment,NA,NA,175,eickenberg,2014-03-26 15:39:01,"Prose is up.
+",0.7350857845810972
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-26 18:53:44,"Ouch! Thanks!
+",0.7348564977555753
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:17:12,"Unecessary empty line.
+",0.6830799742676774
+issue_comment,NA,NA,175,eickenberg,2014-03-21 21:22:33,"Thanks! I was just about to put the result of our conversation here right now
+",0.6107675262314514
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:15:33,"I think that a comment more explicit, that does not refer to a 'now' (ie before was different) but more to the expected behavior, would be good here.
+",0.5976766495308348
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:50:11,"> In the usecases I can imagine, the 3x3 matrix never comes from nowhere. It
+> would most often come from a 4x4 matrix cropped to 3x3.
+
+No, it often comes from nowhere. For instance you want to work on a voxel
+size of (3 x 3 x 4), eg to reduce your dataset. You don't care about the
+offset, you just want to specify the voxel size.
+",0.5796046106874526
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:16:50,"sklearn.utils.testing has an assert_raises_message, which is what I think you are looking for.
+",0.5787058331945585
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-26 15:12:35,"Re the ""tricky ting"":could you please mention it in the ""notes"" section of the docstring.
+",0.567335594198781
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b9d9ae39e606607df7fe25cf07dda801da60a1cb,64,175,eickenberg,2014-03-27 11:00:09,Added tests for axis permutation matrices,NA
+issue_comment,NA,NA,175,eickenberg,2014-03-26 15:39:01,"Prose is up.
+",0.8290278715161808
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.7668666525064938
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:09:42,"I am dense, horribly dense, and slow... Forget point 2 above...
+",0.7441705038094628
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-26 18:53:44,"Ouch! Thanks!
+",0.721615219034028
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:17:12,"Unecessary empty line.
+",0.6220958522905708
+issue_comment,NA,NA,175,eickenberg,2014-03-21 21:22:33,"Thanks! I was just about to put the result of our conversation here right now
+",0.6208098727526167
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-26 15:12:35,"Re the ""tricky ting"":could you please mention it in the ""notes"" section of the docstring.
+",0.596625620592911
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:15:33,"I think that a comment more explicit, that does not refer to a 'now' (ie before was different) but more to the expected behavior, would be good here.
+",0.5753596956342146
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:16:50,"sklearn.utils.testing has an assert_raises_message, which is what I think you are looking for.
+",0.5633981067317624
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 18:55:45,"> OK, I prefer writing the failing test before correcting this
+
+Definitely good policy! Thanks a lot for caring about code quality.
+",0.5473761360622057
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1b6569848e850db9ad9fc139f9940eaa82ccedc4,32,175,eickenberg,2014-03-27 13:00:31,Addressing Gael's comments,NA
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.9131242304994676
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:09:42,"I am dense, horribly dense, and slow... Forget point 2 above...
+",0.7532912821559323
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:17:12,"Unecessary empty line.
+",0.680323048379788
+issue_comment,NA,NA,175,eickenberg,2014-03-26 15:39:01,"Prose is up.
+",0.6398531229608717
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:50:11,"> In the usecases I can imagine, the 3x3 matrix never comes from nowhere. It
+> would most often come from a 4x4 matrix cropped to 3x3.
+
+No, it often comes from nowhere. For instance you want to work on a voxel
+size of (3 x 3 x 4), eg to reduce your dataset. You don't care about the
+offset, you just want to specify the voxel size.
+",0.5864791476893687
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-26 18:54:37,"OK, I prefer writing the failing test before correcting this
+",0.546013259874186
+issue_comment,NA,NA,175,eickenberg,2014-03-25 10:47:08,"In the usecases I can imagine, the 3x3 matrix never comes from nowhere. It would most often come from a 4x4 matrix cropped to 3x3.
+
+Another tricky thing that comes to my mind is the following: Assume you want to transform image 1 to the space of image 2 and you decide that you would like a minimal bounding box around image 1. The question now is, intuitively, would you want the newly calculated translation vector to respect the voxel space (ie the discretisation grid) of image 2? In this case you need the translation vector and the bounding box will lie within a voxel of the optimal bounding box which disrespects the voxel space.
+
+If I am not expressing myself clearly, please let me know :)
+",0.538446126036865
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-20 09:39:46,"This line may be obsolete (it is called if the affine shape is 3x3, but is in this case overwritten later)
+",0.5348402005563121
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:19:17,"@eickenberg : I agree with your analysis on the decision tree of the function and the proposed fix.
+
+If you could proceed to applying your changes without any changes to the tests, it would be great. Thanks!
+",0.5309526023237423
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:10:41,"Maybe we shouldn't be testing our resampling code with 'eye' as an affine.
+",0.5298795779203744
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d21e17529f9e358e30d51a6674aeec8fe9519510,62,175,eickenberg,2014-04-11 12:23:22,added an example for visualizing affine transform,NA
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-25 10:27:35,"> The case ""3x3 transformation matrix + shape given"" is not treated neither in
+> the old nor in the proposed version.
+> 
+> It seems very ambiguous. Where would you place the origin? In this case
+> I would raise an exception...
+
+Yes.
+
+> @GaelVaroquaux could you comment on @bthirion's proposition to impose the
+> different behaviours using an explicit argument?
+
+I'd rather not.
+",0.8298137809255536
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:09:42,"I am dense, horribly dense, and slow... Forget point 2 above...
+",0.7301453092883645
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-26 18:53:44,"Ouch! Thanks!
+",0.7165660756202938
+issue_comment,NA,NA,175,eickenberg,2014-03-26 15:39:01,"Prose is up.
+",0.688131448345559
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 19:17:12,"Unecessary empty line.
+",0.6203522421827607
+issue_comment,NA,NA,175,GaelVaroquaux,2014-04-10 09:44:12,"> I am very bad at Gimp/inkscape etc, so I'll try to code one :)
+
+That's the spirit!
+",0.5855384845691247
+issue_comment,NA,NA,175,eickenberg,2014-03-21 21:22:33,"Thanks! I was just about to put the result of our conversation here right now
+",0.565822067939996
+pull_request_commit_comment,NA,NA,175,eickenberg,2014-03-26 18:54:37,"OK, I prefer writing the failing test before correcting this
+",0.5340462302165747
+issue_comment,NA,NA,175,eickenberg,2014-04-10 08:57:25,"I am very bad at Gimp/inkscape etc, so I'll try to code one :)
+",0.5175323341175965
+issue_comment,NA,NA,175,GaelVaroquaux,2014-03-26 15:12:35,"Re the ""tricky ting"":could you please mention it in the ""notes"" section of the docstring.
+",0.4968410225456543
+pull_request_commit_comment,NA,NA,175,GaelVaroquaux,2014-03-26 18:55:45,"> OK, I prefer writing the failing test before correcting this
+
+Definitely good policy! Thanks a lot for caring about code quality.
+",0.4959623538890958
+ , , , , , , , 
+ , , , , , , , 

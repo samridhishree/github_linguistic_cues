@@ -1,0 +1,55 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,a6e805fec3a150652e90e52d337dce11cb680f4d,121,43,pgervais,2013-04-09 12:57:04,"Added a test for NiftiMasker
+
+Test orientation of output of NiftiMasker.transform(), and consistency
+between transform() and inverse_transform().",NA
+pull_request_commit_comment,NA,NA,43,AlexandreAbraham,2013-04-08 12:58:57,"Why do you remove the colon ?
+",0.5971584843024527
+pull_request_commit_comment,NA,NA,43,pgervais,2013-04-08 13:13:21,"Because there is already a colon inserted by Shinx at the end of this line, and two colons seem to many.
+",0.4078088633287219
+issue_comment,NA,NA,43,GaelVaroquaux,2013-04-09 07:41:53,"> I spoke too quickly: the shape is in fact good but the clean function
+> is called on transposed data during data preparation. You just have to
+> remove the transposition before the call to clean and after.
+
+How do we test objectively for this? It's a naive question, but an
+important one: we need to have an easy way to be sure that we are doing
+it right.
+",0.3414665231574143
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,ebc29c3e927bf899ff02ff3fffd3b7706b0e21ea,188,43,pgervais,2013-04-09 16:21:40,Small fixes,NA
+pull_request_commit_comment,NA,NA,43,GaelVaroquaux,2013-04-09 15:54:43,"Order of imports should be:
+1. Standard library modules
+2. Standard scientific packages (eg numpy)
+3. Standard general purpose packages (eg nose)
+4. Neuroimaging-specific packages (nibabel)
+5. Local imports
+
+2 and 3 can be swapped.
+
+The logic is to go from most common and general to least.
+",0.6821484686275241
+pull_request_commit_comment,NA,NA,43,AlexandreAbraham,2013-04-08 12:58:57,"Why do you remove the colon ?
+",0.594211464041442
+pull_request_commit_comment,NA,NA,43,GaelVaroquaux,2013-04-09 16:02:21,"This file should be merged with nisl/io/tests/test_multi_masker.py. As a general rule, we try, for a code in file 'bar/foo.py', to always put the tests in 'bar/tests/test_foo.py'.
+",0.5762480712161283
+pull_request_commit_comment,NA,NA,43,pgervais,2013-04-09 16:18:45,"It's just a matter of adding detrend=True, I'll do it.
+",0.5632017552531952
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,592f840f351150ecb927d91eac038af54310dece,49,41,pgervais,2013-04-05 08:48:18,"Renamed CacheMixin.cache to _cache
+
+Corrected a bug in _cache() as well: return the input function
+unchanged if self.memory is None.",NA
+pull_request_commit_comment,NA,NA,41,AlexandreAbraham,2013-04-05 08:32:07,"This is precisely the contrary here: None is replaced by -1.
+",0.6584161876369253
+pull_request_commit_comment,NA,NA,41,AlexandreAbraham,2013-04-05 07:32:49,"I am curious: why did you change that ?
+",0.5821938814912017
+pull_request_commit_comment,NA,NA,41,GaelVaroquaux,2013-04-05 08:33:10,"You should also point out that '-2' means 'all CPUs but one', etc.
+",0.5060083074071644
+pull_request_commit_comment,NA,NA,41,GaelVaroquaux,2013-04-05 08:27:46,"I think this method should be private.
+",0.4685126949938656
+issue_comment,NA,NA,41,GaelVaroquaux,2013-04-05 08:41:17,"Looks great. I added a few minor remarks. Thanks!
+",0.46469234946349547
+ , , , , , , , 
+ , , , , , , , 

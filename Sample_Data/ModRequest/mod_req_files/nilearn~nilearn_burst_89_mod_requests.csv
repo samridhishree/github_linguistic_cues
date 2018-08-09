@@ -1,0 +1,19 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,ffdeb6c5b8082197845d366fb44e085c1b6ae2e6,47,1295,KamalakerDadi,2016-10-01 18:16:56,Fixing data dtype retrieval from images directly with img.get_data().dtype,NA
+pull_request_commit_comment,NA,NA,1295,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",0.7410557817472778
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b77f3eb50854998e745db5a652b8edf5afaea49f,52,1295,GaelVaroquaux,2016-10-10 21:59:10,"DOC: fix the copybutton javascript,
+
+and make it discoverable via CSS.",NA
+pull_request_commit_comment,NA,NA,1295,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",0.8183383482778531
+pull_request_commit_comment,NA,NA,1295,KamalakerDadi,2016-10-06 21:17:55,"May be this sounds good `fetch_atlas_allen_2011` ?
+",0.5096674280643056
+pull_request_commit_comment,NA,NA,1295,KamalakerDadi,2016-10-07 11:32:27,"@GaelVaroquaux Any suggestions on the name ?
+",0.5071571718588731
+issue_comment,NA,NA,1295,KamalakerDadi,2016-10-06 21:19:23,"Some minor comments from my side.
+",0.5030665931515794
+ , , , , , , , 
+ , , , , , , , 

@@ -1,0 +1,8 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,fd45119491908a63a4dc81b45beb416bc2669710,52,10,ib-lundgren,2012-04-07 10:15:50,New method get_signature_type_and_params,NA
+issue_comment,NA,NA,10,dgouldin,2012-03-31 23:38:55,"Apply this style of signature type checking and I'll merge the changes:
+
+https://gist.github.com/c9d37af4bbf596d345b0/11ccbc671428b9576b191e2769c9c53ee6a33c0f
+",0.4069831157998012
+ , , , , , , , 
+ , , , , , , , 

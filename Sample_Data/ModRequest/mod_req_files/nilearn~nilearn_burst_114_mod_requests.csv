@@ -1,0 +1,18 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,5c64ab047ef2ba4c11804bc40f941606e68feb77,107,1408,moritz.boos@uni-oldenburg.de,2017-07-29 05:51:44,Plot_matrix accessible from plotting and added cmap default,NA
+pull_request_commit_comment,NA,NA,1408,bthirion,2017-06-05 07:37:44,pep8,0.8715395673688462
+pull_request_commit_comment,NA,NA,1408,bthirion,2017-06-05 07:37:54,pep8,0.8715395673688462
+issue_comment,NA,NA,1408,GaelVaroquaux,2017-06-19 12:13:10,"> W.r.t. the tests @bthirion should I just add a function to nilearn/plotting/
+> tests/test_display.py?
+
+Yes
+",0.8542433830597888
+pull_request_commit_comment,NA,NA,1408,bthirion,2017-06-05 07:47:40,Agree with the 3 suggestions,0.7940398298538641
+issue_comment,NA,NA,1408,mjboos,2017-06-28 10:03:09,@GaelVaroquaux yes. sorry for the hiatus. Will finish it later.,0.6492240677227397
+pull_request_commit_comment,NA,NA,1408,bthirion,2017-06-05 07:48:30,Many pep8 issues around.,0.6132501422558359
+issue_comment,NA,NA,1408,GaelVaroquaux,2017-06-28 15:08:36,"> @GaelVaroquaux yes. sorry for the hiatus. Will finish it later.
+
+Great! I am absolutely looking forward.
+",0.5796372990628078
+ , , , , , , , 
+ , , , , , , , 

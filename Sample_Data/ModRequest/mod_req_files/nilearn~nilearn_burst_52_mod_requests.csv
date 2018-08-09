@@ -1,0 +1,1319 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,0c7b1278a4f3ae86159ecd549ce213163ce83dbc,42,478,AlexandreAbraham,2015-03-03 23:28:16,Fix missing occurences of nibabel,NA
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:44:37,"dosctring ?
+",0.7190736588741111
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:47:32,"dosctring ?
+",0.7190736588741111
+issue_comment,NA,NA,478,bthirion,2015-03-03 21:54:33,"There are still many calls to Nifti1Image throughout all the codebase...
+",0.4610194486108381
+issue_comment,NA,NA,478,bcipolli,2015-03-03 18:30:19,"I would suggest to name it `_new_img`, if it's an internal-only / hidden API.  Or, if it's planned to recommend users to use this function, I suggest adding a docstring to `new_img` about what object type is returned.
+",0.45669973110642526
+issue_comment,NA,NA,478,bthirion,2015-03-03 21:50:56,"Looks good otherwise. I don't see any travis output ?
+",0.45057920277635866
+issue_comment,NA,NA,478,AlexandreAbraham,2015-03-03 19:02:07,"It is already located in `utils` which is hidden. However, I must admit that I didn't get the naming conventions in there (for example `_get_shape`).
+",0.4253705170595816
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,971420af1666f6988c4a37b4693dbf3dce44d1b4,262,478,AlexandreAbraham,2015-03-06 00:33:54,Rename niimage to niimg,NA
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 19:03:17,"> Why such a one-liner.
+
++1
+",0.9654947417848014
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 20:57:52,"> Once the header-related new_img_like (or however it will be called) becomes reality, the function name new_img will probably be looked for by users that know the former.
+
+Do you plan to make `new_img_like` available to the users? I thought that it would be internal cuisine.
+",0.7356454395225639
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:58:37,"> Do you plan to make new_img_like available to the users? I thought that it
+> would be internal cuisine.
+
+Agreed.
+",0.7234586520027042
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 18:58:44,"rather ""line above""?
+",0.7073295003402689
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:34:52,"> OK, so I can close this PR and we let the code related to nifti images in
+> niimg_conversion.
+
+Well, maybe this PR was bringing in useful cleanups?
+",0.6593050627395292
+issue_comment,NA,NA,478,AlexandreAbraham,2015-03-03 23:36:41,"Yes, I noticed that on my way back home ;). I fixed the last occurences.
+",0.6419405121935058
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 19:36:35,"I think it's because it boils down to loading the data itself so doing the equivalent of `check_niimg`.
+",0.640191287641239
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 19:35:25,"No, I think that this comment refer to the last line of the function.
+",0.6221610202956921
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 16:29:49,"Please define input and output types in the docstring.
+",0.5998422913303342
+issue_comment,NA,NA,478,bthirion,2015-03-03 21:50:56,"Looks good otherwise. I don't see any travis output ?
+",0.5987640152544151
+issue_comment,NA,NA,478,eickenberg,2015-03-05 21:15:24,"I realized that while typing the word _alias_, originally intended to be more figurative than real. Small caps for a class is not cool, and `Niimg` ... would look weird wrt all the other true functions that contain the word `niimg`. I think I am overthinking this.
+",0.5978324246540214
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,73cd600df8ce3f36514985699227e0a9939eb96c,300,478,AlexandreAbraham,2015-03-06 12:48:01,Introduce the new_img_like,NA
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 19:03:17,"> Why such a one-liner.
+
++1
+",0.8794767713006656
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 18:58:44,"rather ""line above""?
+",0.7254215696870727
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:58:37,"> Do you plan to make new_img_like available to the users? I thought that it
+> would be internal cuisine.
+
+Agreed.
+",0.7169526802199426
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 20:57:52,"> Once the header-related new_img_like (or however it will be called) becomes reality, the function name new_img will probably be looked for by users that know the former.
+
+Do you plan to make `new_img_like` available to the users? I thought that it would be internal cuisine.
+",0.6940620546902943
+issue_comment,NA,NA,478,AlexandreAbraham,2015-03-03 23:36:41,"Yes, I noticed that on my way back home ;). I fixed the last occurences.
+",0.6360263507298337
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 19:36:35,"I think it's because it boils down to loading the data itself so doing the equivalent of `check_niimg`.
+",0.6346746469910911
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 19:35:25,"No, I think that this comment refer to the last line of the function.
+",0.585038329543295
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:34:52,"> OK, so I can close this PR and we let the code related to nifti images in
+> niimg_conversion.
+
+Well, maybe this PR was bringing in useful cleanups?
+",0.5734118034581119
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 16:29:49,"Please define input and output types in the docstring.
+",0.5621863498952628
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:44:37,"dosctring ?
+",0.5556960965932469
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:47:32,"dosctring ?
+",0.5556960965932469
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8a45b2b3da8957c84a6ec617e4f39686118e6014,83,478,AlexandreAbraham,2015-03-09 19:23:00,Remove _get_shape,NA
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 19:03:17,"> Why such a one-liner.
+
++1
+",0.9778881741992399
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:58:37,"> Do you plan to make new_img_like available to the users? I thought that it
+> would be internal cuisine.
+
+Agreed.
+",0.8669506069457411
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 20:57:52,"> Once the header-related new_img_like (or however it will be called) becomes reality, the function name new_img will probably be looked for by users that know the former.
+
+Do you plan to make `new_img_like` available to the users? I thought that it would be internal cuisine.
+",0.7936215109983222
+pull_request_commit_comment,NA,NA,478,eickenberg,2015-03-09 15:56:11,"Is this still necessary?
+",0.7662950207759753
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 18:58:44,"rather ""line above""?
+",0.7580554568055459
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:34:52,"> OK, so I can close this PR and we let the code related to nifti images in
+> niimg_conversion.
+
+Well, maybe this PR was bringing in useful cleanups?
+",0.7327956488627005
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 20:00:01,"OK, so I can close this PR and we let the code related to nifti images in niimg_conversion.
+",0.6709706950307802
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 15:59:44,"We have to ensure that the mask is bool.
+",0.669635224728119
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 19:36:35,"I think it's because it boils down to loading the data itself so doing the equivalent of `check_niimg`.
+",0.6574003216513127
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:47:32,"dosctring ?
+",0.6545696342137397
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:44:37,"dosctring ?
+",0.6545696342137397
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 14:45:00,"I am not satisfied with that but I don't know how to say here that the type is depending on an input.
+",0.6484403500124232
+pull_request_commit_comment,NA,NA,478,lesteve,2015-03-09 18:58:58,"I agree unless someone comes up with a compelling use case of using an `img` which is not a `nibabel.SpatialImage`.
+",0.6276402098100842
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 14:44:08,"Should this be replaced by `isinstance(nibabel.spatialimages.SpatialImage)?
+",0.6237620279557448
+issue_comment,NA,NA,478,AlexandreAbraham,2015-03-05 08:54:39,"I am going to rename niimage -> niimg (but it could be img)
+
+@GaelVaroquaux any thoughts on this one? I'd like to merge it fast as it is just code refactoring.
+",0.6198740880035267
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 15:59:29,"Treating the first file first each time greatly simplify the code.
+",0.6186677145280973
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:52:41,"> Once the header-related new_img_like (or however it will be called) becomes
+> reality, the function name new_img will probably be looked for by users that
+> know the former. Yes, this is **future** talk :) but in that light this
+> addition seems very much consistent.
+
+OK, then let's tackle this problem now. I don't want to design abstractions
+for future usage, as this is a very slippery slope.
+",0.6170893891123475
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 14:45:42,"This is wrong.
+",0.6113505598726521
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,206f4bd996fe218b984353cdf7fe89267204c83c,30,478,AlexandreAbraham,2015-03-10 18:06:22,Fix tests and error messages.,NA
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 19:03:17,"> Why such a one-liner.
+
++1
+",0.9598439867330669
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:58:37,"> Do you plan to make new_img_like available to the users? I thought that it
+> would be internal cuisine.
+
+Agreed.
+",0.7858539688864468
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:47:32,"dosctring ?
+",0.6948747425028601
+pull_request_commit_comment,NA,NA,478,bthirion,2015-03-03 21:44:37,"dosctring ?
+",0.6948747425028601
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-09 22:43:10,"Merge conflicts?
+",0.6654604964500237
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-09 22:41:10,"Merge conflicts?
+",0.6654604964500237
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-10 10:10:23,"Oh we upgrade to 2.0, cool !
+",0.6450669896169291
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 15:59:44,"We have to ensure that the mask is bool.
+",0.6425592000593012
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 18:58:44,"rather ""line above""?
+",0.639739168923157
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-09 20:56:30,"OK. The official nibabel way to do that is `np.array(img.dataobj)`.
+",0.6348360523847032
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-09 19:33:45,"No idea what is the difference between an `img` and a `niimg-like`.
+",0.6136010693501406
+pull_request_commit_comment,NA,NA,478,eickenberg,2015-03-09 15:56:11,"Is this still necessary?
+",0.6042454235399624
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-05 20:34:52,"> OK, so I can close this PR and we let the code related to nifti images in
+> niimg_conversion.
+
+Well, maybe this PR was bringing in useful cleanups?
+",0.6027571549845487
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 14:45:42,"This is wrong.
+",0.5917723918853649
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 20:57:52,"> Once the header-related new_img_like (or however it will be called) becomes reality, the function name new_img will probably be looked for by users that know the former.
+
+Do you plan to make `new_img_like` available to the users? I thought that it would be internal cuisine.
+",0.5880268110420955
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-10 10:38:25,"I know ;).
+",0.5873463866539466
+pull_request_commit_comment,NA,NA,478,banilo,2015-03-05 19:07:26,"I like new_img() already.
+",0.5863956844133555
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-09 23:38:45,"Do you think that we should open an issue about potential memory leaks?
+",0.5690400380740241
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-09 23:40:48,"No, I just added a blank line for cosmetic pruprose.
+",0.5549801438871984
+pull_request_commit_comment,NA,NA,478,lesteve,2015-03-10 07:34:18,"> 1.3.0 is targetted.
+
+then README.rst and nilearn/version.py should be updated. We are currently requiring nibabel 1.1.0 [there](https://github.com/nilearn/nilearn#dependencies).
+",0.5538313604185361
+issue_comment,NA,NA,478,AlexandreAbraham,2015-03-06 13:03:16,"Rebased on master for python3 compliance.
+",0.5519418499722339
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-09 19:31:47,"Ok, I'll wait a bit before changing that part.
+",0.5505390391564484
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-05 20:00:01,"OK, so I can close this PR and we let the code related to nifti images in niimg_conversion.
+",0.5400762250119806
+pull_request_commit_comment,NA,NA,478,AlexandreAbraham,2015-03-06 14:44:08,"Should this be replaced by `isinstance(nibabel.spatialimages.SpatialImage)?
+",0.535083301959693
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-10 06:23:06,"> Some code like that may help but there will still be a side effect on the
+> generator provided:
+
+I think that this is better than the current situation, which is too
+fragile.
+",0.5349233100337072
+pull_request_commit_comment,NA,NA,478,GaelVaroquaux,2015-03-09 23:39:41,"> Do you think that we should open an issue about potential memory leaks?
+
+Yes. With the example that you gave. It's a good one.
+",0.48445385516499917
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,31ca37307275982f0b4013e790ef97ad4390f917,48,293,eickenberg,2015-02-05 14:00:56,FIX matplotlib 1.4.2 issue,NA
+pull_request_commit_comment,NA,NA,293,GaelVaroquaux,2015-01-06 22:37:23,"> I would expect the symmetric colorbar to work both ways: upper part of the
+> original cbar if all values are positive and lower part of the cbar if all
+> values are negative.
+
+Good point!
+",0.678554127066693
+issue_comment,NA,NA,293,GaelVaroquaux,2014-11-24 12:26:21,"> One can always use an array as a 1D image to make the whole colorbar,
+
+I am afraid that you'll have to do this.
+",0.6293266730489055
+issue_comment,NA,NA,293,eickenberg,2014-11-26 10:16:12,"thanks, I forgot to do that.
+",0.6104558082064933
+pull_request_commit_comment,NA,NA,293,GaelVaroquaux,2015-01-07 07:56:14,"Ok
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Jan 7, 2015, 08:43, at 08:43, bthirion notifications@github.com wrote:
+
+> > @@ -586,7 +611,15 @@ def plot_stat_map(stat_map_img,
+> > bg_img=MNI152TEMPLATE, cut_coords=None,
+> >                      np.logical_not(stat_map_data._mask)])
+> >          stat_map_max = np.nanmax(stat_map_data)
+> >          stat_map_min = np.nanmin(stat_map_data)
+> > +
+> > -    if symmetric_cbar == 'auto':
+> > -        symmetric_cbar = stat_map_min < 0
+> 
+> To be frank I don't think I have encountered such a use case in the
+> past: while positive values van be seen for variance images, I have no
+> idea of the equivalent for negative images.
+> On the other hand, I thinks that adding this use case could be useful
+> in some cases that I can't figure out at the moment, and will not harm.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/293/files#r22573993
+",0.6096177760464336
+issue_comment,NA,NA,293,eickenberg,2014-11-24 11:59:41,"Ah yes, good point. We had discussed that actually. Was too happy when everything worked on the first test :)
+",0.6026076532563049
+pull_request_commit_comment,NA,NA,293,GaelVaroquaux,2015-01-07 06:54:21,"Yes. A t map with the contrast specified with the wrong sign for instance. 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Jan 7, 2015, 07:50, at 07:50, eickenberg notifications@github.com wrote:
+
+> > @@ -586,7 +611,15 @@ def plot_stat_map(stat_map_img,
+> > bg_img=MNI152TEMPLATE, cut_coords=None,
+> >                      np.logical_not(stat_map_data._mask)])
+> >          stat_map_max = np.nanmax(stat_map_data)
+> >          stat_map_min = np.nanmin(stat_map_data)
+> > +
+> > -    if symmetric_cbar == 'auto':
+> > -        symmetric_cbar = stat_map_min < 0
+> 
+> i would, too. but is this expected to happen for any type of data?
+> 
+> On Tuesday, January 6, 2015, Alexandre Abraham
+> notifications@github.com
+> wrote:
+> 
+> > In nilearn/plotting/img_plotting.py
+> > 
+> > https://github.com/nilearn/nilearn/pull/293#discussion-diff-22557878:
+> > 
+> > > @@ -586,7 +611,15 @@ def plot_stat_map(stat_map_img,
+> > > bg_img=MNI152TEMPLATE, cut_coords=None,
+> > >                      np.logical_not(stat_map_data._mask)])
+> > >          stat_map_max = np.nanmax(stat_map_data)
+> > >          stat_map_min = np.nanmin(stat_map_data)
+> > > +
+> > > -    if symmetric_cbar == 'auto':
+> > > -        symmetric_cbar = stat_map_min < 0
+> > 
+> > I would expect the symmetric colorbar to work both ways: upper part
+> > of the
+> > original cbar if all values are positive and lower part of the cbar
+> > if all
+> > values are negative.
+> > 
+> > —
+> > Reply to this email directly or view it on GitHub
+> > https://github.com/nilearn/nilearn/pull/293/files#r22557878.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/293/files#r22572998
+",0.5974024056722276
+issue_comment,NA,NA,293,GaelVaroquaux,2014-11-26 10:09:29,"As the strategy implemented here is not the ""right"" one, I am changing the title from MRG to WIP. Please change it back to MRG when done.
+",0.5711486087611812
+issue_comment,NA,NA,293,bthirion,2014-11-25 20:55:40,"Is there a way to test this feature ?
+",0.5624365015724084
+issue_comment,NA,NA,293,eickenberg,2015-01-29 16:41:41,"resolved conflict and squashed commits
+",0.544754020809374
+issue_comment,NA,NA,293,GaelVaroquaux,2015-01-05 15:40:30,">   • add cbar_min, cbar_max kwargs to _plot_img_with_bg, making colorbar range
+>     editing available to a wider number of functions (is this wanted at all?)
+
+This sounds about right to me. _plot_img_with_bg is somewhat of a
+low-level swiss-army knife, and can thus be made more versatile.
+",0.5329909055494286
+pull_request_commit_comment,NA,NA,293,AlexandreAbraham,2015-01-06 22:35:57,"I would expect the symmetric colorbar to work both ways: upper part of the original cbar if all values are positive and lower part of the cbar if all values are negative.
+",0.5216143099207459
+issue_comment,NA,NA,293,eickenberg,2015-01-06 12:58:48,"swiss army knife made and plot_stat_map tested
+",0.5169130891881377
+issue_comment,NA,NA,293,eickenberg,2014-12-23 18:57:38,"With some very good input from @AlexandreAbraham I managed to make the requested half colorbar.
+
+It already works on plot_localizer_simple_analysis.
+
+I am now wondering: Do I re-double the xticks?
+",0.5074647177150204
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,24862fdaf7c69a653593880caba676bda00b79a4,30,521,AlexandreAbraham,2015-03-24 13:36:39,Fix tests,NA
+pull_request_commit_comment,NA,NA,521,banilo,2015-03-24 12:01:47,"grammar
+",0.7210573723947247
+pull_request_commit_comment,NA,NA,521,banilo,2015-03-24 11:57:54,"""for special behaviors."" might be obscure to some users
+",0.5804951415292017
+pull_request_commit_comment,NA,NA,521,GaelVaroquaux,2015-03-24 12:11:02,"> But I must admit that I don't like to write if file_name:. Reminds me
+> of C code.
+
+I agree. I find that what you wrote is more readable.
+",0.5758272808748628
+pull_request_commit_comment,NA,NA,521,AlexandreAbraham,2015-03-24 12:09:28,"Actually we already know that the variable is a string (see call to `basename` above). But I must admit that I don't like to write `if file_name:`. Reminds me of C code.
+",0.5292594358473165
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,55e14b67d1daa669b2581403c6d5f282eff100dc,50,493,banilo,2015-03-12 18:15:06,add get_descr func,NA
+pull_request_commit_comment,NA,NA,493,AlexandreAbraham,2015-03-11 16:24:33,"A good practice would be to use ""<dataset_name>.rst"" as name (here craddock_2011) and create a function to get directly the rst content.
+",0.49543063661395237
+pull_request_commit_comment,NA,NA,493,AlexandreAbraham,2015-03-11 16:22:26,"This could be a module scope variable.
+",0.48944269099496274
+issue_comment,NA,NA,493,landscape-bot,2015-03-11 15:22:15,"[![Code Health](https://landscape.io/badge/123759/landscape.svg?style=flat)](https://landscape.io/diff/109390)
+Repository health decreased by 0.01% when pulling **[f0f6456](https://github.com/banilo/nilearn/commit/f0f6456be99bcb195a0aef2d0b9b9f64c1e3a7ab) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/109390) (including 0 errors and 0 code smells).
+- No problems were fixed.
+",0.342948029469871
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b0d77f851662bade4a0b503746d30455b558cb57,68,493,banilo,2015-03-13 14:35:16,use unique dataset names,NA
+pull_request_commit_comment,NA,NA,493,banilo,2015-03-12 18:17:54,"Year, realized this one!
+",0.6765562750266318
+issue_comment,NA,NA,493,landscape-bot,2015-03-12 18:16:53,"[![Code Health](https://landscape.io/badge/124600/landscape.svg?style=flat)](https://landscape.io/diff/110284)
+Repository health decreased by 0.06% when pulling **[55e14b6](https://github.com/banilo/nilearn/commit/55e14b67d1daa669b2581403c6d5f282eff100dc) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/110284) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.5490078008641454
+issue_comment,NA,NA,493,landscape-bot,2015-03-13 13:49:31,"[![Code Health](https://landscape.io/badge/125048/landscape.svg?style=flat)](https://landscape.io/diff/110762)
+Repository health decreased by 0.06% when pulling **[3e98a94](https://github.com/banilo/nilearn/commit/3e98a94ee0e4b72fe8f6fd228e57a4871b173919) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/110762) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.5478342566481522
+issue_comment,NA,NA,493,AlexandreAbraham,2015-03-13 08:40:39,"You should fix the error raised by landscape.
+",0.5221832018255335
+issue_comment,NA,NA,493,landscape-bot,2015-03-11 15:22:15,"[![Code Health](https://landscape.io/badge/123759/landscape.svg?style=flat)](https://landscape.io/diff/109390)
+Repository health decreased by 0.01% when pulling **[f0f6456](https://github.com/banilo/nilearn/commit/f0f6456be99bcb195a0aef2d0b9b9f64c1e3a7ab) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/109390) (including 0 errors and 0 code smells).
+- No problems were fixed.
+",0.49182358527069203
+pull_request_commit_comment,NA,NA,493,AlexandreAbraham,2015-03-11 16:22:26,"This could be a module scope variable.
+",0.4842353211516932
+issue_comment,NA,NA,493,landscape-bot,2015-03-13 14:22:21,"[![Code Health](https://landscape.io/badge/125080/landscape.svg?style=flat)](https://landscape.io/diff/110791)
+Repository health decreased by 0.07% when pulling **[e32ab15](https://github.com/banilo/nilearn/commit/e32ab15e0b7159231268ec5e04051c8e6aa60394) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [2 new problems were found](https://landscape.io/diff/110791) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.467892789773114
+pull_request_commit_comment,NA,NA,493,AlexandreAbraham,2015-03-11 16:24:33,"A good practice would be to use ""<dataset_name>.rst"" as name (here craddock_2011) and create a function to get directly the rst content.
+",0.3363138661774945
+pull_request_commit_comment,NA,NA,493,AlexandreAbraham,2015-03-13 08:40:12,"Again, please use the unique name given to each dataset.
+",0.1119567434297396
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,aa7d12ad925a85ccd699b2e83fe94f868d61a3cb,184,493,banilo,2015-03-17 13:08:04,alex does not like exclamation marks,NA
+issue_comment,NA,NA,493,banilo,2015-03-13 14:37:08,"Ok, just updated this one!
+",0.8181003820336796
+issue_comment,NA,NA,493,landscape-bot,2015-03-12 18:16:53,"[![Code Health](https://landscape.io/badge/124600/landscape.svg?style=flat)](https://landscape.io/diff/110284)
+Repository health decreased by 0.06% when pulling **[55e14b6](https://github.com/banilo/nilearn/commit/55e14b67d1daa669b2581403c6d5f282eff100dc) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/110284) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.7218999911410473
+issue_comment,NA,NA,493,landscape-bot,2015-03-13 13:49:31,"[![Code Health](https://landscape.io/badge/125048/landscape.svg?style=flat)](https://landscape.io/diff/110762)
+Repository health decreased by 0.06% when pulling **[3e98a94](https://github.com/banilo/nilearn/commit/3e98a94ee0e4b72fe8f6fd228e57a4871b173919) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/110762) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.7207149264763374
+issue_comment,NA,NA,493,landscape-bot,2015-03-13 15:10:23,"[![Code Health](https://landscape.io/badge/125106/landscape.svg?style=flat)](https://landscape.io/diff/110818)
+Repository health decreased by 0.07% when pulling **[b0d77f8](https://github.com/banilo/nilearn/commit/b0d77f851662bade4a0b503746d30455b558cb57) on banilo:data_descr2** into **[41639af](https://github.com/nilearn/nilearn/commit/41639af33362616ccd3392752fe216aaf582db90) on nilearn:master**.
+- [2 new problems were found](https://landscape.io/diff/110818) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.7016116405501321
+issue_comment,NA,NA,493,landscape-bot,2015-03-13 14:22:21,"[![Code Health](https://landscape.io/badge/125080/landscape.svg?style=flat)](https://landscape.io/diff/110791)
+Repository health decreased by 0.07% when pulling **[e32ab15](https://github.com/banilo/nilearn/commit/e32ab15e0b7159231268ec5e04051c8e6aa60394) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [2 new problems were found](https://landscape.io/diff/110791) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.7002257518238906
+issue_comment,NA,NA,493,landscape-bot,2015-03-11 15:22:15,"[![Code Health](https://landscape.io/badge/123759/landscape.svg?style=flat)](https://landscape.io/diff/109390)
+Repository health decreased by 0.01% when pulling **[f0f6456](https://github.com/banilo/nilearn/commit/f0f6456be99bcb195a0aef2d0b9b9f64c1e3a7ab) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/109390) (including 0 errors and 0 code smells).
+- No problems were fixed.
+",0.6843491105887399
+pull_request_commit_comment,NA,NA,493,AlexandreAbraham,2015-03-11 16:24:33,"A good practice would be to use ""<dataset_name>.rst"" as name (here craddock_2011) and create a function to get directly the rst content.
+",0.6462352442863578
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f3b90db9af4c13bffb4730d4a1622d96c68b2079,159,493,banilo,2015-03-17 13:32:13,readded rst files,NA
+issue_comment,NA,NA,493,banilo,2015-03-17 13:15:40,":neckbeard: : ""totally!""
+",0.7806869833997065
+issue_comment,NA,NA,493,AlexandreAbraham,2015-03-17 13:19:29,":wave::cop: Tsssk... No!
+",0.758816717237767
+issue_comment,NA,NA,493,banilo,2015-03-17 13:16:39,":family: : ""We could not agree more.""
+",0.7581994247564463
+issue_comment,NA,NA,493,banilo,2015-03-13 14:37:08,"Ok, just updated this one!
+",0.7180227625379549
+issue_comment,NA,NA,493,banilo,2015-03-17 13:22:02,":rabbit: ""Huh, whhaaattteee?""
+",0.6780528285461119
+pull_request_commit_comment,NA,NA,493,banilo,2015-03-12 18:17:54,"Year, realized this one!
+",0.6647924866426889
+pull_request_commit_comment,NA,NA,493,banilo,2015-03-17 12:32:53,"Good point.
+:octocat: 
+",0.6357551315960175
+issue_comment,NA,NA,493,landscape-bot,2015-03-12 18:16:53,"[![Code Health](https://landscape.io/badge/124600/landscape.svg?style=flat)](https://landscape.io/diff/110284)
+Repository health decreased by 0.06% when pulling **[55e14b6](https://github.com/banilo/nilearn/commit/55e14b67d1daa669b2581403c6d5f282eff100dc) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/110284) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.6245084477181555
+issue_comment,NA,NA,493,landscape-bot,2015-03-13 13:49:31,"[![Code Health](https://landscape.io/badge/125048/landscape.svg?style=flat)](https://landscape.io/diff/110762)
+Repository health decreased by 0.06% when pulling **[3e98a94](https://github.com/banilo/nilearn/commit/3e98a94ee0e4b72fe8f6fd228e57a4871b173919) on banilo:data_descr2** into **[9c65ff2](https://github.com/nilearn/nilearn/commit/9c65ff27a138bbc9f8de46999baf4a7d19ef1b27) on nilearn:master**.
+- [1 new problem was found](https://landscape.io/diff/110762) (including 0 errors and 1 code smell).
+- No problems were fixed.
+",0.6205664728506284
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1856cc44bca2c8f1b583950d0ee7c63c69033c66,296,505,AlexandreAbraham,2015-03-19 11:56:59,Fix tests,NA
+pull_request_commit_comment,NA,NA,505,AlexandreAbraham,2015-03-18 16:05:50,":swimmer: WIP
+",0.7441638632983348
+pull_request_commit_comment,NA,NA,505,AlexandreAbraham,2015-03-18 16:29:11,"i postponed this change.
+",0.730790266303864
+pull_request_commit_comment,NA,NA,505,lesteve,2015-03-18 15:33:36,":question: 
+",0.569302549926789
+pull_request_commit_comment,NA,NA,505,GaelVaroquaux,2015-03-18 16:31:54,"> i postponed this change.
+
+Then you should remove the corresponding 'stub' function.
+",0.5368712863254881
+issue_comment,NA,NA,505,AlexandreAbraham,2015-03-19 08:24:31,"It's WIP at the moment. It's far from being usable.
+",0.5126023692086508
+issue_comment,NA,NA,505,lesteve,2015-03-19 07:32:26,"Plenty of failing tests in case you missed it somehow.
+",0.3062784670816272
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b726df26001ce61ec99fb7457ec859a5835fc0bc,40,451,bcipolli@ucsd.edu,2015-02-22 16:40:34,PEP8 linting,NA
+issue_comment,NA,NA,451,bcipolli,2015-02-22 15:27:58,"Great.  I will add a test and update.
+",0.7917755972117029
+issue_comment,NA,NA,451,AlexandreAbraham,2015-02-22 14:33:25,"LGTM.
+
+Regarding the test, a bit of explanation about matplotlib.
+
+`from matplotlib import pyplot as plt`
+
+If you use a plotting function like `plt.plot`, the plot will be added to the current figure that you can access with `plt.gcf()`. 
+
+So, if I take your original code and simplify it (I didn't run this code :P), we could do:
+
+```
+import matplotlib.pyplot as plt
+import nibabel
+import numpy as np
+from nilearn.plotting import plot_glass_brain
+
+
+maps_img = nibabel.Nifti1Image(np.random,random((10, 10, 10)), np.eye(4))
+fh1 = plt.figure()
+fh2 = plt.figure()
+ax1 = fh1.add_subplot(1, 1, 1)
+# Note: pl.gcf()== fh2 because it is the last figure created.
+assert(pl.gcf() == fh2)
+# Since we gave ax1, the figure should be plotted in fh1.
+# Before your fix it was plot in fh2.
+slicer = plot_glass_brain(maps_img, axes=ax1, title='test')
+# Test it
+assert(slicer.axes[0].get_figure() == fh1)
+```
+",0.6770389428346508
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,67bacdede21b9e720dc497b618050c9cb16422ce,56,398,GaelVaroquaux,2015-02-05 15:13:08,ENH: resampling_target='data' on MapsMasker,NA
+pull_request_commit_comment,NA,NA,398,AlexandreAbraham,2015-02-05 14:18:21,"Use `get_affine()`.
+",0.6681443634099752
+pull_request_commit_comment,NA,NA,398,lesteve,2015-02-05 15:10:01,"Do we want a test that uses an explicit resampling_target=""data"" to check that it is the same as not specifying resampling_target?
+",0.4639550385861968
+pull_request_commit_comment,NA,NA,398,AlexandreAbraham,2015-02-05 14:21:18,"`interpolation=""nearest""`
+",nan
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4ef1696ae7ddf8a6185be1463b137828a36e65a0,40,476,bcipolli@ucsd.edu,2015-03-03 16:24:27,Rename assert_raises_regexp to assert_raises_regex in Python 2.7,NA
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:25:00,"My understanding is that the round -> np.round replacement is only needed when the thing you are rounding is a numpy scalar. It doesn't seem necessary here. 
+",0.8245736703083267
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:27:24,"not really related to the PR ...
+",0.7187895597668763
+issue_comment,NA,NA,476,lesteve,2015-03-03 07:45:53,"What about http://python-future.org/compatible_idioms.html#basestring?
+",0.7103681311539667
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:28:18,"not used
+",0.7044479493910359
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:30:50,"not used
+",0.7044479493910359
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:37:24,"not used
+",0.7044479493910359
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:26:26,"not used it looks like
+",0.6425609437739146
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:38:52,"does not seem to be used
+",0.6296256436233758
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,bc20ed8910d156c361c579add9598dc6df85f9e2,35,476,bcipolli@ucsd.edu,2015-03-03 19:11:24,Small code cleanup and reversions from @lesteve's PR comments.,NA
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:25:00,"My understanding is that the round -> np.round replacement is only needed when the thing you are rounding is a numpy scalar. It doesn't seem necessary here. 
+",0.8357427860110075
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:28:18,"not used
+",0.6605921400181693
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:30:50,"not used
+",0.6605921400181693
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:37:24,"not used
+",0.6605921400181693
+issue_comment,NA,NA,476,lesteve,2015-03-03 07:45:53,"What about http://python-future.org/compatible_idioms.html#basestring?
+",0.6468406083652154
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:26:26,"not used it looks like
+",0.5590657441774656
+issue_comment,NA,NA,476,lesteve,2015-03-03 07:34:16,"> Re: the dependency on six, did you have any ideas o removing the dependency on six.string_types
+
+My guess was that future has something similar but I have to say I haven't checked.
+",0.5544027974433217
+pull_request_commit_comment,NA,NA,476,bcipolli,2015-03-03 16:34:22,"Fixed.
+",0.5431270236452215
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:38:52,"does not seem to be used
+",0.54276675487211
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:08:40,"you probably didn't mean to include this file
+",0.5334003546236099
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:35:26,"assert_warns_regex isn not used
+",0.5263791256498171
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:38:29,"I seem to remember this was related to removing one warning so this change and the one above can be removed
+",0.5195518780826791
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,95ddd15be9b4679c977a61bbb5536113c7fe7bc1,73,476,bcipolli@ucsd.edu,2015-03-04 14:51:58,Revert sphinxext changes by copying files from master.,NA
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:25:00,"My understanding is that the round -> np.round replacement is only needed when the thing you are rounding is a numpy scalar. It doesn't seem necessary here. 
+",0.7506052192897386
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:28:18,"not used
+",0.7292760085216494
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:30:50,"not used
+",0.7292760085216494
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:37:24,"not used
+",0.7292760085216494
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:27:24,"not really related to the PR ...
+",0.7243401062460115
+issue_comment,NA,NA,476,lesteve,2015-03-03 07:45:53,"What about http://python-future.org/compatible_idioms.html#basestring?
+",0.6521060524833671
+pull_request_commit_comment,NA,NA,476,bcipolli,2015-03-03 16:34:22,"Fixed.
+",0.6301385416779952
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:38:52,"does not seem to be used
+",0.6154994985851696
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-04 07:59:16,"would
+
+``` python
+diagonal_indices = np.diag_indices(prec.shape[0])
+prec[diagonal_indices] = 0
+```
+
+work?
+",0.5894837245981736
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-04 08:33:11,"could we use np.arange here?
+",0.5781043443736893
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:35:26,"assert_warns_regex isn not used
+",0.5616810951643306
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-02 18:26:26,"not used it looks like
+",0.5601501154887477
+issue_comment,NA,NA,476,lesteve,2015-03-03 07:34:16,"> Re: the dependency on six, did you have any ideas o removing the dependency on six.string_types
+
+My guess was that future has something similar but I have to say I haven't checked.
+",0.5426527001929827
+pull_request_commit_comment,NA,NA,476,lesteve,2015-03-04 08:38:11,"> not used it looks like
+
+still seems to be the case
+",0.540454154849985
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,01a41dffbea510c4476a68e3841d0d2a6ee8525c,86,423,lesteve,2015-02-13 07:58:35,MAINT add license for incorporated software,NA
+issue_comment,NA,NA,423,GaelVaroquaux,2015-02-12 13:10:32,"To address @yarikoptic's comment, we should list all the code that we have included and that came from outside in the copying, with a pointer to the license. I can only see nilearn/doc/sphinxext
+",0.37058235207945944
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,75132213258559dd62698a39019efdad0c648ab9,236,423,lesteve,2015-02-13 08:01:17,MAINT rename COPYING to LICENSE,NA
+issue_comment,NA,NA,423,GaelVaroquaux,2015-02-12 13:10:32,"To address @yarikoptic's comment, we should list all the code that we have included and that came from outside in the copying, with a pointer to the license. I can only see nilearn/doc/sphinxext
+",0.4068621612005694
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,fd5545a3e68b743962cd468eeb1292aaba6843c2,30,441,lesteve,2015-02-19 12:22:51,"Add accept_semi_definite to is_spd
+
+to allow to check that a matrix is positive semi-definite rather than positive definite.
+Add some tests",NA
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 11:22:07,"From my naive point view: should it not be the other way round?
+
+``` python
+ispd = eigvalsh_min >= 0 if semi_definite else eigvalsh_min > 0
+```
+",0.45955803691231045
+issue_comment,NA,NA,441,banilo,2015-02-18 15:27:57,"That looks pretty good! I would not have thought that it can be visualized that well with glass brain.
+kudos!
+",0.36636927546538867
+issue_comment,NA,NA,441,coveralls,2015-02-18 15:14:52,"[![Coverage Status](https://coveralls.io/builds/1949190/badge)](https://coveralls.io/builds/1949190)
+
+Coverage decreased (-0.08%) to 91.74% when pulling **d1d2d0d9549610e80ecdea9a64ca5685180586c8 on lesteve:connectome-plotting** into **5e1621db5baecee634883b45ffa7f53a96df6332 on nilearn:master**.
+",0.3547836988497197
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-19 11:59:23,"Yeah I actually fixed this one locally this morning...
+",0.3379682075160275
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b2b052b392498b7cf4143034505f503b0e1bf878,375,441,lesteve,2015-02-19 12:36:10,"Add nilearn.plotting.plot_connectome
+
+to plot connectomes from adjacency matrix and node coordinates on top of
+glass brain views",NA
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 11:22:07,"From my naive point view: should it not be the other way round?
+
+``` python
+ispd = eigvalsh_min >= 0 if semi_definite else eigvalsh_min > 0
+```
+",0.40977092917106583
+issue_comment,NA,NA,441,coveralls,2015-02-18 15:14:52,"[![Coverage Status](https://coveralls.io/builds/1949190/badge)](https://coveralls.io/builds/1949190)
+
+Coverage decreased (-0.08%) to 91.74% when pulling **d1d2d0d9549610e80ecdea9a64ca5685180586c8 on lesteve:connectome-plotting** into **5e1621db5baecee634883b45ffa7f53a96df6332 on nilearn:master**.
+",0.4030481950860978
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-19 11:59:23,"Yeah I actually fixed this one locally this morning...
+",0.3989924076096073
+issue_comment,NA,NA,441,banilo,2015-02-18 15:27:57,"That looks pretty good! I would not have thought that it can be visualized that well with glass brain.
+kudos!
+",0.31150922028214934
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c444ee2c8d3d2f42755e18a3477c112705a2eafd,68,441,lesteve,2015-02-20 14:13:34,"adjacency_matrix does not need to be positive semi-definite
+
+but only symmetric",NA
+issue_comment,NA,NA,441,AlexandreAbraham,2015-02-20 08:54:13,"> is there an option / easy way to get a colorbar added to the plot?
+
+#379.
+",0.9437357442632931
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 22:45:00,"In favor of a for loop, here too.
+",0.6614613474149251
+pull_request_commit_comment,NA,NA,441,bcipolli,2015-02-19 19:34:15,"I believe this should be `atlas_maps` instead of `msdl_atlas_dataset.maps`.
+",0.6353833318137683
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-20 08:06:50,"good point I'll fix that.
+",0.5796817457160865
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-20 08:07:45,"> Is there a reason to use slice here?
+
+None comes to mind so I can change it.
+",0.571346477343802
+issue_comment,NA,NA,441,lesteve,2015-02-20 07:44:31,"> @lesteve : is there an option / easy way to get a colorbar added to the plot?
+
+Not at the moment I am afraid. It may be doable but I am not sure it should be part of this PR.
+",0.5504055990563541
+issue_comment,NA,NA,441,mrahim,2015-02-19 18:05:01,"me too ...
+
+2015-02-19 19:04 GMT+01:00 Alexandre Abraham notifications@github.com:
+
+> Am I the only one to find coveralls terribly annoying?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/441#issuecomment-75103369.
+",0.5498516984972582
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 11:22:07,"From my naive point view: should it not be the other way round?
+
+``` python
+ispd = eigvalsh_min >= 0 if semi_definite else eigvalsh_min > 0
+```
+",0.5482461129271834
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 22:49:44,"in-line comments on s and c?
+",0.5231872751051897
+issue_comment,NA,NA,441,lesteve,2015-02-19 22:13:25,"FYI I disabled coveralls automatic comments on PRs.
+",0.5186216556001073
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-19 11:59:23,"Yeah I actually fixed this one locally this morning...
+",0.5056690094133445
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,622e3d795c6160634fe35e451f69711fe14f533d,64,441,lesteve,2015-02-20 16:53:17,"Add node_color and node_size to plot_connectome
+
+Those are the parameters more likely to be changed by the user. So it makes sense to
+take them out of the nodes_kwargs",NA
+issue_comment,NA,NA,441,AlexandreAbraham,2015-02-20 08:54:13,"> is there an option / easy way to get a colorbar added to the plot?
+
+#379.
+",0.8917350584073938
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 22:45:00,"In favor of a for loop, here too.
+",0.7044855009175686
+pull_request_commit_comment,NA,NA,441,bcipolli,2015-02-19 19:34:15,"I believe this should be `atlas_maps` instead of `msdl_atlas_dataset.maps`.
+",0.5985867256195692
+issue_comment,NA,NA,441,mrahim,2015-02-19 18:05:01,"me too ...
+
+2015-02-19 19:04 GMT+01:00 Alexandre Abraham notifications@github.com:
+
+> Am I the only one to find coveralls terribly annoying?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/441#issuecomment-75103369.
+",0.4581562656540277
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 11:22:07,"From my naive point view: should it not be the other way round?
+
+``` python
+ispd = eigvalsh_min >= 0 if semi_definite else eigvalsh_min > 0
+```
+",0.4509428017072601
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-20 08:06:50,"good point I'll fix that.
+",0.4442093895165622
+issue_comment,NA,NA,441,lesteve,2015-02-20 07:44:31,"> @lesteve : is there an option / easy way to get a colorbar added to the plot?
+
+Not at the moment I am afraid. It may be doable but I am not sure it should be part of this PR.
+",0.4411469730770933
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 22:49:44,"in-line comments on s and c?
+",0.42459612107129585
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-20 08:07:45,"> Is there a reason to use slice here?
+
+None comes to mind so I can change it.
+",0.40977944400201805
+issue_comment,NA,NA,441,GaelVaroquaux,2015-02-20 16:17:53,"+1 for merging this before tackling color bar 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Feb 20, 2015, 14:27, at 14:27, ""Loïc Estève"" notifications@github.com wrote:
+
+> > > is there an option / easy way to get a colorbar added to the plot?
+> > 
+> > #379.
+> 
+> although related that's not exactly the same thing. Having said that
+> the patch in #379 may just work for this use case because the threshod
+> is 0. In any case I propose to tackle the colorbar once this first
+> iteration on the connectome plotting is merged.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/441#issuecomment-75237427
+",0.4005058423200377
+pull_request_commit_comment,NA,NA,441,bcipolli,2015-02-19 20:41:00,"Instead of `39`, better to use `len(regions_coords)` (I'm using this function, but with a modified version of the maps image :) )
+",0.3868254359572453
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,cede62688d3b2189038d388a392b5279736bedec,52,441,lesteve,2015-02-20 16:56:13,"Renaming of parameters
+
+nodes_kwargs -> node_kwargs and edges_kwargs -> edge_kwargs",NA
+issue_comment,NA,NA,441,AlexandreAbraham,2015-02-20 08:54:13,"> is there an option / easy way to get a colorbar added to the plot?
+
+#379.
+",0.9252634468442962
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 22:45:00,"In favor of a for loop, here too.
+",0.7594426012687862
+pull_request_commit_comment,NA,NA,441,bcipolli,2015-02-19 19:34:15,"I believe this should be `atlas_maps` instead of `msdl_atlas_dataset.maps`.
+",0.7134937224719375
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 11:22:07,"From my naive point view: should it not be the other way round?
+
+``` python
+ispd = eigvalsh_min >= 0 if semi_definite else eigvalsh_min > 0
+```
+",0.6536162998846512
+issue_comment,NA,NA,441,mrahim,2015-02-19 18:05:01,"me too ...
+
+2015-02-19 19:04 GMT+01:00 Alexandre Abraham notifications@github.com:
+
+> Am I the only one to find coveralls terribly annoying?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/441#issuecomment-75103369.
+",0.6188872374527967
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-20 08:06:50,"good point I'll fix that.
+",0.6136930506362073
+pull_request_commit_comment,NA,NA,441,lesteve,2015-02-20 08:07:45,"> Is there a reason to use slice here?
+
+None comes to mind so I can change it.
+",0.6111125424704436
+issue_comment,NA,NA,441,banilo,2015-02-18 15:27:57,"That looks pretty good! I would not have thought that it can be visualized that well with glass brain.
+kudos!
+",0.5956592315298508
+issue_comment,NA,NA,441,lesteve,2015-02-20 07:44:31,"> @lesteve : is there an option / easy way to get a colorbar added to the plot?
+
+Not at the moment I am afraid. It may be doable but I am not sure it should be part of this PR.
+",0.5943646042774824
+issue_comment,NA,NA,441,GaelVaroquaux,2015-02-20 16:17:53,"+1 for merging this before tackling color bar 
+
+Sent from my phone. Please forgive brevity and mis spelling
+
+On Feb 20, 2015, 14:27, at 14:27, ""Loïc Estève"" notifications@github.com wrote:
+
+> > > is there an option / easy way to get a colorbar added to the plot?
+> > 
+> > #379.
+> 
+> although related that's not exactly the same thing. Having said that
+> the patch in #379 may just work for this use case because the threshod
+> is 0. In any case I propose to tackle the colorbar once this first
+> iteration on the connectome plotting is merged.
+> 
+> ---
+> 
+> Reply to this email directly or view it on GitHub:
+> https://github.com/nilearn/nilearn/pull/441#issuecomment-75237427
+",0.5773968829281628
+pull_request_commit_comment,NA,NA,441,banilo,2015-02-19 22:49:44,"in-line comments on s and c?
+",0.5748742108269529
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,aca637208dc967a433598d7080458d3e327d38a7,2202,399,Titan-C,2015-02-15 12:06:16,Local sources of sphinxgallery 0.0.6,NA
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-12 14:04:16,"> Also I think what @GaelVaroquaux had in mind was shipping a version of
+> sphinx-gallery in nilearn/doc/sphinxext rather than requiring to do pip
+> install sphinx-gallery.
+
+Yes.
+",0.8922944650619636
+issue_comment,NA,NA,399,Titan-C,2015-02-12 13:01:54,"Done
+",0.740115485376194
+issue_comment,NA,NA,399,lesteve,2015-02-12 10:08:57,"@Titan-C you have a tiny merge conflict in one of the examples. Would you mind rebasing on master and fixing it?
+",0.5347574917017279
+issue_comment,NA,NA,399,lesteve,2015-02-12 10:26:36,"Also there is a new example examples/manipulating/visualizing/plot_atlas.py that needs parentheses around its print statement.
+",0.49870250018138285
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-13 08:38:20,"> If one keeps a local version of the sphinx-gallery extension, and
+> probably every project will keep its own local copy. What was the aim
+> of keeping the centralized extension? wont all versions end up
+> branching again?
+
+Keeping a local version doesn't mean that we will branch. The idea is to
+have a synchronization script that copies exactly the sphinx-gallery code
+in the projects that use it. In these projects it should never be
+modified. One example of this pattern is how joblib is integrated in
+scikit-learn, in sklearn/externals.
+
+> Isn't it better to use the git version installed in develop mode more
+> practical?
+
+More practical for you. It raises two problems. One is of technicality.
+It's one more thing to learn and master for a contributor. These things
+pile up and make it harder and harder to contribute to a project. The
+second problem is that it means that any backword incompatible change or
+bug introduce in sphinx-gallery will break the projects using it.
+Decoupling is a good thing.
+",0.4482536702409974
+issue_comment,NA,NA,399,lesteve,2015-02-13 12:39:58,"Something I didn't spot right away. We added some additional text at the top of the examples gallery and this was added directly in gen_rst.py
+
+![nilearn_examples_header](https://cloud.githubusercontent.com/assets/1680079/6187300/344c09de-b385-11e4-8809-23f5a6321177.png)
+
+For now a work-around would be to move this text to examples/README.rst.
+",0.4360183119625599
+issue_comment,NA,NA,399,Titan-C,2015-02-12 22:34:26,"I was also wondering about that. If one keeps a local version of the sphinx-gallery extension, and probably every project will keep its own local copy. What was the aim of keeping the centralized extension? wont all versions end up branching again? Isn't it better to use the git version installed in `develop` mode more practical?
+I was having a look at the scikit-learn externals. It is a static set of code that gets updated manually, why? and why the extra install scripts within that module?
+",0.4283036429179947
+issue_comment,NA,NA,399,lesteve,2015-02-13 08:24:05,"> I was also wondering about that. If one keeps a local version of the sphinx-gallery extension, and probably every project will keep its own local copy. What was the aim of keeping the centralized extension? wont all versions end up branching again? Isn't it better to use the git version installed in develop mode more practical?
+
+I guess it's up to each project to make a choice whether they want to ship sphinx-gallery or not. The main point of doing so is pure convenience for people generating the doc.
+
+About sphinx-gallery evolving separately in different projects, there is an implicit agreement that only released versions of sphinx-gallery should be used and that potential changes should be propagated upstream.
+
+> I was having a look at the scikit-learn externals. It is a static set of code that gets updated manually, why? and why the extra install scripts within that module?
+
+I guess convenience again is the main reason. Users are spared having to install a few packages in order to use scikit-learn. I think the technical term is vendorizing, you may want to see what the internet has to say about it. I didn't know about the extra install scripts in external so I can't help on this one.
+",0.4133519863655518
+issue_comment,NA,NA,399,lesteve,2015-02-12 14:01:27,"Thanks I think you should remove the old gallery generating code, for example gen_rst.py and related css.
+
+Also I think what @GaelVaroquaux had in mind was shipping a version of sphinx-gallery in nilearn/doc/sphinxext rather than requiring to do `pip install sphinx-gallery`.
+",0.37107529192385247
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c5fde838c8ef4ae7b37352057c1f8cbd55e4b30d,63,399,Titan-C,2015-03-17 22:34:39,"Update of sphinxgallery, use shelve drop joblib",NA
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-12 14:04:16,"> Also I think what @GaelVaroquaux had in mind was shipping a version of
+> sphinx-gallery in nilearn/doc/sphinxext rather than requiring to do pip
+> install sphinx-gallery.
+
+Yes.
+",0.7331133176687252
+issue_comment,NA,NA,399,Titan-C,2015-02-12 13:01:54,"Done
+",0.6502971233267861
+issue_comment,NA,NA,399,lesteve,2015-02-16 10:29:51,"Great job, this looks pretty close to me! I am regenerating the doc and I'll have a closer look later this afternoon.
+",0.509049183698868
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-16 16:41:46,"> I would be inclined to say let's just use the joblib +
+> sklearn.externals.joblib fall-back for now so that we can merge this
+> PR.
+
+I'd rather not. Creeping dependencies are a problem, and we must tackle
+them. The pseudo code that I have given demonstrates how easy it is to
+use shelve.
+
+> As far as I know, the two projects that are closer to start using
+> sphinx-gallery are nilearn and scikit-learn anyway.
+
+Well, as Oscar is mentionning, it's already posing problems for CI.
+
+But anyhow, let us foster adoption by having little dependencies.
+",0.39170910516238666
+issue_comment,NA,NA,399,lesteve,2015-02-12 10:26:36,"Also there is a new example examples/manipulating/visualizing/plot_atlas.py that needs parentheses around its print statement.
+",0.38401380749329495
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b3a5bafaf3f1a103b432a15b602c4063bfc48d2e,228,399,Titan-C,2015-04-10 09:31:41,Update through automatic script into sphinx-gallery 0.0.7,NA
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-12 14:04:16,"> Also I think what @GaelVaroquaux had in mind was shipping a version of
+> sphinx-gallery in nilearn/doc/sphinxext rather than requiring to do pip
+> install sphinx-gallery.
+
+Yes.
+",0.792979545446991
+issue_comment,NA,NA,399,Titan-C,2015-02-12 13:01:54,"Done
+",0.6541525836186536
+issue_comment,NA,NA,399,lesteve,2015-02-16 10:29:51,"Great job, this looks pretty close to me! I am regenerating the doc and I'll have a closer look later this afternoon.
+",0.5855732846529762
+issue_comment,NA,NA,399,lesteve,2015-02-16 16:57:06,"> Well, as Oscar is mentionning, it's already posing problems for CI. 
+
+Fair point, let's go for the shelve way then.
+",0.5653216845070974
+pull_request_commit_comment,NA,NA,399,lesteve,2015-03-18 07:34:02,"I think this file should be kept unchanged because this changes are not really related to this PR or are they?
+",0.5624124877044124
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-16 16:41:46,"> I would be inclined to say let's just use the joblib +
+> sklearn.externals.joblib fall-back for now so that we can merge this
+> PR.
+
+I'd rather not. Creeping dependencies are a problem, and we must tackle
+them. The pseudo code that I have given demonstrates how easy it is to
+use shelve.
+
+> As far as I know, the two projects that are closer to start using
+> sphinx-gallery are nilearn and scikit-learn anyway.
+
+Well, as Oscar is mentionning, it's already posing problems for CI.
+
+But anyhow, let us foster adoption by having little dependencies.
+",0.49667043058355953
+issue_comment,NA,NA,399,lesteve,2015-02-12 10:26:36,"Also there is a new example examples/manipulating/visualizing/plot_atlas.py that needs parentheses around its print statement.
+",0.4711244111990257
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,601991ce1f92a927a56c3eda3beef190de4f3c23,64,399,Titan-C,2015-04-11 11:36:31,Sphinx-gallery 0.0.8 update for css div selector enforcement,NA
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-12 14:04:16,"> Also I think what @GaelVaroquaux had in mind was shipping a version of
+> sphinx-gallery in nilearn/doc/sphinxext rather than requiring to do pip
+> install sphinx-gallery.
+
+Yes.
+",0.7679142339588511
+issue_comment,NA,NA,399,Titan-C,2015-02-12 13:01:54,"Done
+",0.6637371906518725
+issue_comment,NA,NA,399,lesteve,2015-02-16 10:29:51,"Great job, this looks pretty close to me! I am regenerating the doc and I'll have a closer look later this afternoon.
+",0.6130011678669889
+pull_request_commit_comment,NA,NA,399,lesteve,2015-03-18 07:34:02,"I think this file should be kept unchanged because this changes are not really related to this PR or are they?
+",0.5842535978193567
+issue_comment,NA,NA,399,lesteve,2015-02-16 16:57:06,"> Well, as Oscar is mentionning, it's already posing problems for CI. 
+
+Fair point, let's go for the shelve way then.
+",0.552543264392318
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-16 16:41:46,"> I would be inclined to say let's just use the joblib +
+> sklearn.externals.joblib fall-back for now so that we can merge this
+> PR.
+
+I'd rather not. Creeping dependencies are a problem, and we must tackle
+them. The pseudo code that I have given demonstrates how easy it is to
+use shelve.
+
+> As far as I know, the two projects that are closer to start using
+> sphinx-gallery are nilearn and scikit-learn anyway.
+
+Well, as Oscar is mentionning, it's already posing problems for CI.
+
+But anyhow, let us foster adoption by having little dependencies.
+",0.4737945469214947
+issue_comment,NA,NA,399,lesteve,2015-02-12 10:26:36,"Also there is a new example examples/manipulating/visualizing/plot_atlas.py that needs parentheses around its print statement.
+",0.4567668857430708
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7dd40db0cb6979c573edeef782ecf99cbc7d83a8,178,399,lesteve,2015-04-13 12:26:12,"DOC: rename png targets
+
+since sphinx-gallery automatic figure naming now has fixed width of 3.",NA
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-12 14:04:16,"> Also I think what @GaelVaroquaux had in mind was shipping a version of
+> sphinx-gallery in nilearn/doc/sphinxext rather than requiring to do pip
+> install sphinx-gallery.
+
+Yes.
+",0.7238835536443462
+issue_comment,NA,NA,399,Titan-C,2015-02-12 13:01:54,"Done
+",0.612279771403488
+issue_comment,NA,NA,399,lesteve,2015-02-16 16:57:06,"> Well, as Oscar is mentionning, it's already posing problems for CI. 
+
+Fair point, let's go for the shelve way then.
+",0.451044519264868
+pull_request_commit_comment,NA,NA,399,lesteve,2015-03-18 07:34:02,"I think this file should be kept unchanged because this changes are not really related to this PR or are they?
+",0.43178007702816856
+issue_comment,NA,NA,399,lesteve,2015-02-16 10:29:51,"Great job, this looks pretty close to me! I am regenerating the doc and I'll have a closer look later this afternoon.
+",0.4192383927054103
+issue_comment,NA,NA,399,lesteve,2015-02-12 10:26:36,"Also there is a new example examples/manipulating/visualizing/plot_atlas.py that needs parentheses around its print statement.
+",0.40705382033134474
+issue_comment,NA,NA,399,lesteve,2015-04-13 10:46:03,"> Yes, few days ago I updated to version 0.0.7 which includes the shelve and the dictionary configuration. Then the quick release of 0.0.8 is because I get a bug with CSS as it conflicts with some of the Sphinx themes. The update script is already there and it worked for the last 2 updates.
+
+Great stuff, I'll take a closer look this afternoon!
+
+ Don't hesitate to add a comment when you push commits into your PR branch and you think things are in a good shape. This way we get notifications and it's easier to get a feeling what is going on with the project.
+",0.3955275052860755
+issue_comment,NA,NA,399,GaelVaroquaux,2015-02-16 16:41:46,"> I would be inclined to say let's just use the joblib +
+> sklearn.externals.joblib fall-back for now so that we can merge this
+> PR.
+
+I'd rather not. Creeping dependencies are a problem, and we must tackle
+them. The pseudo code that I have given demonstrates how easy it is to
+use shelve.
+
+> As far as I know, the two projects that are closer to start using
+> sphinx-gallery are nilearn and scikit-learn anyway.
+
+Well, as Oscar is mentionning, it's already posing problems for CI.
+
+But anyhow, let us foster adoption by having little dependencies.
+",0.39061215141687966
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,08faed3c6c9cc860a3ce1896db2bd51a1e3a202d,115,291,banilo,2015-01-14 17:31:55,ENH NiftiMasker: add time mask,NA
+issue_comment,NA,NA,291,banilo,2015-01-14 09:37:37,"I promise to do it still some time today...
+
+2015-01-14 10:36 GMT+01:00 Loïc Estève notifications@github.com:
+
+> @banilo https://github.com/banilo could you look at the merge conflicts
+> on this one?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/291#issuecomment-69890735.
+
+## 
+
+Viele Grüße,
+Danilo
+",0.4651072114641126
+issue_comment,NA,NA,291,banilo,2015-01-14 17:29:41,"fixed merge conflicts + restored empty lines at file end + squashed
+",0.4507137759548706
+pull_request_commit_comment,NA,NA,291,GaelVaroquaux,2014-11-24 11:39:01,"> I don't understand this part ?
+
+I think that the name is bad.
+
+> Also, this functionality probably deserves a bit of narrative documentation:
+> what is the use case ?
+
+Avoiding the bug we had in the anova haxby example :).
+",0.42438182852518425
+pull_request_commit_comment,NA,NA,291,bthirion,2014-11-23 22:00:39,"I don't understand this part ?
+
+Also, this functionality probably deserves a bit of narrative documentation: what is the use case ? 
+",0.40312612498297185
+pull_request_commit_comment,NA,NA,291,AlexandreAbraham,2014-11-24 16:33:28,"> I think that the name is bad.
+> +1
+> 
+> Avoiding the bug we had in the anova haxby example :).
+> The bug was mainly due to the fact that the shape of the session mask was not checked. I think that the main advantage is to be able to apply a condition mask to the data without having to load them manually (and still delegate that to the NiftiMasker).
+
+However, given that this is only used for transform, shouldn't it be a parameter for the transform function rather than for the Masker in general?
+",0.40158315733886196
+pull_request_commit_comment,NA,NA,291,bthirion,2014-12-05 10:59:12,"You probably mean: Data processing ignores the mask-time arguments and takes into account the whole sequence of image.
+",0.3940638003969167
+pull_request_commit_comment,NA,NA,291,AlexandreAbraham,2014-11-24 17:20:06,"Exactly. We can even go further by saying that this is a form of sample extraction and that it could exist as its own object. Because, for exemple, when working on Haxby, maybe I would like to work first on face vs house and then cat vs chair.
+",0.35330444554225604
+pull_request_commit_comment,NA,NA,291,GaelVaroquaux,2014-11-24 16:35:44,"> However, given that this is only used for transform, shouldn't it be a
+> parameter for the transform function rather than for the Masker in general?
+
+Possible. The real argument is that it's data dependent (ie has a shape
+in n_samples) thus giving it at build-time break cross validation.
+
+Which tells us that sessions shouldn't be given at build time :$
+",0.3410312301026661
+issue_comment,NA,NA,291,banilo,2014-11-27 10:05:41,"Thanks for your help!
+a) I changed the mask name to ""mask_time"" in analogy to the ""mask_img"" argument -> better?
+b) Am I right in understanding that we stick with passing the 4D mask to NiftiMasker directly instead of its transform function?
+",0.2526473060181017
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1878b105e8249990ba34d164111f59ad86f4fe66,58,291,banilo,2015-01-30 08:12:46,integrated Loics index_img,NA
+pull_request_commit_comment,NA,NA,291,bthirion,2015-01-20 22:08:39,"All right, thanks.
+",0.699786279794026
+issue_comment,NA,NA,291,banilo,2015-01-14 17:29:41,"fixed merge conflicts + restored empty lines at file end + squashed
+",0.5817325600351877
+pull_request_commit_comment,NA,NA,291,GaelVaroquaux,2014-11-24 11:39:01,"> I don't understand this part ?
+
+I think that the name is bad.
+
+> Also, this functionality probably deserves a bit of narrative documentation:
+> what is the use case ?
+
+Avoiding the bug we had in the anova haxby example :).
+",0.5021584846097578
+pull_request_commit_comment,NA,NA,291,AlexandreAbraham,2014-11-24 17:20:06,"Exactly. We can even go further by saying that this is a form of sample extraction and that it could exist as its own object. Because, for exemple, when working on Haxby, maybe I would like to work first on face vs house and then cat vs chair.
+",0.4884507237763298
+issue_comment,NA,NA,291,GaelVaroquaux,2015-01-25 09:54:00,"> @AlexandreAbraham: Do you think it makes sense to include an option for either
+> pre- or post-pretreatment application of the 4D filter?
+
+We need to make a choice. Too many options are detrimental. It should
+probably be 'pre application', because these are the only semantics that
+make sens in general. However, this will blend a bit the masked data with
+the non masked data in the case of time filtering, so we will have to
+warn the user.
+",0.46798011450505905
+pull_request_commit_comment,NA,NA,291,banilo,2015-01-20 20:01:02,"> And do we want to call it 'mask_time' or 'time_mask' :)
+
+I went for 'mask_time' in analogy to 'mask_img', to allude to the 4D-3D complementary. Should we change that?
+",0.46374160767786854
+issue_comment,NA,NA,291,banilo,2014-11-27 10:05:41,"Thanks for your help!
+a) I changed the mask name to ""mask_time"" in analogy to the ""mask_img"" argument -> better?
+b) Am I right in understanding that we stick with passing the 4D mask to NiftiMasker directly instead of its transform function?
+",0.4553679056199854
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,380c0681bf8b9252befec411d12b71b0678222c6,59,291,banilo,2015-02-10 15:40:11,switched to sample_mask + upgrates,NA
+pull_request_commit_comment,NA,NA,291,banilo,2015-02-02 15:12:02,"Ok
+",1.0555047395708077
+issue_comment,NA,NA,291,banilo,2015-02-03 10:24:41,"> ""sample_mask"" seems like a reasonnable name
+
++1 on this
+",0.9521954961419566
+pull_request_commit_comment,NA,NA,291,bthirion,2015-01-20 22:08:39,"All right, thanks.
+",0.7099053214195987
+issue_comment,NA,NA,291,eickenberg,2015-02-02 17:42:29,"(All in one file, runs labeled from 0 to 11 in the column ""chunk"")
+",0.6125578230347025
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 15:10:35,"minor comment, I would use `time/fourth dimension` rather than `time/4D dimension`
+",0.6008667298590779
+pull_request_commit_comment,NA,NA,291,banilo,2015-02-02 15:17:36,"I will make sure the 4D mask is 'pre application', as suggested by Gael
+",0.5772994576018482
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:37:24,"import is already a few lines below.
+",0.5737818053232315
+pull_request_commit_comment,NA,NA,291,banilo,2015-01-20 20:02:07,"> Agreed with Loic. I wouldn't even call 'asarray' on it, so that it is
+> possible to pass Slice objects.
+
+Can't we combine this with Loics ongoing indexing/slicing PR?
+",0.5680033147056485
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:44:28,"> Data preprocessing will ignore the time mask whereas NiftiMasker.transform will only consider time-masked images.
+
+I thought this wasn't true anymore, i.e. the indexing was done before the other treatments like filtering.
+
+> Use case: Avoid creation of a temporary 4D data nifti, potentially expensive in memory, before application of NiftiMasker.
+
+Not sure what you mean by that, it seems to be that indexing does create a temporary 4D image but maybe I am missing something.
+",0.5663143507899209
+issue_comment,NA,NA,291,AlexandreAbraham,2015-02-02 15:27:48,"> however, the axis we are referring to can be more general than time. we could also select conditions with it for decoding, see e.g. the haxby example. in this perspective the name time_mask is a little restrictive. samples_mask would be more generic, and still understandable/correct
+
+In the case of Haxby example, don't you select conditions after the pre-treatment (ie detrending, etc)?
+",0.5606783237664028
+issue_comment,NA,NA,291,banilo,2015-01-25 09:51:03,"@AlexandreAbraham: Do you think it makes sense to include an option for either pre- or post-pretreatment application of the 4D filter?
+",0.552204174055809
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:46:20,"Also maybe the ""pipelinability"" should be mentioned in this docstring.
+",0.5483181214849936
+issue_comment,NA,NA,291,banilo,2015-01-14 09:37:37,"I promise to do it still some time today...
+
+2015-01-14 10:36 GMT+01:00 Loïc Estève notifications@github.com:
+
+> @banilo https://github.com/banilo could you look at the merge conflicts
+> on this one?
+> 
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/nilearn/nilearn/pull/291#issuecomment-69890735.
+
+## 
+
+Viele Grüße,
+Danilo
+",0.5431963382102152
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,51d6b543e193cf385f97ff216400a7f0f54f289a,31,291,banilo,2015-02-11 14:27:46,simplifications + PEP8,NA
+issue_comment,NA,NA,291,banilo,2015-02-03 10:24:41,"> ""sample_mask"" seems like a reasonnable name
+
++1 on this
+",0.9689749318799407
+pull_request_commit_comment,NA,NA,291,banilo,2015-02-02 15:12:02,"Ok
+",0.9001965760838936
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-11 10:53:53,"Maybe it's just me but I would do:
+
+``` python
+imgs = _utils.check_niimgs(imgs, accept_3d=True)
+
+if sample_mask is not None:
+    imgs = image.index_img(imgs, sample_mask)
+```
+",0.828087954423844
+pull_request_commit_comment,NA,NA,291,bthirion,2015-01-20 22:08:39,"All right, thanks.
+",0.7726913859348654
+issue_comment,NA,NA,291,eickenberg,2015-02-02 17:42:29,"(All in one file, runs labeled from 0 to 11 in the column ""chunk"")
+",0.7208668007556831
+pull_request_commit_comment,NA,NA,291,banilo,2015-02-02 15:17:36,"I will make sure the 4D mask is 'pre application', as suggested by Gael
+",0.7123757457383029
+pull_request_commit_comment,NA,NA,291,banilo,2015-02-11 10:55:33,"It has been like that before, Alex wanted me to change it this way.
+",0.7021339285861184
+issue_comment,NA,NA,291,banilo,2015-01-14 17:29:41,"fixed merge conflicts + restored empty lines at file end + squashed
+",0.7013180635559753
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:37:24,"import is already a few lines below.
+",0.6994478060421605
+issue_comment,NA,NA,291,banilo,2015-02-10 15:41:18,"Comments hopefully addressed. Mask is currently applied pre-treatment.
+",0.6941441678128075
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 15:10:35,"minor comment, I would use `time/fourth dimension` rather than `time/4D dimension`
+",0.6907338937806312
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:53:56,"Could we not check that applying index_img and then the mask without time_mask is the same as applying the mask with time_mask to the original image?
+",0.6786233666773254
+issue_comment,NA,NA,291,banilo,2015-02-11 09:38:43,"Docstring updated!
+",0.6758653242678629
+pull_request_commit_comment,NA,NA,291,banilo,2015-02-11 10:54:59,"That is used in line 143.
+",0.6723968013825283
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:44:28,"> Data preprocessing will ignore the time mask whereas NiftiMasker.transform will only consider time-masked images.
+
+I thought this wasn't true anymore, i.e. the indexing was done before the other treatments like filtering.
+
+> Use case: Avoid creation of a temporary 4D data nifti, potentially expensive in memory, before application of NiftiMasker.
+
+Not sure what you mean by that, it seems to be that indexing does create a temporary 4D image but maybe I am missing something.
+",0.6697559460104544
+pull_request_commit_comment,NA,NA,291,lesteve,2015-02-02 14:46:20,"Also maybe the ""pipelinability"" should be mentioned in this docstring.
+",0.6466233657168023
+issue_comment,NA,NA,291,banilo,2015-01-25 09:51:03,"@AlexandreAbraham: Do you think it makes sense to include an option for either pre- or post-pretreatment application of the 4D filter?
+",0.6453524716660362
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6032aac49c86e3f8f53e6605e8d8e979d0bffeed,75,378,bcipolli@ucsd.edu,2015-02-02 07:32:10,"Byte / Unicode straigtening out, for Python 2/3 compatibility.",NA
+issue_comment,NA,NA,378,GaelVaroquaux,2015-02-01 21:06:53,"> If punting, I suggest adding information somewhere (could be at the top of
+> relevant examples, could be somewhere on the website) about this issue.
+
+Sounds right. If there aren't too many examples where this is the case, I
+would add it there.
+",0.5740008382954724
+issue_comment,NA,NA,378,GaelVaroquaux,2015-02-01 19:45:21,"> I assume with the tests, I can solve that either way (literals or
+> through a conversion function).
+
+I'd solve it via the simplest way, which probably does not entail writing
+a wrapper function.
+",0.47426991831936716
+issue_comment,NA,NA,378,bcipolli,2015-02-01 19:46:32,"If punting, I suggest adding information somewhere (could be at the top of relevant examples, could be somewhere on the website) about this issue.  The examples are a core part of getting people on `nilearn`, and if claiming `python 3` support I think it's important to let users know that the examples won't work for them.
+",0.408335397973012
+issue_comment,NA,NA,378,bcipolli,2015-02-01 19:43:26,"The issue also exists in `test_datasets.py`, but I don't think it's needed for any core code.  I assume with the tests, I can solve that either way (literals or through a conversion function).
+",0.40569508080447303
+issue_comment,NA,NA,378,GaelVaroquaux,2015-02-01 19:40:38,"If it's only on the examples, let's punt: the examples won't work out of
+the box in Python 3. That's too bad. But given that a very large fraction
+of our target users are not in Python 3, it will not affect them. On the
+other hand, making the examples harder to read would affect them.
+",0.3543530484299552
+issue_comment,NA,NA,378,lesteve,2015-02-01 21:25:14,"It looks like using conditions == b'face' will work for both Python 2 and 3, i.e.:
+
+``` python
+condition_mask = np.logical_or(conditions == b'face', conditions == b'house')
+```
+
+and another thing about:
+
+> All nilearn imports should be relative (except, perhaps, in tests)
+
+I seem to remember the scikit-learn policy was to use absolute import in tests. I guess this way you can easily run the test file independently from the package it is coming from, say run a test from your scikit-learn git checkout with an older version of scikit-learn for example.
+",0.3243907847316472
+issue_comment,NA,NA,378,bcipolli,2015-02-01 19:38:22,"I read up on most of the rest of the test failures--they are due to string handling differences between Python 2 and 3 and relatively heavy usage (compared to `sklearn`) in `nilearn` of numpy's `loadtxt` and `recfromtxt` functions without specifying column dtypes, and `nilearn`.
+
+`numpy` has chosen to always return `loadtxt` and `recfromtxt` strings without types as bytes.  However, string literal defaults in Python are version dependent: Python 2 defaults strings to bytes, and Python 3 defaults to unicode.
+
+This fails when in `nilearn` we explicitly filter based on condition masks using string literals, e.g. 
+
+``` python
+haxby_dataset = datasets.fetch_haxby_simple()
+conditions = np.recfromtxt(haxby_dataset.conditions_target)['f0']
+condition_mask = np.logical_or(conditions == 'face', conditions == 'house')
+```
+
+This will succeed in Python 2, but fail in Python 3.  In Python 2, the `'f0'` column is bytes (default), the condition mask `'face'` is bytes, so the comparison succeeds.  In Python 3, the `'f0'` column is bytes (default), the condition mask `'face'` is unicode, so the comparison fails.
+
+One solution could be to specify all string literals as bytes, e.g. `b'face'`.  This is what `sklearn` does, but they don't use `loadtxt` nor `recfromtxt` in user-facing examples.  I think it'd be weird to use these byte literals in examples, especially when most users won't need to know about it (only those using Python 3.x).
+
+Another solution could be to write our own `loadtxt` and `recfromtxt` functions that call `numpy`'s version, then convert any string fields to unicode by calling `decode()` on the strings.  I dislike wrapper functions like this because those familiar with `numpy` may no longer read the examples as clearly (similar, but different function is called....)
+
+A final solution is to repackage the dataset code (where most of this info lies) more carefully, such that the column definitions and datatypes are part of the package.  I think this is the best option--we have that information (we spent the time to curate these datasets), and it would allow better column names (we could use `'condition'` instead of defaults like `'f0'`), but it would take some thinking about how to package that information well.
+
+My suggestion: implement our own wrappers for `loadtxt` and `recfromtxt` and use them in our examples.  If there's interest in the third one, I can open an issue for it.
+
+If no objections, I'll start on solution #2 on Tuesday.  Thanks!
+",0.22556836269205693
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4666f4346791a5e93f9bcd8d64d50c869679593b,162,527,AlexandreAbraham,2015-03-30 13:49:04,Remove remaining pylabs,NA
+issue_comment,NA,NA,527,eickenberg,2015-03-30 12:37:32,"LVGTM
+",0.7183040114108243
+issue_comment,NA,NA,527,lesteve,2015-03-30 12:48:29,"You may as well replace all `import pylab` instances while you are at it.
+
+```
+~/dev/nilearn $ git grep -l pylab nilearn
+nilearn/plotting/displays.py
+nilearn/plotting/img_plotting.py
+nilearn/plotting/tests/test_cm.py
+nilearn/plotting/tests/test_displays.py
+nilearn/plotting/tests/test_img_plotting.py
+```
+",0.4306079452495861
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,94ed0aa814f813d507873b18fd1c0ad84fbe385f,53,414,eickenberg,2015-02-06 13:20:22,TST added cases for negative and heterogeneous data,NA
+issue_comment,NA,NA,414,GaelVaroquaux,2015-02-06 13:10:18,"Can we make the array a bit smaller: right now it is 20x20x20. I am a bit afraid at the cumulated time that this test is taking.
+",0.39699770024371117
+pull_request_commit_comment,NA,NA,414,lesteve,2015-02-06 12:58:32,"Should we try to add similar tests for plot_stat_map where the data has both positive and negative values?
+",0.22564952052823384
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8170a318dc41eecf44ff8aee896a873de295b156,96,500,banilo,2015-03-18 18:30:33,datadescr: OASIS+ABIDE+doc update,NA
+issue_comment,NA,NA,500,AlexandreAbraham,2015-03-17 15:53:55,"Not again :weary: 
+",0.7708001913460747
+ , , , , , , , 
+ , , , , , , , 

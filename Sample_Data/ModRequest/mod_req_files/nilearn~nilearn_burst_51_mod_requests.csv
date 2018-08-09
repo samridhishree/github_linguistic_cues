@@ -1,0 +1,224 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,55cffe5607a7f079bb2bf3612a3bb44bfe93851a,179,277,banilo,2015-01-13 10:27:35,added auto_resample to concat_niimgs(),NA
+pull_request_commit_comment,NA,NA,277,AlexandreAbraham,2014-11-11 22:12:54,"Do you really have a use case where this parameter is useful?
+",0.7002667338709829
+issue_comment,NA,NA,277,banilo,2014-11-24 08:27:31,"Good idea!, ok, I will do this in the afternoon.
+",0.6827150916569233
+issue_comment,NA,NA,277,banilo,2015-01-07 09:41:59,"All aspects should have been addressed now.
+",0.657479444729338
+issue_comment,NA,NA,277,banilo,2014-11-16 22:46:34,"Thanks for the advice, I tried to remedy accordingly.
+",0.6513709402827358
+pull_request_commit_comment,NA,NA,277,lesteve,2014-12-19 08:28:09,"You have to use `from nilearn._utils.testing import assert_raises_regexp` so that it works with Python 2.6
+",0.6312285481375697
+issue_comment,NA,NA,277,banilo,2014-12-18 13:48:37,"...merge conflicts resolved.
+",0.6123647501870275
+pull_request_commit_comment,NA,NA,277,lesteve,2014-12-19 09:18:23,"Shouldn't there be a 's', i.e. length**s**?
+",0.6090943701395742
+pull_request_commit_comment,NA,NA,277,GaelVaroquaux,2014-11-19 12:22:00,"> I believe the verbose argument is generally an int rather than a boolean in
+> nilearn.
+
+Both work, as False is equivalent to 0 and True to 1.
+",0.6052779945545523
+pull_request_commit_comment,NA,NA,277,bthirion,2014-12-23 15:52:56,"Nosetest tells me that lines 290-297 are not tested. If it is the case, could you add a test ?
+",0.58499419549299
+issue_comment,NA,NA,277,bthirion,2014-12-23 15:53:31,"Besides the test aspect,  the PR looks good to me.
+",0.5785341597840575
+pull_request_commit_comment,NA,NA,277,lesteve,2014-11-19 10:46:06,"This could be a assert_array_equal, right?
+",0.5511274694195367
+pull_request_commit_comment,NA,NA,277,GaelVaroquaux,2014-11-19 12:42:54,"> Sure, but I meant more as a general convention. It seems most of the code I
+> have seen in nilearn does verbose=0 by default and does a greater than
+> comparison for printing debug information.
+
+The greater than will also work with ints. I have no preference.
+",0.5461130310716176
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d9f7127241840d25516fbabbf36536a8a959c7a3,108,307,banilo,2014-12-18 15:12:37,enforced missing 3d arguments,NA
+pull_request_commit_comment,NA,NA,307,eickenberg,2014-12-06 18:51:53,"Can you motivate this change?
+",0.7700290054462234
+pull_request_commit_comment,NA,NA,307,bthirion,2014-12-07 17:10:59,"Yes, but why do you make it a 3D image ? 
+",0.7650227798376414
+pull_request_commit_comment,NA,NA,307,eickenberg,2014-12-06 18:54:16,"Is ""type"" here referring to wrong type of shape?
+",0.7007076150623339
+issue_comment,NA,NA,307,bthirion,2014-12-07 17:11:15,"LGTM otherwise.
+",0.689271321088111
+pull_request_commit_comment,NA,NA,307,banilo,2014-12-06 18:54:46,"The variable name appears to be misleading, it's passed on as 'mask_img' a few lines below.
+",0.6585770183679795
+pull_request_commit_comment,NA,NA,307,banilo,2014-12-06 18:56:17,"This lines is now caught by check_niiimg, causing a TypeError, rather than a ValueError because of the shape as before.
+",0.5982654145609589
+pull_request_commit_comment,NA,NA,307,banilo,2014-12-11 14:51:43,"After discussion with Junior, masks for MultiNiftiMasker are always 3D. Thus, there appeared indeed to be a little bug in this test since a 4D images was passed on to the object as mask argument.
+",0.5269186417869629
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,717f1122f9e65d233dd5fa4821943c380015fb3c,50,334,AlexandreAbraham,2015-01-06 15:29:25,Pass verbose parameter to _fetch_files,NA
+pull_request_commit_comment,NA,NA,334,lesteve,2015-01-06 10:22:07,"PEP8
+",0.7901257973461742
+pull_request_commit_comment,NA,NA,334,lesteve,2015-01-06 10:31:35,"urllib.splitquery may be a bit clearer. It returns a tuple `url_without_query, query`
+
+Also slight niggle, I would do 
+
+``` python
+
+displayed_url = urllib.splitquery(url)[0] if verbose == 0 else url
+print 'Dowloading data from %s ...' % displayed_url
+```
+",0.43643898909060086
+issue_comment,NA,NA,334,lesteve,2015-01-06 14:55:08,"Just as a reminder to ourselves, in we ever forget about this, the verbose parameter need to be passed into _fetch_file.
+",0.14723302826546603
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e5808ab76380fac8b26dcc2dde0dad5f3dcf56e6,112,345,bcipolli@ucsd.edu,2015-01-09 15:20:30,"Avoid importing nilearn in setup.py, minor style changes and bugfixes.",NA
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 07:07:19,"> Within a package, I always try to do relative imports to avoid any possible
+> import conflicts. Is this OK here?
+
+Yes, this is good practice.
+",0.5931651544303549
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:10:11,"I'm not sure if this check is the best way to go about things, or to create two different functions (one in `setup.py`, one in `__init__.py`).  I'm open to either.
+",0.5543411358787923
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:06:47,"This all got moved to `version.py`, except the few lines below.
+",0.4965848752171622
+pull_request_commit_comment,NA,NA,345,AlexandreAbraham,2015-01-09 10:13:41,"`gzip` is not a dependency. It is optional and allows to open `.nii.gz` files, this is why it was in a `try ... catch` block.
+",0.49209585150434265
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 14:04:47,"I will do that.  I didn't do that because I thought `_check_module_dependencies` would suggest it is private to that module, not shared across files.
+",0.43840640424138344
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 15:10:20,"I moved this back to a tuple of tuples (well, it was a list of tuples before, but it should be immutable, so made it a list of lists.
+",0.42172722559907405
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 08:01:17,"I believe that iteritems is deprecated in Python 3, and ""items()"" should be used.
+",0.40805057971998837
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 14:03:21,"I'm not sure at all, beyond testing--I'm not so familiar with `setup.py`.  Semantically, for me, this is simply cleaner and safer--those files are in a specific location, not relative to the current working directory.
+",0.40746724265812384
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:09:35,"New function, with greater metadata (see docstrings)
+",0.38128052939995616
+issue_comment,NA,NA,345,bcipolli,2015-01-09 13:59:22,"Thanks for all the comments and suggestions!  I'll go through these now and push up an update to the PR this morning.
+",0.3808038711622671
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,28c0e5a682c7e64907cd7df81af03221e7302e12,43,345,bcipolli@ucsd.edu,2015-01-12 17:55:28,"Style changes to deal with PEP8, general code cleanup",NA
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:19:07,":+1: 
+",0.8944944185053056
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:21:16,":+1: 
+",0.8944944185053056
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:20:09,"I believe '>1' is right, or '>=2'.  The second arg must be present, and I think those two checks check that. I also tested this, and believe this is right.
+",0.8574153163413635
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 15:56:44,"I believe you can use `_VERSION_GLOBALS['_check_module_dependencies'](manual_install_only=True)` here
+",0.7112205339536407
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 07:07:19,"> Within a package, I always try to do relative imports to avoid any possible
+> import conflicts. Is this OK here?
+
+Yes, this is good practice.
+",0.5787903130715124
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 15:58:57,"You need > 2 here. When using `python setup.py install`, sys.argv[0] is setup.py and sys.argv[1] is install.
+",0.5591920258015091
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:21:42,"Right... I was thinking all wrong here.  Thanks!
+",0.556516261633778
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 16:03:45,"`os.path.dirname(os.path.abspath(__file__))` is the way to circumvent this issue I know of.
+",0.5558078412484008
+pull_request_commit_comment,NA,NA,345,AlexandreAbraham,2015-01-09 10:13:41,"`gzip` is not a dependency. It is optional and allows to open `.nii.gz` files, this is why it was in a `try ... catch` block.
+",0.5548451095386826
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:10:11,"I'm not sure if this check is the best way to go about things, or to create two different functions (one in `setup.py`, one in `__init__.py`).  I'm open to either.
+",0.5509996908363508
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-12 15:40:53,"You can probably remove the comment
+",0.5468391959623826
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 08:01:17,"I believe that iteritems is deprecated in Python 3, and ""items()"" should be used.
+",0.5243091524360842
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 16:28:22,"I would point to the installation instructions on the website: http://nilearn.github.io/introduction.html#installation
+",0.5235641294690223
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-12 15:38:07,"I am guessing this four lines can now be removed now that you do the chdir above?
+",0.5075547448006476
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:26:02,"Same here, and also stuck...
+",0.5021203231984819
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:06:47,"This all got moved to `version.py`, except the few lines below.
+",0.49332283349781936
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,abdf3be30fff8651d12f66550a92e6259f01fa8b,86,345,bcipolli@ucsd.edu,2015-01-15 19:01:41,"Remove gzip check, tweak comments and variable names.",NA
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:19:07,":+1: 
+",0.9065085845964643
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:21:16,":+1: 
+",0.9065085845964643
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:20:09,"I believe '>1' is right, or '>=2'.  The second arg must be present, and I think those two checks check that. I also tested this, and believe this is right.
+",0.6783987499206802
+pull_request_commit_comment,NA,NA,345,AlexandreAbraham,2015-01-15 15:32:17,":+1:, even in Gentoo, there is no flag to remove it.
+",0.6372651667667684
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-14 13:23:58,"I would do minver -> min_version everywhere
+",0.6352887003023735
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-14 13:24:42,"> I would do minver -> min_version everywhere
+
++1. We prefer underscore-separated words in variable names.
+",0.6247364365034465
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-14 14:03:33,"> OK then my current preference: required_at_installation for the
+> required module metatdata key and is_nilearn_installing for the
+> _check_module_dependencies parameter name. Could be easily swayed by
+> better alternatives though!
+
+Good with me...
+",0.5901537619635019
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 07:07:19,"> Within a package, I always try to do relative imports to avoid any possible
+> import conflicts. Is this OK here?
+
+Yes, this is good practice.
+",0.5781645072119932
+pull_request_commit_comment,NA,NA,345,AlexandreAbraham,2015-01-15 07:46:08,"This is called `snake_case` as opposed to `CamelCase`.
+",0.567912759652629
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:06:47,"This all got moved to `version.py`, except the few lines below.
+",0.5351671203650039
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 15:56:44,"I believe you can use `_VERSION_GLOBALS['_check_module_dependencies'](manual_install_only=True)` here
+",0.5302889356544642
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 08:04:15,"I am not sure what is the purpose of this change?
+",0.5276443441782327
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 18:23:54,"Yep you are completely right, I spoke too fast on this one ...
+",0.46071038110807316
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-15 08:28:00,"> This is called snake_case as opposed to CamelCase.
+
+Nice, I like it (said in a Borat way)!
+",0.4595918588978648
+pull_request_commit_comment,NA,NA,345,AlexandreAbraham,2015-01-09 10:13:41,"`gzip` is not a dependency. It is optional and allows to open `.nii.gz` files, this is why it was in a `try ... catch` block.
+",0.454840390978804
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:26:02,"Same here, and also stuck...
+",0.4520217096922561
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 16:03:45,"`os.path.dirname(os.path.abspath(__file__))` is the way to circumvent this issue I know of.
+",0.447684937662713
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-14 13:50:00,"Rather than a continue I would negate the predicate and put it in front of the `_import_module_with_version_check(...)`
+",0.4464781254815343
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 15:10:20,"I moved this back to a tuple of tuples (well, it was a list of tuples before, but it should be immutable, so made it a list of lists.
+",0.44144628906923267
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 13:57:46,"Out of interest, what do you gain by being able to execute setup.py outside of the directory where it lives?
+",0.4383547863915491
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:10:11,"I'm not sure if this check is the best way to go about things, or to create two different functions (one in `setup.py`, one in `__init__.py`).  I'm open to either.
+",0.4366645399298468
+issue_comment,NA,NA,345,bcipolli,2015-01-12 14:26:16,"Rolled back from `execfile` to `exec`; I think all of the issues brought up have been addressed.
+",0.4274315984745003
+pull_request_commit_comment,NA,NA,345,AlexandreAbraham,2015-01-12 23:03:34,"Note that it doesn't matter in the end:
+
+```
+Even for projects that do choose to use distutils, when pip
+installs such projects directly from source (rather than installing
+from a prebuilt wheel file), it will actually build your project using
+setuptools instead.
+```
+",0.42378680545573755
+pull_request_commit_comment,NA,NA,345,lesteve,2015-01-09 16:28:22,"I would point to the installation instructions on the website: http://nilearn.github.io/introduction.html#installation
+",0.408802124580105
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 07:06:26,"Within a package, I always try to do relative imports to avoid any possible import conflicts.  Is this OK here?
+",0.40595699001139274
+pull_request_commit_comment,NA,NA,345,GaelVaroquaux,2015-01-09 08:01:17,"I believe that iteritems is deprecated in Python 3, and ""items()"" should be used.
+",0.4005533160768384
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 17:21:42,"Right... I was thinking all wrong here.  Thanks!
+",0.39821187034315186
+pull_request_commit_comment,NA,NA,345,bcipolli,2015-01-09 15:10:33,"@GaelVaroquaux I did my best to avoid the `import nilearn` and figure out how to call functions, will push the changes I made shortly.
+",0.39053678827913696
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3451a2a4e81d1c8c0b469b42f025185e4ab51ec5,43,351,bcipolli@ucsd.edu,2015-01-15 18:56:00,Tweak download rate reporting to account for resuming.,NA
+pull_request_commit_comment,NA,NA,351,bcipolli,2015-01-15 18:40:13,"Ah, ok--I thought it was there for the 'optional argument'.  Will put back with a comment.
+",0.5638531609158561
+pull_request_commit_comment,NA,NA,351,bcipolli,2015-01-15 18:14:58,"Blew away the old algorithm (well, it's essentially the same, but easier to PEP8)
+",0.47520997620289696
+pull_request_commit_comment,NA,NA,351,bcipolli,2015-01-15 18:47:06,"Do you know a simple way to do that?  I did a quick search and didn't see anything simple to get around that issue.
+",0.45461658695556584
+pull_request_commit_comment,NA,NA,351,AlexandreAbraham,2015-01-15 18:28:55,"If you feel like it, I was planning at some point to change that by the uptime of the machine. otherwise, the estimated time is false if your computer goes to sleep.
+",0.4446559941825754
+pull_request_commit_comment,NA,NA,351,AlexandreAbraham,2015-01-15 18:24:46,"This code is used when the size of the file is not sent in the http request header. It must stay.
+",0.3832628167450862
+ , , , , , , , 
+ , , , , , , , 

@@ -1,0 +1,23 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,0e2b456289a00f3e10e5d96aec0b917d15f75999,151,775,arthurmensch,2015-09-04 14:32:27,WIP,NA
+pull_request_commit_comment,NA,NA,775,AlexandreAbraham,2015-09-04 13:04:16,"Does nothing again.
+",0.8142536929581856
+pull_request_commit_comment,NA,NA,775,AlexandreAbraham,2015-09-04 13:00:23,"This line does nothing.
+",0.7853875312632174
+pull_request_commit_comment,NA,NA,775,GaelVaroquaux,2015-09-04 14:21:34,"You're forgetting to remove debug info :)
+",0.7777522421997942
+pull_request_commit_comment,NA,NA,775,GaelVaroquaux,2015-09-04 14:23:12,"Please write in a short comment what this test does. It is not trivial
+",0.768860403282818
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8c836865fb69fcfc2004a11019bbc8a9af400576,151,775,arthurmensch,2015-09-08 16:01:30,WIP,NA
+pull_request_commit_comment,NA,NA,775,AlexandreAbraham,2015-09-04 13:04:16,"Does nothing again.
+",0.8142536929581856
+pull_request_commit_comment,NA,NA,775,AlexandreAbraham,2015-09-04 13:00:23,"This line does nothing.
+",0.7853875312632174
+pull_request_commit_comment,NA,NA,775,GaelVaroquaux,2015-09-04 14:21:34,"You're forgetting to remove debug info :)
+",0.7777522421997942
+pull_request_commit_comment,NA,NA,775,GaelVaroquaux,2015-09-04 14:23:12,"Please write in a short comment what this test does. It is not trivial
+",0.768860403282818
+ , , , , , , , 
+ , , , , , , , 

@@ -1,0 +1,35 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,55cffe5607a7f079bb2bf3612a3bb44bfe93851a,179,277,banilo,2015-01-13 10:27:35,added auto_resample to concat_niimgs(),NA
+pull_request_commit_comment,NA,NA,277,AlexandreAbraham,2014-11-11 22:12:54,"Do you really have a use case where this parameter is useful?
+",0.7002667338709829
+issue_comment,NA,NA,277,banilo,2014-11-24 08:27:31,"Good idea!, ok, I will do this in the afternoon.
+",0.6827150916569233
+issue_comment,NA,NA,277,banilo,2015-01-07 09:41:59,"All aspects should have been addressed now.
+",0.657479444729338
+issue_comment,NA,NA,277,banilo,2014-11-16 22:46:34,"Thanks for the advice, I tried to remedy accordingly.
+",0.6513709402827358
+pull_request_commit_comment,NA,NA,277,lesteve,2014-12-19 08:28:09,"You have to use `from nilearn._utils.testing import assert_raises_regexp` so that it works with Python 2.6
+",0.6312285481375697
+issue_comment,NA,NA,277,banilo,2014-12-18 13:48:37,"...merge conflicts resolved.
+",0.6123647501870275
+pull_request_commit_comment,NA,NA,277,lesteve,2014-12-19 09:18:23,"Shouldn't there be a 's', i.e. length**s**?
+",0.6090943701395742
+pull_request_commit_comment,NA,NA,277,GaelVaroquaux,2014-11-19 12:22:00,"> I believe the verbose argument is generally an int rather than a boolean in
+> nilearn.
+
+Both work, as False is equivalent to 0 and True to 1.
+",0.6052779945545523
+pull_request_commit_comment,NA,NA,277,bthirion,2014-12-23 15:52:56,"Nosetest tells me that lines 290-297 are not tested. If it is the case, could you add a test ?
+",0.58499419549299
+issue_comment,NA,NA,277,bthirion,2014-12-23 15:53:31,"Besides the test aspect,  the PR looks good to me.
+",0.5785341597840575
+pull_request_commit_comment,NA,NA,277,lesteve,2014-11-19 10:46:06,"This could be a assert_array_equal, right?
+",0.5511274694195367
+pull_request_commit_comment,NA,NA,277,GaelVaroquaux,2014-11-19 12:42:54,"> Sure, but I meant more as a general convention. It seems most of the code I
+> have seen in nilearn does verbose=0 by default and does a greater than
+> comparison for printing debug information.
+
+The greater than will also work with ints. I have no preference.
+",0.5461130310716176
+ , , , , , , , 
+ , , , , , , , 

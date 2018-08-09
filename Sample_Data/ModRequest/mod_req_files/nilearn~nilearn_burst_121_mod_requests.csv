@@ -1,0 +1,57 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,740f1609446462cddf10782e7b75458feef6910a,46,1538,KamalakerDadi,2017-11-04 09:15:52,Fixing indentation failure with sphinx-gallery,NA
+issue_comment,NA,NA,1538,bthirion,2017-11-03 20:33:52,LGTM then.,0.6098149622797783
+pull_request_commit_comment,NA,NA,1538,bthirion,2017-11-03 20:19:46,Is there a unit test covering that case ?,0.57586652064718
+issue_comment,NA,NA,1538,KamalakerDadi,2017-11-03 20:29:49,AppVeyor failure is unrelated and should be fixed with PR #1535 ,0.4504324535824513
+pull_request_commit_comment,NA,NA,1538,KamalakerDadi,2017-11-03 20:26:30,There is already in test_coord_transform module testing single integer as inputs and return output the single integer.,0.3923459280917655
+issue_comment,NA,NA,1538,KamalakerDadi,2017-11-03 20:38:36,Should FIX issue #1250 ,0.36294461826784696
+issue_comment,NA,NA,1538,bthirion,2017-11-03 20:20:17,"LGTM, besides the comment on testing all cases.",0.3549597052202774
+issue_comment,NA,NA,1538,KamalakerDadi,2017-11-03 20:27:54,"Travis failure is because of compatibility issues with nibabel .get_affine and .affine
+
+I removed get_affine because we plan to bump nibabel to 2.0.2 which I think should be fine after PR #1534 is merged.",0.3337766391482754
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a2e089b464e9634c62604db9087b2334607c3da7,352,1534,KamalakerDadi,2017-11-02 08:36:31,ENH: Address remaining changes to get_affine to affine,NA
+issue_comment,NA,NA,1534,codecov[bot],2017-11-02 08:32:01,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=h1) Report
+> Merging [#1534](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/93312a1f6e6d06c6a06a26a616282e31c5fc168f?src=pr&el=desc) will **decrease** coverage by `0.03%`.
+> The diff coverage is `98.27%`.
+
+[![Impacted file tree graph](https://codecov.io/gh/nilearn/nilearn/pull/1534/graphs/tree.svg?height=150&width=650&token=KpYArSdyXv&src=pr)](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree)
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1534      +/-   ##
+==========================================
+- Coverage   94.48%   94.45%   -0.04%     
+==========================================
+  Files         122      122              
+  Lines       14912    14893      -19     
+==========================================
+- Hits        14090    14067      -23     
+- Misses        822      826       +4
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/version.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi92ZXJzaW9uLnB5) | `73.91% <ø> (ø)` | :arrow_up: |
+| [nilearn/\_utils/compat.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9fdXRpbHMvY29tcGF0LnB5) | `97.87% <ø> (-0.35%)` | :arrow_down: |
+| [nilearn/decoding/tests/test\_graph\_net.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy90ZXN0cy90ZXN0X2dyYXBoX25ldC5weQ==) | `100% <ø> (ø)` | :arrow_up: |
+| [nilearn/tests/test\_masking.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X21hc2tpbmcucHk=) | `100% <ø> (ø)` | :arrow_up: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.01% <100%> (ø)` | :arrow_up: |
+| [nilearn/input\_data/nifti\_masker.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL25pZnRpX21hc2tlci5weQ==) | `95.94% <100%> (-0.06%)` | :arrow_down: |
+| [nilearn/plotting/img\_plotting.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9pbWdfcGxvdHRpbmcucHk=) | `94.32% <100%> (-0.03%)` | :arrow_down: |
+| [nilearn/input\_data/multi\_nifti\_masker.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9pbnB1dF9kYXRhL211bHRpX25pZnRpX21hc2tlci5weQ==) | `91.89% <100%> (ø)` | :arrow_up: |
+| [nilearn/tests/test\_niimg\_conversions.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi90ZXN0cy90ZXN0X25paW1nX2NvbnZlcnNpb25zLnB5) | `99.57% <100%> (-0.01%)` | :arrow_down: |
+| [nilearn/regions/tests/test\_signal\_extraction.py](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree#diff-bmlsZWFybi9yZWdpb25zL3Rlc3RzL3Rlc3Rfc2lnbmFsX2V4dHJhY3Rpb24ucHk=) | `100% <100%> (ø)` | :arrow_up: |
+| ... and [22 more](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=tree-more) | |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=footer). Last update [93312a1...b480704](https://codecov.io/gh/nilearn/nilearn/pull/1534?src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).
+",0.42454607494627483
+ , , , , , , , 
+ , , , , , , , 

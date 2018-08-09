@@ -1,0 +1,160 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,7b198fe609360777cb332966136fbfd50b936913,165,125,AlexandreAbraham,2013-11-13 09:06:28,Add back test functions for datasets,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.6506761244725894
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-07 15:13:06,"> @GaelVaroquaux do we make smoke tests, tests with phony files or no
+> test at all ?
+
+Right now, make smoke tests, and add an issue to make (later) tests with
+phony files.
+",0.27896232530039244
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:09:16,"I had to remove dataset fetcher tests because the new API break them. I can make new smoke tests (that will increase code coverage) but it won't be useful... The only way to test the dataset fetchers in real conditions is to create phony dataset files (ie files that mimic the dataset tree) locally, as it has already been done for haxby simple.
+
+@GaelVaroquaux do we make smoke tests, tests with phony files or no test at all ?
+",0.1630235762175707
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,647cbe7df4d3be587d89de10ef77f7b5fea251ac,162,125,AlexandreAbraham,2013-11-13 10:05:41,Fix import. Fix docstring.,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.664942563874577
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",0.5558176224825402
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 09:11:57,"I added back some tests. More has to be done but, apart from that, this PR is ready for merging.
+",0.4835454279762671
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 10:03:50,"Despite your worthy efforts to test the dataset module, it's coverage is still the lowest of the whole nilearn codebase:
+
+<pre>
+nilearn.datasets                          412    210    49%   30, 73, 104, 138-143, 196, 200, 229-232, 234-245, 252, 256-258, 298, 308, 312-313, 321-334, 346-357, 361, 363-364, 406, 410-412, 416, 439-460, 464-468, 474-482, 529-549, 598-620, 667-692, 736, 806-807, 812-814, 824, 847-850, 1005-1006, 1014, 1063-1128, 1170-1180, 1218-1280, 1316-1396
+</pre>
+
+And this is actually tricky code. We need it covered :(
+",0.4623337519798607
+pull_request_commit_comment,NA,NA,125,AlexandreAbraham,2013-11-13 09:47:06,"Yes. pgervais added this one, I don't know why because there are no special characters. I'll remove it.
+",0.46145745126975024
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5b422178d347824ea66b3e2c03ed40bd8e93a5ae,93,125,AlexandreAbraham,2013-11-13 10:25:36,Fix md5sum code. Use warnings module.,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.6287482488662002
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",0.5412879415672628
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 09:11:57,"I added back some tests. More has to be done but, apart from that, this PR is ready for merging.
+",0.4617452255641331
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 10:09:37,"The function _tree could and should have its own unit test, as well as _filter_columns
+",0.4223864591365203
+pull_request_commit_comment,NA,NA,125,AlexandreAbraham,2013-11-13 09:47:06,"Yes. pgervais added this one, I don't know why because there are no special characters. I'll remove it.
+",0.4103987704018762
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 10:13:08,"`_tree` should be tested. `filter_columns` is not used, I'll remove it.
+",0.40869560926051507
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:36:04,"I haven't followed: the new ADHD dataset is now good to go?
+",0.400955431827544
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5bd26d1756c5c1ff9c0737f8389abf86abe8e485,34,125,AlexandreAbraham,2013-11-14 23:34:54,increase code coverage 3%,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.8124717922878505
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 10:13:08,"`_tree` should be tested. `filter_columns` is not used, I'll remove it.
+",0.7635069892524007
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",0.7162023854938968
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:36:04,"I haven't followed: the new ADHD dataset is now good to go?
+",0.6810064313774755
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:52:24,"I think that I would prefer to use the 'warnings' module.
+",0.6780942184046285
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-07 15:13:06,"> @GaelVaroquaux do we make smoke tests, tests with phony files or no
+> test at all ?
+
+Right now, make smoke tests, and add an issue to make (later) tests with
+phony files.
+",0.6684346555146753
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:49:37,"I think that I would prefer:
+
+<pre>
+md5sum = opts.get('md5sum', None)
+</pre>
+
+That way you can also remove the line above putting md5sum to None.
+",0.6679663414045942
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b9b54aa1cc7b1715a2dbb1fb7919609fa2b6c8e5,45,125,AlexandreAbraham,2013-11-17 21:21:21,Add test for Yeo atlas,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.6580812395056314
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:36:50,"We need to strive _not_ to have UTF-8 in our code base.
+",0.5721313989319088
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",0.5571707708448654
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 10:17:52,"Although this is not part of you PR, there is a horrible camelCase notation, urlOpener, that needs to be changed to url_opener.
+",0.5144321678619191
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 10:11:07,"Actually, _filter_columns seems broken to me: it returns ""filter"", but the variable defined inside the function is ""filter_"".
+",0.5086064931054155
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:45:45,"I'd rather not use an 'import from'. Note that you don't need the ""import os.path"", as the submodule ""path"" is imported.
+",0.504845907568181
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:52:24,"I think that I would prefer to use the 'warnings' module.
+",0.4934749104007651
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5fc3a852d88c40e26c37deb9b8b2a64d17c0adf2,104,125,AlexandreAbraham,2013-11-18 15:25:04,A dataset is now partly fetchable in tests. 85% coverage.,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.719597476282361
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",0.6152438644393534
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:36:50,"We need to strive _not_ to have UTF-8 in our code base.
+",0.5796047447227282
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:52:24,"I think that I would prefer to use the 'warnings' module.
+",0.5524954478899033
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:45:45,"I'd rather not use an 'import from'. Note that you don't need the ""import os.path"", as the submodule ""path"" is imported.
+",0.511800306916591
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 10:13:08,"`_tree` should be tested. `filter_columns` is not used, I'll remove it.
+",0.5041498707752075
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 09:11:57,"I added back some tests. More has to be done but, apart from that, this PR is ready for merging.
+",0.4741550927909207
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e585ef9f6663f8acdf87058f1fb9e8aceb2a5849,101,125,AlexandreAbraham,2013-11-18 21:58:25,Clean file,NA
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-07 15:46:41,"OK. I have no time for that right now, I'll do it later.
+",0.7913077745692796
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:56:59,"> The problem is that exists and join are use intensively, sometimes with long
+> filenames. Using os.path.exists will force me to break some lines. This is
+> feasible though.
+
+OK. Don't bother. This is minor.
+",0.706746819028027
+issue_comment,NA,NA,125,AlexandreAbraham,2013-11-13 10:13:08,"`_tree` should be tested. `filter_columns` is not used, I'll remove it.
+",0.6694906511418972
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:36:50,"We need to strive _not_ to have UTF-8 in our code base.
+",0.6604776367031922
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 10:03:50,"Despite your worthy efforts to test the dataset module, it's coverage is still the lowest of the whole nilearn codebase:
+
+<pre>
+nilearn.datasets                          412    210    49%   30, 73, 104, 138-143, 196, 200, 229-232, 234-245, 252, 256-258, 298, 308, 312-313, 321-334, 346-357, 361, 363-364, 406, 410-412, 416, 439-460, 464-468, 474-482, 529-549, 598-620, 667-692, 736, 806-807, 812-814, 824, 847-850, 1005-1006, 1014, 1063-1128, 1170-1180, 1218-1280, 1316-1396
+</pre>
+
+And this is actually tricky code. We need it covered :(
+",0.6557544581166963
+issue_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:36:04,"I haven't followed: the new ADHD dataset is now good to go?
+",0.64438830361386
+pull_request_commit_comment,NA,NA,125,GaelVaroquaux,2013-11-13 09:45:45,"I'd rather not use an 'import from'. Note that you don't need the ""import os.path"", as the submodule ""path"" is imported.
+",0.6408309817849461
+ , , , , , , , 
+ , , , , , , , 

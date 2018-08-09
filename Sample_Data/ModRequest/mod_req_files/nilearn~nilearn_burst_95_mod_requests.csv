@@ -1,0 +1,521 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,ffdeb6c5b8082197845d366fb44e085c1b6ae2e6,47,1295,KamalakerDadi,2016-10-01 18:16:56,Fixing data dtype retrieval from images directly with img.get_data().dtype,NA
+pull_request_commit_comment,NA,NA,1295,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",0.7410557817472778
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b77f3eb50854998e745db5a652b8edf5afaea49f,52,1295,GaelVaroquaux,2016-10-10 21:59:10,"DOC: fix the copybutton javascript,
+
+and make it discoverable via CSS.",NA
+pull_request_commit_comment,NA,NA,1295,AlexandreAbraham,2016-09-28 09:35:14,"This should be 3 and not 1 given that 3 files are downloaded.
+",0.8183383482778531
+pull_request_commit_comment,NA,NA,1295,KamalakerDadi,2016-10-06 21:17:55,"May be this sounds good `fetch_atlas_allen_2011` ?
+",0.5096674280643056
+pull_request_commit_comment,NA,NA,1295,KamalakerDadi,2016-10-07 11:32:27,"@GaelVaroquaux Any suggestions on the name ?
+",0.5071571718588731
+issue_comment,NA,NA,1295,KamalakerDadi,2016-10-06 21:19:23,"Some minor comments from my side.
+",0.5030665931515794
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,17f05da46bd6dc56464f93a6d94be052e8b5ad48,237,1342,ahoyosid,2016-12-13 20:09:45,adding backport,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,1.0524957528279966
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.6956115872251799
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6641575313301227
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.5901667894176765
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.5656884407682021
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.5643131880845389
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.5374651867757858
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.5239826044877611
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b698b0e214c46bb5351b4e871325bcb107dc4167,34,1342,ahoyosid,2016-12-17 16:06:24,wrapping old check_cv into the new one,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9723652405951502
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6340610689812767
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.488657395328424
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.4612814366845759
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.4424289269526077
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.40603738938847767
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.3792596308947431
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.3438101749442336
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,96c376ba1996c096ddc317f0fa38027a17090eec,818,1342,ahoyosid,2016-12-17 16:06:45,adding signature func,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.897686825986123
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.6679475862053744
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6287466839869167
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.613500135786049
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.538856631974058
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.5170443670571192
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.4949117705802394
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.44354970381445946
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6935fa9e56a167c988281eede84a9e9ea47e3950,325,1342,ahoyosid,2016-12-17 20:42:20,adding backport to KFold and StratifiedKFold,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,1.0008414376680044
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.6526532429058287
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6071350554687402
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.5395932922650076
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.5386111247125153
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.5277836854232425
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.49948441117917186
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.49172193038422773
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3992eac81e1b071d7ef5d81f55dd408eb5b117ca,268,1342,ahoyosid,2016-12-17 22:07:52,adding odict,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9145026309193784
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6532399633534199
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.5501551003416865
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.5394481892470535
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.5356466064071392
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.4941931960809658
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.48944403457328933
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.47130202332703264
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9a1991175e382e91cdb4f9930bc695d1be02bc7b,519,1342,ahoyosid,2017-02-14 10:14:45,removing sklearn_model_selection,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9409140180057906
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6151537301946843
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.5451333308503832
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.518703356347494
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.5026171972330955
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.4683753345634021
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.44632192958756844
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.4232526797925894
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,946db740dc3e44dbc8d2f6ad5e708fba87b8a075,1509,1342,ahoyosid,2017-02-14 10:15:35,removing other files,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,1.0004414322755264
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.7296278304047132
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.670716960959183
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.6639188473140882
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.6586257464380916
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.6458983488889238
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.6305676231850216
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.5970545570183501
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6172b869af2c3c6444c6aae5bc52801bc4f11209,434,1342,ahoyosid,2017-02-14 10:35:46,solving conflicts with fixes __init__,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9217222281967486
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.5444726735328971
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.47259991152427394
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.4688633228694543
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.4687185448524559
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.43328170077650385
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.40666073145748016
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.3777312493538246
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,52de61e82fea52e245a111f20fce24424b5971a9,529,1342,ahoyosid,2017-02-14 11:03:42,deprecating old check_cv,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9978000575051453
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6654664493830149
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.5522956088979118
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.5480626315767494
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.4823275583667168
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.4259694385364301
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.32956138330229945
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.2926206579614813
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e0e10e6bd9bcf3b0cd083475bc208b4224eb2cff,820,1342,ahoyosid,2017-02-14 12:39:57,add funcsigs,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9460016648909713
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.5460414905516343
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.5067465565673761
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.4738503296323353
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.45267604711349096
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.44724501051419563
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.3878143383042757
+issue_comment,NA,NA,1342,codecov[bot],2017-02-14 12:20:17,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=h1) Report
+> Merging [#1342](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5b70bd456226082b9b9bb4501e603bbcfb402e98?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1342      +/-   ##
+==========================================
++ Coverage   94.29%   94.31%   +0.01%     
+==========================================
+  Files         116      116              
+  Lines       12870    12906      +36     
+==========================================
++ Hits        12136    12172      +36     
+  Misses        734      734
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/connectome/group_sparse_cov.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2dyb3VwX3NwYXJzZV9jb3YucHk=) | `85.71% <100%> (+0.23%)` | :white_check_mark: |
+| [nilearn/decoding/space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zcGFjZV9uZXQucHk=) | `93.12% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/plotting/find_cuts.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.29% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3V0aWxzLnB5) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy91dGlscy5weQ==) | `80.11% <ø> (+0.11%)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.13% <ø> (+0.21%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=footer). Last update [5b70bd4...378ed73](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",0.36464904828524947
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.3330441664915187
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8367776faadecc3e94a9a74779fc96736fd469a3,820,1342,ahoyosid,2017-02-14 13:09:54,using sklearn for funcsign,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.923418996078437
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.5794095312789305
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.49316936141863155
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.450497803024414
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.43927951553149625
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.42386441526789653
+issue_comment,NA,NA,1342,codecov[bot],2017-02-14 12:20:17,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=h1) Report
+> Merging [#1342](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5b70bd456226082b9b9bb4501e603bbcfb402e98?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1342      +/-   ##
+==========================================
++ Coverage   94.29%   94.31%   +0.01%     
+==========================================
+  Files         116      116              
+  Lines       12870    12906      +36     
+==========================================
++ Hits        12136    12172      +36     
+  Misses        734      734
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/connectome/group_sparse_cov.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2dyb3VwX3NwYXJzZV9jb3YucHk=) | `85.71% <100%> (+0.23%)` | :white_check_mark: |
+| [nilearn/decoding/space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zcGFjZV9uZXQucHk=) | `93.12% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/plotting/find_cuts.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.29% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3V0aWxzLnB5) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy91dGlscy5weQ==) | `80.11% <ø> (+0.11%)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.13% <ø> (+0.21%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=footer). Last update [5b70bd4...378ed73](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",0.3362340404065295
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.33144597985831636
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.23093427468263295
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,38345498b7d10a1a616e171a43a73984cc3b77b2,814,1342,ahoyosid,2017-02-14 13:28:46,adding funcsign,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,1.0005698024971301
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.5963285092575973
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.554014073153373
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.5241399856291203
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.5109985046611578
+issue_comment,NA,NA,1342,codecov[bot],2017-02-14 12:20:17,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=h1) Report
+> Merging [#1342](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5b70bd456226082b9b9bb4501e603bbcfb402e98?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1342      +/-   ##
+==========================================
++ Coverage   94.29%   94.31%   +0.01%     
+==========================================
+  Files         116      116              
+  Lines       12870    12906      +36     
+==========================================
++ Hits        12136    12172      +36     
+  Misses        734      734
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/connectome/group_sparse_cov.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2dyb3VwX3NwYXJzZV9jb3YucHk=) | `85.71% <100%> (+0.23%)` | :white_check_mark: |
+| [nilearn/decoding/space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zcGFjZV9uZXQucHk=) | `93.12% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/plotting/find_cuts.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.29% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3V0aWxzLnB5) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy91dGlscy5weQ==) | `80.11% <ø> (+0.11%)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.13% <ø> (+0.21%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=footer). Last update [5b70bd4...378ed73](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",0.4778359642300356
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.45799424860112214
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.4276134130506114
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.4071233451596704
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,68831c3442834b86b1e41918ecc1384b0fd3355f,1369,1342,ahoyosid,2017-02-22 10:20:56,cleaning code,NA
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 09:27:30,+1,0.9839032643750583
+issue_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:24:52,General comment: What is the motivation of this PR ? Is because of conflicts ?,0.6921673622497457
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 08:28:45,"The change is simple, not importing check_cv from model_selection, as it does not receive an X param and it causes conflicts.
+My bad, that comment was a personal message, I'll remove it.",0.655438451419894
+issue_comment,NA,NA,1342,ahoyosid,2016-12-09 17:35:38,"@KamalakerDadi @mrahim @AlexandreAbraham @lesteve
+Can someone of you review this?
+",0.6416926309142261
+issue_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 10:16:02,"> The cross_validation module is going to be deprecated in 0.20 not 0.18.
+
+No: it's deprecate in 0.18, it's going to be remove in 0.20. We shouldn't
+be using it.
+
+> For the moment we can still use the check_cv in cross_validation.
+
+No, not when 0.18 is installed. We need to make an adaption layer.
+",0.5976150944440208
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2016-12-11 09:25:04,"I don't understand. That's the wrong change: it is importing the deprecated check_cv in 0.18. We shouldn't use the sklearn.cross_validation module in sklearn > 0.18, we should use sklearn.model_selection.",0.5824440047655128
+pull_request_commit_comment,NA,NA,1342,KamalakerDadi,2016-12-11 06:08:45,"Sorry, I didn't understood your change or if I am missing. What do we do when people have scikit-learn version < 0.20 ? Edited: Or the other way who have newer version ?
+",0.5632669303744463
+pull_request_commit_comment,NA,NA,1342,ahoyosid,2016-12-11 09:59:41,"Ok, my bad (again).
+The cross_validation module is going to be deprecated in 0.20 not 0.18.
+The check_cv in model_selection does not receive X as param, as well as the CV API. Then, we have to think about this deprecation in near future --e.g. using cross validation in Nilearn examples.
+For the moment we can still use the check_cv in cross_validation. 
+",0.5542412573709383
+issue_comment,NA,NA,1342,codecov[bot],2017-02-14 12:20:17,"# [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=h1) Report
+> Merging [#1342](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=desc) into [master](https://codecov.io/gh/nilearn/nilearn/commit/5b70bd456226082b9b9bb4501e603bbcfb402e98?src=pr&el=desc) will **increase** coverage by `0.01%`.
+> The diff coverage is `100%`.
+
+
+```diff
+@@            Coverage Diff             @@
+##           master    #1342      +/-   ##
+==========================================
++ Coverage   94.29%   94.31%   +0.01%     
+==========================================
+  Files         116      116              
+  Lines       12870    12906      +36     
+==========================================
++ Hits        12136    12172      +36     
+  Misses        734      734
+```
+
+
+| [Impacted Files](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=tree) | Coverage Δ | |
+|---|---|---|
+| [nilearn/connectome/group_sparse_cov.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9jb25uZWN0b21lL2dyb3VwX3NwYXJzZV9jb3YucHk=) | `85.71% <100%> (+0.23%)` | :white_check_mark: |
+| [nilearn/decoding/space_net.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kZWNvZGluZy9zcGFjZV9uZXQucHk=) | `93.12% <100%> (+0.07%)` | :white_check_mark: |
+| [nilearn/plotting/find_cuts.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9wbG90dGluZy9maW5kX2N1dHMucHk=) | `90.29% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X2Z1bmMucHk=) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/tests/test_utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy90ZXN0cy90ZXN0X3V0aWxzLnB5) | `100% <ø> (ø)` | :white_check_mark: |
+| [nilearn/datasets/utils.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy91dGlscy5weQ==) | `80.11% <ø> (+0.11%)` | :white_check_mark: |
+| [nilearn/datasets/func.py](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?src=pr&el=tree#diff-bmlsZWFybi9kYXRhc2V0cy9mdW5jLnB5) | `89.13% <ø> (+0.21%)` | :white_check_mark: |
+
+------
+
+[Continue to review full report at Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=continue).
+> **Legend** - [Click here to learn more](https://docs.codecov.io/docs/codecov-delta)
+> `Δ = absolute <relative> (impact)`, `ø = not affected`, `? = missing data`
+> Powered by [Codecov](https://codecov.io/gh/nilearn/nilearn/pull/1342?src=pr&el=footer). Last update [5b70bd4...378ed73](https://codecov.io/gh/nilearn/nilearn/compare/5b70bd456226082b9b9bb4501e603bbcfb402e98...378ed738ead5b965be2fe5b9c1e166fb5d4708bf?el=footer&src=pr&el=lastupdated). Read the [comment docs](https://docs.codecov.io/docs/pull-request-comments).",0.5446918275444714
+pull_request_commit_comment,NA,NA,1342,GaelVaroquaux,2017-02-15 12:28:43,"Why is this file added?
+
+Are you sure that it's not the result of an operation error with git?",0.5044623964193031
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,68e3699215df53a6bd57675c75d937f2d3a75891,65,1335,alexsavio,2017-01-19 17:03:33,change the labels of the allen atlas dataset,NA
+pull_request_commit_comment,NA,NA,1335,alexsavio,2017-01-19 16:11:12,@GaelVaroquaux thanks for your comments.,0.6160489511262397
+pull_request_commit_comment,NA,NA,1335,alexsavio,2016-12-12 14:45:25,"Agreed, I will fix this.",0.5963465032634505
+pull_request_commit_comment,NA,NA,1335,alexsavio,2016-12-12 14:45:28,"Agreed, I will fix this.",0.5963465032634505
+pull_request_commit_comment,NA,NA,1335,KamalakerDadi,2016-12-10 06:19:59,"Also, ""aggregate_ic_comps"" and ""all_unthresh_tmaps"" has both of 75 components.
+What is the difference ?",0.5636304708209727
+ , , , , , , , 
+ , , , , , , , 

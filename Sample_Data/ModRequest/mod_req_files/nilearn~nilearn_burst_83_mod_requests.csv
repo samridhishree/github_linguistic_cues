@@ -1,0 +1,471 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,b162da2f5d0a17c7fe81ad1c0ee9a6f62ae2628a,5942,1182,jeromedockes,2016-07-29 07:06:42,Rewrite Neurovault fetcher.,NA
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.7240308228426638
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.7083204592972301
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.6646780701486584
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.6369733164650995
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.620670432713735
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.6173461146038809
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.5955594022137134
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.5846413924813325
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.5846413924813325
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.5844588409899263
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2dfda7daee4791a87abdc61ae4c2e3701c765aa0,401,1182,jeromedockes,2016-07-29 11:35:53,better __repr__ for special filter values and remove _KNOWN_BAD_IMAGE_IDS and _KNOWN_BAD_COLLECTION_IDS,NA
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.6709356009707864
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.6536935257740293
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.6133836423615275
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.6133836423615275
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.5580402053782468
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.550298237320094
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.5318791108533234
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.5061569371560624
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.5058111284645488
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.5043562063478562
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c7438210cc167e2353282ff1f26fe8116315fbee,433,1182,jeromedockes,2016-07-29 14:01:54,split fetch_neurovault into fetch_neurovault_filtered and fetch_neurovault_ids,NA
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.8203864321634866
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.7442372053121854
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.7247432149296925
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.7247432149296925
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.7216838720909088
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.7108235788465542
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.7099062148136344
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:54:40,"> Is that really necessary? It adds complexity for no reason.
+
+If I can answer you. Examples has a pretty printing statements which are actually vanished by bunch of warnings.
+",0.6348181019151687
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.6329079351484383
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.6215163734445097
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,50f4737da963110004af387f666f4c740d49a617,1589,1182,jeromedockes,2016-08-16 09:45:47,remove sqlite storage of metadata.,NA
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.7797976492850358
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.7698308434152501
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.6972977275151127
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.6872169168516453
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.6808650769937582
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.6808650769937582
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.6716028073161616
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:43:44,"> I think memory_level is not necessary and may be confusing?
+
+Here, we received warnings if `memory_level=0` hence I suggested. Why is it confusing ? 
+",0.587407408198618
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.583106040996658
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.5795680685718814
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.5746475555590984
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2820a8c05f43d95f46bd1dfb47dfb65eb2956f95,286,1182,jeromedockes,2016-08-19 13:25:02,refactoring,NA
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.7593712662974357
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.7555724683880066
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.7408758079599784
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.7296424860753057
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.6412163816404113
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.6315551980210892
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:57,"Used `load_img` and removed nibabel import.
+",0.6114502424333264
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.6052889409540935
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.6052889409540935
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.5743345349161912
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.5474066998263591
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,15d866bcee22e207614eb1918689c75926c6cb18,75,1182,jeromedockes,2016-11-14 14:10:09,"don't update collections when using download_new, put metadata in lists rather than tuples because DataFrame constructor doesn't accept tuple, fix import in example",NA
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.6947270242130994
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.6522581730395325
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.623289985060171
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.5504672806462558
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.5101238606510776
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.5101238606510776
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.470534749869543
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.4266625047510625
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.4225675146800967
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:29,"I would remove this. This is far too advanced. I would prefer a more elaborated figure with subplots rather than 40 plots.
+",0.4041086025558839
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.40259697393804594
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",0.3909212275282269
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.3888469810107824
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",0.36957131701343515
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:43:44,"> I think memory_level is not necessary and may be confusing?
+
+Here, we received warnings if `memory_level=0` hence I suggested. Why is it confusing ? 
+",0.36884178030935655
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.36824050449454526
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6c5c5add1f1558324b8d6a66c3ec19d753092f3e,38,1182,jeromedockes,2016-11-21 14:05:13,dump basic progress info on stdout,NA
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.7099094252994045
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.7021493092360254
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.6649050031406876
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.6508580065518518
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.5775206786784461
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.5666624724435461
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.5666624724435461
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.546854776170518
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.5020426185113662
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",0.4992608072168765
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",0.4838722569362002
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-21 09:52:09,"> in the meantime the logging level can be set with
+> 
+> neurovault.set_logging_level(<e.g. neurovault.logging.DEBUG>)
+
+Yes, but some execution environement intercept logging.
+",0.482594003253233
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.4764039930089149
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.47303768328215445
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:43:44,"> I think memory_level is not necessary and may be confusing?
+
+Here, we received warnings if `memory_level=0` hence I suggested. Why is it confusing ? 
+",0.47245140775292205
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.47158644042039044
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:57,"Used `load_img` and removed nibabel import.
+",0.4676367250784932
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:29,"I would remove this. This is far too advanced. I would prefer a more elaborated figure with subplots rather than 40 plots.
+",0.4612101962027121
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,11c35c03d734394857b5acd0c5db40b1234346d3,52,1182,jeromedockes,2017-01-26 16:48:28,clean up plot_neurovault_meta_analysis.py example (conversions t to z),NA
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.6836119375218273
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.6784563859242468
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.6574456294294179
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-04 17:10:14,"Is the try/except because of Python 2.6 support?
+
+We should really drop Python 2.6 support.",0.6300369995645663
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-22 17:05:42,"> I do notice that if I have a disconnect in my connection, the neurosynth API
+> call hangs and never returns. I thought the nilearn code times that out?
+
+Hum, we should probably have a timeout.
+",0.6219953711253209
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.6021886453383637
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.6021886453383637
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.5633691431548489
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.5576818447543183
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.5552850921839796
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.5424840550923653
+issue_comment,NA,NA,1182,bcipolli,2016-12-03 00:49:03,"Just to reiterate, this is working great for me. I'd love to see this get merged...",0.5397717682887346
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.5340585936084521
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:29,"I would remove this. This is far too advanced. I would prefer a more elaborated figure with subplots rather than 40 plots.
+",0.5301440202286887
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.5288588844163558
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:23:18,"You never used `nii_z` anywhere ?
+",0.5273746829901798
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.521071134633399
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",0.519613141296919
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",0.5107017031088521
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:43:44,"> I think memory_level is not necessary and may be confusing?
+
+Here, we received warnings if `memory_level=0` hence I suggested. Why is it confusing ? 
+",0.5088933713255631
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:32:15,I don't think that I would have done a line return here.,0.4985704817177895
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-21 09:52:09,"> in the meantime the logging level can be set with
+> 
+> neurovault.set_logging_level(<e.g. neurovault.logging.DEBUG>)
+
+Yes, but some execution environement intercept logging.
+",0.49526152508732446
+issue_comment,NA,NA,1182,jeromedockes,2016-11-21 09:46:49,"> Jerome: how hard would it be to get rid of the log and just use printing to stderr?
+
+not hard, I will do it now
+
+in the meantime the logging level can be set with 
+
+    neurovault.set_logging_level(<e.g. neurovault.logging.DEBUG>)",0.4941971201647599
+issue_comment,NA,NA,1182,jeromedockes,2016-07-26 07:56:39,"> Are you sure examples should be placed in functional connectivity or a new one ?
+
+No, not sure at all - I didn't know where to put them; they were in a folder called ""connectivity"" in the original PR so I put them there. Where would you suggest placing them?
+",0.49381360251501794
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0db92c61c86a77aa9720d57a310c514641386c0f,276,1182,jeromedockes,2017-02-02 15:13:44,use _get_dataset_dir only for finding directories,NA
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:54:26,"removed `nii_z`
+",0.7659107638145466
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.7458031741332705
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.7031388050069249
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.6225314168302674
+issue_comment,NA,NA,1182,bcipolli,2016-12-03 00:49:03,"Just to reiterate, this is working great for me. I'd love to see this get merged...",0.6070021350700396
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.589992825066044
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.589992825066044
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-22 17:05:42,"> I do notice that if I have a disconnect in my connection, the neurosynth API
+> call hangs and never returns. I thought the nilearn code times that out?
+
+Hum, we should probably have a timeout.
+",0.5532125393318513
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.5306485813888999
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:29,"I would remove this. This is far too advanced. I would prefer a more elaborated figure with subplots rather than 40 plots.
+",0.5246379068862581
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",0.5096977634681267
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.5015219447664584
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:24:01,Let's remove this functionality.,0.4916241320697987
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.4887704183177287
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-04 17:10:14,"Is the try/except because of Python 2.6 support?
+
+We should really drop Python 2.6 support.",0.48757323863623514
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-21 09:52:09,"> in the meantime the logging level can be set with
+> 
+> neurovault.set_logging_level(<e.g. neurovault.logging.DEBUG>)
+
+Yes, but some execution environement intercept logging.
+",0.4841361868661854
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:43:44,"> I think memory_level is not necessary and may be confusing?
+
+Here, we received warnings if `memory_level=0` hence I suggested. Why is it confusing ? 
+",0.46811282281177735
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:32:15,I don't think that I would have done a line return here.,0.4614542509599491
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",0.45949750701027703
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.4542927997156584
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:29:36,"Looks like it needs place in nistats. :)
+",0.4365129167658741
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:54:40,"> Is that really necessary? It adds complexity for no reason.
+
+If I can answer you. Examples has a pretty printing statements which are actually vanished by bunch of warnings.
+",0.4307703923506119
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:57,"Used `load_img` and removed nibabel import.
+",0.42834335573579485
+issue_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:37:01,"Two examples looks good to me.
+",0.42477622374394974
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,420ef271bb109bf5318ba907c7aebcfd3ef7e51c,294,1182,jeromedockes,2017-02-02 19:02:53,remove logging in neurovault fetcher,NA
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.6995400911322744
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.6915584020234833
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.6643471636518687
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.6602283484523299
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.6275777178369286
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.6275777178369286
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-04 17:10:14,"Is the try/except because of Python 2.6 support?
+
+We should really drop Python 2.6 support.",0.6214279114546213
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.6196276141147282
+issue_comment,NA,NA,1182,bcipolli,2016-12-03 00:49:03,"Just to reiterate, this is working great for me. I'd love to see this get merged...",0.6128963158898237
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.6096363325577823
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.5925689223367321
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:32:15,I don't think that I would have done a line return here.,0.5791075708833894
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.5763274513722548
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:30:47,"I would transform this into a ""skip_errors"" flag that can be True or False.",0.5729277567016007
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",0.552610250247878
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:23:18,"You never used `nii_z` anywhere ?
+",0.5515086883332027
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:54:40,"> Is that really necessary? It adds complexity for no reason.
+
+If I can answer you. Examples has a pretty printing statements which are actually vanished by bunch of warnings.
+",0.5449251831697751
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-22 17:05:42,"> I do notice that if I have a disconnect in my connection, the neurosynth API
+> call hangs and never returns. I thought the nilearn code times that out?
+
+Hum, we should probably have a timeout.
+",0.5436876816343
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",0.5366250098853083
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.5352498729421695
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-04 17:10:54,I believe that this is for Python 2/Python 3 support. I think that it would be good to indicate it in a comment.,0.5271336689708106
+issue_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:37:01,"Two examples looks good to me.
+",0.5195081613311797
+issue_comment,NA,NA,1182,jeromedockes,2016-07-24 17:30:56,"> You convinced me :) It would be good to add the ""only DOI"" query to examples/documentation.
+
+Noted; for now I have added it to the `fetch_neurovault` docstring, I don't know in which example it would be most interesting to add it.
+",0.5192437517825101
+issue_comment,NA,NA,1182,jeromedockes,2016-07-26 07:56:39,"> Are you sure examples should be placed in functional connectivity or a new one ?
+
+No, not sure at all - I didn't know where to put them; they were in a folder called ""connectivity"" in the original PR so I put them there. Where would you suggest placing them?
+",0.5142215996387702
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0333745c2a9320a7aef8d0103b055ec8fa13338c,182,1182,jeromedockes,2017-02-02 19:14:13,remove decorators from neurovault fetcher,NA
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:15:18,"May be `new_img_like` here ?
+",0.716164447207698
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 18:19:25,"May be we should expose `from nilearn.image import load_img` than `check_niimg`.
+",0.6960050096790369
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:49,"Done.
+",0.6595309394434503
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-27 14:22:37,"Done.
+",0.6595309394434503
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:40:09,"I think `memory_level` is not necessary and may be confusing?
+",0.6521258016949513
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:39:35,"Nitpicking : I would go for `math_img` and rely on `np.isfinite`.
+",0.6392260554574912
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:14:28,"Can we use `load_img` here ?
+",0.6387423222425308
+issue_comment,NA,NA,1182,jeromedockes,2016-07-27 14:39:00,"> Please don't rebase during discussions, it removes all the comments in github.
+
+Sorry about that; thanks for the advice and help by the way.
+",0.6102367890747111
+issue_comment,NA,NA,1182,bcipolli,2016-12-03 00:49:03,"Just to reiterate, this is working great for me. I'd love to see this get merged...",0.608027475288142
+pull_request_commit_comment,NA,NA,1182,jeromedockes,2016-07-26 07:53:06,"replaced `check_niimg` with `load_img`
+",0.6062264543388054
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:30:47,"I would transform this into a ""skip_errors"" flag that can be True or False.",0.5965934882352025
+issue_comment,NA,NA,1182,GaelVaroquaux,2016-11-22 17:05:42,"> I do notice that if I have a disconnect in my connection, the neurosynth API
+> call hangs and never returns. I thought the nilearn code times that out?
+
+Hum, we should probably have a timeout.
+",0.5955905852653935
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-07 17:32:15,I don't think that I would have done a line return here.,0.5951513907609853
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-25 19:23:18,"You never used `nii_z` anywhere ?
+",0.591556064748616
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 00:53:26,"Yes, this needs to be updated.
+",0.5834922128685452
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-12-04 17:10:14,"Is the try/except because of Python 2.6 support?
+
+We should really drop Python 2.6 support.",0.5810686253512674
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:42:44,"Is that really necessary? It adds complexity for no reason.
+",0.5556648620688613
+pull_request_commit_comment,NA,NA,1182,KamalakerDadi,2016-07-27 08:54:40,"> Is that really necessary? It adds complexity for no reason.
+
+If I can answer you. Examples has a pretty printing statements which are actually vanished by bunch of warnings.
+",0.5510581852604153
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-09-30 09:44:20,"You have forgotten to change the name here, haven't you?
+",0.5499548471142148
+pull_request_commit_comment,NA,NA,1182,AlexandreAbraham,2016-07-27 08:48:56,"Because people do not know what is `memory_level`, so they will look up the documentation, which is not very clear, and then they may end up thinking that this is too complicated.
+
+Is a memory object is provided we should set memory level to 1 and not raise a warning.
+",0.5455102024144662
+pull_request_commit_comment,NA,NA,1182,bcipolli,2016-10-03 01:17:33,"Function name should be updated
+",0.5436537565492522
+issue_comment,NA,NA,1182,jeromedockes,2016-07-26 07:56:39,"> Are you sure examples should be placed in functional connectivity or a new one ?
+
+No, not sure at all - I didn't know where to put them; they were in a folder called ""connectivity"" in the original PR so I put them there. Where would you suggest placing them?
+",0.5431340377881022
+pull_request_commit_comment,NA,NA,1182,GaelVaroquaux,2016-07-28 11:46:51,"This is not PEP8: it should be named test_sqlite_download_manager
+",0.5399559655959201
+issue_comment,NA,NA,1182,jeromedockes,2016-07-24 17:30:56,"> You convinced me :) It would be good to add the ""only DOI"" query to examples/documentation.
+
+Noted; for now I have added it to the `fetch_neurovault` docstring, I don't know in which example it would be most interesting to add it.
+",0.5371900331573902
+ , , , , , , , 
+ , , , , , , , 

@@ -1,0 +1,85 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,1c8d267e5280b72f4b29b319f11cd71282fd5b3d,43,181,popravich,2017-01-13 16:01:08,.travis.yml update; conftest win32 fixes,NA
+issue_comment,NA,NA,181,codecov-io,2017-01-13 15:27:16,"## [Current coverage](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) is 95.23% (diff: 86.37%)
+> Merging [#181](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) into [master](https://codecov.io/gh/aio-libs/aioredis/branch/master?src=pr) will decrease coverage by **1.28%**
+
+```diff
+@@             master       #181   diff @@
+==========================================
+  Files            50         55     +5   
+  Lines          6267       7053   +786   
+  Methods           0          0          
+  Messages          0          0          
+  Branches        481        573    +92   
+==========================================
++ Hits           6049       6717   +668   
+- Misses          165        244    +79   
+- Partials         53         92    +39   
+```
+
+> Powered by [Codecov](https://codecov.io?src=pr). Last update [f1f5980...7e931b7](https://codecov.io/gh/aio-libs/aioredis/compare/f1f598072ba4eaff46feb55b28cf8f72d7b72736...7e931b7c85215b3546d29ded9ae4df6692540822?src=pr)",0.5658632056463029
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1ab46a6c90ba791bec3de634420f1a6f737cf7aa,184,181,popravich,2017-01-16 09:25:46,drop sentinel_pubsub tests (basically duplicate simple pubsub tests),NA
+issue_comment,NA,NA,181,codecov-io,2017-01-13 15:27:16,"## [Current coverage](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) is 95.23% (diff: 86.37%)
+> Merging [#181](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) into [master](https://codecov.io/gh/aio-libs/aioredis/branch/master?src=pr) will decrease coverage by **1.28%**
+
+```diff
+@@             master       #181   diff @@
+==========================================
+  Files            50         55     +5   
+  Lines          6267       7053   +786   
+  Methods           0          0          
+  Messages          0          0          
+  Branches        481        573    +92   
+==========================================
++ Hits           6049       6717   +668   
+- Misses          165        244    +79   
+- Partials         53         92    +39   
+```
+
+> Powered by [Codecov](https://codecov.io?src=pr). Last update [f1f5980...7e931b7](https://codecov.io/gh/aio-libs/aioredis/compare/f1f598072ba4eaff46feb55b28cf8f72d7b72736...7e931b7c85215b3546d29ded9ae4df6692540822?src=pr)",0.6453433951391383
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,844f97c6bd334384c6cba25af15eaefb32f5494f,894,181,popravich,2017-01-16 13:40:37,split sentinel tests into commands and failover tests,NA
+issue_comment,NA,NA,181,codecov-io,2017-01-13 15:27:16,"## [Current coverage](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) is 95.23% (diff: 86.37%)
+> Merging [#181](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) into [master](https://codecov.io/gh/aio-libs/aioredis/branch/master?src=pr) will decrease coverage by **1.28%**
+
+```diff
+@@             master       #181   diff @@
+==========================================
+  Files            50         55     +5   
+  Lines          6267       7053   +786   
+  Methods           0          0          
+  Messages          0          0          
+  Branches        481        573    +92   
+==========================================
++ Hits           6049       6717   +668   
+- Misses          165        244    +79   
+- Partials         53         92    +39   
+```
+
+> Powered by [Codecov](https://codecov.io?src=pr). Last update [f1f5980...7e931b7](https://codecov.io/gh/aio-libs/aioredis/compare/f1f598072ba4eaff46feb55b28cf8f72d7b72736...7e931b7c85215b3546d29ded9ae4df6692540822?src=pr)",0.7087788841900053
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,914f3eb2fe0a0bc2044517e96edc2bbfa1438a85,75,181,popravich,2017-01-16 17:07:32,skip sentinel tests on windows (unstable),NA
+issue_comment,NA,NA,181,codecov-io,2017-01-13 15:27:16,"## [Current coverage](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) is 95.23% (diff: 86.37%)
+> Merging [#181](https://codecov.io/gh/aio-libs/aioredis/pull/181?src=pr) into [master](https://codecov.io/gh/aio-libs/aioredis/branch/master?src=pr) will decrease coverage by **1.28%**
+
+```diff
+@@             master       #181   diff @@
+==========================================
+  Files            50         55     +5   
+  Lines          6267       7053   +786   
+  Methods           0          0          
+  Messages          0          0          
+  Branches        481        573    +92   
+==========================================
++ Hits           6049       6717   +668   
+- Misses          165        244    +79   
+- Partials         53         92    +39   
+```
+
+> Powered by [Codecov](https://codecov.io?src=pr). Last update [f1f5980...7e931b7](https://codecov.io/gh/aio-libs/aioredis/compare/f1f598072ba4eaff46feb55b28cf8f72d7b72736...7e931b7c85215b3546d29ded9ae4df6692540822?src=pr)",0.7505830432283922
+ , , , , , , , 
+ , , , , , , , 

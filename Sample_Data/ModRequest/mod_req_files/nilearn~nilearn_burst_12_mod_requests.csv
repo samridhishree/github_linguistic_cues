@@ -1,0 +1,245 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,e1478144daaa2801c122587b6fb65d2161ae2fa0,110,57,pgervais,2013-05-21 08:57:59,"Strengthened io/nifti_region.py tests.
+
+Miscellaneous fixes",NA
+pull_request_commit_comment,NA,NA,57,GaelVaroquaux,2013-05-17 15:45:28,"Fit should always take X, y in scikit-learn parlance, even if it doesn't use X.
+",0.7304883868046825
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-21 08:57:27,"Done
+",0.6060688501992413
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-17 15:43:43,"I think so.
+",0.5870023940371384
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-21 08:50:43,"Corrected.
+",0.49464384945792217
+pull_request_commit_comment,NA,NA,57,pgervais,2013-05-21 08:50:58,"Corrected
+",0.49464384945792217
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,013e96566dd4cf2fce4c40d010a5eff76395959b,101,59,pgervais,2013-05-22 11:29:04,"""smooth"" renamed in ""smoothing_fwhm""
+
+The ""smooth"" parameter has been renamed in ""smoothing_fwhm"" for clarity.
+The original name has been kept in _smooth_array() and image.smooth().
+
+Some minor fixes have been performed as well.",NA
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.5071902630587377
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.46326677898771984
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:45:04,"OK, I see where mem is needed... I guess we need an explanation for the user who does not know joblib.
+",0.432368924389266
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",0.425559617433379
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.40989993619527354
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:28:19,"I hadn't realized, but the docstring should specify that it is a FWHM.
+",0.40355088041213516
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,78c48ae3b9055002930e021328e069dc5cf7570a,43,59,pgervais,2013-05-22 11:50:06,"Renamed ""target"" into ""resampling_target""",NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.7324069428738751
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.6669004150141258
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.5402657116884407
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:45:04,"OK, I see where mem is needed... I guess we need an explanation for the user who does not know joblib.
+",0.5340600499538095
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:46:06,"I would say: just do the simple version. It will make it easier to understand for the user.
+",0.5094532011481121
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:28:19,"I hadn't realized, but the docstring should specify that it is a FWHM.
+",0.5022477261198828
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",0.5014755967951754
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,81b0de298504db68483e626b6c4fb548dfb8dc29,149,59,pgervais,2013-05-22 15:04:23,Simplified examples.,NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.7300931211203898
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.6577123571256567
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:43:34,"You're right. I'll rename this into ""sigma"".
+",0.6381086483329668
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",0.6266673166418353
+issue_comment,NA,NA,59,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",0.5500370988453152
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:46:51,"Hum, actually, compcorr should be in the ADHD sets of confounds, I believe, so you don't need this.
+",0.5378532719533159
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.49913124427000244
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:27:47,"I had left 'smooth' on purpose here, because I felt that in the context of ""apply_mask"", or a Masker object, ""fwhm"" had no meaning. Maybe we could have ""smoothing_fwhm"", but I think that I prefer ""smooth"".
+",0.47101231887187955
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,dc30d1f385bb6fc231880605e7b35afd56d64c6d,205,59,pgervais,2013-05-22 16:13:25,"Added resampling to NiftiLabelsMasker
+
+resampling_target parameter has been added to NiftiLabelsMasker. Only one
+target has been implemented: labels, because resampling labels is considered
+dangerous right now.
+
+Corrected a bug in NiftiMapsMasker: the interpolation method used for ""maps""
+and ""mask"" targets were swapped.",NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",0.8224642380289375
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.567531692181129
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.5306660243671093
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:43:34,"You're right. I'll rename this into ""sigma"".
+",0.3847765233953977
+issue_comment,NA,NA,59,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",0.3800105558770006
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",0.34422046900488923
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:46:06,"I would say: just do the simple version. It will make it easier to understand for the user.
+",0.3254895931670917
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.31532675881031
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:45:04,"OK, I see where mem is needed... I guess we need an explanation for the user who does not know joblib.
+",0.30631617072435546
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2e0d0b08021b871710fa372aa6724cc66ddc0769,258,59,pgervais,2013-05-23 08:17:54,"Renamed example, remove duplicate.",NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",0.7441693889915526
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.6449698282592324
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.633571853457974
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.605130351584354
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:27:47,"I had left 'smooth' on purpose here, because I felt that in the context of ""apply_mask"", or a Masker object, ""fwhm"" had no meaning. Maybe we could have ""smoothing_fwhm"", but I think that I prefer ""smooth"".
+",0.5754498144136115
+issue_comment,NA,NA,59,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",0.5704166671783955
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:28:19,"I hadn't realized, but the docstring should specify that it is a FWHM.
+",0.5686494510901794
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:37:52,"I wonder if it is worth define 3 different variables (affine1, affine2, and affine3), if we set them all equal. I am just trying to make the test shorter and thus more readable.
+",0.5637946493628937
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 11:40:38,"> What do you think? Is this feature useful?
+
+The question is: how does resampling_target affect the output of
+inverse_transform?
+",0.5594016710305962
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,921e25e46e323c89b17dfe62ad3b1b5b2f38ed51,173,59,pgervais,2013-05-23 15:07:57,"Changed output of region signal extracting functions
+
+img_to_signals_labels() and img_to_signals_maps() now always return a
+number of signals equal to the number of regions passed as parameter. In
+the previous state, only regions not fully outside the mask were
+considered, the number of output signals thus could vary. This is not
+the case anymore.
+
+Tests have been adapted.",NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",0.7405349340484483
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.5555733379029015
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.5332011390728346
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.43777655950096905
+issue_comment,NA,NA,59,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",0.40888486106642274
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",0.40648249540435766
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:45:04,"OK, I see where mem is needed... I guess we need an explanation for the user who does not know joblib.
+",0.39574741192715246
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:43:34,"You're right. I'll rename this into ""sigma"".
+",0.39250003341964323
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:46:06,"I would say: just do the simple version. It will make it easier to understand for the user.
+",0.37552339664127954
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b0821f1a92aeef39f35120509e52d651498523fb,201,59,pgervais,2013-05-23 16:01:43,"Added user messages to Nifti*Masker
+
+Renamed plot_msdl_covariance.py co plot_adhd_covariance.py.",NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.7120500583485864
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",0.7118942423556361
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.6120678274132998
+issue_comment,NA,NA,59,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",0.48289338574111185
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.4323238869282926
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:46:06,"I would say: just do the simple version. It will make it easier to understand for the user.
+",0.4271882667650072
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 11:44:30,"> For the moment, inverse_transform returns an image with the shape/affine given
+> by resampling_target.
+
+That's what I thought. In this case, we need the option to have 'image'
+as resampling_target, I believe.
+",0.41966278999410656
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:37:19,"For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm, even if it's longer. 
+",0.40121234213866497
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:43:34,"You're right. I'll rename this into ""sigma"".
+",0.3945359388818199
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1b2d20e79576efec7de15ad61031643cfbe5da60,58,59,pgervais,2013-05-24 09:01:58,Changed default value for resampling_target,NA
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 15:46:07,"> I should do the other way: keep plot_msdl_covariance.py and drop
+> plot_regions_covariance.py, because the MSDL atlas can be downloaded from the
+> internet, whereas Harvard-Oxford's needs a separate FSL installation.
+
+I agree.
+",0.8568323605665139
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:42:29,"> For me, ""smooth"" hints at a boolean flag. I definitely prefer smoothing_fwhm,
+> even if it's longer.
+
+That's fine with me.
+",0.7180697677475028
+issue_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:47:43,"Done with my review! :)
+",0.7076638962777921
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:46:06,"I would say: just do the simple version. It will make it easier to understand for the user.
+",0.502593090477792
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:45:04,"OK, I see where mem is needed... I guess we need an explanation for the user who does not know joblib.
+",0.496565452013391
+issue_comment,NA,NA,59,pgervais,2013-05-22 11:50:57,"Then, which API is the best?
+",0.4961912855732227
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:43:34,"You're right. I'll rename this into ""sigma"".
+",0.4939022640850831
+pull_request_commit_comment,NA,NA,59,GaelVaroquaux,2013-05-22 09:32:40,"We need a more explicit name. Maybe ""resampling_target"".
+",0.4837114805785
+pull_request_commit_comment,NA,NA,59,pgervais,2013-05-22 09:41:11,"I'll clean this, it was initially a copy-paste of test_nifti_maps_masker().
+",0.4824624419404978
+ , , , , , , , 
+ , , , , , , , 

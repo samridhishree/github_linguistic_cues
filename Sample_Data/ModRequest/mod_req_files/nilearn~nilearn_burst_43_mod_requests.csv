@@ -1,0 +1,32 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,b7d99dc4d489ff2ec135606cbfa46ce0288fed21,80,221,GaelVaroquaux,2014-07-02 11:33:13,ENH: ensure_3d in check_niimg,NA
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:27:12,"This should be in `check_niimg`.
+",0.6802005381172787
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:23:32,"Is this really reliable? If so, I would like, as a user, a function that can find all point of interest in the image, not only one.
+",0.5246179033721845
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:22:10,"Is it really necessary for a single image? I have the impression that we have some complicated code here to win a bunch of milliseconds.
+",0.4963792997456902
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,271a18772a5377cd6e323bb3d4fd85c156d06dae,190,221,GaelVaroquaux,2014-07-02 13:09:52,ENH: Add integrated saving,NA
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:27:12,"This should be in `check_niimg`.
+",0.6223664727605814
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:23:32,"Is this really reliable? If so, I would like, as a user, a function that can find all point of interest in the image, not only one.
+",0.4588418546057291
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:22:10,"Is it really necessary for a single image? I have the impression that we have some complicated code here to win a bunch of milliseconds.
+",0.4165811988841953
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9c9da69485beb589a5d58b3a4da556285b3055b9,53,221,GaelVaroquaux,2014-08-24 16:02:27,"MISC: PEP8, docstring, and less data download
+
+Addresses comments by @bthirion",NA
+pull_request_commit_comment,NA,NA,221,AlexandreAbraham,2014-07-01 08:27:12,"This should be in `check_niimg`.
+",0.7778025387668075
+pull_request_commit_comment,NA,NA,221,bthirion,2014-07-03 21:51:44,"... idem...
+",0.7302706069486882
+pull_request_commit_comment,NA,NA,221,bthirion,2014-07-03 21:51:12,"spaces around operators
+",0.5603240984546856
+pull_request_commit_comment,NA,NA,221,bthirion,2014-07-03 21:49:52,"pep8 (missing spaces above and below)
+",0.5323736392875321
+ , , , , , , , 
+ , , , , , , , 

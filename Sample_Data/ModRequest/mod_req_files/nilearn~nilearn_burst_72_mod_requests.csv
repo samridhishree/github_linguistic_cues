@@ -1,0 +1,2365 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,b6d196502767e8e8f473044151f201c4e1e317b0,118,1024,franz.liem,2016-02-26 15:27:28,format fixes,NA
+pull_request_commit_comment,NA,NA,1024,GaelVaroquaux,2016-02-26 15:18:42,"Your lines are definitely long than 79 chars :)
+",0.5988783548799492
+pull_request_commit_comment,NA,NA,1024,GaelVaroquaux,2016-02-26 15:27:20,"Do you need the ""np.array"" here? If so, we need to fix add_markers.
+",0.5473680259826326
+pull_request_commit_comment,NA,NA,1024,GaelVaroquaux,2016-02-26 15:19:45,"Could you call this pcc_coords please
+",0.5057216854359938
+pull_request_commit_comment,NA,NA,1024,GaelVaroquaux,2016-02-26 15:22:01,"Can you make the line below the title as long as the text (to be valid restructured text).
+",0.44713305130453085
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,59442085239832e1e622d1ff390746666391c572,96,1028,mjboos,2016-02-27 22:05:24,"Added plots of the stimuli, changed description and fixed pep8 violations",NA
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:01:36,"Do we need the ""symmetric_cbar=False""
+",0.7588738153866144
+pull_request_commit_comment,NA,NA,1028,aabadie,2016-02-27 12:54:01,"MultiNiftiMas_k_er
+",0.602168103631755
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:51:54,""": the data after the first twelve files""
+",0.5433670037131789
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:57:54,"Can we not use scikit-learn's cross_val_score?
+",0.5178394551241605
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:03:16,"PEP8: space after ','
+",0.4551880645994715
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:59:44,"Well, no, actually, we should be able to combine that cell with the one after and use cross_val_score, no?
+",0.4077266194640401
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a383ede0b04d941b1b119be6c8e96dfa449da475,47,1028,mjboos,2016-02-28 00:08:45,rephrased description and comments,NA
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:01:36,"Do we need the ""symmetric_cbar=False""
+",0.8806073164753867
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:03:16,"PEP8: space after ','
+",0.7175851234799359
+pull_request_commit_comment,NA,NA,1028,aabadie,2016-02-27 12:54:01,"MultiNiftiMas_k_er
+",0.6821747371419663
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:09:58,"PEP8: space after coma
+",0.681920686799213
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:51:54,""": the data after the first twelve files""
+",0.5900989106706969
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:00:15,"PEP8: you need a space after ','
+",0.5860237090450248
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f9235a5b68b324eb93bfceefc68ab01529706c4e,62,1028,mjboos,2016-02-28 17:57:25,integrated comments,NA
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:01:36,"Do we need the ""symmetric_cbar=False""
+",0.8282729498149306
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:03:16,"PEP8: space after ','
+",0.8163777384616162
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:09:58,"PEP8: space after coma
+",0.7952080333806367
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:00:15,"PEP8: you need a space after ','
+",0.7019135834331809
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:33:43,"> I think cross_val_score needs a scorer that returns a single float, but
+> we need an array of scores (one for each voxel). We could do
+> cross_val_score independently for each voxel and then concatenate, but
+> that makes the example much slower (7 minutes vs. 20 seconds for me)
+
+Point taken.
+",0.6956546115717921
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:36:51,"The 'show' should be only at the end of the file because in script mode it will block the execution of the script.
+",0.6524749369490976
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:51:54,""": the data after the first twelve files""
+",0.6351190434134535
+pull_request_commit_comment,NA,NA,1028,aabadie,2016-02-27 12:54:01,"MultiNiftiMas_k_er
+",0.6130423860008434
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:38:19,"The red doesn't show, because the background is red. Maybe it's better to use cyan.
+",0.6043928154444087
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:43:24,"Maybe a title for the figure?
+",0.6039103994725994
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,07a4c40ad2d9500d10d0392896ef026eb453fc37,38,1028,mjboos,2016-02-29 15:42:24,"Slight rephrasing, added marker_color argument",NA
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:01:36,"Do we need the ""symmetric_cbar=False""
+",0.8406205995731273
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:06:43,"grammar
+",0.6854929869360168
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:03:16,"PEP8: space after ','
+",0.6824310366726223
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:07:58,"binary (i.e., X and Y values) image
+",0.6615652725764262
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:12:30,"can be simplified to `fig = plt.figure(figsize=(12, 12))`
+",0.6464358010624793
+pull_request_commit_comment,NA,NA,1028,aabadie,2016-02-27 12:54:01,"MultiNiftiMas_k_er
+",0.6200670043819819
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:09:58,"PEP8: space after coma
+",0.6038154288128197
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:51:54,""": the data after the first twelve files""
+",0.5748422575035741
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:00:15,"PEP8: you need a space after ','
+",0.5640732362383154
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:33:43,"> I think cross_val_score needs a scorer that returns a single float, but
+> we need an array of scores (one for each voxel). We could do
+> cross_val_score independently for each voxel and then concatenate, but
+> that makes the example much slower (7 minutes vs. 20 seconds for me)
+
+Point taken.
+",0.54897587380987
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:43:24,"Maybe a title for the figure?
+",0.5309595142278818
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:57:54,"Can we not use scikit-learn's cross_val_score?
+",0.5273134333238516
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:36:51,"The 'show' should be only at the end of the file because in script mode it will block the execution of the script.
+",0.4944516154113656
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 18:08:44,"> I've switched the red and blue marker, so the contrast to the
+> surrounding voxels is stronger. I find it discriminative enough,
+
+That sounds good!
+",0.48293798329713056
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3440fbfd920ca88492f35086820dcd6913bf36a7,54,1028,mjboos,2016-02-29 16:32:39,changed variable names,NA
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:06:43,"grammar
+",0.875411244547767
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:01:36,"Do we need the ""symmetric_cbar=False""
+",0.8709815830765882
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:33:43,"> I think cross_val_score needs a scorer that returns a single float, but
+> we need an array of scores (one for each voxel). We could do
+> cross_val_score independently for each voxel and then concatenate, but
+> that makes the example much slower (7 minutes vs. 20 seconds for me)
+
+Point taken.
+",0.7717821798914977
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:07:58,"binary (i.e., X and Y values) image
+",0.7426390326137247
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:03:16,"PEP8: space after ','
+",0.7328761897822489
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:08:55,"point at the end of this sentence
+",0.7090661351053673
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 18:08:44,"> I've switched the red and blue marker, so the contrast to the
+> surrounding voxels is stronger. I find it discriminative enough,
+
+That sounds good!
+",0.6982232690652475
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:00:15,"PEP8: you need a space after ','
+",0.6875620339233861
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-29 08:44:03,"Nitpick: this might be written:
+
+```
+cut_score = np.mean(scores, axis=0)
+```
+",0.6673054885678533
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 13:09:58,"PEP8: space after coma
+",0.6661396946218747
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-27 12:56:55,"Ah, maybe here is where we want to plot stimuli.
+
+I would suggest moving the definition of y_shape here, to have things close to where they are understandable.
+",0.654466890412297
+pull_request_commit_comment,NA,NA,1028,aabadie,2016-02-27 12:54:01,"MultiNiftiMas_k_er
+",0.6535639766114403
+pull_request_commit_comment,NA,NA,1028,banilo,2016-02-29 13:12:30,"can be simplified to `fig = plt.figure(figsize=(12, 12))`
+",0.649525654883375
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:42:35,"Maybe a line of comment on what is GridSpec.
+",0.6243986754726857
+pull_request_commit_comment,NA,NA,1028,GaelVaroquaux,2016-02-28 16:43:24,"Maybe a title for the figure?
+",0.618390481937731
+pull_request_commit_comment,NA,NA,1028,mjboos,2016-02-27 22:01:29,"I think cross_val_score needs a scorer that returns a single float, but we need an array of scores (one for each voxel). We could do cross_val_score independently for each voxel and then concatenate, but that makes the example much slower (7 minutes vs. 20 seconds for me)
+",0.6080164589142152
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,ff58fe41dd8bc2316f4a7750da3af9da6d0f4b9e,44,982,aabadie,2016-02-09 15:21:17,"addressing comments:
+- renaming variables
+- improving docstring with an example
+- use _safe_get_data to retrieve the numpy array a an niimg",NA
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-08 16:37:47,"Indeed, I changed this.
+",0.6023135916588345
+pull_request_commit_comment,NA,NA,982,AlexandreAbraham,2016-02-08 12:36:44,"This sould be `list_data` and you should leave `imgs` untouched.
+",0.5221425253495615
+issue_comment,NA,NA,982,aabadie,2016-02-05 17:31:30,"> We are trying to have user-facing functions that are niimgs in, niimgs out.
+
+Ok, that's the way it works.
+
+The tests I added are failing, I have to investigate on this.
+",0.4139332247798647
+issue_comment,NA,NA,982,aabadie,2016-02-08 16:38:23,"Changing the title to MRG, as I think it's in a good shape now.
+",0.3856588960739663
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:09:02,"Please use full variable names.
+",0.37351946966657834
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:09:51,"Strange name starting by ""list"" for an object that is a dict.
+",0.3658608954103596
+issue_comment,NA,NA,982,GaelVaroquaux,2016-02-05 17:17:35,"> If it takes niimgs as input should it also return niimgs ?
+
+Yes. We are trying to have user-facing functions that are niimgs in,
+niimgs out.
+",0.33613424314290596
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:09:25,"You need to use ""_safe_get_data"" here.
+",0.2681676204337313
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:08:27,"Can you detail the ""**imgs"" argument, and well as add a ""returns"" description.
+
+It would also be good to have an ""example"" section, that shows couple of example of usage (see the docstring of any numpy function).
+
+You can have a look at https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#sections and 
+http://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html
+",0.178693889037415
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1c08e6a70c5114d1b2a771d2ef88d6e1f03c82b2,55,982,aabadie,2016-02-11 12:33:31,improving math_img and test,NA
+pull_request_commit_comment,NA,NA,982,bthirion,2016-02-09 22:05:54,"+1
+",0.9911741320013565
+pull_request_commit_comment,NA,NA,982,KamalakerDadi,2016-02-09 19:38:52,"May be capital ""N"" to nifti ?
+",0.7671994705298728
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-08 16:37:47,"Indeed, I changed this.
+",0.6875099447467379
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-10 12:45:40,"Done
+",0.681442119089604
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:09:02,"Please use full variable names.
+",0.6137353200090212
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-10 12:46:24,"Added the 'Returns' section.
+",0.6085419534921722
+pull_request_commit_comment,NA,NA,982,AlexandreAbraham,2016-02-08 12:36:44,"This sould be `list_data` and you should leave `imgs` untouched.
+",0.5839118492318804
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c6f574ad7ed50218df6b9e341a9befa9492af3a9,47,982,aabadie,2016-02-11 12:33:51,adding 2 examples using math_img function,NA
+pull_request_commit_comment,NA,NA,982,bthirion,2016-02-09 22:05:54,"+1
+",0.8940404725785507
+pull_request_commit_comment,NA,NA,982,KamalakerDadi,2016-02-09 19:38:52,"May be capital ""N"" to nifti ?
+",0.8797495711695914
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-10 12:45:40,"Done
+",0.7525026617360747
+pull_request_commit_comment,NA,NA,982,AlexandreAbraham,2016-02-08 12:36:44,"This sould be `list_data` and you should leave `imgs` untouched.
+",0.7442922864061065
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-08 16:37:47,"Indeed, I changed this.
+",0.6989623355100014
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-09 16:45:46,"Comment adressed, along with the others below.
+",0.6645140594993011
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:09:51,"Strange name starting by ""list"" for an object that is a dict.
+",0.657485486453914
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,bef9cdcb7f8f6f9b68267ad91146c86683515a6f,93,982,aabadie,2016-02-11 16:22:07,addressing comments,NA
+pull_request_commit_comment,NA,NA,982,bthirion,2016-02-09 22:05:54,"+1
+",0.9836588878078428
+pull_request_commit_comment,NA,NA,982,KamalakerDadi,2016-02-09 19:38:52,"May be capital ""N"" to nifti ?
+",0.8204289846198288
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-08 16:37:47,"Indeed, I changed this.
+",0.7369915319722832
+issue_comment,NA,NA,982,GaelVaroquaux,2016-02-05 17:17:35,"> If it takes niimgs as input should it also return niimgs ?
+
+Yes. We are trying to have user-facing functions that are niimgs in,
+niimgs out.
+",0.6734888489677406
+pull_request_commit_comment,NA,NA,982,AlexandreAbraham,2016-02-08 12:36:44,"This sould be `list_data` and you should leave `imgs` untouched.
+",0.6473970244249294
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-11 14:24:08,"Maybe ""Negate image""?
+",0.6423543202352464
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-11 14:25:54,"I think that you can just do ""-img"", no?
+",0.6355486848871668
+pull_request_commit_comment,NA,NA,982,GaelVaroquaux,2016-02-09 11:09:02,"Please use full variable names.
+",0.612952235387555
+pull_request_commit_comment,NA,NA,982,aabadie,2016-02-10 12:46:24,"Added the 'Returns' section.
+",0.6022343250528155
+issue_comment,NA,NA,982,aabadie,2016-02-05 17:31:30,"> We are trying to have user-facing functions that are niimgs in, niimgs out.
+
+Ok, that's the way it works.
+
+The tests I added are failing, I have to investigate on this.
+",0.5737651456275769
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b061e74781f89eb1c5ecc02f2b8215b1f7e34b61,116,978,aabadie,2016-02-04 13:06:03,"use upper case filename for root rst files (AUTHORS, CONTRIBUTING) and lower case in other places",NA
+issue_comment,NA,NA,978,lesteve,2016-02-04 13:03:50,"Could it be because of this:
+
+```
+More recent ""master"" branch build has been stated.
+```
+",0.564133319632922
+issue_comment,NA,NA,978,aabadie,2016-02-04 12:47:16,"@AlexandreAbraham, it would be great to have it in next release :)
+",0.4782328826038643
+issue_comment,NA,NA,978,AlexandreAbraham,2016-02-04 13:00:13,"+1 for including it in the upcoming release. This is a good start for the contributing part. Let's wait for CircleCI.
+
+PS: have you seen that the appveyor build has been cancelled... Does anybody know the reason?
+",0.40889641494388873
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,635313bd7efe865b665c9f23ac81701bace311f3,47,1033,aabadie,2016-03-01 12:37:44,adressing comments,NA
+pull_request_commit_comment,NA,NA,1033,KamalakerDadi,2016-02-29 22:19:38,"space missing after import.
+",0.6946104426851929
+pull_request_commit_comment,NA,NA,1033,KamalakerDadi,2016-02-29 22:16:24,"Resampling ""an image"" to a given reference image
+",0.6107313860436696
+issue_comment,NA,NA,1033,GaelVaroquaux,2016-02-29 16:10:12,"Indeed, circleCI failed :(
+",0.5751999322461382
+pull_request_commit_comment,NA,NA,1033,GaelVaroquaux,2016-02-29 14:12:01,"The '|' at the beginning of this line seems fishy to me. Is this valid rst?
+",0.5371218768743509
+pull_request_commit_comment,NA,NA,1033,KamalakerDadi,2016-02-29 22:18:51,"May be title should focus to say about ""resampling"" ?
+",0.533361035683755
+pull_request_commit_comment,NA,NA,1033,KamalakerDadi,2016-02-29 22:15:43,"to a template reference ""image"" ?
+",0.532353149881374
+pull_request_commit_comment,NA,NA,1033,KamalakerDadi,2016-02-29 22:15:10,"@aabadie It would be nice if you ""print affine"" and show before and after resampling effect, which gives nice illustration to the example.
+",0.4890232020368841
+issue_comment,NA,NA,1033,aabadie,2016-02-29 21:48:01,"> Indeed, circleCI failed :(
+
+@GaelVaroquaux, fixed !
+",0.4716713607183568
+pull_request_commit_comment,NA,NA,1033,aabadie,2016-02-29 16:45:37,"that's a typo on my side, sorry. I pushed a fix.
+",0.45183656536690997
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d253e8cdbfefcca66f19ce49e2c379547114a6fa,95,959,aabadie,2016-01-28 13:18:54,adding memory consumption function based on memory profiler + test,NA
+pull_request_commit_comment,NA,NA,959,aabadie,2016-01-28 13:05:48,"I removed it.
+",0.7746450624519702
+issue_comment,NA,NA,959,aabadie,2016-01-22 16:37:49,"> But nilearn is probably not the place to set this up; rather a bigger project, with more manpowerful.
+
+scikit-learn ?
+",0.7321846861469995
+pull_request_commit_comment,NA,NA,959,lesteve,2016-01-22 15:36:57,"I am not sure what 1e6 means and I think it is misleading since it actually means 1024 *\* 2 bytes.
+",0.6542941782442515
+issue_comment,NA,NA,959,aabadie,2016-01-22 17:13:02,"> Do you want to schedule one? (doodle?)
+
+Sure. Let's do it next wednesday afternoon or thursday.
+",0.6017270504683061
+pull_request_commit_comment,NA,NA,959,lesteve,2016-01-22 15:37:15,"What's the point of having callable_obj=None by default?
+",0.5755218488649869
+issue_comment,NA,NA,959,aabadie,2016-01-22 16:40:26,"> Pandas is now using something different, and they are very happy with it.
+
+Looking at their repos, it seems they are still using vbench. But I may have missed something.
+",0.5158526885848719
+pull_request_commit_comment,NA,NA,959,aabadie,2016-01-22 15:50:03,"Indeed this is not necessary.
+",0.5048110490997464
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3096a69c3f1d2c0daf95bc89fef65348ed21913e,47,946,AlexandreAbraham,2016-01-18 11:52:26,Address comments and add tests,NA
+issue_comment,NA,NA,946,AlexandreAbraham,2016-01-14 12:43:01,"> I have a warning when running my example: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. 
+
+Yeah, it can be solved with one line.
+
+> Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+> In the current case, the error message is unclear seed empty.
+
+I do it. However, a masked seed is not a showstopper for me: the rest of the sphere can contain unmasked voxels.
+",0.4113043433885273
+pull_request_commit_comment,NA,NA,946,banilo,2016-01-17 23:35:56,"comment meaning may remain obscure
+",0.3339184415469165
+issue_comment,NA,NA,946,mrahim,2016-01-14 12:07:21,"Nice.
+I have a warning when running my example: `SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. `
+
+Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+In the current case, the error message is unclear `seed empty`.
+",0.3323155397637495
+issue_comment,NA,NA,946,bthirion,2016-01-17 08:26:49,"You could ass teh script as a new test. Besides this, LGTM.
+",0.27692333028082616
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b759eeabd5c8bf09aa5a61a2b8826aff716e4cad,36,977,aabadie,2016-02-04 12:24:27,adding link from README.rst + more information,NA
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-04 12:16:27,"If you are unsure about something, it is better to add a comment on github to get the discussion going rather than in the source file.
+
+Why not use threshold=edge_threshold here?
+",0.4052426244931745
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b061e74781f89eb1c5ecc02f2b8215b1f7e34b61,116,977,aabadie,2016-02-04 13:06:03,"use upper case filename for root rst files (AUTHORS, CONTRIBUTING) and lower case in other places",NA
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-04 12:16:27,"If you are unsure about something, it is better to add a comment on github to get the discussion going rather than in the source file.
+
+Why not use threshold=edge_threshold here?
+",0.2902254196151546
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6357d954c725e7d7981a8157b35f5096f732d102,37,977,GaelVaroquaux,2016-02-22 14:03:56,"API: cmap and norm instead of im in _show_colorbar
+
+Addresses @lesteve's comment on the fact that we are not always
+passing images to _show_colorbar",NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.7313929809304673
+issue_comment,NA,NA,977,GaelVaroquaux,2016-02-16 17:02:36,"> Yup. I am hazarding a wild guess, it may be the case that there is some
+> code to leave some additional space for the colorbar that is not
+> inherited in the plot_connectome case.
+
+Agreed.
+",0.6949929320901924
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6641194566090178
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.45336708047966
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.45169780582528674
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.39214403539782616
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.3914807967585586
+issue_comment,NA,NA,977,AlexandreAbraham,2016-02-16 13:25:18,"I am not comfortable with the idea of a PR that adds a feature and refactor a part of the code at the same time. Can we merge it and do the refactoring in another PR?
+",0.3358311257603336
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5069198afb32eccc9bf9ec55678cc60aad8f1629,72,977,aabadie,2016-02-05 16:53:12,testing a simple way to apply a formula to a list of images,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8172502452652415
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7496641118640667
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5575184316685192
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.5550276885039105
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.5237022329813699
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:35:41,"Should it be True by default? Just asking, no strong opinion about that.
+",0.47213725903833836
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,91e292d5a665b953b4313569287bb784eb3fc9b8,44,977,aabadie,2016-02-09 15:21:17,"addressing comments:
+- renaming variables
+- improving docstring with an example
+- use _safe_get_data to retrieve the numpy array a an niimg",NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.7557774661387093
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6397477586748914
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.47745725409875783
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.4696659111958845
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.43625181055826534
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.42455312992448935
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8a4b01820f41a1cfef12b96ecef2d40fccda2b04,61,977,aabadie,2016-02-10 12:45:20,addressing comments,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8321938902145882
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6984584640734008
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.6636802878761735
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5974726480295565
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 15:00:15,"> By definition, the classes defined here with suffix ""Axes"" are supposed to be classes compatible with matplotlib Axes in order to be able to feed them to functions that are supposed to process Axes... So, in my sense, this hack makes sense in that context.
+
+Is that actually true? I thought they were just wrapping a matplotlib Axes through their `.ax` attribute.
+",0.5858720257075543
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.5572461869216636
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0bd67441da972b3f1dcba020f49bf00b07b4bd83,55,977,aabadie,2016-02-11 12:33:31,improving math_img and test,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.7985597054797097
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7290119154414006
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.6665330316121942
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.6160629326032634
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.609873201859207
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.5964027775088361
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2f6f56c20108b02b6dd443dc90cf405e573a6729,47,977,aabadie,2016-02-11 12:33:51,adding 2 examples using math_img function,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8614040371865876
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7772475902992964
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.7156098060646203
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.7127882315471312
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.6921445253205962
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 15:00:15,"> By definition, the classes defined here with suffix ""Axes"" are supposed to be classes compatible with matplotlib Axes in order to be able to feed them to functions that are supposed to process Axes... So, in my sense, this hack makes sense in that context.
+
+Is that actually true? I thought they were just wrapping a matplotlib Axes through their `.ax` attribute.
+",0.6709901778947891
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,cb5c951fc6c58cba7c78bde7e8a8f7243e6fb993,61,977,aabadie,2016-02-11 16:22:07,addressing comments,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8321938902145882
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6984584640734008
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.6636802878761735
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5974726480295565
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 15:00:15,"> By definition, the classes defined here with suffix ""Axes"" are supposed to be classes compatible with matplotlib Axes in order to be able to feed them to functions that are supposed to process Axes... So, in my sense, this hack makes sense in that context.
+
+Is that actually true? I thought they were just wrapping a matplotlib Axes through their `.ax` attribute.
+",0.5858720257075543
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.5572461869216636
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,11671b5c3f3ad950e16b93d35863980c8961dbb7,274,977,KamalakerDadi,2016-02-08 08:47:10,[Datasets] Fetcher for Multiscale Brain Parcellations,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8567464767563965
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6978584927182827
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.6230059430714636
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.5960161812005125
+issue_comment,NA,NA,977,lesteve,2016-02-05 12:32:33,"> Any reviews on this PR ?
+
+Should we use an existing example to demonstrate this feature?
+",0.5840426188708312
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5729230552595705
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4b928650c2649c7907b9299ed0891cc24766daec,289,977,KamalakerDadi,2016-02-08 21:40:55,Fixed changing description filename to basc_multiscale_2015 and flake8,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.7010239048956942
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6677842568519756
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5703842461180171
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.5140511656566321
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.48232114417045024
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.45733618394361364
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0d637f500037de0ad6ee5e4a88de2984f3b70acd,278,977,KamalakerDadi,2016-02-14 14:37:25,"Datasets: Downloader for COBRE data
+- Added function, documentation, tests, reference",NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.7668958396981894
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.6983660021380933
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.5957112180618539
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.5355258449458196
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.47078299259819034
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:05:18,"> I am wondering whether the signature of the _colorbar_show function to have a norm and a cmap >object and refactor the code accordingly. You will probably need to move the vmin, vmax >computation here too rather than _add_lines so that you have both cmap and norm available here.
+
+That's doable. But it was not clear enough to me in the issue discussion.
+",0.4479993294200143
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,85e53068f493152e85abcc966976df75af23853f,45,977,KamalakerDadi,2016-02-14 20:37:45,Example focussing on Visualizing three scales of networks,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8903839225794161
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.692059630375643
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.5689263139992391
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5653737818701265
+pull_request_commit_comment,NA,NA,977,AlexandreAbraham,2016-02-05 15:09:54,"Docstring says `An MPL axis-like object`, this is why I've always believed that.
+",0.5085751430259944
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.5073617994813069
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,27d3e152aa10f0a7d2c8e43a56b2deb805706ad9,284,977,KamalakerDadi,2016-02-16 09:36:15,Fixing travis py35 failures and name chnaged to fetch_cobre,NA
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7063152331695352
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.674063420417182
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5956234187003708
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.5465183570051446
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:31:12,"> clean this code
+
+meaning specific to colorbar with common usage to both `plot_stat_map` and `plot_connectome`
+",0.47652920864703197
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.4386204446759423
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,162eca59535af6092dd27f9b68dedd309e4c07ed,32,977,KamalakerDadi,2016-02-16 13:51:44,Function name change to basc_multiscale_2015,NA
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7045405361461071
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.6853456264654869
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.625996758355188
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.5640477576709251
+pull_request_commit_comment,NA,NA,977,AlexandreAbraham,2016-02-05 15:09:54,"Docstring says `An MPL axis-like object`, this is why I've always believed that.
+",0.543835682116467
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:05:18,"> I am wondering whether the signature of the _colorbar_show function to have a norm and a cmap >object and refactor the code accordingly. You will probably need to move the vmin, vmax >computation here too rather than _add_lines so that you have both cmap and norm available here.
+
+That's doable. But it was not clear enough to me in the issue discussion.
+",0.5327590683630772
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:35:41,"Should it be True by default? Just asking, no strong opinion about that.
+",0.5216513610002169
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,97d6ca29352133629ca815bca459996ea50adf2e,84,977,AlexandreAbraham,2016-02-17 10:05:17,Load COBRE files per subject,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8397898616682193
+issue_comment,NA,NA,977,GaelVaroquaux,2016-02-16 17:02:36,"> Yup. I am hazarding a wild guess, it may be the case that there is some
+> code to leave some additional space for the colorbar that is not
+> inherited in the plot_connectome case.
+
+Agreed.
+",0.7162675469833868
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7026120482216751
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.5974879246766578
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.5542368686233852
+pull_request_commit_comment,NA,NA,977,AlexandreAbraham,2016-02-05 15:09:54,"Docstring says `An MPL axis-like object`, this is why I've always believed that.
+",0.519752216266253
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5162823703870132
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e16b6df28411f8305c1a1a5a837e4328cf997010,89,977,AlexandreAbraham,2016-02-17 13:32:58,Make tests pass,NA
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.8676409364477302
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8640785765800204
+issue_comment,NA,NA,977,GaelVaroquaux,2016-02-16 17:02:36,"> Yup. I am hazarding a wild guess, it may be the case that there is some
+> code to leave some additional space for the colorbar that is not
+> inherited in the plot_connectome case.
+
+Agreed.
+",0.8345996590123762
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.7202446276762804
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.6881152982251918
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:37:26,"Keep the parenthesis and colon on the line above.
+",0.6315796465754091
+issue_comment,NA,NA,977,AlexandreAbraham,2016-02-16 13:25:18,"I am not comfortable with the idea of a PR that adds a feature and refactor a part of the code at the same time. Can we merge it and do the refactoring in another PR?
+",0.6294953564904486
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5089cd2da0e78f7a15b6d452ae76667a20079732,61,977,AlexandreAbraham,2016-02-18 22:43:38,Fix comments,NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8070071810799504
+issue_comment,NA,NA,977,GaelVaroquaux,2016-02-16 17:02:36,"> Yup. I am hazarding a wild guess, it may be the case that there is some
+> code to leave some additional space for the colorbar that is not
+> inherited in the plot_connectome case.
+
+Agreed.
+",0.7158233773408264
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7010126222616047
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.6627742681132658
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.6423099598825381
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.5575384859215438
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:31:12,"> clean this code
+
+meaning specific to colorbar with common usage to both `plot_stat_map` and `plot_connectome`
+",0.5428008663159021
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f2cfe2d9352c85a25af89e38065d73b339c7282c,38,977,AlexandreAbraham,2016-02-18 23:11:09,"Replace fetch_atlas_{power,dosenbach} by fetch_coords",NA
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:55:36,"> Basically you noticed that the im argument of _colorbar_show only needed a .cmap and a >.norm and you defined it appropriately on the GlassBrainAxes instance so that everything just > works when you pass a GlassBrainAxes instance to _colorbar_show.
+
+Yes
+",0.8593603053581454
+issue_comment,NA,NA,977,GaelVaroquaux,2016-02-16 17:02:36,"> Yup. I am hazarding a wild guess, it may be the case that there is some
+> code to leave some additional space for the colorbar that is not
+> inherited in the plot_connectome case.
+
+Agreed.
+",0.7553137622804063
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:15:34,"Any reviews on this PR ?
+",0.7045973163884536
+pull_request_commit_comment,NA,NA,977,lesteve,2016-02-05 12:54:45,"1. There is no overlapping in the first pictures you posted. Did you change the size of the figure?
+2. This is not a great argument about which default to chose ...
+",0.6329151575160101
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 12:54:07,"> This is very clever but a bit nasty.
+
+Given the code I have and given the number of different classes inheritances I have. I have no other choice to move forward.
+",0.5669664356740409
+pull_request_commit_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:37:49,"> I don't think it is that much work to do what I proposed.
+
+Does this specific to only `plot_connectome` ?
+",0.5482021493571321
+issue_comment,NA,NA,977,KamalakerDadi,2016-02-05 13:05:18,"> I am wondering whether the signature of the _colorbar_show function to have a norm and a cmap >object and refactor the code accordingly. You will probably need to move the vmin, vmax >computation here too rather than _add_lines so that you have both cmap and norm available here.
+
+That's doable. But it was not clear enough to me in the issue discussion.
+",0.5120219926497152
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,967eca1cc7511c793fed8ee92da80ee405f07921,96,1034,MartinPerez,2016-02-29 18:42:19,added arbitrary axes order functionality and simplified hemisphericprojector. Also addressed some comments on the docs and examples. added smoke test for glass brain with hemispheres,NA
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.6854160523253123
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.6112059965058125
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6021791667678501
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.4568496828631249
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.4483690038989633
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:41:44,"sorry you are right. mistake during the rebase merge just done.
+",0.4298195058682107
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.4185958774560983
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8141cc13fb361236c06ae9c173633b50b6fb370e,171,1034,MartinPerez,2016-03-20 12:49:56,generalized previous code,NA
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.7919343211573481
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.7780991566915249
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.7378355733345632
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.7288195569901543
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.7099243511654343
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:28:18,"Like in the examples?
+",0.6975447537607153
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",0.6935558398187576
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.692450229130606
+issue_comment,NA,NA,1034,MartinPerez,2016-03-10 12:12:58,"@chrisfilo thanks for the reference, I will check it out.
+",0.6849569369005406
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:20:47,"Can you comment on these lines?
+",0.6733500248815276
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.6723504137268588
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.6707954395702254
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 06:09:50,"To make the HTML view of the example simpler to comprehend, I think that it would be good to have 3 different ""cells"" in this example, one per plot.
+",0.6548363058101437
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.6543709587613007
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4368032ab16a5df76c5c788160f2ecb270ba1a51,3366,1034,MartinPerez,2016-03-21 10:42:39,"added connectomics, generalized and improved code, including glass brain",NA
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",0.6671692993722865
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.6545763814361152
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.6543527420288391
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6397921953005008
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.6053193705812376
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.5975484686898642
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.5972419409422216
+issue_comment,NA,NA,1034,MartinPerez,2016-03-10 12:12:58,"@chrisfilo thanks for the reference, I will check it out.
+",0.5602423371078729
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",0.5537312685308491
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.539389665963901
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 06:44:07,"That last one should be ""right_side"", no?
+",0.518171353259971
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.507858905524406
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.5021784076131157
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.5002285287499413
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9137744560d72a0d5cf8500cec8ee1045df84ffa,51,1034,MartinPerez,2016-05-18 16:13:00,minor comments corrections. saggital to sagittal and titles in plots.,NA
+issue_comment,NA,NA,1034,GaelVaroquaux,2016-04-27 16:51:37,"> For me solution to this problem is to add a line saying that images should be
+> in MNI space. We always pressure this point to users to avoid surprising
+> results.
+
++1
+",0.8950644532943857
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.7188167936202838
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.6971905237025497
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6959064034458229
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",0.6909286417237623
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.675850406473525
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.5920259782175579
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:52:38,"same with here some `title`s would be useful.
+",0.5722315172258554
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.5638367165944744
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-03-02 12:03:24,"I see your point, i will address this
+",0.5497087065892947
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:28:18,"Like in the examples?
+",0.5480845620033092
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.5345296748116825
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.5289384523079752
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.5053064280781534
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.4909321992633008
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:37:37,"Can we have a demo of ""lzr"", which I suspect is the mode useful mode.
+",0.4795177648097192
+issue_comment,NA,NA,1034,MartinPerez,2016-03-10 12:12:58,"@chrisfilo thanks for the reference, I will check it out.
+",0.46694442554439797
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:19:22,"I'm pretty sure that this copy is not necessary. This is not a big deal, though.
+",0.44843322894617255
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-04-26 13:09:01,"This will not work if the affine is not diagonal. Is that always the case? If so, you could just do `data_selection=data[:int(x_center), :, :]` to avoid the copy above.
+",0.44718360807344093
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2a67cc8b3d0ac4802e65af0ab51e69dd5405f5cc,38,1034,MartinPerez,2016-05-23 14:32:16,coordinate x==0 included in both hemispheres now. Adressing also minor comments in the docs. Simplified example,NA
+issue_comment,NA,NA,1034,GaelVaroquaux,2016-04-27 16:51:37,"> For me solution to this problem is to add a line saying that images should be
+> in MNI space. We always pressure this point to users to avoid surprising
+> results.
+
++1
+",0.8624244771182071
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:16:07,"empty line
+",0.7605383232039753
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-05-19 11:19:44,"+1, I guess 2 plots are enough ;).
+",0.7605031959383496
+pull_request_commit_comment,NA,NA,1034,lesteve,2016-05-19 11:11:17,"you can put that in the same if clause: `if self.direction == 'r' and xc >=0`
+",0.6813014942305698
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:06:20,"saggital -> sagittal
+",0.679356714798171
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 12:05:01,"> r reuses the same image as x. So I left it with the same id when getting info
+> from the files.
+
+Of course. Sorry for the noise.
+",0.6777257133221268
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:50:50,"I'd like an ""lzr"" mode, I think.
+",0.6586674585528882
+pull_request_commit_comment,NA,NA,1034,banilo,2016-03-10 12:19:20,"massage or message? :-P
+",0.6516430530607096
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:12:19,"sorry rebasing ...
+",0.6293369891764532
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:25:41,"ok
+",0.5922199412000044
+pull_request_commit_comment,NA,NA,1034,lesteve,2016-05-19 11:11:40,"same remark as above you can put it in the same if clause.
+",0.5616979005778544
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:52:38,"same with here some `title`s would be useful.
+",0.5344679426716671
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:51:48,"Is this change intentional? I have the feeling that it is not right.
+",0.530079184896373
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 17:39:07,"Yes, with a simple smoketest.
+",0.5026726455931181
+issue_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:27:43,"This does look very nice! On the images at the top (with a white background), there is a strange yellow background color. 
+",0.4802101301556272
+pull_request_commit_comment,NA,NA,1034,aabadie,2016-03-21 11:11:50,"""Demo glass brain plotting using whole brain saggital cuts.""
+",0.4783684645835078
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-04-26 13:09:01,"This will not work if the affine is not diagonal. Is that always the case? If so, you could just do `data_selection=data[:int(x_center), :, :]` to avoid the copy above.
+",0.4759253462198727
+pull_request_commit_comment,NA,NA,1034,MartinPerez,2016-02-29 17:24:53,"no problem
+",0.47399228073633837
+issue_comment,NA,NA,1034,MartinPerez,2016-02-29 16:29:19,"You mean the two first images? I see it white :S
+",0.4731261084117052
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-03-02 06:44:07,"That last one should be ""right_side"", no?
+",0.4667353876715783
+pull_request_commit_comment,NA,NA,1034,GaelVaroquaux,2016-02-29 16:37:37,"Can we have a demo of ""lzr"", which I suspect is the mode useful mode.
+",0.46448846656898124
+pull_request_commit_comment,NA,NA,1034,KamalakerDadi,2016-05-13 15:05:58,"what it means by whole brain saggital cuts ?
+",0.45990277363147747
+pull_request_commit_comment,NA,NA,1034,AlexandreAbraham,2016-03-02 09:17:24,"+1 for pushing the code in upper classes. If you are afraid of breaking stuff, maybe we can do it in 2 times? Merging this one. and refactoring afterward.
+",0.45866766592722463
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,57839e26fd4cd1d9245963e45fdc477fac6c6ab1,284,989,KamalakerDadi,2016-02-16 09:36:15,Fixing travis py35 failures and name chnaged to fetch_cobre,NA
+pull_request_commit_comment,NA,NA,989,KamalakerDadi,2016-02-14 15:59:19,"Thanks. I thought its `encode()`. Is it not ?
+",0.5855093654571766
+pull_request_commit_comment,NA,NA,989,KamalakerDadi,2016-02-14 16:00:42,"Could you point me any documentation to find this difference ? If you have any ?
+",0.5338542888919118
+pull_request_commit_comment,NA,NA,989,aabadie,2016-02-14 16:10:49,"I'm not sure it will work work with `encode()`. `np.recfromcsv` returns an array with `numpy._bytes`. Those only have a `decode()` method.
+You can see in the code another place with the same trick : https://github.com/nilearn/nilearn/blob/master/nilearn/datasets/func.py#L1155
+where `pheno` contains the result of `np.recfromcsv`.
+",0.39826843430270964
+pull_request_commit_comment,NA,NA,989,aabadie,2016-02-14 15:42:57,"This line and the one above don't work on python 3, you should use `decode()` in `i` because it's a byte string :
+
+``` python
+func_filenames = [('fmri_' + i.decode().strip(' ""\'') 
+```
+",0.36418959371598536
+issue_comment,NA,NA,989,GaelVaroquaux,2016-02-14 17:06:01,"Maybe the function should be called ""fetch_cobre"", and we'll later add an
+option to decide between different preprocessing (niak or otherwise).
+",0.30889804803836785
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3cd6c9a7fb398c7ad0ee618d3c121824ff6942f2,74,970,KamalakerDadi,2016-02-01 09:59:10,Reverted pep8 changes,NA
+pull_request_commit_comment,NA,NA,970,AlexandreAbraham,2016-02-01 09:55:12,"By default, all subjects must be loaded. We only want 30 subjects for the examples.
+",0.618877168657922
+pull_request_commit_comment,NA,NA,970,KamalakerDadi,2016-02-01 09:21:12,"Its just a minor changes in this PR, I think it can be acceptible ?
+",0.49697228746900357
+pull_request_commit_comment,NA,NA,970,aabadie,2016-02-01 09:55:56,"Well, the changes related to pep8 are more important than the ones related to the number of subjects. I propose to separate them in 2 distinct commits.
+",0.4813102397447777
+pull_request_commit_comment,NA,NA,970,aabadie,2016-02-01 09:19:38,"This seems to be the essential change of this PR (along with the doctrings changes above). I would only keep those and create an extra PR for the pep8.
+",0.4183363206909778
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9ffef88b03f894712ccaaadba28ce22198bd5526,38,918,AlexandreAbraham,2016-02-01 16:38:27,Add test for symmetric split,NA
+issue_comment,NA,NA,918,AlexandreAbraham,2015-12-17 10:25:03,"Yes we can. But as the tests shows, this is still WIP for the moment.
+",0.41940541917687113
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,547856b69d2c71a47ff2d39c5b5e52daca1f3355,289,984,KamalakerDadi,2016-02-08 21:40:55,Fixed changing description filename to basc_multiscale_2015 and flake8,NA
+pull_request_commit_comment,NA,NA,984,KamalakerDadi,2016-02-08 12:21:37,"Ok. I will go for this `basc_multiscale_2015`
+",0.9508554008236816
+issue_comment,NA,NA,984,KamalakerDadi,2016-02-08 10:08:41,"> It's very likely not related to your PR so ignore it for now.
+
+Ok. Thanks. 
+",0.83790590399307
+issue_comment,NA,NA,984,AlexandreAbraham,2016-02-08 12:16:40,"> > Question: should we add a test?
+> 
+> Example you mean ?
+
+I don't know what you are talking about :D
+",0.8356991852503967
+pull_request_commit_comment,NA,NA,984,AlexandreAbraham,2016-02-08 10:36:21,"Why not `basc_multiscale_2015`?
+",0.6707378630354159
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2b941edbd937039624a83f719effbe9093f6bfbf,129,1016,juhuntenburg,2016-02-27 11:57:43,updating file names and example to use left right instead of lh rh,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5751802444445575
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5122013539374184
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:40:54,"adding `title` would be nice I guess ?
+",0.5094784474241675
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.5032192324717221
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,cfeaa0be6000400d43879e13c85e13df53137b90,113,1016,juhuntenburg,2016-07-17 20:37:06,extending plotting exaple to create seed-based connectivity map,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9223367190639491
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7462388749978756
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7423223484136747
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6279133986907153
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.6216375503579166
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6012904354236221
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.5883722676302918
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5853635458227657
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5853635458227657
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.5396438389492944
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,05046c29d8b6a55335c4506539688228a0e5c262,235,1016,juhuntenburg,2016-09-16 12:24:15,making basic plot_surf function to be called by different specific functions (for now only plot_surf_stat_map) with different defaults,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9209580718508892
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.8727976520564587
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7616542203149059
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6570143877035327
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6517771181736831
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5863190898025554
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5863190898025554
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5863190898025554
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-28 16:24:36,"> Or just upload them to the example dataset just as we did for the fsaverage
+> mesh?
+
+It's an option indeed.
+",0.5825444906818524
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5806702618406274
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.575441041318395
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.5491380682230843
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.5300375117208679
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5264453021641862
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6cc6c39ff869411c50a4c5134a57ffba8b05606c,30,1016,juhuntenburg,2016-09-16 12:49:46,fixing cmap parameter,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9865329711322325
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.8206140610677235
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.7511657842074364
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7276024161125405
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.715207101087159
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7079528662393973
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.7046698242758049
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.660764073895638
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.6175214379031705
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-28 16:24:36,"> Or just upload them to the example dataset just as we did for the fsaverage
+> mesh?
+
+It's an option indeed.
+",0.607225709550745
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5918648547174281
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5918648547174281
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5918648547174281
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-13 09:00:29,"Thanks @juhuntenburg 
+
+> White space around the figure:
+
+I will try to search for some solutions/hints.
+
+> Example / documentation: 
+
+yes, please. It looks interesting.
+",0.5872597884006825
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,39ed514cadc29807d71aa91ff168356f5f9bde48,79,1016,juhuntenburg,2016-09-16 16:48:17,adding plot_surf_roi function and example,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.8768416829426263
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7241690044174243
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7145416811606464
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.69754707272878
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6567080194322283
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6474016444390487
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6474016444390487
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6474016444390487
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.638027239110073
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6282179597626253
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.6056771535424378
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5898350456339783
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.551521280497448
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5406090256547051
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7e47ae665774ef27162dedf41b140f11b5e126ed,98,1016,juhuntenburg,2016-09-16 17:11:38,make plot_roi accept labels array,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",1.007176535772081
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.8298557091569339
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7253646557631623
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6915336153169939
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6289543952913871
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6289543952913871
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6289543952913871
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.6154305602636203
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6152936689778875
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-28 16:24:36,"> Or just upload them to the example dataset just as we did for the fsaverage
+> mesh?
+
+It's an option indeed.
+",0.5909864129143101
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5884580375552191
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.5745474908373502
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5673057988804229
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5669181371119709
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,738788d050ef0458bcfa0188cfffb9ba1f577198,63,1016,juhuntenburg,2016-09-19 12:07:53,beginning to add atlas plotting,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9350424318111366
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7895319130726796
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7881553316404344
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.6990095781886021
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6247497406342484
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6227783089565205
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.6215550149486838
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5963497711374588
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-28 16:24:36,"> Or just upload them to the example dataset just as we did for the fsaverage
+> mesh?
+
+It's an option indeed.
+",0.5738917389700746
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5720490741883486
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:30:47,"> pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+
+I think that this is OK, as long as there is a section about surface
+visualization in the docs.
+",0.5695033173076558
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5688785124540721
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-18 20:47:11,"Can you please rebase and resolve the conflicts ?
+
+I can review your PR again this week.
+",0.5665322133839524
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5664539043294641
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5664539043294641
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5664539043294641
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,04148489b1b1e627a0d1926885969ec6a04621b4,57,1016,juhuntenburg,2016-09-19 12:22:31,delete double roi function,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9845790581872121
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7707780119312576
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.7233036020583083
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6785473743775223
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.6729474924180778
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6524293985942999
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6524293985942999
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6524293985942999
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-28 16:24:01,"Or just upload them to the example dataset just as we did for the fsaverage mesh?
+",0.6194217914713112
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6169151721188177
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.6154588024717462
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6152599216463999
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:30:47,"> pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+
+I think that this is OK, as long as there is a section about surface
+visualization in the docs.
+",0.6123735168576623
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:35:46,"All examples start with ############### to have head line representation. If you want you can have a look at other examples.
+",0.6011049723767301
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e3e5e1d5c9fb506fb027d562e21abc872d8c27f9,98,1016,juhuntenburg,2016-09-19 15:22:33,starting to add destrieux atlas data fetcher,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9614449176087914
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7005025702154126
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6794381043372499
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.6754779338903045
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6307528755585765
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6024881086222995
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.5949303384741449
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5546971844786861
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5546971844786861
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5546971844786861
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5486181959538594
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5394608883714804
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.5240029306324158
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5184810746633892
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,087969b871b4d5f8f7f03269998a3068c1079fde,352,1016,Joaoloula,2016-10-25 12:28:05,"created fsaverage5 fetcher, separated surface plot examples, updated doc",NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.8863287472097697
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7611421442441348
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7191566753897476
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.692989253498709
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6266978525812194
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6242678268125907
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5695154853772146
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5585827752926804
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5424964729257187
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5188543612336508
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5188543612336508
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5188543612336508
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5093082973646553
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-25 20:27:21,"I'd prefer if the acceptable value for ""hemi"" would be ""left"" and ""right"", rather than ""lh"" and ""rh"", which are a bit cryptic.
+",0.46079099365373277
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.45789157477901854
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:40:05,"> you can use plotting.show()
+
+Yes. We do this to avoid having to teach beginners to import matplotlib.
+",0.45187952141349497
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,af75cd01b9f72cb7234f7b27a862a770ea1db287,44,1016,Joaoloula,2016-10-26 11:59:14,addressed julia's comments on the PR,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",1.0076571176456566
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.9292249989913918
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.8518633515429318
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.7807565120506957
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.7656841650081937
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7598999060214601
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.75619061293393
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.7367134161645275
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.735829212278668
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.735829212278668
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.735829212278668
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-25 20:27:21,"I'd prefer if the acceptable value for ""hemi"" would be ""left"" and ""right"", rather than ""lh"" and ""rh"", which are a bit cryptic.
+",0.7321905193443488
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:35:46,"All examples start with ############### to have head line representation. If you want you can have a look at other examples.
+",0.7178980669741704
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-08-25 14:57:48,"This part of the docstring still needs to be finished.
+",0.6965961469289375
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:40:05,"> you can use plotting.show()
+
+Yes. We do this to avoid having to teach beginners to import matplotlib.
+",0.6923716331719253
+pull_request_commit_comment,NA,NA,1016,AlexandreAbraham,2016-02-25 21:09:33,"I guess that the final `[0]` means `lh`. I think we should rather make two fields `fsaverage_pial_left` and `fsaverage_pial_right`.
+",0.6871858175869923
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9fca5c05045f4d0daa79d15a59cc22137f6c95b7,121,1016,juhuntenburg,2017-01-05 11:46:20,improving documentation,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",1.0048297958114583
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.8227409929169341
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.82146163407407
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7980434498546585
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.768358764540779
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7671078272713148
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.766189812028929
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.752723810725686
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.7427026064198003
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.7370051980612073
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.7370051980612073
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.7370051980612073
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.7037321389906019
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.700135945311725
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-25 20:27:21,"I'd prefer if the acceptable value for ""hemi"" would be ""left"" and ""right"", rather than ""lh"" and ""rh"", which are a bit cryptic.
+",0.6987795631265538
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:49,typo patterens -> patterns,0.6971409188893343
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.6882014822331601
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6876290036264392
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.6861680876466371
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.6826038894213
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6803158102464537
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.6672976345778745
+pull_request_commit_comment,NA,NA,1016,AlexandreAbraham,2016-02-25 21:14:06,"You can use `nibabel.nifti1.intent_codes['NIFTI_INTENT_POINTSET']` rather than `1008`
+",0.6557112829954592
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.6517959014855241
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:30:24,May be we need reduce default size in ```n_subjects``` to reduce the burden on CircleCI build ? 10 would be good I guess.,0.6516950762965045
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.6424526839449618
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e653990281994acabdc5dba9de9818ccfb031fc0,245,1016,juhuntenburg,2017-01-09 13:21:55,"moving fsaverage fetcher, formatting",NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.8884296061855459
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.8884296061855459
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.8851185820845561
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.8373546299061185
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7978123589539343
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7911421493343354
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7875676750475082
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6930804310224612
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6930804310224612
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6930804310224612
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6930804310224612
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.6928116249740964
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.6778722358307403
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6746767027516527
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6624451051677738
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.6602742890167383
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6499170149401066
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.644612573005305
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6439226799839601
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.6366267500902788
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.6316196140254359
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.6303718932791111
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6265927899840904
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.6253680090334126
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.6235147179764573
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:09:09,Documentation missing for verbose and resume.,0.6178474022188727
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6163187798300909
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6123063543852536
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6123063543852536
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6123063543852536
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.6026100406625592
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6018609476701962
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.5955376111950912
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.5941899864321443
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d81ee0060499460ab877216bfda139334b5e8b81,36,1016,juhuntenburg,2017-01-09 17:57:45,improving error message and documentation loading functions,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.9463958599923754
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9463958599923754
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.939748497546614
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7679773870431246
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7556654867796393
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.745884578332056
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7446355157621163
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7157200407288021
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6546267424323753
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.6545125747661316
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.643937718649134
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6392787663464906
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.6388932701729173
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6254342886529997
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.623359353736642
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6186960128930501
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6186960128930501
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6186960128930501
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6186960128930501
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6150188757711974
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6150188757711974
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6150188757711974
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.614640304111185
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.6144061827908889
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6038430231669153
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.6026373329700381
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.5855812491929218
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5843621444480174
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:36,Empty line space missing below.,0.5631439952057214
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5625303626456857
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.5618672222295759
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.5600290974483071
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.5460918127185168
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.5445433400655111
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e9efe4da061f77f39ac97312c2a33ce50ff0733c,115,1016,juhuntenburg,2017-01-10 12:13:09,"input to load functions, documentation and error messages",NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,1.0033514385531999
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9534503633651512
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.9534503633651512
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.8072823192713428
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7897968929491687
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7738417880787587
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7628637274731845
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7262755280741233
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.689720038272915
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.688823432630948
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.6704059205594846
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.6622210723731007
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.6538902672348383
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6434362284665823
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6341927790953525
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6314736916121998
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.6273157809528824
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6268650069793698
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.626304618644189
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.626304618644189
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.626304618644189
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.626304618644189
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.60386041142186
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.60386041142186
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.60386041142186
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6029632691571835
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:36,Empty line space missing below.,0.6009684654164005
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.587459939971676
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.580840750533838
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.5791083510819084
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.5789215911600242
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5739352300079208
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.5668048419644129
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.5664783652798546
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,097f00bb5b011a887a59c8aeafb9d8c1d3005dec,429,1016,juhuntenburg,2017-01-18 10:08:41,testing load_surf_data function,NA
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9046355017719889
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.9046355017719889
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.9010670167143862
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.8297938750105416
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.8272971383032961
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.8155359671340724
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.7992707654720037
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.777538115782953
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.7292099007068646
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.7229355029486397
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.7206125497800937
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.7063225231903176
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.7054978841907047
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:09:09,Documentation missing for verbose and resume.,0.6883226061647267
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6873307563073361
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.682376040603363
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6812080562321394
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.6772577710087739
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6730836312001001
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6730836312001001
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6730836312001001
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6730836312001001
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.6688556067549842
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6653981312781824
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.66374907978236
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.66374907978236
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.66374907978236
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.6609205521024406
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6606016973280356
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:49,typo patterens -> patterns,0.6553718770996529
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:40:54,"adding `title` would be nice I guess ?
+",0.6479618334108219
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.6476998422986362
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6403006093294541
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.6353373936428739
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:26:46,May we should express that files returned are gifti files ?,0.6349961149925801
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c5110acb35a765d930590a156c711d9b90f5fbed,54,1016,juhuntenburg,2017-01-18 10:58:58,"adding errors for missing or wrong gifti intent codes, reformatting error messages",NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,1.0204077936829161
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.935236472275948
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.935236472275948
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.8102849604444725
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7400902291084703
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7180625737543033
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7123552720344103
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6903649728460834
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6800799907140006
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6630925325345809
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6630925325345809
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6630925325345809
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6630925325345809
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6097892274070063
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5632085777836833
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.5632042945303377
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.56013648088948
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.5569086436256859
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.5556929541957265
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5516917130234334
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5504091747709621
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.5414791184674933
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:30:47,"> pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+
+I think that this is OK, as long as there is a section about surface
+visualization in the docs.
+",0.5345514582857027
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.5344154401199264
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.533943944278587
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5219413502234633
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:04,I would update with 2010 reference paper.,0.5181016440704059
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5175710087355998
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5175710087355998
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5175710087355998
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5115142393223868
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.5110711914353318
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:53:44,May be NKI can be expanded or atleast in Notes section ?,0.5104547223865656
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:30:24,May be we need reduce default size in ```n_subjects``` to reduce the burden on CircleCI build ? 10 would be good I guess.,0.5015079518908401
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.49993696173639957
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,584228f3998c58a68a7263218437ee9ffd0139f9,42,1016,juhuntenburg,2017-01-18 11:24:39,testing load_surf_mesh function,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.9266874963646047
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9193491740248996
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.9193491740248996
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.8547580952100051
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.8360239879176928
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.8241744211958494
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.807960527304471
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7870682171896735
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.7232796172393114
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.7203947308033779
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:09:09,Documentation missing for verbose and resume.,0.7184339491527054
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.7135934475408927
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.7040736988853772
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.7040736988853772
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.7040736988853772
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.7040736988853772
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.7026997175678651
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.6900858797079045
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.6895593072011925
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6876501439125116
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6816807361327966
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6751622555313346
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6705521562400605
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6705521562400605
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6705521562400605
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6690443275218674
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.6669646211667215
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.661972304147766
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.658463104572973
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6530017985022134
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:49,typo patterens -> patterns,0.652495099964153
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:35,"On the top you have cited 2010 paper. But, here you referred 2009 paper.",0.651779237811476
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.6485005255719785
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:40:54,"adding `title` would be nice I guess ?
+",0.6481254331293582
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6462827210553691
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,66dbe0409ff3cd04806ec2664aac246e493de816,57,1016,juhuntenburg,2017-01-20 12:52:56,testing error messages of load_surf_data,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.8968988586886102
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.8968988586886102
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.8877687102280912
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7656427406099914
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7648988021846483
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.763417094569162
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7506964605980417
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.7157383865692941
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.708875850496497
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.6880213211492685
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.6865831465605414
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.6820800473584219
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6716139590348637
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6716139590348637
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6716139590348637
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6716139590348637
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6640961393108098
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.6619843621974147
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.6583613571769158
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6554111625032785
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6533461991082621
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.6515025720136371
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6501493078395688
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6501493078395688
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6501493078395688
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6466253960798751
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.642336737094211
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6344614872901657
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.6291148548645029
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6195172101293864
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.6190475895992431
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6013627182218558
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:53:44,May be NKI can be expanded or atleast in Notes section ?,0.5964370767948215
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.5945236344250127
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.591784689599162
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9439a3978bfcfcf22626704d0ac482ba165fddc4,65,1016,juhuntenburg,2017-01-20 15:07:25,adding test for load_surf_mesh errors,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.9696381928838822
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9131390847533807
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.9131390847533807
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.8147960308389814
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7926327530305313
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7483577353347134
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7400575614654872
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.7083675088347581
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.7083675088347581
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.7083675088347581
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.7083675088347581
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.6755986972067832
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6742659829255497
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6601398004861061
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6564510974638516
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6453241255269436
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.6360243185011203
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.6301832603587194
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6279188410825818
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6235534084362895
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6225031419566169
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6225031419566169
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6225031419566169
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.6217618659364654
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.620699601244429
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.6169857856497583
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:04,I would update with 2010 reference paper.,0.6156042084473692
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.6152214210963687
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6148749392913531
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.6145464905631608
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.614308791513025
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:26:46,May we should express that files returned are gifti files ?,0.6131878103907312
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6117279234172
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6087302043800049
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:53:44,May be NKI can be expanded or atleast in Notes section ?,0.6042016730388355
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e4fe9add11856d4e3f8af8c40258b6f37eed6216,32,1016,juhuntenburg,2017-01-27 12:04:30,fixing plot_surf_stat_map example according to new data fetcher and changing some display options,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.9360948294468214
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.8874875065469363
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.8874875065469363
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7866046238945278
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7689180318205531
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7237555638107378
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6494061341026167
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6494061341026167
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6494061341026167
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6494061341026167
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.6184034730955272
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.576180903607681
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.559303082567389
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.5578488295993407
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:49,typo patterens -> patterns,0.5507013785849437
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.5465903093866187
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.5464974421698892
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5458944719740424
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5458944719740424
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5458944719740424
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:09:09,Documentation missing for verbose and resume.,0.5445052221133627
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.5442908541707531
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.5386780781953595
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.5378355719599002
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:36,Empty line space missing below.,0.5366368823795099
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5355180858834586
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.5353652121729232
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.5289346762857291
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.528064007701019
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5274634115491886
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5208012145952184
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.5180690102619321
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.5174053249593464
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.5167850700371666
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5156009816059974
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6dd084426df322c13f25a9c2bd2db6e2d6d597db,149,1016,juhuntenburg,2017-02-02 12:03:20,adding tests for plotting functions,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,1.031671213906932
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.978236757982085
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.978236757982085
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.8256162316588074
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.798272482048997
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.7790625674036791
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7780082507659452
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7193417308028782
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6909210058869533
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6909210058869533
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6909210058869533
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6909210058869533
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6565787952898341
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6564711410055485
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6564711410055485
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6564711410055485
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.6493388396868041
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:04,I would update with 2010 reference paper.,0.6408548221317856
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.6404546259243399
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6401981960384323
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.6346682364255938
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.6338240741746463
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6328880190499087
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.630381425605559
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.6274577188284405
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:26:46,May we should express that files returned are gifti files ?,0.6264767421355666
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:49,typo patterens -> patterns,0.6235785828224233
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.6205082843828662
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:35,"On the top you have cited 2010 paper. But, here you referred 2009 paper.",0.6176305993615836
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.6166048252315406
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:26,Missing indent at [(annot_file)......],0.6117543711944428
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.6116899534979523
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.611220750048939
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:11,"Agree, fixed it.
+",0.6109888097441882
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.6025920074431735
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,aeee59631bd9e5524d6ade36a7e0fbfcfae8df85,476,1016,juhuntenburg,2017-02-15 10:19:51,minor changes examples and tests surface plotting,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,1.0239215449647696
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.8564093470128097
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.8564093470128097
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.8079895121386469
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.790996130104141
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7422265997800455
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6663625486122733
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-02-09 10:44:38,Missing empty line here.,0.6401178042839984
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.6401178042839984
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.6304025251550881
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.6304025251550881
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.6304025251550881
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.6304025251550881
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-02-09 11:07:17,"Do we need that full file, or can we have a shortened version of it?",0.616052543366199
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6035629162325047
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6011897474673733
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6011897474673733
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6011897474673733
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.590840043829485
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:26:46,May we should express that files returned are gifti files ?,0.5893529188986025
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.582799807111031
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:23,opts is not use anywhere ?,0.5822357304433052
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:49,typo patterens -> patterns,0.579198412354106
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.5768813895655163
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:23,"Yes, no it isn't necessary anymore.
+",0.5638406373097472
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.5637437714398815
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5630718261530514
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.5628963245335216
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.5594662363979207
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:29:25,May be you forgot to remove this ?,0.5564860234694151
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:09:09,Documentation missing for verbose and resume.,0.5562392224517803
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-28 16:24:36,"> Or just upload them to the example dataset just as we did for the fsaverage
+> mesh?
+
+It's an option indeed.
+",0.5521358431759864
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:04,I would update with 2010 reference paper.,0.5516884181744947
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5492306880006113
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.5474478742198636
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5470993967194372
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5462241672657226
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:36,Empty line space missing below.,0.5445104756653724
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2c22cddf44288fec7a3abc039179d2d6185616ee,35,1016,juhuntenburg,2017-02-17 14:25:05,fixing nibabel gifti import,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,0.9217451407718507
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.9060949880927105
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.886371908796148
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.886371908796148
+issue_comment,NA,NA,1016,KamalakerDadi,2017-02-16 09:40:24,">What's the minimum version of nibabel required? Could one of you do a bisection on the versions of nibabel to find this out?
+
+1.2.0
+Ref: http://nipy.org/nibabel/changelog.html#changelog",0.7675792865445159
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.7452283574206728
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.7452283574206728
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.7452283574206728
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.7452283574206728
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7371852489412569
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-02-09 11:07:17,"Do we need that full file, or can we have a shortened version of it?",0.7112368098909354
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.7024723284404804
+issue_comment,NA,NA,1016,KamalakerDadi,2017-02-16 09:51:20,">Kamalakar, do you want to do it (change the CI and the specified versions in the docs and in our checks, grep the code to make sure that we don't have compatibility layers that are lying around for version 1.1.0), and send a PR. We'll review it, merge it, and Julia can then rebase on master to get rid of these issues.
+
+I am going to try it. Soon do a PR.",0.6997549096023005
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.6949818929962
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.6748188683533629
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6629327511729706
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.6602457306919219
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6529335298697486
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.6524711379910975
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.6326224332760405
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.6203546567489189
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.6203546567489189
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.6203546567489189
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6200001544307598
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.6081782019452547
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5995830922299246
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:04:12,Seems like it is too long.,0.5980723462779451
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:50,I would prefer true -> True,0.5900314631544211
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-02-09 10:44:38,Missing empty line here.,0.5873446059051057
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.5873446059051057
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:30:47,"> pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+
+I think that this is OK, as long as there is a section about surface
+visualization in the docs.
+",0.5756191331112707
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5743006238983404
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5736661986549703
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:47:24,Seems like it is ```surf_map_data``` ?,0.5736661632782951
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:04,I would update with 2010 reference paper.,0.5642244698705821
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-02-16 10:08:12,Documentation for 'description' is missing here.,0.5544680615184667
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:23,opts is not use anywhere ?,0.5527073256869048
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.5519190826227971
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-12 20:26:06,"Hi @juhuntenburg Any progress on this ?
+",0.54994971811149
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.5482294276391078
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.5481123463758022
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:27,Can we keep string -> str ?,0.5473438035700156
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,70a3d8f7356e85727ea5e330e23fc2ae14ce1457,48,1016,GaelVaroquaux,2017-02-23 10:01:54,FIX: bugware to avoid a bug in old nibabel versions,NA
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 14:01:32,[PEP 8] -> line too long,1.0289495190250268
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:17:32,+1,0.9174850223433496
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 13:28:28,"> I guess that the final [0] means lh. I think we should rather make two fields
+> fsaverage_pial_left and fsaverage_pial_right.
+
++1!
+",0.9174850223433496
+issue_comment,NA,NA,1016,juhuntenburg,2016-09-20 07:51:24,"Ah Vienna brainhack, no not there, will contact him
+",0.7695979985730628
+issue_comment,NA,NA,1016,KamalakerDadi,2017-02-16 09:40:24,">What's the minimum version of nibabel required? Could one of you do a bisection on the versions of nibabel to find this out?
+
+1.2.0
+Ref: http://nipy.org/nibabel/changelog.html#changelog",0.7636075741470789
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-07-21 12:06:37,"> What I use here is basically just a dictionary associating nodes indices in
+> fsaverage5 space with labels of the Destrieux parcellation, this is what is
+> saved in Freesurfer's standard .a2009s.annot output. I am pretty sure the
+> underlying parcellation is the same, but afaik there is no trivial way to
+> translate one into the other
+
+Indeed
+",0.7597000069070741
+issue_comment,NA,NA,1016,KamalakerDadi,2017-02-16 09:51:20,">Kamalakar, do you want to do it (change the CI and the specified versions in the docs and in our checks, grep the code to make sure that we don't have compatibility layers that are lying around for version 1.1.0), and send a PR. We'll review it, merge it, and Julia can then rebase on master to get rid of these issues.
+
+I am going to try it. Soon do a PR.",0.7446950647311299
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:25:56,left -> right,0.7297126476312978
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:18:34,"Agree, I changed it.
+",0.7278158563402763
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:57,"same here, string -> str",0.7129552252973591
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:13:04,string -> str,0.7129552252973591
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:44,string -> str,0.7129552252973591
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:12:27,string -> str,0.7129552252973591
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:03,"Oh good, changed it.
+",0.6437810819016718
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:19:52,type forec -> force,0.6311823345266568
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-02-09 11:07:17,"Do we need that full file, or can we have a shortened version of it?",0.6189298331779469
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-01-09 14:10:43,I'm not sure how to break these lines correctly,0.6183138069250799
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:36:09,"you can use `plotting.show()`
+",0.6155622610414424
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-02-17 16:39:47,Could you tell me why index to labels are 10242 but not 76 ?,0.607106343663826
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:45:25,"PEP 8, missing white space here 'rh annot':9342 -> 'rh annot': 9342",0.5992215929895315
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:11:36,Same here string -> str,0.5959315613914453
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-07-21 09:44:18,"Ok may be its not I have seen the reference after commenting. Destrieux et al, (2010)
+",0.5850253939921355
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:41:38,"You may have missed to add references for Dale et al, 1999 and Fischl et al, 1999.",0.5846984382674751
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-27 14:05:09,"Should the ""abs"" be an ""np.abs""?
+",0.5791613804940142
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:06:30,Empty line missing below.,0.5766324421691951
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-02-09 10:44:38,Missing empty line here.,0.5766324421691951
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-02-17 15:16:19,Empty line missing below.,0.5766324421691951
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-07-20 10:00:22,"Done!
+",0.5598816390541108
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-02-17 14:37:42,"Done
+",0.5598816390541108
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2017-02-17 14:37:39,Done,0.5598816390541108
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:20:47,"Done
+",0.5598816390541108
+pull_request_commit_comment,NA,NA,1016,juhuntenburg,2016-02-27 12:19:36,"Done
+",0.5598816390541108
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:01:00,Missing documentation for parameters ```verbose``` and ```resume```.,0.5539230557626196
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2017-01-05 13:41:14,This empty line should be removed.,0.5498658543867183
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:47:51,Missing indent at resume,0.5447532520028731
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-02-22 17:23:38,```load_surf_data``` data loader should be in datasets.py or no ?,0.5434234256724455
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:22:05,This can be removed I guess.,0.5403788881136591
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 10:09:09,Documentation missing for verbose and resume.,0.5398119198717476
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:26:46,May we should express that files returned are gifti files ?,0.5395302908230779
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:34:30,"pin point reference may be :func:nilearn.plotting.plot_surf_stat_map ?
+",0.5315303283606386
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-02-25 21:37:36,"yes that would be more clear.
+",0.5300586834980352
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:33:54,May be adding ```title``` to the plots ? ,0.5200706927448968
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:57,Is this reference necessary seems like we have reflected with same reference as in ```fetch_atlas_destrieux_2009``` ?,0.5164782189406862
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:23:04,I would update with 2010 reference paper.,0.5122385172827998
+pull_request_commit_comment,NA,NA,1016,GaelVaroquaux,2016-02-28 16:24:36,"> Or just upload them to the example dataset just as we did for the fsaverage
+> mesh?
+
+It's an option indeed.
+",0.5116470995639542
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2017-01-05 13:25:36,Empty line space missing below.,0.5099778633414229
+pull_request_commit_comment,NA,NA,1016,KamalakerDadi,2016-11-24 09:24:23,opts is not use anywhere ?,0.5090616905165931
+issue_comment,NA,NA,1016,KamalakerDadi,2016-07-18 20:47:11,"Can you please rebase and resolve the conflicts ?
+
+I can review your PR again this week.
+",0.5046080850118393
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a532c86956ed565ea170ba5353e1b31ce06a0a4d,71,996,KamalakerDadi,2016-02-21 17:12:44,"Attempts to fix Gael comments, having labels, coords, networks in a bunch",NA
+issue_comment,NA,NA,996,GaelVaroquaux,2016-02-19 11:56:01,"We also need to make fetch_atlas_aal consistent: the field ""regions"" should be renamed to ""maps"", and we should rethink how the names are given. The goal would be to make AAL and Harvard-Oxford completely interchangeable in the examples:
+
+http://nilearn.github.io/modules/generated/nilearn.datasets.fetch_atlas_aal.html#nilearn.datasets.fetch_atlas_aal
+",0.3144486716687296
+issue_comment,NA,NA,996,GaelVaroquaux,2016-02-19 11:53:57,"We would like the code to be really interchangeable between Harvard-Oxford and MSDL.
+
+If you look at how Harvard-Oxford is used (for instance in the following example:
+http://nilearn.github.io/auto_examples/03_connectivity/plot_signal_extraction.html ) we need the 'labels' field of the data bunch to be an array of labels.
+
+Hence, I suggest putting in this field of the bunch, the ""labels"" field of the current structure, and a adding two other fields; one ""regions_coords"" that would be the current ""labels[['x', 'y', 'z']].tolist()"", and one ""network_name"" that would contain the ""networks"" field of the CSV.
+
+As a results, the code should look much more similar for Harvard-Oxford and for MSDL.
+",0.24615505966778406
+ , , , , , , , 
+ , , , , , , , 

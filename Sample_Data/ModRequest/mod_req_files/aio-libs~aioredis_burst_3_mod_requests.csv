@@ -1,0 +1,29 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,496b34f2f7090894e82b92b763f15a38e0ea8b7a,72,24,jettify,2014-07-07 16:50:29,add more validation to commands arguments,NA
+issue_comment,NA,NA,24,popravich,2014-07-07 06:35:29,"My intention of these mixins is to provide a bit simplier and at the same time more strict interface.
+For those who wish to use `b'-10'` there is always `.connection.execute` method which allows to do anything.
+",0.34731676240542386
+issue_comment,NA,NA,24,popravich,2014-07-06 19:35:41,"Looks good but I think that methods' arguments should have better validation, for instance `lindex(key, index)` method has check for `key` arg but no checks for `index` arg.
+",0.2592567163688001
+issue_comment,NA,NA,24,jettify,2014-07-06 20:21:00,"I thought the main reason to check `key` against `None` is that _redis_ replies with somewhat not obvious error response:
+
+```
+>>> redis.lindex(None, -1)
+ERR Protocol error: invalid bulk length
+```
+
+but in case wrong  `index` argument, we get more clear message: 
+
+```
+>>>redis.lindex(key, b'one')):
+ERR value is not an integer or out of range
+```
+
+note: that  ``redis.lindex(key, b'-10')` is valid command, and maybe it is not necessary to check that `index` is integer.
+
+---
+
+Anyway, I'll add more validation to arguments.
+",0.25065176840727166
+ , , , , , , , 
+ , , , , , , , 

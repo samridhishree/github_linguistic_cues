@@ -1,0 +1,269 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,185759b4fa8c99e399575ccb528cb5ccfcd9e0cf,162,935,KamalakerDadi,2016-01-10 17:48:48,Moved low level ICA example from connectivity to advanced,NA
+pull_request_commit_comment,NA,NA,935,KamalakerDadi,2016-01-09 15:55:17,"> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+
+I am not sure which director ? It is folder name you mean ?
+",0.5820430418609134
+pull_request_commit_comment,NA,NA,935,GaelVaroquaux,2016-01-09 16:00:37,"> ```
+> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+> ```
+> 
+> I am not sure which director ? It is folder name you mean ?
+
+Sorry: typo: I meant ""directories"".
+",0.5774541676994989
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:24:49,"> you can check on your machine using make html-strict
+
+I checked it, this time got an latex error which is not related to my PR.
+",0.5754800685616239
+pull_request_commit_comment,NA,NA,935,banilo,2016-01-08 22:25:01,"simplify ""tools to manipulate""
+",0.5412741454352377
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",0.48979919121919957
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c1d7b4d4a1ae34f90e45f1f4785d8a80f8fc99f6,535,935,KamalakerDadi,2016-01-10 20:01:15,Included contents of plotting.rst in index.rst and removed plotting.rst,NA
+pull_request_commit_comment,NA,NA,935,GaelVaroquaux,2016-01-09 16:00:37,"> ```
+> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+> ```
+> 
+> I am not sure which director ? It is folder name you mean ?
+
+Sorry: typo: I meant ""directories"".
+",0.532221721731537
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",0.5206245653225017
+pull_request_commit_comment,NA,NA,935,KamalakerDadi,2016-01-09 15:55:17,"> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+
+I am not sure which director ? It is folder name you mean ?
+",0.5080224991738886
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:06:24,"> low-level ICA stuff
+
+I have no clear example to move. May be I thought this `plot_ica_resting_state.py` but I am not sure.
+",0.5042584865002047
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:24:49,"> you can check on your machine using make html-strict
+
+I checked it, this time got an latex error which is not related to my PR.
+",0.44685650416141254
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3c7b1f8a818c35eef8a6c4736893cc381e486613,7004,935,KamalakerDadi,2016-01-11 12:18:36,Changed format from foobar to 01_foobar,NA
+pull_request_commit_comment,NA,NA,935,GaelVaroquaux,2016-01-09 16:00:37,"> ```
+> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+> ```
+> 
+> I am not sure which director ? It is folder name you mean ?
+
+Sorry: typo: I meant ""directories"".
+",0.6234917276117624
+pull_request_commit_comment,NA,NA,935,banilo,2016-01-08 22:25:01,"simplify ""tools to manipulate""
+",0.6114256479415254
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",0.600500647534399
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:06:24,"> low-level ICA stuff
+
+I have no clear example to move. May be I thought this `plot_ica_resting_state.py` but I am not sure.
+",0.5979027062401165
+issue_comment,NA,NA,935,lesteve,2016-01-08 13:49:28,"Looks like CircleCI fails with a genuine sphinx warning.
+
+```
+SphinxWarning: /home/ubuntu/nilearn/doc/plotting/plotting.rst:5: WARNING: duplicate label plotting, other instance in /home/ubuntu/nilearn/doc/plotting/index.rst
+```
+",0.5931862344359498
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8be5de9f88a5e0073992300d046c1a3776fa1f88,6827,935,KamalakerDadi,2016-01-11 14:05:27,More files format,NA
+pull_request_commit_comment,NA,NA,935,GaelVaroquaux,2016-01-09 16:00:37,"> ```
+> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+> ```
+> 
+> I am not sure which director ? It is folder name you mean ?
+
+Sorry: typo: I meant ""directories"".
+",0.6384752227730446
+pull_request_commit_comment,NA,NA,935,banilo,2016-01-08 22:25:01,"simplify ""tools to manipulate""
+",0.6314238072549423
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",0.6123536730997561
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-11 13:02:09,"@GaelVaroquaux Could you please have a review if I have done according to your comments ?
+",0.5940883533856385
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:06:24,"> low-level ICA stuff
+
+I have no clear example to move. May be I thought this `plot_ica_resting_state.py` but I am not sure.
+",0.5853784712007688
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,92eac759cb88af60b26bf49b89033137276bf0a0,1651,935,KamalakerDadi,2016-01-11 15:06:09,Removing files according to change directories comment,NA
+pull_request_commit_comment,NA,NA,935,banilo,2016-01-08 22:25:01,"simplify ""tools to manipulate""
+",0.5557869227483883
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",0.5167215589502218
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:24:49,"> you can check on your machine using make html-strict
+
+I checked it, this time got an latex error which is not related to my PR.
+",0.5090705140801453
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:06:24,"> low-level ICA stuff
+
+I have no clear example to move. May be I thought this `plot_ica_resting_state.py` but I am not sure.
+",0.48586708508796295
+pull_request_commit_comment,NA,NA,935,GaelVaroquaux,2016-01-09 16:00:37,"> ```
+> For this I suggest renaming the directors from ""foobar"" to ""01_foobar"".
+> ```
+> 
+> I am not sure which director ? It is folder name you mean ?
+
+Sorry: typo: I meant ""directories"".
+",0.42974825780618287
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7863bb3f1e81579a81852cc3f4bd9fc0fbe77968,6968,935,KamalakerDadi,2016-01-13 20:41:22,Documentation directories changed from 01_folder to folder,NA
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:04:58,"> Looks like CircleCI fails with a genuine sphinx warning.
+
+I think there is a naming conflict, pushed a recent commit to see if it passes. If I am not wrong.
+",0.6862757481950457
+issue_comment,NA,NA,935,banilo,2016-01-12 21:58:42,"LGTM
+",0.649915867623245
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-13 16:33:58,"> Aside from that comment, the PR looks great.
+
+I will finish it soon. I will get back if I have any rendering issues.
+",0.6091509645258353
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-08 14:06:24,"> low-level ICA stuff
+
+I have no clear example to move. May be I thought this `plot_ica_resting_state.py` but I am not sure.
+",0.6054439569358772
+issue_comment,NA,NA,935,KamalakerDadi,2016-01-11 13:02:09,"@GaelVaroquaux Could you please have a review if I have done according to your comments ?
+",0.5849317826207814
+issue_comment,NA,NA,935,lesteve,2016-01-08 13:49:28,"Looks like CircleCI fails with a genuine sphinx warning.
+
+```
+SphinxWarning: /home/ubuntu/nilearn/doc/plotting/plotting.rst:5: WARNING: duplicate label plotting, other instance in /home/ubuntu/nilearn/doc/plotting/index.rst
+```
+",0.5298302554859013
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,eba43befa23ec6a2555c1d0ca2467a4ee8b5c8de,49,917,KamalakerDadi,2016-01-12 14:01:55,"Addressed comments: restructured titles, DMN to one specific network",NA
+issue_comment,NA,NA,917,AlexandreAbraham,2016-01-12 11:30:01,"+1 once Gael's comments are addressed.
+",0.6849176233099392
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-08 23:06:48,"Space in Dictionary{ }Learning is inconsistent across the script.
+",0.4692668885506084
+pull_request_commit_comment,NA,NA,917,KamalakerDadi,2016-01-08 14:25:56,"@GaelVaroquaux  fixed your comment at line 12.
+",0.43831902721810756
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-08 23:06:12,"'dictionary map' might be confusing because the dictionary refers to the entire set of components, rather than a single of them.
+",0.38656178232884386
+pull_request_commit_comment,NA,NA,917,GaelVaroquaux,2016-01-09 15:44:56,"I know that this is not part of your PR, but I should we should replace 'izip', that we are importing from a private module (bad, bad), with 'zip', which does almost the same thing and is a builtin (ie doesn't have to be imported).
+",0.34580308187871056
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-08 23:01:23,"I would be inclined to think that initializing a class instance does imply that its parameters/variable are also initialized. Thus ""and parameters"" might perhaps be confusing to some.
+",0.33459531854449986
+pull_request_commit_comment,NA,NA,917,GaelVaroquaux,2015-12-16 22:34:08,"You should add a comment here that the example would be almost the same if the maps had been computed with an ICA.
+
+Such a comment is Google bait: people googling for ""regions extraction ICA"" with thus find your page
+",0.2965456713186735
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0ddfa30921b8d1627da1811c0ef72e9668684675,597,917,KamalakerDadi,2016-01-15 15:47:50,Fixing conflicts and shifted megatrawls example to 01_plotting,NA
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-12 22:25:50,"""connected"" -> ""spatially constrained""
+",0.6733656667846846
+issue_comment,NA,NA,917,AlexandreAbraham,2016-01-12 11:30:01,"+1 once Gael's comments are addressed.
+",0.657927755707049
+pull_request_commit_comment,NA,NA,917,GaelVaroquaux,2016-01-12 22:28:01,"> I don't know how to split hairs? Have you tried it already :-P ?
+
+Yeah. My hair lend well to that :). I'm actually pretty good at it.
+",0.5987044274517785
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-12 22:29:08,"article missing
+",0.5272618344599276
+pull_request_commit_comment,NA,NA,917,GaelVaroquaux,2016-01-12 22:28:31,"> ```
+> Such a comment is Google bait: people googling for ""regions extraction ICA""
+> with thus find your page
+> ```
+> 
+> Huh, we are SEO-optimizing nilearn code ?
+
+Fuck yeah. Dude, we're in the business of getting rich.
+",0.4994139464831494
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-12 22:08:09,"""each"" does not seem to fit into the sentence here
+",0.4918806693671838
+pull_request_commit_comment,NA,NA,917,KamalakerDadi,2016-01-13 11:57:36,"I don't think definition matters here.
+",0.4842870779518492
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0e1c7b98730a88f63b2b4e00b64b12fa4a6eb6e0,350,917,KamalakerDadi,2016-01-16 12:42:33,dictlearn to dictlearning in filename,NA
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-12 22:25:50,"""connected"" -> ""spatially constrained""
+",0.7680355170935426
+issue_comment,NA,NA,917,AlexandreAbraham,2016-01-12 11:30:01,"+1 once Gael's comments are addressed.
+",0.7056273709262644
+pull_request_commit_comment,NA,NA,917,GaelVaroquaux,2016-01-12 22:28:01,"> I don't know how to split hairs? Have you tried it already :-P ?
+
+Yeah. My hair lend well to that :). I'm actually pretty good at it.
+",0.700187641754181
+issue_comment,NA,NA,917,KamalakerDadi,2016-01-15 17:26:45,"Can we have a final review on this ?
+",0.6329769801394293
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-12 22:29:08,"article missing
+",0.6205230060118452
+pull_request_commit_comment,NA,NA,917,banilo,2016-01-12 22:23:26,"I don't know how to split hairs? Have you tried it already :-P ?
+",0.6107168089945151
+pull_request_commit_comment,NA,NA,917,GaelVaroquaux,2016-01-12 22:28:31,"> ```
+> Such a comment is Google bait: people googling for ""regions extraction ICA""
+> with thus find your page
+> ```
+> 
+> Huh, we are SEO-optimizing nilearn code ?
+
+Fuck yeah. Dude, we're in the business of getting rich.
+",0.5912973562076009
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d253e8cdbfefcca66f19ce49e2c379547114a6fa,95,959,aabadie,2016-01-28 13:18:54,adding memory consumption function based on memory profiler + test,NA
+pull_request_commit_comment,NA,NA,959,aabadie,2016-01-28 13:05:48,"I removed it.
+",0.7746450624519702
+issue_comment,NA,NA,959,aabadie,2016-01-22 16:37:49,"> But nilearn is probably not the place to set this up; rather a bigger project, with more manpowerful.
+
+scikit-learn ?
+",0.7321846861469995
+pull_request_commit_comment,NA,NA,959,lesteve,2016-01-22 15:36:57,"I am not sure what 1e6 means and I think it is misleading since it actually means 1024 *\* 2 bytes.
+",0.6542941782442515
+issue_comment,NA,NA,959,aabadie,2016-01-22 17:13:02,"> Do you want to schedule one? (doodle?)
+
+Sure. Let's do it next wednesday afternoon or thursday.
+",0.6017270504683061
+pull_request_commit_comment,NA,NA,959,lesteve,2016-01-22 15:37:15,"What's the point of having callable_obj=None by default?
+",0.5755218488649869
+issue_comment,NA,NA,959,aabadie,2016-01-22 16:40:26,"> Pandas is now using something different, and they are very happy with it.
+
+Looking at their repos, it seems they are still using vbench. But I may have missed something.
+",0.5158526885848719
+pull_request_commit_comment,NA,NA,959,aabadie,2016-01-22 15:50:03,"Indeed this is not necessary.
+",0.5048110490997464
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3096a69c3f1d2c0daf95bc89fef65348ed21913e,47,946,AlexandreAbraham,2016-01-18 11:52:26,Address comments and add tests,NA
+issue_comment,NA,NA,946,AlexandreAbraham,2016-01-14 12:43:01,"> I have a warning when running my example: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. 
+
+Yeah, it can be solved with one line.
+
+> Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+> In the current case, the error message is unclear seed empty.
+
+I do it. However, a masked seed is not a showstopper for me: the rest of the sphere can contain unmasked voxels.
+",0.4113043433885273
+pull_request_commit_comment,NA,NA,946,banilo,2016-01-17 23:35:56,"comment meaning may remain obscure
+",0.3339184415469165
+issue_comment,NA,NA,946,mrahim,2016-01-14 12:07:21,"Nice.
+I have a warning when running my example: `SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient. `
+
+Also, I'm wondering if it is better to check if the seed coordinates are inside the mask before continuing. 
+In the current case, the error message is unclear `seed empty`.
+",0.3323155397637495
+issue_comment,NA,NA,946,bthirion,2016-01-17 08:26:49,"You could ass teh script as a new test. Besides this, LGTM.
+",0.27692333028082616
+ , , , , , , , 
+ , , , , , , , 

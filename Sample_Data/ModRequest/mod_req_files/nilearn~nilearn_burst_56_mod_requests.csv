@@ -1,0 +1,70 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,17cd0e1955982ac227a0a1f03aacfb4971590b61,38,598,lesteve,2015-08-21 14:30:26,"Int arrays get turned into float
+
+if interpolation is continuous. Add test",NA
+pull_request_commit_comment,NA,NA,598,banilo,2015-06-02 14:25:46,"nice :)
+",0.5930403255738332
+issue_comment,NA,NA,598,banilo,2015-06-08 08:43:46,"> I agree that the inconsistency in the behavior of the function is a bug. However, casting to float, in my opinion, is the way to go if resample_img is called with interpolation=""continuous"".
+
+Sounds good.
+",0.5668154556987752
+pull_request_commit_comment,NA,NA,598,banilo,2015-06-09 13:25:03,"Not sure what you mean here by ""separable"" :(
+",0.4553224548293243
+pull_request_commit_comment,NA,NA,598,AlexandreAbraham,2015-06-12 09:37:58,"It means that you can do the interpolation on the 3d slices. You don't need the whole 4d image to do it.
+",0.4137113489110309
+pull_request_commit_comment,NA,NA,598,banilo,2015-06-02 14:32:30,"I am probably missing something, but why only _almost_? Shouldn't only the affine have changed? Rounding?
+",0.41234182407965825
+pull_request_commit_comment,NA,NA,598,lesteve,2015-06-02 14:37:16,"You are probably right, I'll fix that.
+",0.40495976154514834
+pull_request_commit_comment,NA,NA,598,lesteve,2015-06-02 14:29:30,"I didn't write this part, look at git blame for full credits.
+",0.3970126928782203
+issue_comment,NA,NA,598,AlexandreAbraham,2015-06-02 23:48:56,"I agree that the inconsistency in the behavior of the function is a bug. However, casting to float, in my opinion, is the way to go if resample_img is called with `interpolation=""continuous""`. Because continuous interpolation implies that the values are continuous. For the record, we already do that in `smooth_img`.
+
+So I am :-1: for the behavior proposed here.
+",0.31032596211746266
+pull_request_commit_comment,NA,NA,598,AlexandreAbraham,2015-06-02 22:38:25,"Well, blaming is the word here. It is far less readable than `[:, :, :]` and highly inefficient. There is an iterator to iterate on non-first dimensions, it is `np.nested_iters`. However this is not the fastest solution, transposing the axes is even faster. It has to be noted that, for that particular purpose, a `nditer` may be the faster solution because it would iter on both arrays at the same time.
+
+Here is a small bench to convince you.
+
+``` python
+import numpy as np
+import time
+
+
+a = np.random.random((20, 30, 40, 5, 6))
+
+t0 = time.time()
+for i in range(100):
+    all_img = (slice(None), ) * 3
+    other_shape = a.shape[3:]
+    for ind in np.ndindex(*other_shape):
+        a[all_img + ind].shape
+print time.time() - t0
+
+t0 = time.time()
+for i in range(100):
+    it0, it1 = np.nested_iters(a, [range(3, a.ndim), [0, 1, 2]], flags=['multi_index'])
+    for x in it0:
+        it1.itviews[0].shape
+print time.time() - t0
+
+t0 = time.time()
+for i in range(100):
+    other_shape = a.shape[3:]
+    b = np.transpose(a, range(3, a.ndim) + [0, 1, 2])
+    b = np.reshape(b, (-1,) + a.shape[:3])
+    for x in b:
+        x
+print time.time() - t0
+```
+
+Output:
+
+```
+0.00588703155518
+0.00144195556641
+0.000957012176514
+```
+",0.2717578650564021
+ , , , , , , , 
+ , , , , , , , 

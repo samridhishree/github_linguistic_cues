@@ -1,0 +1,28 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,07f8d6fbf2dec6cc04c93f3ccbc78cc218b0ed03,41,45,pgervais,2013-04-18 08:50:31,"Coding-style corrections
+
+- Renamed parameter confound_number to n_confound
+- Reordered imports
+- Fixed documentation",NA
+issue_comment,NA,NA,45,GaelVaroquaux,2013-04-18 08:19:16,"Imports should be from general to specific. Thus sklearn comes after scipy.
+
+Naming conventions: n_confounds rather then confound_number
+
+In docstrings, we usually say ""array-like"", rather than ""numpy.ndarray"", as other objects should work.
+
+The return section is not correctly formatted. It won't build the docs right.
+
+The remark on ordering faster is true only for numpy belove 1.7. Anyhow, I would try doing something like:
+
+var = np.copy(series)
+var **= 2
+var = var.sum(axis=0)
+
+I believe that this should always be fast (not tested, please correct me if I am wrong).
+
+""Most energetic"" -> largest
+
+thanks for the PR!
+",0.17557190778371934
+ , , , , , , , 
+ , , , , , , , 

@@ -1,0 +1,2 @@
+# Design Discussion
+*filter_small_comment_threads.py* : Filters the burst issues that have less than 2 distinct actors or less than 2 comments in their discussion thread, indicating the absence of a valid design discussion.

@@ -1,0 +1,124 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,28e7294d2530a214416776fad1792e418c516d6b,54,1255,KamalakerDadi,2016-08-26 17:29:57,"Addressed:placing function module level, affine methods to attributes",NA
+pull_request_commit_comment,NA,NA,1255,KamalakerDadi,2016-08-26 16:32:55,"Ok. I will change it.
+",0.8919237531302661
+pull_request_commit_comment,NA,NA,1255,AlexandreAbraham,2016-08-26 15:04:05,"We should not need this.
+",0.8234446692528176
+pull_request_commit_comment,NA,NA,1255,AlexandreAbraham,2016-08-26 15:56:03,"This should stay in this module. Look at how python 2 / python 3 versions are handled:
+
+``` python
+if sys.version_info[0] == 3:
+    # Python 3 declarations
+else:
+   # Python 2 declarations
+```
+
+You should do the same here:
+
+``` python
+if LooseVersion(nibabel.__version__) > LooseVersion('2.0.0'):
+    # Code compatible with newest versions
+else:
+    # Code compatible with older versions
+```
+",0.49797884122250613
+pull_request_commit_comment,NA,NA,1255,AlexandreAbraham,2016-08-26 16:00:51,"You don't need this: both `img.get_affine()` and `img.affine` will work with _MNI152Template.
+",0.454959064752675
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,222f95af663664173626b646ea869b83d2a6dd95,117,1227,KamalakerDadi,2016-08-09 22:04:21,"Addressed:subjects accpts only list, changed version, robust check in subjects input",NA
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:31:03,"If I put `subjects=None`, I will get all the subjects but, to get no data at all, I have to put `subjects=[]`.
+",0.48534753963326804
+pull_request_commit_comment,NA,NA,1227,KamalakerDadi,2016-08-08 20:31:21,"You mean 0.2.5.1 -> 0.2.6 and 0.3 -> 0.2.7 ?
+",0.48297719542904793
+pull_request_commit_comment,NA,NA,1227,bthirion,2016-08-09 20:28:42,"I thinks so.
+",0.47576308377649057
+pull_request_commit_comment,NA,NA,1227,bthirion,2016-08-08 19:58:16,"I am -1 on leaving the possibility to specify subjects as int: people will be surprised. I would leave only the possibility of a list.
+",0.4753626941374668
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9ba6071e94f3f9b03e0cf2d2a60a0e69e26a44a8,51,1227,KamalakerDadi,2016-08-11 21:29:03,n_subjects to int and removing arguments wherever required,NA
+issue_comment,NA,NA,1227,GaelVaroquaux,2016-08-11 19:59:51,"> To summarize, I will keep both n_subjects (int) and subjects (list).
+
+Yes
+",0.7418520517189287
+pull_request_commit_comment,NA,NA,1227,KamalakerDadi,2016-08-08 20:31:21,"You mean 0.2.5.1 -> 0.2.6 and 0.3 -> 0.2.7 ?
+",0.5841190010760651
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:29:08,"Next version is 0.2.6 and deprecation will probably happen in 0.2.7.
+",0.5835127336657311
+pull_request_commit_comment,NA,NA,1227,bthirion,2016-08-09 20:28:42,"I thinks so.
+",0.5615039559247396
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:31:03,"If I put `subjects=None`, I will get all the subjects but, to get no data at all, I have to put `subjects=[]`.
+",0.532088950196935
+pull_request_commit_comment,NA,NA,1227,bthirion,2016-08-08 19:58:16,"I am -1 on leaving the possibility to specify subjects as int: people will be surprised. I would leave only the possibility of a list.
+",0.52505177545549
+pull_request_commit_comment,NA,NA,1227,KamalakerDadi,2016-08-08 20:28:59,"I didn't get your comment/question ?
+",0.5086199521137135
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,be205150e1a525e6dae7929d2333a19738a3c39f,39,1227,KamalakerDadi,2016-08-12 19:04:54,Removed argument subjects to take default 2nd subject in examples,NA
+issue_comment,NA,NA,1227,GaelVaroquaux,2016-08-11 19:59:51,"> To summarize, I will keep both n_subjects (int) and subjects (list).
+
+Yes
+",0.7794832059232055
+pull_request_commit_comment,NA,NA,1227,bthirion,2016-08-08 19:58:16,"I am -1 on leaving the possibility to specify subjects as int: people will be surprised. I would leave only the possibility of a list.
+",0.5050055568418583
+pull_request_commit_comment,NA,NA,1227,KamalakerDadi,2016-08-08 20:31:21,"You mean 0.2.5.1 -> 0.2.6 and 0.3 -> 0.2.7 ?
+",0.4971896574158804
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:29:08,"Next version is 0.2.6 and deprecation will probably happen in 0.2.7.
+",0.4954144010950938
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:31:03,"If I put `subjects=None`, I will get all the subjects but, to get no data at all, I have to put `subjects=[]`.
+",0.4732733941277122
+pull_request_commit_comment,NA,NA,1227,bthirion,2016-08-09 20:28:42,"I thinks so.
+",0.4663828586329075
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:26:46,"So `None` means `all` but `[]` means no data?
+",0.43118601268405143
+pull_request_commit_comment,NA,NA,1227,GaelVaroquaux,2016-08-11 18:33:38,"Maybe we should remove it in 0.3 only. I worry about breakage in our users.
+",0.4094576528703515
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,eaabc6629e3f07a054a1ced74ed2caad2e4922aa,33,1227,GaelVaroquaux,2016-08-25 11:01:31,ENH: plot_haxby_mass_univariate on subject 2,NA
+issue_comment,NA,NA,1227,GaelVaroquaux,2016-08-19 11:52:04,"Indeed.
+
+Do you want to attempt a rebase on master?
+",0.9972853530046942
+issue_comment,NA,NA,1227,KamalakerDadi,2016-08-19 08:39:04,"Is it good to merge ?
+",0.9062867822380822
+issue_comment,NA,NA,1227,KamalakerDadi,2016-08-19 11:17:30,"Ok. As expected :) I think I messed up again.
+",0.8984400268190473
+issue_comment,NA,NA,1227,GaelVaroquaux,2016-08-11 19:59:51,"> To summarize, I will keep both n_subjects (int) and subjects (list).
+
+Yes
+",0.8892716135370038
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:31:03,"If I put `subjects=None`, I will get all the subjects but, to get no data at all, I have to put `subjects=[]`.
+",0.8663003911340439
+pull_request_commit_comment,NA,NA,1227,KamalakerDadi,2016-08-08 20:31:21,"You mean 0.2.5.1 -> 0.2.6 and 0.3 -> 0.2.7 ?
+",0.8558990078758587
+pull_request_commit_comment,NA,NA,1227,AlexandreAbraham,2016-08-08 20:29:08,"Next version is 0.2.6 and deprecation will probably happen in 0.2.7.
+",0.8485390633786284
+issue_comment,NA,NA,1227,KamalakerDadi,2016-08-19 09:51:17,"> How about smoothing a little bit (say 4mm?) in the NiftiMasker?
+
+Nope, zero detections again. May be threshold ?
+",0.8441683634506265
+issue_comment,NA,NA,1227,GaelVaroquaux,2016-08-12 13:17:55,"> Some results may vary of what we currently have now for example,
+> plot_haxby_different_estimators.
+
+Well, that's life. Those examples weren't to be trusted too much anyhow.
+",0.8423293693661422
+issue_comment,NA,NA,1227,KamalakerDadi,2016-08-19 11:53:22,"> Do you want to attempt a rebase on master?
+
+Yes, What is the simplest way to remove those ? Should I make new PR ?
+",0.8295511036087448
+issue_comment,NA,NA,1227,GaelVaroquaux,2016-08-19 11:54:22,"> Yes, What is the simplest way to remove those ? Should I make new PR ?
+
+How about first you rebase. If that helps, I can call you, but I have a
+meeting in 5mn.
+",0.8200144064386643
+pull_request_commit_comment,NA,NA,1227,KamalakerDadi,2016-08-08 20:32:12,"You can put subjects=0
+",0.8057617275709673
+issue_comment,NA,NA,1227,KamalakerDadi,2016-08-10 11:27:26,"> Well, I am still convinced that having to do fetch_haxby(subjects=[1, 2, 3, 4, 5, 6]) to get the whole dataset is counter intuitive.
+
+We should also keep n_subjects for bunch of subjects selection and not to deprecate ?
+",0.8008354701312707
+ , , , , , , , 
+ , , , , , , , 

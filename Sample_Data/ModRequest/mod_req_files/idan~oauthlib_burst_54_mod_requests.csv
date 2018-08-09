@@ -1,0 +1,26 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,8437a24625aca5623b385aeba5e873f051871306,158,481,skion,2017-09-13 22:18:07,Add test for nonce parameter preservation.,NA
+issue_comment,NA,NA,481,skion,2017-07-30 21:35:37,Reopening accidental close...,0.7229466233662141
+issue_comment,NA,NA,481,wiliamsouza,2017-08-19 02:39:18,"`nonce` is no longer required as stated by http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
+
+```
+nonce
+OPTIONAL. String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the nonce values used to prevent attackers from guessing values. For implementation notes, see Section 15.5.2.
+```",0.5482144183583347
+issue_comment,NA,NA,481,wiliamsouza,2017-09-10 21:45:05,With missing tests LGTM,0.4875994136374495
+issue_comment,NA,NA,481,skion,2017-08-19 06:57:03,"@wiliamsouza It's always been optional in code flow, but should still be included if present.",0.45306080248694325
+pull_request_commit_comment,NA,NA,481,wiliamsouza,2017-09-10 22:38:35,"Suggestion: Add the following text to method doc string:
+
+```
++        nonce
++                OPTIONAL. String value used to associate a Client session with an
++                ID Token, and to mitigate replay attacks. The value is passed
++                through unmodified from the Authentication Request to the ID Token.
++                Sufficient entropy MUST be present in the nonce values used to
++                prevent attackers from guessing values
+
+```",0.4126588126967269
+issue_comment,NA,NA,481,thedrow,2017-07-30 06:48:46,"How come the tests did pass before that? This implies we're missing coverage for a code branch where nonces are not present.
+Can you please add a unit test for this code branch?",0.2844797895566288
+ , , , , , , , 
+ , , , , , , , 

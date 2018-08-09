@@ -1,0 +1,946 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,80cb0cb82ed0902d3821f9cf1c768b8aed3a76a5,71,248,banilo,2014-10-02 08:06:04,addswap,NA
+pull_request_commit_comment,NA,NA,248,dengemann,2014-10-01 16:53:54,"@banilo you have too many dashes here ;-) remove one.
+",0.7962374005495032
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:47:11,"In variable names, we tend to use underscores between words. This would be 'out_nii'. I would prefer 'out_img', as we have the convention that everything that is a niimg should be named with a trailing '_img'.
+",0.7140481555901921
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:43:35,"I think that these remarks should be made in the 'Notes' section of the docstring. The guideline is to keep the initial description very short.
+",0.6348571710466955
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:41:44,"Could you please call the input argument 'niimg'.
+",0.6138601309752288
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:45:16,"Any time that I see such warnings in the doc, I have the feeling that we are misdesigning something. Maybe we should use the nilearn.image.reorder_img to relax a bit the assumptions.
+",0.600627134067053
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:42:47,"Let's not define our software by what other softwares do. I would here mention that it swaps the hemispheres.
+",0.5696937296191178
+pull_request_commit_comment,NA,NA,248,GaelVaroquaux,2014-10-01 11:46:07,"Here you should use utils.check_niimg. That way you would also accept strings as input (and the docstring should be updated to reflect that).
+",0.5442344114770409
+pull_request_commit_comment,NA,NA,248,dengemann,2014-10-01 16:53:59,"and here.
+",nan
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e64e5f0ff1279d7a27cf62967188fe657ea3594f,108,241,lesteve,2014-09-26 13:14:12,"Add fast smoothing when fwhm='fast' in image.smooth_img
+
+* Fast smoothing has been moved from plotting.find_cuts to image.image
+* Test have been added for fast smoothing
+* Fix buglet where data was only smoothed in find_cuts for integer arrays",NA
+pull_request_commit_comment,NA,NA,241,bthirion,2014-09-25 06:31:46,"In the documentation, say explicitly what smoothing is performed: it is only spatial smoothing, the filter is [.2 1 .2] in each direction.
+Bzw, using [.2 .6 .2] might preserve the value on constant images ?
+",0.6000206826630778
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 10:32:22,"No. It's wrong
+",0.526847669444936
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:15:40,"I indeed think that the comment on discrete values is not relevant.
+",0.4896162016864719
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:15:03,"To be PEP8 you need two empty lines between function definitions.
+",0.4434574170909661
+pull_request_commit_comment,NA,NA,241,lesteve,2014-09-15 15:12:57,"Just wondering, is this comment about discrete values still relevant?
+",0.43493226566971144
+pull_request_commit_comment,NA,NA,241,lesteve,2014-09-15 15:16:00,"Open to better wording for the function name and the doc below.
+",0.3822094208066589
+issue_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:19:14,"You are lacking a test. No code goes in nilearn without tests. You could for instance test that an image full of ones stays full of ones. That will fail, because the normalization isn't right. So maybe we need a keyword argument 'preserve_scale', True by default, that will make sure that np.ones stays np.ones (aside from the sides).
+",0.2579292393631757
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:13:11,"You probably want to say that it is less computationally expensive than smooth_img, which uses scipy.ndimage.gaussian_filter
+",0.23840695716122695
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:12:35,"For the function name: fast_smooth_img, and the function should be in nilearn.image.image, next to 'smooth_img'.
+",0.2332338442786035
+pull_request_commit_comment,NA,NA,241,lesteve,2014-09-16 09:44:01,"By the way it looks like the smoothing is done only when the dtype is a signed integer. Is that on purpose?
+",0.20062580082456227
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a27ac991f4c086f4233ca470d65d8a00f5a10bdd,45,241,lesteve,2014-09-26 13:48:05,Tweak documentation and rename data -> arr for consistency,NA
+pull_request_commit_comment,NA,NA,241,bthirion,2014-09-25 06:31:46,"In the documentation, say explicitly what smoothing is performed: it is only spatial smoothing, the filter is [.2 1 .2] in each direction.
+Bzw, using [.2 .6 .2] might preserve the value on constant images ?
+",0.6827966899108522
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 10:32:22,"No. It's wrong
+",0.5599187931235559
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:15:03,"To be PEP8 you need two empty lines between function definitions.
+",0.4915108077663207
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:12:35,"For the function name: fast_smooth_img, and the function should be in nilearn.image.image, next to 'smooth_img'.
+",0.45591286899836747
+pull_request_commit_comment,NA,NA,241,lesteve,2014-09-15 15:12:57,"Just wondering, is this comment about discrete values still relevant?
+",0.43193653884266736
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:15:40,"I indeed think that the comment on discrete values is not relevant.
+",0.4209146542650082
+pull_request_commit_comment,NA,NA,241,lesteve,2014-09-15 15:16:00,"Open to better wording for the function name and the doc below.
+",0.41630479014987243
+pull_request_commit_comment,NA,NA,241,lesteve,2014-09-16 09:44:01,"By the way it looks like the smoothing is done only when the dtype is a signed integer. Is that on purpose?
+",0.40864636537973886
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:13:11,"You probably want to say that it is less computationally expensive than smooth_img, which uses scipy.ndimage.gaussian_filter
+",0.3666041720228277
+issue_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:19:14,"You are lacking a test. No code goes in nilearn without tests. You could for instance test that an image full of ones stays full of ones. That will fail, because the normalization isn't right. So maybe we need a keyword argument 'preserve_scale', True by default, that will make sure that np.ones stays np.ones (aside from the sides).
+",0.34445871889568846
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,cdb637fddd4d7e88c9c2fd8cc2db2d3151adb8ae,38,241,lesteve,2014-10-01 09:22:25,Make provenance of the expected result a tad less magical,NA
+pull_request_commit_comment,NA,NA,241,bthirion,2014-09-26 14:45:25,"[.2, 1, .2]
+",1.1551252718161134
+pull_request_commit_comment,NA,NA,241,bthirion,2014-09-26 14:09:41,"OK, this is what I meant.
+",0.8857401258091565
+pull_request_commit_comment,NA,NA,241,bthirion,2014-09-25 06:31:46,"In the documentation, say explicitly what smoothing is performed: it is only spatial smoothing, the filter is [.2 1 .2] in each direction.
+Bzw, using [.2 .6 .2] might preserve the value on constant images ?
+",0.7905615204352409
+pull_request_commit_comment,NA,NA,241,bthirion,2014-09-27 15:50:51,"On 26/09/2014 18:05, Loïc Estève wrote:
+
+> In nilearn/image/image.py:
+> 
+> > @@ -82,6 +82,50 @@ def high_variance_confounds(niimgs, n_confounds=5, percentile=2.,
+> >                                             detrend=detrend)
+> > 
+> > +def _fast_smooth_array(arr):
+> > -    """"""Simple smoothing which is less computationally expensive than
+> > -    applying a gaussian filter.
+> >   +
+> > -    The filter is [.2, 1, 2] in each direction with a normalisation to
+> > -    preserve the scale.
+> >   +
+> > -    Parameters
+> > -    ----------
+> > -    arr: 3D ndarray
+> >   +
+> 
+> For completeness, this is what I have done, I think.
+> 
+> Also about the naming of the functions, I am fine adding 3d 
+> explicitely to |_smooth_array| or |_fast_smoth_array| if you think it 
+> is better. Maybe something like |_smooth_array_three_first_dims|? 
+> Better suggestions welcome!
+> 
+> In this case should the 'public' function smooth_img be renamed too?
+> 
+> —
+> Reply to this email directly or view it on GitHub 
+> https://github.com/nilearn/nilearn/pull/241/files#r18097493.
+> 
+> The docstrings have to indicate that this acts on the first three axes 
+> of the image (which is a basic convention in many NiLearn functions), 
+> and does not act along potential additional axes. This means that I'm 
+> fine with the current state of the code. I don't think that renaming is 
+> necessary.
+",0.6436155059976199
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:15:03,"To be PEP8 you need two empty lines between function definitions.
+",0.5518150911105112
+issue_comment,NA,NA,241,lesteve,2014-09-30 06:56:12,"@GaelVaroquaux any objections to merging this?
+",0.5429356470155375
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:15:40,"I indeed think that the comment on discrete values is not relevant.
+",0.4856833318796462
+pull_request_commit_comment,NA,NA,241,GaelVaroquaux,2014-09-16 09:12:35,"For the function name: fast_smooth_img, and the function should be in nilearn.image.image, next to 'smooth_img'.
+",0.4716806874814099
+issue_comment,NA,NA,241,lesteve,2014-09-30 09:03:58,"Sure, no real hurry.
+",0.4498751749256652
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,16d0f8010a493a1e56bfca78991e889080582860,118,245,lesteve,2014-09-26 11:34:15,"Rename align_svg.py to get the Travis tests to run
+
+nose is trying to import align_svg.py which is trying to do plots and fail with an error like ""Failure: TclError (no display name and no $DISPLAY environment variable)""",NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.4922426776528299
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e578705a787bac8ee2f69a2a0fca14d244a7e1b5,38891,245,lesteve,2014-09-26 12:26:06,"Move glass_brain_scripts inside plotting
+
+Hoping that the backend magic in plotting/__init__.py will help for the Travis tests",NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.4703668254706346
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e5df5b6255873d5414b0fff337738a2a18126633,34,245,lesteve,2014-09-29 13:35:12,Brain schematics inverts its colors with a black background,NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.6470367881289247
+issue_comment,NA,NA,245,lesteve,2014-09-27 06:48:09,"The outline comes from an SVG with a little bit of work to extract the coordinates of the nodes from the SVG and draw the Bézier curves in matplotlib.
+
+The SVG was created by Gaël by vectorising and simplifying a bitmap picture.
+",0.3801606813021282
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0dbdfc8e8a9966290069af1a23c91dce3ed9a604,37301,245,lesteve,2014-09-29 14:30:17,"Add svg bounds into the json document and update brain_plotter accordingly.
+
+Regenerated the json documents.",NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5508085556226678
+issue_comment,NA,NA,245,lesteve,2014-09-27 06:48:09,"The outline comes from an SVG with a little bit of work to extract the coordinates of the nodes from the SVG and draw the Bézier curves in matplotlib.
+
+The SVG was created by Gaël by vectorising and simplifying a bitmap picture.
+",0.20731965044974554
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,ffaa6609e1d0ea774b35888acfd4f0537ff2befa,39119,245,lesteve,2014-10-07 07:33:15,"Rename glass_brain_scripts to glass_brain and brain_plotter to brain_schematics.
+
+Also tidied up brain_schematics a little bit",NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5663650426246027
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.4433383098889967
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.4091947798319968
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-09-29 21:28:07,"> This seems of a much wider interest than glass brain plotting. This should go
+> to some utils subdir, and possibly to another library in the future.
+
+Agreed for the utils, but I don't want to invest time in something like a
+library that is of no use to us. People are welcome to take the code and
+make it a library.
+",0.388539442376332
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,29af2c3b49b61b289bbe5fa71acd0fed25ba7d2e,526,245,lesteve,2014-10-07 07:53:50,Move a few files to nilearn/plotting/glass_brain/scripts,NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.7550163476914086
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.7462349867882767
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.7035658796614718
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.6338407356454727
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b69ef471820f356e7d8579f899c196145c421bc1,220,245,lesteve,2014-10-07 08:57:43,"First stab at tidying up slicers.py and img_plotting.py
+
+* Add BaseAxes as a common class to cut-based and projection-based Axes.
+* Rename do_cut -> transform_2d and draw_cut -> draw
+* Add OrthoProjector to display projections of 3D data. Add derived classes
+to chose which directions to display.",NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.4912922328698982
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.48438940652818374
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.3473625769683909
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.31889119632694085
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,24a5838870940227bf7abb9704857b5467b88515,35,245,lesteve,2014-10-07 11:50:02,Add optional alpha argument to plot_glass_brain.,NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6269675914374275
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5832198153703292
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.38511397133031133
+pull_request_commit_comment,NA,NA,245,lesteve,2014-09-30 16:56:35,"Yeah, this script main purpose is to check the good alignment of the anat and the svg. It could be useful to keep it in case we need to tweak the svg further at one point in the future. It does makes sense to move it out of the way.
+",0.3705719203350577
+issue_comment,NA,NA,245,lesteve,2014-09-27 06:48:09,"The outline comes from an SVG with a little bit of work to extract the coordinates of the nodes from the SVG and draw the Bézier curves in matplotlib.
+
+The SVG was created by Gaël by vectorising and simplifying a bitmap picture.
+",0.37033836516310625
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,1c25b857a3dce40df9a6bff48ca7a5d66dfec171,77,245,lesteve,2014-10-08 07:16:55,"Reuse _plot_img_with_bg in plot_glass_brain
+
+Also:
+* tidied up plot_glass_brain parameters and documentation
+* fix whish -> wish typo",NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5390604312520145
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.49623493528430007
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.45012678313414867
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.4192913806212054
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.3773105095525877
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:16:23,"Is there a reason to have a staticmethod, rather than a function, here? (ie something not linked to the class).
+",0.36769050373156476
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.3462700122103525
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d4098099ad13e5ac53db6e280041c66a783e748b,32,245,lesteve,2014-10-08 08:49:44,"Move slice finding code to BaseStackedSlicer.find_cut_coords
+
+cut_coords has been changed from 12 to 7 to mirror what the code was doing in img_plotting",NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.710387006768808
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.6610946478935376
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.6403886968973831
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6345748741387843
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.6220854557854815
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.6192198808766457
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.6060690266285015
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,24e7bea54ab5a9b56f644c4578b228a14e8b5290,39116,245,lesteve,2014-10-08 14:06:10,"Flatten the glass brain related folders
+
+* plotting.glass_brain.brain_schematics moved to plotting.glass_brain
+* plotting/glass_brain/scripts/* moved to plotting/glass_brain_files",NA
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5782322757879578
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5781055709432816
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5068176032771313
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.47143173880359823
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.45251970269753183
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.42743550124019625
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.42343503354361345
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4b4c4c766cba58fba47db019070cca07e7591c79,309,245,lesteve,2014-10-09 13:09:01,Refactor nilearn.plotting.glass_brain to use functions,NA
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.6204865079678155
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.567207972001051
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.49755879557220606
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.46718342493321563
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.42875802829341825
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.40425762951240674
+pull_request_commit_comment,NA,NA,245,lesteve,2014-09-30 16:56:35,"Yeah, this script main purpose is to check the good alignment of the anat and the svg. It could be useful to keep it in case we need to tweak the svg further at one point in the future. It does makes sense to move it out of the way.
+",0.39101152549483464
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,00cd6ad663a6f119134bbcbebc04726ffcb2e7e2,63,245,lesteve,2014-10-10 08:08:21,"Move the brain schematic plotting to the Axes rather than the display
+
+A few methods needed **kwargs, so that additional arguments find their way
+from img_plotting.plot_glass_brain to glass_brain.plot_brain_schematics in GlassBrainAxes.__init__",NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5103810802756422
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.4962022762507673
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.48527422114415497
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.4635305748578097
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.29888410757637474
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.2892033185352051
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.2706594427779665
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,ad2dc036111193f373db88dacda35ed27adcc456,53,245,lesteve,2014-10-10 08:25:43,"Update plot_align_svg.py now that add_brain_schematics has been removed from displays
+
+Tweak it to use additional arguments to ease alignment + remove commented code",NA
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.5372274321657531
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5291450815876336
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.521296152559396
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5160113548256944
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.3656167811249891
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.3567802258222178
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.3254804004177013
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,aca9483b329467da3039d5c44824d245810cae1e,81,245,lesteve,2014-10-10 11:52:41,"Minor renaming/tidy-up
+* BaseAxes.draw -> BaseAxes.draw_2d
+* cut_ax -> display_ax
+* other minor changes",NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6353680972184125
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.6137030545460509
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.583228471798283
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.5828694420160422
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.5502534888747521
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5388510351045552
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.5259068537091758
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.5245206250383937
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-09-29 21:28:07,"> This seems of a much wider interest than glass brain plotting. This should go
+> to some utils subdir, and possibly to another library in the future.
+
+Agreed for the utils, but I don't want to invest time in something like a
+library that is of no use to us. People are welcome to take the code and
+make it a library.
+",0.5196571704541372
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:16:23,"Is there a reason to have a staticmethod, rather than a function, here? (ie something not linked to the class).
+",0.48603566195699055
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4ed433fad1b967fe120581de1c1646de9f0a0ca9,1985,245,lesteve,2014-10-10 12:00:41,"Rename slicers.py -> displays.py
+* Update doc to use display rather than slicer
+* Update slicers imports",NA
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.6094656169922974
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6059477071071204
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5830935330077527
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.5771840162631251
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.5160400789148543
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.5140277892849499
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.5057800602689035
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.4307961631984978
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.42300281538990325
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:16:23,"Is there a reason to have a staticmethod, rather than a function, here? (ie something not linked to the class).
+",0.42154905645583907
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5ad6ff4fb8463a3b5f34a50bf3ef96aac5f25312,48,245,lesteve,2014-10-17 11:04:56,"Add plot_glass_brain to documentation.
+
+Needed to reformat the rst table in order to fit plot_glass_brain in the
+first column",NA
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5448987061733059
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5230297098376107
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.5080500480246346
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.4992339270643642
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.49150875889597956
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.39404732514674856
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.39115172609893656
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.3707757398888436
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.3421245434510771
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.33925156568649395
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.30275206528259635
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:16:23,"Is there a reason to have a staticmethod, rather than a function, here? (ie something not linked to the class).
+",0.29692609524872327
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5e3cd5a9f1dfc0e320d3ff5a384505bf06904365,50,245,lesteve,2014-11-13 10:26:20,"vmin and vmax are determined by the 2d data min and max
+
+rather than doing the min and max of the 3D volume",NA
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6632670026821437
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:32:10,"> I have some wip stuff in my local branch atm. Let me tidy that up before
+> posting an updated picture.
+
+Sure. Thanks!
+",0.6614952827863406
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.6357750344187449
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.6263668050342321
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.5926144880895203
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.565886665415633
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.5609365062399206
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.549188798017988
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.5303200650732471
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.5264160817734131
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-09-29 21:28:07,"> This seems of a much wider interest than glass brain plotting. This should go
+> to some utils subdir, and possibly to another library in the future.
+
+Agreed for the utils, but I don't want to invest time in something like a
+library that is of no use to us. People are welcome to take the code and
+make it a library.
+",0.49086980939841807
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:32:40,"Please disregard the comment on making it private: I hadn't seen that it was in our Axes object. End users are not meant to use this object anyhow, so let's not bother.
+",0.48044845408406367
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-10 08:33:49,"Actually something like this configured already. I just didn't spot this one.
+",0.4803535807346344
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.47316899054450423
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,5aa0a6a1fab6354a121e589009ca6f91250f9c63,30,245,lesteve,2014-11-13 10:48:16,"Add transparent color maps using the full alpha range
+
+* Use it in the glass brain plot by default
+* Minort tweaks in plot_glass_brain.py to use the default color map",NA
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5574494765323112
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5341460369743137
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5327794378600105
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:32:10,"> I have some wip stuff in my local branch atm. Let me tidy that up before
+> posting an updated picture.
+
+Sure. Thanks!
+",0.5170234497286289
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.5010333295394676
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.46166458095310237
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.43788270840909027
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.4346902591988875
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.39560712919665386
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.38969209128880633
+issue_comment,NA,NA,245,lesteve,2014-11-05 10:31:35,"I have some wip stuff in my local branch atm. Let me tidy that up before posting an updated picture.
+",0.3773948008702638
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.3675490098013672
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.34022526696120203
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.3353297908962236
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,66dfaa4e1ad4977ded3492e19d500a9d0f178a82,6943,245,lesteve,2014-11-28 09:34:37,"Simplified glass brain SVGs
+
+- Only three kind of stroke-widths: 1.2, 2.5, 3
+- Did some ungrouping in brain_schematics_top.svg
+- Regenerated JSONs",NA
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 10:08:45,"> TBH maybe it's just that I have been staring at this way too long and that I am now unable to reliably distinguish gray from transparent red any more...
+
+No, no, I confirm.
+",0.7040067439697109
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.5678983611202308
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.5596019828308068
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5510727845118578
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:32:10,"> I have some wip stuff in my local branch atm. Let me tidy that up before
+> posting an updated picture.
+
+Sure. Thanks!
+",0.5353755947321086
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5180205191469258
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.5084188581353295
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.4591759947153198
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.45640484747118215
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 09:45:42,"> Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt
+> from this issue:
+
+Shit, we'll probably get this answer.
+",0.4525198478191612
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.4459070936055184
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.4163970127853812
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.4154485519406411
+issue_comment,NA,NA,245,lesteve,2014-11-05 10:31:35,"I have some wip stuff in my local branch atm. Let me tidy that up before posting an updated picture.
+",0.398667818702617
+issue_comment,NA,NA,245,lesteve,2014-11-18 09:43:25,"> I suggest that you ask on the matplotlib mailing list.
+
+Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt from this issue:
+
+![alpha_gradient_1 2](https://cloud.githubusercontent.com/assets/1680079/5085781/7f1b5a3c-6f15-11e4-9db8-7c1afde0da4d.png)
+",0.39712627598687567
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:40:15,"> a) there seems to be activation outside of the broad on the 2 lower panels.
+
+There is already a discussion about this one above.
+
+> b) I already mentioned this, but it would be nice to include the main neuroanatomical realities into the template:
+
+It is definitely in the back of my mind. My take on it is to defer this kind of enhancements to further PRs.
+",0.3927225917589191
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-24 10:57:37,"> I think it does, there are a few very negative values in the eyes that survive
+> the max along an axis.
+
+Ah, OK. Shouldn't we be taking the absolutely value before summing?
+
+> We could have the cmap default to None and then do the logic in
+> plot_glass_brain to switch between the white and black background. The white
+> background would have a colormap going from white to red and the black one a
+> colormap going from black to red.
+
+That's an option. It's simple and would do the trick. Let's go for this.
+
+> One last comment, the data is actually contrast data, I am wondering
+> whether it would be worth calculating p-values like this example to
+> have a more realistic use case.
+
+These are T maps? If they are T maps, that's a pretty good example of
+standard usecase.
+",0.38941965348455343
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:12:52,"I agree on the aesthetic judgement but I am not too sure about the technical problem yet ...
+",0.380469555419918
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:05:16,"@lesteve : could you paste here the current view of the generate plot, as I see that a lot has changed recently.
+",0.3776889141559683
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.3746500158732424
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9f011d7996d4c3c46020febbcfc4726ac2fb36fb,1814,245,lesteve,2014-11-28 09:41:24,"Remove invisible path
+
+in brain_schematics_top.svg. Regenerated JSON",NA
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 10:08:45,"> TBH maybe it's just that I have been staring at this way too long and that I am now unable to reliably distinguish gray from transparent red any more...
+
+No, no, I confirm.
+",0.7779758060699685
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.6252513170922113
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.6176591395476753
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6150551962842832
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:32:10,"> I have some wip stuff in my local branch atm. Let me tidy that up before
+> posting an updated picture.
+
+Sure. Thanks!
+",0.6049563737540672
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.56010028968782
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.543170787436692
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.5393042742195433
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.5312530697140516
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.5261154142609858
+issue_comment,NA,NA,245,lesteve,2014-11-18 09:43:25,"> I suggest that you ask on the matplotlib mailing list.
+
+Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt from this issue:
+
+![alpha_gradient_1 2](https://cloud.githubusercontent.com/assets/1680079/5085781/7f1b5a3c-6f15-11e4-9db8-7c1afde0da4d.png)
+",0.5173608707080775
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 09:45:42,"> Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt
+> from this issue:
+
+Shit, we'll probably get this answer.
+",0.5168723335654943
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.4893876526392199
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:40:15,"> a) there seems to be activation outside of the broad on the 2 lower panels.
+
+There is already a discussion about this one above.
+
+> b) I already mentioned this, but it would be nice to include the main neuroanatomical realities into the template:
+
+It is definitely in the back of my mind. My take on it is to defer this kind of enhancements to further PRs.
+",0.48929651693296694
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-24 10:57:37,"> I think it does, there are a few very negative values in the eyes that survive
+> the max along an axis.
+
+Ah, OK. Shouldn't we be taking the absolutely value before summing?
+
+> We could have the cmap default to None and then do the logic in
+> plot_glass_brain to switch between the white and black background. The white
+> background would have a colormap going from white to red and the black one a
+> colormap going from black to red.
+
+That's an option. It's simple and would do the trick. Let's go for this.
+
+> One last comment, the data is actually contrast data, I am wondering
+> whether it would be worth calculating p-values like this example to
+> have a more realistic use case.
+
+These are T maps? If they are T maps, that's a pretty good example of
+standard usecase.
+",0.4753434050629445
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:12:52,"I agree on the aesthetic judgement but I am not too sure about the technical problem yet ...
+",0.4588159780616259
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.4545770949234488
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 09:27:27,"I am confused. I can reproduce the pb. I suggest that you ask on the
+matplotlib mailing list.
+",0.4412175494198366
+pull_request_commit_comment,NA,NA,245,lesteve,2014-09-30 16:56:35,"Yeah, this script main purpose is to check the good alignment of the anat and the svg. It could be useful to keep it in case we need to tweak the svg further at one point in the future. It does makes sense to move it out of the way.
+",0.4409535847291055
+issue_comment,NA,NA,245,lesteve,2014-11-05 10:31:35,"I have some wip stuff in my local branch atm. Let me tidy that up before posting an updated picture.
+",0.4383136011687625
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4e1a37bf37ef0c5933d634d8423ea324beaf8177,212,245,lesteve,2014-11-28 09:52:04,"Thiner lines in the glass brain SVGs
+
+and regenerated JSONs",NA
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 10:08:45,"> TBH maybe it's just that I have been staring at this way too long and that I am now unable to reliably distinguish gray from transparent red any more...
+
+No, no, I confirm.
+",0.7481317925895916
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.6331404917925951
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.6269355116383573
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.6134654037515279
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.603363009169967
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:32:10,"> I have some wip stuff in my local branch atm. Let me tidy that up before
+> posting an updated picture.
+
+Sure. Thanks!
+",0.5960310023714257
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 09:45:42,"> Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt
+> from this issue:
+
+Shit, we'll probably get this answer.
+",0.5615799786605322
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.5604070455057146
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.5565553345168072
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.5523207376541774
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.5479140871726139
+issue_comment,NA,NA,245,lesteve,2014-11-18 09:43:25,"> I suggest that you ask on the matplotlib mailing list.
+
+Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt from this issue:
+
+![alpha_gradient_1 2](https://cloud.githubusercontent.com/assets/1680079/5085781/7f1b5a3c-6f15-11e4-9db8-7c1afde0da4d.png)
+",0.5433512855895806
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-07 12:18:50,"Same remark: why a staticmethod?
+",0.5219721858891417
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.5172621682226772
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-24 10:57:37,"> I think it does, there are a few very negative values in the eyes that survive
+> the max along an axis.
+
+Ah, OK. Shouldn't we be taking the absolutely value before summing?
+
+> We could have the cmap default to None and then do the logic in
+> plot_glass_brain to switch between the white and black background. The white
+> background would have a colormap going from white to red and the black one a
+> colormap going from black to red.
+
+That's an option. It's simple and would do the trick. Let's go for this.
+
+> One last comment, the data is actually contrast data, I am wondering
+> whether it would be worth calculating p-values like this example to
+> have a more realistic use case.
+
+These are T maps? If they are T maps, that's a pretty good example of
+standard usecase.
+",0.48733130001130753
+issue_comment,NA,NA,245,lesteve,2014-09-29 20:59:33,"That's a valid point indeed but then maybe it's still worth removing these regions in an ad-hoc way in our examples.
+",0.4820167199687174
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:12:52,"I agree on the aesthetic judgement but I am not too sure about the technical problem yet ...
+",0.481857816032087
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:40:15,"> a) there seems to be activation outside of the broad on the 2 lower panels.
+
+There is already a discussion about this one above.
+
+> b) I already mentioned this, but it would be nice to include the main neuroanatomical realities into the template:
+
+It is definitely in the back of my mind. My take on it is to defer this kind of enhancements to further PRs.
+",0.47156601335430093
+issue_comment,NA,NA,245,lesteve,2014-11-05 10:31:35,"I have some wip stuff in my local branch atm. Let me tidy that up before posting an updated picture.
+",0.46813001126426546
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:43:09,"Sorry, I don't understand the status of this in the codebase. Is it supposed to be removed ?
+",0.4660354740803939
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,7bcf1a2e04b41e7f9b9b54e32799e4521cb2dae9,63,245,lesteve,2014-12-02 08:41:42,Add inferior temporal sulcus,NA
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 10:08:45,"> TBH maybe it's just that I have been staring at this way too long and that I am now unable to reliably distinguish gray from transparent red any more...
+
+No, no, I confirm.
+",0.6992776155251935
+issue_comment,NA,NA,245,lesteve,2014-10-07 13:36:07,"Same plots with an alpha of 0.7:
+![glass_brain](https://cloud.githubusercontent.com/assets/1680079/4542937/d018707e-4e26-11e4-955e-b8486952ee95.png)
+",0.6756471213438924
+issue_comment,NA,NA,245,lesteve,2014-10-14 17:14:46,"> I am afraid that the colormap setting might also be wrong
+
+From a quick look at the [code](https://github.com/nilearn/nilearn/blob/master/nilearn/plotting/cm.py#L94), the alpha goes from 0.5 to 1. They may be a reason for that though.
+",0.6725766284084267
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:32:10,"> I have some wip stuff in my local branch atm. Let me tidy that up before
+> posting an updated picture.
+
+Sure. Thanks!
+",0.6024686901647185
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-30 16:54:37,"pending TODO
+",0.6023865319400648
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-18 09:45:42,"> Yep I'll do that. FWIW I also noticed that this matplotlib 1.2.1 seems exempt
+> from this issue:
+
+Shit, we'll probably get this answer.
+",0.5844405754392515
+pull_request_commit_comment,NA,NA,245,lesteve,2014-10-07 13:32:41,"Mostly the same reason as above
+",0.5773165714813309
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-10-10 08:41:58,"> The thing is that draw actually draws some 2d data. I could rename it draw_2d
+> to make it more explicit.
+
+Yes, that's a good suggestion.
+
+> As a side comment I also plan to go over the file and remove the cut*
+> occurrences where easily doable.
+
+Good idea. Thanks!
+",0.5675222971179965
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-24 10:57:37,"> I think it does, there are a few very negative values in the eyes that survive
+> the max along an axis.
+
+Ah, OK. Shouldn't we be taking the absolutely value before summing?
+
+> We could have the cmap default to None and then do the logic in
+> plot_glass_brain to switch between the white and black background. The white
+> background would have a colormap going from white to red and the black one a
+> colormap going from black to red.
+
+That's an option. It's simple and would do the trick. Let's go for this.
+
+> One last comment, the data is actually contrast data, I am wondering
+> whether it would be worth calculating p-values like this example to
+> have a more realistic use case.
+
+These are T maps? If they are T maps, that's a pretty good example of
+standard usecase.
+",0.5646358466145943
+issue_comment,NA,NA,245,lesteve,2014-11-05 10:31:35,"I have some wip stuff in my local branch atm. Let me tidy that up before posting an updated picture.
+",0.5487071307650812
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:10:52,"@GaelVaroquaux I think I tackled the comments you had the other day
+",0.5475061917295476
+issue_comment,NA,NA,245,agramfort,2014-09-26 11:05:14,"indeed ! really nice !
+",0.5467844103393754
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-05 10:05:16,"@lesteve : could you paste here the current view of the generate plot, as I see that a lot has changed recently.
+",0.5220403812888437
+issue_comment,NA,NA,245,lesteve,2014-10-10 08:34:40,"> We should rename 'slicers.py'. But we need a better name. Any suggestions?
+
+I was thinking about displays.py
+",0.517686847414444
+pull_request_commit_comment,NA,NA,245,bthirion,2014-09-29 21:19:38,"What do these values come from ? It's a bit disturbing for users who don't understand them.
+",0.515382446026705
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:12:52,"I agree on the aesthetic judgement but I am not too sure about the technical problem yet ...
+",0.5141039249975055
+issue_comment,NA,NA,245,lesteve,2014-11-13 12:40:15,"> a) there seems to be activation outside of the broad on the 2 lower panels.
+
+There is already a discussion about this one above.
+
+> b) I already mentioned this, but it would be nice to include the main neuroanatomical realities into the template:
+
+It is definitely in the back of my mind. My take on it is to defer this kind of enhancements to further PRs.
+",0.5119936231988389
+issue_comment,NA,NA,245,GaelVaroquaux,2014-10-13 14:06:19,"Is this PR still a WIP, or should it be changed to MRG? In other terms, what is there to be done remaining?
+
+What's the test coverage? Are the plots pretty? Have the docs been updated?
+",0.5030135949310719
+issue_comment,NA,NA,245,GaelVaroquaux,2014-11-28 10:36:04,"I think that this looks awesome! Absolutely awesome. I'll review the code on Tuesday (deadline Monday night). In the mean time, maybe someone like @AlexandreAbraham or @eickenberg can have a look at the code.
+",0.49775525960903166
+pull_request_commit_comment,NA,NA,245,GaelVaroquaux,2014-09-29 21:28:07,"> This seems of a much wider interest than glass brain plotting. This should go
+> to some utils subdir, and possibly to another library in the future.
+
+Agreed for the utils, but I don't want to invest time in something like a
+library that is of no use to us. People are welcome to take the code and
+make it a library.
+",0.48504734041840736
+ , , , , , , , 
+ , , , , , , , 

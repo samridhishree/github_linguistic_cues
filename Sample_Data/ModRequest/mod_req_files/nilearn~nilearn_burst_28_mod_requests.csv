@@ -1,0 +1,1682 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,4df1c135cb5ba6c800be5334dc8c64ca215c4c54,1019,157,VirgileFritsch,2014-01-31 09:51:33,cosmetic changes in permuted_ols + rename module.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6889826371669281
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6889826371669281
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6889826371669281
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6889826371669281
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6889826371669281
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6889826371669281
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.6680100664820344
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.6125803918885216
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:22,"Done. Three lines suppressed. Good catch.
+",0.6116635885910499
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.5787158582000546
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:11:17,"Ok, both look good to me anyway, so I turned the arguments to non-keyword ones.
+",0.5573394079496895
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,88025536daf52c46c16702b341321d3e303a33df,160,157,VirgileFritsch,2014-01-31 14:49:59,Mass univariate: Add Haxby example.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.5912967386724337
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.5589449162863295
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.522495302301377
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.50932750054105
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,158b52b766187aa31043feea611665b4d4b13e29,313,157,VirgileFritsch,2014-02-04 12:32:26,Mass univariate -- permuted OLS: address PR comments.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.0157048185961561
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.0157048185961561
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.0157048185961561
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.7243074663833429
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.7243074663833429
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.702910242084331
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6948586297352736
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6910439830062809
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6910439830062809
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.668363324930678
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6231294454123926
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.6231294454123926
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,735b0eecd71fc4acf42c184b257ec84181ca6845,83,157,VirgileFritsch,2014-02-04 12:55:37,permuted OLS: Correct doctests + C-contiguousity with copy(),NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.1433048319155632
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.1433048319155632
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.1433048319155632
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.776124999535408
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.7043428584285198
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.7015598352303871
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.7015598352303871
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6852585669481622
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6852585669481622
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.6765340435546681
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6493853260896092
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.6493853260896092
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,a31b37e33727e72ade0e2fe2bbda08dabbaef8c7,66,157,VirgileFritsch,2014-02-04 16:40:15,permuted OLS: Modify example --> add thresholded F-score for comparison.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",0.9857116971697794
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",0.9857116971697794
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",0.9857116971697794
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7311167016006715
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6935287503684495
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6935287503684495
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.682194674877168
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.682194674877168
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6676784278018557
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6548898177253264
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.6343333156182809
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.6210883498245208
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,409c6e46860e8f600c3e7927a28de93eb32ee9c9,642,157,VirgileFritsch,2014-02-10 15:59:21,permuted OLS: add intercept by default + unit tests + code robustness.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.1263293493574627
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.1263293493574627
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.1263293493574627
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7451952479448403
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.7235190441313202
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6038474278046122
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.599525402671507
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.567582934059577
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.5626243276443987
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.5626243276443986
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.557503413074944
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.557503413074944
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b792740c3a441ada48f483844366fcb615ab2b89,67,157,VirgileFritsch,2014-02-11 12:26:05,permuted OLS: commit forgotten files (_utils/fixes directory).,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.1211865581958431
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.1211865581958431
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.1211865581958431
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.6705101601933088
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6542746078893658
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6542746078893658
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6349997714837983
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6349997714837983
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6334603770021243
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.5995977622135399
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.5810742992200235
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.5810742992200235
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b7728d5b71ae5aca9ad06f0a4298b19db8b74f0d,64,157,VirgileFritsch,2014-02-11 12:43:48,permuted OLS: add support for sklearn < 0.12 (no sparse matrix support),NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.1399604904618574
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.1399604904618574
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.1399604904618574
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7269211899512589
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6655459905961214
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6158695321232592
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6158695321232592
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6073467334418128
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6073467334418126
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.5720946672774855
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.5703883962884659
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.5523538853497743
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,e063acab7a328898b23cbed8c998140a2f23d878,191,157,VirgileFritsch,2014-02-11 14:02:36,permuted OLS: Add documentation + commit forgotten test_gsarray.py,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.1849405226208765
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.1849405226208765
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.1849405226208765
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7239652963779217
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6254972283211668
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.5976070181390103
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.5976070181390103
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.5846980122615367
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.5846980122615366
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.5562097252953726
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.545249611968327
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.545249611968327
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.5217806195248778
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,bd52c2cea842868fb5f7100f3890a36aeac2d076,49,157,VirgileFritsch,2014-02-11 16:12:40,permuted OLS: typos + cosmit.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.1277205753876829
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.1277205753876829
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.1277205753876829
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7657722466054399
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.7143635527348372
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.7039315121125038
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.7039315121125038
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6639139534419473
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6639139534419471
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.6477913706803549
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6213519168163508
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6213519168163508
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.6180057732798451
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,915c955afbe746f00ca9f1fec5ed08ebc0a11e5f,110,157,VirgileFritsch,2014-02-12 17:45:35,"Integrate GaelVaroquaux""s comments on PR.",NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",0.9472746795644039
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",0.9472746795644039
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",0.9472746795644039
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.8610122708292911
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.8610122708292911
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.8538590305988983
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.8538590305988983
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.8402368086998122
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.7772772921247378
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.7765798016841069
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.7729199583686653
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.7522050777868715
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.738188806255984
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.738188806255984
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.7337163811329307
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.7169267049609581
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:26:56,"We should never set the default to all CPUs. In addition, your docstring is false by joblib standards: -2 means all CPUs but 1, etc. 
+",0.7137523956366418
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.7080630065572577
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9223931ed397589ce58178461634313012e16e60,407,157,VirgileFritsch,2014-02-17 14:57:00,Addressing more PR comments.,NA
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",1.0122411140009182
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",0.974020991115658
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",0.974020991115658
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",0.974020991115658
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.8919714094875995
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.8430818567218958
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.8391887995699003
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.8391887995699003
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.814192938194463
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.8112276305368401
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.81122763053684
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.801944374426928
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.7954941704463726
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.7938458623346836
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:26:56,"We should never set the default to all CPUs. In addition, your docstring is false by joblib standards: -2 means all CPUs but 1, etc. 
+",0.7935906412537164
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.7931499736851466
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.7885908709353456
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",0.7857178571230994
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",0.7857178571230994
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",0.7857178571230994
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.7690837315832832
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 13:01:51,"I would call this 'empty' array, rather than 'void'.
+",0.7650325534144513
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.76265032346876
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 13:57:47,"For consistency in names, I think that I'd like this to be called gs_array.
+",0.7572337754705878
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.7541115777121737
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:22,"Done. Three lines suppressed. Good catch.
+",0.7534576442841433
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.7508183639666836
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:26:49,"Cosmetic: it would be better to split this as follows:
+
+<pre>
+assert_array_equal(gsarray.get_data()['iter_id'],
+                                  gsarray2.get_data()['iter_id'])
+</pre>
+
+
+Also for the lines below.
+",0.7480185929343315
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 09:46:09,"I think that 'swap' instead of 'exchange' would be more idiomatic English.
+",0.746332273168608
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.7433822581264091
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:28:57,"Same thing here: you should raise a ValueError. Exception is too general (it is the base class of all Exceptions). Also, you should give the axis passed in the error message: ('Invalid axis in normalization: %r' % axis).
+",0.7425929132468352
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:48:22,"This is incompatible with joblib: in joblib it's negative values that give all the CPUs. -1 is all CPUs. -2 is all the CPUs but one... In recent versions of joblib, it actually raises an error for n_jobs=0, because it is meaningless.
+",0.7414541193414976
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,bc90711e3648de2af1ab3847f1189e525b1da813,135,157,VirgileFritsch,2014-02-17 17:46:13,Test of h0 values.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.056346319598338
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.056346319598338
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.056346319598338
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",1.005041013795389
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.8771524803199996
+issue_comment,NA,NA,157,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",0.8043851060198858
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.7913691569870417
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.7901240200827697
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.7901240200827697
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.7874753056360544
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.7846929739531685
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.7760613121762177
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.7760613121762177
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.7750520495757927
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.7686932922354093
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.7601160290854159
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 16:20:34,"I think that this print is spurious. It should be removed.
+
+If the information printed is of general interest, that information should be added to the warning below.
+",0.7477712556926432
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.7394931458307414
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-12 17:42:06,"Nice suggestion, thanks!
+",0.7383440527309606
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.731674421637052
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.7294625434337683
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.7294625434337683
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",0.7185679823350899
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:30:15,"Done, but I did not find a better reference than Fisher's original work.
+",0.7112598582786263
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.709512361325271
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.7088403141573076
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.7044254504444326
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.7040413262478835
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.7024080006227631
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:26:56,"We should never set the default to all CPUs. In addition, your docstring is false by joblib standards: -2 means all CPUs but 1, etc. 
+",0.6938009402226728
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-17 16:26:36,"> ```
+> But that's really a problem. Unless the data comes from a verified source
+> (eg the NIST statistical tables), what tells me I can trust it.
+> ```
+> 
+> Nothing that you would reasonably accept.
+
+Then we cannot have it in. It will lead to more problems than solutions
+in the long run.
+",0.6868863023168932
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-11 16:48:39,"> But slice 37 is convenient for the doc, since it matches the searchlight
+> example. We can set picked_slice=27 everywhere as an alternative.
+
+I think that that might indeed be a good idea.
+",0.6814745007736431
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:12:48,"What is the purpose of the copy argument? The matrix is copied anyhow.
+",0.676878122469438
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,aa1724445ba6bb8a12603fb1017691520b61b240,82,157,VirgileFritsch,2014-02-18 15:27:03,Add tests for h0 distribution.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.0655237128331974
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.0655237128331974
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.0655237128331974
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",0.9996718552190866
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.7911209821923773
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.7911209821923773
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.7775111924006468
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7176048046355952
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.7098638715017851
+issue_comment,NA,NA,157,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",0.7077527614159336
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.6923979384719552
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6879812264735314
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6879812264735314
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6709544387955174
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.6691503454524195
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.6636099941655716
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.6609365973576211
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.6535748175025975
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.6439881756389899
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-12 17:42:06,"Nice suggestion, thanks!
+",0.6429441175819032
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.6383980733943697
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",0.6319609586550932
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",0.6319609586550932
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",0.6319609586550932
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 16:20:34,"I think that this print is spurious. It should be removed.
+
+If the information printed is of general interest, that information should be added to the warning below.
+",0.6319067191006792
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.6313746057743175
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.6196281002004933
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:48:34,"Ok. But I do not really like this new name.
+",0.6138621734309477
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:30:15,"Done, but I did not find a better reference than Fisher's original work.
+",0.6102394275839832
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.6058582596827468
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.6058582596827468
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.6033880772508733
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.6024197831325457
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",0.6017598678051292
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b2e3a5f0896bf742acebb4179eb1e6c2364034d2,56,157,VirgileFritsch,2014-02-18 15:45:29,DOC: details about shuffling strategy + remove spurious test and .npz,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.063374763596157
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.063374763596157
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.063374763596157
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",0.9683924551996106
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.7366950350782235
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7170773798539192
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.6920013577745395
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.6834196435664351
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6572416794349121
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6572416794349121
+issue_comment,NA,NA,157,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",0.6059453459984768
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.584598503646478
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.5782153016669604
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.575635964061383
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",0.5721919139920084
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",0.5721919139920084
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",0.5721919139920084
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 13:57:47,"For consistency in names, I think that I'd like this to be called gs_array.
+",0.5639140867674389
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.5633924591051895
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-12 17:42:06,"Nice suggestion, thanks!
+",0.563077058122847
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:07:12,"typo: 'neuroimaging'
+",0.556785525473694
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5538987738519455
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.5537194214027094
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.5537194214027094
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:48:34,"Ok. But I do not really like this new name.
+",0.5532052565245889
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.5465042473812909
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.5465042473812909
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.5451757964601702
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.5431614844896504
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.5387791783772069
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.5243350673089466
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-17 16:26:36,"> ```
+> But that's really a problem. Unless the data comes from a verified source
+> (eg the NIST statistical tables), what tells me I can trust it.
+> ```
+> 
+> Nothing that you would reasonably accept.
+
+Then we cannot have it in. It will lead to more problems than solutions
+in the long run.
+",0.5139544635814781
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",0.5113548057376772
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.5112693889667101
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,57447a51c963cf82622d991bbf4c97bc4c276219,364,157,VirgileFritsch,2014-02-20 13:31:12,More general _f_score function + comments by rphlypo.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.0858450640548376
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.0858450640548376
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.0858450640548376
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",0.9655474778656702
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:59:37,"Is this not just giving `U[:, :n_eig]`?
+",0.7420815688694599
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.6970120216541213
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.6970120216541213
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-19 10:40:06,"It is, because it may happen that `covars` is passed as `None`.
+",0.6906906862420308
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-18 16:57:54,"Issue opened : #165
+",0.6880045224097195
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6788663419675245
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.6628060109909637
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.6506368953843327
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.6366692789668523
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6233252932750553
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6233252932750553
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:09:00,"one can
+",0.6178166025926137
+issue_comment,NA,NA,157,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",0.615017032941346
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 15:44:59,"> An array with %d dimension was passed
+
+typo: An array with %d dimensions was passed
+",0.6088401865305865
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.6049860541479961
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:09:28,"_sign permutation_?
+",0.5932933931188751
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.5770316393925217
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.5731450757088755
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.5666654245565531
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5666297814537506
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.5621001816397966
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.5561918326650235
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.5561918326650235
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.5552170193686666
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:48:34,"Ok. But I do not really like this new name.
+",0.5484749465559875
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.5399106292763551
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 13:57:47,"For consistency in names, I think that I'd like this to be called gs_array.
+",0.5387485228875659
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-17 16:26:36,"> ```
+> But that's really a problem. Unless the data comes from a verified source
+> (eg the NIST statistical tables), what tells me I can trust it.
+> ```
+> 
+> Nothing that you would reasonably accept.
+
+Then we cannot have it in. It will lead to more problems than solutions
+in the long run.
+",0.5382141560481348
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-19 12:48:31,"> You mean we should never repeat the default value in the doc because it is
+> already obvious from the function signature?
+
+That's usually the convention.
+",0.5381148875823953
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:07:15,"one can create
+",0.5313568522646458
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.5307209558606774
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 10:31:52,"unsigned int
+",0.5277682646235072
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.5247254330796138
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.5128264239259284
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.5124493536684882
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",0.49811389505229386
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",0.49811389505229386
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",0.49811389505229386
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 09:46:09,"I think that 'swap' instead of 'exchange' would be more idiomatic English.
+",0.49772403736969784
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",0.4932477958099867
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 13:01:51,"I would call this 'empty' array, rather than 'void'.
+",0.48149137472700565
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:07:12,"typo: 'neuroimaging'
+",0.480957979750102
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-12 17:42:06,"Nice suggestion, thanks!
+",0.47587735098611583
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,204c3dc2dfcb78cfe478e50fd81182252222d58f,121,157,VirgileFritsch,2014-02-20 13:33:13,cosmit in sklearn f_regression fixes.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.0991447283901954
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.0991447283901954
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.0991447283901954
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",0.8639411868991551
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:09:00,"one can
+",0.7464207763078305
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7340795556747302
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.7290785783292585
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.7290785783292585
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-19 10:40:06,"It is, because it may happen that `covars` is passed as `None`.
+",0.7268815318782031
+issue_comment,NA,NA,157,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",0.7210117185803899
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-18 16:57:54,"Issue opened : #165
+",0.697395632871669
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:59:37,"Is this not just giving `U[:, :n_eig]`?
+",0.6967429086660036
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.6899727832898492
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6668500431606573
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6668500431606573
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.6621330574827695
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 10:31:52,"unsigned int
+",0.6599308941932042
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:09:28,"_sign permutation_?
+",0.6487925436894109
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 15:44:59,"> An array with %d dimension was passed
+
+typo: An array with %d dimensions was passed
+",0.6403072171901196
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 13:57:47,"For consistency in names, I think that I'd like this to be called gs_array.
+",0.6125370889733919
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.598427052673293
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-19 12:48:31,"> You mean we should never repeat the default value in the doc because it is
+> already obvious from the function signature?
+
+That's usually the convention.
+",0.597150499257378
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:48:34,"Ok. But I do not really like this new name.
+",0.5963572040862539
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.5911244588782963
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.5769640144135932
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.5732171247295492
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",0.5686144816070957
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",0.5686144816070957
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",0.5686144816070957
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",0.5617302029789495
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.560146829301042
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:07:15,"one can create
+",0.5600624996940315
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:30:46,"Please raise a specific Exception. Maybe TypeError, here.
+",0.5591611331920499
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-17 16:26:36,"> ```
+> But that's really a problem. Unless the data comes from a verified source
+> (eg the NIST statistical tables), what tells me I can trust it.
+> ```
+> 
+> Nothing that you would reasonably accept.
+
+Then we cannot have it in. It will lead to more problems than solutions
+in the long run.
+",0.5543637956922414
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.553318615863029
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.5479970091544437
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5464499734294419
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-12 17:42:06,"Nice suggestion, thanks!
+",0.5391511248141703
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 13:01:51,"I would call this 'empty' array, rather than 'void'.
+",0.5331431416992898
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.5240909142226374
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:31:21,"Once you have been more explicit on the type of Exception raised, please capture it here in a more specific way.
+",0.5230446533512372
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.5211836511293639
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:08:56,"Corrected.
+",0.5208270646170541
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:08,"Corrected.
+",0.5208270646170541
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:08:37,"""shuffled distribution"", maybe rather ""distribution under shuffling of the samples"" (the distribution itself is not shuffled)
+",0.5069019452542158
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:26:56,"We should never set the default to all CPUs. In addition, your docstring is false by joblib standards: -2 means all CPUs but 1, etc. 
+",0.5016030759553987
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 16:20:34,"I think that this print is spurious. It should be removed.
+
+If the information printed is of general interest, that information should be added to the warning below.
+",0.4977777005483186
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,cf196cd930d2b84be6407bbfda18ada21f40e727,167,157,VirgileFritsch,2014-02-21 12:38:58,Test of h0 distribution + typos and comments by rphlypo.,NA
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:26:15,"Ok.
+",1.126190414876619
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 16:27:46,"Ok.
+",1.126190414876619
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:46:06,"Ok.
+",1.126190414876619
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:24:23,"> I would like to provide the localizer example in another PR.
+
+OK
+",0.9652119405818256
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-21 07:48:28,"""across""
+",0.7843134295031784
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:59:37,"Is this not just giving `U[:, :n_eig]`?
+",0.7619415766263522
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:00:39,"`l` should be called `other`
+",0.7295911730005638
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:40:25,"should be called test_permuted_least_squares.py (not tests_permuted_least_squares.py)
+",0.7295911730005638
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-19 10:40:06,"It is, because it may happen that `covars` is passed as `None`.
+",0.721429201374756
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-18 16:57:54,"Issue opened : #165
+",0.7203045777910698
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-21 07:48:38,"normalized
+",0.707634950202048
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:24:07,"n_jobs=0 is not a sensible default. I believe that it should be 1.
+",0.7051103815368108
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:02:21,"associated with
+",0.7022324207336179
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:04:15,"`covariates` instead of `covariables`
+",0.6802024602650791
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:01:42,"`iter` instead or `perm`
+",0.6802024602650791
+issue_comment,NA,NA,157,bthirion,2014-02-14 10:06:34,"Shouldn't this be part of later PR ?
+",0.6498883511304989
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:09:00,"one can
+",0.6450652454389749
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.6431600655086054
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:34:27,"Where does this come from, and why should I believe that it is true?
+",0.6422596872597115
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:32:08,"Please use sklearn.utils.testing.assert_warns.
+",0.6333865461331932
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:09:28,"_sign permutation_?
+",0.6288767706489113
+issue_comment,NA,NA,157,GaelVaroquaux,2014-02-04 12:26:21,"@VirgileFritsch : could you please push your changes to github. It seems to me that you haven't pushed anything for 4 days.
+",0.6270529220364556
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 15:44:59,"> An array with %d dimension was passed
+
+typo: An array with %d dimensions was passed
+",0.6153557744622482
+pull_request_commit_comment,NA,NA,157,agramfort,2014-02-03 20:41:03,"nilearn.nilearn ???
+",0.6083895218211218
+issue_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:37:14,"...or we make it available for version > 0.15. The code of f_regression will be  the same anyway, unless someone finds another bug in it, which I doubt about.
+",0.5984077260979946
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 21:54:17,"that can be stored in the structure
+",0.5966647155651597
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 15:48:34,"Ok. But I do not really like this new name.
+",0.5879745680158686
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.585827339051842
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 12:33:57,"No need to have a return if you are not returning anything.
+",0.5850772810157487
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-03 14:28:57,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:33:32,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:55:50,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 16:59:44,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:10:32,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-30 17:16:43,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:54:01,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:38:18,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-04 12:18:00,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:55:30,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 10:21:58,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-02-11 16:54:59,"Done.
+",0.5777939399943008
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-19 12:48:31,"> You mean we should never repeat the default value in the doc because it is
+> already obvious from the function signature?
+
+That's usually the convention.
+",0.5777298123073804
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 10:31:52,"unsigned int
+",0.5764148734345835
+pull_request_commit_comment,NA,NA,157,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5725749802945225
+pull_request_commit_comment,NA,NA,157,bthirion,2014-02-02 22:06:47,"Please give a relevant reference to the literature here
+",0.5714134214152229
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-17 16:26:36,"> ```
+> But that's really a problem. Unless the data comes from a verified source
+> (eg the NIST statistical tables), what tells me I can trust it.
+> ```
+> 
+> Nothing that you would reasonably accept.
+
+Then we cannot have it in. It will lead to more problems than solutions
+in the long run.
+",0.5712122365022683
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 16:20:34,"I think that this print is spurious. It should be removed.
+
+If the information printed is of general interest, that information should be added to the warning below.
+",0.5668744416387097
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:36:52,"You don't need to specify n_jobs here: the default value is 1.
+",0.559869636863312
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:04,"You don't need to specify n_jobs here: the default value is 1.
+",0.559869636863312
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-14 15:37:26,"You don't need to specify n_jobs here: the default value is 1.
+",0.559869636863312
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-21 07:50:18,"""array transposition preserves the contiguity flag of that array""
+",0.5509963223020692
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 17:43:43,"> Well, now (I mean, since the merge) it happens that the tests fail with a
+> strange joblib related message:
+
+Could you commit the changes, so that I see what is going on.
+",0.5505620322441866
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-01-30 16:27:47,"Same thing here
+",0.5491417838587083
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 13:57:47,"For consistency in names, I think that I'd like this to be called gs_array.
+",0.5460733960995521
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:47:56,"Yes. I made this already.
+",0.5417142002947952
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-12 14:26:56,"We should never set the default to all CPUs. In addition, your docstring is false by joblib standards: -2 means all CPUs but 1, etc. 
+",0.5375695670862817
+pull_request_commit_comment,NA,NA,157,rphlypo,2014-02-19 09:07:15,"one can create
+",0.5323545613698746
+pull_request_commit_comment,NA,NA,157,VirgileFritsch,2014-01-31 09:37:41,"Deleted. Indeed, nothing changes.
+",0.5284494347194109
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-19 12:59:01,"> Making random_state a non optional argument seems the right thing to do to me,
+> as putting None would break the algorithm.
+
+Why would it break the algorithm?
+",0.5256216634913242
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-19 11:55:51,"> enforcing random_state=0 upon the user is not the best thing to do. Either give
+> None,
+
+Give None. This is the standard behavior.
+",0.5251162000593979
+pull_request_commit_comment,NA,NA,157,GaelVaroquaux,2014-02-11 16:35:29,"I find that slice 27 looks much better, because it highlights the FFA.
+",0.5222948409184853
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f6b27800d343ee1c07339e5e2363525cd4f02b6f,38,161,GaelVaroquaux,2014-02-04 10:02:56,ENH: add slight smoothing to EPI mask extraction,NA
+pull_request_commit_comment,NA,NA,161,bthirion,2014-02-03 23:39:36,"LGTM. It's probably a matter of test, but the 4 figures are a bit messy. I'd rather have subplots.
+",0.6770100463315722
+pull_request_commit_comment,NA,NA,161,GaelVaroquaux,2014-02-04 08:05:56,"> but the 4 figures are a bit messy. I'd rather have subplots.
+
+It's too be able to use them separately in the documentation. When
+running interactively, I agree that it is not great. But for the generate
+webpage it is better.
+",0.42491445878651934
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c90d4b0fc9de45b75ce1532309f83b1bde948cc3,48,167,VirgileFritsch,2014-02-21 17:43:29,"ENH: speed-up F-scores to p-values transformation.
+
+Can be still improved be thresholding the scores (all score below the
+threshold would be assigned a p-value of 1.).",NA
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.7584147628020974
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.6749868526956946
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.6627314630672073
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.5721076297540841
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 17:13:40,"Up: should we simplify the `_f_score` function so that it only handle the ""normalized design"" case?
+",0.5717813047231932
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,8c4a5d8f7eea2018c9a68fc107d06968f37c6010,138,167,VirgileFritsch,2014-02-24 12:11:41,address agramfort comments.,NA
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.7838264849775497
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.779491287726613
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.7498087926494732
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.6747975514343212
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:50:18,"""array transposition preserves the contiguity flag of that array""
+",0.6216819578497724
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 17:13:40,"Up: should we simplify the `_f_score` function so that it only handle the ""normalized design"" case?
+",0.6142091363271861
+pull_request_commit_comment,NA,NA,167,agramfort,2014-02-22 19:29:44,"int | None
+",0.6004653630102242
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3daedc17ddab948752f3d6b90e56b177ea77ec42,76,167,VirgileFritsch,2014-02-26 13:14:36,"ENH: refactor parallel p-values computing.
+
+We use the same workers that perform the permutations so we avoid
+the overhead of re-splitting the data and sending them to new workers.",NA
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.6740242042594805
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.5862129218879018
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.5848268192206998
+pull_request_commit_comment,NA,NA,167,agramfort,2014-02-22 19:29:44,"int | None
+",0.561608033328308
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 18:26:25,"I will let you review the PR before I change anything else.
+",0.5286984512261292
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.4922866585208139
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.48991135621443227
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0d13176994350ad471a0a0505df03cb338d30a04,115,167,VirgileFritsch,2014-03-04 14:09:59,Address bthirion's comments.,NA
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:18,"Ok. Got it.
+",0.9806556948349661
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.813773608855697
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:27,"Yes, I did.
+",0.8087969383491418
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.80014284453124
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:24:00,"I think you did not introduce explicitly step 1 and step 2
+",0.7739558106053059
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.7157123848633424
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.7102689501412123
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:27:29,"tested_vars
+",0.7027471159384162
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:13:26,"run the permutations
+",0.6886357226194684
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:13,"There is a ""-1"" in any case in the F-score formula, even when no covariate (and no intercept) is present.
+",0.6653934263049451
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 17:13:40,"Up: should we simplify the `_f_score` function so that it only handle the ""normalized design"" case?
+",0.656332435569174
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:32,"Right. Added.
+",0.6547307488793966
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:28:09,"tested_vars_resid_covars
+",0.6360284695344949
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:25:44,"covars_orthonormalized or orthonormalized_covars
+",0.615414373422833
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:31:15,"Important reference, but you never refer to it if I am not mistaken.
+",0.6086194953995172
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:50:18,"""array transposition preserves the contiguity flag of that array""
+",0.6000786384390557
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0513c8454646221098896043be7b616ba299e9b2,278,167,VirgileFritsch,2014-03-06 13:30:48,Fix seeding + back to simpler f_score function + cosmit.,NA
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:18,"Ok. Got it.
+",0.893277238526134
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:27,"Yes, I did.
+",0.7819219722929274
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-05 14:20:12,"Agreed too.
+",0.755207437395877
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:24:00,"I think you did not introduce explicitly step 1 and step 2
+",0.7524574442258185
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.7115052300450346
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 12:29:06,"Do you actually need the ravel in the line above?
+",0.6993212135742968
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.6328320812510324
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:32,"Right. Added.
+",0.6313872802813757
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.5913868524293777
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.5839923383206072
+pull_request_commit_comment,NA,NA,167,agramfort,2014-02-22 19:29:44,"int | None
+",0.5783941792438351
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:11:10,"Maybe n_perm ?
+",0.5762446782391585
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:31:15,"Important reference, but you never refer to it if I am not mistaken.
+",0.5719646740938049
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:19:37,"> No the permutation-based p-value is not an 'analytic' result. It should rather
+> be called 'non-parametric'
+
+Sounds good with me.
+",0.5704801058274735
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:24:31,"Same remark as above.
+",0.5683862615309911
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:27:29,"tested_vars
+",0.5671274988365023
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:13:26,"run the permutations
+",0.5622629767931964
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5612925868831378
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.518715041721616
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-06 12:56:39,"Is there any benefit of using `np.iinfo(np.int32).max` instead of 2 *\* 32 (it is purely equivalent in terms of values)?
+Note that `np.iinfo(np.int).max` or `np.iinfo(np.int64).max` do not work with `rng.random_intergers` (""OverflowError: Python int too large to convert to C long"").
+",0.5129219282114655
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 18:26:25,"I will let you review the PR before I change anything else.
+",0.5098872853385201
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:28:09,"tested_vars_resid_covars
+",0.5039386641766543
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:13,"There is a ""-1"" in any case in the F-score formula, even when no covariate (and no intercept) is present.
+",0.502502085975761
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:18:51,"Will be used
+",0.4935626243586092
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 16:56:54,"Maybe I'm missing something, but the first term of the if condition is included in the second one. Why not use the second term only ?
+",0.4904801490943871
+issue_comment,NA,NA,167,agramfort,2014-02-22 19:26:37,"you have duplicated commited files see diff
+",0.48254686922207657
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6fcc89dd99075f16dfcbe19ddef14eaa9c9784b4,119,167,VirgileFritsch,2014-03-06 13:32:23,DOC: abbreviations.,NA
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.8986277223826924
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:18,"Ok. Got it.
+",0.8594795450219277
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 12:29:06,"Do you actually need the ravel in the line above?
+",0.8553803979518848
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.8188526055485338
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:24:00,"I think you did not introduce explicitly step 1 and step 2
+",0.8054094597868781
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.8036122523015427
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:27,"Yes, I did.
+",0.799386159037407
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:19:37,"> No the permutation-based p-value is not an 'analytic' result. It should rather
+> be called 'non-parametric'
+
+Sounds good with me.
+",0.7779673846336477
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-05 14:20:12,"Agreed too.
+",0.7680705145256247
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:13,"There is a ""-1"" in any case in the F-score formula, even when no covariate (and no intercept) is present.
+",0.7499134450828784
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:18:51,"Will be used
+",0.7456537822757154
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.742858747604393
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:25:44,"covars_orthonormalized or orthonormalized_covars
+",0.7361110393602012
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:13:26,"run the permutations
+",0.7292838332382587
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.7206399969685993
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:27:29,"tested_vars
+",0.7174018203320165
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:32,"Right. Added.
+",0.7111744402372207
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:24:31,"Same remark as above.
+",0.7095686627028026
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:28:09,"tested_vars_resid_covars
+",0.7061417315611214
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-02-03 15:44:39,"Solved. Unfortunately, we do not have a test case where this has an influence.
+",0.7008952423798396
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:49:35,"Some explanation of that test
+",0.6986573245957286
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:00:25,"You mean that this is a requirement ?
+",0.6946202058172231
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:50:18,"""array transposition preserves the contiguity flag of that array""
+",0.6793248493418065
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 18:26:25,"I will let you review the PR before I change anything else.
+",0.6751636950959425
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 17:13:40,"Up: should we simplify the `_f_score` function so that it only handle the ""normalized design"" case?
+",0.6749353611285813
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:07:26,"It is slightly unclear. Shouldn't this be computed rather than asserted ?
+",0.6729660702819659
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,f17decab6f84d1dcc1647a4dd3d3f2b3dce3e02e,69,167,VirgileFritsch,2014-03-06 17:03:30,Simplify scikit-learn f_regression backport.,NA
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:18,"Ok. Got it.
+",0.9283299992718058
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:27,"Yes, I did.
+",0.8935482928252874
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-05 14:20:12,"Agreed too.
+",0.8447059596839834
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.8135402057577876
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:32,"Right. Added.
+",0.7646332278803922
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:24:00,"I think you did not introduce explicitly step 1 and step 2
+",0.7096036872809459
+issue_comment,NA,NA,167,VirgileFritsch,2014-03-06 14:29:32,"ping?
+",0.707928609142107
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:24:31,"Same remark as above.
+",0.7026398023704462
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 12:29:06,"Do you actually need the ravel in the line above?
+",0.6882738830638913
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:31:15,"Important reference, but you never refer to it if I am not mistaken.
+",0.6837484681224045
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:19:37,"> No the permutation-based p-value is not an 'analytic' result. It should rather
+> be called 'non-parametric'
+
+Sounds good with me.
+",0.6779467892091422
+pull_request_commit_comment,NA,NA,167,agramfort,2014-02-22 19:29:44,"int | None
+",0.6504920242808002
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.6469907720046997
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:27:29,"tested_vars
+",0.6186087470866257
+issue_comment,NA,NA,167,GaelVaroquaux,2014-03-06 14:31:56,"> ping?
+
+I am going to rip your head off and shit down your neck. (hint: cultural
+reference, just in case you are too young).
+",0.6153208826265099
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.6122415719262633
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:13:26,"run the permutations
+",0.6025443104962347
+issue_comment,NA,NA,167,agramfort,2014-02-22 19:26:37,"you have duplicated commited files see diff
+",0.5992211734235913
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 18:26:25,"I will let you review the PR before I change anything else.
+",0.5943063486500413
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:18:51,"Will be used
+",0.5937556960030413
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.5853972039176255
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:11:10,"Maybe n_perm ?
+",0.5813886450581679
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:00:25,"You mean that this is a requirement ?
+",0.5789250962144203
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 15:28:05,"Also, rather than 'return', you should raise nose.SkipTest.
+",0.5777045426464209
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5773860711147326
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:07:26,"It is slightly unclear. Shouldn't this be computed rather than asserted ?
+",0.5750763982255822
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:13,"There is a ""-1"" in any case in the F-score formula, even when no covariate (and no intercept) is present.
+",0.5726316212620726
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,4280ece7c92795848ab5605678512dcfd8286cc3,168,167,VirgileFritsch,2014-03-11 12:01:57,Address GaelVaroquaux's comments.,NA
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:18,"Ok. Got it.
+",0.9570452559944925
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:24:00,"I think you did not introduce explicitly step 1 and step 2
+",0.805291942024695
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:27,"Yes, I did.
+",0.8034326178068727
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:28,"""across""
+",0.7728149341712903
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:03:25,"orthogonalized
+",0.7714192512189383
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:48:38,"normalized
+",0.7666842922976345
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 12:29:06,"Do you actually need the ravel in the line above?
+",0.724794172764572
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-10 18:14:30,"Line too long.
+",0.7106675824579283
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-10 18:13:47,"Line too long.
+",0.7106675824579283
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 08:07:12,"magical test values ??
+",0.7021026768397292
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-05 14:20:12,"Agreed too.
+",0.7003284592394585
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:13,"There is a ""-1"" in any case in the F-score formula, even when no covariate (and no intercept) is present.
+",0.680570489938331
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:13:26,"run the permutations
+",0.6678549020902372
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-04 14:04:32,"Right. Added.
+",0.6595010337655712
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-10 18:20:15,"Do we need sparse support? Can we not simplify this code?
+",0.6540942394061252
+pull_request_commit_comment,NA,NA,167,GaelVaroquaux,2014-03-05 14:19:37,"> No the permutation-based p-value is not an 'analytic' result. It should rather
+> be called 'non-parametric'
+
+Sounds good with me.
+",0.6446186287241639
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:27:29,"tested_vars
+",0.6318972792703088
+pull_request_commit_comment,NA,NA,167,rphlypo,2014-02-21 07:50:18,"""array transposition preserves the contiguity flag of that array""
+",0.6142269625997454
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 17:13:40,"Up: should we simplify the `_f_score` function so that it only handle the ""normalized design"" case?
+",0.6020120978297118
+pull_request_commit_comment,NA,NA,167,agramfort,2014-02-22 19:29:44,"int | None
+",0.5949418334612689
+pull_request_commit_comment,NA,NA,167,agramfort,2014-02-22 19:31:46,"from .permuted_least_squares import permuted_ols
+
+relative import
+",0.5900295406819704
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:25:44,"covars_orthonormalized or orthonormalized_covars
+",0.5884492751112795
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:04:36,"Not sure about the -1: is it because you assume that the intercept is not part of the design matrix ? Is it a common convetion from, say, statsmodel ?
+",0.5883836523102669
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:18:51,"Will be used
+",0.5881961835028411
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:31:15,"Important reference, but you never refer to it if I am not mistaken.
+",0.5819393329681523
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:22:41,"If I'm not mistaken, this case cannot happen. In line 54, tmp.shape[1] is limited to n_eig.
+",0.5726183601808408
+pull_request_commit_comment,NA,NA,167,bthirion,2014-03-03 17:28:09,"tested_vars_resid_covars
+",0.5725136443902048
+pull_request_commit_comment,NA,NA,167,AlexandreAbraham,2014-02-01 19:19:50,"Just to be sure, I would have checked m.ndim ==  2 instead of the axis value.
+",0.5639765010822425
+issue_comment,NA,NA,167,VirgileFritsch,2014-02-21 18:25:40,"10,000 permutations, full brain (216 samples, 40000 voxels), performed in **1 minute** with my 8-core desktop computer. Note: no memory consumption is visible.
+",0.5611731685959414
+issue_comment,NA,NA,167,VirgileFritsch,2014-03-06 14:29:32,"ping?
+",0.5523369457222713
+pull_request_commit_comment,NA,NA,167,VirgileFritsch,2014-03-11 11:55:23,"I made the change for this sentence.
+
+But ""_the_ tested variable"" (significantly?) wins over ""_the_ variable tested"".
+""The tested device"" wins against ""the device tested"", but ""the tested method"" and ""the method tested"" are almost as frequent.
+",0.5501752851931675
+ , , , , , , , 
+ , , , , , , , 

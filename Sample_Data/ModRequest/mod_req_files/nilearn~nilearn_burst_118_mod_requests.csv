@@ -1,0 +1,964 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,4589a95dc30d5e35ec672c4824939d64bacba235,31,1516,jeromedockes,2017-09-29 09:06:39,titles on vol to surf examples,NA
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5732671264073272
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:02:26,this does not yet seem to make the standard mention of nii-like image compatability,0.5026593726870608
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.489314937010755
+issue_comment,NA,NA,1516,bthirion,2017-09-28 21:34:27,"Thx !
+
+I have a general question: overall the difference with pycortex is not that large -- yet we lose a few details, like in the pSTS region. However, you seem to suggest that your strategy is much faster: have you checked ? Can you clarify the difference ? Why didn't you use pycortex or very similar code ?
+
+",0.4627459551771379
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.4112419629002567
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c7af4b1e468e8121a8a3730d2a39772adebacb33,100,1516,jeromedockes,2017-10-10 02:17:34,add computing normals at mesh vertices,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7676346747730809
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.5109683335831761
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.4868816594892944
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:02:26,this does not yet seem to make the standard mention of nii-like image compatability,0.4825711486224451
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.4710725433247729
+issue_comment,NA,NA,1516,KamalakerDadi,2017-09-30 08:24:40,FYI: CircleCI is now fixed and full details about the FIX can be found in this [thread](https://github.com/conda/conda/issues/6030),0.42193139526679124
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:35:38,"Sorry, I hadn't realized that this was an example, and not a test.
+
+I would simply seed the global RNG here: it's simpler and the side effect is less important.",0.3613630988170804
+issue_comment,NA,NA,1516,bthirion,2017-09-28 21:34:27,"Thx !
+
+I have a general question: overall the difference with pycortex is not that large -- yet we lose a few details, like in the pSTS region. However, you seem to suggest that your strategy is much faster: have you checked ? Can you clarify the difference ? Why didn't you use pycortex or very similar code ?
+
+",0.3610071965174071
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:33:45,"I would like to avoid uncontroled RNGs in the codebase. The right way of doing this is to create a like RNG:
+<pre>
+rng = np.random.RandomState(0)
+image = rng.uniform(...)
+</pre>",0.357510602696973
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,9f84b24af25db7bc2d46ae3937cf45843f5a3db2,74,1516,jeromedockes,2017-10-11 18:10:23,add sampling along normal,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7111087920718429
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.48552323334777614
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.44840551651120997
+issue_comment,NA,NA,1516,KamalakerDadi,2017-09-30 08:24:40,FYI: CircleCI is now fixed and full details about the FIX can be found in this [thread](https://github.com/conda/conda/issues/6030),0.41986293440106803
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:02:26,this does not yet seem to make the standard mention of nii-like image compatability,0.4143961815244692
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.40424178976543257
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:33:45,"I would like to avoid uncontroled RNGs in the codebase. The right way of doing this is to create a like RNG:
+<pre>
+rng = np.random.RandomState(0)
+image = rng.uniform(...)
+</pre>",0.35588071471199567
+issue_comment,NA,NA,1516,bthirion,2017-09-28 21:34:27,"Thx !
+
+I have a general question: overall the difference with pycortex is not that large -- yet we lose a few details, like in the pSTS region. However, you seem to suggest that your strategy is much faster: have you checked ? Can you clarify the difference ? Why didn't you use pycortex or very similar code ?
+
+",0.34464062833887654
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:35:38,"Sorry, I hadn't realized that this was an example, and not a test.
+
+I would simply seed the global RNG here: it's simpler and the side effect is less important.",0.34368678127210806
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,0c3e1d41d854c85b6c25c8d8fcb7069c038eddca,116,1516,jeromedockes,2017-10-11 20:21:11,"use scipy for interpolation to allow linear interpolation
+
+as a result, surface projection is slower, even when using
+interpolation='nearest'",NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7836453170417208
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.4363465416209791
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.43291577360324807
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.3934370877173595
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:02:26,this does not yet seem to make the standard mention of nii-like image compatability,0.3505291639975888
+issue_comment,NA,NA,1516,KamalakerDadi,2017-09-30 08:24:40,FYI: CircleCI is now fixed and full details about the FIX can be found in this [thread](https://github.com/conda/conda/issues/6030),0.3326431617024751
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:33:45,"I would like to avoid uncontroled RNGs in the codebase. The right way of doing this is to create a like RNG:
+<pre>
+rng = np.random.RandomState(0)
+image = rng.uniform(...)
+</pre>",0.30192373033988773
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:35:38,"Sorry, I hadn't realized that this was an example, and not a test.
+
+I would simply seed the global RNG here: it's simpler and the side effect is less important.",0.28853524888103055
+issue_comment,NA,NA,1516,bthirion,2017-09-28 21:34:27,"Thx !
+
+I have a general question: overall the difference with pycortex is not that large -- yet we lose a few details, like in the pSTS region. However, you seem to suggest that your strategy is much faster: have you checked ? Can you clarify the difference ? Why didn't you use pycortex or very similar code ?
+
+",0.24307479267452714
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,33bb932997395d168c4f2f40a9db08fde1d37e66,32,1516,jeromedockes,2017-10-21 23:03:36,improve surf plotting tests,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7907800910067158
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6843363130202602
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.6434408576735117
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.6264119135402757
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.6116605175292494
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.5816383959016771
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5772781283354689
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5620247386263594
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,536cc191d00e8cf912294a48cddddfb2982974a0,109,1516,jeromedockes,2017-10-21 23:41:36,improve ball sampling example,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7317559356495553
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6789841354187133
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.6015928636488359
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.5972281741256158
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5854884191436485
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.5510442863778411
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.5402421884429103
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.5249457658484914
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,389851d1b8b1644ceadb94571035c544973a6e80,192,1516,jeromedockes,2017-11-09 00:57:22,change cortical projection illustration example,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7504505736446814
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6589323088190988
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6315948337159019
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.6130607882498028
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.584588778260594
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5738515535221128
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.5637700956974127
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.5603308615107119
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5339703242882414
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,d836a6f6de8c00bad92aafbd0dcde7d469591632,153,1516,jeromedockes,2017-11-09 21:51:27,improve surface projection docstrings,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.8162935382719929
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6504609726059282
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.6414227819359146
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.6318987269522944
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6121461908450261
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.6037852857323264
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.577354555585746
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.5601901831732552
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5536101580726411
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,57049488b4af0d8661016e45c74edb82573d8da4,124,1516,jeromedockes,2017-11-09 22:42:04,"update surface plotting docs, examples and whats new",NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.6842510220983054
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.5619826023227465
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5272462871635802
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5190453763102765
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.4649522828416003
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.451724929617339
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.44823498882793456
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.43462018822463944
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.42751750664663635
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,eef506089efdbb7f236a363d92a2cac77455bb75,231,1516,jeromedockes,2017-11-11 00:33:53,add possibility to give a mask + speedup nearest neighbour sampling,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7412680990781845
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.526528287290664
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5217978679369739
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.45130061021729784
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.45010898164140556
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.4350666565971506
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.4145463720607432
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.40227071713945284
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.4007613652892642
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c234e607afff0dc92de303d45d15a2777ca7f588,55,1516,jeromedockes,2017-11-12 00:20:36,surf_plotting details (mostly docstrings),NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.754141894576463
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.7062874143618266
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.5653487491599201
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5609565954347293
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.5512420131900617
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5509280423999996
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.5318115431257056
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.4883090510057537
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.48163880938962345
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,3cf1f358e95b9e45aceaced544e21051885e114e,64,1516,jeromedockes,2017-11-12 02:09:27,add tests for sample locations and masking,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7922180522440598
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6184551036907002
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6051350287900283
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.5331505206782092
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5161455539977304
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.48463045535669425
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.4837116998553759
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.48098362664530003
+issue_comment,NA,NA,1516,KamalakerDadi,2017-09-30 08:24:40,FYI: CircleCI is now fixed and full details about the FIX can be found in this [thread](https://github.com/conda/conda/issues/6030),0.46431772867763765
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,21a7ff0de41eb4a3f2ba697241837d8b7f203c8e,36,1516,jeromedockes,2017-11-13 19:43:18,test projection_matrix,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.8585253109854287
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.7513852552829736
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.6792492024339141
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.676902603920077
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.6717370524688635
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5973349714770451
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5932861835148512
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5887194475663065
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.5844380510899061
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:02:26,this does not yet seem to make the standard mention of nii-like image compatability,0.5698631986944946
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,63533ecfc8173419c9f450253ac41d4249c2e7ff,76,1516,jeromedockes,2017-11-14 18:39:51,rename example plot_3d_map_projection.py -> plot_3d_map_to_surface_projection.py,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.8073230911258062
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.7462410623379401
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.7207137341447662
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.7171309106297563
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.6925017708521632
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.6887698188596494
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.6881891117355081
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.6637591943246988
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.6534031024392299
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.6471006842492655
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.6163809532034283
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.5958919020603622
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.5937710890562282
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.5928469541030144
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5843396752838956
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.5782451970507766
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.5700829957794449
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.5586381457837445
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5560462944082204
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5184673785661327
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c49c5c0f0a5879604f8da52bfa2b0f28e3360209,136,1516,jeromedockes,2017-11-14 18:54:19,rename plot_cortex_projection_strategies.py -> plot_surface_projection_strategies.py,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.970859852462017
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.9408845949536566
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.9330181943547413
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.9096645175106086
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.8692580715431136
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.8650278750862369
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.8587799603439527
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.8570605625673136
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 18:37:32,should we plot both the surface projection and some slices or a glass brain in this example?,0.8344013736979274
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.8268805983458613
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.822582407276052
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.8200600574343072
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.8186707650856422
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.8100296212159264
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-29 08:53:34,"You need a docstring with a title, for the gallery. Sphinx-gallery will not accept to build a gallery item from this.",0.807889316627289
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 17:07:20,Is it a good idea to use the same interpolation method as specified/specifies at the function level ?,0.7999491138871571
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.7974514855088228
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:41:51,We are able to import ```from nilearn.plotting import niimg_to_surf_data```. I think we can say simply plotting.niimg_to_surf_data,0.7897862002848887
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.7891578278608128
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-10-19 16:30:54,"Usually when faces in a triangular mesh are described by their ordered vertices,
+the normal given by the right-hand rule points ""outwards"". I think that this
+convention is respected by cortical meshes because that is what matplotlib
+expects, and surf_plotting.plot_surf passes the faces to matplotlib without
+modifying them (and it works fine). Can anyone confirm? I will make this explicit.",0.7775601199624236
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,77dd10f2a04fb9a033756a97fe3cf171c816ce18,41,1516,jeromedockes,2017-11-14 20:33:07,niimg_to_surf_data -> vol_to_surf,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.8467667535230321
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.7952749890422621
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.7901581786592251
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.7790303270547011
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.7758546759412378
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.7485775925964011
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.7404923672890651
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.739820068101917
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.7126121072011984
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.6939476898731809
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.6913283060504667
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.6776158049982219
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.6769350645026913
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6755480092300785
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.6721804955911729
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.6714912975651652
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.6651532585621577
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.6633642984375896
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6560495592085043
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 19:07:19,I want to load it first to get its original shape. How would you do it?,0.6482700600370105
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.6453320069676582
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.6371392074097999
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.6322348210404432
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,fe494982860d3d55c4f64a40980b88e02f09d492,1955,1516,jeromedockes,2017-11-14 23:12:36,move surface manipulation functions to nilearn.surface,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7917932256559428
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.7654667502511697
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.7446783310410664
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.7163033930974316
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.7111688104678596
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.695014892022547
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.6927040610678132
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.6898604201903531
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6566533507177206
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.6284895005513305
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6238965442097971
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.6206995550279917
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.6116140573997191
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.6044343247205494
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.6026623290874448
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.5931180806889746
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.5909206508303206
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.586209312158824
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.5776595039410809
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5750204665378998
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:49:08,I would write filename as plot_surface_projection_strategies.py,0.5738959453490393
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:05:21,I would write filename as plot_3d_map_to_surface_projection.py ?,0.5738959453490393
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 12:25:54,">(This image is produced by the show_sampling.py example, which is only there to clarify
+the strategy implemented in this PR and will be removed).
+
+I am -1 on this. I would like to keep the example for user understanding. Similar thing is there for plot_affine_transformation.py
+",0.567361372254069
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.5541451974726631
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.5521378828601028
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,6ba9b536ebd3bc3bf824b563da83238be52eed56,134,1516,jeromedockes,2017-11-15 17:45:46,move technical detail example,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.8339603519879736
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.7666509818895372
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7192714439149344
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.7098988146286962
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.7009564980564897
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6984160959193854
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.6678280205679694
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.6630847318374483
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.6573019454618044
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.6551703695400013
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.6428070963646131
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.6368955599532513
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6122837986755325
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.6119803486275823
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.6032149881715325
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6028958674123415
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.6016234204150515
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.5906712843990415
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.5837715960221063
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.5748061367095973
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5678040863068032
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.5623376192745884
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.5569619393199103
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.5488438123152528
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:41:51,We are able to import ```from nilearn.plotting import niimg_to_surf_data```. I think we can say simply plotting.niimg_to_surf_data,0.5411330158680536
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 18:22:32,nearest neighbour does not use scipy.interpolate so it does not have this issue.,0.539772485479376
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,76d4f50aa92702812eee7672934acd1cdef84a99,42,1516,jeromedockes,2017-11-15 18:22:12,don't load fsaverage in tests if nibabel <= 1.2.0,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.8094183324936064
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.8014685910148338
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.7424923398557126
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7258065750437925
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.7092872456646319
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.6890442911061156
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.6735781536393326
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.6715880959292584
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6700536910601255
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.6567201457359393
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.638328293831961
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.6232954015707368
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6229083796586881
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.6227165250735399
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.6010414033703477
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.6001697164197921
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.5917969154027294
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5746234771469315
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.5672769306179233
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.5618154229566812
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.560757914469938
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.5552695371093996
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.5543577747691781
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.5508924738549057
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.539222226083117
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:41:51,We are able to import ```from nilearn.plotting import niimg_to_surf_data```. I think we can say simply plotting.niimg_to_surf_data,0.5282153581873195
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 12:25:54,">(This image is produced by the show_sampling.py example, which is only there to clarify
+the strategy implemented in this PR and will be removed).
+
+I am -1 on this. I would like to keep the example for user understanding. Similar thing is there for plot_affine_transformation.py
+",0.5234410979234863
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,73c3d25e73ad0b213ea71ca4bfd7abe560a9599e,41,1516,jeromedockes,2017-11-16 20:15:49,details about projection method in vol_to_surf docstring,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7652276899570202
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.7372246572307464
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.697003412007296
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:12:27,">Not necessarily: maybe you already have the fsaverage files on the laptop, so
+>they don't need to be fetched.
+
+>The problem was that test_fetch_mixed_gambles in
+>nilearn/datasets/tests/test_func.py was using @with_setup(setup_mock), but
+>forgot to @with_setup(setup_mock, teardown_mock). As a result, after executing
+>this test, dataset module was unusable: urllib.request was mocked, and any fetch
+>dataset would be a bunch of empty files.
+
+Great catch. :+1: 
+
+>travis passing now.
+
+So, I close the issue opened in nibabel ?",0.6672509411224211
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.6622969878365781
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.6587482558241629
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:22:03,"> I'll look into appveyor now
+
+I will make another review now.",0.631417541515992
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.6297164370532955
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.624988869474124
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.6238685322838519
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6173335635691595
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.6091377867059788
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:48:17,I think we are almost there.,0.5981127215787048
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.5904684991154336
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.5893749974088591
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:46,"same here, can you please test with mask ?",0.5807030020352848
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.5752713520494344
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.5728058130702021
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.5688297214294515
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:32,can you please test given mask ?,0.5505972373701165
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.5403989935121962
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.532737068914737
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5240361426210167
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.5174738135104634
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:29:06,"I could not find _points_in_unit_ball ?
+
+I am trying to understand why it is there now and why it will be removed after PR is ready to merge ?",0.5138961353545228
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:43:23,pair of numpy.ndarray(s),0.5138658682533994
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 18:22:32,nearest neighbour does not use scipy.interpolate so it does not have this issue.,0.5092967835371407
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:51:53,numpy.ndarray,0.5024549548107812
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.5014693563100896
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:30:53,"So, this will fall back to nearest interpolation when scipy is < 0.14 and linear is given. Isn't it ?",0.49693331065431
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:49:08,I would write filename as plot_surface_projection_strategies.py,0.4901316690824118
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:05:21,I would write filename as plot_3d_map_to_surface_projection.py ?,0.4901316690824118
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 12:25:54,">(This image is produced by the show_sampling.py example, which is only there to clarify
+the strategy implemented in this PR and will be removed).
+
+I am -1 on this. I would like to keep the example for user understanding. Similar thing is there for plot_affine_transformation.py
+",0.4872428096518969
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.4867308453352507
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.482462953775198
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.47978939063002624
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 10:29:34,You are right I cannot think of a better alternative.,0.47722762988122125
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,2c74c847ad6e2b72c51dbb7b63defcc104db3c6d,369,1516,jeromedockes,2017-11-16 21:34:21,"add precomputed ball positions for n_points in 10, 20, 40, 80, 160",NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.8434472610023023
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.8147426797094955
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.8142241007464093
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.7704199701331579
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7468897337079441
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.7056395632312555
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.7002923915702028
+issue_comment,NA,NA,1516,jeromedockes,2017-11-16 20:55:01,"> I don't think that you need to edit anything. You only need to add a README.txt in the subdirectory.
+
+still not showing up :cry: ",0.6969257983680408
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6916601762815624
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:46,"same here, can you please test with mask ?",0.6893438559707319
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:12:27,">Not necessarily: maybe you already have the fsaverage files on the laptop, so
+>they don't need to be fetched.
+
+>The problem was that test_fetch_mixed_gambles in
+>nilearn/datasets/tests/test_func.py was using @with_setup(setup_mock), but
+>forgot to @with_setup(setup_mock, teardown_mock). As a result, after executing
+>this test, dataset module was unusable: urllib.request was mocked, and any fetch
+>dataset would be a bunch of empty files.
+
+Great catch. :+1: 
+
+>travis passing now.
+
+So, I close the issue opened in nibabel ?",0.6835982938139378
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6754126547135095
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.6696039563633893
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 20:31:57,">Do you agree that this is a separate issue? so far this PR doesn't touch load_surface_mesh or any of the pre-existing surface plotting code.
+
+Agreed that's different. Not part of your PR.",0.6688203686528913
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.6563079393457607
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:48:17,I think we are almost there.,0.6504678346002676
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.6435780375726339
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:22:03,"> I'll look into appveyor now
+
+I will make another review now.",0.642997329591307
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.6427356893727197
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:32,can you please test given mask ?,0.6399536271396298
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.6310824119292902
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.618125736556645
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.612151781538607
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.6100902865022
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.6088273827110549
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.608775723567877
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.6072265276272457
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.6008842651301556
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 19:09:59,"I checked it words, and in test_surf_plotting.test_niimg_to_surf_data, I check we get the same result when we project an image by itself or as part of a 4d image. Maybe it needs more tests?",0.5990653318289301
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:03:48,">    I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+>cannot reproduce either
+
+I can post the issue to nibabel tomorrow to get some help. Meanwhile, I was quickly going through this issue but with no striking thoughts. https://github.com/nipy/nibabel/issues/469",0.5921366543785482
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 18:22:32,nearest neighbour does not use scipy.interpolate so it does not have this issue.,0.589483027515841
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.5885206883636858
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:58:28,Why not ```from nilearn import image``` and use functions in image module ?,0.5876712020635417
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5838406997078891
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:29:06,"I could not find _points_in_unit_ball ?
+
+I am trying to understand why it is there now and why it will be removed after PR is ready to merge ?",0.583282640288261
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:03:20,"People would say ""a 3d brain volume""",0.58293335720937
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 12:25:54,">(This image is produced by the show_sampling.py example, which is only there to clarify
+the strategy implemented in this PR and will be removed).
+
+I am -1 on this. I would like to keep the example for user understanding. Similar thing is there for plot_affine_transformation.py
+",0.582879905494962
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5826239502126601
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:43:23,pair of numpy.ndarray(s),0.5815596374245755
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:07:30,We don't need this. We dropped supporting nibabel=1.2.0. Minimum version is 2.0.2,0.5812175123082323
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,94cf01c786925abc000b0e4da4ca30ad0163229d,47,1516,jeromedockes,2017-11-16 22:05:30,test vol_to_surf with mask,NA
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.8070752735903276
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.7596387857507974
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.7580182089449391
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.736886330193979
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.7266960288791968
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:22:03,"> I'll look into appveyor now
+
+I will make another review now.",0.7219174058858695
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.7105605518076736
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.7065336631101182
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:12:27,">Not necessarily: maybe you already have the fsaverage files on the laptop, so
+>they don't need to be fetched.
+
+>The problem was that test_fetch_mixed_gambles in
+>nilearn/datasets/tests/test_func.py was using @with_setup(setup_mock), but
+>forgot to @with_setup(setup_mock, teardown_mock). As a result, after executing
+>this test, dataset module was unusable: urllib.request was mocked, and any fetch
+>dataset would be a bunch of empty files.
+
+Great catch. :+1: 
+
+>travis passing now.
+
+So, I close the issue opened in nibabel ?",0.6941907069067973
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.6820805083951
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 20:31:57,">Do you agree that this is a separate issue? so far this PR doesn't touch load_surface_mesh or any of the pre-existing surface plotting code.
+
+Agreed that's different. Not part of your PR.",0.6795172001848555
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.678676659673427
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-16 20:37:53,"yes, this function will never be called if scipy < 0.14",0.6781209509873982
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.6709114297169334
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:48:17,I think we are almost there.,0.6657342676414165
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.6645936070800955
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.6625756398975162
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.659068307945119
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.6521620706438024
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.6474760177594636
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.6376975361898853
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6283290725319903
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.6281507454741597
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.6281297835494665
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:05:21,I would write filename as plot_3d_map_to_surface_projection.py ?,0.6221817453130702
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:49:08,I would write filename as plot_surface_projection_strategies.py,0.6221817453130702
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:51:53,numpy.ndarray,0.610437373815945
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 12:25:54,">(This image is produced by the show_sampling.py example, which is only there to clarify
+the strategy implemented in this PR and will be removed).
+
+I am -1 on this. I would like to keep the example for user understanding. Similar thing is there for plot_affine_transformation.py
+",0.604615379410434
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 18:22:32,nearest neighbour does not use scipy.interpolate so it does not have this issue.,0.5924904117726749
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:07:30,We don't need this. We dropped supporting nibabel=1.2.0. Minimum version is 2.0.2,0.5905442151565172
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.589070988422338
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:29:06,"I could not find _points_in_unit_ball ?
+
+I am trying to understand why it is there now and why it will be removed after PR is ready to merge ?",0.5802136550877678
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 10:29:34,You are right I cannot think of a better alternative.,0.5783304466157891
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 13:59:36,">What do you think?
+
+2 option looks reasonable compromise. So, here nearest neighbour is faster compared to linear one ?",0.5725114946973471
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.5662328603219892
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 23:14:37,"> it seems to me that the projection code should not live in the namespace of the plotting code
+
+Done. I think the examples should be moved as well, where would you put them?",0.5656258493463336
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:41:51,We are able to import ```from nilearn.plotting import niimg_to_surf_data```. I think we can say simply plotting.niimg_to_surf_data,0.561102262937436
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.5581118249983874
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:33:21,Can you add comment regarding assigning nan values ?,0.5542483752839639
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5527275167704806
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:30:53,"So, this will fall back to nearest interpolation when scipy is < 0.14 and linear is given. Isn't it ?",0.5526027712179724
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b11d0d12783cc5c455f6d61d58066b7fca50c03e,136,1516,jeromedockes,2017-11-16 22:07:09,move example back to 01_plotting/,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.8194411626806359
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.7700806595240746
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.7286936822816215
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.7248132556115653
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.7200744311637097
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 20:31:57,">Do you agree that this is a separate issue? so far this PR doesn't touch load_surface_mesh or any of the pre-existing surface plotting code.
+
+Agreed that's different. Not part of your PR.",0.7087959088254232
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.7032336993692722
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.6888417318769555
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.6821881552842948
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6749908695671356
+issue_comment,NA,NA,1516,jeromedockes,2017-11-16 20:55:01,"> I don't think that you need to edit anything. You only need to add a README.txt in the subdirectory.
+
+still not showing up :cry: ",0.6353897654625437
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.6248631550429993
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:46,"same here, can you please test with mask ?",0.6242470743158504
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.6222472546663007
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6166635714280948
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.6066308330530832
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-16 20:37:53,"yes, this function will never be called if scipy < 0.14",0.5968391820566278
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.5964071659814614
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:12:27,">Not necessarily: maybe you already have the fsaverage files on the laptop, so
+>they don't need to be fetched.
+
+>The problem was that test_fetch_mixed_gambles in
+>nilearn/datasets/tests/test_func.py was using @with_setup(setup_mock), but
+>forgot to @with_setup(setup_mock, teardown_mock). As a result, after executing
+>this test, dataset module was unusable: urllib.request was mocked, and any fetch
+>dataset would be a bunch of empty files.
+
+Great catch. :+1: 
+
+>travis passing now.
+
+So, I close the issue opened in nibabel ?",0.5940968657946493
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:51:53,numpy.ndarray,0.5926875196240795
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.5909868057756068
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.5906591691649014
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.5894702727964032
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:48:17,I think we are almost there.,0.5878909504663837
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:32,can you please test given mask ?,0.5862706413527048
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:22:03,"> I'll look into appveyor now
+
+I will make another review now.",0.5681148951891555
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.5638994276910104
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.5573801001276866
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:43:23,pair of numpy.ndarray(s),0.557140778582401
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.5542434254576594
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:07:30,We don't need this. We dropped supporting nibabel=1.2.0. Minimum version is 2.0.2,0.5534533249371575
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:03:20,"People would say ""a 3d brain volume""",0.5504030296700377
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.5498391566683855
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.5432022573651667
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:29:06,"I could not find _points_in_unit_ball ?
+
+I am trying to understand why it is there now and why it will be removed after PR is ready to merge ?",0.5398920526845501
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.5378490016329638
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:58:28,Why not ```from nilearn import image``` and use functions in image module ?,0.5337990059515123
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:41:51,We are able to import ```from nilearn.plotting import niimg_to_surf_data```. I think we can say simply plotting.niimg_to_surf_data,0.5216058518503638
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.5146955978951497
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5088201621986834
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:49:08,I would write filename as plot_surface_projection_strategies.py,0.4972664379631381
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:05:21,I would write filename as plot_3d_map_to_surface_projection.py ?,0.4972664379631381
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,91b2c17a48e10616a5b838ddef5bb7ccbaeaef62,2777,1516,jeromedockes,2017-11-17 00:02:22,surface in its own package,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.8475029554335352
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.8455990197048051
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.8114956579870769
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.8065581497809442
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:12:27,">Not necessarily: maybe you already have the fsaverage files on the laptop, so
+>they don't need to be fetched.
+
+>The problem was that test_fetch_mixed_gambles in
+>nilearn/datasets/tests/test_func.py was using @with_setup(setup_mock), but
+>forgot to @with_setup(setup_mock, teardown_mock). As a result, after executing
+>this test, dataset module was unusable: urllib.request was mocked, and any fetch
+>dataset would be a bunch of empty files.
+
+Great catch. :+1: 
+
+>travis passing now.
+
+So, I close the issue opened in nibabel ?",0.7794560107046167
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:22:03,"> I'll look into appveyor now
+
+I will make another review now.",0.7700830441544807
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.767746787209747
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:46,"same here, can you please test with mask ?",0.7598077384292972
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-16 20:37:53,"yes, this function will never be called if scipy < 0.14",0.7581839322148713
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.753055966482457
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.7529068534831711
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:48:17,I think we are almost there.,0.749957102318265
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.7308639687673824
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.7276713561270538
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:32,can you please test given mask ?,0.7270697124416696
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.7222649266919361
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.7215178617944171
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:42:43,Please add a bit more here.,0.7168409953111476
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.7103850274881318
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.7099311405729489
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.7067477200580661
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:05:00,Please add comment to explain what you're testing.,0.6989580921865628
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 18:22:32,nearest neighbour does not use scipy.interpolate so it does not have this issue.,0.6914883117106827
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.6905489956389551
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.6872590575411004
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:51:53,numpy.ndarray,0.6857178352192412
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:56:14,n_points=10 probably suffices as a default ?,0.6853632300084478
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:03:20,"People would say ""a 3d brain volume""",0.683419356619219
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.6830889284863246
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 10:29:34,You are right I cannot think of a better alternative.,0.681946135974643
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:49:08,I would write filename as plot_surface_projection_strategies.py,0.679391289074208
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:05:21,I would write filename as plot_3d_map_to_surface_projection.py ?,0.679391289074208
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:54:25,I find this a bit surprising for a  non-public functions,0.6785526152560384
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:01:44,Perhaps consider adding a more verbose error message,0.67784288462034
+issue_comment,NA,NA,1516,jeromedockes,2017-11-16 20:55:01,"> I don't think that you need to edit anything. You only need to add a README.txt in the subdirectory.
+
+still not showing up :cry: ",0.6775428815074587
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.6770355034339972
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.6737744690023633
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:44:50,Can you please comment for version check ?,0.666884016339425
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:43:23,pair of numpy.ndarray(s),0.6648115372961099
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:32:33,"> I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+@KamalakerDadi could you send something to help me reproduce this?",0.6647694425555881
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.6628210106817375
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,256a8b19d0e0fa03bce9e758d54680a35fe75cf2,35,1516,jeromedockes,2017-11-19 16:50:16,use a _kept_indices rather than _masked_indices to avoid ~ operations,NA
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:19:27,"""3d volume""",0.7734918326298251
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-09-30 18:36:22,+1. This will not help the user.,0.7187339141967208
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:45,"Same here: ""If image was a 4d image"" to ""If 4D image is provided""",0.7015637253020892
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:39:55,capital n,0.6994189028134264
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:41:57,array -> numpy.ndarray,0.6966494648589786
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-17 21:42:38,I'm sorry what should the comment say?,0.6920307303234434
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:46:03,"Simply ""If image was a 3D image"" to ""If 3D image is provided""",0.6834521735947561
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-14 14:47:32,We prefer relative imports.,0.656970150868988
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 22:17:40,">ps what is the error you get?
+
+No problem now. :+1: I ran script with canica maps.",0.6483879323713524
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:23:44,mask -> mask_img ?,0.6456970286967179
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:12:27,">Not necessarily: maybe you already have the fsaverage files on the laptop, so
+>they don't need to be fetched.
+
+>The problem was that test_fetch_mixed_gambles in
+>nilearn/datasets/tests/test_func.py was using @with_setup(setup_mock), but
+>forgot to @with_setup(setup_mock, teardown_mock). As a result, after executing
+>this test, dataset module was unusable: urllib.request was mocked, and any fetch
+>dataset would be a bunch of empty files.
+
+Great catch. :+1: 
+
+>travis passing now.
+
+So, I close the issue opened in nibabel ?",0.6266439478778019
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-15 21:22:03,"> I'll look into appveyor now
+
+I will make another review now.",0.6213569328988956
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-19 14:42:02,TODO: remove this.,0.6110391714862804
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-19 14:41:05,"We should invert the order of this description with ""kind""",0.6091522194032132
+issue_comment,NA,NA,1516,jeromedockes,2017-10-21 23:46:53,"> The idea would be to make this linear transformation explicit and hand it to experienced users if they request it. Ideally this would be done by representing the transformation as a scipy sparse matrix
+
+Sounds very interesting!
+",0.6020036223103626
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:26:36,If it's easy could you send me the failing example? ,0.5974969352904949
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:29:16,I would go for neighbouring -> neighboring,0.5911365000418293
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:24:58,n capital **N**iimg,0.581906419870668
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:43:23,pair of numpy.ndarray(s),0.5811318086632129
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-17 21:42:56,I added your NOTE to the docstring,0.578037414174984
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 20:31:57,">Do you agree that this is a separate issue? so far this PR doesn't touch load_surface_mesh or any of the pre-existing surface plotting code.
+
+Agreed that's different. Not part of your PR.",0.5773591051693585
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-19 15:29:00,I guess it was accidentally closed. Reopening again.,0.5725384391285426
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-14 20:25:10,added a glass brain to compare,0.5713328444720105
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 11:01:57,test_ball_sampling(),0.5693167608861678
+issue_comment,NA,NA,1516,jeromedockes,2017-11-16 20:55:01,"> I don't think that you need to edit anything. You only need to add a README.txt in the subdirectory.
+
+still not showing up :cry: ",0.5676452470883315
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:22:43,"In all plotting functions, we said image->img if it not specific to statistical image. Otherwise, stat_map_img.",0.5617925880935427
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 11:51:53,numpy.ndarray,0.5559660640383679
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 16:35:03,Just to be consistent ======= -> -------------,0.5556654455613889
+issue_comment,NA,NA,1516,jeromedockes,2017-11-17 21:55:41,"> We are almost close to merge.
+
+Thanks for all your help Kamalaker!",0.5531093073179801
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:05:27,Same here can you leave empty line after ?,0.5439919120507406
+pull_request_commit_comment,NA,NA,1516,GaelVaroquaux,2017-11-19 14:50:20,We can remove this comment: we will now support only scipy >= 0.14,0.5404520986202191
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:07:30,We don't need this. We dropped supporting nibabel=1.2.0. Minimum version is 2.0.2,0.5362739979957842
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-17 21:08:05,I don't think I have much to say here. We are almost close to merge.,0.5282864290598541
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:48:17,I think we are almost there.,0.5258392033785142
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-19 09:00:38,">I am preparing a PR to do this.
+
+>is #1564 going to be merged before this? should I remove anything related to scipy 0.13 support?
+
+Discussion was to have linear by default. We are bumping the scipy to 0.14",0.5249370090049874
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:00:13,Sorry for the merge noise. Could you please rebase ?,0.5243283407603477
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:49:33,there's a function for that.,0.5230186228545887
+issue_comment,NA,NA,1516,KamalakerDadi,2017-11-14 21:42:05,">I haven't gone through tests yet. I tried to do with ica maps but could not.
+
+>@KamalakerDadi could you send something to help me reproduce this?
+
+```python
+from nilearn import datasets
+from nilearn.plotting import niimg_to_surf_data, plot_surf_stat_map
+
+
+fsaverage = datasets.fetch_surf_fsaverage5()
+texture = niimg_to_surf_data('CanICA_resting_state.nii.gz', fsaverage.pial_left)
+plot_surf_stat_map(fsaverage.pial_left, texture, cmap='bwr')
+```
+[CanICA_resting_state.nii.gz](https://github.com/nilearn/nilearn/files/1472608/CanICA_resting_state.nii.gz)
+",0.522154200247297
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:12:03,"I would write ""Download a 3D statistical map from"". Because you said 3D data after.",0.5219974810006827
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-18 19:32:02,linear (trilinear) is available from 0.14 scipy.,0.5214164160670978
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-12 18:12:05,Seems like this is new from SciPy 0.14.x. Do you know if there any alternatives for < 0.14 SciPy version. Because we support 0.13.3,0.5166574001131827
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 15:49:08,I would write filename as plot_surface_projection_strategies.py,0.5103571380343878
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 14:05:21,I would write filename as plot_3d_map_to_surface_projection.py ?,0.5103571380343878
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-16 12:19:46,"same here, can you please test with mask ?",0.5058761684221276
+pull_request_commit_comment,NA,NA,1516,bthirion,2017-10-19 10:55:46,I would take only the outer normal; Why do you center the interval ?,0.4970757441451229
+issue_comment,NA,NA,1516,jeromedockes,2017-11-14 21:15:51,"> I am trying to reproduce one of the travis failure: xml.parsers.expat.ExpatError: no element found: line 1, column 0 but could not.
+
+cannot reproduce either
+",0.4960648144714823
+pull_request_commit_comment,NA,NA,1516,banilo,2017-09-28 22:04:58,"several imports in here appear to not follow the ""basic->more specific/elaborate"" convention... ",0.4890213254400835
+pull_request_commit_comment,NA,NA,1516,jeromedockes,2017-11-16 20:37:53,"yes, this function will never be called if scipy < 0.14",0.48544918361933087
+pull_request_commit_comment,NA,NA,1516,KamalakerDadi,2017-11-14 19:53:04,I haven't gone through tests yet. I tried to do with ica maps but could not.,0.4828160490903647
+ , , , , , , , 
+ , , , , , , , 

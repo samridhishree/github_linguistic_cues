@@ -1,0 +1,179 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,1ba29d6a9f7cb786f1b1227ed927a13964fa3142,37,785,KamalakerDadi,2015-10-06 08:12:20,Addressed comments related to floating error problems.,NA
+pull_request_commit_comment,NA,NA,785,AlexandreAbraham,2015-09-29 12:18:24,"+1
+",0.9505169340091378
+pull_request_commit_comment,NA,NA,785,GaelVaroquaux,2015-09-29 12:27:15,"> ""The number of cuts in direction '?' must be an integer comprised
+> between 0 and this_shape. You provided ..."".
+
++1
+",0.9505169340091378
+issue_comment,NA,NA,785,bthirion,2015-09-30 06:19:16,"LGTM
+",0.5924610365754436
+pull_request_commit_comment,NA,NA,785,lesteve,2015-09-30 07:53:20,"Instead of
+
+``` python
+
+if condition:
+    pass
+else:
+    do_something
+```
+
+do:
+
+``` python
+
+if not condition:
+    do_something
+```
+",0.5862163794627091
+pull_request_commit_comment,NA,NA,785,GaelVaroquaux,2015-10-01 12:38:31,"> Also, 1e-10 may not work for float32:
+> 
+> In [2]: np.finfo(np.float32).eps
+> Out[2]: 1.1920929e-07
+
+OK, let's use np.finfo(np.float32).eps.
+",0.568518224794454
+pull_request_commit_comment,NA,NA,785,GaelVaroquaux,2015-09-30 14:19:19,"I would do 
+
+<pre>
+    isinstance(numbers.Number) and abs(round(n_cuts) - n_cuts) < 1e-10)
+</pre>
+",0.5679141503874603
+pull_request_commit_comment,NA,NA,785,KamalakerDadi,2015-10-01 12:24:09,"Case1:
+
+``` python
+if isinstance(n_cuts, numbers.Number) and abs(round(n_cuts) - n_cuts) < 1e-10:
+    condition
+    # Comment: Condition is passing always since I am subtracting n_cuts with n_cuts
+```
+
+Narrowing down Case 1
+Case2: fix_n_cut = 0
+
+``` python
+if isinstance(n_cuts, numbers.Number) and abs(round(n_cuts) - fix_n_cut) < 1e-10:
+    condition
+    # condition passes as expected but fails for cut_coords= -1 
+```
+
+Narrowing down Case 2
+Case 3: fix_n_cut = 0 and removed `abs`
+
+``` python
+if isinstance(n_cuts, numbers.Number) and (round(n_cuts) - fix_n_cut) < 1e-10:
+    condition
+    # condition always passes as expected for cut_coords which are <=0 
+```
+
+@lesteve @GaelVaroquaux Can you comment on this ?
+",0.5584950183219547
+pull_request_commit_comment,NA,NA,785,lesteve,2015-09-30 07:54:27,"Also you don't need parentheses around the if condition, we are not writing C.
+
+``` python
+if bla and foo:
+```
+
+rather than:
+
+``` python
+if (bla and foo):
+```
+",0.5514346342081242
+pull_request_commit_comment,NA,NA,785,KamalakerDadi,2015-09-29 11:37:21,">  Is it intuitive to the user that you write ""0"" as float?
+
+Not necessarily, I will remove.
+",0.5071562793427362
+pull_request_commit_comment,NA,NA,785,KamalakerDadi,2015-09-29 13:17:30,"I am trying to be more informative trying to get a difference between using this ""[ ]"" and without this ""[ ]"".
+",0.4818078593056907
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b002a9b868baf325eee1fdb5e8bd7154a3cc3194,42,785,KamalakerDadi,2015-10-06 20:30:39,Addressed changes to Loic comments,NA
+pull_request_commit_comment,NA,NA,785,AlexandreAbraham,2015-09-29 12:18:24,"+1
+",0.9517394764345134
+pull_request_commit_comment,NA,NA,785,GaelVaroquaux,2015-09-29 12:27:15,"> ""The number of cuts in direction '?' must be an integer comprised
+> between 0 and this_shape. You provided ..."".
+
++1
+",0.9517394764345134
+pull_request_commit_comment,NA,NA,785,lesteve,2015-09-30 07:53:20,"Instead of
+
+``` python
+
+if condition:
+    pass
+else:
+    do_something
+```
+
+do:
+
+``` python
+
+if not condition:
+    do_something
+```
+",0.6730329033474832
+pull_request_commit_comment,NA,NA,785,GaelVaroquaux,2015-10-01 12:38:31,"> Also, 1e-10 may not work for float32:
+> 
+> In [2]: np.finfo(np.float32).eps
+> Out[2]: 1.1920929e-07
+
+OK, let's use np.finfo(np.float32).eps.
+",0.6545572589179589
+pull_request_commit_comment,NA,NA,785,lesteve,2015-09-30 07:54:27,"Also you don't need parentheses around the if condition, we are not writing C.
+
+``` python
+if bla and foo:
+```
+
+rather than:
+
+``` python
+if (bla and foo):
+```
+",0.6507980289971875
+pull_request_commit_comment,NA,NA,785,KamalakerDadi,2015-10-01 12:24:09,"Case1:
+
+``` python
+if isinstance(n_cuts, numbers.Number) and abs(round(n_cuts) - n_cuts) < 1e-10:
+    condition
+    # Comment: Condition is passing always since I am subtracting n_cuts with n_cuts
+```
+
+Narrowing down Case 1
+Case2: fix_n_cut = 0
+
+``` python
+if isinstance(n_cuts, numbers.Number) and abs(round(n_cuts) - fix_n_cut) < 1e-10:
+    condition
+    # condition passes as expected but fails for cut_coords= -1 
+```
+
+Narrowing down Case 2
+Case 3: fix_n_cut = 0 and removed `abs`
+
+``` python
+if isinstance(n_cuts, numbers.Number) and (round(n_cuts) - fix_n_cut) < 1e-10:
+    condition
+    # condition always passes as expected for cut_coords which are <=0 
+```
+
+@lesteve @GaelVaroquaux Can you comment on this ?
+",0.6398122162828833
+pull_request_commit_comment,NA,NA,785,GaelVaroquaux,2015-09-30 14:19:19,"I would do 
+
+<pre>
+    isinstance(numbers.Number) and abs(round(n_cuts) - n_cuts) < 1e-10)
+</pre>
+",0.6351283577949567
+issue_comment,NA,NA,785,bthirion,2015-09-30 06:19:16,"LGTM
+",0.626357077467381
+pull_request_commit_comment,NA,NA,785,KamalakerDadi,2015-09-29 11:37:21,">  Is it intuitive to the user that you write ""0"" as float?
+
+Not necessarily, I will remove.
+",0.6034532921617244
+pull_request_commit_comment,NA,NA,785,KamalakerDadi,2015-09-29 13:17:30,"I am trying to be more informative trying to get a difference between using this ""[ ]"" and without this ""[ ]"".
+",0.5944287791476002
+ , , , , , , , 
+ , , , , , , , 

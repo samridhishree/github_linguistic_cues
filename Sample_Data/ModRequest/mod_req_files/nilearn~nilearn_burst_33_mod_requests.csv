@@ -1,0 +1,165 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,2aedf400671a91c2346f6a5df17e866a6fdbfe8a,175,186,VirgileFritsch,2014-04-16 14:30:40,Oasis: DARTEL-normalized data available.,NA
+issue_comment,NA,NA,186,bthirion,2014-04-13 17:28:20,"Minor fixes, then  I'm OK for merge.
+",0.7449324223747099
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:17:30,"Yep, and your reaction time was something less than 4 seconds. Impressive! Thanks
+",0.7409258714827509
+issue_comment,NA,NA,186,agramfort,2014-04-11 16:06:51,"I am curious can you share an image?
+",0.607473725613439
+pull_request_commit_comment,NA,NA,186,bthirion,2014-04-13 17:27:46,"This is really nice. I believe that this is because I have an old matplotlib on my box, but the figure does render well.
+using e.g. plt.subplots_adjust(0., .1, .75, .9) is much nicer... 
+",0.5272101446479478
+issue_comment,NA,NA,186,GaelVaroquaux,2014-04-11 16:16:41,"You closed by mistake, @dohmatob  :)
+",0.5174849254323698
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c569af43d9a4a6671512e509aa48179860de0514,437,186,VirgileFritsch,2014-04-16 14:34:07,Oasis: embed Oasis CSV file (needed for tests).,NA
+issue_comment,NA,NA,186,bthirion,2014-04-13 17:28:20,"Minor fixes, then  I'm OK for merge.
+",0.7782831123223346
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:17:30,"Yep, and your reaction time was something less than 4 seconds. Impressive! Thanks
+",0.7386601642693762
+issue_comment,NA,NA,186,GaelVaroquaux,2014-04-11 16:16:41,"You closed by mistake, @dohmatob  :)
+",0.5881764140360999
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:16:07,"@VirgileFritsch: Lemme run DARTEL on the 12 discs right away.
+",0.5550161091462189
+issue_comment,NA,NA,186,agramfort,2014-04-11 16:06:51,"I am curious can you share an image?
+",0.5537169840552453
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,bd3419edc87d6562113db3bcd61b44d9707a7c4d,62,186,VirgileFritsch,2014-04-17 10:39:47,Oasis: DARTEL + modulation.,NA
+issue_comment,NA,NA,186,bthirion,2014-04-13 17:28:20,"Minor fixes, then  I'm OK for merge.
+",0.7785222135897533
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:17:30,"Yep, and your reaction time was something less than 4 seconds. Impressive! Thanks
+",0.7198874219830642
+issue_comment,NA,NA,186,GaelVaroquaux,2014-04-11 16:16:41,"You closed by mistake, @dohmatob  :)
+",0.6408426630967727
+pull_request_commit_comment,NA,NA,186,bthirion,2014-04-13 17:27:46,"This is really nice. I believe that this is because I have an old matplotlib on my box, but the figure does render well.
+using e.g. plt.subplots_adjust(0., .1, .75, .9) is much nicer... 
+",0.6324199384782371
+issue_comment,NA,NA,186,GaelVaroquaux,2014-04-11 16:14:47,"> @dohmatob @AlexandreAbraham @GaelVaroquaux @bthirion This is what came
+> out from our Parietal retreat project.
+
+I don't have time to look in details, but it seems that it's a blasting
+success. Bravo to you and @dohmatob.
+",0.6314075475516253
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,da3649e2505ef73b78c9b49c58c4dece3e8fd937,89,186,VirgileFritsch,2014-04-23 09:46:07,Oasis: Address GaelVaroquaux and eickenberg comments.,NA
+issue_comment,NA,NA,186,bthirion,2014-04-13 17:28:20,"Minor fixes, then  I'm OK for merge.
+",0.6714543397164405
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:17:30,"Yep, and your reaction time was something less than 4 seconds. Impressive! Thanks
+",0.6374551546620417
+pull_request_commit_comment,NA,NA,186,GaelVaroquaux,2014-04-21 13:06:50,"Maybe if n_subjects > 403 you should  raise a warning here?
+",0.5857621855952819
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:45:27,"Has been changed in accordance.
+",0.5770656563140801
+pull_request_commit_comment,NA,NA,186,bthirion,2014-04-13 17:27:46,"This is really nice. I believe that this is because I have an old matplotlib on my box, but the figure does render well.
+using e.g. plt.subplots_adjust(0., .1, .75, .9) is much nicer... 
+",0.5380678658368901
+issue_comment,NA,NA,186,agramfort,2014-04-11 16:06:51,"I am curious can you share an image?
+",0.4977164037129721
+pull_request_commit_comment,NA,NA,186,eickenberg,2014-04-22 16:44:21,"24 is both in `missing_subjects` and `removed_outliers`. You don't seem to be `np.unique`-ing the list, only sorting  it, so 24 will probably be double.
+",0.4817460727576257
+issue_comment,NA,NA,186,VirgileFritsch,2014-04-14 12:42:12,"Comments addressed, need one more +1 to be able to merge ;)
+Or maybe you want to wait for DARTEL-preprocessed data being available...
+",0.47770109074182976
+pull_request_commit_comment,NA,NA,186,bthirion,2014-04-13 17:11:19,"maybe masked_pvals instead of  p_ma
+",0.47117840937521505
+issue_comment,NA,NA,186,agramfort,2014-04-21 13:31:49,"really nice !
+",0.4663723412496089
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,fe22c16cc0646fdf85ebf5934728e55a0f535083,91,186,VirgileFritsch,2014-04-24 12:24:07,Oasis: ANOVA + SVR in examples instead of permuted OLS.,NA
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:53:46,"Moved.
+",0.7805836451455305
+pull_request_commit_comment,NA,NA,186,AlexandreAbraham,2014-04-23 21:35:52,"Is this really needed? Can't we just take 1 subject?
+",0.6751031930718003
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:53:37,"Done.
+",0.6501944922233054
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:53:40,"Done.
+",0.6501944922233054
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:54:25,"Ok. So will do the change.
+",0.6491948427932429
+issue_comment,NA,NA,186,bthirion,2014-04-13 17:28:20,"Minor fixes, then  I'm OK for merge.
+",0.6437599537339728
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:17:30,"Yep, and your reaction time was something less than 4 seconds. Impressive! Thanks
+",0.6341905050131049
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:46:45,"Corrected.
+",0.5962054160770835
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:45:27,"Has been changed in accordance.
+",0.591467104635099
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:42:30,"Good point! Addressed.
+",0.5798033870672196
+issue_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:55:00,"> @AlexandreAbraham I am in trouble with testing the downloader: it needs the .csv file to be actually downloaded. I saw that your ADHD downloader has the same requirement but I could not reproduce the correct settings in my own tests. Could you help me debugging this? Thanks!
+
+ping @AlexandreAbraham ? :)
+",0.5677984607064578
+pull_request_commit_comment,NA,NA,186,AlexandreAbraham,2014-04-23 15:35:56,"Unless you reset the mock between the 2 calls to fetch_oasis_vbm, this should be 4 (csv, data_agreement, dartel, non-dartel).
+",0.5638307320785505
+issue_comment,NA,NA,186,agramfort,2014-04-11 16:06:51,"I am curious can you share an image?
+",0.5633436860311335
+pull_request_commit_comment,NA,NA,186,GaelVaroquaux,2014-04-21 13:06:50,"Maybe if n_subjects > 403 you should  raise a warning here?
+",0.5405912772737596
+pull_request_commit_comment,NA,NA,186,AlexandreAbraham,2014-04-23 17:14:55,"Your test is wrong here. dartel = 403, non_dartel = 415.
+",0.5373560053191886
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-24 08:39:52,"We can do this or we can use the `mean_img` function that has recently been merged.
+",0.5274777578306064
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-24 11:51:40,"Correction: it has not been merged yet ;)
+",0.5162512443663547
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,28f312fde883e1b43ca4ece006cd770948ad0407,68,186,VirgileFritsch,2014-04-24 16:57:42,Oasis: example vbm data (ANOVA + SVR vs mass univariate).,NA
+issue_comment,NA,NA,186,VirgileFritsch,2014-04-24 13:05:51,"> What kind of prediction scores are you getting?
+
+roughly 70%
+",0.7899856032049763
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:53:46,"Moved.
+",0.7856637246575433
+issue_comment,NA,NA,186,dohmatob,2014-04-11 16:17:30,"Yep, and your reaction time was something less than 4 seconds. Impressive! Thanks
+",0.6891859579587969
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:45:27,"Has been changed in accordance.
+",0.6786045954208147
+pull_request_commit_comment,NA,NA,186,AlexandreAbraham,2014-04-23 21:35:52,"Is this really needed? Can't we just take 1 subject?
+",0.6704011055743869
+issue_comment,NA,NA,186,bthirion,2014-04-13 17:28:20,"Minor fixes, then  I'm OK for merge.
+",0.6571821198311331
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:53:37,"Done.
+",0.6508428864363296
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:53:40,"Done.
+",0.6508428864363296
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:46:45,"Corrected.
+",0.6461185625932899
+issue_comment,NA,NA,186,VirgileFritsch,2014-04-24 15:08:18,"Here you are: https://github.com/nilearn/nilearn/pull/186#issuecomment-41275789
+",0.6406650904284248
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:54:25,"Ok. So will do the change.
+",0.6389252387326334
+issue_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:55:00,"> @AlexandreAbraham I am in trouble with testing the downloader: it needs the .csv file to be actually downloaded. I saw that your ADHD downloader has the same requirement but I could not reproduce the correct settings in my own tests. Could you help me debugging this? Thanks!
+
+ping @AlexandreAbraham ? :)
+",0.6302155413467059
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 09:42:30,"Good point! Addressed.
+",0.6269320330981114
+issue_comment,NA,NA,186,VirgileFritsch,2014-04-24 13:08:09,"Smoothing at 5 voxels FWHM...
+
+![plot_oasis_vbm_anova_svm_smoothed_fwhm5](http://drive.google.com/uc?export=view&id=0B1PlLN9y48T0VDZTWUo2WHdXMkE)
+
+(prediction score drops to 62%)
+",0.6259211545258131
+pull_request_commit_comment,NA,NA,186,GaelVaroquaux,2014-04-21 13:06:50,"Maybe if n_subjects > 403 you should  raise a warning here?
+",0.605857573731968
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-23 15:22:10,"Ok, thanks, let's ""git checkout ."" this.
+",0.5872018565970905
+pull_request_commit_comment,NA,NA,186,AlexandreAbraham,2014-04-23 15:35:56,"Unless you reset the mock between the 2 calls to fetch_oasis_vbm, this should be 4 (csv, data_agreement, dartel, non-dartel).
+",0.584242957626615
+pull_request_commit_comment,NA,NA,186,AlexandreAbraham,2014-04-23 17:14:55,"Your test is wrong here. dartel = 403, non_dartel = 415.
+",0.5553629175629684
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-24 11:51:40,"Correction: it has not been merged yet ;)
+",0.553699578365483
+issue_comment,NA,NA,186,GaelVaroquaux,2014-04-11 16:16:41,"You closed by mistake, @dohmatob  :)
+",0.5527535851620805
+issue_comment,NA,NA,186,agramfort,2014-04-11 16:06:51,"I am curious can you share an image?
+",0.5521260943965269
+pull_request_commit_comment,NA,NA,186,VirgileFritsch,2014-04-24 08:39:52,"We can do this or we can use the `mean_img` function that has recently been merged.
+",0.5352268247478825
+ , , , , , , , 
+ , , , , , , , 

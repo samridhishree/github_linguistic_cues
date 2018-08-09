@@ -1,0 +1,101 @@
+rectype,sha,ins_del_count,issueid,actor,date,text,similarity
+pull_request_commit,58d5d44963f1d36142b2387052540e605a0a7347,44,28,alexandre.abraham@cea.fr,2012-11-20 08:52:31,Simplify label loading,NA
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:16:14,"Fixed in f3b86be
+",0.6811713666830543
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:15:39,"Why is resume off by default?
+",0.6024449832852545
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:16:25,"Same remark here (and everywhere with resume): is there a reason not to turn on resume by default?
+",0.5989540882064406
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:20:10,"Looks like there is some old code lying here.
+",0.5687893872592062
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:14:15,"That doesn't make sens: md5sums is None, and you cannot test 'in' for None. As a result the tests do not pass in your branch.
+",0.5476147747582543
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:16:32,"As a general remark, I'd like _every_ object that is a nimg-like to be named foo_img. In my experience such naming conventions are very useful, both for the user and the developer.
+",0.4898475468085097
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-12 15:07:06,"Actually, it does not work for you because you are using a cutting edge scikit-learn (the commit 40328ed685be70d0ebdabecd65c6d85c5b55e85c fixes a bug in scikit-learn pipeline). I will fix this.
+",0.432024497320157
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-11 21:39:16,"I added the resume feature because I had huge problems downloadiing the ADHD dataset. Problem is that the resume feature has not been fully tested for the moment and may lead to unexpected results so I have chosen to keep it disabled for the moment. Plus, if we decide to enable it by default later, I think that this won't disturb the user.
+",0.41916900213374475
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:47:33,"I don't understand: this fails on my computer because ""FastICA has no attribute 'inverse_transform'"". Does it work on your computer @AlexandreAbraham ? We need to fix this.
+",0.41631599471585257
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 22:14:07,"Random notes as I go:
+- I don't like the name 'compute_session_epi_mask'. I know that it is what is used in nipy, but I don't like it
+- I don't like the name 'regressor' in the datasets, do designate confound regressors. I think that I'd rather have them be called 'confounds'.
+",0.3941670829527927
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,b8be86729f835d93abdcb658b09e5ccee063f183,383,28,alexandre.abraham@cea.fr,2012-11-20 09:00:11,Documentation evolution,NA
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:16:14,"Fixed in f3b86be
+",0.7892175516416903
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:15:39,"Why is resume off by default?
+",0.6640041390441536
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:16:25,"Same remark here (and everywhere with resume): is there a reason not to turn on resume by default?
+",0.6599713563326128
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:20:10,"Looks like there is some old code lying here.
+",0.6541826507007966
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-12 15:07:06,"Actually, it does not work for you because you are using a cutting edge scikit-learn (the commit 40328ed685be70d0ebdabecd65c6d85c5b55e85c fixes a bug in scikit-learn pipeline). I will fix this.
+",0.6147346509948988
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:14:15,"That doesn't make sens: md5sums is None, and you cannot test 'in' for None. As a result the tests do not pass in your branch.
+",0.6129741711899723
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:47:33,"I don't understand: this fails on my computer because ""FastICA has no attribute 'inverse_transform'"". Does it work on your computer @AlexandreAbraham ? We need to fix this.
+",0.5711686792493287
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 22:14:07,"Random notes as I go:
+- I don't like the name 'compute_session_epi_mask'. I know that it is what is used in nipy, but I don't like it
+- I don't like the name 'regressor' in the datasets, do designate confound regressors. I think that I'd rather have them be called 'confounds'.
+",0.5611958273428614
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-11 21:39:16,"I added the resume feature because I had huge problems downloadiing the ADHD dataset. Problem is that the resume feature has not been fully tested for the moment and may lead to unexpected results so I have chosen to keep it disabled for the moment. Plus, if we decide to enable it by default later, I think that this won't disturb the user.
+",0.5388441598106752
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:16:32,"As a general remark, I'd like _every_ object that is a nimg-like to be named foo_img. In my experience such naming conventions are very useful, both for the user and the developer.
+",0.5280189648579467
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,64315a9926feb6247381ad57e459674ee67054c4,69,28,alexandre.abraham@cea.fr,2012-11-20 15:48:50,Remove detrnding in haxby examples,NA
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:14:15,"That doesn't make sens: md5sums is None, and you cannot test 'in' for None. As a result the tests do not pass in your branch.
+",0.5625997408180634
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:20:10,"Looks like there is some old code lying here.
+",0.5513438808956279
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:15:39,"Why is resume off by default?
+",0.5405445639828432
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:16:25,"Same remark here (and everywhere with resume): is there a reason not to turn on resume by default?
+",0.5340533831836627
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:16:32,"As a general remark, I'd like _every_ object that is a nimg-like to be named foo_img. In my experience such naming conventions are very useful, both for the user and the developer.
+",0.5097806651856913
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:16:14,"Fixed in f3b86be
+",0.4716231426724613
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 22:14:07,"Random notes as I go:
+- I don't like the name 'compute_session_epi_mask'. I know that it is what is used in nipy, but I don't like it
+- I don't like the name 'regressor' in the datasets, do designate confound regressors. I think that I'd rather have them be called 'confounds'.
+",0.45424590596726133
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:47:33,"I don't understand: this fails on my computer because ""FastICA has no attribute 'inverse_transform'"". Does it work on your computer @AlexandreAbraham ? We need to fix this.
+",0.41542633564471787
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-12 15:07:06,"Actually, it does not work for you because you are using a cutting edge scikit-learn (the commit 40328ed685be70d0ebdabecd65c6d85c5b55e85c fixes a bug in scikit-learn pipeline). I will fix this.
+",0.37612622589773803
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-11 21:39:16,"I added the resume feature because I had huge problems downloadiing the ADHD dataset. Problem is that the resume feature has not been fully tested for the moment and may lead to unexpected results so I have chosen to keep it disabled for the moment. Plus, if we decide to enable it by default later, I think that this won't disturb the user.
+",0.3622901726935316
+ , , , , , , , 
+ , , , , , , , 
+pull_request_commit,c6d1f0975f20eac23fcac618f0607c7c24483ff2,238,28,alexandre.abraham@cea.fr,2012-11-20 15:49:29,Improve getting started documentation,NA
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:16:14,"Fixed in f3b86be
+",0.5999426770955479
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:16:32,"As a general remark, I'd like _every_ object that is a nimg-like to be named foo_img. In my experience such naming conventions are very useful, both for the user and the developer.
+",0.5563278092980708
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:15:39,"Why is resume off by default?
+",0.5291975997266276
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-19 09:14:15,"That doesn't make sens: md5sums is None, and you cannot test 'in' for None. As a result the tests do not pass in your branch.
+",0.5164063670137424
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 14:20:10,"Looks like there is some old code lying here.
+",0.4549177210187073
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:47:33,"I don't understand: this fails on my computer because ""FastICA has no attribute 'inverse_transform'"". Does it work on your computer @AlexandreAbraham ? We need to fix this.
+",0.4500558157781134
+pull_request_commit_comment,NA,NA,28,GaelVaroquaux,2012-11-11 10:16:25,"Same remark here (and everywhere with resume): is there a reason not to turn on resume by default?
+",0.4385900349422547
+issue_comment,NA,NA,28,GaelVaroquaux,2012-11-11 22:14:07,"Random notes as I go:
+- I don't like the name 'compute_session_epi_mask'. I know that it is what is used in nipy, but I don't like it
+- I don't like the name 'regressor' in the datasets, do designate confound regressors. I think that I'd rather have them be called 'confounds'.
+",0.43082719700355865
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-12 15:07:06,"Actually, it does not work for you because you are using a cutting edge scikit-learn (the commit 40328ed685be70d0ebdabecd65c6d85c5b55e85c fixes a bug in scikit-learn pipeline). I will fix this.
+",0.36544022961634204
+pull_request_commit_comment,NA,NA,28,AlexandreAbraham,2012-11-11 21:39:16,"I added the resume feature because I had huge problems downloadiing the ADHD dataset. Problem is that the resume feature has not been fully tested for the moment and may lead to unexpected results so I have chosen to keep it disabled for the moment. Plus, if we decide to enable it by default later, I think that this won't disturb the user.
+",0.3207936986383705
+ , , , , , , , 
+ , , , , , , , 
